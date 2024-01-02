@@ -4,6 +4,7 @@
 package com.pulumi.aws.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -161,52 +162,82 @@ public final class GetComputeEnvironmentResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder computeEnvironmentName(String computeEnvironmentName) {
-            this.computeEnvironmentName = Objects.requireNonNull(computeEnvironmentName);
+            if (computeEnvironmentName == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "computeEnvironmentName");
+            }
+            this.computeEnvironmentName = computeEnvironmentName;
             return this;
         }
         @CustomType.Setter
         public Builder ecsClusterArn(String ecsClusterArn) {
-            this.ecsClusterArn = Objects.requireNonNull(ecsClusterArn);
+            if (ecsClusterArn == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "ecsClusterArn");
+            }
+            this.ecsClusterArn = ecsClusterArn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder serviceRole(String serviceRole) {
-            this.serviceRole = Objects.requireNonNull(serviceRole);
+            if (serviceRole == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "serviceRole");
+            }
+            this.serviceRole = serviceRole;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statusReason(String statusReason) {
-            this.statusReason = Objects.requireNonNull(statusReason);
+            if (statusReason == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "statusReason");
+            }
+            this.statusReason = statusReason;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetComputeEnvironmentResult build() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdle;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequest;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetVirtualNodeSpecListenerTimeoutGrpc {
 
         @CustomType.Setter
         public Builder idles(List<GetVirtualNodeSpecListenerTimeoutGrpcIdle> idles) {
-            this.idles = Objects.requireNonNull(idles);
+            if (idles == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTimeoutGrpc", "idles");
+            }
+            this.idles = idles;
             return this;
         }
         public Builder idles(GetVirtualNodeSpecListenerTimeoutGrpcIdle... idles) {
@@ -50,7 +54,10 @@ public final class GetVirtualNodeSpecListenerTimeoutGrpc {
         }
         @CustomType.Setter
         public Builder perRequests(List<GetVirtualNodeSpecListenerTimeoutGrpcPerRequest> perRequests) {
-            this.perRequests = Objects.requireNonNull(perRequests);
+            if (perRequests == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTimeoutGrpc", "perRequests");
+            }
+            this.perRequests = perRequests;
             return this;
         }
         public Builder perRequests(GetVirtualNodeSpecListenerTimeoutGrpcPerRequest... perRequests) {

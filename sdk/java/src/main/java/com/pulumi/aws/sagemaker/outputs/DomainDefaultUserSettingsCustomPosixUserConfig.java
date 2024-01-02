@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class DomainDefaultUserSettingsCustomPosixUserConfig {
 
         @CustomType.Setter
         public Builder gid(Integer gid) {
-            this.gid = Objects.requireNonNull(gid);
+            if (gid == null) {
+              throw new MissingRequiredPropertyException("DomainDefaultUserSettingsCustomPosixUserConfig", "gid");
+            }
+            this.gid = gid;
             return this;
         }
         @CustomType.Setter
         public Builder uid(Integer uid) {
-            this.uid = Objects.requireNonNull(uid);
+            if (uid == null) {
+              throw new MissingRequiredPropertyException("DomainDefaultUserSettingsCustomPosixUserConfig", "uid");
+            }
+            this.uid = uid;
             return this;
         }
         public DomainDefaultUserSettingsCustomPosixUserConfig build() {

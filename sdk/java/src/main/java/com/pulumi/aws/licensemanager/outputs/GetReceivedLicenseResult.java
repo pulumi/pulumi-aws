@@ -10,6 +10,7 @@ import com.pulumi.aws.licensemanager.outputs.GetReceivedLicenseLicenseMetadata;
 import com.pulumi.aws.licensemanager.outputs.GetReceivedLicenseReceivedMetadata;
 import com.pulumi.aws.licensemanager.outputs.GetReceivedLicenseValidity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -253,12 +254,18 @@ public final class GetReceivedLicenseResult {
 
         @CustomType.Setter
         public Builder beneficiary(String beneficiary) {
-            this.beneficiary = Objects.requireNonNull(beneficiary);
+            if (beneficiary == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "beneficiary");
+            }
+            this.beneficiary = beneficiary;
             return this;
         }
         @CustomType.Setter
         public Builder consumptionConfigurations(List<GetReceivedLicenseConsumptionConfiguration> consumptionConfigurations) {
-            this.consumptionConfigurations = Objects.requireNonNull(consumptionConfigurations);
+            if (consumptionConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "consumptionConfigurations");
+            }
+            this.consumptionConfigurations = consumptionConfigurations;
             return this;
         }
         public Builder consumptionConfigurations(GetReceivedLicenseConsumptionConfiguration... consumptionConfigurations) {
@@ -266,12 +273,18 @@ public final class GetReceivedLicenseResult {
         }
         @CustomType.Setter
         public Builder createTime(String createTime) {
-            this.createTime = Objects.requireNonNull(createTime);
+            if (createTime == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "createTime");
+            }
+            this.createTime = createTime;
             return this;
         }
         @CustomType.Setter
         public Builder entitlements(List<GetReceivedLicenseEntitlement> entitlements) {
-            this.entitlements = Objects.requireNonNull(entitlements);
+            if (entitlements == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "entitlements");
+            }
+            this.entitlements = entitlements;
             return this;
         }
         public Builder entitlements(GetReceivedLicenseEntitlement... entitlements) {
@@ -279,17 +292,26 @@ public final class GetReceivedLicenseResult {
         }
         @CustomType.Setter
         public Builder homeRegion(String homeRegion) {
-            this.homeRegion = Objects.requireNonNull(homeRegion);
+            if (homeRegion == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "homeRegion");
+            }
+            this.homeRegion = homeRegion;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder issuers(List<GetReceivedLicenseIssuer> issuers) {
-            this.issuers = Objects.requireNonNull(issuers);
+            if (issuers == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "issuers");
+            }
+            this.issuers = issuers;
             return this;
         }
         public Builder issuers(GetReceivedLicenseIssuer... issuers) {
@@ -297,12 +319,18 @@ public final class GetReceivedLicenseResult {
         }
         @CustomType.Setter
         public Builder licenseArn(String licenseArn) {
-            this.licenseArn = Objects.requireNonNull(licenseArn);
+            if (licenseArn == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "licenseArn");
+            }
+            this.licenseArn = licenseArn;
             return this;
         }
         @CustomType.Setter
         public Builder licenseMetadatas(List<GetReceivedLicenseLicenseMetadata> licenseMetadatas) {
-            this.licenseMetadatas = Objects.requireNonNull(licenseMetadatas);
+            if (licenseMetadatas == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "licenseMetadatas");
+            }
+            this.licenseMetadatas = licenseMetadatas;
             return this;
         }
         public Builder licenseMetadatas(GetReceivedLicenseLicenseMetadata... licenseMetadatas) {
@@ -310,22 +338,34 @@ public final class GetReceivedLicenseResult {
         }
         @CustomType.Setter
         public Builder licenseName(String licenseName) {
-            this.licenseName = Objects.requireNonNull(licenseName);
+            if (licenseName == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "licenseName");
+            }
+            this.licenseName = licenseName;
             return this;
         }
         @CustomType.Setter
         public Builder productName(String productName) {
-            this.productName = Objects.requireNonNull(productName);
+            if (productName == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "productName");
+            }
+            this.productName = productName;
             return this;
         }
         @CustomType.Setter
         public Builder productSku(String productSku) {
-            this.productSku = Objects.requireNonNull(productSku);
+            if (productSku == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "productSku");
+            }
+            this.productSku = productSku;
             return this;
         }
         @CustomType.Setter
         public Builder receivedMetadatas(List<GetReceivedLicenseReceivedMetadata> receivedMetadatas) {
-            this.receivedMetadatas = Objects.requireNonNull(receivedMetadatas);
+            if (receivedMetadatas == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "receivedMetadatas");
+            }
+            this.receivedMetadatas = receivedMetadatas;
             return this;
         }
         public Builder receivedMetadatas(GetReceivedLicenseReceivedMetadata... receivedMetadatas) {
@@ -333,12 +373,18 @@ public final class GetReceivedLicenseResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder validities(List<GetReceivedLicenseValidity> validities) {
-            this.validities = Objects.requireNonNull(validities);
+            if (validities == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "validities");
+            }
+            this.validities = validities;
             return this;
         }
         public Builder validities(GetReceivedLicenseValidity... validities) {
@@ -346,7 +392,10 @@ public final class GetReceivedLicenseResult {
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetReceivedLicenseResult build() {

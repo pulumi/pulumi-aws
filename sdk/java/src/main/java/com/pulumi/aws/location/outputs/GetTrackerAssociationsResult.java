@@ -4,6 +4,7 @@
 package com.pulumi.aws.location.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -63,7 +64,10 @@ public final class GetTrackerAssociationsResult {
 
         @CustomType.Setter
         public Builder consumerArns(List<String> consumerArns) {
-            this.consumerArns = Objects.requireNonNull(consumerArns);
+            if (consumerArns == null) {
+              throw new MissingRequiredPropertyException("GetTrackerAssociationsResult", "consumerArns");
+            }
+            this.consumerArns = consumerArns;
             return this;
         }
         public Builder consumerArns(String... consumerArns) {
@@ -71,12 +75,18 @@ public final class GetTrackerAssociationsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTrackerAssociationsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder trackerName(String trackerName) {
-            this.trackerName = Objects.requireNonNull(trackerName);
+            if (trackerName == null) {
+              throw new MissingRequiredPropertyException("GetTrackerAssociationsResult", "trackerName");
+            }
+            this.trackerName = trackerName;
             return this;
         }
         public GetTrackerAssociationsResult build() {

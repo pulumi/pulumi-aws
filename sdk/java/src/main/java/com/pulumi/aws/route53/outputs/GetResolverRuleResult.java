@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -131,52 +132,82 @@ public final class GetResolverRuleResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetResolverRuleResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("GetResolverRuleResult", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResolverRuleResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetResolverRuleResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetResolverRuleResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder resolverEndpointId(String resolverEndpointId) {
-            this.resolverEndpointId = Objects.requireNonNull(resolverEndpointId);
+            if (resolverEndpointId == null) {
+              throw new MissingRequiredPropertyException("GetResolverRuleResult", "resolverEndpointId");
+            }
+            this.resolverEndpointId = resolverEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder resolverRuleId(String resolverRuleId) {
-            this.resolverRuleId = Objects.requireNonNull(resolverRuleId);
+            if (resolverRuleId == null) {
+              throw new MissingRequiredPropertyException("GetResolverRuleResult", "resolverRuleId");
+            }
+            this.resolverRuleId = resolverRuleId;
             return this;
         }
         @CustomType.Setter
         public Builder ruleType(String ruleType) {
-            this.ruleType = Objects.requireNonNull(ruleType);
+            if (ruleType == null) {
+              throw new MissingRequiredPropertyException("GetResolverRuleResult", "ruleType");
+            }
+            this.ruleType = ruleType;
             return this;
         }
         @CustomType.Setter
         public Builder shareStatus(String shareStatus) {
-            this.shareStatus = Objects.requireNonNull(shareStatus);
+            if (shareStatus == null) {
+              throw new MissingRequiredPropertyException("GetResolverRuleResult", "shareStatus");
+            }
+            this.shareStatus = shareStatus;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetResolverRuleResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetResolverRuleResult build() {

@@ -87,6 +87,7 @@ public final class FleetFleetInstanceSet {
 
         @CustomType.Setter
         public Builder instanceIds(@Nullable List<String> instanceIds) {
+
             this.instanceIds = instanceIds;
             return this;
         }
@@ -95,16 +96,19 @@ public final class FleetFleetInstanceSet {
         }
         @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
+
             this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycle(@Nullable String lifecycle) {
+
             this.lifecycle = lifecycle;
             return this;
         }
         @CustomType.Setter
         public Builder platform(@Nullable String platform) {
+
             this.platform = platform;
             return this;
         }

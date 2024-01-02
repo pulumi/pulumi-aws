@@ -44,6 +44,7 @@ public final class DataQualityJobDefinitionDataQualityBaselineConfigStatisticsRe
 
         @CustomType.Setter
         public Builder s3Uri(@Nullable String s3Uri) {
+
             this.s3Uri = s3Uri;
             return this;
         }

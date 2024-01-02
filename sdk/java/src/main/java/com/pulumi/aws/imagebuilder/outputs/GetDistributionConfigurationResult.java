@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistribution;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -135,27 +136,42 @@ public final class GetDistributionConfigurationResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder dateCreated(String dateCreated) {
-            this.dateCreated = Objects.requireNonNull(dateCreated);
+            if (dateCreated == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationResult", "dateCreated");
+            }
+            this.dateCreated = dateCreated;
             return this;
         }
         @CustomType.Setter
         public Builder dateUpdated(String dateUpdated) {
-            this.dateUpdated = Objects.requireNonNull(dateUpdated);
+            if (dateUpdated == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationResult", "dateUpdated");
+            }
+            this.dateUpdated = dateUpdated;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder distributions(List<GetDistributionConfigurationDistribution> distributions) {
-            this.distributions = Objects.requireNonNull(distributions);
+            if (distributions == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationResult", "distributions");
+            }
+            this.distributions = distributions;
             return this;
         }
         public Builder distributions(GetDistributionConfigurationDistribution... distributions) {
@@ -163,17 +179,26 @@ public final class GetDistributionConfigurationResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetDistributionConfigurationResult build() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttpRouteAction;
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttpRouteMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -57,12 +58,18 @@ public final class GatewayRouteSpecHttpRoute {
 
         @CustomType.Setter
         public Builder action(GatewayRouteSpecHttpRouteAction action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("GatewayRouteSpecHttpRoute", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder match(GatewayRouteSpecHttpRouteMatch match) {
-            this.match = Objects.requireNonNull(match);
+            if (match == null) {
+              throw new MissingRequiredPropertyException("GatewayRouteSpecHttpRoute", "match");
+            }
+            this.match = match;
             return this;
         }
         public GatewayRouteSpecHttpRoute build() {

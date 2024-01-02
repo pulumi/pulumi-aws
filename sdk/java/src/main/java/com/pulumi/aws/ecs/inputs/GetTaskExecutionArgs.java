@@ -10,6 +10,7 @@ import com.pulumi.aws.ecs.inputs.GetTaskExecutionPlacementConstraintArgs;
 import com.pulumi.aws.ecs.inputs.GetTaskExecutionPlacementStrategyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -715,8 +716,12 @@ public final class GetTaskExecutionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetTaskExecutionArgs build() {
-            $.cluster = Objects.requireNonNull($.cluster, "expected parameter 'cluster' to be non-null");
-            $.taskDefinition = Objects.requireNonNull($.taskDefinition, "expected parameter 'taskDefinition' to be non-null");
+            if ($.cluster == null) {
+                throw new MissingRequiredPropertyException("GetTaskExecutionArgs", "cluster");
+            }
+            if ($.taskDefinition == null) {
+                throw new MissingRequiredPropertyException("GetTaskExecutionArgs", "taskDefinition");
+            }
             return $;
         }
     }

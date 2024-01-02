@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -35,7 +36,10 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTr
 
         @CustomType.Setter
         public Builder certificateAuthorityArns(List<String> certificateAuthorityArns) {
-            this.certificateAuthorityArns = Objects.requireNonNull(certificateAuthorityArns);
+            if (certificateAuthorityArns == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm", "certificateAuthorityArns");
+            }
+            this.certificateAuthorityArns = certificateAuthorityArns;
             return this;
         }
         public Builder certificateAuthorityArns(String... certificateAuthorityArns) {

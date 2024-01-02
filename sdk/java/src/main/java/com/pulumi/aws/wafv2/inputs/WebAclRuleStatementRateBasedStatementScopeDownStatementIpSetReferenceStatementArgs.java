@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetR
         }
 
         public WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs build() {
-            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs", "arn");
+            }
             return $;
         }
     }

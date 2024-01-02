@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -125,7 +126,9 @@ public final class GetQuicksightGroupPlainArgs extends com.pulumi.resources.Invo
         }
 
         public GetQuicksightGroupPlainArgs build() {
-            $.groupName = Objects.requireNonNull($.groupName, "expected parameter 'groupName' to be non-null");
+            if ($.groupName == null) {
+                throw new MissingRequiredPropertyException("GetQuicksightGroupPlainArgs", "groupName");
+            }
             return $;
         }
     }

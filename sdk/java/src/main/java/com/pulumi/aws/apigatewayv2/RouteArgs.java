@@ -6,6 +6,7 @@ package com.pulumi.aws.apigatewayv2;
 import com.pulumi.aws.apigatewayv2.inputs.RouteRequestParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -519,8 +520,12 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RouteArgs build() {
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
-            $.routeKey = Objects.requireNonNull($.routeKey, "expected parameter 'routeKey' to be non-null");
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("RouteArgs", "apiId");
+            }
+            if ($.routeKey == null) {
+                throw new MissingRequiredPropertyException("RouteArgs", "routeKey");
+            }
             return $;
         }
     }

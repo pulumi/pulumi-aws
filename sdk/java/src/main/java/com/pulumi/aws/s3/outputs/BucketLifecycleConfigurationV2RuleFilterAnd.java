@@ -88,21 +88,25 @@ public final class BucketLifecycleConfigurationV2RuleFilterAnd {
 
         @CustomType.Setter
         public Builder objectSizeGreaterThan(@Nullable Integer objectSizeGreaterThan) {
+
             this.objectSizeGreaterThan = objectSizeGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder objectSizeLessThan(@Nullable Integer objectSizeLessThan) {
+
             this.objectSizeLessThan = objectSizeLessThan;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }

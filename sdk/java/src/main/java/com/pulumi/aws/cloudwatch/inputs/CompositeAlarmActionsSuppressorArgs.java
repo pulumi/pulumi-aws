@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class CompositeAlarmActionsSuppressorArgs extends com.pulumi.resour
         }
 
         public CompositeAlarmActionsSuppressorArgs build() {
-            $.alarm = Objects.requireNonNull($.alarm, "expected parameter 'alarm' to be non-null");
-            $.extensionPeriod = Objects.requireNonNull($.extensionPeriod, "expected parameter 'extensionPeriod' to be non-null");
-            $.waitPeriod = Objects.requireNonNull($.waitPeriod, "expected parameter 'waitPeriod' to be non-null");
+            if ($.alarm == null) {
+                throw new MissingRequiredPropertyException("CompositeAlarmActionsSuppressorArgs", "alarm");
+            }
+            if ($.extensionPeriod == null) {
+                throw new MissingRequiredPropertyException("CompositeAlarmActionsSuppressorArgs", "extensionPeriod");
+            }
+            if ($.waitPeriod == null) {
+                throw new MissingRequiredPropertyException("CompositeAlarmActionsSuppressorArgs", "waitPeriod");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.aws.transfer.inputs.WorkflowOnExceptionStepArgs;
 import com.pulumi.aws.transfer.inputs.WorkflowStepArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -211,7 +212,9 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkflowArgs build() {
-            $.steps = Objects.requireNonNull($.steps, "expected parameter 'steps' to be non-null");
+            if ($.steps == null) {
+                throw new MissingRequiredPropertyException("WorkflowArgs", "steps");
+            }
             return $;
         }
     }

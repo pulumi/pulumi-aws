@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive.outputs;
 import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode;
 import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -60,12 +61,16 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
         @CustomType.Setter
         public Builder dolbyEDecode(@Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode dolbyEDecode) {
+
             this.dolbyEDecode = dolbyEDecode;
             return this;
         }
         @CustomType.Setter
         public Builder tracks(List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack> tracks) {
-            this.tracks = Objects.requireNonNull(tracks);
+            if (tracks == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection", "tracks");
+            }
+            this.tracks = tracks;
             return this;
         }
         public Builder tracks(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack... tracks) {

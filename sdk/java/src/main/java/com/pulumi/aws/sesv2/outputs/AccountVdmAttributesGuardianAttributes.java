@@ -44,6 +44,7 @@ public final class AccountVdmAttributesGuardianAttributes {
 
         @CustomType.Setter
         public Builder optimizedSharedDelivery(@Nullable String optimizedSharedDelivery) {
+
             this.optimizedSharedDelivery = optimizedSharedDelivery;
             return this;
         }

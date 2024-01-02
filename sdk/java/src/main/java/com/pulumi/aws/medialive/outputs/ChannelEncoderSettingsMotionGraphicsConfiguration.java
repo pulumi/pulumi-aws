@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,12 +60,16 @@ public final class ChannelEncoderSettingsMotionGraphicsConfiguration {
 
         @CustomType.Setter
         public Builder motionGraphicsInsertion(@Nullable String motionGraphicsInsertion) {
+
             this.motionGraphicsInsertion = motionGraphicsInsertion;
             return this;
         }
         @CustomType.Setter
         public Builder motionGraphicsSettings(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings motionGraphicsSettings) {
-            this.motionGraphicsSettings = Objects.requireNonNull(motionGraphicsSettings);
+            if (motionGraphicsSettings == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsMotionGraphicsConfiguration", "motionGraphicsSettings");
+            }
+            this.motionGraphicsSettings = motionGraphicsSettings;
             return this;
         }
         public ChannelEncoderSettingsMotionGraphicsConfiguration build() {

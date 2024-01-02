@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.ModelContainerModelDataSourceS3DataSource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class ModelContainerModelDataSource {
 
         @CustomType.Setter
         public Builder s3DataSources(List<ModelContainerModelDataSourceS3DataSource> s3DataSources) {
-            this.s3DataSources = Objects.requireNonNull(s3DataSources);
+            if (s3DataSources == null) {
+              throw new MissingRequiredPropertyException("ModelContainerModelDataSource", "s3DataSources");
+            }
+            this.s3DataSources = s3DataSources;
             return this;
         }
         public Builder s3DataSources(ModelContainerModelDataSourceS3DataSource... s3DataSources) {

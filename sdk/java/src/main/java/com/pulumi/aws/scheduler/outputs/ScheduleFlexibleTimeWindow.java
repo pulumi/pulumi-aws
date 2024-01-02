@@ -4,6 +4,7 @@
 package com.pulumi.aws.scheduler.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -59,12 +60,16 @@ public final class ScheduleFlexibleTimeWindow {
 
         @CustomType.Setter
         public Builder maximumWindowInMinutes(@Nullable Integer maximumWindowInMinutes) {
+
             this.maximumWindowInMinutes = maximumWindowInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("ScheduleFlexibleTimeWindow", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         public ScheduleFlexibleTimeWindow build() {

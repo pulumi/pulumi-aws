@@ -5,6 +5,7 @@ package com.pulumi.aws.storagegateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CacheArgs build() {
-            $.diskId = Objects.requireNonNull($.diskId, "expected parameter 'diskId' to be non-null");
-            $.gatewayArn = Objects.requireNonNull($.gatewayArn, "expected parameter 'gatewayArn' to be non-null");
+            if ($.diskId == null) {
+                throw new MissingRequiredPropertyException("CacheArgs", "diskId");
+            }
+            if ($.gatewayArn == null) {
+                throw new MissingRequiredPropertyException("CacheArgs", "gatewayArn");
+            }
             return $;
         }
     }

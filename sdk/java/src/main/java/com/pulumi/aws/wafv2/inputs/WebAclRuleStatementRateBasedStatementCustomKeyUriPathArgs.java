@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,7 +86,9 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs ext
         }
 
         public WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs build() {
-            $.textTransformations = Objects.requireNonNull($.textTransformations, "expected parameter 'textTransformations' to be non-null");
+            if ($.textTransformations == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs", "textTransformations");
+            }
             return $;
         }
     }

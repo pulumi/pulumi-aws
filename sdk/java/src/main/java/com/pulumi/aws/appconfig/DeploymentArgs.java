@@ -5,6 +5,7 @@ package com.pulumi.aws.appconfig;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -336,11 +337,21 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DeploymentArgs build() {
-            $.applicationId = Objects.requireNonNull($.applicationId, "expected parameter 'applicationId' to be non-null");
-            $.configurationProfileId = Objects.requireNonNull($.configurationProfileId, "expected parameter 'configurationProfileId' to be non-null");
-            $.configurationVersion = Objects.requireNonNull($.configurationVersion, "expected parameter 'configurationVersion' to be non-null");
-            $.deploymentStrategyId = Objects.requireNonNull($.deploymentStrategyId, "expected parameter 'deploymentStrategyId' to be non-null");
-            $.environmentId = Objects.requireNonNull($.environmentId, "expected parameter 'environmentId' to be non-null");
+            if ($.applicationId == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "applicationId");
+            }
+            if ($.configurationProfileId == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "configurationProfileId");
+            }
+            if ($.configurationVersion == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "configurationVersion");
+            }
+            if ($.deploymentStrategyId == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "deploymentStrategyId");
+            }
+            if ($.environmentId == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "environmentId");
+            }
             return $;
         }
     }

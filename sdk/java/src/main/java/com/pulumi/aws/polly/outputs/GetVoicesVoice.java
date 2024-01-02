@@ -4,6 +4,7 @@
 package com.pulumi.aws.polly.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -127,7 +128,10 @@ public final class GetVoicesVoice {
 
         @CustomType.Setter
         public Builder additionalLanguageCodes(List<String> additionalLanguageCodes) {
-            this.additionalLanguageCodes = Objects.requireNonNull(additionalLanguageCodes);
+            if (additionalLanguageCodes == null) {
+              throw new MissingRequiredPropertyException("GetVoicesVoice", "additionalLanguageCodes");
+            }
+            this.additionalLanguageCodes = additionalLanguageCodes;
             return this;
         }
         public Builder additionalLanguageCodes(String... additionalLanguageCodes) {
@@ -135,32 +139,50 @@ public final class GetVoicesVoice {
         }
         @CustomType.Setter
         public Builder gender(String gender) {
-            this.gender = Objects.requireNonNull(gender);
+            if (gender == null) {
+              throw new MissingRequiredPropertyException("GetVoicesVoice", "gender");
+            }
+            this.gender = gender;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVoicesVoice", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder languageCode(String languageCode) {
-            this.languageCode = Objects.requireNonNull(languageCode);
+            if (languageCode == null) {
+              throw new MissingRequiredPropertyException("GetVoicesVoice", "languageCode");
+            }
+            this.languageCode = languageCode;
             return this;
         }
         @CustomType.Setter
         public Builder languageName(String languageName) {
-            this.languageName = Objects.requireNonNull(languageName);
+            if (languageName == null) {
+              throw new MissingRequiredPropertyException("GetVoicesVoice", "languageName");
+            }
+            this.languageName = languageName;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVoicesVoice", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder supportedEngines(List<String> supportedEngines) {
-            this.supportedEngines = Objects.requireNonNull(supportedEngines);
+            if (supportedEngines == null) {
+              throw new MissingRequiredPropertyException("GetVoicesVoice", "supportedEngines");
+            }
+            this.supportedEngines = supportedEngines;
             return this;
         }
         public Builder supportedEngines(String... supportedEngines) {

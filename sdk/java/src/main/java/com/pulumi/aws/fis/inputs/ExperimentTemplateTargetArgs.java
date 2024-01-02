@@ -7,6 +7,7 @@ import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetFilterArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetResourceTagArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -340,9 +341,15 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         }
 
         public ExperimentTemplateTargetArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.resourceType = Objects.requireNonNull($.resourceType, "expected parameter 'resourceType' to be non-null");
-            $.selectionMode = Objects.requireNonNull($.selectionMode, "expected parameter 'selectionMode' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ExperimentTemplateTargetArgs", "name");
+            }
+            if ($.resourceType == null) {
+                throw new MissingRequiredPropertyException("ExperimentTemplateTargetArgs", "resourceType");
+            }
+            if ($.selectionMode == null) {
+                throw new MissingRequiredPropertyException("ExperimentTemplateTargetArgs", "selectionMode");
+            }
             return $;
         }
     }

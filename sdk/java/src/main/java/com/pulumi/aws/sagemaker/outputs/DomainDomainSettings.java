@@ -74,16 +74,19 @@ public final class DomainDomainSettings {
 
         @CustomType.Setter
         public Builder executionRoleIdentityConfig(@Nullable String executionRoleIdentityConfig) {
+
             this.executionRoleIdentityConfig = executionRoleIdentityConfig;
             return this;
         }
         @CustomType.Setter
         public Builder rStudioServerProDomainSettings(@Nullable DomainDomainSettingsRStudioServerProDomainSettings rStudioServerProDomainSettings) {
+
             this.rStudioServerProDomainSettings = rStudioServerProDomainSettings;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+
             this.securityGroupIds = securityGroupIds;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.vpclattice.inputs;
 import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchHeaderMatchMatchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -152,8 +153,12 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchArgs extends com.pulumi.
         }
 
         public ListenerRuleMatchHttpMatchHeaderMatchArgs build() {
-            $.match = Objects.requireNonNull($.match, "expected parameter 'match' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.match == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleMatchHttpMatchHeaderMatchArgs", "match");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleMatchHttpMatchHeaderMatchArgs", "name");
+            }
             return $;
         }
     }

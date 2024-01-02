@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecr.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetPullThroughCacheRulePlainArgs extends com.pulumi.resources
         }
 
         public GetPullThroughCacheRulePlainArgs build() {
-            $.ecrRepositoryPrefix = Objects.requireNonNull($.ecrRepositoryPrefix, "expected parameter 'ecrRepositoryPrefix' to be non-null");
+            if ($.ecrRepositoryPrefix == null) {
+                throw new MissingRequiredPropertyException("GetPullThroughCacheRulePlainArgs", "ecrRepositoryPrefix");
+            }
             return $;
         }
     }

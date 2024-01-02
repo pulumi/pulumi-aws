@@ -6,6 +6,7 @@ package com.pulumi.aws.shield;
 import com.pulumi.aws.shield.inputs.DrtAccessLogBucketAssociationTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -131,8 +132,12 @@ public final class DrtAccessLogBucketAssociationArgs extends com.pulumi.resource
         }
 
         public DrtAccessLogBucketAssociationArgs build() {
-            $.logBucket = Objects.requireNonNull($.logBucket, "expected parameter 'logBucket' to be non-null");
-            $.roleArnAssociationId = Objects.requireNonNull($.roleArnAssociationId, "expected parameter 'roleArnAssociationId' to be non-null");
+            if ($.logBucket == null) {
+                throw new MissingRequiredPropertyException("DrtAccessLogBucketAssociationArgs", "logBucket");
+            }
+            if ($.roleArnAssociationId == null) {
+                throw new MissingRequiredPropertyException("DrtAccessLogBucketAssociationArgs", "roleArnAssociationId");
+            }
             return $;
         }
     }

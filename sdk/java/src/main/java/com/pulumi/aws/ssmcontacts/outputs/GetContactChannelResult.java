@@ -5,6 +5,7 @@ package com.pulumi.aws.ssmcontacts.outputs;
 
 import com.pulumi.aws.ssmcontacts.outputs.GetContactChannelDeliveryAddress;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -120,22 +121,34 @@ public final class GetContactChannelResult {
 
         @CustomType.Setter
         public Builder activationStatus(String activationStatus) {
-            this.activationStatus = Objects.requireNonNull(activationStatus);
+            if (activationStatus == null) {
+              throw new MissingRequiredPropertyException("GetContactChannelResult", "activationStatus");
+            }
+            this.activationStatus = activationStatus;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetContactChannelResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder contactId(String contactId) {
-            this.contactId = Objects.requireNonNull(contactId);
+            if (contactId == null) {
+              throw new MissingRequiredPropertyException("GetContactChannelResult", "contactId");
+            }
+            this.contactId = contactId;
             return this;
         }
         @CustomType.Setter
         public Builder deliveryAddresses(List<GetContactChannelDeliveryAddress> deliveryAddresses) {
-            this.deliveryAddresses = Objects.requireNonNull(deliveryAddresses);
+            if (deliveryAddresses == null) {
+              throw new MissingRequiredPropertyException("GetContactChannelResult", "deliveryAddresses");
+            }
+            this.deliveryAddresses = deliveryAddresses;
             return this;
         }
         public Builder deliveryAddresses(GetContactChannelDeliveryAddress... deliveryAddresses) {
@@ -143,17 +156,26 @@ public final class GetContactChannelResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetContactChannelResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetContactChannelResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetContactChannelResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetContactChannelResult build() {

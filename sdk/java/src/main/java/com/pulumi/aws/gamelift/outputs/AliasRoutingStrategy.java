@@ -4,6 +4,7 @@
 package com.pulumi.aws.gamelift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,22 @@ public final class AliasRoutingStrategy {
 
         @CustomType.Setter
         public Builder fleetId(@Nullable String fleetId) {
+
             this.fleetId = fleetId;
             return this;
         }
         @CustomType.Setter
         public Builder message(@Nullable String message) {
+
             this.message = message;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("AliasRoutingStrategy", "type");
+            }
+            this.type = type;
             return this;
         }
         public AliasRoutingStrategy build() {

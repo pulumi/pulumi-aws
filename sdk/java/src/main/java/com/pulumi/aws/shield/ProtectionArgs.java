@@ -5,6 +5,7 @@ package com.pulumi.aws.shield;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class ProtectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProtectionArgs build() {
-            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
+            if ($.resourceArn == null) {
+                throw new MissingRequiredPropertyException("ProtectionArgs", "resourceArn");
+            }
             return $;
         }
     }

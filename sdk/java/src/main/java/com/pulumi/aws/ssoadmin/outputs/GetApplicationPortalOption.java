@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin.outputs;
 
 import com.pulumi.aws.ssoadmin.outputs.GetApplicationPortalOptionSignInOption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,6 +44,7 @@ public final class GetApplicationPortalOption {
 
         @CustomType.Setter
         public Builder signInOptions(@Nullable List<GetApplicationPortalOptionSignInOption> signInOptions) {
+
             this.signInOptions = signInOptions;
             return this;
         }
@@ -51,7 +53,10 @@ public final class GetApplicationPortalOption {
         }
         @CustomType.Setter
         public Builder visibility(String visibility) {
-            this.visibility = Objects.requireNonNull(visibility);
+            if (visibility == null) {
+              throw new MissingRequiredPropertyException("GetApplicationPortalOption", "visibility");
+            }
+            this.visibility = visibility;
             return this;
         }
         public GetApplicationPortalOption build() {

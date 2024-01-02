@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class DataSetLogicalTableMapDataTransformFilterOperationArgs extend
         }
 
         public DataSetLogicalTableMapDataTransformFilterOperationArgs build() {
-            $.conditionExpression = Objects.requireNonNull($.conditionExpression, "expected parameter 'conditionExpression' to be non-null");
+            if ($.conditionExpression == null) {
+                throw new MissingRequiredPropertyException("DataSetLogicalTableMapDataTransformFilterOperationArgs", "conditionExpression");
+            }
             return $;
         }
     }

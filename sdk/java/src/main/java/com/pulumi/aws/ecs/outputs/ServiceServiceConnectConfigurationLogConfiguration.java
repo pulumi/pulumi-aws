@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.aws.ecs.outputs.ServiceServiceConnectConfigurationLogConfigurationSecretOption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -74,16 +75,21 @@ public final class ServiceServiceConnectConfigurationLogConfiguration {
 
         @CustomType.Setter
         public Builder logDriver(String logDriver) {
-            this.logDriver = Objects.requireNonNull(logDriver);
+            if (logDriver == null) {
+              throw new MissingRequiredPropertyException("ServiceServiceConnectConfigurationLogConfiguration", "logDriver");
+            }
+            this.logDriver = logDriver;
             return this;
         }
         @CustomType.Setter
         public Builder options(@Nullable Map<String,String> options) {
+
             this.options = options;
             return this;
         }
         @CustomType.Setter
         public Builder secretOptions(@Nullable List<ServiceServiceConnectConfigurationLogConfigurationSecretOption> secretOptions) {
+
             this.secretOptions = secretOptions;
             return this;
         }

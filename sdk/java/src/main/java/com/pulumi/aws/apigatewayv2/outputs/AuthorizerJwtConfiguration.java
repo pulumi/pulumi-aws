@@ -59,6 +59,7 @@ public final class AuthorizerJwtConfiguration {
 
         @CustomType.Setter
         public Builder audiences(@Nullable List<String> audiences) {
+
             this.audiences = audiences;
             return this;
         }
@@ -67,6 +68,7 @@ public final class AuthorizerJwtConfiguration {
         }
         @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
+
             this.issuer = issuer;
             return this;
         }

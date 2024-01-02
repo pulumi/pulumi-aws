@@ -5,6 +5,7 @@ package com.pulumi.aws.ram;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class PrincipalAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         public PrincipalAssociationArgs build() {
-            $.principal = Objects.requireNonNull($.principal, "expected parameter 'principal' to be non-null");
-            $.resourceShareArn = Objects.requireNonNull($.resourceShareArn, "expected parameter 'resourceShareArn' to be non-null");
+            if ($.principal == null) {
+                throw new MissingRequiredPropertyException("PrincipalAssociationArgs", "principal");
+            }
+            if ($.resourceShareArn == null) {
+                throw new MissingRequiredPropertyException("PrincipalAssociationArgs", "resourceShareArn");
+            }
             return $;
         }
     }

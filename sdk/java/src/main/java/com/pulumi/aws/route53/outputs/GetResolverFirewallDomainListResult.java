@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -103,57 +104,90 @@ public final class GetResolverFirewallDomainListResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallDomainListResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+            if (creationTime == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallDomainListResult", "creationTime");
+            }
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
         public Builder creatorRequestId(String creatorRequestId) {
-            this.creatorRequestId = Objects.requireNonNull(creatorRequestId);
+            if (creatorRequestId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallDomainListResult", "creatorRequestId");
+            }
+            this.creatorRequestId = creatorRequestId;
             return this;
         }
         @CustomType.Setter
         public Builder domainCount(Integer domainCount) {
-            this.domainCount = Objects.requireNonNull(domainCount);
+            if (domainCount == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallDomainListResult", "domainCount");
+            }
+            this.domainCount = domainCount;
             return this;
         }
         @CustomType.Setter
         public Builder firewallDomainListId(String firewallDomainListId) {
-            this.firewallDomainListId = Objects.requireNonNull(firewallDomainListId);
+            if (firewallDomainListId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallDomainListResult", "firewallDomainListId");
+            }
+            this.firewallDomainListId = firewallDomainListId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallDomainListResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder managedOwnerName(String managedOwnerName) {
-            this.managedOwnerName = Objects.requireNonNull(managedOwnerName);
+            if (managedOwnerName == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallDomainListResult", "managedOwnerName");
+            }
+            this.managedOwnerName = managedOwnerName;
             return this;
         }
         @CustomType.Setter
         public Builder modificationTime(String modificationTime) {
-            this.modificationTime = Objects.requireNonNull(modificationTime);
+            if (modificationTime == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallDomainListResult", "modificationTime");
+            }
+            this.modificationTime = modificationTime;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallDomainListResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallDomainListResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statusMessage(String statusMessage) {
-            this.statusMessage = Objects.requireNonNull(statusMessage);
+            if (statusMessage == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallDomainListResult", "statusMessage");
+            }
+            this.statusMessage = statusMessage;
             return this;
         }
         public GetResolverFirewallDomainListResult build() {

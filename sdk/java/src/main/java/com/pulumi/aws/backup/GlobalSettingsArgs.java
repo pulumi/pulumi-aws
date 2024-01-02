@@ -5,6 +5,7 @@ package com.pulumi.aws.backup;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -75,7 +76,9 @@ public final class GlobalSettingsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public GlobalSettingsArgs build() {
-            $.globalSettings = Objects.requireNonNull($.globalSettings, "expected parameter 'globalSettings' to be non-null");
+            if ($.globalSettings == null) {
+                throw new MissingRequiredPropertyException("GlobalSettingsArgs", "globalSettings");
+            }
             return $;
         }
     }

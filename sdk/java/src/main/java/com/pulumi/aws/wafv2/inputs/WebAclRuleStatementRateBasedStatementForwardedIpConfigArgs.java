@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs ex
         }
 
         public WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs build() {
-            $.fallbackBehavior = Objects.requireNonNull($.fallbackBehavior, "expected parameter 'fallbackBehavior' to be non-null");
-            $.headerName = Objects.requireNonNull($.headerName, "expected parameter 'headerName' to be non-null");
+            if ($.fallbackBehavior == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs", "fallbackBehavior");
+            }
+            if ($.headerName == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs", "headerName");
+            }
             return $;
         }
     }

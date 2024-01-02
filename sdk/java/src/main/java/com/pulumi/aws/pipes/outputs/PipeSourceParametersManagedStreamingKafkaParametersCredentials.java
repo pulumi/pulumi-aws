@@ -58,11 +58,13 @@ public final class PipeSourceParametersManagedStreamingKafkaParametersCredential
 
         @CustomType.Setter
         public Builder clientCertificateTlsAuth(@Nullable String clientCertificateTlsAuth) {
+
             this.clientCertificateTlsAuth = clientCertificateTlsAuth;
             return this;
         }
         @CustomType.Setter
         public Builder saslScram512Auth(@Nullable String saslScram512Auth) {
+
             this.saslScram512Auth = saslScram512Auth;
             return this;
         }

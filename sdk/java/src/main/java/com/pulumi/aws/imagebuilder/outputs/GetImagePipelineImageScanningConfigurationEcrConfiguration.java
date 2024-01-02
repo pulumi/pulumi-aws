@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class GetImagePipelineImageScanningConfigurationEcrConfiguration {
 
         @CustomType.Setter
         public Builder containerTags(List<String> containerTags) {
-            this.containerTags = Objects.requireNonNull(containerTags);
+            if (containerTags == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineImageScanningConfigurationEcrConfiguration", "containerTags");
+            }
+            this.containerTags = containerTags;
             return this;
         }
         public Builder containerTags(String... containerTags) {
@@ -65,7 +69,10 @@ public final class GetImagePipelineImageScanningConfigurationEcrConfiguration {
         }
         @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
-            this.repositoryName = Objects.requireNonNull(repositoryName);
+            if (repositoryName == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineImageScanningConfigurationEcrConfiguration", "repositoryName");
+            }
+            this.repositoryName = repositoryName;
             return this;
         }
         public GetImagePipelineImageScanningConfigurationEcrConfiguration build() {

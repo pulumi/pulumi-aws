@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.sagemaker.inputs.SpaceSpaceSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -226,8 +227,12 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SpaceArgs build() {
-            $.domainId = Objects.requireNonNull($.domainId, "expected parameter 'domainId' to be non-null");
-            $.spaceName = Objects.requireNonNull($.spaceName, "expected parameter 'spaceName' to be non-null");
+            if ($.domainId == null) {
+                throw new MissingRequiredPropertyException("SpaceArgs", "domainId");
+            }
+            if ($.spaceName == null) {
+                throw new MissingRequiredPropertyException("SpaceArgs", "spaceName");
+            }
             return $;
         }
     }

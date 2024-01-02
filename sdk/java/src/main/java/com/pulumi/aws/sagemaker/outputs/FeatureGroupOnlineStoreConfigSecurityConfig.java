@@ -44,6 +44,7 @@ public final class FeatureGroupOnlineStoreConfigSecurityConfig {
 
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }

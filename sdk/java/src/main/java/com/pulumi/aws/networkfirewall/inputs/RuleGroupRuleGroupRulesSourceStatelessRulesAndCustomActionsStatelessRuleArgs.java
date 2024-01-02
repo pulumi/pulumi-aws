@@ -6,6 +6,7 @@ package com.pulumi.aws.networkfirewall.inputs;
 import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
 
         public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs build() {
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.ruleDefinition = Objects.requireNonNull($.ruleDefinition, "expected parameter 'ruleDefinition' to be non-null");
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs", "priority");
+            }
+            if ($.ruleDefinition == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs", "ruleDefinition");
+            }
             return $;
         }
     }

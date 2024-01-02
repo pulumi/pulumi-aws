@@ -4,6 +4,7 @@
 package com.pulumi.aws.worklink.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class FleetIdentityProvider {
 
         @CustomType.Setter
         public Builder samlMetadata(String samlMetadata) {
-            this.samlMetadata = Objects.requireNonNull(samlMetadata);
+            if (samlMetadata == null) {
+              throw new MissingRequiredPropertyException("FleetIdentityProvider", "samlMetadata");
+            }
+            this.samlMetadata = samlMetadata;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("FleetIdentityProvider", "type");
+            }
+            this.type = type;
             return this;
         }
         public FleetIdentityProvider build() {

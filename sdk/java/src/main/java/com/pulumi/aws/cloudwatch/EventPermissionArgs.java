@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch;
 import com.pulumi.aws.cloudwatch.inputs.EventPermissionConditionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -229,8 +230,12 @@ public final class EventPermissionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public EventPermissionArgs build() {
-            $.principal = Objects.requireNonNull($.principal, "expected parameter 'principal' to be non-null");
-            $.statementId = Objects.requireNonNull($.statementId, "expected parameter 'statementId' to be non-null");
+            if ($.principal == null) {
+                throw new MissingRequiredPropertyException("EventPermissionArgs", "principal");
+            }
+            if ($.statementId == null) {
+                throw new MissingRequiredPropertyException("EventPermissionArgs", "statementId");
+            }
             return $;
         }
     }

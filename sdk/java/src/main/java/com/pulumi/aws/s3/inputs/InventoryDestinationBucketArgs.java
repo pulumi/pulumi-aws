@@ -6,6 +6,7 @@ package com.pulumi.aws.s3.inputs;
 import com.pulumi.aws.s3.inputs.InventoryDestinationBucketEncryptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -225,8 +226,12 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
         }
 
         public InventoryDestinationBucketArgs build() {
-            $.bucketArn = Objects.requireNonNull($.bucketArn, "expected parameter 'bucketArn' to be non-null");
-            $.format = Objects.requireNonNull($.format, "expected parameter 'format' to be non-null");
+            if ($.bucketArn == null) {
+                throw new MissingRequiredPropertyException("InventoryDestinationBucketArgs", "bucketArn");
+            }
+            if ($.format == null) {
+                throw new MissingRequiredPropertyException("InventoryDestinationBucketArgs", "format");
+            }
             return $;
         }
     }

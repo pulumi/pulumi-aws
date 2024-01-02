@@ -4,6 +4,7 @@
 package com.pulumi.aws.mskconnect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,23 @@ public final class CustomPluginLocationS3 {
 
         @CustomType.Setter
         public Builder bucketArn(String bucketArn) {
-            this.bucketArn = Objects.requireNonNull(bucketArn);
+            if (bucketArn == null) {
+              throw new MissingRequiredPropertyException("CustomPluginLocationS3", "bucketArn");
+            }
+            this.bucketArn = bucketArn;
             return this;
         }
         @CustomType.Setter
         public Builder fileKey(String fileKey) {
-            this.fileKey = Objects.requireNonNull(fileKey);
+            if (fileKey == null) {
+              throw new MissingRequiredPropertyException("CustomPluginLocationS3", "fileKey");
+            }
+            this.fileKey = fileKey;
             return this;
         }
         @CustomType.Setter
         public Builder objectVersion(@Nullable String objectVersion) {
+
             this.objectVersion = objectVersion;
             return this;
         }

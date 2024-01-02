@@ -59,11 +59,13 @@ public final class BrokerEncryptionOptions {
 
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder useAwsOwnedKey(@Nullable Boolean useAwsOwnedKey) {
+
             this.useAwsOwnedKey = useAwsOwnedKey;
             return this;
         }

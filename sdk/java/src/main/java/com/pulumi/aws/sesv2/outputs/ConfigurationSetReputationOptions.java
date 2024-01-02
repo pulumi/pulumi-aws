@@ -59,11 +59,13 @@ public final class ConfigurationSetReputationOptions {
 
         @CustomType.Setter
         public Builder lastFreshStart(@Nullable String lastFreshStart) {
+
             this.lastFreshStart = lastFreshStart;
             return this;
         }
         @CustomType.Setter
         public Builder reputationMetricsEnabled(@Nullable Boolean reputationMetricsEnabled) {
+
             this.reputationMetricsEnabled = reputationMetricsEnabled;
             return this;
         }

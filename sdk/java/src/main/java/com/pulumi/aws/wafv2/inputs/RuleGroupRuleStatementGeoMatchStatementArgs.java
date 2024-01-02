@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class RuleGroupRuleStatementGeoMatchStatementArgs extends com.pulum
         }
 
         public RuleGroupRuleStatementGeoMatchStatementArgs build() {
-            $.countryCodes = Objects.requireNonNull($.countryCodes, "expected parameter 'countryCodes' to be non-null");
+            if ($.countryCodes == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleStatementGeoMatchStatementArgs", "countryCodes");
+            }
             return $;
         }
     }

@@ -44,6 +44,7 @@ public final class AnalyticsApplicationInputsStartingPositionConfiguration {
 
         @CustomType.Setter
         public Builder startingPosition(@Nullable String startingPosition) {
+
             this.startingPosition = startingPosition;
             return this;
         }

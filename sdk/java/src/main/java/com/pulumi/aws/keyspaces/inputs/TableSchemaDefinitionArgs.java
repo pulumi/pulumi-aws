@@ -9,6 +9,7 @@ import com.pulumi.aws.keyspaces.inputs.TableSchemaDefinitionPartitionKeyArgs;
 import com.pulumi.aws.keyspaces.inputs.TableSchemaDefinitionStaticColumnArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -231,8 +232,12 @@ public final class TableSchemaDefinitionArgs extends com.pulumi.resources.Resour
         }
 
         public TableSchemaDefinitionArgs build() {
-            $.columns = Objects.requireNonNull($.columns, "expected parameter 'columns' to be non-null");
-            $.partitionKeys = Objects.requireNonNull($.partitionKeys, "expected parameter 'partitionKeys' to be non-null");
+            if ($.columns == null) {
+                throw new MissingRequiredPropertyException("TableSchemaDefinitionArgs", "columns");
+            }
+            if ($.partitionKeys == null) {
+                throw new MissingRequiredPropertyException("TableSchemaDefinitionArgs", "partitionKeys");
+            }
             return $;
         }
     }

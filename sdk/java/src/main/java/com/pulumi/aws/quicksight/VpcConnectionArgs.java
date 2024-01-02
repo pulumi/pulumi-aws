@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight;
 import com.pulumi.aws.quicksight.inputs.VpcConnectionTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -395,10 +396,18 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VpcConnectionArgs build() {
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.securityGroupIds = Objects.requireNonNull($.securityGroupIds, "expected parameter 'securityGroupIds' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.vpcConnectionId = Objects.requireNonNull($.vpcConnectionId, "expected parameter 'vpcConnectionId' to be non-null");
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("VpcConnectionArgs", "roleArn");
+            }
+            if ($.securityGroupIds == null) {
+                throw new MissingRequiredPropertyException("VpcConnectionArgs", "securityGroupIds");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("VpcConnectionArgs", "subnetIds");
+            }
+            if ($.vpcConnectionId == null) {
+                throw new MissingRequiredPropertyException("VpcConnectionArgs", "vpcConnectionId");
+            }
             return $;
         }
     }

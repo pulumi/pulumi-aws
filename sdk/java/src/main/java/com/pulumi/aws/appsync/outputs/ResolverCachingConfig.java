@@ -60,6 +60,7 @@ public final class ResolverCachingConfig {
 
         @CustomType.Setter
         public Builder cachingKeys(@Nullable List<String> cachingKeys) {
+
             this.cachingKeys = cachingKeys;
             return this;
         }
@@ -68,6 +69,7 @@ public final class ResolverCachingConfig {
         }
         @CustomType.Setter
         public Builder ttl(@Nullable Integer ttl) {
+
             this.ttl = ttl;
             return this;
         }

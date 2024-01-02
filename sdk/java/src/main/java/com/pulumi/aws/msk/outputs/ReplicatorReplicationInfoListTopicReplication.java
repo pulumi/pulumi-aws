@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -102,21 +103,25 @@ public final class ReplicatorReplicationInfoListTopicReplication {
 
         @CustomType.Setter
         public Builder copyAccessControlListsForTopics(@Nullable Boolean copyAccessControlListsForTopics) {
+
             this.copyAccessControlListsForTopics = copyAccessControlListsForTopics;
             return this;
         }
         @CustomType.Setter
         public Builder copyTopicConfigurations(@Nullable Boolean copyTopicConfigurations) {
+
             this.copyTopicConfigurations = copyTopicConfigurations;
             return this;
         }
         @CustomType.Setter
         public Builder detectAndCopyNewTopics(@Nullable Boolean detectAndCopyNewTopics) {
+
             this.detectAndCopyNewTopics = detectAndCopyNewTopics;
             return this;
         }
         @CustomType.Setter
         public Builder topicsToExcludes(@Nullable List<String> topicsToExcludes) {
+
             this.topicsToExcludes = topicsToExcludes;
             return this;
         }
@@ -125,7 +130,10 @@ public final class ReplicatorReplicationInfoListTopicReplication {
         }
         @CustomType.Setter
         public Builder topicsToReplicates(List<String> topicsToReplicates) {
-            this.topicsToReplicates = Objects.requireNonNull(topicsToReplicates);
+            if (topicsToReplicates == null) {
+              throw new MissingRequiredPropertyException("ReplicatorReplicationInfoListTopicReplication", "topicsToReplicates");
+            }
+            this.topicsToReplicates = topicsToReplicates;
             return this;
         }
         public Builder topicsToReplicates(String... topicsToReplicates) {

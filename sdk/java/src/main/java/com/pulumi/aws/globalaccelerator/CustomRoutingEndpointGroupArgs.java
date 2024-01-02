@@ -7,6 +7,7 @@ import com.pulumi.aws.globalaccelerator.inputs.CustomRoutingEndpointGroupDestina
 import com.pulumi.aws.globalaccelerator.inputs.CustomRoutingEndpointGroupEndpointConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -210,8 +211,12 @@ public final class CustomRoutingEndpointGroupArgs extends com.pulumi.resources.R
         }
 
         public CustomRoutingEndpointGroupArgs build() {
-            $.destinationConfigurations = Objects.requireNonNull($.destinationConfigurations, "expected parameter 'destinationConfigurations' to be non-null");
-            $.listenerArn = Objects.requireNonNull($.listenerArn, "expected parameter 'listenerArn' to be non-null");
+            if ($.destinationConfigurations == null) {
+                throw new MissingRequiredPropertyException("CustomRoutingEndpointGroupArgs", "destinationConfigurations");
+            }
+            if ($.listenerArn == null) {
+                throw new MissingRequiredPropertyException("CustomRoutingEndpointGroupArgs", "listenerArn");
+            }
             return $;
         }
     }

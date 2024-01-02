@@ -6,6 +6,7 @@ package com.pulumi.aws.autoscaling.inputs;
 import com.pulumi.aws.autoscaling.inputs.GroupInstanceRefreshPreferencesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -202,7 +203,9 @@ public final class GroupInstanceRefreshArgs extends com.pulumi.resources.Resourc
         }
 
         public GroupInstanceRefreshArgs build() {
-            $.strategy = Objects.requireNonNull($.strategy, "expected parameter 'strategy' to be non-null");
+            if ($.strategy == null) {
+                throw new MissingRequiredPropertyException("GroupInstanceRefreshArgs", "strategy");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.acm.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -241,7 +242,9 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         public GetCertificatePlainArgs build() {
-            $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");
+            if ($.domain == null) {
+                throw new MissingRequiredPropertyException("GetCertificatePlainArgs", "domain");
+            }
             return $;
         }
     }

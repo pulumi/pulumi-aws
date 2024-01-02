@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2transitgateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,27 +99,42 @@ public final class GetRouteTableRoutesRoute {
 
         @CustomType.Setter
         public Builder destinationCidrBlock(String destinationCidrBlock) {
-            this.destinationCidrBlock = Objects.requireNonNull(destinationCidrBlock);
+            if (destinationCidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoutesRoute", "destinationCidrBlock");
+            }
+            this.destinationCidrBlock = destinationCidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder prefixListId(String prefixListId) {
-            this.prefixListId = Objects.requireNonNull(prefixListId);
+            if (prefixListId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoutesRoute", "prefixListId");
+            }
+            this.prefixListId = prefixListId;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoutesRoute", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayRouteTableAnnouncementId(String transitGatewayRouteTableAnnouncementId) {
-            this.transitGatewayRouteTableAnnouncementId = Objects.requireNonNull(transitGatewayRouteTableAnnouncementId);
+            if (transitGatewayRouteTableAnnouncementId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoutesRoute", "transitGatewayRouteTableAnnouncementId");
+            }
+            this.transitGatewayRouteTableAnnouncementId = transitGatewayRouteTableAnnouncementId;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoutesRoute", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetRouteTableRoutesRoute build() {

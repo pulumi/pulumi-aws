@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.GetRealtimeLogConfigEndpoint;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -107,12 +108,18 @@ public final class GetRealtimeLogConfigResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetRealtimeLogConfigResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder endpoints(List<GetRealtimeLogConfigEndpoint> endpoints) {
-            this.endpoints = Objects.requireNonNull(endpoints);
+            if (endpoints == null) {
+              throw new MissingRequiredPropertyException("GetRealtimeLogConfigResult", "endpoints");
+            }
+            this.endpoints = endpoints;
             return this;
         }
         public Builder endpoints(GetRealtimeLogConfigEndpoint... endpoints) {
@@ -120,7 +127,10 @@ public final class GetRealtimeLogConfigResult {
         }
         @CustomType.Setter
         public Builder fields(List<String> fields) {
-            this.fields = Objects.requireNonNull(fields);
+            if (fields == null) {
+              throw new MissingRequiredPropertyException("GetRealtimeLogConfigResult", "fields");
+            }
+            this.fields = fields;
             return this;
         }
         public Builder fields(String... fields) {
@@ -128,17 +138,26 @@ public final class GetRealtimeLogConfigResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRealtimeLogConfigResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRealtimeLogConfigResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder samplingRate(Integer samplingRate) {
-            this.samplingRate = Objects.requireNonNull(samplingRate);
+            if (samplingRate == null) {
+              throw new MissingRequiredPropertyException("GetRealtimeLogConfigResult", "samplingRate");
+            }
+            this.samplingRate = samplingRate;
             return this;
         }
         public GetRealtimeLogConfigResult build() {

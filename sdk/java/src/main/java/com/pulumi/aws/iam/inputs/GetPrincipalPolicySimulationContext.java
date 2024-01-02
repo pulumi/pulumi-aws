@@ -4,6 +4,7 @@
 package com.pulumi.aws.iam.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -140,9 +141,15 @@ public final class GetPrincipalPolicySimulationContext extends com.pulumi.resour
         }
 
         public GetPrincipalPolicySimulationContext build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.values = Objects.requireNonNull($.values, "expected parameter 'values' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationContext", "key");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationContext", "type");
+            }
+            if ($.values == null) {
+                throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationContext", "values");
+            }
             return $;
         }
     }

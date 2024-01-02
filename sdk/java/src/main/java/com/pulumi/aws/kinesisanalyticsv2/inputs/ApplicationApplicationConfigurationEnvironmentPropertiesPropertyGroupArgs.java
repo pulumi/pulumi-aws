@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesisanalyticsv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesPrope
         }
 
         public ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs build() {
-            $.propertyGroupId = Objects.requireNonNull($.propertyGroupId, "expected parameter 'propertyGroupId' to be non-null");
-            $.propertyMap = Objects.requireNonNull($.propertyMap, "expected parameter 'propertyMap' to be non-null");
+            if ($.propertyGroupId == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs", "propertyGroupId");
+            }
+            if ($.propertyMap == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs", "propertyMap");
+            }
             return $;
         }
     }

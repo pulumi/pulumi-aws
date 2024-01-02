@@ -5,6 +5,7 @@ package com.pulumi.aws.codepipeline.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -514,11 +515,21 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
         }
 
         public PipelineStageActionArgs build() {
-            $.category = Objects.requireNonNull($.category, "expected parameter 'category' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.owner = Objects.requireNonNull($.owner, "expected parameter 'owner' to be non-null");
-            $.provider = Objects.requireNonNull($.provider, "expected parameter 'provider' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.category == null) {
+                throw new MissingRequiredPropertyException("PipelineStageActionArgs", "category");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("PipelineStageActionArgs", "name");
+            }
+            if ($.owner == null) {
+                throw new MissingRequiredPropertyException("PipelineStageActionArgs", "owner");
+            }
+            if ($.provider == null) {
+                throw new MissingRequiredPropertyException("PipelineStageActionArgs", "provider");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("PipelineStageActionArgs", "version");
+            }
             return $;
         }
     }

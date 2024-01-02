@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight;
 import com.pulumi.aws.quicksight.inputs.IamPolicyAssignmentIdentitiesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -270,8 +271,12 @@ public final class IamPolicyAssignmentArgs extends com.pulumi.resources.Resource
         }
 
         public IamPolicyAssignmentArgs build() {
-            $.assignmentName = Objects.requireNonNull($.assignmentName, "expected parameter 'assignmentName' to be non-null");
-            $.assignmentStatus = Objects.requireNonNull($.assignmentStatus, "expected parameter 'assignmentStatus' to be non-null");
+            if ($.assignmentName == null) {
+                throw new MissingRequiredPropertyException("IamPolicyAssignmentArgs", "assignmentName");
+            }
+            if ($.assignmentStatus == null) {
+                throw new MissingRequiredPropertyException("IamPolicyAssignmentArgs", "assignmentStatus");
+            }
             return $;
         }
     }

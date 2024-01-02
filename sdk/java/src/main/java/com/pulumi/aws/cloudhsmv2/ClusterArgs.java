@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudhsmv2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -199,8 +200,12 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
-            $.hsmType = Objects.requireNonNull($.hsmType, "expected parameter 'hsmType' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
+            if ($.hsmType == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "hsmType");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "subnetIds");
+            }
             return $;
         }
     }

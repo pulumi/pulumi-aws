@@ -4,6 +4,7 @@
 package com.pulumi.aws.rbin.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -62,11 +63,15 @@ public final class RuleResourceTag {
 
         @CustomType.Setter
         public Builder resourceTagKey(String resourceTagKey) {
-            this.resourceTagKey = Objects.requireNonNull(resourceTagKey);
+            if (resourceTagKey == null) {
+              throw new MissingRequiredPropertyException("RuleResourceTag", "resourceTagKey");
+            }
+            this.resourceTagKey = resourceTagKey;
             return this;
         }
         @CustomType.Setter
         public Builder resourceTagValue(@Nullable String resourceTagValue) {
+
             this.resourceTagValue = resourceTagValue;
             return this;
         }

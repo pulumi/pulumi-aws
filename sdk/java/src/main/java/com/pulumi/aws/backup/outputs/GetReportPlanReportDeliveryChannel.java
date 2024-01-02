@@ -4,6 +4,7 @@
 package com.pulumi.aws.backup.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class GetReportPlanReportDeliveryChannel {
 
         @CustomType.Setter
         public Builder formats(List<String> formats) {
-            this.formats = Objects.requireNonNull(formats);
+            if (formats == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanReportDeliveryChannel", "formats");
+            }
+            this.formats = formats;
             return this;
         }
         public Builder formats(String... formats) {
@@ -79,12 +83,18 @@ public final class GetReportPlanReportDeliveryChannel {
         }
         @CustomType.Setter
         public Builder s3BucketName(String s3BucketName) {
-            this.s3BucketName = Objects.requireNonNull(s3BucketName);
+            if (s3BucketName == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanReportDeliveryChannel", "s3BucketName");
+            }
+            this.s3BucketName = s3BucketName;
             return this;
         }
         @CustomType.Setter
         public Builder s3KeyPrefix(String s3KeyPrefix) {
-            this.s3KeyPrefix = Objects.requireNonNull(s3KeyPrefix);
+            if (s3KeyPrefix == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanReportDeliveryChannel", "s3KeyPrefix");
+            }
+            this.s3KeyPrefix = s3KeyPrefix;
             return this;
         }
         public GetReportPlanReportDeliveryChannel build() {

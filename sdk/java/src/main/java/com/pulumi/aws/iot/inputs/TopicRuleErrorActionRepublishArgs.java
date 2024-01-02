@@ -5,6 +5,7 @@ package com.pulumi.aws.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -159,8 +160,12 @@ public final class TopicRuleErrorActionRepublishArgs extends com.pulumi.resource
         }
 
         public TopicRuleErrorActionRepublishArgs build() {
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.topic = Objects.requireNonNull($.topic, "expected parameter 'topic' to be non-null");
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionRepublishArgs", "roleArn");
+            }
+            if ($.topic == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionRepublishArgs", "topic");
+            }
             return $;
         }
     }

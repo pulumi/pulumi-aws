@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrockfoundation.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -412,15 +413,33 @@ public final class GetModelsModelSummaryArgs extends com.pulumi.resources.Resour
         }
 
         public GetModelsModelSummaryArgs build() {
-            $.customizationsSupporteds = Objects.requireNonNull($.customizationsSupporteds, "expected parameter 'customizationsSupporteds' to be non-null");
-            $.inferenceTypesSupporteds = Objects.requireNonNull($.inferenceTypesSupporteds, "expected parameter 'inferenceTypesSupporteds' to be non-null");
-            $.inputModalities = Objects.requireNonNull($.inputModalities, "expected parameter 'inputModalities' to be non-null");
-            $.modelArn = Objects.requireNonNull($.modelArn, "expected parameter 'modelArn' to be non-null");
-            $.modelId = Objects.requireNonNull($.modelId, "expected parameter 'modelId' to be non-null");
-            $.modelName = Objects.requireNonNull($.modelName, "expected parameter 'modelName' to be non-null");
-            $.outputModalities = Objects.requireNonNull($.outputModalities, "expected parameter 'outputModalities' to be non-null");
-            $.providerName = Objects.requireNonNull($.providerName, "expected parameter 'providerName' to be non-null");
-            $.responseStreamingSupported = Objects.requireNonNull($.responseStreamingSupported, "expected parameter 'responseStreamingSupported' to be non-null");
+            if ($.customizationsSupporteds == null) {
+                throw new MissingRequiredPropertyException("GetModelsModelSummaryArgs", "customizationsSupporteds");
+            }
+            if ($.inferenceTypesSupporteds == null) {
+                throw new MissingRequiredPropertyException("GetModelsModelSummaryArgs", "inferenceTypesSupporteds");
+            }
+            if ($.inputModalities == null) {
+                throw new MissingRequiredPropertyException("GetModelsModelSummaryArgs", "inputModalities");
+            }
+            if ($.modelArn == null) {
+                throw new MissingRequiredPropertyException("GetModelsModelSummaryArgs", "modelArn");
+            }
+            if ($.modelId == null) {
+                throw new MissingRequiredPropertyException("GetModelsModelSummaryArgs", "modelId");
+            }
+            if ($.modelName == null) {
+                throw new MissingRequiredPropertyException("GetModelsModelSummaryArgs", "modelName");
+            }
+            if ($.outputModalities == null) {
+                throw new MissingRequiredPropertyException("GetModelsModelSummaryArgs", "outputModalities");
+            }
+            if ($.providerName == null) {
+                throw new MissingRequiredPropertyException("GetModelsModelSummaryArgs", "providerName");
+            }
+            if ($.responseStreamingSupported == null) {
+                throw new MissingRequiredPropertyException("GetModelsModelSummaryArgs", "responseStreamingSupported");
+            }
             return $;
         }
     }

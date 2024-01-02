@@ -58,11 +58,13 @@ public final class IndexIndexStatisticTextDocumentStatistic {
 
         @CustomType.Setter
         public Builder indexedTextBytes(@Nullable Integer indexedTextBytes) {
+
             this.indexedTextBytes = indexedTextBytes;
             return this;
         }
         @CustomType.Setter
         public Builder indexedTextDocumentsCount(@Nullable Integer indexedTextDocumentsCount) {
+
             this.indexedTextDocumentsCount = indexedTextDocumentsCount;
             return this;
         }

@@ -8,6 +8,7 @@ import com.pulumi.aws.quicksight.outputs.GetThemeConfigurationSheet;
 import com.pulumi.aws.quicksight.outputs.GetThemeConfigurationTypography;
 import com.pulumi.aws.quicksight.outputs.GetThemeConfigurationUiColorPalette;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -88,7 +89,10 @@ public final class GetThemeConfiguration {
 
         @CustomType.Setter
         public Builder dataColorPalettes(List<GetThemeConfigurationDataColorPalette> dataColorPalettes) {
-            this.dataColorPalettes = Objects.requireNonNull(dataColorPalettes);
+            if (dataColorPalettes == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfiguration", "dataColorPalettes");
+            }
+            this.dataColorPalettes = dataColorPalettes;
             return this;
         }
         public Builder dataColorPalettes(GetThemeConfigurationDataColorPalette... dataColorPalettes) {
@@ -96,7 +100,10 @@ public final class GetThemeConfiguration {
         }
         @CustomType.Setter
         public Builder sheets(List<GetThemeConfigurationSheet> sheets) {
-            this.sheets = Objects.requireNonNull(sheets);
+            if (sheets == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfiguration", "sheets");
+            }
+            this.sheets = sheets;
             return this;
         }
         public Builder sheets(GetThemeConfigurationSheet... sheets) {
@@ -104,7 +111,10 @@ public final class GetThemeConfiguration {
         }
         @CustomType.Setter
         public Builder typographies(List<GetThemeConfigurationTypography> typographies) {
-            this.typographies = Objects.requireNonNull(typographies);
+            if (typographies == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfiguration", "typographies");
+            }
+            this.typographies = typographies;
             return this;
         }
         public Builder typographies(GetThemeConfigurationTypography... typographies) {
@@ -112,7 +122,10 @@ public final class GetThemeConfiguration {
         }
         @CustomType.Setter
         public Builder uiColorPalettes(List<GetThemeConfigurationUiColorPalette> uiColorPalettes) {
-            this.uiColorPalettes = Objects.requireNonNull(uiColorPalettes);
+            if (uiColorPalettes == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfiguration", "uiColorPalettes");
+            }
+            this.uiColorPalettes = uiColorPalettes;
             return this;
         }
         public Builder uiColorPalettes(GetThemeConfigurationUiColorPalette... uiColorPalettes) {

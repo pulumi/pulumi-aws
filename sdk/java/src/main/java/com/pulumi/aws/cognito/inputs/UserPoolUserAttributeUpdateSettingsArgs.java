@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class UserPoolUserAttributeUpdateSettingsArgs extends com.pulumi.re
         }
 
         public UserPoolUserAttributeUpdateSettingsArgs build() {
-            $.attributesRequireVerificationBeforeUpdates = Objects.requireNonNull($.attributesRequireVerificationBeforeUpdates, "expected parameter 'attributesRequireVerificationBeforeUpdates' to be non-null");
+            if ($.attributesRequireVerificationBeforeUpdates == null) {
+                throw new MissingRequiredPropertyException("UserPoolUserAttributeUpdateSettingsArgs", "attributesRequireVerificationBeforeUpdates");
+            }
             return $;
         }
     }

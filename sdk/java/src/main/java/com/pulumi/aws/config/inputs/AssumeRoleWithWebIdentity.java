@@ -73,16 +73,19 @@ public final class AssumeRoleWithWebIdentity {
 
         @CustomType.Setter
         public Builder duration(@Nullable String duration) {
+
             this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder policy(@Nullable String policy) {
+
             this.policy = policy;
             return this;
         }
         @CustomType.Setter
         public Builder policyArns(@Nullable List<String> policyArns) {
+
             this.policyArns = policyArns;
             return this;
         }
@@ -91,21 +94,25 @@ public final class AssumeRoleWithWebIdentity {
         }
         @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
+
             this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder sessionName(@Nullable String sessionName) {
+
             this.sessionName = sessionName;
             return this;
         }
         @CustomType.Setter
         public Builder webIdentityToken(@Nullable String webIdentityToken) {
+
             this.webIdentityToken = webIdentityToken;
             return this;
         }
         @CustomType.Setter
         public Builder webIdentityTokenFile(@Nullable String webIdentityTokenFile) {
+
             this.webIdentityTokenFile = webIdentityTokenFile;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class ResponseHeadersPolicyServerTimingHeadersConfigArgs extends co
         }
 
         public ResponseHeadersPolicyServerTimingHeadersConfigArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.samplingRate = Objects.requireNonNull($.samplingRate, "expected parameter 'samplingRate' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicyServerTimingHeadersConfigArgs", "enabled");
+            }
+            if ($.samplingRate == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicyServerTimingHeadersConfigArgs", "samplingRate");
+            }
             return $;
         }
     }

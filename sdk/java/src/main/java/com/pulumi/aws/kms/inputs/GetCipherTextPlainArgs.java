@@ -4,6 +4,7 @@
 package com.pulumi.aws.kms.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -120,8 +121,12 @@ public final class GetCipherTextPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         public GetCipherTextPlainArgs build() {
-            $.keyId = Objects.requireNonNull($.keyId, "expected parameter 'keyId' to be non-null");
-            $.plaintext = Objects.requireNonNull($.plaintext, "expected parameter 'plaintext' to be non-null");
+            if ($.keyId == null) {
+                throw new MissingRequiredPropertyException("GetCipherTextPlainArgs", "keyId");
+            }
+            if ($.plaintext == null) {
+                throw new MissingRequiredPropertyException("GetCipherTextPlainArgs", "plaintext");
+            }
             return $;
         }
     }

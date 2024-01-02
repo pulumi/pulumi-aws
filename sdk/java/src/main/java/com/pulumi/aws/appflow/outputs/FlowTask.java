@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.aws.appflow.outputs.FlowTaskConnectorOperator;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -103,6 +104,7 @@ public final class FlowTask {
 
         @CustomType.Setter
         public Builder connectorOperators(@Nullable List<FlowTaskConnectorOperator> connectorOperators) {
+
             this.connectorOperators = connectorOperators;
             return this;
         }
@@ -111,12 +113,16 @@ public final class FlowTask {
         }
         @CustomType.Setter
         public Builder destinationField(@Nullable String destinationField) {
+
             this.destinationField = destinationField;
             return this;
         }
         @CustomType.Setter
         public Builder sourceFields(List<String> sourceFields) {
-            this.sourceFields = Objects.requireNonNull(sourceFields);
+            if (sourceFields == null) {
+              throw new MissingRequiredPropertyException("FlowTask", "sourceFields");
+            }
+            this.sourceFields = sourceFields;
             return this;
         }
         public Builder sourceFields(String... sourceFields) {
@@ -124,12 +130,16 @@ public final class FlowTask {
         }
         @CustomType.Setter
         public Builder taskProperties(@Nullable Map<String,String> taskProperties) {
+
             this.taskProperties = taskProperties;
             return this;
         }
         @CustomType.Setter
         public Builder taskType(String taskType) {
-            this.taskType = Objects.requireNonNull(taskType);
+            if (taskType == null) {
+              throw new MissingRequiredPropertyException("FlowTask", "taskType");
+            }
+            this.taskType = taskType;
             return this;
         }
         public FlowTask build() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.inputs;
 import com.pulumi.aws.sagemaker.inputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
         }
 
         public DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs build() {
-            $.s3Output = Objects.requireNonNull($.s3Output, "expected parameter 's3Output' to be non-null");
+            if ($.s3Output == null) {
+                throw new MissingRequiredPropertyException("DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs", "s3Output");
+            }
             return $;
         }
     }

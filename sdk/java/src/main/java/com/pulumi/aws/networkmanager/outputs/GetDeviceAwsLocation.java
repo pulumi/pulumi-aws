@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetDeviceAwsLocation {
 
         @CustomType.Setter
         public Builder subnetArn(String subnetArn) {
-            this.subnetArn = Objects.requireNonNull(subnetArn);
+            if (subnetArn == null) {
+              throw new MissingRequiredPropertyException("GetDeviceAwsLocation", "subnetArn");
+            }
+            this.subnetArn = subnetArn;
             return this;
         }
         @CustomType.Setter
         public Builder zone(String zone) {
-            this.zone = Objects.requireNonNull(zone);
+            if (zone == null) {
+              throw new MissingRequiredPropertyException("GetDeviceAwsLocation", "zone");
+            }
+            this.zone = zone;
             return this;
         }
         public GetDeviceAwsLocation build() {

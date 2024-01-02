@@ -57,6 +57,7 @@ public final class SelectionCondition {
 
         @CustomType.Setter
         public Builder stringEquals(@Nullable List<SelectionConditionStringEqual> stringEquals) {
+
             this.stringEquals = stringEquals;
             return this;
         }
@@ -65,6 +66,7 @@ public final class SelectionCondition {
         }
         @CustomType.Setter
         public Builder stringLikes(@Nullable List<SelectionConditionStringLike> stringLikes) {
+
             this.stringLikes = stringLikes;
             return this;
         }
@@ -73,6 +75,7 @@ public final class SelectionCondition {
         }
         @CustomType.Setter
         public Builder stringNotEquals(@Nullable List<SelectionConditionStringNotEqual> stringNotEquals) {
+
             this.stringNotEquals = stringNotEquals;
             return this;
         }
@@ -81,6 +84,7 @@ public final class SelectionCondition {
         }
         @CustomType.Setter
         public Builder stringNotLikes(@Nullable List<SelectionConditionStringNotLike> stringNotLikes) {
+
             this.stringNotLikes = stringNotLikes;
             return this;
         }

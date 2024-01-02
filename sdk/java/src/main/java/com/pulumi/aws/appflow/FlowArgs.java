@@ -9,6 +9,7 @@ import com.pulumi.aws.appflow.inputs.FlowTaskArgs;
 import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -361,10 +362,18 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FlowArgs build() {
-            $.destinationFlowConfigs = Objects.requireNonNull($.destinationFlowConfigs, "expected parameter 'destinationFlowConfigs' to be non-null");
-            $.sourceFlowConfig = Objects.requireNonNull($.sourceFlowConfig, "expected parameter 'sourceFlowConfig' to be non-null");
-            $.tasks = Objects.requireNonNull($.tasks, "expected parameter 'tasks' to be non-null");
-            $.triggerConfig = Objects.requireNonNull($.triggerConfig, "expected parameter 'triggerConfig' to be non-null");
+            if ($.destinationFlowConfigs == null) {
+                throw new MissingRequiredPropertyException("FlowArgs", "destinationFlowConfigs");
+            }
+            if ($.sourceFlowConfig == null) {
+                throw new MissingRequiredPropertyException("FlowArgs", "sourceFlowConfig");
+            }
+            if ($.tasks == null) {
+                throw new MissingRequiredPropertyException("FlowArgs", "tasks");
+            }
+            if ($.triggerConfig == null) {
+                throw new MissingRequiredPropertyException("FlowArgs", "triggerConfig");
+            }
             return $;
         }
     }

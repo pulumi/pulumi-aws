@@ -58,11 +58,13 @@ public final class CanaryArtifactConfigS3Encryption {
 
         @CustomType.Setter
         public Builder encryptionMode(@Nullable String encryptionMode) {
+
             this.encryptionMode = encryptionMode;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class VpcDhcpOptionsAssociationArgs extends com.pulumi.resources.Re
         }
 
         public VpcDhcpOptionsAssociationArgs build() {
-            $.dhcpOptionsId = Objects.requireNonNull($.dhcpOptionsId, "expected parameter 'dhcpOptionsId' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.dhcpOptionsId == null) {
+                throw new MissingRequiredPropertyException("VpcDhcpOptionsAssociationArgs", "dhcpOptionsId");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("VpcDhcpOptionsAssociationArgs", "vpcId");
+            }
             return $;
         }
     }

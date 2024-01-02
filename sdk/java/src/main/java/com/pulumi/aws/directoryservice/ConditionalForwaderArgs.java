@@ -5,6 +5,7 @@ package com.pulumi.aws.directoryservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -159,9 +160,15 @@ public final class ConditionalForwaderArgs extends com.pulumi.resources.Resource
         }
 
         public ConditionalForwaderArgs build() {
-            $.directoryId = Objects.requireNonNull($.directoryId, "expected parameter 'directoryId' to be non-null");
-            $.dnsIps = Objects.requireNonNull($.dnsIps, "expected parameter 'dnsIps' to be non-null");
-            $.remoteDomainName = Objects.requireNonNull($.remoteDomainName, "expected parameter 'remoteDomainName' to be non-null");
+            if ($.directoryId == null) {
+                throw new MissingRequiredPropertyException("ConditionalForwaderArgs", "directoryId");
+            }
+            if ($.dnsIps == null) {
+                throw new MissingRequiredPropertyException("ConditionalForwaderArgs", "dnsIps");
+            }
+            if ($.remoteDomainName == null) {
+                throw new MissingRequiredPropertyException("ConditionalForwaderArgs", "remoteDomainName");
+            }
             return $;
         }
     }

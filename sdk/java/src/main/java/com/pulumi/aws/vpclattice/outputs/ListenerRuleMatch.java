@@ -44,6 +44,7 @@ public final class ListenerRuleMatch {
 
         @CustomType.Setter
         public Builder httpMatch(@Nullable ListenerRuleMatchHttpMatch httpMatch) {
+
             this.httpMatch = httpMatch;
             return this;
         }

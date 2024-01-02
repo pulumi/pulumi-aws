@@ -5,6 +5,7 @@ package com.pulumi.aws.emrcontainers.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringCon
         }
 
         public JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs build() {
-            $.logGroupName = Objects.requireNonNull($.logGroupName, "expected parameter 'logGroupName' to be non-null");
+            if ($.logGroupName == null) {
+                throw new MissingRequiredPropertyException("JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs", "logGroupName");
+            }
             return $;
         }
     }

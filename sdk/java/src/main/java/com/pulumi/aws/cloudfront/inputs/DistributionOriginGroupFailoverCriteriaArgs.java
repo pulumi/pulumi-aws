@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class DistributionOriginGroupFailoverCriteriaArgs extends com.pulum
         }
 
         public DistributionOriginGroupFailoverCriteriaArgs build() {
-            $.statusCodes = Objects.requireNonNull($.statusCodes, "expected parameter 'statusCodes' to be non-null");
+            if ($.statusCodes == null) {
+                throw new MissingRequiredPropertyException("DistributionOriginGroupFailoverCriteriaArgs", "statusCodes");
+            }
             return $;
         }
     }

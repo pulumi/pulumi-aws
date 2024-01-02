@@ -5,6 +5,7 @@ package com.pulumi.aws.dms;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -468,12 +469,24 @@ public final class ReplicationTaskArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ReplicationTaskArgs build() {
-            $.migrationType = Objects.requireNonNull($.migrationType, "expected parameter 'migrationType' to be non-null");
-            $.replicationInstanceArn = Objects.requireNonNull($.replicationInstanceArn, "expected parameter 'replicationInstanceArn' to be non-null");
-            $.replicationTaskId = Objects.requireNonNull($.replicationTaskId, "expected parameter 'replicationTaskId' to be non-null");
-            $.sourceEndpointArn = Objects.requireNonNull($.sourceEndpointArn, "expected parameter 'sourceEndpointArn' to be non-null");
-            $.tableMappings = Objects.requireNonNull($.tableMappings, "expected parameter 'tableMappings' to be non-null");
-            $.targetEndpointArn = Objects.requireNonNull($.targetEndpointArn, "expected parameter 'targetEndpointArn' to be non-null");
+            if ($.migrationType == null) {
+                throw new MissingRequiredPropertyException("ReplicationTaskArgs", "migrationType");
+            }
+            if ($.replicationInstanceArn == null) {
+                throw new MissingRequiredPropertyException("ReplicationTaskArgs", "replicationInstanceArn");
+            }
+            if ($.replicationTaskId == null) {
+                throw new MissingRequiredPropertyException("ReplicationTaskArgs", "replicationTaskId");
+            }
+            if ($.sourceEndpointArn == null) {
+                throw new MissingRequiredPropertyException("ReplicationTaskArgs", "sourceEndpointArn");
+            }
+            if ($.tableMappings == null) {
+                throw new MissingRequiredPropertyException("ReplicationTaskArgs", "tableMappings");
+            }
+            if ($.targetEndpointArn == null) {
+                throw new MissingRequiredPropertyException("ReplicationTaskArgs", "targetEndpointArn");
+            }
             return $;
         }
     }

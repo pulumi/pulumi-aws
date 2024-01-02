@@ -5,6 +5,7 @@ package com.pulumi.aws.rds;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -199,8 +200,12 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SnapshotArgs build() {
-            $.dbInstanceIdentifier = Objects.requireNonNull($.dbInstanceIdentifier, "expected parameter 'dbInstanceIdentifier' to be non-null");
-            $.dbSnapshotIdentifier = Objects.requireNonNull($.dbSnapshotIdentifier, "expected parameter 'dbSnapshotIdentifier' to be non-null");
+            if ($.dbInstanceIdentifier == null) {
+                throw new MissingRequiredPropertyException("SnapshotArgs", "dbInstanceIdentifier");
+            }
+            if ($.dbSnapshotIdentifier == null) {
+                throw new MissingRequiredPropertyException("SnapshotArgs", "dbSnapshotIdentifier");
+            }
             return $;
         }
     }

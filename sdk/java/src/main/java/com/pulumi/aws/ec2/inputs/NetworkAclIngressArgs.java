@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -389,11 +390,21 @@ public final class NetworkAclIngressArgs extends com.pulumi.resources.ResourceAr
         }
 
         public NetworkAclIngressArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.fromPort = Objects.requireNonNull($.fromPort, "expected parameter 'fromPort' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.ruleNo = Objects.requireNonNull($.ruleNo, "expected parameter 'ruleNo' to be non-null");
-            $.toPort = Objects.requireNonNull($.toPort, "expected parameter 'toPort' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("NetworkAclIngressArgs", "action");
+            }
+            if ($.fromPort == null) {
+                throw new MissingRequiredPropertyException("NetworkAclIngressArgs", "fromPort");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("NetworkAclIngressArgs", "protocol");
+            }
+            if ($.ruleNo == null) {
+                throw new MissingRequiredPropertyException("NetworkAclIngressArgs", "ruleNo");
+            }
+            if ($.toPort == null) {
+                throw new MissingRequiredPropertyException("NetworkAclIngressArgs", "toPort");
+            }
             return $;
         }
     }

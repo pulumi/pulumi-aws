@@ -4,6 +4,7 @@
 package com.pulumi.aws.lakeformation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -120,11 +121,15 @@ public final class GetPermissionsTableWithColumns {
 
         @CustomType.Setter
         public Builder catalogId(String catalogId) {
-            this.catalogId = Objects.requireNonNull(catalogId);
+            if (catalogId == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsTableWithColumns", "catalogId");
+            }
+            this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder columnNames(@Nullable List<String> columnNames) {
+
             this.columnNames = columnNames;
             return this;
         }
@@ -133,11 +138,15 @@ public final class GetPermissionsTableWithColumns {
         }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsTableWithColumns", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder excludedColumnNames(@Nullable List<String> excludedColumnNames) {
+
             this.excludedColumnNames = excludedColumnNames;
             return this;
         }
@@ -146,11 +155,15 @@ public final class GetPermissionsTableWithColumns {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsTableWithColumns", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder wildcard(@Nullable Boolean wildcard) {
+
             this.wildcard = wildcard;
             return this;
         }

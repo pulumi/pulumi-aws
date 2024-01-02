@@ -44,6 +44,7 @@ public final class VirtualNodeSpecBackendDefaults {
 
         @CustomType.Setter
         public Builder clientPolicy(@Nullable VirtualNodeSpecBackendDefaultsClientPolicy clientPolicy) {
+
             this.clientPolicy = clientPolicy;
             return this;
         }

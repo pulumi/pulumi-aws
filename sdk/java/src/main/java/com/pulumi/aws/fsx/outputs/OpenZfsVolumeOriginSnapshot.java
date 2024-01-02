@@ -4,6 +4,7 @@
 package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class OpenZfsVolumeOriginSnapshot {
 
         @CustomType.Setter
         public Builder copyStrategy(String copyStrategy) {
-            this.copyStrategy = Objects.requireNonNull(copyStrategy);
+            if (copyStrategy == null) {
+              throw new MissingRequiredPropertyException("OpenZfsVolumeOriginSnapshot", "copyStrategy");
+            }
+            this.copyStrategy = copyStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotArn(String snapshotArn) {
-            this.snapshotArn = Objects.requireNonNull(snapshotArn);
+            if (snapshotArn == null) {
+              throw new MissingRequiredPropertyException("OpenZfsVolumeOriginSnapshot", "snapshotArn");
+            }
+            this.snapshotArn = snapshotArn;
             return this;
         }
         public OpenZfsVolumeOriginSnapshot build() {

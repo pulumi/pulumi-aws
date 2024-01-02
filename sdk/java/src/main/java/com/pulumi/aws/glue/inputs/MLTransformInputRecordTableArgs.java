@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class MLTransformInputRecordTableArgs extends com.pulumi.resources.
         }
 
         public MLTransformInputRecordTableArgs build() {
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("MLTransformInputRecordTableArgs", "databaseName");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("MLTransformInputRecordTableArgs", "tableName");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -102,6 +103,7 @@ public final class BucketV2CorsRule {
 
         @CustomType.Setter
         public Builder allowedHeaders(@Nullable List<String> allowedHeaders) {
+
             this.allowedHeaders = allowedHeaders;
             return this;
         }
@@ -110,7 +112,10 @@ public final class BucketV2CorsRule {
         }
         @CustomType.Setter
         public Builder allowedMethods(List<String> allowedMethods) {
-            this.allowedMethods = Objects.requireNonNull(allowedMethods);
+            if (allowedMethods == null) {
+              throw new MissingRequiredPropertyException("BucketV2CorsRule", "allowedMethods");
+            }
+            this.allowedMethods = allowedMethods;
             return this;
         }
         public Builder allowedMethods(String... allowedMethods) {
@@ -118,7 +123,10 @@ public final class BucketV2CorsRule {
         }
         @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
-            this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
+            if (allowedOrigins == null) {
+              throw new MissingRequiredPropertyException("BucketV2CorsRule", "allowedOrigins");
+            }
+            this.allowedOrigins = allowedOrigins;
             return this;
         }
         public Builder allowedOrigins(String... allowedOrigins) {
@@ -126,6 +134,7 @@ public final class BucketV2CorsRule {
         }
         @CustomType.Setter
         public Builder exposeHeaders(@Nullable List<String> exposeHeaders) {
+
             this.exposeHeaders = exposeHeaders;
             return this;
         }
@@ -134,6 +143,7 @@ public final class BucketV2CorsRule {
         }
         @CustomType.Setter
         public Builder maxAgeSeconds(@Nullable Integer maxAgeSeconds) {
+
             this.maxAgeSeconds = maxAgeSeconds;
             return this;
         }

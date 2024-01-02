@@ -5,6 +5,7 @@ package com.pulumi.aws.apprunner.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -262,7 +263,9 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
         }
 
         public ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs build() {
-            $.runtime = Objects.requireNonNull($.runtime, "expected parameter 'runtime' to be non-null");
+            if ($.runtime == null) {
+                throw new MissingRequiredPropertyException("ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs", "runtime");
+            }
             return $;
         }
     }

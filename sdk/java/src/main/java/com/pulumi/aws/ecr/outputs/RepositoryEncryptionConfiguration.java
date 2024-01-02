@@ -58,11 +58,13 @@ public final class RepositoryEncryptionConfiguration {
 
         @CustomType.Setter
         public Builder encryptionType(@Nullable String encryptionType) {
+
             this.encryptionType = encryptionType;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKey(@Nullable String kmsKey) {
+
             this.kmsKey = kmsKey;
             return this;
         }

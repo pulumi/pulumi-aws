@@ -89,21 +89,25 @@ public final class GatewayRouteSpec {
 
         @CustomType.Setter
         public Builder grpcRoute(@Nullable GatewayRouteSpecGrpcRoute grpcRoute) {
+
             this.grpcRoute = grpcRoute;
             return this;
         }
         @CustomType.Setter
         public Builder http2Route(@Nullable GatewayRouteSpecHttp2Route http2Route) {
+
             this.http2Route = http2Route;
             return this;
         }
         @CustomType.Setter
         public Builder httpRoute(@Nullable GatewayRouteSpecHttpRoute httpRoute) {
+
             this.httpRoute = httpRoute;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }

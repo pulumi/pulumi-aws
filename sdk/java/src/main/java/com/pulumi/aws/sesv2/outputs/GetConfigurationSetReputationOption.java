@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class GetConfigurationSetReputationOption {
 
         @CustomType.Setter
         public Builder lastFreshStart(String lastFreshStart) {
-            this.lastFreshStart = Objects.requireNonNull(lastFreshStart);
+            if (lastFreshStart == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetReputationOption", "lastFreshStart");
+            }
+            this.lastFreshStart = lastFreshStart;
             return this;
         }
         @CustomType.Setter
         public Builder reputationMetricsEnabled(Boolean reputationMetricsEnabled) {
-            this.reputationMetricsEnabled = Objects.requireNonNull(reputationMetricsEnabled);
+            if (reputationMetricsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetReputationOption", "reputationMetricsEnabled");
+            }
+            this.reputationMetricsEnabled = reputationMetricsEnabled;
             return this;
         }
         public GetConfigurationSetReputationOption build() {

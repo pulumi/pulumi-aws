@@ -104,26 +104,31 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
 
         @CustomType.Setter
         public Builder activityMetrics(@Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics activityMetrics) {
+
             this.activityMetrics = activityMetrics;
             return this;
         }
         @CustomType.Setter
         public Builder advancedCostOptimizationMetrics(@Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics advancedCostOptimizationMetrics) {
+
             this.advancedCostOptimizationMetrics = advancedCostOptimizationMetrics;
             return this;
         }
         @CustomType.Setter
         public Builder advancedDataProtectionMetrics(@Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics advancedDataProtectionMetrics) {
+
             this.advancedDataProtectionMetrics = advancedDataProtectionMetrics;
             return this;
         }
         @CustomType.Setter
         public Builder detailedStatusCodeMetrics(@Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics detailedStatusCodeMetrics) {
+
             this.detailedStatusCodeMetrics = detailedStatusCodeMetrics;
             return this;
         }
         @CustomType.Setter
         public Builder prefixLevel(@Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel prefixLevel) {
+
             this.prefixLevel = prefixLevel;
             return this;
         }

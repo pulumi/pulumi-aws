@@ -7,6 +7,7 @@ import com.pulumi.aws.vpclattice.inputs.ListenerRuleActionArgs;
 import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -310,11 +311,21 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ListenerRuleArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.listenerIdentifier = Objects.requireNonNull($.listenerIdentifier, "expected parameter 'listenerIdentifier' to be non-null");
-            $.match = Objects.requireNonNull($.match, "expected parameter 'match' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.serviceIdentifier = Objects.requireNonNull($.serviceIdentifier, "expected parameter 'serviceIdentifier' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleArgs", "action");
+            }
+            if ($.listenerIdentifier == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleArgs", "listenerIdentifier");
+            }
+            if ($.match == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleArgs", "match");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleArgs", "priority");
+            }
+            if ($.serviceIdentifier == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleArgs", "serviceIdentifier");
+            }
             return $;
         }
     }

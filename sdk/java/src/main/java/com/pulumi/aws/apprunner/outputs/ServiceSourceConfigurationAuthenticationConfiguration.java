@@ -58,11 +58,13 @@ public final class ServiceSourceConfigurationAuthenticationConfiguration {
 
         @CustomType.Setter
         public Builder accessRoleArn(@Nullable String accessRoleArn) {
+
             this.accessRoleArn = accessRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder connectionArn(@Nullable String connectionArn) {
+
             this.connectionArn = connectionArn;
             return this;
         }

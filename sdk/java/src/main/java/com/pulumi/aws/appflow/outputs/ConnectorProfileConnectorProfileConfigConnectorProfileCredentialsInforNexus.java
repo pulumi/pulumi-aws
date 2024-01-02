@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder accessKeyId(String accessKeyId) {
-            this.accessKeyId = Objects.requireNonNull(accessKeyId);
+            if (accessKeyId == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus", "accessKeyId");
+            }
+            this.accessKeyId = accessKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder datakey(String datakey) {
-            this.datakey = Objects.requireNonNull(datakey);
+            if (datakey == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus", "datakey");
+            }
+            this.datakey = datakey;
             return this;
         }
         @CustomType.Setter
         public Builder secretAccessKey(String secretAccessKey) {
-            this.secretAccessKey = Objects.requireNonNull(secretAccessKey);
+            if (secretAccessKey == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus", "secretAccessKey");
+            }
+            this.secretAccessKey = secretAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder userId(String userId) {
-            this.userId = Objects.requireNonNull(userId);
+            if (userId == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus", "userId");
+            }
+            this.userId = userId;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus build() {

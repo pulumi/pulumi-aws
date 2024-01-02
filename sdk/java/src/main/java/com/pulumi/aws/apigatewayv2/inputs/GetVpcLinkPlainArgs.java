@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigatewayv2.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -93,7 +94,9 @@ public final class GetVpcLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetVpcLinkPlainArgs build() {
-            $.vpcLinkId = Objects.requireNonNull($.vpcLinkId, "expected parameter 'vpcLinkId' to be non-null");
+            if ($.vpcLinkId == null) {
+                throw new MissingRequiredPropertyException("GetVpcLinkPlainArgs", "vpcLinkId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.directoryservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class SharedDirectoryAccepterArgs extends com.pulumi.resources.Reso
         }
 
         public SharedDirectoryAccepterArgs build() {
-            $.sharedDirectoryId = Objects.requireNonNull($.sharedDirectoryId, "expected parameter 'sharedDirectoryId' to be non-null");
+            if ($.sharedDirectoryId == null) {
+                throw new MissingRequiredPropertyException("SharedDirectoryAccepterArgs", "sharedDirectoryId");
+            }
             return $;
         }
     }

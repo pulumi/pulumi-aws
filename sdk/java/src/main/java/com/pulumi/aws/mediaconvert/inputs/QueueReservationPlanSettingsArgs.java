@@ -5,6 +5,7 @@ package com.pulumi.aws.mediaconvert.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class QueueReservationPlanSettingsArgs extends com.pulumi.resources
         }
 
         public QueueReservationPlanSettingsArgs build() {
-            $.commitment = Objects.requireNonNull($.commitment, "expected parameter 'commitment' to be non-null");
-            $.renewalType = Objects.requireNonNull($.renewalType, "expected parameter 'renewalType' to be non-null");
-            $.reservedSlots = Objects.requireNonNull($.reservedSlots, "expected parameter 'reservedSlots' to be non-null");
+            if ($.commitment == null) {
+                throw new MissingRequiredPropertyException("QueueReservationPlanSettingsArgs", "commitment");
+            }
+            if ($.renewalType == null) {
+                throw new MissingRequiredPropertyException("QueueReservationPlanSettingsArgs", "renewalType");
+            }
+            if ($.reservedSlots == null) {
+                throw new MissingRequiredPropertyException("QueueReservationPlanSettingsArgs", "reservedSlots");
+            }
             return $;
         }
     }

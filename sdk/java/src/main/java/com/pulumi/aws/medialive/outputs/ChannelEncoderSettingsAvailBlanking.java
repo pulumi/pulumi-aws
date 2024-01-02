@@ -59,11 +59,13 @@ public final class ChannelEncoderSettingsAvailBlanking {
 
         @CustomType.Setter
         public Builder availBlankingImage(@Nullable ChannelEncoderSettingsAvailBlankingAvailBlankingImage availBlankingImage) {
+
             this.availBlankingImage = availBlankingImage;
             return this;
         }
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }

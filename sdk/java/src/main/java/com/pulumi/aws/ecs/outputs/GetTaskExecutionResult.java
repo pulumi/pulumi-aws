@@ -9,6 +9,7 @@ import com.pulumi.aws.ecs.outputs.GetTaskExecutionOverrides;
 import com.pulumi.aws.ecs.outputs.GetTaskExecutionPlacementConstraint;
 import com.pulumi.aws.ecs.outputs.GetTaskExecutionPlacementStrategy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -169,6 +170,7 @@ public final class GetTaskExecutionResult {
 
         @CustomType.Setter
         public Builder capacityProviderStrategies(@Nullable List<GetTaskExecutionCapacityProviderStrategy> capacityProviderStrategies) {
+
             this.capacityProviderStrategies = capacityProviderStrategies;
             return this;
         }
@@ -177,51 +179,65 @@ public final class GetTaskExecutionResult {
         }
         @CustomType.Setter
         public Builder cluster(String cluster) {
-            this.cluster = Objects.requireNonNull(cluster);
+            if (cluster == null) {
+              throw new MissingRequiredPropertyException("GetTaskExecutionResult", "cluster");
+            }
+            this.cluster = cluster;
             return this;
         }
         @CustomType.Setter
         public Builder desiredCount(@Nullable Integer desiredCount) {
+
             this.desiredCount = desiredCount;
             return this;
         }
         @CustomType.Setter
         public Builder enableEcsManagedTags(@Nullable Boolean enableEcsManagedTags) {
+
             this.enableEcsManagedTags = enableEcsManagedTags;
             return this;
         }
         @CustomType.Setter
         public Builder enableExecuteCommand(@Nullable Boolean enableExecuteCommand) {
+
             this.enableExecuteCommand = enableExecuteCommand;
             return this;
         }
         @CustomType.Setter
         public Builder group(@Nullable String group) {
+
             this.group = group;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTaskExecutionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder launchType(@Nullable String launchType) {
+
             this.launchType = launchType;
             return this;
         }
         @CustomType.Setter
         public Builder networkConfiguration(@Nullable GetTaskExecutionNetworkConfiguration networkConfiguration) {
+
             this.networkConfiguration = networkConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder overrides(@Nullable GetTaskExecutionOverrides overrides) {
+
             this.overrides = overrides;
             return this;
         }
         @CustomType.Setter
         public Builder placementConstraints(@Nullable List<GetTaskExecutionPlacementConstraint> placementConstraints) {
+
             this.placementConstraints = placementConstraints;
             return this;
         }
@@ -230,6 +246,7 @@ public final class GetTaskExecutionResult {
         }
         @CustomType.Setter
         public Builder placementStrategies(@Nullable List<GetTaskExecutionPlacementStrategy> placementStrategies) {
+
             this.placementStrategies = placementStrategies;
             return this;
         }
@@ -238,32 +255,40 @@ public final class GetTaskExecutionResult {
         }
         @CustomType.Setter
         public Builder platformVersion(@Nullable String platformVersion) {
+
             this.platformVersion = platformVersion;
             return this;
         }
         @CustomType.Setter
         public Builder propagateTags(@Nullable String propagateTags) {
+
             this.propagateTags = propagateTags;
             return this;
         }
         @CustomType.Setter
         public Builder referenceId(@Nullable String referenceId) {
+
             this.referenceId = referenceId;
             return this;
         }
         @CustomType.Setter
         public Builder startedBy(@Nullable String startedBy) {
+
             this.startedBy = startedBy;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder taskArns(List<String> taskArns) {
-            this.taskArns = Objects.requireNonNull(taskArns);
+            if (taskArns == null) {
+              throw new MissingRequiredPropertyException("GetTaskExecutionResult", "taskArns");
+            }
+            this.taskArns = taskArns;
             return this;
         }
         public Builder taskArns(String... taskArns) {
@@ -271,7 +296,10 @@ public final class GetTaskExecutionResult {
         }
         @CustomType.Setter
         public Builder taskDefinition(String taskDefinition) {
-            this.taskDefinition = Objects.requireNonNull(taskDefinition);
+            if (taskDefinition == null) {
+              throw new MissingRequiredPropertyException("GetTaskExecutionResult", "taskDefinition");
+            }
+            this.taskDefinition = taskDefinition;
             return this;
         }
         public GetTaskExecutionResult build() {

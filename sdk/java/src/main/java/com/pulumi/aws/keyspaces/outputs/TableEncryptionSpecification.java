@@ -58,11 +58,13 @@ public final class TableEncryptionSpecification {
 
         @CustomType.Setter
         public Builder kmsKeyIdentifier(@Nullable String kmsKeyIdentifier) {
+
             this.kmsKeyIdentifier = kmsKeyIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

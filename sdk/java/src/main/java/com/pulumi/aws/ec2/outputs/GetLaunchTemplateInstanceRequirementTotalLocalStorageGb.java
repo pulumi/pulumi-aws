@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetLaunchTemplateInstanceRequirementTotalLocalStorageGb {
 
         @CustomType.Setter
         public Builder max(Double max) {
-            this.max = Objects.requireNonNull(max);
+            if (max == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirementTotalLocalStorageGb", "max");
+            }
+            this.max = max;
             return this;
         }
         @CustomType.Setter
         public Builder min(Double min) {
-            this.min = Objects.requireNonNull(min);
+            if (min == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirementTotalLocalStorageGb", "min");
+            }
+            this.min = min;
             return this;
         }
         public GetLaunchTemplateInstanceRequirementTotalLocalStorageGb build() {

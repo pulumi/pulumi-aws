@@ -5,6 +5,7 @@ package com.pulumi.aws.appstream.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DirectoryConfigServiceAccountCredentialsArgs extends com.pulu
         }
 
         public DirectoryConfigServiceAccountCredentialsArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.accountPassword = Objects.requireNonNull($.accountPassword, "expected parameter 'accountPassword' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("DirectoryConfigServiceAccountCredentialsArgs", "accountName");
+            }
+            if ($.accountPassword == null) {
+                throw new MissingRequiredPropertyException("DirectoryConfigServiceAccountCredentialsArgs", "accountPassword");
+            }
             return $;
         }
     }

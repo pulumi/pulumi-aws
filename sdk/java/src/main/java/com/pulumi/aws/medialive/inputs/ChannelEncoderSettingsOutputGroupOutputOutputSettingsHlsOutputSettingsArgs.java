@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive.inputs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -128,7 +129,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
         }
 
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs build() {
-            $.hlsSettings = Objects.requireNonNull($.hlsSettings, "expected parameter 'hlsSettings' to be non-null");
+            if ($.hlsSettings == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs", "hlsSettings");
+            }
             return $;
         }
     }

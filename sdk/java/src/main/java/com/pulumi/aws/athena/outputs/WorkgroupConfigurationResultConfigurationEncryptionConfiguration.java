@@ -58,11 +58,13 @@ public final class WorkgroupConfigurationResultConfigurationEncryptionConfigurat
 
         @CustomType.Setter
         public Builder encryptionOption(@Nullable String encryptionOption) {
+
             this.encryptionOption = encryptionOption;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }

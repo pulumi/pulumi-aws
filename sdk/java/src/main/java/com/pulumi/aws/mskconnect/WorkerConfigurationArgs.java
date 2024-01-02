@@ -5,6 +5,7 @@ package com.pulumi.aws.mskconnect;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,7 +159,9 @@ public final class WorkerConfigurationArgs extends com.pulumi.resources.Resource
         }
 
         public WorkerConfigurationArgs build() {
-            $.propertiesFileContent = Objects.requireNonNull($.propertiesFileContent, "expected parameter 'propertiesFileContent' to be non-null");
+            if ($.propertiesFileContent == null) {
+                throw new MissingRequiredPropertyException("WorkerConfigurationArgs", "propertiesFileContent");
+            }
             return $;
         }
     }

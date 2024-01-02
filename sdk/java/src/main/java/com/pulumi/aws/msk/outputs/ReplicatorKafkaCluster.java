@@ -6,6 +6,7 @@ package com.pulumi.aws.msk.outputs;
 import com.pulumi.aws.msk.outputs.ReplicatorKafkaClusterAmazonMskCluster;
 import com.pulumi.aws.msk.outputs.ReplicatorKafkaClusterVpcConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -57,12 +58,18 @@ public final class ReplicatorKafkaCluster {
 
         @CustomType.Setter
         public Builder amazonMskCluster(ReplicatorKafkaClusterAmazonMskCluster amazonMskCluster) {
-            this.amazonMskCluster = Objects.requireNonNull(amazonMskCluster);
+            if (amazonMskCluster == null) {
+              throw new MissingRequiredPropertyException("ReplicatorKafkaCluster", "amazonMskCluster");
+            }
+            this.amazonMskCluster = amazonMskCluster;
             return this;
         }
         @CustomType.Setter
         public Builder vpcConfig(ReplicatorKafkaClusterVpcConfig vpcConfig) {
-            this.vpcConfig = Objects.requireNonNull(vpcConfig);
+            if (vpcConfig == null) {
+              throw new MissingRequiredPropertyException("ReplicatorKafkaCluster", "vpcConfig");
+            }
+            this.vpcConfig = vpcConfig;
             return this;
         }
         public ReplicatorKafkaCluster build() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.datasync;
 import com.pulumi.aws.datasync.inputs.EfsLocationEc2ConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -300,8 +301,12 @@ public final class EfsLocationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EfsLocationArgs build() {
-            $.ec2Config = Objects.requireNonNull($.ec2Config, "expected parameter 'ec2Config' to be non-null");
-            $.efsFileSystemArn = Objects.requireNonNull($.efsFileSystemArn, "expected parameter 'efsFileSystemArn' to be non-null");
+            if ($.ec2Config == null) {
+                throw new MissingRequiredPropertyException("EfsLocationArgs", "ec2Config");
+            }
+            if ($.efsFileSystemArn == null) {
+                throw new MissingRequiredPropertyException("EfsLocationArgs", "efsFileSystemArn");
+            }
             return $;
         }
     }

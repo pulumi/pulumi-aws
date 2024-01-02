@@ -90,16 +90,19 @@ public final class RuleGroupRuleGroupRulesSource {
 
         @CustomType.Setter
         public Builder rulesSourceList(@Nullable RuleGroupRuleGroupRulesSourceRulesSourceList rulesSourceList) {
+
             this.rulesSourceList = rulesSourceList;
             return this;
         }
         @CustomType.Setter
         public Builder rulesString(@Nullable String rulesString) {
+
             this.rulesString = rulesString;
             return this;
         }
         @CustomType.Setter
         public Builder statefulRules(@Nullable List<RuleGroupRuleGroupRulesSourceStatefulRule> statefulRules) {
+
             this.statefulRules = statefulRules;
             return this;
         }
@@ -108,6 +111,7 @@ public final class RuleGroupRuleGroupRulesSource {
         }
         @CustomType.Setter
         public Builder statelessRulesAndCustomActions(@Nullable RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions statelessRulesAndCustomActions) {
+
             this.statelessRulesAndCustomActions = statelessRulesAndCustomActions;
             return this;
         }

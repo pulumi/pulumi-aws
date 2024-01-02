@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.inputs;
 import com.pulumi.aws.sagemaker.inputs.DataQualityJobDefinitionJobResourcesClusterConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class DataQualityJobDefinitionJobResourcesArgs extends com.pulumi.r
         }
 
         public DataQualityJobDefinitionJobResourcesArgs build() {
-            $.clusterConfig = Objects.requireNonNull($.clusterConfig, "expected parameter 'clusterConfig' to be non-null");
+            if ($.clusterConfig == null) {
+                throw new MissingRequiredPropertyException("DataQualityJobDefinitionJobResourcesArgs", "clusterConfig");
+            }
             return $;
         }
     }

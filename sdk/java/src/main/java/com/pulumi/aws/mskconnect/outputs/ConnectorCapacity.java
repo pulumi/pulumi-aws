@@ -59,11 +59,13 @@ public final class ConnectorCapacity {
 
         @CustomType.Setter
         public Builder autoscaling(@Nullable ConnectorCapacityAutoscaling autoscaling) {
+
             this.autoscaling = autoscaling;
             return this;
         }
         @CustomType.Setter
         public Builder provisionedCapacity(@Nullable ConnectorCapacityProvisionedCapacity provisionedCapacity) {
+
             this.provisionedCapacity = provisionedCapacity;
             return this;
         }

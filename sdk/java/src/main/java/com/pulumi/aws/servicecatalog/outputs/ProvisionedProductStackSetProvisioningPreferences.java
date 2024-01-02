@@ -116,6 +116,7 @@ public final class ProvisionedProductStackSetProvisioningPreferences {
 
         @CustomType.Setter
         public Builder accounts(@Nullable List<String> accounts) {
+
             this.accounts = accounts;
             return this;
         }
@@ -124,26 +125,31 @@ public final class ProvisionedProductStackSetProvisioningPreferences {
         }
         @CustomType.Setter
         public Builder failureToleranceCount(@Nullable Integer failureToleranceCount) {
+
             this.failureToleranceCount = failureToleranceCount;
             return this;
         }
         @CustomType.Setter
         public Builder failureTolerancePercentage(@Nullable Integer failureTolerancePercentage) {
+
             this.failureTolerancePercentage = failureTolerancePercentage;
             return this;
         }
         @CustomType.Setter
         public Builder maxConcurrencyCount(@Nullable Integer maxConcurrencyCount) {
+
             this.maxConcurrencyCount = maxConcurrencyCount;
             return this;
         }
         @CustomType.Setter
         public Builder maxConcurrencyPercentage(@Nullable Integer maxConcurrencyPercentage) {
+
             this.maxConcurrencyPercentage = maxConcurrencyPercentage;
             return this;
         }
         @CustomType.Setter
         public Builder regions(@Nullable List<String> regions) {
+
             this.regions = regions;
             return this;
         }

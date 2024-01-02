@@ -5,6 +5,7 @@ package com.pulumi.aws.organizations;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class OrganizationalUnitArgs extends com.pulumi.resources.ResourceA
         }
 
         public OrganizationalUnitArgs build() {
-            $.parentId = Objects.requireNonNull($.parentId, "expected parameter 'parentId' to be non-null");
+            if ($.parentId == null) {
+                throw new MissingRequiredPropertyException("OrganizationalUnitArgs", "parentId");
+            }
             return $;
         }
     }

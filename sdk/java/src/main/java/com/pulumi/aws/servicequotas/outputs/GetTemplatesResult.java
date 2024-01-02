@@ -5,6 +5,7 @@ package com.pulumi.aws.servicequotas.outputs;
 
 import com.pulumi.aws.servicequotas.outputs.GetTemplatesTemplate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -65,16 +66,23 @@ public final class GetTemplatesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTemplatesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetTemplatesResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder templates(@Nullable List<GetTemplatesTemplate> templates) {
+
             this.templates = templates;
             return this;
         }

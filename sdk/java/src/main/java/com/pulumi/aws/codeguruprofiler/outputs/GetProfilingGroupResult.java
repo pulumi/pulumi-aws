@@ -4,6 +4,7 @@
 package com.pulumi.aws.codeguruprofiler.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Object;
 import java.lang.String;
 import java.util.List;
@@ -141,47 +142,74 @@ public final class GetProfilingGroupResult {
 
         @CustomType.Setter
         public Builder agentOrchestrationConfigs(List<Map<String,Object>> agentOrchestrationConfigs) {
-            this.agentOrchestrationConfigs = Objects.requireNonNull(agentOrchestrationConfigs);
+            if (agentOrchestrationConfigs == null) {
+              throw new MissingRequiredPropertyException("GetProfilingGroupResult", "agentOrchestrationConfigs");
+            }
+            this.agentOrchestrationConfigs = agentOrchestrationConfigs;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetProfilingGroupResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder computePlatform(String computePlatform) {
-            this.computePlatform = Objects.requireNonNull(computePlatform);
+            if (computePlatform == null) {
+              throw new MissingRequiredPropertyException("GetProfilingGroupResult", "computePlatform");
+            }
+            this.computePlatform = computePlatform;
             return this;
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetProfilingGroupResult", "createdAt");
+            }
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetProfilingGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetProfilingGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder profilingStatuses(List<Map<String,Object>> profilingStatuses) {
-            this.profilingStatuses = Objects.requireNonNull(profilingStatuses);
+            if (profilingStatuses == null) {
+              throw new MissingRequiredPropertyException("GetProfilingGroupResult", "profilingStatuses");
+            }
+            this.profilingStatuses = profilingStatuses;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetProfilingGroupResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder updatedAt(String updatedAt) {
-            this.updatedAt = Objects.requireNonNull(updatedAt);
+            if (updatedAt == null) {
+              throw new MissingRequiredPropertyException("GetProfilingGroupResult", "updatedAt");
+            }
+            this.updatedAt = updatedAt;
             return this;
         }
         public GetProfilingGroupResult build() {

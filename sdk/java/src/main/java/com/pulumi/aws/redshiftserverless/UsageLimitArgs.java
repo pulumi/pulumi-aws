@@ -5,6 +5,7 @@ package com.pulumi.aws.redshiftserverless;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,9 +226,15 @@ public final class UsageLimitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UsageLimitArgs build() {
-            $.amount = Objects.requireNonNull($.amount, "expected parameter 'amount' to be non-null");
-            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
-            $.usageType = Objects.requireNonNull($.usageType, "expected parameter 'usageType' to be non-null");
+            if ($.amount == null) {
+                throw new MissingRequiredPropertyException("UsageLimitArgs", "amount");
+            }
+            if ($.resourceArn == null) {
+                throw new MissingRequiredPropertyException("UsageLimitArgs", "resourceArn");
+            }
+            if ($.usageType == null) {
+                throw new MissingRequiredPropertyException("UsageLimitArgs", "usageType");
+            }
             return $;
         }
     }

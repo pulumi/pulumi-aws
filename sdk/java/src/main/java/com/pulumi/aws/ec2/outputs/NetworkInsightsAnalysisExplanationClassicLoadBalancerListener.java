@@ -42,11 +42,13 @@ public final class NetworkInsightsAnalysisExplanationClassicLoadBalancerListener
 
         @CustomType.Setter
         public Builder instancePort(@Nullable Integer instancePort) {
+
             this.instancePort = instancePort;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerPort(@Nullable Integer loadBalancerPort) {
+
             this.loadBalancerPort = loadBalancerPort;
             return this;
         }

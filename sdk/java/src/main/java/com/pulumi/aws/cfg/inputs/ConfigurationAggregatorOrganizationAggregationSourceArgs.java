@@ -5,6 +5,7 @@ package com.pulumi.aws.cfg.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -170,7 +171,9 @@ public final class ConfigurationAggregatorOrganizationAggregationSourceArgs exte
         }
 
         public ConfigurationAggregatorOrganizationAggregationSourceArgs build() {
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("ConfigurationAggregatorOrganizationAggregationSourceArgs", "roleArn");
+            }
             return $;
         }
     }

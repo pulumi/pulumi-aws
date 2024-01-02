@@ -5,6 +5,7 @@ package com.pulumi.aws.codeartifact;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class RepositoryPermissionsPolicyArgs extends com.pulumi.resources.
         }
 
         public RepositoryPermissionsPolicyArgs build() {
-            $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");
-            $.policyDocument = Objects.requireNonNull($.policyDocument, "expected parameter 'policyDocument' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.domain == null) {
+                throw new MissingRequiredPropertyException("RepositoryPermissionsPolicyArgs", "domain");
+            }
+            if ($.policyDocument == null) {
+                throw new MissingRequiredPropertyException("RepositoryPermissionsPolicyArgs", "policyDocument");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("RepositoryPermissionsPolicyArgs", "repository");
+            }
             return $;
         }
     }

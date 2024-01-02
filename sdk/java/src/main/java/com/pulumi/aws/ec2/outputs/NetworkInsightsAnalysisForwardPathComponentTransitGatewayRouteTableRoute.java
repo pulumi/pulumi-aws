@@ -72,36 +72,43 @@ public final class NetworkInsightsAnalysisForwardPathComponentTransitGatewayRout
 
         @CustomType.Setter
         public Builder attachmentId(@Nullable String attachmentId) {
+
             this.attachmentId = attachmentId;
             return this;
         }
         @CustomType.Setter
         public Builder destinationCidr(@Nullable String destinationCidr) {
+
             this.destinationCidr = destinationCidr;
             return this;
         }
         @CustomType.Setter
         public Builder prefixListId(@Nullable String prefixListId) {
+
             this.prefixListId = prefixListId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceId(@Nullable String resourceId) {
+
             this.resourceId = resourceId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceType(@Nullable String resourceType) {
+
             this.resourceType = resourceType;
             return this;
         }
         @CustomType.Setter
         public Builder routeOrigin(@Nullable String routeOrigin) {
+
             this.routeOrigin = routeOrigin;
             return this;
         }
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }

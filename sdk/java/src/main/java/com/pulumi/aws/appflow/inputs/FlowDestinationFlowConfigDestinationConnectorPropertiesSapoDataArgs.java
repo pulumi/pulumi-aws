@@ -7,6 +7,7 @@ import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnect
 import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -237,7 +238,9 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         public FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs build() {
-            $.objectPath = Objects.requireNonNull($.objectPath, "expected parameter 'objectPath' to be non-null");
+            if ($.objectPath == null) {
+                throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs", "objectPath");
+            }
             return $;
         }
     }

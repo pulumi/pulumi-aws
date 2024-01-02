@@ -5,6 +5,7 @@ package com.pulumi.aws.lb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class TargetGroupTargetFailoverArgs extends com.pulumi.resources.Re
         }
 
         public TargetGroupTargetFailoverArgs build() {
-            $.onDeregistration = Objects.requireNonNull($.onDeregistration, "expected parameter 'onDeregistration' to be non-null");
-            $.onUnhealthy = Objects.requireNonNull($.onUnhealthy, "expected parameter 'onUnhealthy' to be non-null");
+            if ($.onDeregistration == null) {
+                throw new MissingRequiredPropertyException("TargetGroupTargetFailoverArgs", "onDeregistration");
+            }
+            if ($.onUnhealthy == null) {
+                throw new MissingRequiredPropertyException("TargetGroupTargetFailoverArgs", "onUnhealthy");
+            }
             return $;
         }
     }

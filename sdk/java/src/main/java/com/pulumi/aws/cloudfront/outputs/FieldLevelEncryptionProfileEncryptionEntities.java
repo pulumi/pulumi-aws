@@ -36,6 +36,7 @@ public final class FieldLevelEncryptionProfileEncryptionEntities {
 
         @CustomType.Setter
         public Builder items(@Nullable List<FieldLevelEncryptionProfileEncryptionEntitiesItem> items) {
+
             this.items = items;
             return this;
         }

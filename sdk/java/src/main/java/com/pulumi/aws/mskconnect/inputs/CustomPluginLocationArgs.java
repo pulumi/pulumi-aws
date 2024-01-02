@@ -6,6 +6,7 @@ package com.pulumi.aws.mskconnect.inputs;
 import com.pulumi.aws.mskconnect.inputs.CustomPluginLocationS3Args;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class CustomPluginLocationArgs extends com.pulumi.resources.Resourc
         }
 
         public CustomPluginLocationArgs build() {
-            $.s3 = Objects.requireNonNull($.s3, "expected parameter 's3' to be non-null");
+            if ($.s3 == null) {
+                throw new MissingRequiredPropertyException("CustomPluginLocationArgs", "s3");
+            }
             return $;
         }
     }

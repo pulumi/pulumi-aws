@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AttachmentAccepterArgs extends com.pulumi.resources.ResourceA
         }
 
         public AttachmentAccepterArgs build() {
-            $.attachmentId = Objects.requireNonNull($.attachmentId, "expected parameter 'attachmentId' to be non-null");
-            $.attachmentType = Objects.requireNonNull($.attachmentType, "expected parameter 'attachmentType' to be non-null");
+            if ($.attachmentId == null) {
+                throw new MissingRequiredPropertyException("AttachmentAccepterArgs", "attachmentId");
+            }
+            if ($.attachmentType == null) {
+                throw new MissingRequiredPropertyException("AttachmentAccepterArgs", "attachmentType");
+            }
             return $;
         }
     }

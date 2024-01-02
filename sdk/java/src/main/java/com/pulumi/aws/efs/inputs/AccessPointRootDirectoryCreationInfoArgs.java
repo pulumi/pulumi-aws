@@ -5,6 +5,7 @@ package com.pulumi.aws.efs.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class AccessPointRootDirectoryCreationInfoArgs extends com.pulumi.r
         }
 
         public AccessPointRootDirectoryCreationInfoArgs build() {
-            $.ownerGid = Objects.requireNonNull($.ownerGid, "expected parameter 'ownerGid' to be non-null");
-            $.ownerUid = Objects.requireNonNull($.ownerUid, "expected parameter 'ownerUid' to be non-null");
-            $.permissions = Objects.requireNonNull($.permissions, "expected parameter 'permissions' to be non-null");
+            if ($.ownerGid == null) {
+                throw new MissingRequiredPropertyException("AccessPointRootDirectoryCreationInfoArgs", "ownerGid");
+            }
+            if ($.ownerUid == null) {
+                throw new MissingRequiredPropertyException("AccessPointRootDirectoryCreationInfoArgs", "ownerUid");
+            }
+            if ($.permissions == null) {
+                throw new MissingRequiredPropertyException("AccessPointRootDirectoryCreationInfoArgs", "permissions");
+            }
             return $;
         }
     }

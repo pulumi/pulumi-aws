@@ -4,6 +4,7 @@
 package com.pulumi.aws.alb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -96,57 +97,90 @@ public final class GetListenerDefaultActionAuthenticateOidc {
 
         @CustomType.Setter
         public Builder authenticationRequestExtraParams(Map<String,String> authenticationRequestExtraParams) {
-            this.authenticationRequestExtraParams = Objects.requireNonNull(authenticationRequestExtraParams);
+            if (authenticationRequestExtraParams == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionAuthenticateOidc", "authenticationRequestExtraParams");
+            }
+            this.authenticationRequestExtraParams = authenticationRequestExtraParams;
             return this;
         }
         @CustomType.Setter
         public Builder authorizationEndpoint(String authorizationEndpoint) {
-            this.authorizationEndpoint = Objects.requireNonNull(authorizationEndpoint);
+            if (authorizationEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionAuthenticateOidc", "authorizationEndpoint");
+            }
+            this.authorizationEndpoint = authorizationEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionAuthenticateOidc", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
-            this.clientSecret = Objects.requireNonNull(clientSecret);
+            if (clientSecret == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionAuthenticateOidc", "clientSecret");
+            }
+            this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+            if (issuer == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionAuthenticateOidc", "issuer");
+            }
+            this.issuer = issuer;
             return this;
         }
         @CustomType.Setter
         public Builder onUnauthenticatedRequest(String onUnauthenticatedRequest) {
-            this.onUnauthenticatedRequest = Objects.requireNonNull(onUnauthenticatedRequest);
+            if (onUnauthenticatedRequest == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionAuthenticateOidc", "onUnauthenticatedRequest");
+            }
+            this.onUnauthenticatedRequest = onUnauthenticatedRequest;
             return this;
         }
         @CustomType.Setter
         public Builder scope(String scope) {
-            this.scope = Objects.requireNonNull(scope);
+            if (scope == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionAuthenticateOidc", "scope");
+            }
+            this.scope = scope;
             return this;
         }
         @CustomType.Setter
         public Builder sessionCookieName(String sessionCookieName) {
-            this.sessionCookieName = Objects.requireNonNull(sessionCookieName);
+            if (sessionCookieName == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionAuthenticateOidc", "sessionCookieName");
+            }
+            this.sessionCookieName = sessionCookieName;
             return this;
         }
         @CustomType.Setter
         public Builder sessionTimeout(Integer sessionTimeout) {
-            this.sessionTimeout = Objects.requireNonNull(sessionTimeout);
+            if (sessionTimeout == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionAuthenticateOidc", "sessionTimeout");
+            }
+            this.sessionTimeout = sessionTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder tokenEndpoint(String tokenEndpoint) {
-            this.tokenEndpoint = Objects.requireNonNull(tokenEndpoint);
+            if (tokenEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionAuthenticateOidc", "tokenEndpoint");
+            }
+            this.tokenEndpoint = tokenEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder userInfoEndpoint(String userInfoEndpoint) {
-            this.userInfoEndpoint = Objects.requireNonNull(userInfoEndpoint);
+            if (userInfoEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultActionAuthenticateOidc", "userInfoEndpoint");
+            }
+            this.userInfoEndpoint = userInfoEndpoint;
             return this;
         }
         public GetListenerDefaultActionAuthenticateOidc build() {

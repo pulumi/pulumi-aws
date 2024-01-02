@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class ProvisioningTemplatePreProvisioningHook {
 
         @CustomType.Setter
         public Builder payloadVersion(@Nullable String payloadVersion) {
+
             this.payloadVersion = payloadVersion;
             return this;
         }
         @CustomType.Setter
         public Builder targetArn(String targetArn) {
-            this.targetArn = Objects.requireNonNull(targetArn);
+            if (targetArn == null) {
+              throw new MissingRequiredPropertyException("ProvisioningTemplatePreProvisioningHook", "targetArn");
+            }
+            this.targetArn = targetArn;
             return this;
         }
         public ProvisioningTemplatePreProvisioningHook build() {

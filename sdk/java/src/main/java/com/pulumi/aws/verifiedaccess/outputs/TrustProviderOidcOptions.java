@@ -4,6 +4,7 @@
 package com.pulumi.aws.verifiedaccess.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,36 +73,45 @@ public final class TrustProviderOidcOptions {
 
         @CustomType.Setter
         public Builder authorizationEndpoint(@Nullable String authorizationEndpoint) {
+
             this.authorizationEndpoint = authorizationEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder clientId(@Nullable String clientId) {
+
             this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
-            this.clientSecret = Objects.requireNonNull(clientSecret);
+            if (clientSecret == null) {
+              throw new MissingRequiredPropertyException("TrustProviderOidcOptions", "clientSecret");
+            }
+            this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
+
             this.issuer = issuer;
             return this;
         }
         @CustomType.Setter
         public Builder scope(@Nullable String scope) {
+
             this.scope = scope;
             return this;
         }
         @CustomType.Setter
         public Builder tokenEndpoint(@Nullable String tokenEndpoint) {
+
             this.tokenEndpoint = tokenEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder userInfoEndpoint(@Nullable String userInfoEndpoint) {
+
             this.userInfoEndpoint = userInfoEndpoint;
             return this;
         }

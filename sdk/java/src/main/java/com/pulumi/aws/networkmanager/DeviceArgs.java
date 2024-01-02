@@ -7,6 +7,7 @@ import com.pulumi.aws.networkmanager.inputs.DeviceAwsLocationArgs;
 import com.pulumi.aws.networkmanager.inputs.DeviceLocationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -412,7 +413,9 @@ public final class DeviceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DeviceArgs build() {
-            $.globalNetworkId = Objects.requireNonNull($.globalNetworkId, "expected parameter 'globalNetworkId' to be non-null");
+            if ($.globalNetworkId == null) {
+                throw new MissingRequiredPropertyException("DeviceArgs", "globalNetworkId");
+            }
             return $;
         }
     }

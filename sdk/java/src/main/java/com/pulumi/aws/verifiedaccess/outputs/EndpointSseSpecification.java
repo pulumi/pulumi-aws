@@ -43,11 +43,13 @@ public final class EndpointSseSpecification {
 
         @CustomType.Setter
         public Builder customerManagedKeyEnabled(@Nullable Boolean customerManagedKeyEnabled) {
+
             this.customerManagedKeyEnabled = customerManagedKeyEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }

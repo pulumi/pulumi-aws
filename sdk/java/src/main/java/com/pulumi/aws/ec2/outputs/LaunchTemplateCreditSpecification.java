@@ -50,6 +50,7 @@ public final class LaunchTemplateCreditSpecification {
 
         @CustomType.Setter
         public Builder cpuCredits(@Nullable String cpuCredits) {
+
             this.cpuCredits = cpuCredits;
             return this;
         }

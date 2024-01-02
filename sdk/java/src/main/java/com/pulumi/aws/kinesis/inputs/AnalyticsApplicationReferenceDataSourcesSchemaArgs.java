@@ -7,6 +7,7 @@ import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationReferenceDataSourcesSch
 import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -172,8 +173,12 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaArgs extends co
         }
 
         public AnalyticsApplicationReferenceDataSourcesSchemaArgs build() {
-            $.recordColumns = Objects.requireNonNull($.recordColumns, "expected parameter 'recordColumns' to be non-null");
-            $.recordFormat = Objects.requireNonNull($.recordFormat, "expected parameter 'recordFormat' to be non-null");
+            if ($.recordColumns == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSourcesSchemaArgs", "recordColumns");
+            }
+            if ($.recordFormat == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSourcesSchemaArgs", "recordFormat");
+            }
             return $;
         }
     }

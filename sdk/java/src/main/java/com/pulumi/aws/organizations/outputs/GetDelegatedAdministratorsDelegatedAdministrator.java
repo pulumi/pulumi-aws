@@ -4,6 +4,7 @@
 package com.pulumi.aws.organizations.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -140,42 +141,66 @@ public final class GetDelegatedAdministratorsDelegatedAdministrator {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetDelegatedAdministratorsDelegatedAdministrator", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder delegationEnabledDate(String delegationEnabledDate) {
-            this.delegationEnabledDate = Objects.requireNonNull(delegationEnabledDate);
+            if (delegationEnabledDate == null) {
+              throw new MissingRequiredPropertyException("GetDelegatedAdministratorsDelegatedAdministrator", "delegationEnabledDate");
+            }
+            this.delegationEnabledDate = delegationEnabledDate;
             return this;
         }
         @CustomType.Setter
         public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
+            if (email == null) {
+              throw new MissingRequiredPropertyException("GetDelegatedAdministratorsDelegatedAdministrator", "email");
+            }
+            this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDelegatedAdministratorsDelegatedAdministrator", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder joinedMethod(String joinedMethod) {
-            this.joinedMethod = Objects.requireNonNull(joinedMethod);
+            if (joinedMethod == null) {
+              throw new MissingRequiredPropertyException("GetDelegatedAdministratorsDelegatedAdministrator", "joinedMethod");
+            }
+            this.joinedMethod = joinedMethod;
             return this;
         }
         @CustomType.Setter
         public Builder joinedTimestamp(String joinedTimestamp) {
-            this.joinedTimestamp = Objects.requireNonNull(joinedTimestamp);
+            if (joinedTimestamp == null) {
+              throw new MissingRequiredPropertyException("GetDelegatedAdministratorsDelegatedAdministrator", "joinedTimestamp");
+            }
+            this.joinedTimestamp = joinedTimestamp;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDelegatedAdministratorsDelegatedAdministrator", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetDelegatedAdministratorsDelegatedAdministrator", "status");
+            }
+            this.status = status;
             return this;
         }
         public GetDelegatedAdministratorsDelegatedAdministrator build() {

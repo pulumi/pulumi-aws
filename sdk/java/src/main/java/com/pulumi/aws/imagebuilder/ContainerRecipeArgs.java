@@ -8,6 +8,7 @@ import com.pulumi.aws.imagebuilder.inputs.ContainerRecipeInstanceConfigurationAr
 import com.pulumi.aws.imagebuilder.inputs.ContainerRecipeTargetRepositoryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -580,11 +581,21 @@ public final class ContainerRecipeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ContainerRecipeArgs build() {
-            $.components = Objects.requireNonNull($.components, "expected parameter 'components' to be non-null");
-            $.containerType = Objects.requireNonNull($.containerType, "expected parameter 'containerType' to be non-null");
-            $.parentImage = Objects.requireNonNull($.parentImage, "expected parameter 'parentImage' to be non-null");
-            $.targetRepository = Objects.requireNonNull($.targetRepository, "expected parameter 'targetRepository' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.components == null) {
+                throw new MissingRequiredPropertyException("ContainerRecipeArgs", "components");
+            }
+            if ($.containerType == null) {
+                throw new MissingRequiredPropertyException("ContainerRecipeArgs", "containerType");
+            }
+            if ($.parentImage == null) {
+                throw new MissingRequiredPropertyException("ContainerRecipeArgs", "parentImage");
+            }
+            if ($.targetRepository == null) {
+                throw new MissingRequiredPropertyException("ContainerRecipeArgs", "targetRepository");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("ContainerRecipeArgs", "version");
+            }
             return $;
         }
     }

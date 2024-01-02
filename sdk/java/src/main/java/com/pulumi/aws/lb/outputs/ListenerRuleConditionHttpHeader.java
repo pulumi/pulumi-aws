@@ -4,6 +4,7 @@
 package com.pulumi.aws.lb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class ListenerRuleConditionHttpHeader {
 
         @CustomType.Setter
         public Builder httpHeaderName(String httpHeaderName) {
-            this.httpHeaderName = Objects.requireNonNull(httpHeaderName);
+            if (httpHeaderName == null) {
+              throw new MissingRequiredPropertyException("ListenerRuleConditionHttpHeader", "httpHeaderName");
+            }
+            this.httpHeaderName = httpHeaderName;
             return this;
         }
         @CustomType.Setter
         public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+            if (values == null) {
+              throw new MissingRequiredPropertyException("ListenerRuleConditionHttpHeader", "values");
+            }
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {

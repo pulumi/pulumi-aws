@@ -10,6 +10,7 @@ import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecListenerPortMapping;
 import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecListenerTimeout;
 import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecListenerTls;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -119,31 +120,39 @@ public final class VirtualNodeSpecListener {
 
         @CustomType.Setter
         public Builder connectionPool(@Nullable VirtualNodeSpecListenerConnectionPool connectionPool) {
+
             this.connectionPool = connectionPool;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheck(@Nullable VirtualNodeSpecListenerHealthCheck healthCheck) {
+
             this.healthCheck = healthCheck;
             return this;
         }
         @CustomType.Setter
         public Builder outlierDetection(@Nullable VirtualNodeSpecListenerOutlierDetection outlierDetection) {
+
             this.outlierDetection = outlierDetection;
             return this;
         }
         @CustomType.Setter
         public Builder portMapping(VirtualNodeSpecListenerPortMapping portMapping) {
-            this.portMapping = Objects.requireNonNull(portMapping);
+            if (portMapping == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecListener", "portMapping");
+            }
+            this.portMapping = portMapping;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(@Nullable VirtualNodeSpecListenerTimeout timeout) {
+
             this.timeout = timeout;
             return this;
         }
         @CustomType.Setter
         public Builder tls(@Nullable VirtualNodeSpecListenerTls tls) {
+
             this.tls = tls;
             return this;
         }

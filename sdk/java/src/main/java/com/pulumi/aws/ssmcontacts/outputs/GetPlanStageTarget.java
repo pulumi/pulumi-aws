@@ -6,6 +6,7 @@ package com.pulumi.aws.ssmcontacts.outputs;
 import com.pulumi.aws.ssmcontacts.outputs.GetPlanStageTargetChannelTargetInfo;
 import com.pulumi.aws.ssmcontacts.outputs.GetPlanStageTargetContactTargetInfo;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetPlanStageTarget {
 
         @CustomType.Setter
         public Builder channelTargetInfos(List<GetPlanStageTargetChannelTargetInfo> channelTargetInfos) {
-            this.channelTargetInfos = Objects.requireNonNull(channelTargetInfos);
+            if (channelTargetInfos == null) {
+              throw new MissingRequiredPropertyException("GetPlanStageTarget", "channelTargetInfos");
+            }
+            this.channelTargetInfos = channelTargetInfos;
             return this;
         }
         public Builder channelTargetInfos(GetPlanStageTargetChannelTargetInfo... channelTargetInfos) {
@@ -50,7 +54,10 @@ public final class GetPlanStageTarget {
         }
         @CustomType.Setter
         public Builder contactTargetInfos(List<GetPlanStageTargetContactTargetInfo> contactTargetInfos) {
-            this.contactTargetInfos = Objects.requireNonNull(contactTargetInfos);
+            if (contactTargetInfos == null) {
+              throw new MissingRequiredPropertyException("GetPlanStageTarget", "contactTargetInfos");
+            }
+            this.contactTargetInfos = contactTargetInfos;
             return this;
         }
         public Builder contactTargetInfos(GetPlanStageTargetContactTargetInfo... contactTargetInfos) {

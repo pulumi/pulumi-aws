@@ -100,26 +100,31 @@ public final class DirectorySelfServicePermissions {
 
         @CustomType.Setter
         public Builder changeComputeType(@Nullable Boolean changeComputeType) {
+
             this.changeComputeType = changeComputeType;
             return this;
         }
         @CustomType.Setter
         public Builder increaseVolumeSize(@Nullable Boolean increaseVolumeSize) {
+
             this.increaseVolumeSize = increaseVolumeSize;
             return this;
         }
         @CustomType.Setter
         public Builder rebuildWorkspace(@Nullable Boolean rebuildWorkspace) {
+
             this.rebuildWorkspace = rebuildWorkspace;
             return this;
         }
         @CustomType.Setter
         public Builder restartWorkspace(@Nullable Boolean restartWorkspace) {
+
             this.restartWorkspace = restartWorkspace;
             return this;
         }
         @CustomType.Setter
         public Builder switchRunningMode(@Nullable Boolean switchRunningMode) {
+
             this.switchRunningMode = switchRunningMode;
             return this;
         }

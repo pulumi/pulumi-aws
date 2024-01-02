@@ -5,6 +5,7 @@ package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.aws.rds.outputs.OptionGroupOptionOptionSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -117,6 +118,7 @@ public final class OptionGroupOption {
 
         @CustomType.Setter
         public Builder dbSecurityGroupMemberships(@Nullable List<String> dbSecurityGroupMemberships) {
+
             this.dbSecurityGroupMemberships = dbSecurityGroupMemberships;
             return this;
         }
@@ -125,11 +127,15 @@ public final class OptionGroupOption {
         }
         @CustomType.Setter
         public Builder optionName(String optionName) {
-            this.optionName = Objects.requireNonNull(optionName);
+            if (optionName == null) {
+              throw new MissingRequiredPropertyException("OptionGroupOption", "optionName");
+            }
+            this.optionName = optionName;
             return this;
         }
         @CustomType.Setter
         public Builder optionSettings(@Nullable List<OptionGroupOptionOptionSetting> optionSettings) {
+
             this.optionSettings = optionSettings;
             return this;
         }
@@ -138,16 +144,19 @@ public final class OptionGroupOption {
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder vpcSecurityGroupMemberships(@Nullable List<String> vpcSecurityGroupMemberships) {
+
             this.vpcSecurityGroupMemberships = vpcSecurityGroupMemberships;
             return this;
         }

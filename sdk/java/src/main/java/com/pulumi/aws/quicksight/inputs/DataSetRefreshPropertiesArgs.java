@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.inputs;
 import com.pulumi.aws.quicksight.inputs.DataSetRefreshPropertiesRefreshConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class DataSetRefreshPropertiesArgs extends com.pulumi.resources.Res
         }
 
         public DataSetRefreshPropertiesArgs build() {
-            $.refreshConfiguration = Objects.requireNonNull($.refreshConfiguration, "expected parameter 'refreshConfiguration' to be non-null");
+            if ($.refreshConfiguration == null) {
+                throw new MissingRequiredPropertyException("DataSetRefreshPropertiesArgs", "refreshConfiguration");
+            }
             return $;
         }
     }

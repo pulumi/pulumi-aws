@@ -5,6 +5,7 @@ package com.pulumi.aws.dynamodb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TableTtlArgs build() {
-            $.attributeName = Objects.requireNonNull($.attributeName, "expected parameter 'attributeName' to be non-null");
+            if ($.attributeName == null) {
+                throw new MissingRequiredPropertyException("TableTtlArgs", "attributeName");
+            }
             return $;
         }
     }

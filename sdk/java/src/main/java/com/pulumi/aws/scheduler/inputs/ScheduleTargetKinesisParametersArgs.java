@@ -5,6 +5,7 @@ package com.pulumi.aws.scheduler.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ScheduleTargetKinesisParametersArgs extends com.pulumi.resour
         }
 
         public ScheduleTargetKinesisParametersArgs build() {
-            $.partitionKey = Objects.requireNonNull($.partitionKey, "expected parameter 'partitionKey' to be non-null");
+            if ($.partitionKey == null) {
+                throw new MissingRequiredPropertyException("ScheduleTargetKinesisParametersArgs", "partitionKey");
+            }
             return $;
         }
     }

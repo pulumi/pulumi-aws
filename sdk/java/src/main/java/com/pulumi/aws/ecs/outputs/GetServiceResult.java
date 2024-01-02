@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -140,47 +141,74 @@ public final class GetServiceResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder clusterArn(String clusterArn) {
-            this.clusterArn = Objects.requireNonNull(clusterArn);
+            if (clusterArn == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "clusterArn");
+            }
+            this.clusterArn = clusterArn;
             return this;
         }
         @CustomType.Setter
         public Builder desiredCount(Integer desiredCount) {
-            this.desiredCount = Objects.requireNonNull(desiredCount);
+            if (desiredCount == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "desiredCount");
+            }
+            this.desiredCount = desiredCount;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder launchType(String launchType) {
-            this.launchType = Objects.requireNonNull(launchType);
+            if (launchType == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "launchType");
+            }
+            this.launchType = launchType;
             return this;
         }
         @CustomType.Setter
         public Builder schedulingStrategy(String schedulingStrategy) {
-            this.schedulingStrategy = Objects.requireNonNull(schedulingStrategy);
+            if (schedulingStrategy == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "schedulingStrategy");
+            }
+            this.schedulingStrategy = schedulingStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder taskDefinition(String taskDefinition) {
-            this.taskDefinition = Objects.requireNonNull(taskDefinition);
+            if (taskDefinition == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "taskDefinition");
+            }
+            this.taskDefinition = taskDefinition;
             return this;
         }
         public GetServiceResult build() {

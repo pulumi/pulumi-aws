@@ -5,6 +5,7 @@ package com.pulumi.aws.sqs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class QueuePolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public QueuePolicyArgs build() {
-            $.policy = Objects.requireNonNull($.policy, "expected parameter 'policy' to be non-null");
-            $.queueUrl = Objects.requireNonNull($.queueUrl, "expected parameter 'queueUrl' to be non-null");
+            if ($.policy == null) {
+                throw new MissingRequiredPropertyException("QueuePolicyArgs", "policy");
+            }
+            if ($.queueUrl == null) {
+                throw new MissingRequiredPropertyException("QueuePolicyArgs", "queueUrl");
+            }
             return $;
         }
     }

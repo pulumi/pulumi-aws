@@ -5,6 +5,7 @@ package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.aws.msk.outputs.GetBrokerNodesNodeInfoList;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -56,17 +57,26 @@ public final class GetBrokerNodesResult {
 
         @CustomType.Setter
         public Builder clusterArn(String clusterArn) {
-            this.clusterArn = Objects.requireNonNull(clusterArn);
+            if (clusterArn == null) {
+              throw new MissingRequiredPropertyException("GetBrokerNodesResult", "clusterArn");
+            }
+            this.clusterArn = clusterArn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBrokerNodesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder nodeInfoLists(List<GetBrokerNodesNodeInfoList> nodeInfoLists) {
-            this.nodeInfoLists = Objects.requireNonNull(nodeInfoLists);
+            if (nodeInfoLists == null) {
+              throw new MissingRequiredPropertyException("GetBrokerNodesResult", "nodeInfoLists");
+            }
+            this.nodeInfoLists = nodeInfoLists;
             return this;
         }
         public Builder nodeInfoLists(GetBrokerNodesNodeInfoList... nodeInfoLists) {

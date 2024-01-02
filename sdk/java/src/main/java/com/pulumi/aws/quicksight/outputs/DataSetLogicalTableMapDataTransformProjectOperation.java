@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class DataSetLogicalTableMapDataTransformProjectOperation {
 
         @CustomType.Setter
         public Builder projectedColumns(List<String> projectedColumns) {
-            this.projectedColumns = Objects.requireNonNull(projectedColumns);
+            if (projectedColumns == null) {
+              throw new MissingRequiredPropertyException("DataSetLogicalTableMapDataTransformProjectOperation", "projectedColumns");
+            }
+            this.projectedColumns = projectedColumns;
             return this;
         }
         public Builder projectedColumns(String... projectedColumns) {

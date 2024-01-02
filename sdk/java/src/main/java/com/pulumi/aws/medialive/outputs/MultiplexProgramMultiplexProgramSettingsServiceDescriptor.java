@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class MultiplexProgramMultiplexProgramSettingsServiceDescriptor {
 
         @CustomType.Setter
         public Builder providerName(String providerName) {
-            this.providerName = Objects.requireNonNull(providerName);
+            if (providerName == null) {
+              throw new MissingRequiredPropertyException("MultiplexProgramMultiplexProgramSettingsServiceDescriptor", "providerName");
+            }
+            this.providerName = providerName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("MultiplexProgramMultiplexProgramSettingsServiceDescriptor", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         public MultiplexProgramMultiplexProgramSettingsServiceDescriptor build() {

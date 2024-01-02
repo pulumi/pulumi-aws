@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class TaskDefinitionProxyConfigurationArgs extends com.pulumi.resou
         }
 
         public TaskDefinitionProxyConfigurationArgs build() {
-            $.containerName = Objects.requireNonNull($.containerName, "expected parameter 'containerName' to be non-null");
+            if ($.containerName == null) {
+                throw new MissingRequiredPropertyException("TaskDefinitionProxyConfigurationArgs", "containerName");
+            }
             return $;
         }
     }

@@ -8,6 +8,7 @@ import com.pulumi.aws.customerprofiles.outputs.DomainRuleBasedMatchingConflictRe
 import com.pulumi.aws.customerprofiles.outputs.DomainRuleBasedMatchingExportingConfig;
 import com.pulumi.aws.customerprofiles.outputs.DomainRuleBasedMatchingMatchingRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -141,26 +142,33 @@ public final class DomainRuleBasedMatching {
 
         @CustomType.Setter
         public Builder attributeTypesSelector(@Nullable DomainRuleBasedMatchingAttributeTypesSelector attributeTypesSelector) {
+
             this.attributeTypesSelector = attributeTypesSelector;
             return this;
         }
         @CustomType.Setter
         public Builder conflictResolution(@Nullable DomainRuleBasedMatchingConflictResolution conflictResolution) {
+
             this.conflictResolution = conflictResolution;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("DomainRuleBasedMatching", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder exportingConfig(@Nullable DomainRuleBasedMatchingExportingConfig exportingConfig) {
+
             this.exportingConfig = exportingConfig;
             return this;
         }
         @CustomType.Setter
         public Builder matchingRules(@Nullable List<DomainRuleBasedMatchingMatchingRule> matchingRules) {
+
             this.matchingRules = matchingRules;
             return this;
         }
@@ -169,16 +177,19 @@ public final class DomainRuleBasedMatching {
         }
         @CustomType.Setter
         public Builder maxAllowedRuleLevelForMatching(@Nullable Integer maxAllowedRuleLevelForMatching) {
+
             this.maxAllowedRuleLevelForMatching = maxAllowedRuleLevelForMatching;
             return this;
         }
         @CustomType.Setter
         public Builder maxAllowedRuleLevelForMerging(@Nullable Integer maxAllowedRuleLevelForMerging) {
+
             this.maxAllowedRuleLevelForMerging = maxAllowedRuleLevelForMerging;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }

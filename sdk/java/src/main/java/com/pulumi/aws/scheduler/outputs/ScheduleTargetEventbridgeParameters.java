@@ -4,6 +4,7 @@
 package com.pulumi.aws.scheduler.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ScheduleTargetEventbridgeParameters {
 
         @CustomType.Setter
         public Builder detailType(String detailType) {
-            this.detailType = Objects.requireNonNull(detailType);
+            if (detailType == null) {
+              throw new MissingRequiredPropertyException("ScheduleTargetEventbridgeParameters", "detailType");
+            }
+            this.detailType = detailType;
             return this;
         }
         @CustomType.Setter
         public Builder source(String source) {
-            this.source = Objects.requireNonNull(source);
+            if (source == null) {
+              throw new MissingRequiredPropertyException("ScheduleTargetEventbridgeParameters", "source");
+            }
+            this.source = source;
             return this;
         }
         public ScheduleTargetEventbridgeParameters build() {

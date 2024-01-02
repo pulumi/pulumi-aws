@@ -72,16 +72,19 @@ public final class InsightFiltersNetworkSourcePort {
 
         @CustomType.Setter
         public Builder eq(@Nullable String eq) {
+
             this.eq = eq;
             return this;
         }
         @CustomType.Setter
         public Builder gte(@Nullable String gte) {
+
             this.gte = gte;
             return this;
         }
         @CustomType.Setter
         public Builder lte(@Nullable String lte) {
+
             this.lte = lte;
             return this;
         }

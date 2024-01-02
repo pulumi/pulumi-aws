@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttpRouteMatchQueryParameterMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -50,7 +51,10 @@ public final class GetRouteSpecHttpRouteMatchQueryParameter {
 
         @CustomType.Setter
         public Builder matches(List<GetRouteSpecHttpRouteMatchQueryParameterMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+            if (matches == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRouteMatchQueryParameter", "matches");
+            }
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetRouteSpecHttpRouteMatchQueryParameterMatch... matches) {
@@ -58,7 +62,10 @@ public final class GetRouteSpecHttpRouteMatchQueryParameter {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRouteMatchQueryParameter", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetRouteSpecHttpRouteMatchQueryParameter build() {

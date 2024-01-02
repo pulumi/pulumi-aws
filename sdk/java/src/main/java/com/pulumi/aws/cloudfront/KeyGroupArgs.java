@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,7 +162,9 @@ public final class KeyGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KeyGroupArgs build() {
-            $.items = Objects.requireNonNull($.items, "expected parameter 'items' to be non-null");
+            if ($.items == null) {
+                throw new MissingRequiredPropertyException("KeyGroupArgs", "items");
+            }
             return $;
         }
     }

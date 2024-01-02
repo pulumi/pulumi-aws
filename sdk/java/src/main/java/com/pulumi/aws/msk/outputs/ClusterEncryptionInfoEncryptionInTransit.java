@@ -59,11 +59,13 @@ public final class ClusterEncryptionInfoEncryptionInTransit {
 
         @CustomType.Setter
         public Builder clientBroker(@Nullable String clientBroker) {
+
             this.clientBroker = clientBroker;
             return this;
         }
         @CustomType.Setter
         public Builder inCluster(@Nullable Boolean inCluster) {
+
             this.inCluster = inCluster;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -335,9 +336,15 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserArgs build() {
-            $.email = Objects.requireNonNull($.email, "expected parameter 'email' to be non-null");
-            $.identityType = Objects.requireNonNull($.identityType, "expected parameter 'identityType' to be non-null");
-            $.userRole = Objects.requireNonNull($.userRole, "expected parameter 'userRole' to be non-null");
+            if ($.email == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "email");
+            }
+            if ($.identityType == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "identityType");
+            }
+            if ($.userRole == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "userRole");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -336,8 +337,12 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LifecycleHookArgs build() {
-            $.autoscalingGroupName = Objects.requireNonNull($.autoscalingGroupName, "expected parameter 'autoscalingGroupName' to be non-null");
-            $.lifecycleTransition = Objects.requireNonNull($.lifecycleTransition, "expected parameter 'lifecycleTransition' to be non-null");
+            if ($.autoscalingGroupName == null) {
+                throw new MissingRequiredPropertyException("LifecycleHookArgs", "autoscalingGroupName");
+            }
+            if ($.lifecycleTransition == null) {
+                throw new MissingRequiredPropertyException("LifecycleHookArgs", "lifecycleTransition");
+            }
             return $;
         }
     }

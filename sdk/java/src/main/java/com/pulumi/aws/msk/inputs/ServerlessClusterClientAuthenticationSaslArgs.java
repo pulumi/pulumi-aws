@@ -6,6 +6,7 @@ package com.pulumi.aws.msk.inputs;
 import com.pulumi.aws.msk.inputs.ServerlessClusterClientAuthenticationSaslIamArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class ServerlessClusterClientAuthenticationSaslArgs extends com.pul
         }
 
         public ServerlessClusterClientAuthenticationSaslArgs build() {
-            $.iam = Objects.requireNonNull($.iam, "expected parameter 'iam' to be non-null");
+            if ($.iam == null) {
+                throw new MissingRequiredPropertyException("ServerlessClusterClientAuthenticationSaslArgs", "iam");
+            }
             return $;
         }
     }

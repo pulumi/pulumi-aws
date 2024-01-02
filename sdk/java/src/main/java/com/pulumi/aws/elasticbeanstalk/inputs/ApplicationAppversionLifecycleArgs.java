@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticbeanstalk.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -189,7 +190,9 @@ public final class ApplicationAppversionLifecycleArgs extends com.pulumi.resourc
         }
 
         public ApplicationAppversionLifecycleArgs build() {
-            $.serviceRole = Objects.requireNonNull($.serviceRole, "expected parameter 'serviceRole' to be non-null");
+            if ($.serviceRole == null) {
+                throw new MissingRequiredPropertyException("ApplicationAppversionLifecycleArgs", "serviceRole");
+            }
             return $;
         }
     }

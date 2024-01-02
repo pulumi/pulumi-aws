@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront.inputs;
 import com.pulumi.aws.cloudfront.inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesCon
         }
 
         public CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs build() {
-            $.cookieBehavior = Objects.requireNonNull($.cookieBehavior, "expected parameter 'cookieBehavior' to be non-null");
+            if ($.cookieBehavior == null) {
+                throw new MissingRequiredPropertyException("CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs", "cookieBehavior");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.dms.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -707,7 +708,9 @@ public final class EndpointKafkaSettingsArgs extends com.pulumi.resources.Resour
         }
 
         public EndpointKafkaSettingsArgs build() {
-            $.broker = Objects.requireNonNull($.broker, "expected parameter 'broker' to be non-null");
+            if ($.broker == null) {
+                throw new MissingRequiredPropertyException("EndpointKafkaSettingsArgs", "broker");
+            }
             return $;
         }
     }

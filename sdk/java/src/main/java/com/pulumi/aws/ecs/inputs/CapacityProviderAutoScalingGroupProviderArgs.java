@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs.inputs;
 import com.pulumi.aws.ecs.inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -151,7 +152,9 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
         }
 
         public CapacityProviderAutoScalingGroupProviderArgs build() {
-            $.autoScalingGroupArn = Objects.requireNonNull($.autoScalingGroupArn, "expected parameter 'autoScalingGroupArn' to be non-null");
+            if ($.autoScalingGroupArn == null) {
+                throw new MissingRequiredPropertyException("CapacityProviderAutoScalingGroupProviderArgs", "autoScalingGroupArn");
+            }
             return $;
         }
     }

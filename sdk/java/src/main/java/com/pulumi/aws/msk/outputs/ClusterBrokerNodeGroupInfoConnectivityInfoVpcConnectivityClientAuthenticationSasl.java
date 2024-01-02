@@ -58,11 +58,13 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClie
 
         @CustomType.Setter
         public Builder iam(@Nullable Boolean iam) {
+
             this.iam = iam;
             return this;
         }
         @CustomType.Setter
         public Builder scram(@Nullable Boolean scram) {
+
             this.scram = scram;
             return this;
         }

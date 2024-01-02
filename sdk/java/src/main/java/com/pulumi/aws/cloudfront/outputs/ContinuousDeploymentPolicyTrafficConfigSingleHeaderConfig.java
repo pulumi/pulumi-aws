@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig {
 
         @CustomType.Setter
         public Builder header(String header) {
-            this.header = Objects.requireNonNull(header);
+            if (header == null) {
+              throw new MissingRequiredPropertyException("ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig", "header");
+            }
+            this.header = header;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig", "value");
+            }
+            this.value = value;
             return this;
         }
         public ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig build() {

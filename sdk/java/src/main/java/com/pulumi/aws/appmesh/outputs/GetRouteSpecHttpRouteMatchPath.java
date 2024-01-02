@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetRouteSpecHttpRouteMatchPath {
 
         @CustomType.Setter
         public Builder exact(String exact) {
-            this.exact = Objects.requireNonNull(exact);
+            if (exact == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRouteMatchPath", "exact");
+            }
+            this.exact = exact;
             return this;
         }
         @CustomType.Setter
         public Builder regex(String regex) {
-            this.regex = Objects.requireNonNull(regex);
+            if (regex == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRouteMatchPath", "regex");
+            }
+            this.regex = regex;
             return this;
         }
         public GetRouteSpecHttpRouteMatchPath build() {

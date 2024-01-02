@@ -72,16 +72,19 @@ public final class FeatureGroupOfflineStoreConfigDataCatalogConfig {
 
         @CustomType.Setter
         public Builder catalog(@Nullable String catalog) {
+
             this.catalog = catalog;
             return this;
         }
         @CustomType.Setter
         public Builder database(@Nullable String database) {
+
             this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder tableName(@Nullable String tableName) {
+
             this.tableName = tableName;
             return this;
         }

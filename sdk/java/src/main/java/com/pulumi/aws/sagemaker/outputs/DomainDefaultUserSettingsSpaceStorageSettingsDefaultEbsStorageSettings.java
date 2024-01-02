@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorag
 
         @CustomType.Setter
         public Builder defaultEbsVolumeSizeInGb(Integer defaultEbsVolumeSizeInGb) {
-            this.defaultEbsVolumeSizeInGb = Objects.requireNonNull(defaultEbsVolumeSizeInGb);
+            if (defaultEbsVolumeSizeInGb == null) {
+              throw new MissingRequiredPropertyException("DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings", "defaultEbsVolumeSizeInGb");
+            }
+            this.defaultEbsVolumeSizeInGb = defaultEbsVolumeSizeInGb;
             return this;
         }
         @CustomType.Setter
         public Builder maximumEbsVolumeSizeInGb(Integer maximumEbsVolumeSizeInGb) {
-            this.maximumEbsVolumeSizeInGb = Objects.requireNonNull(maximumEbsVolumeSizeInGb);
+            if (maximumEbsVolumeSizeInGb == null) {
+              throw new MissingRequiredPropertyException("DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings", "maximumEbsVolumeSizeInGb");
+            }
+            this.maximumEbsVolumeSizeInGb = maximumEbsVolumeSizeInGb;
             return this;
         }
         public DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings build() {

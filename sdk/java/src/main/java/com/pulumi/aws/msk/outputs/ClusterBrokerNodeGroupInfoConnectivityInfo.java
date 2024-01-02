@@ -59,11 +59,13 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
 
         @CustomType.Setter
         public Builder publicAccess(@Nullable ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess publicAccess) {
+
             this.publicAccess = publicAccess;
             return this;
         }
         @CustomType.Setter
         public Builder vpcConnectivity(@Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity vpcConnectivity) {
+
             this.vpcConnectivity = vpcConnectivity;
             return this;
         }

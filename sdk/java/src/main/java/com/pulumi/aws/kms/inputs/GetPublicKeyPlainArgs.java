@@ -4,6 +4,7 @@
 package com.pulumi.aws.kms.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -115,7 +116,9 @@ public final class GetPublicKeyPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         public GetPublicKeyPlainArgs build() {
-            $.keyId = Objects.requireNonNull($.keyId, "expected parameter 'keyId' to be non-null");
+            if ($.keyId == null) {
+                throw new MissingRequiredPropertyException("GetPublicKeyPlainArgs", "keyId");
+            }
             return $;
         }
     }

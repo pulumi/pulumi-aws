@@ -44,6 +44,7 @@ public final class DomainDefaultUserSettingsSpaceStorageSettings {
 
         @CustomType.Setter
         public Builder defaultEbsStorageSettings(@Nullable DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings defaultEbsStorageSettings) {
+
             this.defaultEbsStorageSettings = defaultEbsStorageSettings;
             return this;
         }

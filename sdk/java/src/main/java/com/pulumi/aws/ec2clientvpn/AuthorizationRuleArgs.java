@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2clientvpn;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -225,8 +226,12 @@ public final class AuthorizationRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         public AuthorizationRuleArgs build() {
-            $.clientVpnEndpointId = Objects.requireNonNull($.clientVpnEndpointId, "expected parameter 'clientVpnEndpointId' to be non-null");
-            $.targetNetworkCidr = Objects.requireNonNull($.targetNetworkCidr, "expected parameter 'targetNetworkCidr' to be non-null");
+            if ($.clientVpnEndpointId == null) {
+                throw new MissingRequiredPropertyException("AuthorizationRuleArgs", "clientVpnEndpointId");
+            }
+            if ($.targetNetworkCidr == null) {
+                throw new MissingRequiredPropertyException("AuthorizationRuleArgs", "targetNetworkCidr");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront.inputs;
 import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -210,8 +211,12 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesArgs extends c
         }
 
         public DistributionDefaultCacheBehaviorForwardedValuesArgs build() {
-            $.cookies = Objects.requireNonNull($.cookies, "expected parameter 'cookies' to be non-null");
-            $.queryString = Objects.requireNonNull($.queryString, "expected parameter 'queryString' to be non-null");
+            if ($.cookies == null) {
+                throw new MissingRequiredPropertyException("DistributionDefaultCacheBehaviorForwardedValuesArgs", "cookies");
+            }
+            if ($.queryString == null) {
+                throw new MissingRequiredPropertyException("DistributionDefaultCacheBehaviorForwardedValuesArgs", "queryString");
+            }
             return $;
         }
     }

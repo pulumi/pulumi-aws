@@ -44,6 +44,7 @@ public final class TableSchema {
 
         @CustomType.Setter
         public Builder compositePartitionKey(@Nullable TableSchemaCompositePartitionKey compositePartitionKey) {
+
             this.compositePartitionKey = compositePartitionKey;
             return this;
         }

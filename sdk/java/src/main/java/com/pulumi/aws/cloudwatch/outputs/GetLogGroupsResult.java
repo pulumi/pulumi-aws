@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -79,7 +80,10 @@ public final class GetLogGroupsResult {
 
         @CustomType.Setter
         public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+            if (arns == null) {
+              throw new MissingRequiredPropertyException("GetLogGroupsResult", "arns");
+            }
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -87,17 +91,24 @@ public final class GetLogGroupsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLogGroupsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder logGroupNamePrefix(@Nullable String logGroupNamePrefix) {
+
             this.logGroupNamePrefix = logGroupNamePrefix;
             return this;
         }
         @CustomType.Setter
         public Builder logGroupNames(List<String> logGroupNames) {
-            this.logGroupNames = Objects.requireNonNull(logGroupNames);
+            if (logGroupNames == null) {
+              throw new MissingRequiredPropertyException("GetLogGroupsResult", "logGroupNames");
+            }
+            this.logGroupNames = logGroupNames;
             return this;
         }
         public Builder logGroupNames(String... logGroupNames) {

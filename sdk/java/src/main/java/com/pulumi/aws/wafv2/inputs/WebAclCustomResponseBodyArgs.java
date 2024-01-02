@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class WebAclCustomResponseBodyArgs extends com.pulumi.resources.Res
         }
 
         public WebAclCustomResponseBodyArgs build() {
-            $.content = Objects.requireNonNull($.content, "expected parameter 'content' to be non-null");
-            $.contentType = Objects.requireNonNull($.contentType, "expected parameter 'contentType' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.content == null) {
+                throw new MissingRequiredPropertyException("WebAclCustomResponseBodyArgs", "content");
+            }
+            if ($.contentType == null) {
+                throw new MissingRequiredPropertyException("WebAclCustomResponseBodyArgs", "contentType");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("WebAclCustomResponseBodyArgs", "key");
+            }
             return $;
         }
     }

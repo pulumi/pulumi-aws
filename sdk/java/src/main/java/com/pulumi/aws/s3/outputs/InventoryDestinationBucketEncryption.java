@@ -59,11 +59,13 @@ public final class InventoryDestinationBucketEncryption {
 
         @CustomType.Setter
         public Builder sseKms(@Nullable InventoryDestinationBucketEncryptionSseKms sseKms) {
+
             this.sseKms = sseKms;
             return this;
         }
         @CustomType.Setter
         public Builder sseS3(@Nullable InventoryDestinationBucketEncryptionSseS3 sseS3) {
+
             this.sseS3 = sseS3;
             return this;
         }

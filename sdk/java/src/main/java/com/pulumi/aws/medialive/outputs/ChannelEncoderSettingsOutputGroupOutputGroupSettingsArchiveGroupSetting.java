@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive.outputs;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -74,16 +75,21 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
 
         @CustomType.Setter
         public Builder archiveCdnSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings archiveCdnSettings) {
+
             this.archiveCdnSettings = archiveCdnSettings;
             return this;
         }
         @CustomType.Setter
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder rolloverInterval(@Nullable Integer rolloverInterval) {
+
             this.rolloverInterval = rolloverInterval;
             return this;
         }

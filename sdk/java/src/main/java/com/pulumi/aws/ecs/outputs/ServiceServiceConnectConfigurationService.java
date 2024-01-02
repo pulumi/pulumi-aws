@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.aws.ecs.outputs.ServiceServiceConnectConfigurationServiceClientAlias;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -89,6 +90,7 @@ public final class ServiceServiceConnectConfigurationService {
 
         @CustomType.Setter
         public Builder clientAlias(@Nullable List<ServiceServiceConnectConfigurationServiceClientAlias> clientAlias) {
+
             this.clientAlias = clientAlias;
             return this;
         }
@@ -97,17 +99,22 @@ public final class ServiceServiceConnectConfigurationService {
         }
         @CustomType.Setter
         public Builder discoveryName(@Nullable String discoveryName) {
+
             this.discoveryName = discoveryName;
             return this;
         }
         @CustomType.Setter
         public Builder ingressPortOverride(@Nullable Integer ingressPortOverride) {
+
             this.ingressPortOverride = ingressPortOverride;
             return this;
         }
         @CustomType.Setter
         public Builder portName(String portName) {
-            this.portName = Objects.requireNonNull(portName);
+            if (portName == null) {
+              throw new MissingRequiredPropertyException("ServiceServiceConnectConfigurationService", "portName");
+            }
+            this.portName = portName;
             return this;
         }
         public ServiceServiceConnectConfigurationService build() {

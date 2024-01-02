@@ -4,6 +4,7 @@
 package com.pulumi.aws.amp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -93,12 +94,16 @@ public final class GetWorkspacesResult {
 
         @CustomType.Setter
         public Builder aliasPrefix(@Nullable String aliasPrefix) {
+
             this.aliasPrefix = aliasPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder aliases(List<String> aliases) {
-            this.aliases = Objects.requireNonNull(aliases);
+            if (aliases == null) {
+              throw new MissingRequiredPropertyException("GetWorkspacesResult", "aliases");
+            }
+            this.aliases = aliases;
             return this;
         }
         public Builder aliases(String... aliases) {
@@ -106,7 +111,10 @@ public final class GetWorkspacesResult {
         }
         @CustomType.Setter
         public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+            if (arns == null) {
+              throw new MissingRequiredPropertyException("GetWorkspacesResult", "arns");
+            }
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -114,12 +122,18 @@ public final class GetWorkspacesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetWorkspacesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceIds(List<String> workspaceIds) {
-            this.workspaceIds = Objects.requireNonNull(workspaceIds);
+            if (workspaceIds == null) {
+              throw new MissingRequiredPropertyException("GetWorkspacesResult", "workspaceIds");
+            }
+            this.workspaceIds = workspaceIds;
             return this;
         }
         public Builder workspaceIds(String... workspaceIds) {

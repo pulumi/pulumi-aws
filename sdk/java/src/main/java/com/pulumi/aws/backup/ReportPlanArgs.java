@@ -7,6 +7,7 @@ import com.pulumi.aws.backup.inputs.ReportPlanReportDeliveryChannelArgs;
 import com.pulumi.aws.backup.inputs.ReportPlanReportSettingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -227,8 +228,12 @@ public final class ReportPlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ReportPlanArgs build() {
-            $.reportDeliveryChannel = Objects.requireNonNull($.reportDeliveryChannel, "expected parameter 'reportDeliveryChannel' to be non-null");
-            $.reportSetting = Objects.requireNonNull($.reportSetting, "expected parameter 'reportSetting' to be non-null");
+            if ($.reportDeliveryChannel == null) {
+                throw new MissingRequiredPropertyException("ReportPlanArgs", "reportDeliveryChannel");
+            }
+            if ($.reportSetting == null) {
+                throw new MissingRequiredPropertyException("ReportPlanArgs", "reportSetting");
+            }
             return $;
         }
     }

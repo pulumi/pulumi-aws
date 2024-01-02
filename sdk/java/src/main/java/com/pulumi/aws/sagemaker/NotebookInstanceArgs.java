@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.sagemaker.inputs.NotebookInstanceInstanceMetadataServiceConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -670,8 +671,12 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         public NotebookInstanceArgs build() {
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.instanceType == null) {
+                throw new MissingRequiredPropertyException("NotebookInstanceArgs", "instanceType");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("NotebookInstanceArgs", "roleArn");
+            }
             return $;
         }
     }

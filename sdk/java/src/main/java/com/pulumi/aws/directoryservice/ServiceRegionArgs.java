@@ -6,6 +6,7 @@ package com.pulumi.aws.directoryservice;
 import com.pulumi.aws.directoryservice.inputs.ServiceRegionVpcSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -227,9 +228,15 @@ public final class ServiceRegionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServiceRegionArgs build() {
-            $.directoryId = Objects.requireNonNull($.directoryId, "expected parameter 'directoryId' to be non-null");
-            $.regionName = Objects.requireNonNull($.regionName, "expected parameter 'regionName' to be non-null");
-            $.vpcSettings = Objects.requireNonNull($.vpcSettings, "expected parameter 'vpcSettings' to be non-null");
+            if ($.directoryId == null) {
+                throw new MissingRequiredPropertyException("ServiceRegionArgs", "directoryId");
+            }
+            if ($.regionName == null) {
+                throw new MissingRequiredPropertyException("ServiceRegionArgs", "regionName");
+            }
+            if ($.vpcSettings == null) {
+                throw new MissingRequiredPropertyException("ServiceRegionArgs", "vpcSettings");
+            }
             return $;
         }
     }

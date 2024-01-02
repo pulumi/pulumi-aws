@@ -72,16 +72,19 @@ public final class HumanTaskUIUiTemplate {
 
         @CustomType.Setter
         public Builder content(@Nullable String content) {
+
             this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder contentSha256(@Nullable String contentSha256) {
+
             this.contentSha256 = contentSha256;
             return this;
         }
         @CustomType.Setter
         public Builder url(@Nullable String url) {
+
             this.url = url;
             return this;
         }

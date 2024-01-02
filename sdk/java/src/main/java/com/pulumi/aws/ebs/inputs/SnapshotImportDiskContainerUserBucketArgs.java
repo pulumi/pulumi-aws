@@ -5,6 +5,7 @@ package com.pulumi.aws.ebs.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class SnapshotImportDiskContainerUserBucketArgs extends com.pulumi.
         }
 
         public SnapshotImportDiskContainerUserBucketArgs build() {
-            $.s3Bucket = Objects.requireNonNull($.s3Bucket, "expected parameter 's3Bucket' to be non-null");
-            $.s3Key = Objects.requireNonNull($.s3Key, "expected parameter 's3Key' to be non-null");
+            if ($.s3Bucket == null) {
+                throw new MissingRequiredPropertyException("SnapshotImportDiskContainerUserBucketArgs", "s3Bucket");
+            }
+            if ($.s3Key == null) {
+                throw new MissingRequiredPropertyException("SnapshotImportDiskContainerUserBucketArgs", "s3Key");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs extend
         }
 
         public GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs build() {
-            $.associationMethod = Objects.requireNonNull($.associationMethod, "expected parameter 'associationMethod' to be non-null");
+            if ($.associationMethod == null) {
+                throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs", "associationMethod");
+            }
             return $;
         }
     }

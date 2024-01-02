@@ -4,6 +4,7 @@
 package com.pulumi.aws.appsync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,22 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
 
         @CustomType.Setter
         public Builder appIdClientRegex(@Nullable String appIdClientRegex) {
+
             this.appIdClientRegex = appIdClientRegex;
             return this;
         }
         @CustomType.Setter
         public Builder awsRegion(@Nullable String awsRegion) {
+
             this.awsRegion = awsRegion;
             return this;
         }
         @CustomType.Setter
         public Builder userPoolId(String userPoolId) {
-            this.userPoolId = Objects.requireNonNull(userPoolId);
+            if (userPoolId == null) {
+              throw new MissingRequiredPropertyException("GraphQLApiAdditionalAuthenticationProviderUserPoolConfig", "userPoolId");
+            }
+            this.userPoolId = userPoolId;
             return this;
         }
         public GraphQLApiAdditionalAuthenticationProviderUserPoolConfig build() {

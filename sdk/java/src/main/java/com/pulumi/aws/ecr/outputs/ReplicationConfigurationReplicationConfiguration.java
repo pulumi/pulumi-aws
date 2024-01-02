@@ -5,6 +5,7 @@ package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.aws.ecr.outputs.ReplicationConfigurationReplicationConfigurationRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class ReplicationConfigurationReplicationConfiguration {
 
         @CustomType.Setter
         public Builder rules(List<ReplicationConfigurationReplicationConfigurationRule> rules) {
-            this.rules = Objects.requireNonNull(rules);
+            if (rules == null) {
+              throw new MissingRequiredPropertyException("ReplicationConfigurationReplicationConfiguration", "rules");
+            }
+            this.rules = rules;
             return this;
         }
         public Builder rules(ReplicationConfigurationReplicationConfigurationRule... rules) {

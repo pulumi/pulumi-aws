@@ -5,6 +5,7 @@ package com.pulumi.aws.chimesdkmediapipelines.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkCo
         }
 
         public MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs build() {
-            $.insightsTarget = Objects.requireNonNull($.insightsTarget, "expected parameter 'insightsTarget' to be non-null");
+            if ($.insightsTarget == null) {
+                throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs", "insightsTarget");
+            }
             return $;
         }
     }

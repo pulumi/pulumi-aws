@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,21 @@ public final class ServiceCapacityProviderStrategy {
 
         @CustomType.Setter
         public Builder base(@Nullable Integer base) {
+
             this.base = base;
             return this;
         }
         @CustomType.Setter
         public Builder capacityProvider(String capacityProvider) {
-            this.capacityProvider = Objects.requireNonNull(capacityProvider);
+            if (capacityProvider == null) {
+              throw new MissingRequiredPropertyException("ServiceCapacityProviderStrategy", "capacityProvider");
+            }
+            this.capacityProvider = capacityProvider;
             return this;
         }
         @CustomType.Setter
         public Builder weight(@Nullable Integer weight) {
+
             this.weight = weight;
             return this;
         }

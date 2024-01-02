@@ -5,6 +5,7 @@ package com.pulumi.aws.directoryservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -385,14 +386,30 @@ public final class RadiusSettingsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public RadiusSettingsArgs build() {
-            $.authenticationProtocol = Objects.requireNonNull($.authenticationProtocol, "expected parameter 'authenticationProtocol' to be non-null");
-            $.directoryId = Objects.requireNonNull($.directoryId, "expected parameter 'directoryId' to be non-null");
-            $.displayLabel = Objects.requireNonNull($.displayLabel, "expected parameter 'displayLabel' to be non-null");
-            $.radiusPort = Objects.requireNonNull($.radiusPort, "expected parameter 'radiusPort' to be non-null");
-            $.radiusRetries = Objects.requireNonNull($.radiusRetries, "expected parameter 'radiusRetries' to be non-null");
-            $.radiusServers = Objects.requireNonNull($.radiusServers, "expected parameter 'radiusServers' to be non-null");
-            $.radiusTimeout = Objects.requireNonNull($.radiusTimeout, "expected parameter 'radiusTimeout' to be non-null");
-            $.sharedSecret = Objects.requireNonNull($.sharedSecret, "expected parameter 'sharedSecret' to be non-null");
+            if ($.authenticationProtocol == null) {
+                throw new MissingRequiredPropertyException("RadiusSettingsArgs", "authenticationProtocol");
+            }
+            if ($.directoryId == null) {
+                throw new MissingRequiredPropertyException("RadiusSettingsArgs", "directoryId");
+            }
+            if ($.displayLabel == null) {
+                throw new MissingRequiredPropertyException("RadiusSettingsArgs", "displayLabel");
+            }
+            if ($.radiusPort == null) {
+                throw new MissingRequiredPropertyException("RadiusSettingsArgs", "radiusPort");
+            }
+            if ($.radiusRetries == null) {
+                throw new MissingRequiredPropertyException("RadiusSettingsArgs", "radiusRetries");
+            }
+            if ($.radiusServers == null) {
+                throw new MissingRequiredPropertyException("RadiusSettingsArgs", "radiusServers");
+            }
+            if ($.radiusTimeout == null) {
+                throw new MissingRequiredPropertyException("RadiusSettingsArgs", "radiusTimeout");
+            }
+            if ($.sharedSecret == null) {
+                throw new MissingRequiredPropertyException("RadiusSettingsArgs", "sharedSecret");
+            }
             return $;
         }
     }

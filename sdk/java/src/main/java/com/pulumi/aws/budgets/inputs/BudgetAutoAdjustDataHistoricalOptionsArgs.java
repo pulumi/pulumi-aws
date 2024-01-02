@@ -5,6 +5,7 @@ package com.pulumi.aws.budgets.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,7 +74,9 @@ public final class BudgetAutoAdjustDataHistoricalOptionsArgs extends com.pulumi.
         }
 
         public BudgetAutoAdjustDataHistoricalOptionsArgs build() {
-            $.budgetAdjustmentPeriod = Objects.requireNonNull($.budgetAdjustmentPeriod, "expected parameter 'budgetAdjustmentPeriod' to be non-null");
+            if ($.budgetAdjustmentPeriod == null) {
+                throw new MissingRequiredPropertyException("BudgetAutoAdjustDataHistoricalOptionsArgs", "budgetAdjustmentPeriod");
+            }
             return $;
         }
     }

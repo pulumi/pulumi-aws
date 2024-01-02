@@ -59,11 +59,13 @@ public final class ClusterOpenMonitoringPrometheus {
 
         @CustomType.Setter
         public Builder jmxExporter(@Nullable ClusterOpenMonitoringPrometheusJmxExporter jmxExporter) {
+
             this.jmxExporter = jmxExporter;
             return this;
         }
         @CustomType.Setter
         public Builder nodeExporter(@Nullable ClusterOpenMonitoringPrometheusNodeExporter nodeExporter) {
+
             this.nodeExporter = nodeExporter;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.appconfig;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -338,9 +339,15 @@ public final class DeploymentStrategyArgs extends com.pulumi.resources.ResourceA
         }
 
         public DeploymentStrategyArgs build() {
-            $.deploymentDurationInMinutes = Objects.requireNonNull($.deploymentDurationInMinutes, "expected parameter 'deploymentDurationInMinutes' to be non-null");
-            $.growthFactor = Objects.requireNonNull($.growthFactor, "expected parameter 'growthFactor' to be non-null");
-            $.replicateTo = Objects.requireNonNull($.replicateTo, "expected parameter 'replicateTo' to be non-null");
+            if ($.deploymentDurationInMinutes == null) {
+                throw new MissingRequiredPropertyException("DeploymentStrategyArgs", "deploymentDurationInMinutes");
+            }
+            if ($.growthFactor == null) {
+                throw new MissingRequiredPropertyException("DeploymentStrategyArgs", "growthFactor");
+            }
+            if ($.replicateTo == null) {
+                throw new MissingRequiredPropertyException("DeploymentStrategyArgs", "replicateTo");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.organizations.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -93,7 +94,9 @@ public final class GetResourceTagsPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         public GetResourceTagsPlainArgs build() {
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("GetResourceTagsPlainArgs", "resourceId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -60,7 +61,10 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMat
 
         @CustomType.Setter
         public Builder countryCodes(List<String> countryCodes) {
-            this.countryCodes = Objects.requireNonNull(countryCodes);
+            if (countryCodes == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement", "countryCodes");
+            }
+            this.countryCodes = countryCodes;
             return this;
         }
         public Builder countryCodes(String... countryCodes) {
@@ -68,6 +72,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMat
         }
         @CustomType.Setter
         public Builder forwardedIpConfig(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig forwardedIpConfig) {
+
             this.forwardedIpConfig = forwardedIpConfig;
             return this;
         }

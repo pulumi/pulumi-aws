@@ -6,6 +6,7 @@ package com.pulumi.aws.apigatewayv2;
 import com.pulumi.aws.apigatewayv2.inputs.ApiCorsConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -588,7 +589,9 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApiArgs build() {
-            $.protocolType = Objects.requireNonNull($.protocolType, "expected parameter 'protocolType' to be non-null");
+            if ($.protocolType == null) {
+                throw new MissingRequiredPropertyException("ApiArgs", "protocolType");
+            }
             return $;
         }
     }

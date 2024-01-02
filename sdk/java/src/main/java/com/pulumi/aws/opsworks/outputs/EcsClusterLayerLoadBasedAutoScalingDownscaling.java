@@ -75,6 +75,7 @@ public final class EcsClusterLayerLoadBasedAutoScalingDownscaling {
 
         @CustomType.Setter
         public Builder alarms(@Nullable List<String> alarms) {
+
             this.alarms = alarms;
             return this;
         }
@@ -83,31 +84,37 @@ public final class EcsClusterLayerLoadBasedAutoScalingDownscaling {
         }
         @CustomType.Setter
         public Builder cpuThreshold(@Nullable Double cpuThreshold) {
+
             this.cpuThreshold = cpuThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreMetricsTime(@Nullable Integer ignoreMetricsTime) {
+
             this.ignoreMetricsTime = ignoreMetricsTime;
             return this;
         }
         @CustomType.Setter
         public Builder instanceCount(@Nullable Integer instanceCount) {
+
             this.instanceCount = instanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder loadThreshold(@Nullable Double loadThreshold) {
+
             this.loadThreshold = loadThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder memoryThreshold(@Nullable Double memoryThreshold) {
+
             this.memoryThreshold = memoryThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder thresholdsWaitTime(@Nullable Integer thresholdsWaitTime) {
+
             this.thresholdsWaitTime = thresholdsWaitTime;
             return this;
         }

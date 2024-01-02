@@ -6,6 +6,7 @@ package com.pulumi.aws.cfg.outputs;
 import com.pulumi.aws.cfg.outputs.RuleSourceCustomPolicyDetails;
 import com.pulumi.aws.cfg.outputs.RuleSourceSourceDetail;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -89,16 +90,21 @@ public final class RuleSource {
 
         @CustomType.Setter
         public Builder customPolicyDetails(@Nullable RuleSourceCustomPolicyDetails customPolicyDetails) {
+
             this.customPolicyDetails = customPolicyDetails;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("RuleSource", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder sourceDetails(@Nullable List<RuleSourceSourceDetail> sourceDetails) {
+
             this.sourceDetails = sourceDetails;
             return this;
         }
@@ -107,6 +113,7 @@ public final class RuleSource {
         }
         @CustomType.Setter
         public Builder sourceIdentifier(@Nullable String sourceIdentifier) {
+
             this.sourceIdentifier = sourceIdentifier;
             return this;
         }

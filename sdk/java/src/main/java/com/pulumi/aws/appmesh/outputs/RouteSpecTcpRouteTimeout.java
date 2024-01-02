@@ -44,6 +44,7 @@ public final class RouteSpecTcpRouteTimeout {
 
         @CustomType.Setter
         public Builder idle(@Nullable RouteSpecTcpRouteTimeoutIdle idle) {
+
             this.idle = idle;
             return this;
         }

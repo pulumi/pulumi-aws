@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudtrail.outputs;
 
 import com.pulumi.aws.cloudtrail.outputs.TrailAdvancedEventSelectorFieldSelector;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -60,7 +61,10 @@ public final class TrailAdvancedEventSelector {
 
         @CustomType.Setter
         public Builder fieldSelectors(List<TrailAdvancedEventSelectorFieldSelector> fieldSelectors) {
-            this.fieldSelectors = Objects.requireNonNull(fieldSelectors);
+            if (fieldSelectors == null) {
+              throw new MissingRequiredPropertyException("TrailAdvancedEventSelector", "fieldSelectors");
+            }
+            this.fieldSelectors = fieldSelectors;
             return this;
         }
         public Builder fieldSelectors(TrailAdvancedEventSelectorFieldSelector... fieldSelectors) {
@@ -68,6 +72,7 @@ public final class TrailAdvancedEventSelector {
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

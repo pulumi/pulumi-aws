@@ -5,6 +5,7 @@ package com.pulumi.aws.connect;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class LambdaFunctionAssociationArgs extends com.pulumi.resources.Re
         }
 
         public LambdaFunctionAssociationArgs build() {
-            $.functionArn = Objects.requireNonNull($.functionArn, "expected parameter 'functionArn' to be non-null");
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
+            if ($.functionArn == null) {
+                throw new MissingRequiredPropertyException("LambdaFunctionAssociationArgs", "functionArn");
+            }
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("LambdaFunctionAssociationArgs", "instanceId");
+            }
             return $;
         }
     }

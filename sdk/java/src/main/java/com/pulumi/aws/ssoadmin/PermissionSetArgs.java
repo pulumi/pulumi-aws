@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -262,7 +263,9 @@ public final class PermissionSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PermissionSetArgs build() {
-            $.instanceArn = Objects.requireNonNull($.instanceArn, "expected parameter 'instanceArn' to be non-null");
+            if ($.instanceArn == null) {
+                throw new MissingRequiredPropertyException("PermissionSetArgs", "instanceArn");
+            }
             return $;
         }
     }

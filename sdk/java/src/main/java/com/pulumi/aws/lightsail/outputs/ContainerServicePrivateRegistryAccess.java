@@ -44,6 +44,7 @@ public final class ContainerServicePrivateRegistryAccess {
 
         @CustomType.Setter
         public Builder ecrImagePullerRole(@Nullable ContainerServicePrivateRegistryAccessEcrImagePullerRole ecrImagePullerRole) {
+
             this.ecrImagePullerRole = ecrImagePullerRole;
             return this;
         }

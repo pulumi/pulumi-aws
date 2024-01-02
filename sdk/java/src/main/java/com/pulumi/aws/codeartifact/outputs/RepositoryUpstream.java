@@ -4,6 +4,7 @@
 package com.pulumi.aws.codeartifact.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class RepositoryUpstream {
 
         @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
-            this.repositoryName = Objects.requireNonNull(repositoryName);
+            if (repositoryName == null) {
+              throw new MissingRequiredPropertyException("RepositoryUpstream", "repositoryName");
+            }
+            this.repositoryName = repositoryName;
             return this;
         }
         public RepositoryUpstream build() {

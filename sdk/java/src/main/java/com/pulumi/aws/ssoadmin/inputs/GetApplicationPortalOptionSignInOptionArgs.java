@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -71,8 +72,12 @@ public final class GetApplicationPortalOptionSignInOptionArgs extends com.pulumi
         }
 
         public GetApplicationPortalOptionSignInOptionArgs build() {
-            $.applicationUrl = Objects.requireNonNull($.applicationUrl, "expected parameter 'applicationUrl' to be non-null");
-            $.origin = Objects.requireNonNull($.origin, "expected parameter 'origin' to be non-null");
+            if ($.applicationUrl == null) {
+                throw new MissingRequiredPropertyException("GetApplicationPortalOptionSignInOptionArgs", "applicationUrl");
+            }
+            if ($.origin == null) {
+                throw new MissingRequiredPropertyException("GetApplicationPortalOptionSignInOptionArgs", "origin");
+            }
             return $;
         }
     }

@@ -13,6 +13,7 @@ import com.pulumi.aws.dms.inputs.EndpointRedshiftSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointS3SettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -943,9 +944,15 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EndpointArgs build() {
-            $.endpointId = Objects.requireNonNull($.endpointId, "expected parameter 'endpointId' to be non-null");
-            $.endpointType = Objects.requireNonNull($.endpointType, "expected parameter 'endpointType' to be non-null");
-            $.engineName = Objects.requireNonNull($.engineName, "expected parameter 'engineName' to be non-null");
+            if ($.endpointId == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "endpointId");
+            }
+            if ($.endpointType == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "endpointType");
+            }
+            if ($.engineName == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "engineName");
+            }
             return $;
         }
     }

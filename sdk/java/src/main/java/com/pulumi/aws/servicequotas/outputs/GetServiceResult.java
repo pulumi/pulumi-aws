@@ -4,6 +4,7 @@
 package com.pulumi.aws.servicequotas.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -62,17 +63,26 @@ public final class GetServiceResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder serviceCode(String serviceCode) {
-            this.serviceCode = Objects.requireNonNull(serviceCode);
+            if (serviceCode == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "serviceCode");
+            }
+            this.serviceCode = serviceCode;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         public GetServiceResult build() {

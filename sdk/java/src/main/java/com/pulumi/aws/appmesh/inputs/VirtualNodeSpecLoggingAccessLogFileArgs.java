@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.inputs;
 import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingAccessLogFileFormatArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class VirtualNodeSpecLoggingAccessLogFileArgs extends com.pulumi.re
         }
 
         public VirtualNodeSpecLoggingAccessLogFileArgs build() {
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecLoggingAccessLogFileArgs", "path");
+            }
             return $;
         }
     }

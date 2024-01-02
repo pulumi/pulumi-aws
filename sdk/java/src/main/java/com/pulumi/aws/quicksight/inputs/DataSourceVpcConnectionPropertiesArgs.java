@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class DataSourceVpcConnectionPropertiesArgs extends com.pulumi.reso
         }
 
         public DataSourceVpcConnectionPropertiesArgs build() {
-            $.vpcConnectionArn = Objects.requireNonNull($.vpcConnectionArn, "expected parameter 'vpcConnectionArn' to be non-null");
+            if ($.vpcConnectionArn == null) {
+                throw new MissingRequiredPropertyException("DataSourceVpcConnectionPropertiesArgs", "vpcConnectionArn");
+            }
             return $;
         }
     }

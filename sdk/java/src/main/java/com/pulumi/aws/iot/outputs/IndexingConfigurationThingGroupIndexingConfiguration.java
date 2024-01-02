@@ -6,6 +6,7 @@ package com.pulumi.aws.iot.outputs;
 import com.pulumi.aws.iot.outputs.IndexingConfigurationThingGroupIndexingConfigurationCustomField;
 import com.pulumi.aws.iot.outputs.IndexingConfigurationThingGroupIndexingConfigurationManagedField;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -74,6 +75,7 @@ public final class IndexingConfigurationThingGroupIndexingConfiguration {
 
         @CustomType.Setter
         public Builder customFields(@Nullable List<IndexingConfigurationThingGroupIndexingConfigurationCustomField> customFields) {
+
             this.customFields = customFields;
             return this;
         }
@@ -82,6 +84,7 @@ public final class IndexingConfigurationThingGroupIndexingConfiguration {
         }
         @CustomType.Setter
         public Builder managedFields(@Nullable List<IndexingConfigurationThingGroupIndexingConfigurationManagedField> managedFields) {
+
             this.managedFields = managedFields;
             return this;
         }
@@ -90,7 +93,10 @@ public final class IndexingConfigurationThingGroupIndexingConfiguration {
         }
         @CustomType.Setter
         public Builder thingGroupIndexingMode(String thingGroupIndexingMode) {
-            this.thingGroupIndexingMode = Objects.requireNonNull(thingGroupIndexingMode);
+            if (thingGroupIndexingMode == null) {
+              throw new MissingRequiredPropertyException("IndexingConfigurationThingGroupIndexingConfiguration", "thingGroupIndexingMode");
+            }
+            this.thingGroupIndexingMode = thingGroupIndexingMode;
             return this;
         }
         public IndexingConfigurationThingGroupIndexingConfiguration build() {

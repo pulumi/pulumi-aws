@@ -7,6 +7,7 @@ import com.pulumi.aws.cfg.inputs.RemediationConfigurationExecutionControlsArgs;
 import com.pulumi.aws.cfg.inputs.RemediationConfigurationParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -432,9 +433,15 @@ public final class RemediationConfigurationArgs extends com.pulumi.resources.Res
         }
 
         public RemediationConfigurationArgs build() {
-            $.configRuleName = Objects.requireNonNull($.configRuleName, "expected parameter 'configRuleName' to be non-null");
-            $.targetId = Objects.requireNonNull($.targetId, "expected parameter 'targetId' to be non-null");
-            $.targetType = Objects.requireNonNull($.targetType, "expected parameter 'targetType' to be non-null");
+            if ($.configRuleName == null) {
+                throw new MissingRequiredPropertyException("RemediationConfigurationArgs", "configRuleName");
+            }
+            if ($.targetId == null) {
+                throw new MissingRequiredPropertyException("RemediationConfigurationArgs", "targetId");
+            }
+            if ($.targetType == null) {
+                throw new MissingRequiredPropertyException("RemediationConfigurationArgs", "targetType");
+            }
             return $;
         }
     }

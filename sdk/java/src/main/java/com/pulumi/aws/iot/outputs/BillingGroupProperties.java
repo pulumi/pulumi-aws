@@ -44,6 +44,7 @@ public final class BillingGroupProperties {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }

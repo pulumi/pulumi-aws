@@ -58,11 +58,13 @@ public final class EventTargetRetryPolicy {
 
         @CustomType.Setter
         public Builder maximumEventAgeInSeconds(@Nullable Integer maximumEventAgeInSeconds) {
+
             this.maximumEventAgeInSeconds = maximumEventAgeInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder maximumRetryAttempts(@Nullable Integer maximumRetryAttempts) {
+
             this.maximumRetryAttempts = maximumRetryAttempts;
             return this;
         }

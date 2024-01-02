@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.inputs;
 import com.pulumi.aws.appflow.inputs.FlowTaskConnectorOperatorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -247,8 +248,12 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FlowTaskArgs build() {
-            $.sourceFields = Objects.requireNonNull($.sourceFields, "expected parameter 'sourceFields' to be non-null");
-            $.taskType = Objects.requireNonNull($.taskType, "expected parameter 'taskType' to be non-null");
+            if ($.sourceFields == null) {
+                throw new MissingRequiredPropertyException("FlowTaskArgs", "sourceFields");
+            }
+            if ($.taskType == null) {
+                throw new MissingRequiredPropertyException("FlowTaskArgs", "taskType");
+            }
             return $;
         }
     }

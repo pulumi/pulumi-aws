@@ -58,11 +58,13 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
 
         @CustomType.Setter
         public Builder prefixFormat(@Nullable String prefixFormat) {
+
             this.prefixFormat = prefixFormat;
             return this;
         }
         @CustomType.Setter
         public Builder prefixType(@Nullable String prefixType) {
+
             this.prefixType = prefixType;
             return this;
         }

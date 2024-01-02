@@ -6,6 +6,7 @@ package com.pulumi.aws.lex;
 import com.pulumi.aws.lex.inputs.SlotTypeEnumerationValueArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -268,7 +269,9 @@ public final class SlotTypeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SlotTypeArgs build() {
-            $.enumerationValues = Objects.requireNonNull($.enumerationValues, "expected parameter 'enumerationValues' to be non-null");
+            if ($.enumerationValues == null) {
+                throw new MissingRequiredPropertyException("SlotTypeArgs", "enumerationValues");
+            }
             return $;
         }
     }

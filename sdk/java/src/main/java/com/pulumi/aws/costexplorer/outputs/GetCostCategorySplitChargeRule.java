@@ -5,6 +5,7 @@ package com.pulumi.aws.costexplorer.outputs;
 
 import com.pulumi.aws.costexplorer.outputs.GetCostCategorySplitChargeRuleParameter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,12 +87,18 @@ public final class GetCostCategorySplitChargeRule {
 
         @CustomType.Setter
         public Builder method(String method) {
-            this.method = Objects.requireNonNull(method);
+            if (method == null) {
+              throw new MissingRequiredPropertyException("GetCostCategorySplitChargeRule", "method");
+            }
+            this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(List<GetCostCategorySplitChargeRuleParameter> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetCostCategorySplitChargeRule", "parameters");
+            }
+            this.parameters = parameters;
             return this;
         }
         public Builder parameters(GetCostCategorySplitChargeRuleParameter... parameters) {
@@ -99,12 +106,18 @@ public final class GetCostCategorySplitChargeRule {
         }
         @CustomType.Setter
         public Builder source(String source) {
-            this.source = Objects.requireNonNull(source);
+            if (source == null) {
+              throw new MissingRequiredPropertyException("GetCostCategorySplitChargeRule", "source");
+            }
+            this.source = source;
             return this;
         }
         @CustomType.Setter
         public Builder targets(List<String> targets) {
-            this.targets = Objects.requireNonNull(targets);
+            if (targets == null) {
+              throw new MissingRequiredPropertyException("GetCostCategorySplitChargeRule", "targets");
+            }
+            this.targets = targets;
             return this;
         }
         public Builder targets(String... targets) {

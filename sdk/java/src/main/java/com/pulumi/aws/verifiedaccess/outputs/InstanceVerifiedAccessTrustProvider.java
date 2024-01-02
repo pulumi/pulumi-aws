@@ -100,26 +100,31 @@ public final class InstanceVerifiedAccessTrustProvider {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTrustProviderType(@Nullable String deviceTrustProviderType) {
+
             this.deviceTrustProviderType = deviceTrustProviderType;
             return this;
         }
         @CustomType.Setter
         public Builder trustProviderType(@Nullable String trustProviderType) {
+
             this.trustProviderType = trustProviderType;
             return this;
         }
         @CustomType.Setter
         public Builder userTrustProviderType(@Nullable String userTrustProviderType) {
+
             this.userTrustProviderType = userTrustProviderType;
             return this;
         }
         @CustomType.Setter
         public Builder verifiedAccessTrustProviderId(@Nullable String verifiedAccessTrustProviderId) {
+
             this.verifiedAccessTrustProviderId = verifiedAccessTrustProviderId;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.redshift;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -235,9 +236,15 @@ public final class EndpointAccessArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public EndpointAccessArgs build() {
-            $.clusterIdentifier = Objects.requireNonNull($.clusterIdentifier, "expected parameter 'clusterIdentifier' to be non-null");
-            $.endpointName = Objects.requireNonNull($.endpointName, "expected parameter 'endpointName' to be non-null");
-            $.subnetGroupName = Objects.requireNonNull($.subnetGroupName, "expected parameter 'subnetGroupName' to be non-null");
+            if ($.clusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("EndpointAccessArgs", "clusterIdentifier");
+            }
+            if ($.endpointName == null) {
+                throw new MissingRequiredPropertyException("EndpointAccessArgs", "endpointName");
+            }
+            if ($.subnetGroupName == null) {
+                throw new MissingRequiredPropertyException("EndpointAccessArgs", "subnetGroupName");
+            }
             return $;
         }
     }

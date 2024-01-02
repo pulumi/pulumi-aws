@@ -5,6 +5,7 @@ package com.pulumi.aws.rds;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -197,7 +198,9 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ReservedInstanceArgs build() {
-            $.offeringId = Objects.requireNonNull($.offeringId, "expected parameter 'offeringId' to be non-null");
+            if ($.offeringId == null) {
+                throw new MissingRequiredPropertyException("ReservedInstanceArgs", "offeringId");
+            }
             return $;
         }
     }

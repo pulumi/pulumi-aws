@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -99,27 +100,42 @@ public final class GetRouteTableAssociation {
 
         @CustomType.Setter
         public Builder gatewayId(String gatewayId) {
-            this.gatewayId = Objects.requireNonNull(gatewayId);
+            if (gatewayId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableAssociation", "gatewayId");
+            }
+            this.gatewayId = gatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder main(Boolean main) {
-            this.main = Objects.requireNonNull(main);
+            if (main == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableAssociation", "main");
+            }
+            this.main = main;
             return this;
         }
         @CustomType.Setter
         public Builder routeTableAssociationId(String routeTableAssociationId) {
-            this.routeTableAssociationId = Objects.requireNonNull(routeTableAssociationId);
+            if (routeTableAssociationId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableAssociation", "routeTableAssociationId");
+            }
+            this.routeTableAssociationId = routeTableAssociationId;
             return this;
         }
         @CustomType.Setter
         public Builder routeTableId(String routeTableId) {
-            this.routeTableId = Objects.requireNonNull(routeTableId);
+            if (routeTableId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableAssociation", "routeTableId");
+            }
+            this.routeTableId = routeTableId;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableAssociation", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public GetRouteTableAssociation build() {

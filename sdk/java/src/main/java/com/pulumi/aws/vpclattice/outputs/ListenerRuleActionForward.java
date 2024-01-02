@@ -5,6 +5,7 @@ package com.pulumi.aws.vpclattice.outputs;
 
 import com.pulumi.aws.vpclattice.outputs.ListenerRuleActionForwardTargetGroup;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -47,7 +48,10 @@ public final class ListenerRuleActionForward {
 
         @CustomType.Setter
         public Builder targetGroups(List<ListenerRuleActionForwardTargetGroup> targetGroups) {
-            this.targetGroups = Objects.requireNonNull(targetGroups);
+            if (targetGroups == null) {
+              throw new MissingRequiredPropertyException("ListenerRuleActionForward", "targetGroups");
+            }
+            this.targetGroups = targetGroups;
             return this;
         }
         public Builder targetGroups(ListenerRuleActionForwardTargetGroup... targetGroups) {

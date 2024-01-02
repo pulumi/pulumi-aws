@@ -59,11 +59,13 @@ public final class ImagePipelineImageTestsConfiguration {
 
         @CustomType.Setter
         public Builder imageTestsEnabled(@Nullable Boolean imageTestsEnabled) {
+
             this.imageTestsEnabled = imageTestsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutMinutes(@Nullable Integer timeoutMinutes) {
+
             this.timeoutMinutes = timeoutMinutes;
             return this;
         }

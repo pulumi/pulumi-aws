@@ -44,6 +44,7 @@ public final class EventSourceMappingScalingConfig {
 
         @CustomType.Setter
         public Builder maximumConcurrency(@Nullable Integer maximumConcurrency) {
+
             this.maximumConcurrency = maximumConcurrency;
             return this;
         }

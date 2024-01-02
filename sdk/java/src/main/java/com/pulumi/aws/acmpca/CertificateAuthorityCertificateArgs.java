@@ -5,6 +5,7 @@ package com.pulumi.aws.acmpca;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class CertificateAuthorityCertificateArgs extends com.pulumi.resour
         }
 
         public CertificateAuthorityCertificateArgs build() {
-            $.certificate = Objects.requireNonNull($.certificate, "expected parameter 'certificate' to be non-null");
-            $.certificateAuthorityArn = Objects.requireNonNull($.certificateAuthorityArn, "expected parameter 'certificateAuthorityArn' to be non-null");
+            if ($.certificate == null) {
+                throw new MissingRequiredPropertyException("CertificateAuthorityCertificateArgs", "certificate");
+            }
+            if ($.certificateAuthorityArn == null) {
+                throw new MissingRequiredPropertyException("CertificateAuthorityCertificateArgs", "certificateAuthorityArn");
+            }
             return $;
         }
     }

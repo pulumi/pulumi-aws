@@ -5,6 +5,7 @@ package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.aws.kendra.outputs.GetFaqS3Path;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -225,62 +226,98 @@ public final class GetFaqResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "createdAt");
+            }
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder errorMessage(String errorMessage) {
-            this.errorMessage = Objects.requireNonNull(errorMessage);
+            if (errorMessage == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "errorMessage");
+            }
+            this.errorMessage = errorMessage;
             return this;
         }
         @CustomType.Setter
         public Builder faqId(String faqId) {
-            this.faqId = Objects.requireNonNull(faqId);
+            if (faqId == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "faqId");
+            }
+            this.faqId = faqId;
             return this;
         }
         @CustomType.Setter
         public Builder fileFormat(String fileFormat) {
-            this.fileFormat = Objects.requireNonNull(fileFormat);
+            if (fileFormat == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "fileFormat");
+            }
+            this.fileFormat = fileFormat;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder indexId(String indexId) {
-            this.indexId = Objects.requireNonNull(indexId);
+            if (indexId == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "indexId");
+            }
+            this.indexId = indexId;
             return this;
         }
         @CustomType.Setter
         public Builder languageCode(String languageCode) {
-            this.languageCode = Objects.requireNonNull(languageCode);
+            if (languageCode == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "languageCode");
+            }
+            this.languageCode = languageCode;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder s3Paths(List<GetFaqS3Path> s3Paths) {
-            this.s3Paths = Objects.requireNonNull(s3Paths);
+            if (s3Paths == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "s3Paths");
+            }
+            this.s3Paths = s3Paths;
             return this;
         }
         public Builder s3Paths(GetFaqS3Path... s3Paths) {
@@ -288,17 +325,26 @@ public final class GetFaqResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder updatedAt(String updatedAt) {
-            this.updatedAt = Objects.requireNonNull(updatedAt);
+            if (updatedAt == null) {
+              throw new MissingRequiredPropertyException("GetFaqResult", "updatedAt");
+            }
+            this.updatedAt = updatedAt;
             return this;
         }
         public GetFaqResult build() {

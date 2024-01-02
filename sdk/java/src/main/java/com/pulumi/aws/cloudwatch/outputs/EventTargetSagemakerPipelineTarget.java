@@ -44,6 +44,7 @@ public final class EventTargetSagemakerPipelineTarget {
 
         @CustomType.Setter
         public Builder pipelineParameterLists(@Nullable List<EventTargetSagemakerPipelineTargetPipelineParameterList> pipelineParameterLists) {
+
             this.pipelineParameterLists = pipelineParameterLists;
             return this;
         }

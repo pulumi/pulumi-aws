@@ -5,6 +5,7 @@ package com.pulumi.aws.cloud9;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class EnvironmentMembershipArgs extends com.pulumi.resources.Resour
         }
 
         public EnvironmentMembershipArgs build() {
-            $.environmentId = Objects.requireNonNull($.environmentId, "expected parameter 'environmentId' to be non-null");
-            $.permissions = Objects.requireNonNull($.permissions, "expected parameter 'permissions' to be non-null");
-            $.userArn = Objects.requireNonNull($.userArn, "expected parameter 'userArn' to be non-null");
+            if ($.environmentId == null) {
+                throw new MissingRequiredPropertyException("EnvironmentMembershipArgs", "environmentId");
+            }
+            if ($.permissions == null) {
+                throw new MissingRequiredPropertyException("EnvironmentMembershipArgs", "permissions");
+            }
+            if ($.userArn == null) {
+                throw new MissingRequiredPropertyException("EnvironmentMembershipArgs", "userArn");
+            }
             return $;
         }
     }

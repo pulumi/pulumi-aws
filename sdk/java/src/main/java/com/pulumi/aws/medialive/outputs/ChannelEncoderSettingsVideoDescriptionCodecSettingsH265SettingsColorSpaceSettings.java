@@ -104,26 +104,31 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
 
         @CustomType.Setter
         public Builder colorSpacePassthroughSettings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings colorSpacePassthroughSettings) {
+
             this.colorSpacePassthroughSettings = colorSpacePassthroughSettings;
             return this;
         }
         @CustomType.Setter
         public Builder dolbyVision81Settings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings dolbyVision81Settings) {
+
             this.dolbyVision81Settings = dolbyVision81Settings;
             return this;
         }
         @CustomType.Setter
         public Builder hdr10Settings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings hdr10Settings) {
+
             this.hdr10Settings = hdr10Settings;
             return this;
         }
         @CustomType.Setter
         public Builder rec601Settings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings rec601Settings) {
+
             this.rec601Settings = rec601Settings;
             return this;
         }
         @CustomType.Setter
         public Builder rec709Settings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings rec709Settings) {
+
             this.rec709Settings = rec709Settings;
             return this;
         }

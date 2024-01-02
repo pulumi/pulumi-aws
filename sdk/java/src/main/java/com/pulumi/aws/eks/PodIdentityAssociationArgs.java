@@ -5,6 +5,7 @@ package com.pulumi.aws.eks;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -233,10 +234,18 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
         }
 
         public PodIdentityAssociationArgs build() {
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
-            $.namespace = Objects.requireNonNull($.namespace, "expected parameter 'namespace' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.serviceAccount = Objects.requireNonNull($.serviceAccount, "expected parameter 'serviceAccount' to be non-null");
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("PodIdentityAssociationArgs", "clusterName");
+            }
+            if ($.namespace == null) {
+                throw new MissingRequiredPropertyException("PodIdentityAssociationArgs", "namespace");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("PodIdentityAssociationArgs", "roleArn");
+            }
+            if ($.serviceAccount == null) {
+                throw new MissingRequiredPropertyException("PodIdentityAssociationArgs", "serviceAccount");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.sesv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
         }
 
         public ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs build() {
-            $.defaultDimensionValue = Objects.requireNonNull($.defaultDimensionValue, "expected parameter 'defaultDimensionValue' to be non-null");
-            $.dimensionName = Objects.requireNonNull($.dimensionName, "expected parameter 'dimensionName' to be non-null");
-            $.dimensionValueSource = Objects.requireNonNull($.dimensionValueSource, "expected parameter 'dimensionValueSource' to be non-null");
+            if ($.defaultDimensionValue == null) {
+                throw new MissingRequiredPropertyException("ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs", "defaultDimensionValue");
+            }
+            if ($.dimensionName == null) {
+                throw new MissingRequiredPropertyException("ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs", "dimensionName");
+            }
+            if ($.dimensionValueSource == null) {
+                throw new MissingRequiredPropertyException("ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs", "dimensionValueSource");
+            }
             return $;
         }
     }

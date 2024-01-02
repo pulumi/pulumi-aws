@@ -6,6 +6,7 @@ package com.pulumi.aws.apprunner.inputs;
 import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs
         }
 
         public ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs build() {
-            $.configurationSource = Objects.requireNonNull($.configurationSource, "expected parameter 'configurationSource' to be non-null");
+            if ($.configurationSource == null) {
+                throw new MissingRequiredPropertyException("ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs", "configurationSource");
+            }
             return $;
         }
     }

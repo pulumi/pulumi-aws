@@ -4,6 +4,7 @@
 package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -115,7 +116,10 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfMan
 
         @CustomType.Setter
         public Builder dnsIps(List<String> dnsIps) {
-            this.dnsIps = Objects.requireNonNull(dnsIps);
+            if (dnsIps == null) {
+              throw new MissingRequiredPropertyException("OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration", "dnsIps");
+            }
+            this.dnsIps = dnsIps;
             return this;
         }
         public Builder dnsIps(String... dnsIps) {
@@ -123,27 +127,38 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfMan
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemAdministratorsGroup(@Nullable String fileSystemAdministratorsGroup) {
+
             this.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
             return this;
         }
         @CustomType.Setter
         public Builder organizationalUnitDistinguishedName(@Nullable String organizationalUnitDistinguishedName) {
+
             this.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
             return this;
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration", "username");
+            }
+            this.username = username;
             return this;
         }
         public OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration build() {

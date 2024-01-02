@@ -60,6 +60,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
 
         @CustomType.Setter
         public Builder commonAttributes(@Nullable List<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute> commonAttributes) {
+
             this.commonAttributes = commonAttributes;
             return this;
         }
@@ -68,6 +69,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
         }
         @CustomType.Setter
         public Builder contentEncoding(@Nullable String contentEncoding) {
+
             this.contentEncoding = contentEncoding;
             return this;
         }

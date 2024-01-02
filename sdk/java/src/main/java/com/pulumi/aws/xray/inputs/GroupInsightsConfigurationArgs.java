@@ -5,6 +5,7 @@ package com.pulumi.aws.xray.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class GroupInsightsConfigurationArgs extends com.pulumi.resources.R
         }
 
         public GroupInsightsConfigurationArgs build() {
-            $.insightsEnabled = Objects.requireNonNull($.insightsEnabled, "expected parameter 'insightsEnabled' to be non-null");
+            if ($.insightsEnabled == null) {
+                throw new MissingRequiredPropertyException("GroupInsightsConfigurationArgs", "insightsEnabled");
+            }
             return $;
         }
     }

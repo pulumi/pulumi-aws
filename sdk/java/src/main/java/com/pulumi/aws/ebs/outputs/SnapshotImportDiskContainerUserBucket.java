@@ -4,6 +4,7 @@
 package com.pulumi.aws.ebs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class SnapshotImportDiskContainerUserBucket {
 
         @CustomType.Setter
         public Builder s3Bucket(String s3Bucket) {
-            this.s3Bucket = Objects.requireNonNull(s3Bucket);
+            if (s3Bucket == null) {
+              throw new MissingRequiredPropertyException("SnapshotImportDiskContainerUserBucket", "s3Bucket");
+            }
+            this.s3Bucket = s3Bucket;
             return this;
         }
         @CustomType.Setter
         public Builder s3Key(String s3Key) {
-            this.s3Key = Objects.requireNonNull(s3Key);
+            if (s3Key == null) {
+              throw new MissingRequiredPropertyException("SnapshotImportDiskContainerUserBucket", "s3Key");
+            }
+            this.s3Key = s3Key;
             return this;
         }
         public SnapshotImportDiskContainerUserBucket build() {

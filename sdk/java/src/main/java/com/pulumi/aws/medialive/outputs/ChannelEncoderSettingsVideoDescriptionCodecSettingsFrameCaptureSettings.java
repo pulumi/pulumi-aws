@@ -59,11 +59,13 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptu
 
         @CustomType.Setter
         public Builder captureInterval(@Nullable Integer captureInterval) {
+
             this.captureInterval = captureInterval;
             return this;
         }
         @CustomType.Setter
         public Builder captureIntervalUnits(@Nullable String captureIntervalUnits) {
+
             this.captureIntervalUnits = captureIntervalUnits;
             return this;
         }

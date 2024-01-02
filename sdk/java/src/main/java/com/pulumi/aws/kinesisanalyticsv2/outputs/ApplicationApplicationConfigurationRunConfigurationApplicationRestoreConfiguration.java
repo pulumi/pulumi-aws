@@ -58,11 +58,13 @@ public final class ApplicationApplicationConfigurationRunConfigurationApplicatio
 
         @CustomType.Setter
         public Builder applicationRestoreType(@Nullable String applicationRestoreType) {
+
             this.applicationRestoreType = applicationRestoreType;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotName(@Nullable String snapshotName) {
+
             this.snapshotName = snapshotName;
             return this;
         }

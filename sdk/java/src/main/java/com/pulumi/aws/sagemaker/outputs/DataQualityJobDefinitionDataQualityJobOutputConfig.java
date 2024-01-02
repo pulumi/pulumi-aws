@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,12 +60,16 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfig {
 
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder monitoringOutputs(DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs monitoringOutputs) {
-            this.monitoringOutputs = Objects.requireNonNull(monitoringOutputs);
+            if (monitoringOutputs == null) {
+              throw new MissingRequiredPropertyException("DataQualityJobDefinitionDataQualityJobOutputConfig", "monitoringOutputs");
+            }
+            this.monitoringOutputs = monitoringOutputs;
             return this;
         }
         public DataQualityJobDefinitionDataQualityJobOutputConfig build() {

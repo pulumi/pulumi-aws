@@ -5,6 +5,7 @@ package com.pulumi.aws.transfer.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -207,8 +208,12 @@ public final class UserHomeDirectoryMappingArgs extends com.pulumi.resources.Res
         }
 
         public UserHomeDirectoryMappingArgs build() {
-            $.entry = Objects.requireNonNull($.entry, "expected parameter 'entry' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
+            if ($.entry == null) {
+                throw new MissingRequiredPropertyException("UserHomeDirectoryMappingArgs", "entry");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("UserHomeDirectoryMappingArgs", "target");
+            }
             return $;
         }
     }

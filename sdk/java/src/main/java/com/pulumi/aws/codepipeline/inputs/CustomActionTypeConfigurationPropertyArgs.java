@@ -5,6 +5,7 @@ package com.pulumi.aws.codepipeline.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -299,10 +300,18 @@ public final class CustomActionTypeConfigurationPropertyArgs extends com.pulumi.
         }
 
         public CustomActionTypeConfigurationPropertyArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.required = Objects.requireNonNull($.required, "expected parameter 'required' to be non-null");
-            $.secret = Objects.requireNonNull($.secret, "expected parameter 'secret' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("CustomActionTypeConfigurationPropertyArgs", "key");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("CustomActionTypeConfigurationPropertyArgs", "name");
+            }
+            if ($.required == null) {
+                throw new MissingRequiredPropertyException("CustomActionTypeConfigurationPropertyArgs", "required");
+            }
+            if ($.secret == null) {
+                throw new MissingRequiredPropertyException("CustomActionTypeConfigurationPropertyArgs", "secret");
+            }
             return $;
         }
     }

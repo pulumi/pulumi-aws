@@ -72,16 +72,19 @@ public final class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecific
 
         @CustomType.Setter
         public Builder launchTemplateId(@Nullable String launchTemplateId) {
+
             this.launchTemplateId = launchTemplateId;
             return this;
         }
         @CustomType.Setter
         public Builder launchTemplateName(@Nullable String launchTemplateName) {
+
             this.launchTemplateName = launchTemplateName;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }

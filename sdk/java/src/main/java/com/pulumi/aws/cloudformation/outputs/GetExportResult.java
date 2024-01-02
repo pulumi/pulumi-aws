@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudformation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -76,22 +77,34 @@ public final class GetExportResult {
 
         @CustomType.Setter
         public Builder exportingStackId(String exportingStackId) {
-            this.exportingStackId = Objects.requireNonNull(exportingStackId);
+            if (exportingStackId == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "exportingStackId");
+            }
+            this.exportingStackId = exportingStackId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetExportResult build() {

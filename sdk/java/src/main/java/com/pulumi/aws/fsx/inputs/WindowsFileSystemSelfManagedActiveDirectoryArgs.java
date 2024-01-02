@@ -5,6 +5,7 @@ package com.pulumi.aws.fsx.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -272,10 +273,18 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         public WindowsFileSystemSelfManagedActiveDirectoryArgs build() {
-            $.dnsIps = Objects.requireNonNull($.dnsIps, "expected parameter 'dnsIps' to be non-null");
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.dnsIps == null) {
+                throw new MissingRequiredPropertyException("WindowsFileSystemSelfManagedActiveDirectoryArgs", "dnsIps");
+            }
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("WindowsFileSystemSelfManagedActiveDirectoryArgs", "domainName");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("WindowsFileSystemSelfManagedActiveDirectoryArgs", "password");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("WindowsFileSystemSelfManagedActiveDirectoryArgs", "username");
+            }
             return $;
         }
     }

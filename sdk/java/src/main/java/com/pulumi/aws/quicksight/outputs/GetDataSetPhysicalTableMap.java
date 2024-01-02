@@ -7,6 +7,7 @@ import com.pulumi.aws.quicksight.outputs.GetDataSetPhysicalTableMapCustomSql;
 import com.pulumi.aws.quicksight.outputs.GetDataSetPhysicalTableMapRelationalTable;
 import com.pulumi.aws.quicksight.outputs.GetDataSetPhysicalTableMapS3Source;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -56,7 +57,10 @@ public final class GetDataSetPhysicalTableMap {
 
         @CustomType.Setter
         public Builder customSqls(List<GetDataSetPhysicalTableMapCustomSql> customSqls) {
-            this.customSqls = Objects.requireNonNull(customSqls);
+            if (customSqls == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMap", "customSqls");
+            }
+            this.customSqls = customSqls;
             return this;
         }
         public Builder customSqls(GetDataSetPhysicalTableMapCustomSql... customSqls) {
@@ -64,12 +68,18 @@ public final class GetDataSetPhysicalTableMap {
         }
         @CustomType.Setter
         public Builder physicalTableMapId(String physicalTableMapId) {
-            this.physicalTableMapId = Objects.requireNonNull(physicalTableMapId);
+            if (physicalTableMapId == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMap", "physicalTableMapId");
+            }
+            this.physicalTableMapId = physicalTableMapId;
             return this;
         }
         @CustomType.Setter
         public Builder relationalTables(List<GetDataSetPhysicalTableMapRelationalTable> relationalTables) {
-            this.relationalTables = Objects.requireNonNull(relationalTables);
+            if (relationalTables == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMap", "relationalTables");
+            }
+            this.relationalTables = relationalTables;
             return this;
         }
         public Builder relationalTables(GetDataSetPhysicalTableMapRelationalTable... relationalTables) {
@@ -77,7 +87,10 @@ public final class GetDataSetPhysicalTableMap {
         }
         @CustomType.Setter
         public Builder s3Sources(List<GetDataSetPhysicalTableMapS3Source> s3Sources) {
-            this.s3Sources = Objects.requireNonNull(s3Sources);
+            if (s3Sources == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMap", "s3Sources");
+            }
+            this.s3Sources = s3Sources;
             return this;
         }
         public Builder s3Sources(GetDataSetPhysicalTableMapS3Source... s3Sources) {

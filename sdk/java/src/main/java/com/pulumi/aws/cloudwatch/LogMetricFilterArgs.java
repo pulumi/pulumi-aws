@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch;
 import com.pulumi.aws.cloudwatch.inputs.LogMetricFilterMetricTransformationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -192,9 +193,15 @@ public final class LogMetricFilterArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public LogMetricFilterArgs build() {
-            $.logGroupName = Objects.requireNonNull($.logGroupName, "expected parameter 'logGroupName' to be non-null");
-            $.metricTransformation = Objects.requireNonNull($.metricTransformation, "expected parameter 'metricTransformation' to be non-null");
-            $.pattern = Objects.requireNonNull($.pattern, "expected parameter 'pattern' to be non-null");
+            if ($.logGroupName == null) {
+                throw new MissingRequiredPropertyException("LogMetricFilterArgs", "logGroupName");
+            }
+            if ($.metricTransformation == null) {
+                throw new MissingRequiredPropertyException("LogMetricFilterArgs", "metricTransformation");
+            }
+            if ($.pattern == null) {
+                throw new MissingRequiredPropertyException("LogMetricFilterArgs", "pattern");
+            }
             return $;
         }
     }

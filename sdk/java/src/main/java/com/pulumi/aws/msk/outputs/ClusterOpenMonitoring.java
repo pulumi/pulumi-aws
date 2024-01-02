@@ -5,6 +5,7 @@ package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.aws.msk.outputs.ClusterOpenMonitoringPrometheus;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class ClusterOpenMonitoring {
 
         @CustomType.Setter
         public Builder prometheus(ClusterOpenMonitoringPrometheus prometheus) {
-            this.prometheus = Objects.requireNonNull(prometheus);
+            if (prometheus == null) {
+              throw new MissingRequiredPropertyException("ClusterOpenMonitoring", "prometheus");
+            }
+            this.prometheus = prometheus;
             return this;
         }
         public ClusterOpenMonitoring build() {

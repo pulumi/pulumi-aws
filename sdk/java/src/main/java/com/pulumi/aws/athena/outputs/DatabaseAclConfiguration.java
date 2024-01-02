@@ -4,6 +4,7 @@
 package com.pulumi.aws.athena.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,7 +47,10 @@ public final class DatabaseAclConfiguration {
 
         @CustomType.Setter
         public Builder s3AclOption(String s3AclOption) {
-            this.s3AclOption = Objects.requireNonNull(s3AclOption);
+            if (s3AclOption == null) {
+              throw new MissingRequiredPropertyException("DatabaseAclConfiguration", "s3AclOption");
+            }
+            this.s3AclOption = s3AclOption;
             return this;
         }
         public DatabaseAclConfiguration build() {

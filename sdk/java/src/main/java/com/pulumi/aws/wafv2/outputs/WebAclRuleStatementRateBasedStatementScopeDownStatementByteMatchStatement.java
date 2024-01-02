@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -89,22 +90,32 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
 
         @CustomType.Setter
         public Builder fieldToMatch(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch fieldToMatch) {
+
             this.fieldToMatch = fieldToMatch;
             return this;
         }
         @CustomType.Setter
         public Builder positionalConstraint(String positionalConstraint) {
-            this.positionalConstraint = Objects.requireNonNull(positionalConstraint);
+            if (positionalConstraint == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement", "positionalConstraint");
+            }
+            this.positionalConstraint = positionalConstraint;
             return this;
         }
         @CustomType.Setter
         public Builder searchString(String searchString) {
-            this.searchString = Objects.requireNonNull(searchString);
+            if (searchString == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement", "searchString");
+            }
+            this.searchString = searchString;
             return this;
         }
         @CustomType.Setter
         public Builder textTransformations(List<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation> textTransformations) {
-            this.textTransformations = Objects.requireNonNull(textTransformations);
+            if (textTransformations == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement", "textTransformations");
+            }
+            this.textTransformations = textTransformations;
             return this;
         }
         public Builder textTransformations(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation... textTransformations) {

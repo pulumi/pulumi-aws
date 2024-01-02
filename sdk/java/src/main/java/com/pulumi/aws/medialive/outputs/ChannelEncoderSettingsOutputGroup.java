@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive.outputs;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutput;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -75,17 +76,24 @@ public final class ChannelEncoderSettingsOutputGroup {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder outputGroupSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettings outputGroupSettings) {
-            this.outputGroupSettings = Objects.requireNonNull(outputGroupSettings);
+            if (outputGroupSettings == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroup", "outputGroupSettings");
+            }
+            this.outputGroupSettings = outputGroupSettings;
             return this;
         }
         @CustomType.Setter
         public Builder outputs(List<ChannelEncoderSettingsOutputGroupOutput> outputs) {
-            this.outputs = Objects.requireNonNull(outputs);
+            if (outputs == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroup", "outputs");
+            }
+            this.outputs = outputs;
             return this;
         }
         public Builder outputs(ChannelEncoderSettingsOutputGroupOutput... outputs) {

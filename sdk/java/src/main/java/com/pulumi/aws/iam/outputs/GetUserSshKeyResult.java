@@ -4,6 +4,7 @@
 package com.pulumi.aws.iam.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -102,37 +103,58 @@ public final class GetUserSshKeyResult {
 
         @CustomType.Setter
         public Builder encoding(String encoding) {
-            this.encoding = Objects.requireNonNull(encoding);
+            if (encoding == null) {
+              throw new MissingRequiredPropertyException("GetUserSshKeyResult", "encoding");
+            }
+            this.encoding = encoding;
             return this;
         }
         @CustomType.Setter
         public Builder fingerprint(String fingerprint) {
-            this.fingerprint = Objects.requireNonNull(fingerprint);
+            if (fingerprint == null) {
+              throw new MissingRequiredPropertyException("GetUserSshKeyResult", "fingerprint");
+            }
+            this.fingerprint = fingerprint;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserSshKeyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder publicKey(String publicKey) {
-            this.publicKey = Objects.requireNonNull(publicKey);
+            if (publicKey == null) {
+              throw new MissingRequiredPropertyException("GetUserSshKeyResult", "publicKey");
+            }
+            this.publicKey = publicKey;
             return this;
         }
         @CustomType.Setter
         public Builder sshPublicKeyId(String sshPublicKeyId) {
-            this.sshPublicKeyId = Objects.requireNonNull(sshPublicKeyId);
+            if (sshPublicKeyId == null) {
+              throw new MissingRequiredPropertyException("GetUserSshKeyResult", "sshPublicKeyId");
+            }
+            this.sshPublicKeyId = sshPublicKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetUserSshKeyResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("GetUserSshKeyResult", "username");
+            }
+            this.username = username;
             return this;
         }
         public GetUserSshKeyResult build() {

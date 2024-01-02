@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -50,6 +51,7 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
 
         @CustomType.Setter
         public Builder overrides(@Nullable List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides) {
+
             this.overrides = overrides;
             return this;
         }
@@ -58,12 +60,18 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
-            this.resourceArn = Objects.requireNonNull(resourceArn);
+            if (resourceArn == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference", "resourceArn");
+            }
+            this.resourceArn = resourceArn;
             return this;
         }
         public GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference build() {

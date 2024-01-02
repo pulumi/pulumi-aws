@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.inputs.CustomLayerEbsVolumeArgs;
 import com.pulumi.aws.opsworks.inputs.CustomLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -900,8 +901,12 @@ public final class CustomLayerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CustomLayerArgs build() {
-            $.shortName = Objects.requireNonNull($.shortName, "expected parameter 'shortName' to be non-null");
-            $.stackId = Objects.requireNonNull($.stackId, "expected parameter 'stackId' to be non-null");
+            if ($.shortName == null) {
+                throw new MissingRequiredPropertyException("CustomLayerArgs", "shortName");
+            }
+            if ($.stackId == null) {
+                throw new MissingRequiredPropertyException("CustomLayerArgs", "stackId");
+            }
             return $;
         }
     }

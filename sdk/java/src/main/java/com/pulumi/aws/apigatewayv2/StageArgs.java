@@ -8,6 +8,7 @@ import com.pulumi.aws.apigatewayv2.inputs.StageDefaultRouteSettingsArgs;
 import com.pulumi.aws.apigatewayv2.inputs.StageRouteSettingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -478,7 +479,9 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public StageArgs build() {
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("StageArgs", "apiId");
+            }
             return $;
         }
     }

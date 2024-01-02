@@ -44,6 +44,7 @@ public final class PipeTargetParametersSagemakerPipelineParameters {
 
         @CustomType.Setter
         public Builder pipelineParameters(@Nullable List<PipeTargetParametersSagemakerPipelineParametersPipelineParameter> pipelineParameters) {
+
             this.pipelineParameters = pipelineParameters;
             return this;
         }

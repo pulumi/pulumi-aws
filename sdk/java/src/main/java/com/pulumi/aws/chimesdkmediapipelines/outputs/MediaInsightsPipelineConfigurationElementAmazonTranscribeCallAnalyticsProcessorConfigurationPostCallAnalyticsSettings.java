@@ -4,6 +4,7 @@
 package com.pulumi.aws.chimesdkmediapipelines.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,22 +87,30 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
 
         @CustomType.Setter
         public Builder contentRedactionOutput(@Nullable String contentRedactionOutput) {
+
             this.contentRedactionOutput = contentRedactionOutput;
             return this;
         }
         @CustomType.Setter
         public Builder dataAccessRoleArn(String dataAccessRoleArn) {
-            this.dataAccessRoleArn = Objects.requireNonNull(dataAccessRoleArn);
+            if (dataAccessRoleArn == null) {
+              throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings", "dataAccessRoleArn");
+            }
+            this.dataAccessRoleArn = dataAccessRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder outputEncryptionKmsKeyId(@Nullable String outputEncryptionKmsKeyId) {
+
             this.outputEncryptionKmsKeyId = outputEncryptionKmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder outputLocation(String outputLocation) {
-            this.outputLocation = Objects.requireNonNull(outputLocation);
+            if (outputLocation == null) {
+              throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings", "outputLocation");
+            }
+            this.outputLocation = outputLocation;
             return this;
         }
         public MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings build() {

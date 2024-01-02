@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,11 +87,15 @@ public final class CrawlerJdbcTarget {
 
         @CustomType.Setter
         public Builder connectionName(String connectionName) {
-            this.connectionName = Objects.requireNonNull(connectionName);
+            if (connectionName == null) {
+              throw new MissingRequiredPropertyException("CrawlerJdbcTarget", "connectionName");
+            }
+            this.connectionName = connectionName;
             return this;
         }
         @CustomType.Setter
         public Builder enableAdditionalMetadatas(@Nullable List<String> enableAdditionalMetadatas) {
+
             this.enableAdditionalMetadatas = enableAdditionalMetadatas;
             return this;
         }
@@ -99,6 +104,7 @@ public final class CrawlerJdbcTarget {
         }
         @CustomType.Setter
         public Builder exclusions(@Nullable List<String> exclusions) {
+
             this.exclusions = exclusions;
             return this;
         }
@@ -107,7 +113,10 @@ public final class CrawlerJdbcTarget {
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("CrawlerJdbcTarget", "path");
+            }
+            this.path = path;
             return this;
         }
         public CrawlerJdbcTarget build() {

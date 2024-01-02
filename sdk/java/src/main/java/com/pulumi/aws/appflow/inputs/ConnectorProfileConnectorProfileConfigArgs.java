@@ -7,6 +7,7 @@ import com.pulumi.aws.appflow.inputs.ConnectorProfileConnectorProfileConfigConne
 import com.pulumi.aws.appflow.inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -112,8 +113,12 @@ public final class ConnectorProfileConnectorProfileConfigArgs extends com.pulumi
         }
 
         public ConnectorProfileConnectorProfileConfigArgs build() {
-            $.connectorProfileCredentials = Objects.requireNonNull($.connectorProfileCredentials, "expected parameter 'connectorProfileCredentials' to be non-null");
-            $.connectorProfileProperties = Objects.requireNonNull($.connectorProfileProperties, "expected parameter 'connectorProfileProperties' to be non-null");
+            if ($.connectorProfileCredentials == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigArgs", "connectorProfileCredentials");
+            }
+            if ($.connectorProfileProperties == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigArgs", "connectorProfileProperties");
+            }
             return $;
         }
     }

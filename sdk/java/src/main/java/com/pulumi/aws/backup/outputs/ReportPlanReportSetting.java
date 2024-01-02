@@ -4,6 +4,7 @@
 package com.pulumi.aws.backup.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -116,6 +117,7 @@ public final class ReportPlanReportSetting {
 
         @CustomType.Setter
         public Builder accounts(@Nullable List<String> accounts) {
+
             this.accounts = accounts;
             return this;
         }
@@ -124,6 +126,7 @@ public final class ReportPlanReportSetting {
         }
         @CustomType.Setter
         public Builder frameworkArns(@Nullable List<String> frameworkArns) {
+
             this.frameworkArns = frameworkArns;
             return this;
         }
@@ -132,11 +135,13 @@ public final class ReportPlanReportSetting {
         }
         @CustomType.Setter
         public Builder numberOfFrameworks(@Nullable Integer numberOfFrameworks) {
+
             this.numberOfFrameworks = numberOfFrameworks;
             return this;
         }
         @CustomType.Setter
         public Builder organizationUnits(@Nullable List<String> organizationUnits) {
+
             this.organizationUnits = organizationUnits;
             return this;
         }
@@ -145,6 +150,7 @@ public final class ReportPlanReportSetting {
         }
         @CustomType.Setter
         public Builder regions(@Nullable List<String> regions) {
+
             this.regions = regions;
             return this;
         }
@@ -153,7 +159,10 @@ public final class ReportPlanReportSetting {
         }
         @CustomType.Setter
         public Builder reportTemplate(String reportTemplate) {
-            this.reportTemplate = Objects.requireNonNull(reportTemplate);
+            if (reportTemplate == null) {
+              throw new MissingRequiredPropertyException("ReportPlanReportSetting", "reportTemplate");
+            }
+            this.reportTemplate = reportTemplate;
             return this;
         }
         public ReportPlanReportSetting build() {

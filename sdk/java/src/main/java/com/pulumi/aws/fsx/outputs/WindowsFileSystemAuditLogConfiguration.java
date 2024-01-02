@@ -72,16 +72,19 @@ public final class WindowsFileSystemAuditLogConfiguration {
 
         @CustomType.Setter
         public Builder auditLogDestination(@Nullable String auditLogDestination) {
+
             this.auditLogDestination = auditLogDestination;
             return this;
         }
         @CustomType.Setter
         public Builder fileAccessAuditLogLevel(@Nullable String fileAccessAuditLogLevel) {
+
             this.fileAccessAuditLogLevel = fileAccessAuditLogLevel;
             return this;
         }
         @CustomType.Setter
         public Builder fileShareAccessAuditLogLevel(@Nullable String fileShareAccessAuditLogLevel) {
+
             this.fileShareAccessAuditLogLevel = fileShareAccessAuditLogLevel;
             return this;
         }

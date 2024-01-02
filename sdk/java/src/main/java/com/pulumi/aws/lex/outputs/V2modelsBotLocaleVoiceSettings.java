@@ -4,6 +4,7 @@
 package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class V2modelsBotLocaleVoiceSettings {
 
         @CustomType.Setter
         public Builder engine(@Nullable String engine) {
+
             this.engine = engine;
             return this;
         }
         @CustomType.Setter
         public Builder voiceId(String voiceId) {
-            this.voiceId = Objects.requireNonNull(voiceId);
+            if (voiceId == null) {
+              throw new MissingRequiredPropertyException("V2modelsBotLocaleVoiceSettings", "voiceId");
+            }
+            this.voiceId = voiceId;
             return this;
         }
         public V2modelsBotLocaleVoiceSettings build() {

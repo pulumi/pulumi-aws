@@ -60,11 +60,13 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
         @CustomType.Setter
         public Builder oauth2Properties(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties oauth2Properties) {
+
             this.oauth2Properties = oauth2Properties;
             return this;
         }
         @CustomType.Setter
         public Builder profileProperties(@Nullable Map<String,String> profileProperties) {
+
             this.profileProperties = profileProperties;
             return this;
         }

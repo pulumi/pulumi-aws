@@ -59,11 +59,13 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
 
         @CustomType.Setter
         public Builder cloudwatchLogGroupName(@Nullable String cloudwatchLogGroupName) {
+
             this.cloudwatchLogGroupName = cloudwatchLogGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder cloudwatchOutputEnabled(@Nullable Boolean cloudwatchOutputEnabled) {
+
             this.cloudwatchOutputEnabled = cloudwatchOutputEnabled;
             return this;
         }

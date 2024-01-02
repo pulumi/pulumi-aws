@@ -44,6 +44,7 @@ public final class VirtualGatewaySpecBackendDefaults {
 
         @CustomType.Setter
         public Builder clientPolicy(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicy clientPolicy) {
+
             this.clientPolicy = clientPolicy;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.vpclattice.outputs;
 
 import com.pulumi.aws.vpclattice.outputs.GetServiceDnsEntry;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -155,27 +156,42 @@ public final class GetServiceResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder authType(String authType) {
-            this.authType = Objects.requireNonNull(authType);
+            if (authType == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "authType");
+            }
+            this.authType = authType;
             return this;
         }
         @CustomType.Setter
         public Builder certificateArn(String certificateArn) {
-            this.certificateArn = Objects.requireNonNull(certificateArn);
+            if (certificateArn == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "certificateArn");
+            }
+            this.certificateArn = certificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder customDomainName(String customDomainName) {
-            this.customDomainName = Objects.requireNonNull(customDomainName);
+            if (customDomainName == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "customDomainName");
+            }
+            this.customDomainName = customDomainName;
             return this;
         }
         @CustomType.Setter
         public Builder dnsEntries(List<GetServiceDnsEntry> dnsEntries) {
-            this.dnsEntries = Objects.requireNonNull(dnsEntries);
+            if (dnsEntries == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "dnsEntries");
+            }
+            this.dnsEntries = dnsEntries;
             return this;
         }
         public Builder dnsEntries(GetServiceDnsEntry... dnsEntries) {
@@ -183,27 +199,42 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder serviceIdentifier(String serviceIdentifier) {
-            this.serviceIdentifier = Objects.requireNonNull(serviceIdentifier);
+            if (serviceIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "serviceIdentifier");
+            }
+            this.serviceIdentifier = serviceIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetServiceResult build() {

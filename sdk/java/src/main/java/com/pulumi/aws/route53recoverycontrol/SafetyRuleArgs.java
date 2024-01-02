@@ -6,6 +6,7 @@ package com.pulumi.aws.route53recoverycontrol;
 import com.pulumi.aws.route53recoverycontrol.inputs.SafetyRuleRuleConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -339,9 +340,15 @@ public final class SafetyRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SafetyRuleArgs build() {
-            $.controlPanelArn = Objects.requireNonNull($.controlPanelArn, "expected parameter 'controlPanelArn' to be non-null");
-            $.ruleConfig = Objects.requireNonNull($.ruleConfig, "expected parameter 'ruleConfig' to be non-null");
-            $.waitPeriodMs = Objects.requireNonNull($.waitPeriodMs, "expected parameter 'waitPeriodMs' to be non-null");
+            if ($.controlPanelArn == null) {
+                throw new MissingRequiredPropertyException("SafetyRuleArgs", "controlPanelArn");
+            }
+            if ($.ruleConfig == null) {
+                throw new MissingRequiredPropertyException("SafetyRuleArgs", "ruleConfig");
+            }
+            if ($.waitPeriodMs == null) {
+                throw new MissingRequiredPropertyException("SafetyRuleArgs", "waitPeriodMs");
+            }
             return $;
         }
     }

@@ -44,6 +44,7 @@ public final class ConfigurationSetSendingOptions {
 
         @CustomType.Setter
         public Builder sendingEnabled(@Nullable Boolean sendingEnabled) {
+
             this.sendingEnabled = sendingEnabled;
             return this;
         }

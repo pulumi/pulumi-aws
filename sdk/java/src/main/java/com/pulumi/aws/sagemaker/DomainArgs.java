@@ -9,6 +9,7 @@ import com.pulumi.aws.sagemaker.inputs.DomainDomainSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainRetentionPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -507,11 +508,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DomainArgs build() {
-            $.authMode = Objects.requireNonNull($.authMode, "expected parameter 'authMode' to be non-null");
-            $.defaultUserSettings = Objects.requireNonNull($.defaultUserSettings, "expected parameter 'defaultUserSettings' to be non-null");
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.authMode == null) {
+                throw new MissingRequiredPropertyException("DomainArgs", "authMode");
+            }
+            if ($.defaultUserSettings == null) {
+                throw new MissingRequiredPropertyException("DomainArgs", "defaultUserSettings");
+            }
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("DomainArgs", "domainName");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("DomainArgs", "subnetIds");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("DomainArgs", "vpcId");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.acmpca;
 import com.pulumi.aws.acmpca.inputs.CertificateValidityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -266,10 +267,18 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CertificateArgs build() {
-            $.certificateAuthorityArn = Objects.requireNonNull($.certificateAuthorityArn, "expected parameter 'certificateAuthorityArn' to be non-null");
-            $.certificateSigningRequest = Objects.requireNonNull($.certificateSigningRequest, "expected parameter 'certificateSigningRequest' to be non-null");
-            $.signingAlgorithm = Objects.requireNonNull($.signingAlgorithm, "expected parameter 'signingAlgorithm' to be non-null");
-            $.validity = Objects.requireNonNull($.validity, "expected parameter 'validity' to be non-null");
+            if ($.certificateAuthorityArn == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "certificateAuthorityArn");
+            }
+            if ($.certificateSigningRequest == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "certificateSigningRequest");
+            }
+            if ($.signingAlgorithm == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "signingAlgorithm");
+            }
+            if ($.validity == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "validity");
+            }
             return $;
         }
     }

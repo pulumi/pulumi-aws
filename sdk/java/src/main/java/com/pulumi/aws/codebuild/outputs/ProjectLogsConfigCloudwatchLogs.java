@@ -72,16 +72,19 @@ public final class ProjectLogsConfigCloudwatchLogs {
 
         @CustomType.Setter
         public Builder groupName(@Nullable String groupName) {
+
             this.groupName = groupName;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder streamName(@Nullable String streamName) {
+
             this.streamName = streamName;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -196,8 +197,12 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
         }
 
         public ServiceLoadBalancerArgs build() {
-            $.containerName = Objects.requireNonNull($.containerName, "expected parameter 'containerName' to be non-null");
-            $.containerPort = Objects.requireNonNull($.containerPort, "expected parameter 'containerPort' to be non-null");
+            if ($.containerName == null) {
+                throw new MissingRequiredPropertyException("ServiceLoadBalancerArgs", "containerName");
+            }
+            if ($.containerPort == null) {
+                throw new MissingRequiredPropertyException("ServiceLoadBalancerArgs", "containerPort");
+            }
             return $;
         }
     }

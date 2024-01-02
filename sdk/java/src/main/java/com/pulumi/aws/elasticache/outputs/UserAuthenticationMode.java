@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticache.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -66,11 +67,13 @@ public final class UserAuthenticationMode {
 
         @CustomType.Setter
         public Builder passwordCount(@Nullable Integer passwordCount) {
+
             this.passwordCount = passwordCount;
             return this;
         }
         @CustomType.Setter
         public Builder passwords(@Nullable List<String> passwords) {
+
             this.passwords = passwords;
             return this;
         }
@@ -79,7 +82,10 @@ public final class UserAuthenticationMode {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("UserAuthenticationMode", "type");
+            }
+            this.type = type;
             return this;
         }
         public UserAuthenticationMode build() {

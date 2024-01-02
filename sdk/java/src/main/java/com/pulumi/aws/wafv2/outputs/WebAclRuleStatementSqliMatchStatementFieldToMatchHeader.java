@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -71,17 +72,26 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchHeader {
 
         @CustomType.Setter
         public Builder matchPattern(WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern matchPattern) {
-            this.matchPattern = Objects.requireNonNull(matchPattern);
+            if (matchPattern == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementSqliMatchStatementFieldToMatchHeader", "matchPattern");
+            }
+            this.matchPattern = matchPattern;
             return this;
         }
         @CustomType.Setter
         public Builder matchScope(String matchScope) {
-            this.matchScope = Objects.requireNonNull(matchScope);
+            if (matchScope == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementSqliMatchStatementFieldToMatchHeader", "matchScope");
+            }
+            this.matchScope = matchScope;
             return this;
         }
         @CustomType.Setter
         public Builder oversizeHandling(String oversizeHandling) {
-            this.oversizeHandling = Objects.requireNonNull(oversizeHandling);
+            if (oversizeHandling == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementSqliMatchStatementFieldToMatchHeader", "oversizeHandling");
+            }
+            this.oversizeHandling = oversizeHandling;
             return this;
         }
         public WebAclRuleStatementSqliMatchStatementFieldToMatchHeader build() {

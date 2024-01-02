@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleActionBlockCustomResponseResponseHeaderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -163,7 +164,9 @@ public final class WebAclRuleActionBlockCustomResponseArgs extends com.pulumi.re
         }
 
         public WebAclRuleActionBlockCustomResponseArgs build() {
-            $.responseCode = Objects.requireNonNull($.responseCode, "expected parameter 'responseCode' to be non-null");
+            if ($.responseCode == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleActionBlockCustomResponseArgs", "responseCode");
+            }
             return $;
         }
     }

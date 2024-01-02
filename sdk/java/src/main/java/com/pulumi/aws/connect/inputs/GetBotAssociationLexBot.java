@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetBotAssociationLexBot extends com.pulumi.resources.InvokeAr
         }
 
         public GetBotAssociationLexBot build() {
-            $.lexRegion = Objects.requireNonNull($.lexRegion, "expected parameter 'lexRegion' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.lexRegion == null) {
+                throw new MissingRequiredPropertyException("GetBotAssociationLexBot", "lexRegion");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetBotAssociationLexBot", "name");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.backup.inputs;
 import com.pulumi.aws.backup.inputs.PlanRuleCopyActionLifecycleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class PlanRuleCopyActionArgs extends com.pulumi.resources.ResourceA
         }
 
         public PlanRuleCopyActionArgs build() {
-            $.destinationVaultArn = Objects.requireNonNull($.destinationVaultArn, "expected parameter 'destinationVaultArn' to be non-null");
+            if ($.destinationVaultArn == null) {
+                throw new MissingRequiredPropertyException("PlanRuleCopyActionArgs", "destinationVaultArn");
+            }
             return $;
         }
     }

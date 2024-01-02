@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -102,6 +103,7 @@ public final class ChannelEncoderSettingsOutputGroupOutput {
 
         @CustomType.Setter
         public Builder audioDescriptionNames(@Nullable List<String> audioDescriptionNames) {
+
             this.audioDescriptionNames = audioDescriptionNames;
             return this;
         }
@@ -110,6 +112,7 @@ public final class ChannelEncoderSettingsOutputGroupOutput {
         }
         @CustomType.Setter
         public Builder captionDescriptionNames(@Nullable List<String> captionDescriptionNames) {
+
             this.captionDescriptionNames = captionDescriptionNames;
             return this;
         }
@@ -118,16 +121,21 @@ public final class ChannelEncoderSettingsOutputGroupOutput {
         }
         @CustomType.Setter
         public Builder outputName(@Nullable String outputName) {
+
             this.outputName = outputName;
             return this;
         }
         @CustomType.Setter
         public Builder outputSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettings outputSettings) {
-            this.outputSettings = Objects.requireNonNull(outputSettings);
+            if (outputSettings == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutput", "outputSettings");
+            }
+            this.outputSettings = outputSettings;
             return this;
         }
         @CustomType.Setter
         public Builder videoDescriptionName(@Nullable String videoDescriptionName) {
+
             this.videoDescriptionName = videoDescriptionName;
             return this;
         }

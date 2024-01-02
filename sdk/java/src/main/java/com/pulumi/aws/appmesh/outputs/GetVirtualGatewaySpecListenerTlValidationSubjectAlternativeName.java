@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,7 +36,10 @@ public final class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNa
 
         @CustomType.Setter
         public Builder matches(List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+            if (matches == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName", "matches");
+            }
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatch... matches) {

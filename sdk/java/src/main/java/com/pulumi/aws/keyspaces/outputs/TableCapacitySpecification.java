@@ -73,16 +73,19 @@ public final class TableCapacitySpecification {
 
         @CustomType.Setter
         public Builder readCapacityUnits(@Nullable Integer readCapacityUnits) {
+
             this.readCapacityUnits = readCapacityUnits;
             return this;
         }
         @CustomType.Setter
         public Builder throughputMode(@Nullable String throughputMode) {
+
             this.throughputMode = throughputMode;
             return this;
         }
         @CustomType.Setter
         public Builder writeCapacityUnits(@Nullable Integer writeCapacityUnits) {
+
             this.writeCapacityUnits = writeCapacityUnits;
             return this;
         }

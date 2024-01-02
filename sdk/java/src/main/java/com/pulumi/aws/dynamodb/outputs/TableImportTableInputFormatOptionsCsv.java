@@ -59,11 +59,13 @@ public final class TableImportTableInputFormatOptionsCsv {
 
         @CustomType.Setter
         public Builder delimiter(@Nullable String delimiter) {
+
             this.delimiter = delimiter;
             return this;
         }
         @CustomType.Setter
         public Builder headerLists(@Nullable List<String> headerLists) {
+
             this.headerLists = headerLists;
             return this;
         }

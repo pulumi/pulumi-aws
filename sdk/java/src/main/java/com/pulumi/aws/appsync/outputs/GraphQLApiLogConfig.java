@@ -4,6 +4,7 @@
 package com.pulumi.aws.appsync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,24 @@ public final class GraphQLApiLogConfig {
 
         @CustomType.Setter
         public Builder cloudwatchLogsRoleArn(String cloudwatchLogsRoleArn) {
-            this.cloudwatchLogsRoleArn = Objects.requireNonNull(cloudwatchLogsRoleArn);
+            if (cloudwatchLogsRoleArn == null) {
+              throw new MissingRequiredPropertyException("GraphQLApiLogConfig", "cloudwatchLogsRoleArn");
+            }
+            this.cloudwatchLogsRoleArn = cloudwatchLogsRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder excludeVerboseContent(@Nullable Boolean excludeVerboseContent) {
+
             this.excludeVerboseContent = excludeVerboseContent;
             return this;
         }
         @CustomType.Setter
         public Builder fieldLogLevel(String fieldLogLevel) {
-            this.fieldLogLevel = Objects.requireNonNull(fieldLogLevel);
+            if (fieldLogLevel == null) {
+              throw new MissingRequiredPropertyException("GraphQLApiLogConfig", "fieldLogLevel");
+            }
+            this.fieldLogLevel = fieldLogLevel;
             return this;
         }
         public GraphQLApiLogConfig build() {

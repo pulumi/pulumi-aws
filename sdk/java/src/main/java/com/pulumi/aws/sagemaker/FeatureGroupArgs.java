@@ -8,6 +8,7 @@ import com.pulumi.aws.sagemaker.inputs.FeatureGroupOfflineStoreConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.FeatureGroupOnlineStoreConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -387,11 +388,21 @@ public final class FeatureGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FeatureGroupArgs build() {
-            $.eventTimeFeatureName = Objects.requireNonNull($.eventTimeFeatureName, "expected parameter 'eventTimeFeatureName' to be non-null");
-            $.featureDefinitions = Objects.requireNonNull($.featureDefinitions, "expected parameter 'featureDefinitions' to be non-null");
-            $.featureGroupName = Objects.requireNonNull($.featureGroupName, "expected parameter 'featureGroupName' to be non-null");
-            $.recordIdentifierFeatureName = Objects.requireNonNull($.recordIdentifierFeatureName, "expected parameter 'recordIdentifierFeatureName' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.eventTimeFeatureName == null) {
+                throw new MissingRequiredPropertyException("FeatureGroupArgs", "eventTimeFeatureName");
+            }
+            if ($.featureDefinitions == null) {
+                throw new MissingRequiredPropertyException("FeatureGroupArgs", "featureDefinitions");
+            }
+            if ($.featureGroupName == null) {
+                throw new MissingRequiredPropertyException("FeatureGroupArgs", "featureGroupName");
+            }
+            if ($.recordIdentifierFeatureName == null) {
+                throw new MissingRequiredPropertyException("FeatureGroupArgs", "recordIdentifierFeatureName");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("FeatureGroupArgs", "roleArn");
+            }
             return $;
         }
     }

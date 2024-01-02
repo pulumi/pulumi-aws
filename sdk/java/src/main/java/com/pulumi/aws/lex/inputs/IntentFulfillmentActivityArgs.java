@@ -6,6 +6,7 @@ package com.pulumi.aws.lex.inputs;
 import com.pulumi.aws.lex.inputs.IntentFulfillmentActivityCodeHookArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -122,7 +123,9 @@ public final class IntentFulfillmentActivityArgs extends com.pulumi.resources.Re
         }
 
         public IntentFulfillmentActivityArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("IntentFulfillmentActivityArgs", "type");
+            }
             return $;
         }
     }

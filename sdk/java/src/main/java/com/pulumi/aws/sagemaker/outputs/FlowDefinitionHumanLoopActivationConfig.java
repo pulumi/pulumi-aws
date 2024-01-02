@@ -44,6 +44,7 @@ public final class FlowDefinitionHumanLoopActivationConfig {
 
         @CustomType.Setter
         public Builder humanLoopActivationConditionsConfig(@Nullable FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig humanLoopActivationConditionsConfig) {
+
             this.humanLoopActivationConditionsConfig = humanLoopActivationConditionsConfig;
             return this;
         }

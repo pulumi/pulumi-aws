@@ -6,6 +6,7 @@ package com.pulumi.aws.ssm;
 import com.pulumi.aws.ssm.inputs.MaintenanceWindowTargetTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -278,9 +279,15 @@ public final class MaintenanceWindowTargetArgs extends com.pulumi.resources.Reso
         }
 
         public MaintenanceWindowTargetArgs build() {
-            $.resourceType = Objects.requireNonNull($.resourceType, "expected parameter 'resourceType' to be non-null");
-            $.targets = Objects.requireNonNull($.targets, "expected parameter 'targets' to be non-null");
-            $.windowId = Objects.requireNonNull($.windowId, "expected parameter 'windowId' to be non-null");
+            if ($.resourceType == null) {
+                throw new MissingRequiredPropertyException("MaintenanceWindowTargetArgs", "resourceType");
+            }
+            if ($.targets == null) {
+                throw new MissingRequiredPropertyException("MaintenanceWindowTargetArgs", "targets");
+            }
+            if ($.windowId == null) {
+                throw new MissingRequiredPropertyException("MaintenanceWindowTargetArgs", "windowId");
+            }
             return $;
         }
     }

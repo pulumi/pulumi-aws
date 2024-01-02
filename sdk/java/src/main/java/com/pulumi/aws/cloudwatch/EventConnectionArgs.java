@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch;
 import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,8 +189,12 @@ public final class EventConnectionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public EventConnectionArgs build() {
-            $.authParameters = Objects.requireNonNull($.authParameters, "expected parameter 'authParameters' to be non-null");
-            $.authorizationType = Objects.requireNonNull($.authorizationType, "expected parameter 'authorizationType' to be non-null");
+            if ($.authParameters == null) {
+                throw new MissingRequiredPropertyException("EventConnectionArgs", "authParameters");
+            }
+            if ($.authorizationType == null) {
+                throw new MissingRequiredPropertyException("EventConnectionArgs", "authorizationType");
+            }
             return $;
         }
     }

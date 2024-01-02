@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class DataSourceParametersSnowflake {
 
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersSnowflake", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder host(String host) {
-            this.host = Objects.requireNonNull(host);
+            if (host == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersSnowflake", "host");
+            }
+            this.host = host;
             return this;
         }
         @CustomType.Setter
         public Builder warehouse(String warehouse) {
-            this.warehouse = Objects.requireNonNull(warehouse);
+            if (warehouse == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersSnowflake", "warehouse");
+            }
+            this.warehouse = warehouse;
             return this;
         }
         public DataSourceParametersSnowflake build() {

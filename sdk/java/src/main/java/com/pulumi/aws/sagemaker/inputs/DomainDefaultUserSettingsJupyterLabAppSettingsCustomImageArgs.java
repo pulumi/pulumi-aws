@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs
         }
 
         public DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs build() {
-            $.appImageConfigName = Objects.requireNonNull($.appImageConfigName, "expected parameter 'appImageConfigName' to be non-null");
-            $.imageName = Objects.requireNonNull($.imageName, "expected parameter 'imageName' to be non-null");
+            if ($.appImageConfigName == null) {
+                throw new MissingRequiredPropertyException("DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs", "appImageConfigName");
+            }
+            if ($.imageName == null) {
+                throw new MissingRequiredPropertyException("DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs", "imageName");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetUserPoolClientPlainArgs extends com.pulumi.resources.Invok
         }
 
         public GetUserPoolClientPlainArgs build() {
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.userPoolId = Objects.requireNonNull($.userPoolId, "expected parameter 'userPoolId' to be non-null");
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("GetUserPoolClientPlainArgs", "clientId");
+            }
+            if ($.userPoolId == null) {
+                throw new MissingRequiredPropertyException("GetUserPoolClientPlainArgs", "userPoolId");
+            }
             return $;
         }
     }

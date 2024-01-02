@@ -6,6 +6,7 @@ package com.pulumi.aws.s3control.inputs;
 import com.pulumi.aws.s3control.inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
         }
 
         public ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs build() {
-            $.awsLambda = Objects.requireNonNull($.awsLambda, "expected parameter 'awsLambda' to be non-null");
+            if ($.awsLambda == null) {
+                throw new MissingRequiredPropertyException("ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs", "awsLambda");
+            }
             return $;
         }
     }

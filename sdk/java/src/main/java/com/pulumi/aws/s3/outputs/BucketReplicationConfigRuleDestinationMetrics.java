@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.BucketReplicationConfigRuleDestinationMetricsEventThreshold;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,12 +60,16 @@ public final class BucketReplicationConfigRuleDestinationMetrics {
 
         @CustomType.Setter
         public Builder eventThreshold(@Nullable BucketReplicationConfigRuleDestinationMetricsEventThreshold eventThreshold) {
+
             this.eventThreshold = eventThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("BucketReplicationConfigRuleDestinationMetrics", "status");
+            }
+            this.status = status;
             return this;
         }
         public BucketReplicationConfigRuleDestinationMetrics build() {

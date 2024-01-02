@@ -59,11 +59,13 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
 
         @CustomType.Setter
         public Builder file(@Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile file) {
+
             this.file = file;
             return this;
         }
         @CustomType.Setter
         public Builder sds(@Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds sds) {
+
             this.sds = sds;
             return this;
         }

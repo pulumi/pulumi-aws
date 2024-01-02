@@ -5,6 +5,7 @@ package com.pulumi.aws.dms.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -226,8 +227,12 @@ public final class EndpointElasticsearchSettingsArgs extends com.pulumi.resource
         }
 
         public EndpointElasticsearchSettingsArgs build() {
-            $.endpointUri = Objects.requireNonNull($.endpointUri, "expected parameter 'endpointUri' to be non-null");
-            $.serviceAccessRoleArn = Objects.requireNonNull($.serviceAccessRoleArn, "expected parameter 'serviceAccessRoleArn' to be non-null");
+            if ($.endpointUri == null) {
+                throw new MissingRequiredPropertyException("EndpointElasticsearchSettingsArgs", "endpointUri");
+            }
+            if ($.serviceAccessRoleArn == null) {
+                throw new MissingRequiredPropertyException("EndpointElasticsearchSettingsArgs", "serviceAccessRoleArn");
+            }
             return $;
         }
     }

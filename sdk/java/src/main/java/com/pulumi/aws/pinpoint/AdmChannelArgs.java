@@ -5,6 +5,7 @@ package com.pulumi.aws.pinpoint;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class AdmChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AdmChannelArgs build() {
-            $.applicationId = Objects.requireNonNull($.applicationId, "expected parameter 'applicationId' to be non-null");
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
+            if ($.applicationId == null) {
+                throw new MissingRequiredPropertyException("AdmChannelArgs", "applicationId");
+            }
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("AdmChannelArgs", "clientId");
+            }
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("AdmChannelArgs", "clientSecret");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscalingplans.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificatio
         }
 
         public ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs build() {
-            $.predefinedLoadMetricType = Objects.requireNonNull($.predefinedLoadMetricType, "expected parameter 'predefinedLoadMetricType' to be non-null");
+            if ($.predefinedLoadMetricType == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs", "predefinedLoadMetricType");
+            }
             return $;
         }
     }

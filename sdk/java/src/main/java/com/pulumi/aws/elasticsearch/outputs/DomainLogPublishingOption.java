@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticsearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,24 @@ public final class DomainLogPublishingOption {
 
         @CustomType.Setter
         public Builder cloudwatchLogGroupArn(String cloudwatchLogGroupArn) {
-            this.cloudwatchLogGroupArn = Objects.requireNonNull(cloudwatchLogGroupArn);
+            if (cloudwatchLogGroupArn == null) {
+              throw new MissingRequiredPropertyException("DomainLogPublishingOption", "cloudwatchLogGroupArn");
+            }
+            this.cloudwatchLogGroupArn = cloudwatchLogGroupArn;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder logType(String logType) {
-            this.logType = Objects.requireNonNull(logType);
+            if (logType == null) {
+              throw new MissingRequiredPropertyException("DomainLogPublishingOption", "logType");
+            }
+            this.logType = logType;
             return this;
         }
         public DomainLogPublishingOption build() {

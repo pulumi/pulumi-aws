@@ -5,6 +5,7 @@ package com.pulumi.aws.securityhub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         }
 
         public OrganizationConfigurationArgs build() {
-            $.autoEnable = Objects.requireNonNull($.autoEnable, "expected parameter 'autoEnable' to be non-null");
+            if ($.autoEnable == null) {
+                throw new MissingRequiredPropertyException("OrganizationConfigurationArgs", "autoEnable");
+            }
             return $;
         }
     }

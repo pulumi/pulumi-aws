@@ -5,6 +5,7 @@ package com.pulumi.aws.pipes.outputs;
 
 import com.pulumi.aws.pipes.outputs.PipeSourceParametersDynamodbStreamParametersDeadLetterConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -144,42 +145,52 @@ public final class PipeSourceParametersDynamodbStreamParameters {
 
         @CustomType.Setter
         public Builder batchSize(@Nullable Integer batchSize) {
+
             this.batchSize = batchSize;
             return this;
         }
         @CustomType.Setter
         public Builder deadLetterConfig(@Nullable PipeSourceParametersDynamodbStreamParametersDeadLetterConfig deadLetterConfig) {
+
             this.deadLetterConfig = deadLetterConfig;
             return this;
         }
         @CustomType.Setter
         public Builder maximumBatchingWindowInSeconds(@Nullable Integer maximumBatchingWindowInSeconds) {
+
             this.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder maximumRecordAgeInSeconds(@Nullable Integer maximumRecordAgeInSeconds) {
+
             this.maximumRecordAgeInSeconds = maximumRecordAgeInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder maximumRetryAttempts(@Nullable Integer maximumRetryAttempts) {
+
             this.maximumRetryAttempts = maximumRetryAttempts;
             return this;
         }
         @CustomType.Setter
         public Builder onPartialBatchItemFailure(@Nullable String onPartialBatchItemFailure) {
+
             this.onPartialBatchItemFailure = onPartialBatchItemFailure;
             return this;
         }
         @CustomType.Setter
         public Builder parallelizationFactor(@Nullable Integer parallelizationFactor) {
+
             this.parallelizationFactor = parallelizationFactor;
             return this;
         }
         @CustomType.Setter
         public Builder startingPosition(String startingPosition) {
-            this.startingPosition = Objects.requireNonNull(startingPosition);
+            if (startingPosition == null) {
+              throw new MissingRequiredPropertyException("PipeSourceParametersDynamodbStreamParameters", "startingPosition");
+            }
+            this.startingPosition = startingPosition;
             return this;
         }
         public PipeSourceParametersDynamodbStreamParameters build() {

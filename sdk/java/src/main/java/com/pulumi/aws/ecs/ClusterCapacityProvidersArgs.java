@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs;
 import com.pulumi.aws.ecs.inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -172,7 +173,9 @@ public final class ClusterCapacityProvidersArgs extends com.pulumi.resources.Res
         }
 
         public ClusterCapacityProvidersArgs build() {
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("ClusterCapacityProvidersArgs", "clusterName");
+            }
             return $;
         }
     }

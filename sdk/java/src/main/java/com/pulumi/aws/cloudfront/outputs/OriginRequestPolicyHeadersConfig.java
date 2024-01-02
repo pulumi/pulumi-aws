@@ -43,11 +43,13 @@ public final class OriginRequestPolicyHeadersConfig {
 
         @CustomType.Setter
         public Builder headerBehavior(@Nullable String headerBehavior) {
+
             this.headerBehavior = headerBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable OriginRequestPolicyHeadersConfigHeaders headers) {
+
             this.headers = headers;
             return this;
         }

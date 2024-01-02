@@ -6,6 +6,7 @@ package com.pulumi.aws.securitylake.outputs;
 import com.pulumi.aws.securitylake.outputs.DataLakeConfigurationLifecycleConfiguration;
 import com.pulumi.aws.securitylake.outputs.DataLakeConfigurationReplicationConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Object;
 import java.lang.String;
 import java.util.List;
@@ -91,21 +92,27 @@ public final class DataLakeConfiguration {
 
         @CustomType.Setter
         public Builder encryptionConfigurations(@Nullable List<Map<String,Object>> encryptionConfigurations) {
+
             this.encryptionConfigurations = encryptionConfigurations;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleConfiguration(@Nullable DataLakeConfigurationLifecycleConfiguration lifecycleConfiguration) {
+
             this.lifecycleConfiguration = lifecycleConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("DataLakeConfiguration", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder replicationConfiguration(@Nullable DataLakeConfigurationReplicationConfiguration replicationConfiguration) {
+
             this.replicationConfiguration = replicationConfiguration;
             return this;
         }

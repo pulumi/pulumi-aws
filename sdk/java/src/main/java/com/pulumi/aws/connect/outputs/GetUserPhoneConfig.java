@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -86,22 +87,34 @@ public final class GetUserPhoneConfig {
 
         @CustomType.Setter
         public Builder afterContactWorkTimeLimit(Integer afterContactWorkTimeLimit) {
-            this.afterContactWorkTimeLimit = Objects.requireNonNull(afterContactWorkTimeLimit);
+            if (afterContactWorkTimeLimit == null) {
+              throw new MissingRequiredPropertyException("GetUserPhoneConfig", "afterContactWorkTimeLimit");
+            }
+            this.afterContactWorkTimeLimit = afterContactWorkTimeLimit;
             return this;
         }
         @CustomType.Setter
         public Builder autoAccept(Boolean autoAccept) {
-            this.autoAccept = Objects.requireNonNull(autoAccept);
+            if (autoAccept == null) {
+              throw new MissingRequiredPropertyException("GetUserPhoneConfig", "autoAccept");
+            }
+            this.autoAccept = autoAccept;
             return this;
         }
         @CustomType.Setter
         public Builder deskPhoneNumber(String deskPhoneNumber) {
-            this.deskPhoneNumber = Objects.requireNonNull(deskPhoneNumber);
+            if (deskPhoneNumber == null) {
+              throw new MissingRequiredPropertyException("GetUserPhoneConfig", "deskPhoneNumber");
+            }
+            this.deskPhoneNumber = deskPhoneNumber;
             return this;
         }
         @CustomType.Setter
         public Builder phoneType(String phoneType) {
-            this.phoneType = Objects.requireNonNull(phoneType);
+            if (phoneType == null) {
+              throw new MissingRequiredPropertyException("GetUserPhoneConfig", "phoneType");
+            }
+            this.phoneType = phoneType;
             return this;
         }
         public GetUserPhoneConfig build() {

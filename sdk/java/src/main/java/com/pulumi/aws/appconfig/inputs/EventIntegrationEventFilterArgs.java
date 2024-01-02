@@ -5,6 +5,7 @@ package com.pulumi.aws.appconfig.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class EventIntegrationEventFilterArgs extends com.pulumi.resources.
         }
 
         public EventIntegrationEventFilterArgs build() {
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("EventIntegrationEventFilterArgs", "source");
+            }
             return $;
         }
     }

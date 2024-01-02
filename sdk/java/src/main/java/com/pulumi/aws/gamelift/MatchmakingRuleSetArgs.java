@@ -5,6 +5,7 @@ package com.pulumi.aws.gamelift;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -131,7 +132,9 @@ public final class MatchmakingRuleSetArgs extends com.pulumi.resources.ResourceA
         }
 
         public MatchmakingRuleSetArgs build() {
-            $.ruleSetBody = Objects.requireNonNull($.ruleSetBody, "expected parameter 'ruleSetBody' to be non-null");
+            if ($.ruleSetBody == null) {
+                throw new MissingRequiredPropertyException("MatchmakingRuleSetArgs", "ruleSetBody");
+            }
             return $;
         }
     }

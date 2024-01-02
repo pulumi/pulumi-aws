@@ -65,16 +65,19 @@ public final class PartitionIndexPartitionIndex {
 
         @CustomType.Setter
         public Builder indexName(@Nullable String indexName) {
+
             this.indexName = indexName;
             return this;
         }
         @CustomType.Setter
         public Builder indexStatus(@Nullable String indexStatus) {
+
             this.indexStatus = indexStatus;
             return this;
         }
         @CustomType.Setter
         public Builder keys(@Nullable List<String> keys) {
+
             this.keys = keys;
             return this;
         }

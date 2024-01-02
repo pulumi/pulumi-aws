@@ -7,6 +7,7 @@ import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointDetailsPublicAccess
 import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointDetailsRegionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -97,8 +98,12 @@ public final class MultiRegionAccessPointDetailsArgs extends com.pulumi.resource
         }
 
         public MultiRegionAccessPointDetailsArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.regions = Objects.requireNonNull($.regions, "expected parameter 'regions' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("MultiRegionAccessPointDetailsArgs", "name");
+            }
+            if ($.regions == null) {
+                throw new MissingRequiredPropertyException("MultiRegionAccessPointDetailsArgs", "regions");
+            }
             return $;
         }
     }

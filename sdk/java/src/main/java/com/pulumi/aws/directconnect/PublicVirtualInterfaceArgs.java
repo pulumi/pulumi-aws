@@ -5,6 +5,7 @@ package com.pulumi.aws.directconnect;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -422,11 +423,21 @@ public final class PublicVirtualInterfaceArgs extends com.pulumi.resources.Resou
         }
 
         public PublicVirtualInterfaceArgs build() {
-            $.addressFamily = Objects.requireNonNull($.addressFamily, "expected parameter 'addressFamily' to be non-null");
-            $.bgpAsn = Objects.requireNonNull($.bgpAsn, "expected parameter 'bgpAsn' to be non-null");
-            $.connectionId = Objects.requireNonNull($.connectionId, "expected parameter 'connectionId' to be non-null");
-            $.routeFilterPrefixes = Objects.requireNonNull($.routeFilterPrefixes, "expected parameter 'routeFilterPrefixes' to be non-null");
-            $.vlan = Objects.requireNonNull($.vlan, "expected parameter 'vlan' to be non-null");
+            if ($.addressFamily == null) {
+                throw new MissingRequiredPropertyException("PublicVirtualInterfaceArgs", "addressFamily");
+            }
+            if ($.bgpAsn == null) {
+                throw new MissingRequiredPropertyException("PublicVirtualInterfaceArgs", "bgpAsn");
+            }
+            if ($.connectionId == null) {
+                throw new MissingRequiredPropertyException("PublicVirtualInterfaceArgs", "connectionId");
+            }
+            if ($.routeFilterPrefixes == null) {
+                throw new MissingRequiredPropertyException("PublicVirtualInterfaceArgs", "routeFilterPrefixes");
+            }
+            if ($.vlan == null) {
+                throw new MissingRequiredPropertyException("PublicVirtualInterfaceArgs", "vlan");
+            }
             return $;
         }
     }

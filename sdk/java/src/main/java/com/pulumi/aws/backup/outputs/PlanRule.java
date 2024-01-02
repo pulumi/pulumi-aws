@@ -6,6 +6,7 @@ package com.pulumi.aws.backup.outputs;
 import com.pulumi.aws.backup.outputs.PlanRuleCopyAction;
 import com.pulumi.aws.backup.outputs.PlanRuleLifecycle;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -162,11 +163,13 @@ public final class PlanRule {
 
         @CustomType.Setter
         public Builder completionWindow(@Nullable Integer completionWindow) {
+
             this.completionWindow = completionWindow;
             return this;
         }
         @CustomType.Setter
         public Builder copyActions(@Nullable List<PlanRuleCopyAction> copyActions) {
+
             this.copyActions = copyActions;
             return this;
         }
@@ -175,37 +178,48 @@ public final class PlanRule {
         }
         @CustomType.Setter
         public Builder enableContinuousBackup(@Nullable Boolean enableContinuousBackup) {
+
             this.enableContinuousBackup = enableContinuousBackup;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycle(@Nullable PlanRuleLifecycle lifecycle) {
+
             this.lifecycle = lifecycle;
             return this;
         }
         @CustomType.Setter
         public Builder recoveryPointTags(@Nullable Map<String,String> recoveryPointTags) {
+
             this.recoveryPointTags = recoveryPointTags;
             return this;
         }
         @CustomType.Setter
         public Builder ruleName(String ruleName) {
-            this.ruleName = Objects.requireNonNull(ruleName);
+            if (ruleName == null) {
+              throw new MissingRequiredPropertyException("PlanRule", "ruleName");
+            }
+            this.ruleName = ruleName;
             return this;
         }
         @CustomType.Setter
         public Builder schedule(@Nullable String schedule) {
+
             this.schedule = schedule;
             return this;
         }
         @CustomType.Setter
         public Builder startWindow(@Nullable Integer startWindow) {
+
             this.startWindow = startWindow;
             return this;
         }
         @CustomType.Setter
         public Builder targetVaultName(String targetVaultName) {
-            this.targetVaultName = Objects.requireNonNull(targetVaultName);
+            if (targetVaultName == null) {
+              throw new MissingRequiredPropertyException("PlanRule", "targetVaultName");
+            }
+            this.targetVaultName = targetVaultName;
             return this;
         }
         public PlanRule build() {

@@ -44,6 +44,7 @@ public final class VirtualClusterContainerProviderInfoEksInfo {
 
         @CustomType.Setter
         public Builder namespace(@Nullable String namespace) {
+
             this.namespace = namespace;
             return this;
         }

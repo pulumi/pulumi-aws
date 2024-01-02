@@ -58,11 +58,13 @@ public final class ChannelEncoderSettingsNielsenConfiguration {
 
         @CustomType.Setter
         public Builder distributorId(@Nullable String distributorId) {
+
             this.distributorId = distributorId;
             return this;
         }
         @CustomType.Setter
         public Builder nielsenPcmToId3Tagging(@Nullable String nielsenPcmToId3Tagging) {
+
             this.nielsenPcmToId3Tagging = nielsenPcmToId3Tagging;
             return this;
         }

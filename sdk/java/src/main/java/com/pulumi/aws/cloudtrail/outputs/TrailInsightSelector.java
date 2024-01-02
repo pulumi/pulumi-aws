@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudtrail.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class TrailInsightSelector {
 
         @CustomType.Setter
         public Builder insightType(String insightType) {
-            this.insightType = Objects.requireNonNull(insightType);
+            if (insightType == null) {
+              throw new MissingRequiredPropertyException("TrailInsightSelector", "insightType");
+            }
+            this.insightType = insightType;
             return this;
         }
         public TrailInsightSelector build() {

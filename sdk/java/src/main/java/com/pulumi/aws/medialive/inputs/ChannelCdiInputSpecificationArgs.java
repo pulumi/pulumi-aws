@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ChannelCdiInputSpecificationArgs extends com.pulumi.resources
         }
 
         public ChannelCdiInputSpecificationArgs build() {
-            $.resolution = Objects.requireNonNull($.resolution, "expected parameter 'resolution' to be non-null");
+            if ($.resolution == null) {
+                throw new MissingRequiredPropertyException("ChannelCdiInputSpecificationArgs", "resolution");
+            }
             return $;
         }
     }

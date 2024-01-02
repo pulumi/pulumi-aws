@@ -44,6 +44,7 @@ public final class WebAclCaptchaConfig {
 
         @CustomType.Setter
         public Builder immunityTimeProperty(@Nullable WebAclCaptchaConfigImmunityTimeProperty immunityTimeProperty) {
+
             this.immunityTimeProperty = immunityTimeProperty;
             return this;
         }

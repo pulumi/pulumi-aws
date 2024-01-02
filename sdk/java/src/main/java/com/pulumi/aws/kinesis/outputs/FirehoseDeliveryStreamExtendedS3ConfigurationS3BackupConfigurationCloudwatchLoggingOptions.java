@@ -73,16 +73,19 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigur
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder logGroupName(@Nullable String logGroupName) {
+
             this.logGroupName = logGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder logStreamName(@Nullable String logStreamName) {
+
             this.logStreamName = logStreamName;
             return this;
         }

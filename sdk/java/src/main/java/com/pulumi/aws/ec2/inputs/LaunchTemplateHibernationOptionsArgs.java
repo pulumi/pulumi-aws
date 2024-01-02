@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class LaunchTemplateHibernationOptionsArgs extends com.pulumi.resou
         }
 
         public LaunchTemplateHibernationOptionsArgs build() {
-            $.configured = Objects.requireNonNull($.configured, "expected parameter 'configured' to be non-null");
+            if ($.configured == null) {
+                throw new MissingRequiredPropertyException("LaunchTemplateHibernationOptionsArgs", "configured");
+            }
             return $;
         }
     }

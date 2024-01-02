@@ -8,6 +8,7 @@ import com.pulumi.aws.autoscaling.inputs.PolicyStepAdjustmentArgs;
 import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -723,7 +724,9 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PolicyArgs build() {
-            $.autoscalingGroupName = Objects.requireNonNull($.autoscalingGroupName, "expected parameter 'autoscalingGroupName' to be non-null");
+            if ($.autoscalingGroupName == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "autoscalingGroupName");
+            }
             return $;
         }
     }

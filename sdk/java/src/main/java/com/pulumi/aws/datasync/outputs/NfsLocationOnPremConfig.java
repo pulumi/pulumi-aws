@@ -4,6 +4,7 @@
 package com.pulumi.aws.datasync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class NfsLocationOnPremConfig {
 
         @CustomType.Setter
         public Builder agentArns(List<String> agentArns) {
-            this.agentArns = Objects.requireNonNull(agentArns);
+            if (agentArns == null) {
+              throw new MissingRequiredPropertyException("NfsLocationOnPremConfig", "agentArns");
+            }
+            this.agentArns = agentArns;
             return this;
         }
         public Builder agentArns(String... agentArns) {

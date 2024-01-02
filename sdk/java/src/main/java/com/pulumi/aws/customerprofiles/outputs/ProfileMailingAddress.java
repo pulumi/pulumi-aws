@@ -170,51 +170,61 @@ public final class ProfileMailingAddress {
 
         @CustomType.Setter
         public Builder address1(@Nullable String address1) {
+
             this.address1 = address1;
             return this;
         }
         @CustomType.Setter
         public Builder address2(@Nullable String address2) {
+
             this.address2 = address2;
             return this;
         }
         @CustomType.Setter
         public Builder address3(@Nullable String address3) {
+
             this.address3 = address3;
             return this;
         }
         @CustomType.Setter
         public Builder address4(@Nullable String address4) {
+
             this.address4 = address4;
             return this;
         }
         @CustomType.Setter
         public Builder city(@Nullable String city) {
+
             this.city = city;
             return this;
         }
         @CustomType.Setter
         public Builder country(@Nullable String country) {
+
             this.country = country;
             return this;
         }
         @CustomType.Setter
         public Builder county(@Nullable String county) {
+
             this.county = county;
             return this;
         }
         @CustomType.Setter
         public Builder postalCode(@Nullable String postalCode) {
+
             this.postalCode = postalCode;
             return this;
         }
         @CustomType.Setter
         public Builder province(@Nullable String province) {
+
             this.province = province;
             return this;
         }
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }

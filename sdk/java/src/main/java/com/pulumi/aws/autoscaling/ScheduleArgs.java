@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -389,8 +390,12 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ScheduleArgs build() {
-            $.autoscalingGroupName = Objects.requireNonNull($.autoscalingGroupName, "expected parameter 'autoscalingGroupName' to be non-null");
-            $.scheduledActionName = Objects.requireNonNull($.scheduledActionName, "expected parameter 'scheduledActionName' to be non-null");
+            if ($.autoscalingGroupName == null) {
+                throw new MissingRequiredPropertyException("ScheduleArgs", "autoscalingGroupName");
+            }
+            if ($.scheduledActionName == null) {
+                throw new MissingRequiredPropertyException("ScheduleArgs", "scheduledActionName");
+            }
             return $;
         }
     }

@@ -59,11 +59,13 @@ public final class DataRepositoryAssociationS3 {
 
         @CustomType.Setter
         public Builder autoExportPolicy(@Nullable DataRepositoryAssociationS3AutoExportPolicy autoExportPolicy) {
+
             this.autoExportPolicy = autoExportPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder autoImportPolicy(@Nullable DataRepositoryAssociationS3AutoImportPolicy autoImportPolicy) {
+
             this.autoImportPolicy = autoImportPolicy;
             return this;
         }

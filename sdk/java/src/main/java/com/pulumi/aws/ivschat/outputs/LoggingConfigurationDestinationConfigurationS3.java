@@ -4,6 +4,7 @@
 package com.pulumi.aws.ivschat.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,7 +47,10 @@ public final class LoggingConfigurationDestinationConfigurationS3 {
 
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("LoggingConfigurationDestinationConfigurationS3", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         public LoggingConfigurationDestinationConfigurationS3 build() {

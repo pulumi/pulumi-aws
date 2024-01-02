@@ -8,6 +8,7 @@ import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerArgs;
 import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -163,7 +164,9 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         public VirtualGatewaySpecArgs build() {
-            $.listeners = Objects.requireNonNull($.listeners, "expected parameter 'listeners' to be non-null");
+            if ($.listeners == null) {
+                throw new MissingRequiredPropertyException("VirtualGatewaySpecArgs", "listeners");
+            }
             return $;
         }
     }

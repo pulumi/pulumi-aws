@@ -149,41 +149,49 @@ public final class PipeSourceParameters {
 
         @CustomType.Setter
         public Builder activemqBrokerParameters(@Nullable PipeSourceParametersActivemqBrokerParameters activemqBrokerParameters) {
+
             this.activemqBrokerParameters = activemqBrokerParameters;
             return this;
         }
         @CustomType.Setter
         public Builder dynamodbStreamParameters(@Nullable PipeSourceParametersDynamodbStreamParameters dynamodbStreamParameters) {
+
             this.dynamodbStreamParameters = dynamodbStreamParameters;
             return this;
         }
         @CustomType.Setter
         public Builder filterCriteria(@Nullable PipeSourceParametersFilterCriteria filterCriteria) {
+
             this.filterCriteria = filterCriteria;
             return this;
         }
         @CustomType.Setter
         public Builder kinesisStreamParameters(@Nullable PipeSourceParametersKinesisStreamParameters kinesisStreamParameters) {
+
             this.kinesisStreamParameters = kinesisStreamParameters;
             return this;
         }
         @CustomType.Setter
         public Builder managedStreamingKafkaParameters(@Nullable PipeSourceParametersManagedStreamingKafkaParameters managedStreamingKafkaParameters) {
+
             this.managedStreamingKafkaParameters = managedStreamingKafkaParameters;
             return this;
         }
         @CustomType.Setter
         public Builder rabbitmqBrokerParameters(@Nullable PipeSourceParametersRabbitmqBrokerParameters rabbitmqBrokerParameters) {
+
             this.rabbitmqBrokerParameters = rabbitmqBrokerParameters;
             return this;
         }
         @CustomType.Setter
         public Builder selfManagedKafkaParameters(@Nullable PipeSourceParametersSelfManagedKafkaParameters selfManagedKafkaParameters) {
+
             this.selfManagedKafkaParameters = selfManagedKafkaParameters;
             return this;
         }
         @CustomType.Setter
         public Builder sqsQueueParameters(@Nullable PipeSourceParametersSqsQueueParameters sqsQueueParameters) {
+
             this.sqsQueueParameters = sqsQueueParameters;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssoadmin.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -117,9 +118,15 @@ public final class GetApplicationProvidersApplicationProviderDisplayData extends
         }
 
         public GetApplicationProvidersApplicationProviderDisplayData build() {
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.iconUrl = Objects.requireNonNull($.iconUrl, "expected parameter 'iconUrl' to be non-null");
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("GetApplicationProvidersApplicationProviderDisplayData", "description");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("GetApplicationProvidersApplicationProviderDisplayData", "displayName");
+            }
+            if ($.iconUrl == null) {
+                throw new MissingRequiredPropertyException("GetApplicationProvidersApplicationProviderDisplayData", "iconUrl");
+            }
             return $;
         }
     }

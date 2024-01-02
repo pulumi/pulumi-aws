@@ -60,11 +60,13 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
 
         @CustomType.Setter
         public Builder sseKms(@Nullable StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms sseKms) {
+
             this.sseKms = sseKms;
             return this;
         }
         @CustomType.Setter
         public Builder sseS3s(@Nullable List<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3> sseS3s) {
+
             this.sseS3s = sseS3s;
             return this;
         }

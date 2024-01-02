@@ -5,6 +5,7 @@ package com.pulumi.aws.ses;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ReceiptRuleSetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ReceiptRuleSetArgs build() {
-            $.ruleSetName = Objects.requireNonNull($.ruleSetName, "expected parameter 'ruleSetName' to be non-null");
+            if ($.ruleSetName == null) {
+                throw new MissingRequiredPropertyException("ReceiptRuleSetArgs", "ruleSetName");
+            }
             return $;
         }
     }

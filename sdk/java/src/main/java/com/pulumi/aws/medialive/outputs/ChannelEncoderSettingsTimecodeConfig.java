@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -59,11 +60,15 @@ public final class ChannelEncoderSettingsTimecodeConfig {
 
         @CustomType.Setter
         public Builder source(String source) {
-            this.source = Objects.requireNonNull(source);
+            if (source == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsTimecodeConfig", "source");
+            }
+            this.source = source;
             return this;
         }
         @CustomType.Setter
         public Builder syncThreshold(@Nullable Integer syncThreshold) {
+
             this.syncThreshold = syncThreshold;
             return this;
         }

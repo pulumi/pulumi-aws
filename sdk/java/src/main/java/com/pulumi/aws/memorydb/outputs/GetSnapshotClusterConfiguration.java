@@ -4,6 +4,7 @@
 package com.pulumi.aws.memorydb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -211,67 +212,106 @@ public final class GetSnapshotClusterConfiguration {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotClusterConfiguration", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+            if (engineVersion == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotClusterConfiguration", "engineVersion");
+            }
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
         public Builder maintenanceWindow(String maintenanceWindow) {
-            this.maintenanceWindow = Objects.requireNonNull(maintenanceWindow);
+            if (maintenanceWindow == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotClusterConfiguration", "maintenanceWindow");
+            }
+            this.maintenanceWindow = maintenanceWindow;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotClusterConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nodeType(String nodeType) {
-            this.nodeType = Objects.requireNonNull(nodeType);
+            if (nodeType == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotClusterConfiguration", "nodeType");
+            }
+            this.nodeType = nodeType;
             return this;
         }
         @CustomType.Setter
         public Builder numShards(Integer numShards) {
-            this.numShards = Objects.requireNonNull(numShards);
+            if (numShards == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotClusterConfiguration", "numShards");
+            }
+            this.numShards = numShards;
             return this;
         }
         @CustomType.Setter
         public Builder parameterGroupName(String parameterGroupName) {
-            this.parameterGroupName = Objects.requireNonNull(parameterGroupName);
+            if (parameterGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotClusterConfiguration", "parameterGroupName");
+            }
+            this.parameterGroupName = parameterGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotClusterConfiguration", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotRetentionLimit(Integer snapshotRetentionLimit) {
-            this.snapshotRetentionLimit = Objects.requireNonNull(snapshotRetentionLimit);
+            if (snapshotRetentionLimit == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotClusterConfiguration", "snapshotRetentionLimit");
+            }
+            this.snapshotRetentionLimit = snapshotRetentionLimit;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotWindow(String snapshotWindow) {
-            this.snapshotWindow = Objects.requireNonNull(snapshotWindow);
+            if (snapshotWindow == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotClusterConfiguration", "snapshotWindow");
+            }
+            this.snapshotWindow = snapshotWindow;
             return this;
         }
         @CustomType.Setter
         public Builder subnetGroupName(String subnetGroupName) {
-            this.subnetGroupName = Objects.requireNonNull(subnetGroupName);
+            if (subnetGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotClusterConfiguration", "subnetGroupName");
+            }
+            this.subnetGroupName = subnetGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder topicArn(String topicArn) {
-            this.topicArn = Objects.requireNonNull(topicArn);
+            if (topicArn == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotClusterConfiguration", "topicArn");
+            }
+            this.topicArn = topicArn;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotClusterConfiguration", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetSnapshotClusterConfiguration build() {

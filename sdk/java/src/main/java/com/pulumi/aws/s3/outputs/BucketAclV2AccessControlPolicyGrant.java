@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.BucketAclV2AccessControlPolicyGrantGrantee;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,12 +60,16 @@ public final class BucketAclV2AccessControlPolicyGrant {
 
         @CustomType.Setter
         public Builder grantee(@Nullable BucketAclV2AccessControlPolicyGrantGrantee grantee) {
+
             this.grantee = grantee;
             return this;
         }
         @CustomType.Setter
         public Builder permission(String permission) {
-            this.permission = Objects.requireNonNull(permission);
+            if (permission == null) {
+              throw new MissingRequiredPropertyException("BucketAclV2AccessControlPolicyGrant", "permission");
+            }
+            this.permission = permission;
             return this;
         }
         public BucketAclV2AccessControlPolicyGrant build() {

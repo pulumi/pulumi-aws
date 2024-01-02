@@ -5,6 +5,7 @@ package com.pulumi.aws.redshift;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class HsmClientCertificateArgs extends com.pulumi.resources.Resourc
         }
 
         public HsmClientCertificateArgs build() {
-            $.hsmClientCertificateIdentifier = Objects.requireNonNull($.hsmClientCertificateIdentifier, "expected parameter 'hsmClientCertificateIdentifier' to be non-null");
+            if ($.hsmClientCertificateIdentifier == null) {
+                throw new MissingRequiredPropertyException("HsmClientCertificateArgs", "hsmClientCertificateIdentifier");
+            }
             return $;
         }
     }

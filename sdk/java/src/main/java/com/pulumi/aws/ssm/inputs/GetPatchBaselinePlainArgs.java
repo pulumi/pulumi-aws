@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssm.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -147,7 +148,9 @@ public final class GetPatchBaselinePlainArgs extends com.pulumi.resources.Invoke
         }
 
         public GetPatchBaselinePlainArgs build() {
-            $.owner = Objects.requireNonNull($.owner, "expected parameter 'owner' to be non-null");
+            if ($.owner == null) {
+                throw new MissingRequiredPropertyException("GetPatchBaselinePlainArgs", "owner");
+            }
             return $;
         }
     }

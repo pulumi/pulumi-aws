@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class UserPoolSmsConfigurationArgs extends com.pulumi.resources.Res
         }
 
         public UserPoolSmsConfigurationArgs build() {
-            $.externalId = Objects.requireNonNull($.externalId, "expected parameter 'externalId' to be non-null");
-            $.snsCallerArn = Objects.requireNonNull($.snsCallerArn, "expected parameter 'snsCallerArn' to be non-null");
+            if ($.externalId == null) {
+                throw new MissingRequiredPropertyException("UserPoolSmsConfigurationArgs", "externalId");
+            }
+            if ($.snsCallerArn == null) {
+                throw new MissingRequiredPropertyException("UserPoolSmsConfigurationArgs", "snsCallerArn");
+            }
             return $;
         }
     }

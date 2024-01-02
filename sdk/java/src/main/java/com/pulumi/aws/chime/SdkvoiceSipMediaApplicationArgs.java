@@ -6,6 +6,7 @@ package com.pulumi.aws.chime;
 import com.pulumi.aws.chime.inputs.SdkvoiceSipMediaApplicationEndpointsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -197,8 +198,12 @@ public final class SdkvoiceSipMediaApplicationArgs extends com.pulumi.resources.
         }
 
         public SdkvoiceSipMediaApplicationArgs build() {
-            $.awsRegion = Objects.requireNonNull($.awsRegion, "expected parameter 'awsRegion' to be non-null");
-            $.endpoints = Objects.requireNonNull($.endpoints, "expected parameter 'endpoints' to be non-null");
+            if ($.awsRegion == null) {
+                throw new MissingRequiredPropertyException("SdkvoiceSipMediaApplicationArgs", "awsRegion");
+            }
+            if ($.endpoints == null) {
+                throw new MissingRequiredPropertyException("SdkvoiceSipMediaApplicationArgs", "endpoints");
+            }
             return $;
         }
     }

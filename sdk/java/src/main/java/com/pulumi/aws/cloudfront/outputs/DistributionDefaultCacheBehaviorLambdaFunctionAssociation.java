@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,24 @@ public final class DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
 
         @CustomType.Setter
         public Builder eventType(String eventType) {
-            this.eventType = Objects.requireNonNull(eventType);
+            if (eventType == null) {
+              throw new MissingRequiredPropertyException("DistributionDefaultCacheBehaviorLambdaFunctionAssociation", "eventType");
+            }
+            this.eventType = eventType;
             return this;
         }
         @CustomType.Setter
         public Builder includeBody(@Nullable Boolean includeBody) {
+
             this.includeBody = includeBody;
             return this;
         }
         @CustomType.Setter
         public Builder lambdaArn(String lambdaArn) {
-            this.lambdaArn = Objects.requireNonNull(lambdaArn);
+            if (lambdaArn == null) {
+              throw new MissingRequiredPropertyException("DistributionDefaultCacheBehaviorLambdaFunctionAssociation", "lambdaArn");
+            }
+            this.lambdaArn = lambdaArn;
             return this;
         }
         public DistributionDefaultCacheBehaviorLambdaFunctionAssociation build() {

@@ -16,6 +16,7 @@ import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
 import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1332,7 +1333,9 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FunctionArgs build() {
-            $.role = Objects.requireNonNull($.role, "expected parameter 'role' to be non-null");
+            if ($.role == null) {
+                throw new MissingRequiredPropertyException("FunctionArgs", "role");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -121,7 +122,9 @@ public final class InfrastructureConfigurationLoggingS3LogsArgs extends com.pulu
         }
 
         public InfrastructureConfigurationLoggingS3LogsArgs build() {
-            $.s3BucketName = Objects.requireNonNull($.s3BucketName, "expected parameter 's3BucketName' to be non-null");
+            if ($.s3BucketName == null) {
+                throw new MissingRequiredPropertyException("InfrastructureConfigurationLoggingS3LogsArgs", "s3BucketName");
+            }
             return $;
         }
     }

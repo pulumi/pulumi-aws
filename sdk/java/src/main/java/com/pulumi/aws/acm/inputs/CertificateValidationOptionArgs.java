@@ -5,6 +5,7 @@ package com.pulumi.aws.acm.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class CertificateValidationOptionArgs extends com.pulumi.resources.
         }
 
         public CertificateValidationOptionArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.validationDomain = Objects.requireNonNull($.validationDomain, "expected parameter 'validationDomain' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("CertificateValidationOptionArgs", "domainName");
+            }
+            if ($.validationDomain == null) {
+                throw new MissingRequiredPropertyException("CertificateValidationOptionArgs", "validationDomain");
+            }
             return $;
         }
     }

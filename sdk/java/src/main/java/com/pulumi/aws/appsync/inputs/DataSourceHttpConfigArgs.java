@@ -6,6 +6,7 @@ package com.pulumi.aws.appsync.inputs;
 import com.pulumi.aws.appsync.inputs.DataSourceHttpConfigAuthorizationConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class DataSourceHttpConfigArgs extends com.pulumi.resources.Resourc
         }
 
         public DataSourceHttpConfigArgs build() {
-            $.endpoint = Objects.requireNonNull($.endpoint, "expected parameter 'endpoint' to be non-null");
+            if ($.endpoint == null) {
+                throw new MissingRequiredPropertyException("DataSourceHttpConfigArgs", "endpoint");
+            }
             return $;
         }
     }

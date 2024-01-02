@@ -73,6 +73,7 @@ public final class PipelineThumbnailConfigPermission {
 
         @CustomType.Setter
         public Builder accesses(@Nullable List<String> accesses) {
+
             this.accesses = accesses;
             return this;
         }
@@ -81,11 +82,13 @@ public final class PipelineThumbnailConfigPermission {
         }
         @CustomType.Setter
         public Builder grantee(@Nullable String grantee) {
+
             this.grantee = grantee;
             return this;
         }
         @CustomType.Setter
         public Builder granteeType(@Nullable String granteeType) {
+
             this.granteeType = granteeType;
             return this;
         }

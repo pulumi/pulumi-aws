@@ -44,6 +44,7 @@ public final class ConnectAttachmentOptions {
 
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }

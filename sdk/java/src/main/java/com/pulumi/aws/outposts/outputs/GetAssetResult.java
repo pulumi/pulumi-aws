@@ -4,6 +4,7 @@
 package com.pulumi.aws.outposts.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -111,37 +112,58 @@ public final class GetAssetResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetAssetResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder assetId(String assetId) {
-            this.assetId = Objects.requireNonNull(assetId);
+            if (assetId == null) {
+              throw new MissingRequiredPropertyException("GetAssetResult", "assetId");
+            }
+            this.assetId = assetId;
             return this;
         }
         @CustomType.Setter
         public Builder assetType(String assetType) {
-            this.assetType = Objects.requireNonNull(assetType);
+            if (assetType == null) {
+              throw new MissingRequiredPropertyException("GetAssetResult", "assetType");
+            }
+            this.assetType = assetType;
             return this;
         }
         @CustomType.Setter
         public Builder hostId(String hostId) {
-            this.hostId = Objects.requireNonNull(hostId);
+            if (hostId == null) {
+              throw new MissingRequiredPropertyException("GetAssetResult", "hostId");
+            }
+            this.hostId = hostId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAssetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder rackElevation(Integer rackElevation) {
-            this.rackElevation = Objects.requireNonNull(rackElevation);
+            if (rackElevation == null) {
+              throw new MissingRequiredPropertyException("GetAssetResult", "rackElevation");
+            }
+            this.rackElevation = rackElevation;
             return this;
         }
         @CustomType.Setter
         public Builder rackId(String rackId) {
-            this.rackId = Objects.requireNonNull(rackId);
+            if (rackId == null) {
+              throw new MissingRequiredPropertyException("GetAssetResult", "rackId");
+            }
+            this.rackId = rackId;
             return this;
         }
         public GetAssetResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.iam;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class AccessKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AccessKeyArgs build() {
-            $.user = Objects.requireNonNull($.user, "expected parameter 'user' to be non-null");
+            if ($.user == null) {
+                throw new MissingRequiredPropertyException("AccessKeyArgs", "user");
+            }
             return $;
         }
     }

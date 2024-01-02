@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -189,8 +190,12 @@ public final class DiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DiskArgs build() {
-            $.availabilityZone = Objects.requireNonNull($.availabilityZone, "expected parameter 'availabilityZone' to be non-null");
-            $.sizeInGb = Objects.requireNonNull($.sizeInGb, "expected parameter 'sizeInGb' to be non-null");
+            if ($.availabilityZone == null) {
+                throw new MissingRequiredPropertyException("DiskArgs", "availabilityZone");
+            }
+            if ($.sizeInGb == null) {
+                throw new MissingRequiredPropertyException("DiskArgs", "sizeInGb");
+            }
             return $;
         }
     }

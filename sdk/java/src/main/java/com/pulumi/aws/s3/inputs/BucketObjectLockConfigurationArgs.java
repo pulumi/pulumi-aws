@@ -6,6 +6,7 @@ package com.pulumi.aws.s3.inputs;
 import com.pulumi.aws.s3.inputs.BucketObjectLockConfigurationRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
         }
 
         public BucketObjectLockConfigurationArgs build() {
-            $.objectLockEnabled = Objects.requireNonNull($.objectLockEnabled, "expected parameter 'objectLockEnabled' to be non-null");
+            if ($.objectLockEnabled == null) {
+                throw new MissingRequiredPropertyException("BucketObjectLockConfigurationArgs", "objectLockEnabled");
+            }
             return $;
         }
     }

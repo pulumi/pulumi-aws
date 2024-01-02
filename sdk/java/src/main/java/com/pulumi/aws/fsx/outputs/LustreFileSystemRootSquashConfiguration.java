@@ -59,6 +59,7 @@ public final class LustreFileSystemRootSquashConfiguration {
 
         @CustomType.Setter
         public Builder noSquashNids(@Nullable List<String> noSquashNids) {
+
             this.noSquashNids = noSquashNids;
             return this;
         }
@@ -67,6 +68,7 @@ public final class LustreFileSystemRootSquashConfiguration {
         }
         @CustomType.Setter
         public Builder rootSquash(@Nullable String rootSquash) {
+
             this.rootSquash = rootSquash;
             return this;
         }

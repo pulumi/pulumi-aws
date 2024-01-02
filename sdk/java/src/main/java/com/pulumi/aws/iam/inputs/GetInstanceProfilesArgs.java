@@ -5,6 +5,7 @@ package com.pulumi.aws.iam.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetInstanceProfilesArgs extends com.pulumi.resources.InvokeAr
         }
 
         public GetInstanceProfilesArgs build() {
-            $.roleName = Objects.requireNonNull($.roleName, "expected parameter 'roleName' to be non-null");
+            if ($.roleName == null) {
+                throw new MissingRequiredPropertyException("GetInstanceProfilesArgs", "roleName");
+            }
             return $;
         }
     }

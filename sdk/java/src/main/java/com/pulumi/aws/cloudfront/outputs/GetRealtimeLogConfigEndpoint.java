@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.GetRealtimeLogConfigEndpointKinesisStreamConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class GetRealtimeLogConfigEndpoint {
 
         @CustomType.Setter
         public Builder kinesisStreamConfigs(List<GetRealtimeLogConfigEndpointKinesisStreamConfig> kinesisStreamConfigs) {
-            this.kinesisStreamConfigs = Objects.requireNonNull(kinesisStreamConfigs);
+            if (kinesisStreamConfigs == null) {
+              throw new MissingRequiredPropertyException("GetRealtimeLogConfigEndpoint", "kinesisStreamConfigs");
+            }
+            this.kinesisStreamConfigs = kinesisStreamConfigs;
             return this;
         }
         public Builder kinesisStreamConfigs(GetRealtimeLogConfigEndpointKinesisStreamConfig... kinesisStreamConfigs) {
@@ -66,7 +70,10 @@ public final class GetRealtimeLogConfigEndpoint {
         }
         @CustomType.Setter
         public Builder streamType(String streamType) {
-            this.streamType = Objects.requireNonNull(streamType);
+            if (streamType == null) {
+              throw new MissingRequiredPropertyException("GetRealtimeLogConfigEndpoint", "streamType");
+            }
+            this.streamType = streamType;
             return this;
         }
         public GetRealtimeLogConfigEndpoint build() {

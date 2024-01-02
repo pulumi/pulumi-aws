@@ -4,6 +4,7 @@
 package com.pulumi.aws.secretsmanager.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -119,7 +120,9 @@ public final class GetSecretVersionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         public GetSecretVersionPlainArgs build() {
-            $.secretId = Objects.requireNonNull($.secretId, "expected parameter 'secretId' to be non-null");
+            if ($.secretId == null) {
+                throw new MissingRequiredPropertyException("GetSecretVersionPlainArgs", "secretId");
+            }
             return $;
         }
     }

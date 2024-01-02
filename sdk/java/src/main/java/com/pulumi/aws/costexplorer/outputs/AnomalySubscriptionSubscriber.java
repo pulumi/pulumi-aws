@@ -4,6 +4,7 @@
 package com.pulumi.aws.costexplorer.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class AnomalySubscriptionSubscriber {
 
         @CustomType.Setter
         public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+            if (address == null) {
+              throw new MissingRequiredPropertyException("AnomalySubscriptionSubscriber", "address");
+            }
+            this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("AnomalySubscriptionSubscriber", "type");
+            }
+            this.type = type;
             return this;
         }
         public AnomalySubscriptionSubscriber build() {

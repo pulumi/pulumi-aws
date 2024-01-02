@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssoadmin.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetPrincipalApplicationAssignmentsApplicationAssignment {
 
         @CustomType.Setter
         public Builder applicationArn(String applicationArn) {
-            this.applicationArn = Objects.requireNonNull(applicationArn);
+            if (applicationArn == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalApplicationAssignmentsApplicationAssignment", "applicationArn");
+            }
+            this.applicationArn = applicationArn;
             return this;
         }
         @CustomType.Setter
         public Builder principalId(String principalId) {
-            this.principalId = Objects.requireNonNull(principalId);
+            if (principalId == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalApplicationAssignmentsApplicationAssignment", "principalId");
+            }
+            this.principalId = principalId;
             return this;
         }
         @CustomType.Setter
         public Builder principalType(String principalType) {
-            this.principalType = Objects.requireNonNull(principalType);
+            if (principalType == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalApplicationAssignmentsApplicationAssignment", "principalType");
+            }
+            this.principalType = principalType;
             return this;
         }
         public GetPrincipalApplicationAssignmentsApplicationAssignment build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.InventoryDestinationBucket;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class InventoryDestination {
 
         @CustomType.Setter
         public Builder bucket(InventoryDestinationBucket bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("InventoryDestination", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         public InventoryDestination build() {

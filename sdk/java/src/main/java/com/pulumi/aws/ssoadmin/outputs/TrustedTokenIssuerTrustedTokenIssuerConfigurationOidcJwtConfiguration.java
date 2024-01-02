@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssoadmin.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfi
 
         @CustomType.Setter
         public Builder claimAttributePath(String claimAttributePath) {
-            this.claimAttributePath = Objects.requireNonNull(claimAttributePath);
+            if (claimAttributePath == null) {
+              throw new MissingRequiredPropertyException("TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration", "claimAttributePath");
+            }
+            this.claimAttributePath = claimAttributePath;
             return this;
         }
         @CustomType.Setter
         public Builder identityStoreAttributePath(String identityStoreAttributePath) {
-            this.identityStoreAttributePath = Objects.requireNonNull(identityStoreAttributePath);
+            if (identityStoreAttributePath == null) {
+              throw new MissingRequiredPropertyException("TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration", "identityStoreAttributePath");
+            }
+            this.identityStoreAttributePath = identityStoreAttributePath;
             return this;
         }
         @CustomType.Setter
         public Builder issuerUrl(String issuerUrl) {
-            this.issuerUrl = Objects.requireNonNull(issuerUrl);
+            if (issuerUrl == null) {
+              throw new MissingRequiredPropertyException("TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration", "issuerUrl");
+            }
+            this.issuerUrl = issuerUrl;
             return this;
         }
         @CustomType.Setter
         public Builder jwksRetrievalOption(String jwksRetrievalOption) {
-            this.jwksRetrievalOption = Objects.requireNonNull(jwksRetrievalOption);
+            if (jwksRetrievalOption == null) {
+              throw new MissingRequiredPropertyException("TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration", "jwksRetrievalOption");
+            }
+            this.jwksRetrievalOption = jwksRetrievalOption;
             return this;
         }
         public TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration build() {

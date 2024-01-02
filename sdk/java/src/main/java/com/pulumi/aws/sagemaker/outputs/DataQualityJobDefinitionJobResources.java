@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.DataQualityJobDefinitionJobResourcesClusterConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class DataQualityJobDefinitionJobResources {
 
         @CustomType.Setter
         public Builder clusterConfig(DataQualityJobDefinitionJobResourcesClusterConfig clusterConfig) {
-            this.clusterConfig = Objects.requireNonNull(clusterConfig);
+            if (clusterConfig == null) {
+              throw new MissingRequiredPropertyException("DataQualityJobDefinitionJobResources", "clusterConfig");
+            }
+            this.clusterConfig = clusterConfig;
             return this;
         }
         public DataQualityJobDefinitionJobResources build() {

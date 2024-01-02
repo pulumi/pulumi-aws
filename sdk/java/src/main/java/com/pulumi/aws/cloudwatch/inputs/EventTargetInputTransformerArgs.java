@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -126,7 +127,9 @@ public final class EventTargetInputTransformerArgs extends com.pulumi.resources.
         }
 
         public EventTargetInputTransformerArgs build() {
-            $.inputTemplate = Objects.requireNonNull($.inputTemplate, "expected parameter 'inputTemplate' to be non-null");
+            if ($.inputTemplate == null) {
+                throw new MissingRequiredPropertyException("EventTargetInputTransformerArgs", "inputTemplate");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,7 +225,9 @@ public final class AmiLaunchPermissionArgs extends com.pulumi.resources.Resource
         }
 
         public AmiLaunchPermissionArgs build() {
-            $.imageId = Objects.requireNonNull($.imageId, "expected parameter 'imageId' to be non-null");
+            if ($.imageId == null) {
+                throw new MissingRequiredPropertyException("AmiLaunchPermissionArgs", "imageId");
+            }
             return $;
         }
     }

@@ -9,6 +9,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessC
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -451,10 +452,18 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         public FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs build() {
-            $.collectionEndpoint = Objects.requireNonNull($.collectionEndpoint, "expected parameter 'collectionEndpoint' to be non-null");
-            $.indexName = Objects.requireNonNull($.indexName, "expected parameter 'indexName' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.s3Configuration = Objects.requireNonNull($.s3Configuration, "expected parameter 's3Configuration' to be non-null");
+            if ($.collectionEndpoint == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs", "collectionEndpoint");
+            }
+            if ($.indexName == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs", "indexName");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs", "roleArn");
+            }
+            if ($.s3Configuration == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs", "s3Configuration");
+            }
             return $;
         }
     }

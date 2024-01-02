@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class UserDefinedFunctionResourceUriArgs extends com.pulumi.resourc
         }
 
         public UserDefinedFunctionResourceUriArgs build() {
-            $.resourceType = Objects.requireNonNull($.resourceType, "expected parameter 'resourceType' to be non-null");
-            $.uri = Objects.requireNonNull($.uri, "expected parameter 'uri' to be non-null");
+            if ($.resourceType == null) {
+                throw new MissingRequiredPropertyException("UserDefinedFunctionResourceUriArgs", "resourceType");
+            }
+            if ($.uri == null) {
+                throw new MissingRequiredPropertyException("UserDefinedFunctionResourceUriArgs", "uri");
+            }
             return $;
         }
     }

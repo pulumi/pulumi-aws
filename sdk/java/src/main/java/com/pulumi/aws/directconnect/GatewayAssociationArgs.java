@@ -5,6 +5,7 @@ package com.pulumi.aws.directconnect;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -292,7 +293,9 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.ResourceA
         }
 
         public GatewayAssociationArgs build() {
-            $.dxGatewayId = Objects.requireNonNull($.dxGatewayId, "expected parameter 'dxGatewayId' to be non-null");
+            if ($.dxGatewayId == null) {
+                throw new MissingRequiredPropertyException("GatewayAssociationArgs", "dxGatewayId");
+            }
             return $;
         }
     }

@@ -58,11 +58,13 @@ public final class PipeTargetParametersSqsQueueParameters {
 
         @CustomType.Setter
         public Builder messageDeduplicationId(@Nullable String messageDeduplicationId) {
+
             this.messageDeduplicationId = messageDeduplicationId;
             return this;
         }
         @CustomType.Setter
         public Builder messageGroupId(@Nullable String messageGroupId) {
+
             this.messageGroupId = messageGroupId;
             return this;
         }

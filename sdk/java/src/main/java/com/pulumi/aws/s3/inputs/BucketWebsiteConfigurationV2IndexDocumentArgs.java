@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -82,7 +83,9 @@ public final class BucketWebsiteConfigurationV2IndexDocumentArgs extends com.pul
         }
 
         public BucketWebsiteConfigurationV2IndexDocumentArgs build() {
-            $.suffix = Objects.requireNonNull($.suffix, "expected parameter 'suffix' to be non-null");
+            if ($.suffix == null) {
+                throw new MissingRequiredPropertyException("BucketWebsiteConfigurationV2IndexDocumentArgs", "suffix");
+            }
             return $;
         }
     }

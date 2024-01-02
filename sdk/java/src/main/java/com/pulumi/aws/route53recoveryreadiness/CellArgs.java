@@ -5,6 +5,7 @@ package com.pulumi.aws.route53recoveryreadiness;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -170,7 +171,9 @@ public final class CellArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CellArgs build() {
-            $.cellName = Objects.requireNonNull($.cellName, "expected parameter 'cellName' to be non-null");
+            if ($.cellName == null) {
+                throw new MissingRequiredPropertyException("CellArgs", "cellName");
+            }
             return $;
         }
     }

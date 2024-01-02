@@ -5,6 +5,7 @@ package com.pulumi.aws.fsx.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -129,9 +130,15 @@ public final class OpenZfsVolumeUserAndGroupQuotaArgs extends com.pulumi.resourc
         }
 
         public OpenZfsVolumeUserAndGroupQuotaArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.storageCapacityQuotaGib = Objects.requireNonNull($.storageCapacityQuotaGib, "expected parameter 'storageCapacityQuotaGib' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("OpenZfsVolumeUserAndGroupQuotaArgs", "id");
+            }
+            if ($.storageCapacityQuotaGib == null) {
+                throw new MissingRequiredPropertyException("OpenZfsVolumeUserAndGroupQuotaArgs", "storageCapacityQuotaGib");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("OpenZfsVolumeUserAndGroupQuotaArgs", "type");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class UserPoolLambdaConfigCustomSmsSenderArgs extends com.pulumi.re
         }
 
         public UserPoolLambdaConfigCustomSmsSenderArgs build() {
-            $.lambdaArn = Objects.requireNonNull($.lambdaArn, "expected parameter 'lambdaArn' to be non-null");
-            $.lambdaVersion = Objects.requireNonNull($.lambdaVersion, "expected parameter 'lambdaVersion' to be non-null");
+            if ($.lambdaArn == null) {
+                throw new MissingRequiredPropertyException("UserPoolLambdaConfigCustomSmsSenderArgs", "lambdaArn");
+            }
+            if ($.lambdaVersion == null) {
+                throw new MissingRequiredPropertyException("UserPoolLambdaConfigCustomSmsSenderArgs", "lambdaVersion");
+            }
             return $;
         }
     }

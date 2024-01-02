@@ -7,6 +7,7 @@ import com.pulumi.aws.iot.outputs.IndexingConfigurationThingIndexingConfiguratio
 import com.pulumi.aws.iot.outputs.IndexingConfigurationThingIndexingConfigurationFilter;
 import com.pulumi.aws.iot.outputs.IndexingConfigurationThingIndexingConfigurationManagedField;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -132,6 +133,7 @@ public final class IndexingConfigurationThingIndexingConfiguration {
 
         @CustomType.Setter
         public Builder customFields(@Nullable List<IndexingConfigurationThingIndexingConfigurationCustomField> customFields) {
+
             this.customFields = customFields;
             return this;
         }
@@ -140,16 +142,19 @@ public final class IndexingConfigurationThingIndexingConfiguration {
         }
         @CustomType.Setter
         public Builder deviceDefenderIndexingMode(@Nullable String deviceDefenderIndexingMode) {
+
             this.deviceDefenderIndexingMode = deviceDefenderIndexingMode;
             return this;
         }
         @CustomType.Setter
         public Builder filter(@Nullable IndexingConfigurationThingIndexingConfigurationFilter filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder managedFields(@Nullable List<IndexingConfigurationThingIndexingConfigurationManagedField> managedFields) {
+
             this.managedFields = managedFields;
             return this;
         }
@@ -158,17 +163,22 @@ public final class IndexingConfigurationThingIndexingConfiguration {
         }
         @CustomType.Setter
         public Builder namedShadowIndexingMode(@Nullable String namedShadowIndexingMode) {
+
             this.namedShadowIndexingMode = namedShadowIndexingMode;
             return this;
         }
         @CustomType.Setter
         public Builder thingConnectivityIndexingMode(@Nullable String thingConnectivityIndexingMode) {
+
             this.thingConnectivityIndexingMode = thingConnectivityIndexingMode;
             return this;
         }
         @CustomType.Setter
         public Builder thingIndexingMode(String thingIndexingMode) {
-            this.thingIndexingMode = Objects.requireNonNull(thingIndexingMode);
+            if (thingIndexingMode == null) {
+              throw new MissingRequiredPropertyException("IndexingConfigurationThingIndexingConfiguration", "thingIndexingMode");
+            }
+            this.thingIndexingMode = thingIndexingMode;
             return this;
         }
         public IndexingConfigurationThingIndexingConfiguration build() {

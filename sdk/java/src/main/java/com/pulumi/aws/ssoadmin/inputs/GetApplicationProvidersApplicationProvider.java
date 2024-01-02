@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin.inputs;
 
 import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersApplicationProviderDisplayData;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -131,8 +132,12 @@ public final class GetApplicationProvidersApplicationProvider extends com.pulumi
         }
 
         public GetApplicationProvidersApplicationProvider build() {
-            $.applicationProviderArn = Objects.requireNonNull($.applicationProviderArn, "expected parameter 'applicationProviderArn' to be non-null");
-            $.federationProtocol = Objects.requireNonNull($.federationProtocol, "expected parameter 'federationProtocol' to be non-null");
+            if ($.applicationProviderArn == null) {
+                throw new MissingRequiredPropertyException("GetApplicationProvidersApplicationProvider", "applicationProviderArn");
+            }
+            if ($.federationProtocol == null) {
+                throw new MissingRequiredPropertyException("GetApplicationProvidersApplicationProvider", "federationProtocol");
+            }
             return $;
         }
     }

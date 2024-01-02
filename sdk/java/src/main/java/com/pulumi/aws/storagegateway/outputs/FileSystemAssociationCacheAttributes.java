@@ -48,6 +48,7 @@ public final class FileSystemAssociationCacheAttributes {
 
         @CustomType.Setter
         public Builder cacheStaleTimeoutInSeconds(@Nullable Integer cacheStaleTimeoutInSeconds) {
+
             this.cacheStaleTimeoutInSeconds = cacheStaleTimeoutInSeconds;
             return this;
         }

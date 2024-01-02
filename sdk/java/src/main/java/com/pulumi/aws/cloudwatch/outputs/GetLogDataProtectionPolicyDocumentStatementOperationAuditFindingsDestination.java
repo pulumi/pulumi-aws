@@ -74,16 +74,19 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
 
         @CustomType.Setter
         public Builder cloudwatchLogs(@Nullable GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs cloudwatchLogs) {
+
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
         @CustomType.Setter
         public Builder firehose(@Nullable GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose firehose) {
+
             this.firehose = firehose;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 s3) {
+
             this.s3 = s3;
             return this;
         }

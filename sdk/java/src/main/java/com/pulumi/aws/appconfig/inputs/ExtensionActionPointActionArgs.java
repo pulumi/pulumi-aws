@@ -5,6 +5,7 @@ package com.pulumi.aws.appconfig.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class ExtensionActionPointActionArgs extends com.pulumi.resources.R
         }
 
         public ExtensionActionPointActionArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.uri = Objects.requireNonNull($.uri, "expected parameter 'uri' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ExtensionActionPointActionArgs", "name");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("ExtensionActionPointActionArgs", "roleArn");
+            }
+            if ($.uri == null) {
+                throw new MissingRequiredPropertyException("ExtensionActionPointActionArgs", "uri");
+            }
             return $;
         }
     }

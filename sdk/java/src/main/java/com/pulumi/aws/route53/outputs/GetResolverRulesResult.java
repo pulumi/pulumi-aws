@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -89,27 +90,36 @@ public final class GetResolverRulesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResolverRulesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder nameRegex(@Nullable String nameRegex) {
+
             this.nameRegex = nameRegex;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(@Nullable String ownerId) {
+
             this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder resolverEndpointId(@Nullable String resolverEndpointId) {
+
             this.resolverEndpointId = resolverEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder resolverRuleIds(List<String> resolverRuleIds) {
-            this.resolverRuleIds = Objects.requireNonNull(resolverRuleIds);
+            if (resolverRuleIds == null) {
+              throw new MissingRequiredPropertyException("GetResolverRulesResult", "resolverRuleIds");
+            }
+            this.resolverRuleIds = resolverRuleIds;
             return this;
         }
         public Builder resolverRuleIds(String... resolverRuleIds) {
@@ -117,11 +127,13 @@ public final class GetResolverRulesResult {
         }
         @CustomType.Setter
         public Builder ruleType(@Nullable String ruleType) {
+
             this.ruleType = ruleType;
             return this;
         }
         @CustomType.Setter
         public Builder shareStatus(@Nullable String shareStatus) {
+
             this.shareStatus = shareStatus;
             return this;
         }

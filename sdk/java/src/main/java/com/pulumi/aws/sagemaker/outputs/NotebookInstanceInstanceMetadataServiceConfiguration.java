@@ -44,6 +44,7 @@ public final class NotebookInstanceInstanceMetadataServiceConfiguration {
 
         @CustomType.Setter
         public Builder minimumInstanceMetadataServiceVersion(@Nullable String minimumInstanceMetadataServiceVersion) {
+
             this.minimumInstanceMetadataServiceVersion = minimumInstanceMetadataServiceVersion;
             return this;
         }

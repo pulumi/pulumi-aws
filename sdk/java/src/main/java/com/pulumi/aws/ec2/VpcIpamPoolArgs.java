@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -564,8 +565,12 @@ public final class VpcIpamPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VpcIpamPoolArgs build() {
-            $.addressFamily = Objects.requireNonNull($.addressFamily, "expected parameter 'addressFamily' to be non-null");
-            $.ipamScopeId = Objects.requireNonNull($.ipamScopeId, "expected parameter 'ipamScopeId' to be non-null");
+            if ($.addressFamily == null) {
+                throw new MissingRequiredPropertyException("VpcIpamPoolArgs", "addressFamily");
+            }
+            if ($.ipamScopeId == null) {
+                throw new MissingRequiredPropertyException("VpcIpamPoolArgs", "ipamScopeId");
+            }
             return $;
         }
     }

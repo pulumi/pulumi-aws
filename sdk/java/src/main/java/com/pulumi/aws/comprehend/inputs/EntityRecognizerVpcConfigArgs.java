@@ -5,6 +5,7 @@ package com.pulumi.aws.comprehend.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -132,8 +133,12 @@ public final class EntityRecognizerVpcConfigArgs extends com.pulumi.resources.Re
         }
 
         public EntityRecognizerVpcConfigArgs build() {
-            $.securityGroupIds = Objects.requireNonNull($.securityGroupIds, "expected parameter 'securityGroupIds' to be non-null");
-            $.subnets = Objects.requireNonNull($.subnets, "expected parameter 'subnets' to be non-null");
+            if ($.securityGroupIds == null) {
+                throw new MissingRequiredPropertyException("EntityRecognizerVpcConfigArgs", "securityGroupIds");
+            }
+            if ($.subnets == null) {
+                throw new MissingRequiredPropertyException("EntityRecognizerVpcConfigArgs", "subnets");
+            }
             return $;
         }
     }

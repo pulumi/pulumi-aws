@@ -173,51 +173,61 @@ public final class MethodSettingsSettings {
 
         @CustomType.Setter
         public Builder cacheDataEncrypted(@Nullable Boolean cacheDataEncrypted) {
+
             this.cacheDataEncrypted = cacheDataEncrypted;
             return this;
         }
         @CustomType.Setter
         public Builder cacheTtlInSeconds(@Nullable Integer cacheTtlInSeconds) {
+
             this.cacheTtlInSeconds = cacheTtlInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder cachingEnabled(@Nullable Boolean cachingEnabled) {
+
             this.cachingEnabled = cachingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder dataTraceEnabled(@Nullable Boolean dataTraceEnabled) {
+
             this.dataTraceEnabled = dataTraceEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder loggingLevel(@Nullable String loggingLevel) {
+
             this.loggingLevel = loggingLevel;
             return this;
         }
         @CustomType.Setter
         public Builder metricsEnabled(@Nullable Boolean metricsEnabled) {
+
             this.metricsEnabled = metricsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder requireAuthorizationForCacheControl(@Nullable Boolean requireAuthorizationForCacheControl) {
+
             this.requireAuthorizationForCacheControl = requireAuthorizationForCacheControl;
             return this;
         }
         @CustomType.Setter
         public Builder throttlingBurstLimit(@Nullable Integer throttlingBurstLimit) {
+
             this.throttlingBurstLimit = throttlingBurstLimit;
             return this;
         }
         @CustomType.Setter
         public Builder throttlingRateLimit(@Nullable Double throttlingRateLimit) {
+
             this.throttlingRateLimit = throttlingRateLimit;
             return this;
         }
         @CustomType.Setter
         public Builder unauthorizedCacheControlHeaderStrategy(@Nullable String unauthorizedCacheControlHeaderStrategy) {
+
             this.unauthorizedCacheControlHeaderStrategy = unauthorizedCacheControlHeaderStrategy;
             return this;
         }

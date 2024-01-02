@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesisanalyticsv2.inputs;
 import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs build() {
-            $.mappingParameters = Objects.requireNonNull($.mappingParameters, "expected parameter 'mappingParameters' to be non-null");
-            $.recordFormatType = Objects.requireNonNull($.recordFormatType, "expected parameter 'recordFormatType' to be non-null");
+            if ($.mappingParameters == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs", "mappingParameters");
+            }
+            if ($.recordFormatType == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs", "recordFormatType");
+            }
             return $;
         }
     }

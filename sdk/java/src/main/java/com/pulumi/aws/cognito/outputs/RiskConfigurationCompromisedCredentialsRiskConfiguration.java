@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.aws.cognito.outputs.RiskConfigurationCompromisedCredentialsRiskConfigurationActions;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -59,11 +60,15 @@ public final class RiskConfigurationCompromisedCredentialsRiskConfiguration {
 
         @CustomType.Setter
         public Builder actions(RiskConfigurationCompromisedCredentialsRiskConfigurationActions actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("RiskConfigurationCompromisedCredentialsRiskConfiguration", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         @CustomType.Setter
         public Builder eventFilters(@Nullable List<String> eventFilters) {
+
             this.eventFilters = eventFilters;
             return this;
         }

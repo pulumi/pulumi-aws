@@ -7,6 +7,7 @@ import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurat
 import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationCloudwatchLoggingOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -376,8 +377,12 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApplicationArgs build() {
-            $.runtimeEnvironment = Objects.requireNonNull($.runtimeEnvironment, "expected parameter 'runtimeEnvironment' to be non-null");
-            $.serviceExecutionRole = Objects.requireNonNull($.serviceExecutionRole, "expected parameter 'serviceExecutionRole' to be non-null");
+            if ($.runtimeEnvironment == null) {
+                throw new MissingRequiredPropertyException("ApplicationArgs", "runtimeEnvironment");
+            }
+            if ($.serviceExecutionRole == null) {
+                throw new MissingRequiredPropertyException("ApplicationArgs", "serviceExecutionRole");
+            }
             return $;
         }
     }

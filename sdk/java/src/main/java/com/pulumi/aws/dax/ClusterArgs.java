@@ -6,6 +6,7 @@ package com.pulumi.aws.dax;
 import com.pulumi.aws.dax.inputs.ClusterServerSideEncryptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -651,10 +652,18 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
-            $.iamRoleArn = Objects.requireNonNull($.iamRoleArn, "expected parameter 'iamRoleArn' to be non-null");
-            $.nodeType = Objects.requireNonNull($.nodeType, "expected parameter 'nodeType' to be non-null");
-            $.replicationFactor = Objects.requireNonNull($.replicationFactor, "expected parameter 'replicationFactor' to be non-null");
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "clusterName");
+            }
+            if ($.iamRoleArn == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "iamRoleArn");
+            }
+            if ($.nodeType == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "nodeType");
+            }
+            if ($.replicationFactor == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "replicationFactor");
+            }
             return $;
         }
     }

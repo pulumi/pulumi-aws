@@ -4,6 +4,7 @@
 package com.pulumi.aws.iam.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -101,8 +102,12 @@ public final class GetPolicyDocumentStatementNotPrincipal extends com.pulumi.res
         }
 
         public GetPolicyDocumentStatementNotPrincipal build() {
-            $.identifiers = Objects.requireNonNull($.identifiers, "expected parameter 'identifiers' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.identifiers == null) {
+                throw new MissingRequiredPropertyException("GetPolicyDocumentStatementNotPrincipal", "identifiers");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("GetPolicyDocumentStatementNotPrincipal", "type");
+            }
             return $;
         }
     }

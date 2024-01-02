@@ -58,11 +58,13 @@ public final class UserPoolSchemaStringAttributeConstraints {
 
         @CustomType.Setter
         public Builder maxLength(@Nullable String maxLength) {
+
             this.maxLength = maxLength;
             return this;
         }
         @CustomType.Setter
         public Builder minLength(@Nullable String minLength) {
+
             this.minLength = minLength;
             return this;
         }

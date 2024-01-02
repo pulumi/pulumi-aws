@@ -5,6 +5,7 @@ package com.pulumi.aws.route53;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class ResolverFirewallConfigArgs extends com.pulumi.resources.Resou
         }
 
         public ResolverFirewallConfigArgs build() {
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("ResolverFirewallConfigArgs", "resourceId");
+            }
             return $;
         }
     }

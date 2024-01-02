@@ -5,6 +5,7 @@ package com.pulumi.aws.lambda.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -189,8 +190,12 @@ public final class FunctionVpcConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         public FunctionVpcConfigArgs build() {
-            $.securityGroupIds = Objects.requireNonNull($.securityGroupIds, "expected parameter 'securityGroupIds' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
+            if ($.securityGroupIds == null) {
+                throw new MissingRequiredPropertyException("FunctionVpcConfigArgs", "securityGroupIds");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("FunctionVpcConfigArgs", "subnetIds");
+            }
             return $;
         }
     }

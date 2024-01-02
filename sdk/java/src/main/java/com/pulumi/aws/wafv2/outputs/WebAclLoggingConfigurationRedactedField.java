@@ -89,21 +89,25 @@ public final class WebAclLoggingConfigurationRedactedField {
 
         @CustomType.Setter
         public Builder method(@Nullable WebAclLoggingConfigurationRedactedFieldMethod method) {
+
             this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(@Nullable WebAclLoggingConfigurationRedactedFieldQueryString queryString) {
+
             this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder singleHeader(@Nullable WebAclLoggingConfigurationRedactedFieldSingleHeader singleHeader) {
+
             this.singleHeader = singleHeader;
             return this;
         }
         @CustomType.Setter
         public Builder uriPath(@Nullable WebAclLoggingConfigurationRedactedFieldUriPath uriPath) {
+
             this.uriPath = uriPath;
             return this;
         }

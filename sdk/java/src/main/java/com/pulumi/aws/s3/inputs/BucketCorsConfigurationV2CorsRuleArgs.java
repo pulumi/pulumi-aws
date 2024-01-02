@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -303,8 +304,12 @@ public final class BucketCorsConfigurationV2CorsRuleArgs extends com.pulumi.reso
         }
 
         public BucketCorsConfigurationV2CorsRuleArgs build() {
-            $.allowedMethods = Objects.requireNonNull($.allowedMethods, "expected parameter 'allowedMethods' to be non-null");
-            $.allowedOrigins = Objects.requireNonNull($.allowedOrigins, "expected parameter 'allowedOrigins' to be non-null");
+            if ($.allowedMethods == null) {
+                throw new MissingRequiredPropertyException("BucketCorsConfigurationV2CorsRuleArgs", "allowedMethods");
+            }
+            if ($.allowedOrigins == null) {
+                throw new MissingRequiredPropertyException("BucketCorsConfigurationV2CorsRuleArgs", "allowedOrigins");
+            }
             return $;
         }
     }

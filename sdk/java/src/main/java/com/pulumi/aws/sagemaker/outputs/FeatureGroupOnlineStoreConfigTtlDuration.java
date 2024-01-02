@@ -59,11 +59,13 @@ public final class FeatureGroupOnlineStoreConfigTtlDuration {
 
         @CustomType.Setter
         public Builder unit(@Nullable String unit) {
+
             this.unit = unit;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable Integer value) {
+
             this.value = value;
             return this;
         }

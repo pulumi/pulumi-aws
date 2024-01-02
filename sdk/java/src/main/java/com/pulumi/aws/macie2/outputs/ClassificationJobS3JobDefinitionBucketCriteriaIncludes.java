@@ -44,6 +44,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludes {
 
         @CustomType.Setter
         public Builder ands(@Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd> ands) {
+
             this.ands = ands;
             return this;
         }

@@ -7,6 +7,7 @@ import com.pulumi.aws.connect.inputs.UserIdentityInfoArgs;
 import com.pulumi.aws.connect.inputs.UserPhoneConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -427,10 +428,18 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserArgs build() {
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
-            $.phoneConfig = Objects.requireNonNull($.phoneConfig, "expected parameter 'phoneConfig' to be non-null");
-            $.routingProfileId = Objects.requireNonNull($.routingProfileId, "expected parameter 'routingProfileId' to be non-null");
-            $.securityProfileIds = Objects.requireNonNull($.securityProfileIds, "expected parameter 'securityProfileIds' to be non-null");
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "instanceId");
+            }
+            if ($.phoneConfig == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "phoneConfig");
+            }
+            if ($.routingProfileId == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "routingProfileId");
+            }
+            if ($.securityProfileIds == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "securityProfileIds");
+            }
             return $;
         }
     }

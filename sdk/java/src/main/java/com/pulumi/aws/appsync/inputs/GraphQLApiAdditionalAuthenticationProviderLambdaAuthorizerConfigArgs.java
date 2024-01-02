@@ -5,6 +5,7 @@ package com.pulumi.aws.appsync.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerCon
         }
 
         public GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs build() {
-            $.authorizerUri = Objects.requireNonNull($.authorizerUri, "expected parameter 'authorizerUri' to be non-null");
+            if ($.authorizerUri == null) {
+                throw new MissingRequiredPropertyException("GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs", "authorizerUri");
+            }
             return $;
         }
     }

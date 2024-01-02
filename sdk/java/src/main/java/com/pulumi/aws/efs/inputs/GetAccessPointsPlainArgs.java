@@ -4,6 +4,7 @@
 package com.pulumi.aws.efs.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetAccessPointsPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         public GetAccessPointsPlainArgs build() {
-            $.fileSystemId = Objects.requireNonNull($.fileSystemId, "expected parameter 'fileSystemId' to be non-null");
+            if ($.fileSystemId == null) {
+                throw new MissingRequiredPropertyException("GetAccessPointsPlainArgs", "fileSystemId");
+            }
             return $;
         }
     }

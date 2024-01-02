@@ -4,6 +4,7 @@
 package com.pulumi.aws.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -41,12 +42,18 @@ public final class GetJobQueueComputeEnvironmentOrder {
 
         @CustomType.Setter
         public Builder computeEnvironment(String computeEnvironment) {
-            this.computeEnvironment = Objects.requireNonNull(computeEnvironment);
+            if (computeEnvironment == null) {
+              throw new MissingRequiredPropertyException("GetJobQueueComputeEnvironmentOrder", "computeEnvironment");
+            }
+            this.computeEnvironment = computeEnvironment;
             return this;
         }
         @CustomType.Setter
         public Builder order(Integer order) {
-            this.order = Objects.requireNonNull(order);
+            if (order == null) {
+              throw new MissingRequiredPropertyException("GetJobQueueComputeEnvironmentOrder", "order");
+            }
+            this.order = order;
             return this;
         }
         public GetJobQueueComputeEnvironmentOrder build() {

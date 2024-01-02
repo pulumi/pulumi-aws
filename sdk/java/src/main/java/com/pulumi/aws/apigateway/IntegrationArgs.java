@@ -6,6 +6,7 @@ package com.pulumi.aws.apigateway;
 import com.pulumi.aws.apigateway.inputs.IntegrationTlsConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -714,10 +715,18 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IntegrationArgs build() {
-            $.httpMethod = Objects.requireNonNull($.httpMethod, "expected parameter 'httpMethod' to be non-null");
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
-            $.restApi = Objects.requireNonNull($.restApi, "expected parameter 'restApi' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.httpMethod == null) {
+                throw new MissingRequiredPropertyException("IntegrationArgs", "httpMethod");
+            }
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("IntegrationArgs", "resourceId");
+            }
+            if ($.restApi == null) {
+                throw new MissingRequiredPropertyException("IntegrationArgs", "restApi");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("IntegrationArgs", "type");
+            }
             return $;
         }
     }

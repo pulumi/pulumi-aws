@@ -5,6 +5,7 @@ package com.pulumi.aws.apprunner.outputs;
 
 import com.pulumi.aws.apprunner.outputs.ServiceSourceConfigurationImageRepositoryImageConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -75,17 +76,24 @@ public final class ServiceSourceConfigurationImageRepository {
 
         @CustomType.Setter
         public Builder imageConfiguration(@Nullable ServiceSourceConfigurationImageRepositoryImageConfiguration imageConfiguration) {
+
             this.imageConfiguration = imageConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder imageIdentifier(String imageIdentifier) {
-            this.imageIdentifier = Objects.requireNonNull(imageIdentifier);
+            if (imageIdentifier == null) {
+              throw new MissingRequiredPropertyException("ServiceSourceConfigurationImageRepository", "imageIdentifier");
+            }
+            this.imageIdentifier = imageIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder imageRepositoryType(String imageRepositoryType) {
-            this.imageRepositoryType = Objects.requireNonNull(imageRepositoryType);
+            if (imageRepositoryType == null) {
+              throw new MissingRequiredPropertyException("ServiceSourceConfigurationImageRepository", "imageRepositoryType");
+            }
+            this.imageRepositoryType = imageRepositoryType;
             return this;
         }
         public ServiceSourceConfigurationImageRepository build() {

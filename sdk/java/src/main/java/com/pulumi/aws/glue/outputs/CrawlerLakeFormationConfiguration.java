@@ -59,11 +59,13 @@ public final class CrawlerLakeFormationConfiguration {
 
         @CustomType.Setter
         public Builder accountId(@Nullable String accountId) {
+
             this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder useLakeFormationCredentials(@Nullable Boolean useLakeFormationCredentials) {
+
             this.useLakeFormationCredentials = useLakeFormationCredentials;
             return this;
         }

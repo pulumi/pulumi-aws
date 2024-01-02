@@ -5,6 +5,7 @@ package com.pulumi.aws.securityhub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,9 @@ public final class FindingAggregatorArgs extends com.pulumi.resources.ResourceAr
         }
 
         public FindingAggregatorArgs build() {
-            $.linkingMode = Objects.requireNonNull($.linkingMode, "expected parameter 'linkingMode' to be non-null");
+            if ($.linkingMode == null) {
+                throw new MissingRequiredPropertyException("FindingAggregatorArgs", "linkingMode");
+            }
             return $;
         }
     }

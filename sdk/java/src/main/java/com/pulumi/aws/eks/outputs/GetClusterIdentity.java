@@ -5,6 +5,7 @@ package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.aws.eks.outputs.GetClusterIdentityOidc;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class GetClusterIdentity {
 
         @CustomType.Setter
         public Builder oidcs(List<GetClusterIdentityOidc> oidcs) {
-            this.oidcs = Objects.requireNonNull(oidcs);
+            if (oidcs == null) {
+              throw new MissingRequiredPropertyException("GetClusterIdentity", "oidcs");
+            }
+            this.oidcs = oidcs;
             return this;
         }
         public Builder oidcs(GetClusterIdentityOidc... oidcs) {

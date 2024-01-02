@@ -12,6 +12,7 @@ import com.pulumi.aws.rds.inputs.ClusterServerlessv2ScalingConfigurationArgs;
 import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1997,7 +1998,9 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
-            $.engine = Objects.requireNonNull($.engine, "expected parameter 'engine' to be non-null");
+            if ($.engine == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "engine");
+            }
             return $;
         }
     }

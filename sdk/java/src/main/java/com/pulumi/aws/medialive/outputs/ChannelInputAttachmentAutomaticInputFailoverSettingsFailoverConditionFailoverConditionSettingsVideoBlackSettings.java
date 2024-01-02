@@ -59,11 +59,13 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
 
         @CustomType.Setter
         public Builder blackDetectThreshold(@Nullable Double blackDetectThreshold) {
+
             this.blackDetectThreshold = blackDetectThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder videoBlackThresholdMsec(@Nullable Integer videoBlackThresholdMsec) {
+
             this.videoBlackThresholdMsec = videoBlackThresholdMsec;
             return this;
         }

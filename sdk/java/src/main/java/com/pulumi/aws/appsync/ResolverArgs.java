@@ -9,6 +9,7 @@ import com.pulumi.aws.appsync.inputs.ResolverRuntimeArgs;
 import com.pulumi.aws.appsync.inputs.ResolverSyncConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -525,9 +526,15 @@ public final class ResolverArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ResolverArgs build() {
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
-            $.field = Objects.requireNonNull($.field, "expected parameter 'field' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("ResolverArgs", "apiId");
+            }
+            if ($.field == null) {
+                throw new MissingRequiredPropertyException("ResolverArgs", "field");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ResolverArgs", "type");
+            }
             return $;
         }
     }

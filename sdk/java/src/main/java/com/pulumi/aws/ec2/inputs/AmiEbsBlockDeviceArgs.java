@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -406,7 +407,9 @@ public final class AmiEbsBlockDeviceArgs extends com.pulumi.resources.ResourceAr
         }
 
         public AmiEbsBlockDeviceArgs build() {
-            $.deviceName = Objects.requireNonNull($.deviceName, "expected parameter 'deviceName' to be non-null");
+            if ($.deviceName == null) {
+                throw new MissingRequiredPropertyException("AmiEbsBlockDeviceArgs", "deviceName");
+            }
             return $;
         }
     }

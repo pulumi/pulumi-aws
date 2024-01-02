@@ -5,6 +5,7 @@ package com.pulumi.aws.chime;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -284,9 +285,15 @@ public final class VoiceConnectorTerminationArgs extends com.pulumi.resources.Re
         }
 
         public VoiceConnectorTerminationArgs build() {
-            $.callingRegions = Objects.requireNonNull($.callingRegions, "expected parameter 'callingRegions' to be non-null");
-            $.cidrAllowLists = Objects.requireNonNull($.cidrAllowLists, "expected parameter 'cidrAllowLists' to be non-null");
-            $.voiceConnectorId = Objects.requireNonNull($.voiceConnectorId, "expected parameter 'voiceConnectorId' to be non-null");
+            if ($.callingRegions == null) {
+                throw new MissingRequiredPropertyException("VoiceConnectorTerminationArgs", "callingRegions");
+            }
+            if ($.cidrAllowLists == null) {
+                throw new MissingRequiredPropertyException("VoiceConnectorTerminationArgs", "cidrAllowLists");
+            }
+            if ($.voiceConnectorId == null) {
+                throw new MissingRequiredPropertyException("VoiceConnectorTerminationArgs", "voiceConnectorId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -266,8 +267,12 @@ public final class CustomerGatewayArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public CustomerGatewayArgs build() {
-            $.bgpAsn = Objects.requireNonNull($.bgpAsn, "expected parameter 'bgpAsn' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.bgpAsn == null) {
+                throw new MissingRequiredPropertyException("CustomerGatewayArgs", "bgpAsn");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("CustomerGatewayArgs", "type");
+            }
             return $;
         }
     }

@@ -86,21 +86,25 @@ public final class PresetAudioCodecOptions {
 
         @CustomType.Setter
         public Builder bitDepth(@Nullable String bitDepth) {
+
             this.bitDepth = bitDepth;
             return this;
         }
         @CustomType.Setter
         public Builder bitOrder(@Nullable String bitOrder) {
+
             this.bitOrder = bitOrder;
             return this;
         }
         @CustomType.Setter
         public Builder profile(@Nullable String profile) {
+
             this.profile = profile;
             return this;
         }
         @CustomType.Setter
         public Builder signed(@Nullable String signed) {
+
             this.signed = signed;
             return this;
         }

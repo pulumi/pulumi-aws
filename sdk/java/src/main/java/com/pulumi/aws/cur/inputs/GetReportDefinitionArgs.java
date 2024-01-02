@@ -5,6 +5,7 @@ package com.pulumi.aws.cur.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetReportDefinitionArgs extends com.pulumi.resources.InvokeAr
         }
 
         public GetReportDefinitionArgs build() {
-            $.reportName = Objects.requireNonNull($.reportName, "expected parameter 'reportName' to be non-null");
+            if ($.reportName == null) {
+                throw new MissingRequiredPropertyException("GetReportDefinitionArgs", "reportName");
+            }
             return $;
         }
     }

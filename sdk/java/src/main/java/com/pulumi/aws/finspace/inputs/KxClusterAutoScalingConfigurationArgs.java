@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -261,12 +262,24 @@ public final class KxClusterAutoScalingConfigurationArgs extends com.pulumi.reso
         }
 
         public KxClusterAutoScalingConfigurationArgs build() {
-            $.autoScalingMetric = Objects.requireNonNull($.autoScalingMetric, "expected parameter 'autoScalingMetric' to be non-null");
-            $.maxNodeCount = Objects.requireNonNull($.maxNodeCount, "expected parameter 'maxNodeCount' to be non-null");
-            $.metricTarget = Objects.requireNonNull($.metricTarget, "expected parameter 'metricTarget' to be non-null");
-            $.minNodeCount = Objects.requireNonNull($.minNodeCount, "expected parameter 'minNodeCount' to be non-null");
-            $.scaleInCooldownSeconds = Objects.requireNonNull($.scaleInCooldownSeconds, "expected parameter 'scaleInCooldownSeconds' to be non-null");
-            $.scaleOutCooldownSeconds = Objects.requireNonNull($.scaleOutCooldownSeconds, "expected parameter 'scaleOutCooldownSeconds' to be non-null");
+            if ($.autoScalingMetric == null) {
+                throw new MissingRequiredPropertyException("KxClusterAutoScalingConfigurationArgs", "autoScalingMetric");
+            }
+            if ($.maxNodeCount == null) {
+                throw new MissingRequiredPropertyException("KxClusterAutoScalingConfigurationArgs", "maxNodeCount");
+            }
+            if ($.metricTarget == null) {
+                throw new MissingRequiredPropertyException("KxClusterAutoScalingConfigurationArgs", "metricTarget");
+            }
+            if ($.minNodeCount == null) {
+                throw new MissingRequiredPropertyException("KxClusterAutoScalingConfigurationArgs", "minNodeCount");
+            }
+            if ($.scaleInCooldownSeconds == null) {
+                throw new MissingRequiredPropertyException("KxClusterAutoScalingConfigurationArgs", "scaleInCooldownSeconds");
+            }
+            if ($.scaleOutCooldownSeconds == null) {
+                throw new MissingRequiredPropertyException("KxClusterAutoScalingConfigurationArgs", "scaleOutCooldownSeconds");
+            }
             return $;
         }
     }

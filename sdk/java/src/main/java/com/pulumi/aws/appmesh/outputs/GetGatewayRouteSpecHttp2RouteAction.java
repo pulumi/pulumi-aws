@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2RouteActionRewrite;
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2RouteActionTarget;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetGatewayRouteSpecHttp2RouteAction {
 
         @CustomType.Setter
         public Builder rewrites(List<GetGatewayRouteSpecHttp2RouteActionRewrite> rewrites) {
-            this.rewrites = Objects.requireNonNull(rewrites);
+            if (rewrites == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttp2RouteAction", "rewrites");
+            }
+            this.rewrites = rewrites;
             return this;
         }
         public Builder rewrites(GetGatewayRouteSpecHttp2RouteActionRewrite... rewrites) {
@@ -50,7 +54,10 @@ public final class GetGatewayRouteSpecHttp2RouteAction {
         }
         @CustomType.Setter
         public Builder targets(List<GetGatewayRouteSpecHttp2RouteActionTarget> targets) {
-            this.targets = Objects.requireNonNull(targets);
+            if (targets == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttp2RouteAction", "targets");
+            }
+            this.targets = targets;
             return this;
         }
         public Builder targets(GetGatewayRouteSpecHttp2RouteActionTarget... targets) {

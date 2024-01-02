@@ -133,36 +133,43 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         @CustomType.Setter
         public Builder awsManagedRulesAcfpRuleSet(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet awsManagedRulesAcfpRuleSet) {
+
             this.awsManagedRulesAcfpRuleSet = awsManagedRulesAcfpRuleSet;
             return this;
         }
         @CustomType.Setter
         public Builder awsManagedRulesAtpRuleSet(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet awsManagedRulesAtpRuleSet) {
+
             this.awsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
             return this;
         }
         @CustomType.Setter
         public Builder awsManagedRulesBotControlRuleSet(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet awsManagedRulesBotControlRuleSet) {
+
             this.awsManagedRulesBotControlRuleSet = awsManagedRulesBotControlRuleSet;
             return this;
         }
         @CustomType.Setter
         public Builder loginPath(@Nullable String loginPath) {
+
             this.loginPath = loginPath;
             return this;
         }
         @CustomType.Setter
         public Builder passwordField(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField passwordField) {
+
             this.passwordField = passwordField;
             return this;
         }
         @CustomType.Setter
         public Builder payloadType(@Nullable String payloadType) {
+
             this.payloadType = payloadType;
             return this;
         }
         @CustomType.Setter
         public Builder usernameField(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField usernameField) {
+
             this.usernameField = usernameField;
             return this;
         }

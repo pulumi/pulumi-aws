@@ -105,26 +105,31 @@ public final class LaunchTemplateMetadataOptions {
 
         @CustomType.Setter
         public Builder httpEndpoint(@Nullable String httpEndpoint) {
+
             this.httpEndpoint = httpEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder httpProtocolIpv6(@Nullable String httpProtocolIpv6) {
+
             this.httpProtocolIpv6 = httpProtocolIpv6;
             return this;
         }
         @CustomType.Setter
         public Builder httpPutResponseHopLimit(@Nullable Integer httpPutResponseHopLimit) {
+
             this.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
         @CustomType.Setter
         public Builder httpTokens(@Nullable String httpTokens) {
+
             this.httpTokens = httpTokens;
             return this;
         }
         @CustomType.Setter
         public Builder instanceMetadataTags(@Nullable String instanceMetadataTags) {
+
             this.instanceMetadataTags = instanceMetadataTags;
             return this;
         }

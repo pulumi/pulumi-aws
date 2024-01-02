@@ -4,6 +4,7 @@
 package com.pulumi.aws.kms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -55,11 +56,13 @@ public final class GetSecretSecret {
 
         @CustomType.Setter
         public Builder context(@Nullable Map<String,String> context) {
+
             this.context = context;
             return this;
         }
         @CustomType.Setter
         public Builder grantTokens(@Nullable List<String> grantTokens) {
+
             this.grantTokens = grantTokens;
             return this;
         }
@@ -68,12 +71,18 @@ public final class GetSecretSecret {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSecretSecret", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder payload(String payload) {
-            this.payload = Objects.requireNonNull(payload);
+            if (payload == null) {
+              throw new MissingRequiredPropertyException("GetSecretSecret", "payload");
+            }
+            this.payload = payload;
             return this;
         }
         public GetSecretSecret build() {

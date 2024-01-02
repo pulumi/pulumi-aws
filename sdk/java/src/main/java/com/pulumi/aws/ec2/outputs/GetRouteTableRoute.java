@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -224,72 +225,114 @@ public final class GetRouteTableRoute {
 
         @CustomType.Setter
         public Builder carrierGatewayId(String carrierGatewayId) {
-            this.carrierGatewayId = Objects.requireNonNull(carrierGatewayId);
+            if (carrierGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoute", "carrierGatewayId");
+            }
+            this.carrierGatewayId = carrierGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder cidrBlock(String cidrBlock) {
-            this.cidrBlock = Objects.requireNonNull(cidrBlock);
+            if (cidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoute", "cidrBlock");
+            }
+            this.cidrBlock = cidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder coreNetworkArn(String coreNetworkArn) {
-            this.coreNetworkArn = Objects.requireNonNull(coreNetworkArn);
+            if (coreNetworkArn == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoute", "coreNetworkArn");
+            }
+            this.coreNetworkArn = coreNetworkArn;
             return this;
         }
         @CustomType.Setter
         public Builder destinationPrefixListId(String destinationPrefixListId) {
-            this.destinationPrefixListId = Objects.requireNonNull(destinationPrefixListId);
+            if (destinationPrefixListId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoute", "destinationPrefixListId");
+            }
+            this.destinationPrefixListId = destinationPrefixListId;
             return this;
         }
         @CustomType.Setter
         public Builder egressOnlyGatewayId(String egressOnlyGatewayId) {
-            this.egressOnlyGatewayId = Objects.requireNonNull(egressOnlyGatewayId);
+            if (egressOnlyGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoute", "egressOnlyGatewayId");
+            }
+            this.egressOnlyGatewayId = egressOnlyGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayId(String gatewayId) {
-            this.gatewayId = Objects.requireNonNull(gatewayId);
+            if (gatewayId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoute", "gatewayId");
+            }
+            this.gatewayId = gatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoute", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6CidrBlock(String ipv6CidrBlock) {
-            this.ipv6CidrBlock = Objects.requireNonNull(ipv6CidrBlock);
+            if (ipv6CidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoute", "ipv6CidrBlock");
+            }
+            this.ipv6CidrBlock = ipv6CidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder localGatewayId(String localGatewayId) {
-            this.localGatewayId = Objects.requireNonNull(localGatewayId);
+            if (localGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoute", "localGatewayId");
+            }
+            this.localGatewayId = localGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder natGatewayId(String natGatewayId) {
-            this.natGatewayId = Objects.requireNonNull(natGatewayId);
+            if (natGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoute", "natGatewayId");
+            }
+            this.natGatewayId = natGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+            if (networkInterfaceId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoute", "networkInterfaceId");
+            }
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+            if (transitGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoute", "transitGatewayId");
+            }
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcEndpointId(String vpcEndpointId) {
-            this.vpcEndpointId = Objects.requireNonNull(vpcEndpointId);
+            if (vpcEndpointId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoute", "vpcEndpointId");
+            }
+            this.vpcEndpointId = vpcEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcPeeringConnectionId(String vpcPeeringConnectionId) {
-            this.vpcPeeringConnectionId = Objects.requireNonNull(vpcPeeringConnectionId);
+            if (vpcPeeringConnectionId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoute", "vpcPeeringConnectionId");
+            }
+            this.vpcPeeringConnectionId = vpcPeeringConnectionId;
             return this;
         }
         public GetRouteTableRoute build() {

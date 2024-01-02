@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -120,37 +121,56 @@ public final class GetAuthorizationTokenResult {
 
         @CustomType.Setter
         public Builder authorizationToken(String authorizationToken) {
-            this.authorizationToken = Objects.requireNonNull(authorizationToken);
+            if (authorizationToken == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizationTokenResult", "authorizationToken");
+            }
+            this.authorizationToken = authorizationToken;
             return this;
         }
         @CustomType.Setter
         public Builder expiresAt(String expiresAt) {
-            this.expiresAt = Objects.requireNonNull(expiresAt);
+            if (expiresAt == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizationTokenResult", "expiresAt");
+            }
+            this.expiresAt = expiresAt;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizationTokenResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizationTokenResult", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder proxyEndpoint(String proxyEndpoint) {
-            this.proxyEndpoint = Objects.requireNonNull(proxyEndpoint);
+            if (proxyEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizationTokenResult", "proxyEndpoint");
+            }
+            this.proxyEndpoint = proxyEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder registryId(@Nullable String registryId) {
+
             this.registryId = registryId;
             return this;
         }
         @CustomType.Setter
         public Builder userName(String userName) {
-            this.userName = Objects.requireNonNull(userName);
+            if (userName == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizationTokenResult", "userName");
+            }
+            this.userName = userName;
             return this;
         }
         public GetAuthorizationTokenResult build() {

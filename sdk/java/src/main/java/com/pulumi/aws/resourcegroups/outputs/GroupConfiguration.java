@@ -5,6 +5,7 @@ package com.pulumi.aws.resourcegroups.outputs;
 
 import com.pulumi.aws.resourcegroups.outputs.GroupConfigurationParameter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -59,6 +60,7 @@ public final class GroupConfiguration {
 
         @CustomType.Setter
         public Builder parameters(@Nullable List<GroupConfigurationParameter> parameters) {
+
             this.parameters = parameters;
             return this;
         }
@@ -67,7 +69,10 @@ public final class GroupConfiguration {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GroupConfiguration", "type");
+            }
+            this.type = type;
             return this;
         }
         public GroupConfiguration build() {

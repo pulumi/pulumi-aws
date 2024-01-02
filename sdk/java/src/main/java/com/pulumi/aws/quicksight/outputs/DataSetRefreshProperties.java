@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.DataSetRefreshPropertiesRefreshConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class DataSetRefreshProperties {
 
         @CustomType.Setter
         public Builder refreshConfiguration(DataSetRefreshPropertiesRefreshConfiguration refreshConfiguration) {
-            this.refreshConfiguration = Objects.requireNonNull(refreshConfiguration);
+            if (refreshConfiguration == null) {
+              throw new MissingRequiredPropertyException("DataSetRefreshProperties", "refreshConfiguration");
+            }
+            this.refreshConfiguration = refreshConfiguration;
             return this;
         }
         public DataSetRefreshProperties build() {

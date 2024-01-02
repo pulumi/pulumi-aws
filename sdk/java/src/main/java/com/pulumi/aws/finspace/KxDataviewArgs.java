@@ -6,6 +6,7 @@ package com.pulumi.aws.finspace;
 import com.pulumi.aws.finspace.inputs.KxDataviewSegmentConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -431,10 +432,18 @@ public final class KxDataviewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KxDataviewArgs build() {
-            $.autoUpdate = Objects.requireNonNull($.autoUpdate, "expected parameter 'autoUpdate' to be non-null");
-            $.azMode = Objects.requireNonNull($.azMode, "expected parameter 'azMode' to be non-null");
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.environmentId = Objects.requireNonNull($.environmentId, "expected parameter 'environmentId' to be non-null");
+            if ($.autoUpdate == null) {
+                throw new MissingRequiredPropertyException("KxDataviewArgs", "autoUpdate");
+            }
+            if ($.azMode == null) {
+                throw new MissingRequiredPropertyException("KxDataviewArgs", "azMode");
+            }
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("KxDataviewArgs", "databaseName");
+            }
+            if ($.environmentId == null) {
+                throw new MissingRequiredPropertyException("KxDataviewArgs", "environmentId");
+            }
             return $;
         }
     }

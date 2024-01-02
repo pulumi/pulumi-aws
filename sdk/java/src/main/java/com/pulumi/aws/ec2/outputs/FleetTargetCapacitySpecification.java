@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -103,27 +104,36 @@ public final class FleetTargetCapacitySpecification {
 
         @CustomType.Setter
         public Builder defaultTargetCapacityType(String defaultTargetCapacityType) {
-            this.defaultTargetCapacityType = Objects.requireNonNull(defaultTargetCapacityType);
+            if (defaultTargetCapacityType == null) {
+              throw new MissingRequiredPropertyException("FleetTargetCapacitySpecification", "defaultTargetCapacityType");
+            }
+            this.defaultTargetCapacityType = defaultTargetCapacityType;
             return this;
         }
         @CustomType.Setter
         public Builder onDemandTargetCapacity(@Nullable Integer onDemandTargetCapacity) {
+
             this.onDemandTargetCapacity = onDemandTargetCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder spotTargetCapacity(@Nullable Integer spotTargetCapacity) {
+
             this.spotTargetCapacity = spotTargetCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder targetCapacityUnitType(@Nullable String targetCapacityUnitType) {
+
             this.targetCapacityUnitType = targetCapacityUnitType;
             return this;
         }
         @CustomType.Setter
         public Builder totalTargetCapacity(Integer totalTargetCapacity) {
-            this.totalTargetCapacity = Objects.requireNonNull(totalTargetCapacity);
+            if (totalTargetCapacity == null) {
+              throw new MissingRequiredPropertyException("FleetTargetCapacitySpecification", "totalTargetCapacity");
+            }
+            this.totalTargetCapacity = totalTargetCapacity;
             return this;
         }
         public FleetTargetCapacitySpecification build() {

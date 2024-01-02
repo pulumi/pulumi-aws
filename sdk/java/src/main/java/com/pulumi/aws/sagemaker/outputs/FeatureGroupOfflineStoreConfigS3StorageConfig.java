@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,22 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfig {
 
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder resolvedOutputS3Uri(@Nullable String resolvedOutputS3Uri) {
+
             this.resolvedOutputS3Uri = resolvedOutputS3Uri;
             return this;
         }
         @CustomType.Setter
         public Builder s3Uri(String s3Uri) {
-            this.s3Uri = Objects.requireNonNull(s3Uri);
+            if (s3Uri == null) {
+              throw new MissingRequiredPropertyException("FeatureGroupOfflineStoreConfigS3StorageConfig", "s3Uri");
+            }
+            this.s3Uri = s3Uri;
             return this;
         }
         public FeatureGroupOfflineStoreConfigS3StorageConfig build() {

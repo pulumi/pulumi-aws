@@ -7,6 +7,7 @@ import com.pulumi.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfig
 import com.pulumi.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration;
 import com.pulumi.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -89,22 +90,28 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
 
         @CustomType.Setter
         public Builder issueDetectionConfiguration(@Nullable MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration issueDetectionConfiguration) {
+
             this.issueDetectionConfiguration = issueDetectionConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder keywordMatchConfiguration(@Nullable MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration keywordMatchConfiguration) {
+
             this.keywordMatchConfiguration = keywordMatchConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder sentimentConfiguration(@Nullable MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration sentimentConfiguration) {
+
             this.sentimentConfiguration = sentimentConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule", "type");
+            }
+            this.type = type;
             return this;
         }
         public MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule build() {

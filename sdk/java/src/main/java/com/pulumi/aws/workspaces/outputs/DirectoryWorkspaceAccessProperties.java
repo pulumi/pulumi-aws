@@ -142,41 +142,49 @@ public final class DirectoryWorkspaceAccessProperties {
 
         @CustomType.Setter
         public Builder deviceTypeAndroid(@Nullable String deviceTypeAndroid) {
+
             this.deviceTypeAndroid = deviceTypeAndroid;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTypeChromeos(@Nullable String deviceTypeChromeos) {
+
             this.deviceTypeChromeos = deviceTypeChromeos;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTypeIos(@Nullable String deviceTypeIos) {
+
             this.deviceTypeIos = deviceTypeIos;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTypeLinux(@Nullable String deviceTypeLinux) {
+
             this.deviceTypeLinux = deviceTypeLinux;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTypeOsx(@Nullable String deviceTypeOsx) {
+
             this.deviceTypeOsx = deviceTypeOsx;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTypeWeb(@Nullable String deviceTypeWeb) {
+
             this.deviceTypeWeb = deviceTypeWeb;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTypeWindows(@Nullable String deviceTypeWindows) {
+
             this.deviceTypeWindows = deviceTypeWindows;
             return this;
         }
         @CustomType.Setter
         public Builder deviceTypeZeroclient(@Nullable String deviceTypeZeroclient) {
+
             this.deviceTypeZeroclient = deviceTypeZeroclient;
             return this;
         }

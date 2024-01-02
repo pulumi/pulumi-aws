@@ -58,11 +58,13 @@ public final class ConfigurationSetDeliveryOptions {
 
         @CustomType.Setter
         public Builder sendingPoolName(@Nullable String sendingPoolName) {
+
             this.sendingPoolName = sendingPoolName;
             return this;
         }
         @CustomType.Setter
         public Builder tlsPolicy(@Nullable String tlsPolicy) {
+
             this.tlsPolicy = tlsPolicy;
             return this;
         }

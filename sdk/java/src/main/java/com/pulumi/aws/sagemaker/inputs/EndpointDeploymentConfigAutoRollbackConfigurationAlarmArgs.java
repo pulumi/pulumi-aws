@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs ex
         }
 
         public EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs build() {
-            $.alarmName = Objects.requireNonNull($.alarmName, "expected parameter 'alarmName' to be non-null");
+            if ($.alarmName == null) {
+                throw new MissingRequiredPropertyException("EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs", "alarmName");
+            }
             return $;
         }
     }

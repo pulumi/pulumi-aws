@@ -7,6 +7,7 @@ import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositoryC
 import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -189,8 +190,12 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
         }
 
         public ServiceSourceConfigurationCodeRepositoryArgs build() {
-            $.repositoryUrl = Objects.requireNonNull($.repositoryUrl, "expected parameter 'repositoryUrl' to be non-null");
-            $.sourceCodeVersion = Objects.requireNonNull($.sourceCodeVersion, "expected parameter 'sourceCodeVersion' to be non-null");
+            if ($.repositoryUrl == null) {
+                throw new MissingRequiredPropertyException("ServiceSourceConfigurationCodeRepositoryArgs", "repositoryUrl");
+            }
+            if ($.sourceCodeVersion == null) {
+                throw new MissingRequiredPropertyException("ServiceSourceConfigurationCodeRepositoryArgs", "sourceCodeVersion");
+            }
             return $;
         }
     }

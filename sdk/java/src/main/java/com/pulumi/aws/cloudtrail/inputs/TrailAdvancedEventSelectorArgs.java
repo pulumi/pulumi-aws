@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudtrail.inputs;
 import com.pulumi.aws.cloudtrail.inputs.TrailAdvancedEventSelectorFieldSelectorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class TrailAdvancedEventSelectorArgs extends com.pulumi.resources.R
         }
 
         public TrailAdvancedEventSelectorArgs build() {
-            $.fieldSelectors = Objects.requireNonNull($.fieldSelectors, "expected parameter 'fieldSelectors' to be non-null");
+            if ($.fieldSelectors == null) {
+                throw new MissingRequiredPropertyException("TrailAdvancedEventSelectorArgs", "fieldSelectors");
+            }
             return $;
         }
     }

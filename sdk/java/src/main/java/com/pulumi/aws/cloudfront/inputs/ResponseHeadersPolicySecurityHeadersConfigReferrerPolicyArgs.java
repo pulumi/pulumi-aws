@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs 
         }
 
         public ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs build() {
-            $.override = Objects.requireNonNull($.override, "expected parameter 'override' to be non-null");
-            $.referrerPolicy = Objects.requireNonNull($.referrerPolicy, "expected parameter 'referrerPolicy' to be non-null");
+            if ($.override == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs", "override");
+            }
+            if ($.referrerPolicy == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs", "referrerPolicy");
+            }
             return $;
         }
     }

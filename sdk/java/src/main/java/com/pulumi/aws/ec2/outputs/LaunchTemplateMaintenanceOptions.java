@@ -44,6 +44,7 @@ public final class LaunchTemplateMaintenanceOptions {
 
         @CustomType.Setter
         public Builder autoRecovery(@Nullable String autoRecovery) {
+
             this.autoRecovery = autoRecovery;
             return this;
         }

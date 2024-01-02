@@ -44,6 +44,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
         @CustomType.Setter
         public Builder sourceAncillaryChannelNumber(@Nullable Integer sourceAncillaryChannelNumber) {
+
             this.sourceAncillaryChannelNumber = sourceAncillaryChannelNumber;
             return this;
         }

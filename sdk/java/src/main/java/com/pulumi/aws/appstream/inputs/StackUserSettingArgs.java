@@ -5,6 +5,7 @@ package com.pulumi.aws.appstream.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -119,8 +120,12 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         public StackUserSettingArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.permission = Objects.requireNonNull($.permission, "expected parameter 'permission' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("StackUserSettingArgs", "action");
+            }
+            if ($.permission == null) {
+                throw new MissingRequiredPropertyException("StackUserSettingArgs", "permission");
+            }
             return $;
         }
     }

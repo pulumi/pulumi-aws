@@ -44,6 +44,7 @@ public final class EventSourceMappingAmazonManagedKafkaEventSourceConfig {
 
         @CustomType.Setter
         public Builder consumerGroupId(@Nullable String consumerGroupId) {
+
             this.consumerGroupId = consumerGroupId;
             return this;
         }

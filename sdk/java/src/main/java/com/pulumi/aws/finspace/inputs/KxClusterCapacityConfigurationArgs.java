@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -148,8 +149,12 @@ public final class KxClusterCapacityConfigurationArgs extends com.pulumi.resourc
         }
 
         public KxClusterCapacityConfigurationArgs build() {
-            $.nodeCount = Objects.requireNonNull($.nodeCount, "expected parameter 'nodeCount' to be non-null");
-            $.nodeType = Objects.requireNonNull($.nodeType, "expected parameter 'nodeType' to be non-null");
+            if ($.nodeCount == null) {
+                throw new MissingRequiredPropertyException("KxClusterCapacityConfigurationArgs", "nodeCount");
+            }
+            if ($.nodeType == null) {
+                throw new MissingRequiredPropertyException("KxClusterCapacityConfigurationArgs", "nodeType");
+            }
             return $;
         }
     }

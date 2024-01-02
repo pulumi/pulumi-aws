@@ -101,26 +101,31 @@ public final class InstanceRestoreToPointInTime {
 
         @CustomType.Setter
         public Builder restoreTime(@Nullable String restoreTime) {
+
             this.restoreTime = restoreTime;
             return this;
         }
         @CustomType.Setter
         public Builder sourceDbInstanceAutomatedBackupsArn(@Nullable String sourceDbInstanceAutomatedBackupsArn) {
+
             this.sourceDbInstanceAutomatedBackupsArn = sourceDbInstanceAutomatedBackupsArn;
             return this;
         }
         @CustomType.Setter
         public Builder sourceDbInstanceIdentifier(@Nullable String sourceDbInstanceIdentifier) {
+
             this.sourceDbInstanceIdentifier = sourceDbInstanceIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder sourceDbiResourceId(@Nullable String sourceDbiResourceId) {
+
             this.sourceDbiResourceId = sourceDbiResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder useLatestRestorableTime(@Nullable Boolean useLatestRestorableTime) {
+
             this.useLatestRestorableTime = useLatestRestorableTime;
             return this;
         }

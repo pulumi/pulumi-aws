@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class GetCodeSigningConfigAllowedPublisher {
 
         @CustomType.Setter
         public Builder signingProfileVersionArns(List<String> signingProfileVersionArns) {
-            this.signingProfileVersionArns = Objects.requireNonNull(signingProfileVersionArns);
+            if (signingProfileVersionArns == null) {
+              throw new MissingRequiredPropertyException("GetCodeSigningConfigAllowedPublisher", "signingProfileVersionArns");
+            }
+            this.signingProfileVersionArns = signingProfileVersionArns;
             return this;
         }
         public Builder signingProfileVersionArns(String... signingProfileVersionArns) {

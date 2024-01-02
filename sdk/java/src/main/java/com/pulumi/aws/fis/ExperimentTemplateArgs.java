@@ -9,6 +9,7 @@ import com.pulumi.aws.fis.inputs.ExperimentTemplateStopConditionArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -344,10 +345,18 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
         }
 
         public ExperimentTemplateArgs build() {
-            $.actions = Objects.requireNonNull($.actions, "expected parameter 'actions' to be non-null");
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.stopConditions = Objects.requireNonNull($.stopConditions, "expected parameter 'stopConditions' to be non-null");
+            if ($.actions == null) {
+                throw new MissingRequiredPropertyException("ExperimentTemplateArgs", "actions");
+            }
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("ExperimentTemplateArgs", "description");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("ExperimentTemplateArgs", "roleArn");
+            }
+            if ($.stopConditions == null) {
+                throw new MissingRequiredPropertyException("ExperimentTemplateArgs", "stopConditions");
+            }
             return $;
         }
     }

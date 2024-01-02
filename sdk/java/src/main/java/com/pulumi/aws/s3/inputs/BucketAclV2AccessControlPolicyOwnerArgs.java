@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class BucketAclV2AccessControlPolicyOwnerArgs extends com.pulumi.re
         }
 
         public BucketAclV2AccessControlPolicyOwnerArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("BucketAclV2AccessControlPolicyOwnerArgs", "id");
+            }
             return $;
         }
     }

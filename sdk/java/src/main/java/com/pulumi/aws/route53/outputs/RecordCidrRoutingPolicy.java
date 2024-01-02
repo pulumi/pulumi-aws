@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class RecordCidrRoutingPolicy {
 
         @CustomType.Setter
         public Builder collectionId(String collectionId) {
-            this.collectionId = Objects.requireNonNull(collectionId);
+            if (collectionId == null) {
+              throw new MissingRequiredPropertyException("RecordCidrRoutingPolicy", "collectionId");
+            }
+            this.collectionId = collectionId;
             return this;
         }
         @CustomType.Setter
         public Builder locationName(String locationName) {
-            this.locationName = Objects.requireNonNull(locationName);
+            if (locationName == null) {
+              throw new MissingRequiredPropertyException("RecordCidrRoutingPolicy", "locationName");
+            }
+            this.locationName = locationName;
             return this;
         }
         public RecordCidrRoutingPolicy build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.chime.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class SdkvoiceSipMediaApplicationEndpointsArgs extends com.pulumi.r
         }
 
         public SdkvoiceSipMediaApplicationEndpointsArgs build() {
-            $.lambdaArn = Objects.requireNonNull($.lambdaArn, "expected parameter 'lambdaArn' to be non-null");
+            if ($.lambdaArn == null) {
+                throw new MissingRequiredPropertyException("SdkvoiceSipMediaApplicationEndpointsArgs", "lambdaArn");
+            }
             return $;
         }
     }

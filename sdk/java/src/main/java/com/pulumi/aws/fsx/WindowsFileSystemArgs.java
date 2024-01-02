@@ -8,6 +8,7 @@ import com.pulumi.aws.fsx.inputs.WindowsFileSystemDiskIopsConfigurationArgs;
 import com.pulumi.aws.fsx.inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -824,8 +825,12 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         public WindowsFileSystemArgs build() {
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.throughputCapacity = Objects.requireNonNull($.throughputCapacity, "expected parameter 'throughputCapacity' to be non-null");
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("WindowsFileSystemArgs", "subnetIds");
+            }
+            if ($.throughputCapacity == null) {
+                throw new MissingRequiredPropertyException("WindowsFileSystemArgs", "throughputCapacity");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudcontrol;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -232,8 +233,12 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ResourceArgs build() {
-            $.desiredState = Objects.requireNonNull($.desiredState, "expected parameter 'desiredState' to be non-null");
-            $.typeName = Objects.requireNonNull($.typeName, "expected parameter 'typeName' to be non-null");
+            if ($.desiredState == null) {
+                throw new MissingRequiredPropertyException("ResourceArgs", "desiredState");
+            }
+            if ($.typeName == null) {
+                throw new MissingRequiredPropertyException("ResourceArgs", "typeName");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.aws.alb.inputs.ListenerDefaultActionForwardStickinessArgs;
 import com.pulumi.aws.alb.inputs.ListenerDefaultActionForwardTargetGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -135,7 +136,9 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
         }
 
         public ListenerDefaultActionForwardArgs build() {
-            $.targetGroups = Objects.requireNonNull($.targetGroups, "expected parameter 'targetGroups' to be non-null");
+            if ($.targetGroups == null) {
+                throw new MissingRequiredPropertyException("ListenerDefaultActionForwardArgs", "targetGroups");
+            }
             return $;
         }
     }

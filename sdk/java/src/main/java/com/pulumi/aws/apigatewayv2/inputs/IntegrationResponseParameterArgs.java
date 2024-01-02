@@ -5,6 +5,7 @@ package com.pulumi.aws.apigatewayv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -116,8 +117,12 @@ public final class IntegrationResponseParameterArgs extends com.pulumi.resources
         }
 
         public IntegrationResponseParameterArgs build() {
-            $.mappings = Objects.requireNonNull($.mappings, "expected parameter 'mappings' to be non-null");
-            $.statusCode = Objects.requireNonNull($.statusCode, "expected parameter 'statusCode' to be non-null");
+            if ($.mappings == null) {
+                throw new MissingRequiredPropertyException("IntegrationResponseParameterArgs", "mappings");
+            }
+            if ($.statusCode == null) {
+                throw new MissingRequiredPropertyException("IntegrationResponseParameterArgs", "statusCode");
+            }
             return $;
         }
     }

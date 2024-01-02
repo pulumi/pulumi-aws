@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -128,22 +129,34 @@ public final class GetClusterVpcConfig {
 
         @CustomType.Setter
         public Builder clusterSecurityGroupId(String clusterSecurityGroupId) {
-            this.clusterSecurityGroupId = Objects.requireNonNull(clusterSecurityGroupId);
+            if (clusterSecurityGroupId == null) {
+              throw new MissingRequiredPropertyException("GetClusterVpcConfig", "clusterSecurityGroupId");
+            }
+            this.clusterSecurityGroupId = clusterSecurityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder endpointPrivateAccess(Boolean endpointPrivateAccess) {
-            this.endpointPrivateAccess = Objects.requireNonNull(endpointPrivateAccess);
+            if (endpointPrivateAccess == null) {
+              throw new MissingRequiredPropertyException("GetClusterVpcConfig", "endpointPrivateAccess");
+            }
+            this.endpointPrivateAccess = endpointPrivateAccess;
             return this;
         }
         @CustomType.Setter
         public Builder endpointPublicAccess(Boolean endpointPublicAccess) {
-            this.endpointPublicAccess = Objects.requireNonNull(endpointPublicAccess);
+            if (endpointPublicAccess == null) {
+              throw new MissingRequiredPropertyException("GetClusterVpcConfig", "endpointPublicAccess");
+            }
+            this.endpointPublicAccess = endpointPublicAccess;
             return this;
         }
         @CustomType.Setter
         public Builder publicAccessCidrs(List<String> publicAccessCidrs) {
-            this.publicAccessCidrs = Objects.requireNonNull(publicAccessCidrs);
+            if (publicAccessCidrs == null) {
+              throw new MissingRequiredPropertyException("GetClusterVpcConfig", "publicAccessCidrs");
+            }
+            this.publicAccessCidrs = publicAccessCidrs;
             return this;
         }
         public Builder publicAccessCidrs(String... publicAccessCidrs) {
@@ -151,7 +164,10 @@ public final class GetClusterVpcConfig {
         }
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+            if (securityGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetClusterVpcConfig", "securityGroupIds");
+            }
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
@@ -159,7 +175,10 @@ public final class GetClusterVpcConfig {
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("GetClusterVpcConfig", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -167,7 +186,10 @@ public final class GetClusterVpcConfig {
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetClusterVpcConfig", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetClusterVpcConfig build() {

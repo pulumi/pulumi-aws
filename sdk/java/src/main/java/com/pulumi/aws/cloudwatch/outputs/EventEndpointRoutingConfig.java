@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.aws.cloudwatch.outputs.EventEndpointRoutingConfigFailoverConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class EventEndpointRoutingConfig {
 
         @CustomType.Setter
         public Builder failoverConfig(EventEndpointRoutingConfigFailoverConfig failoverConfig) {
-            this.failoverConfig = Objects.requireNonNull(failoverConfig);
+            if (failoverConfig == null) {
+              throw new MissingRequiredPropertyException("EventEndpointRoutingConfig", "failoverConfig");
+            }
+            this.failoverConfig = failoverConfig;
             return this;
         }
         public EventEndpointRoutingConfig build() {

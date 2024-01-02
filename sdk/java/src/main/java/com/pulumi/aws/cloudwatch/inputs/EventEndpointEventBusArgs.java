@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class EventEndpointEventBusArgs extends com.pulumi.resources.Resour
         }
 
         public EventEndpointEventBusArgs build() {
-            $.eventBusArn = Objects.requireNonNull($.eventBusArn, "expected parameter 'eventBusArn' to be non-null");
+            if ($.eventBusArn == null) {
+                throw new MissingRequiredPropertyException("EventEndpointEventBusArgs", "eventBusArn");
+            }
             return $;
         }
     }

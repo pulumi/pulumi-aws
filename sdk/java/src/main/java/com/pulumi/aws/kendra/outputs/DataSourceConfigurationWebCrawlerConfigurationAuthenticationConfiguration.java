@@ -44,6 +44,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
 
         @CustomType.Setter
         public Builder basicAuthentications(@Nullable List<DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication> basicAuthentications) {
+
             this.basicAuthentications = basicAuthentications;
             return this;
         }

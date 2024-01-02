@@ -7,6 +7,7 @@ import com.pulumi.aws.datasync.inputs.TaskTaskReportConfigReportOverridesArgs;
 import com.pulumi.aws.datasync.inputs.TaskTaskReportConfigS3DestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -226,7 +227,9 @@ public final class TaskTaskReportConfigArgs extends com.pulumi.resources.Resourc
         }
 
         public TaskTaskReportConfigArgs build() {
-            $.s3Destination = Objects.requireNonNull($.s3Destination, "expected parameter 's3Destination' to be non-null");
+            if ($.s3Destination == null) {
+                throw new MissingRequiredPropertyException("TaskTaskReportConfigArgs", "s3Destination");
+            }
             return $;
         }
     }

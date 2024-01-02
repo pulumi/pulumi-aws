@@ -73,16 +73,19 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
 
         @CustomType.Setter
         public Builder columnDepth(@Nullable Integer columnDepth) {
+
             this.columnDepth = columnDepth;
             return this;
         }
         @CustomType.Setter
         public Builder includeFec(@Nullable String includeFec) {
+
             this.includeFec = includeFec;
             return this;
         }
         @CustomType.Setter
         public Builder rowLength(@Nullable Integer rowLength) {
+
             this.rowLength = rowLength;
             return this;
         }

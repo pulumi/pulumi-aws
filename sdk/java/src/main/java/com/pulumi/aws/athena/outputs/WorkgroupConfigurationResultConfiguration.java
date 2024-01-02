@@ -88,21 +88,25 @@ public final class WorkgroupConfigurationResultConfiguration {
 
         @CustomType.Setter
         public Builder aclConfiguration(@Nullable WorkgroupConfigurationResultConfigurationAclConfiguration aclConfiguration) {
+
             this.aclConfiguration = aclConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionConfiguration(@Nullable WorkgroupConfigurationResultConfigurationEncryptionConfiguration encryptionConfiguration) {
+
             this.encryptionConfiguration = encryptionConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder expectedBucketOwner(@Nullable String expectedBucketOwner) {
+
             this.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
         @CustomType.Setter
         public Builder outputLocation(@Nullable String outputLocation) {
+
             this.outputLocation = outputLocation;
             return this;
         }

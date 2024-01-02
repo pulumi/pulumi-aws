@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticache;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class UserGroupAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         public UserGroupAssociationArgs build() {
-            $.userGroupId = Objects.requireNonNull($.userGroupId, "expected parameter 'userGroupId' to be non-null");
-            $.userId = Objects.requireNonNull($.userId, "expected parameter 'userId' to be non-null");
+            if ($.userGroupId == null) {
+                throw new MissingRequiredPropertyException("UserGroupAssociationArgs", "userGroupId");
+            }
+            if ($.userId == null) {
+                throw new MissingRequiredPropertyException("UserGroupAssociationArgs", "userId");
+            }
             return $;
         }
     }

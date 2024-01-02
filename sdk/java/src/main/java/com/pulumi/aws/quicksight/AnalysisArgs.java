@@ -8,6 +8,7 @@ import com.pulumi.aws.quicksight.inputs.AnalysisPermissionArgs;
 import com.pulumi.aws.quicksight.inputs.AnalysisSourceEntityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -396,7 +397,9 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AnalysisArgs build() {
-            $.analysisId = Objects.requireNonNull($.analysisId, "expected parameter 'analysisId' to be non-null");
+            if ($.analysisId == null) {
+                throw new MissingRequiredPropertyException("AnalysisArgs", "analysisId");
+            }
             return $;
         }
     }

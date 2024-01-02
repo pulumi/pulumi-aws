@@ -9,6 +9,7 @@ import com.pulumi.aws.sagemaker.inputs.FlowDefinitionHumanLoopRequestSourceArgs;
 import com.pulumi.aws.sagemaker.inputs.FlowDefinitionOutputConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -303,10 +304,18 @@ public final class FlowDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public FlowDefinitionArgs build() {
-            $.flowDefinitionName = Objects.requireNonNull($.flowDefinitionName, "expected parameter 'flowDefinitionName' to be non-null");
-            $.humanLoopConfig = Objects.requireNonNull($.humanLoopConfig, "expected parameter 'humanLoopConfig' to be non-null");
-            $.outputConfig = Objects.requireNonNull($.outputConfig, "expected parameter 'outputConfig' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.flowDefinitionName == null) {
+                throw new MissingRequiredPropertyException("FlowDefinitionArgs", "flowDefinitionName");
+            }
+            if ($.humanLoopConfig == null) {
+                throw new MissingRequiredPropertyException("FlowDefinitionArgs", "humanLoopConfig");
+            }
+            if ($.outputConfig == null) {
+                throw new MissingRequiredPropertyException("FlowDefinitionArgs", "outputConfig");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("FlowDefinitionArgs", "roleArn");
+            }
             return $;
         }
     }

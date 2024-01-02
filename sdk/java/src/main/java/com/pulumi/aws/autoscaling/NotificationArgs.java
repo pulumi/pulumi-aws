@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -174,9 +175,15 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NotificationArgs build() {
-            $.groupNames = Objects.requireNonNull($.groupNames, "expected parameter 'groupNames' to be non-null");
-            $.notifications = Objects.requireNonNull($.notifications, "expected parameter 'notifications' to be non-null");
-            $.topicArn = Objects.requireNonNull($.topicArn, "expected parameter 'topicArn' to be non-null");
+            if ($.groupNames == null) {
+                throw new MissingRequiredPropertyException("NotificationArgs", "groupNames");
+            }
+            if ($.notifications == null) {
+                throw new MissingRequiredPropertyException("NotificationArgs", "notifications");
+            }
+            if ($.topicArn == null) {
+                throw new MissingRequiredPropertyException("NotificationArgs", "topicArn");
+            }
             return $;
         }
     }

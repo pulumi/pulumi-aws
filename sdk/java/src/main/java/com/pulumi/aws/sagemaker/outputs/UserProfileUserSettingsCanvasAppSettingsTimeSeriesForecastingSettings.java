@@ -58,11 +58,13 @@ public final class UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecasting
 
         @CustomType.Setter
         public Builder amazonForecastRoleArn(@Nullable String amazonForecastRoleArn) {
+
             this.amazonForecastRoleArn = amazonForecastRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }

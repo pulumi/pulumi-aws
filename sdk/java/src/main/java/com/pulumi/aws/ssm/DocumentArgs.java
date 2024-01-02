@@ -6,6 +6,7 @@ package com.pulumi.aws.ssm;
 import com.pulumi.aws.ssm.inputs.DocumentAttachmentsSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -385,8 +386,12 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DocumentArgs build() {
-            $.content = Objects.requireNonNull($.content, "expected parameter 'content' to be non-null");
-            $.documentType = Objects.requireNonNull($.documentType, "expected parameter 'documentType' to be non-null");
+            if ($.content == null) {
+                throw new MissingRequiredPropertyException("DocumentArgs", "content");
+            }
+            if ($.documentType == null) {
+                throw new MissingRequiredPropertyException("DocumentArgs", "documentType");
+            }
             return $;
         }
     }

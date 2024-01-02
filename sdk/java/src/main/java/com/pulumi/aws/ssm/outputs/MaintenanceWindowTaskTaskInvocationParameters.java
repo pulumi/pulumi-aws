@@ -89,21 +89,25 @@ public final class MaintenanceWindowTaskTaskInvocationParameters {
 
         @CustomType.Setter
         public Builder automationParameters(@Nullable MaintenanceWindowTaskTaskInvocationParametersAutomationParameters automationParameters) {
+
             this.automationParameters = automationParameters;
             return this;
         }
         @CustomType.Setter
         public Builder lambdaParameters(@Nullable MaintenanceWindowTaskTaskInvocationParametersLambdaParameters lambdaParameters) {
+
             this.lambdaParameters = lambdaParameters;
             return this;
         }
         @CustomType.Setter
         public Builder runCommandParameters(@Nullable MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters runCommandParameters) {
+
             this.runCommandParameters = runCommandParameters;
             return this;
         }
         @CustomType.Setter
         public Builder stepFunctionsParameters(@Nullable MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters stepFunctionsParameters) {
+
             this.stepFunctionsParameters = stepFunctionsParameters;
             return this;
         }

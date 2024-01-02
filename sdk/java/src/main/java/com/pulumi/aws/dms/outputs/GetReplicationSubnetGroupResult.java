@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -110,32 +111,50 @@ public final class GetReplicationSubnetGroupResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSubnetGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder replicationSubnetGroupArn(String replicationSubnetGroupArn) {
-            this.replicationSubnetGroupArn = Objects.requireNonNull(replicationSubnetGroupArn);
+            if (replicationSubnetGroupArn == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSubnetGroupResult", "replicationSubnetGroupArn");
+            }
+            this.replicationSubnetGroupArn = replicationSubnetGroupArn;
             return this;
         }
         @CustomType.Setter
         public Builder replicationSubnetGroupDescription(String replicationSubnetGroupDescription) {
-            this.replicationSubnetGroupDescription = Objects.requireNonNull(replicationSubnetGroupDescription);
+            if (replicationSubnetGroupDescription == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSubnetGroupResult", "replicationSubnetGroupDescription");
+            }
+            this.replicationSubnetGroupDescription = replicationSubnetGroupDescription;
             return this;
         }
         @CustomType.Setter
         public Builder replicationSubnetGroupId(String replicationSubnetGroupId) {
-            this.replicationSubnetGroupId = Objects.requireNonNull(replicationSubnetGroupId);
+            if (replicationSubnetGroupId == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSubnetGroupResult", "replicationSubnetGroupId");
+            }
+            this.replicationSubnetGroupId = replicationSubnetGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder subnetGroupStatus(String subnetGroupStatus) {
-            this.subnetGroupStatus = Objects.requireNonNull(subnetGroupStatus);
+            if (subnetGroupStatus == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSubnetGroupResult", "subnetGroupStatus");
+            }
+            this.subnetGroupStatus = subnetGroupStatus;
             return this;
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSubnetGroupResult", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -143,12 +162,18 @@ public final class GetReplicationSubnetGroupResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSubnetGroupResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetReplicationSubnetGroupResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetReplicationSubnetGroupResult build() {

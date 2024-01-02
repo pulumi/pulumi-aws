@@ -6,6 +6,7 @@ package com.pulumi.aws.lightsail;
 import com.pulumi.aws.lightsail.inputs.InstancePublicPortsPortInfoArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class InstancePublicPortsArgs extends com.pulumi.resources.Resource
         }
 
         public InstancePublicPortsArgs build() {
-            $.instanceName = Objects.requireNonNull($.instanceName, "expected parameter 'instanceName' to be non-null");
-            $.portInfos = Objects.requireNonNull($.portInfos, "expected parameter 'portInfos' to be non-null");
+            if ($.instanceName == null) {
+                throw new MissingRequiredPropertyException("InstancePublicPortsArgs", "instanceName");
+            }
+            if ($.portInfos == null) {
+                throw new MissingRequiredPropertyException("InstancePublicPortsArgs", "portInfos");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.apigateway.inputs;
 import com.pulumi.aws.apigateway.inputs.UsagePlanApiStageThrottleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -162,8 +163,12 @@ public final class UsagePlanApiStageArgs extends com.pulumi.resources.ResourceAr
         }
 
         public UsagePlanApiStageArgs build() {
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
-            $.stage = Objects.requireNonNull($.stage, "expected parameter 'stage' to be non-null");
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("UsagePlanApiStageArgs", "apiId");
+            }
+            if ($.stage == null) {
+                throw new MissingRequiredPropertyException("UsagePlanApiStageArgs", "stage");
+            }
             return $;
         }
     }

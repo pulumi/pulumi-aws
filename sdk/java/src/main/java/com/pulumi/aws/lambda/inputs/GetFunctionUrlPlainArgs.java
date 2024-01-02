@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -92,7 +93,9 @@ public final class GetFunctionUrlPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         public GetFunctionUrlPlainArgs build() {
-            $.functionName = Objects.requireNonNull($.functionName, "expected parameter 'functionName' to be non-null");
+            if ($.functionName == null) {
+                throw new MissingRequiredPropertyException("GetFunctionUrlPlainArgs", "functionName");
+            }
             return $;
         }
     }

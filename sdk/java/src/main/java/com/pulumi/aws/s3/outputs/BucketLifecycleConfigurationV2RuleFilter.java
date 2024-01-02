@@ -102,26 +102,31 @@ public final class BucketLifecycleConfigurationV2RuleFilter {
 
         @CustomType.Setter
         public Builder and(@Nullable BucketLifecycleConfigurationV2RuleFilterAnd and) {
+
             this.and = and;
             return this;
         }
         @CustomType.Setter
         public Builder objectSizeGreaterThan(@Nullable String objectSizeGreaterThan) {
+
             this.objectSizeGreaterThan = objectSizeGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder objectSizeLessThan(@Nullable String objectSizeLessThan) {
+
             this.objectSizeLessThan = objectSizeLessThan;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder tag(@Nullable BucketLifecycleConfigurationV2RuleFilterTag tag) {
+
             this.tag = tag;
             return this;
         }

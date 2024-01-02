@@ -59,11 +59,13 @@ public final class FunctionEventInvokeConfigDestinationConfig {
 
         @CustomType.Setter
         public Builder onFailure(@Nullable FunctionEventInvokeConfigDestinationConfigOnFailure onFailure) {
+
             this.onFailure = onFailure;
             return this;
         }
         @CustomType.Setter
         public Builder onSuccess(@Nullable FunctionEventInvokeConfigDestinationConfigOnSuccess onSuccess) {
+
             this.onSuccess = onSuccess;
             return this;
         }

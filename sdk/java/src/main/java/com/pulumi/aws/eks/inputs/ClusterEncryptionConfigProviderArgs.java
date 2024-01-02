@@ -5,6 +5,7 @@ package com.pulumi.aws.eks.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ClusterEncryptionConfigProviderArgs extends com.pulumi.resour
         }
 
         public ClusterEncryptionConfigProviderArgs build() {
-            $.keyArn = Objects.requireNonNull($.keyArn, "expected parameter 'keyArn' to be non-null");
+            if ($.keyArn == null) {
+                throw new MissingRequiredPropertyException("ClusterEncryptionConfigProviderArgs", "keyArn");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesisanalyticsv2.inputs;
 import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs build() {
-            $.inputLambdaProcessor = Objects.requireNonNull($.inputLambdaProcessor, "expected parameter 'inputLambdaProcessor' to be non-null");
+            if ($.inputLambdaProcessor == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs", "inputLambdaProcessor");
+            }
             return $;
         }
     }

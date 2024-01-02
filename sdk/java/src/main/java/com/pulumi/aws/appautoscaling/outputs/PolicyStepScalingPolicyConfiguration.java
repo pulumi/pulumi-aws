@@ -103,26 +103,31 @@ public final class PolicyStepScalingPolicyConfiguration {
 
         @CustomType.Setter
         public Builder adjustmentType(@Nullable String adjustmentType) {
+
             this.adjustmentType = adjustmentType;
             return this;
         }
         @CustomType.Setter
         public Builder cooldown(@Nullable Integer cooldown) {
+
             this.cooldown = cooldown;
             return this;
         }
         @CustomType.Setter
         public Builder metricAggregationType(@Nullable String metricAggregationType) {
+
             this.metricAggregationType = metricAggregationType;
             return this;
         }
         @CustomType.Setter
         public Builder minAdjustmentMagnitude(@Nullable Integer minAdjustmentMagnitude) {
+
             this.minAdjustmentMagnitude = minAdjustmentMagnitude;
             return this;
         }
         @CustomType.Setter
         public Builder stepAdjustments(@Nullable List<PolicyStepScalingPolicyConfigurationStepAdjustment> stepAdjustments) {
+
             this.stepAdjustments = stepAdjustments;
             return this;
         }

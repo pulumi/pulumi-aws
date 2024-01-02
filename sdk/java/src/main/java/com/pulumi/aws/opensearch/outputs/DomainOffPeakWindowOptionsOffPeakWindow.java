@@ -44,6 +44,7 @@ public final class DomainOffPeakWindowOptionsOffPeakWindow {
 
         @CustomType.Setter
         public Builder windowStartTime(@Nullable DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime windowStartTime) {
+
             this.windowStartTime = windowStartTime;
             return this;
         }

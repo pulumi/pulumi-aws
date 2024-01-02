@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class EndpointConfigurationProductionVariantCoreDumpConfigArgs exte
         }
 
         public EndpointConfigurationProductionVariantCoreDumpConfigArgs build() {
-            $.destinationS3Uri = Objects.requireNonNull($.destinationS3Uri, "expected parameter 'destinationS3Uri' to be non-null");
+            if ($.destinationS3Uri == null) {
+                throw new MissingRequiredPropertyException("EndpointConfigurationProductionVariantCoreDumpConfigArgs", "destinationS3Uri");
+            }
             return $;
         }
     }

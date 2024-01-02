@@ -5,6 +5,7 @@ package com.pulumi.aws.kms.inputs;
 
 import com.pulumi.aws.kms.inputs.GetSecretSecret;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -54,7 +55,9 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetSecretPlainArgs build() {
-            $.secrets = Objects.requireNonNull($.secrets, "expected parameter 'secrets' to be non-null");
+            if ($.secrets == null) {
+                throw new MissingRequiredPropertyException("GetSecretPlainArgs", "secrets");
+            }
             return $;
         }
     }

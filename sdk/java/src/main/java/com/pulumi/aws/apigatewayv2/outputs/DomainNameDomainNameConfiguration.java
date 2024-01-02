@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigatewayv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,31 +115,43 @@ public final class DomainNameDomainNameConfiguration {
 
         @CustomType.Setter
         public Builder certificateArn(String certificateArn) {
-            this.certificateArn = Objects.requireNonNull(certificateArn);
+            if (certificateArn == null) {
+              throw new MissingRequiredPropertyException("DomainNameDomainNameConfiguration", "certificateArn");
+            }
+            this.certificateArn = certificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder endpointType(String endpointType) {
-            this.endpointType = Objects.requireNonNull(endpointType);
+            if (endpointType == null) {
+              throw new MissingRequiredPropertyException("DomainNameDomainNameConfiguration", "endpointType");
+            }
+            this.endpointType = endpointType;
             return this;
         }
         @CustomType.Setter
         public Builder hostedZoneId(@Nullable String hostedZoneId) {
+
             this.hostedZoneId = hostedZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder ownershipVerificationCertificateArn(@Nullable String ownershipVerificationCertificateArn) {
+
             this.ownershipVerificationCertificateArn = ownershipVerificationCertificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder securityPolicy(String securityPolicy) {
-            this.securityPolicy = Objects.requireNonNull(securityPolicy);
+            if (securityPolicy == null) {
+              throw new MissingRequiredPropertyException("DomainNameDomainNameConfiguration", "securityPolicy");
+            }
+            this.securityPolicy = securityPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder targetDomainName(@Nullable String targetDomainName) {
+
             this.targetDomainName = targetDomainName;
             return this;
         }

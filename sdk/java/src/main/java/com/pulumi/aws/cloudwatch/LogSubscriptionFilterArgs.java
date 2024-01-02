@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,9 +262,15 @@ public final class LogSubscriptionFilterArgs extends com.pulumi.resources.Resour
         }
 
         public LogSubscriptionFilterArgs build() {
-            $.destinationArn = Objects.requireNonNull($.destinationArn, "expected parameter 'destinationArn' to be non-null");
-            $.filterPattern = Objects.requireNonNull($.filterPattern, "expected parameter 'filterPattern' to be non-null");
-            $.logGroup = Objects.requireNonNull($.logGroup, "expected parameter 'logGroup' to be non-null");
+            if ($.destinationArn == null) {
+                throw new MissingRequiredPropertyException("LogSubscriptionFilterArgs", "destinationArn");
+            }
+            if ($.filterPattern == null) {
+                throw new MissingRequiredPropertyException("LogSubscriptionFilterArgs", "filterPattern");
+            }
+            if ($.logGroup == null) {
+                throw new MissingRequiredPropertyException("LogSubscriptionFilterArgs", "logGroup");
+            }
             return $;
         }
     }

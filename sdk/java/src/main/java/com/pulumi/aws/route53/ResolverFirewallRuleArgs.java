@@ -5,6 +5,7 @@ package com.pulumi.aws.route53;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -373,10 +374,18 @@ public final class ResolverFirewallRuleArgs extends com.pulumi.resources.Resourc
         }
 
         public ResolverFirewallRuleArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.firewallDomainListId = Objects.requireNonNull($.firewallDomainListId, "expected parameter 'firewallDomainListId' to be non-null");
-            $.firewallRuleGroupId = Objects.requireNonNull($.firewallRuleGroupId, "expected parameter 'firewallRuleGroupId' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("ResolverFirewallRuleArgs", "action");
+            }
+            if ($.firewallDomainListId == null) {
+                throw new MissingRequiredPropertyException("ResolverFirewallRuleArgs", "firewallDomainListId");
+            }
+            if ($.firewallRuleGroupId == null) {
+                throw new MissingRequiredPropertyException("ResolverFirewallRuleArgs", "firewallRuleGroupId");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("ResolverFirewallRuleArgs", "priority");
+            }
             return $;
         }
     }

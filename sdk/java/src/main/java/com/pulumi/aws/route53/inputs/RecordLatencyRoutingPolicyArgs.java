@@ -5,6 +5,7 @@ package com.pulumi.aws.route53.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class RecordLatencyRoutingPolicyArgs extends com.pulumi.resources.R
         }
 
         public RecordLatencyRoutingPolicyArgs build() {
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("RecordLatencyRoutingPolicyArgs", "region");
+            }
             return $;
         }
     }

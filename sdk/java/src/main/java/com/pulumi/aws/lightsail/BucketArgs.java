@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -189,7 +190,9 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BucketArgs build() {
-            $.bundleId = Objects.requireNonNull($.bundleId, "expected parameter 'bundleId' to be non-null");
+            if ($.bundleId == null) {
+                throw new MissingRequiredPropertyException("BucketArgs", "bundleId");
+            }
             return $;
         }
     }

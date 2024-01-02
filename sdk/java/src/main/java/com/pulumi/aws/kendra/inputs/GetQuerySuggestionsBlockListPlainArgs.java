@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -120,8 +121,12 @@ public final class GetQuerySuggestionsBlockListPlainArgs extends com.pulumi.reso
         }
 
         public GetQuerySuggestionsBlockListPlainArgs build() {
-            $.indexId = Objects.requireNonNull($.indexId, "expected parameter 'indexId' to be non-null");
-            $.querySuggestionsBlockListId = Objects.requireNonNull($.querySuggestionsBlockListId, "expected parameter 'querySuggestionsBlockListId' to be non-null");
+            if ($.indexId == null) {
+                throw new MissingRequiredPropertyException("GetQuerySuggestionsBlockListPlainArgs", "indexId");
+            }
+            if ($.querySuggestionsBlockListId == null) {
+                throw new MissingRequiredPropertyException("GetQuerySuggestionsBlockListPlainArgs", "querySuggestionsBlockListId");
+            }
             return $;
         }
     }

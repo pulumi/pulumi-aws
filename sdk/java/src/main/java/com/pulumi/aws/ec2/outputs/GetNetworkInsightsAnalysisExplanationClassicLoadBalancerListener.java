@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListe
 
         @CustomType.Setter
         public Builder instancePort(Integer instancePort) {
-            this.instancePort = Objects.requireNonNull(instancePort);
+            if (instancePort == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener", "instancePort");
+            }
+            this.instancePort = instancePort;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerPort(Integer loadBalancerPort) {
-            this.loadBalancerPort = Objects.requireNonNull(loadBalancerPort);
+            if (loadBalancerPort == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener", "loadBalancerPort");
+            }
+            this.loadBalancerPort = loadBalancerPort;
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener build() {

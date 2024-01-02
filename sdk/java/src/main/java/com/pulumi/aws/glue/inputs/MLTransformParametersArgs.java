@@ -6,6 +6,7 @@ package com.pulumi.aws.glue.inputs;
 import com.pulumi.aws.glue.inputs.MLTransformParametersFindMatchesParametersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class MLTransformParametersArgs extends com.pulumi.resources.Resour
         }
 
         public MLTransformParametersArgs build() {
-            $.findMatchesParameters = Objects.requireNonNull($.findMatchesParameters, "expected parameter 'findMatchesParameters' to be non-null");
-            $.transformType = Objects.requireNonNull($.transformType, "expected parameter 'transformType' to be non-null");
+            if ($.findMatchesParameters == null) {
+                throw new MissingRequiredPropertyException("MLTransformParametersArgs", "findMatchesParameters");
+            }
+            if ($.transformType == null) {
+                throw new MissingRequiredPropertyException("MLTransformParametersArgs", "transformType");
+            }
             return $;
         }
     }

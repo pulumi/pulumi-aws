@@ -6,6 +6,7 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.aws.kendra.outputs.GetIndexUserTokenConfigurationJsonTokenTypeConfiguration;
 import com.pulumi.aws.kendra.outputs.GetIndexUserTokenConfigurationJwtTokenTypeConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetIndexUserTokenConfiguration {
 
         @CustomType.Setter
         public Builder jsonTokenTypeConfigurations(List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations) {
-            this.jsonTokenTypeConfigurations = Objects.requireNonNull(jsonTokenTypeConfigurations);
+            if (jsonTokenTypeConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetIndexUserTokenConfiguration", "jsonTokenTypeConfigurations");
+            }
+            this.jsonTokenTypeConfigurations = jsonTokenTypeConfigurations;
             return this;
         }
         public Builder jsonTokenTypeConfigurations(GetIndexUserTokenConfigurationJsonTokenTypeConfiguration... jsonTokenTypeConfigurations) {
@@ -66,7 +70,10 @@ public final class GetIndexUserTokenConfiguration {
         }
         @CustomType.Setter
         public Builder jwtTokenTypeConfigurations(List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations) {
-            this.jwtTokenTypeConfigurations = Objects.requireNonNull(jwtTokenTypeConfigurations);
+            if (jwtTokenTypeConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetIndexUserTokenConfiguration", "jwtTokenTypeConfigurations");
+            }
+            this.jwtTokenTypeConfigurations = jwtTokenTypeConfigurations;
             return this;
         }
         public Builder jwtTokenTypeConfigurations(GetIndexUserTokenConfigurationJwtTokenTypeConfiguration... jwtTokenTypeConfigurations) {

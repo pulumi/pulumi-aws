@@ -145,16 +145,19 @@ public final class GroupInstanceRefreshPreferences {
 
         @CustomType.Setter
         public Builder autoRollback(@Nullable Boolean autoRollback) {
+
             this.autoRollback = autoRollback;
             return this;
         }
         @CustomType.Setter
         public Builder checkpointDelay(@Nullable String checkpointDelay) {
+
             this.checkpointDelay = checkpointDelay;
             return this;
         }
         @CustomType.Setter
         public Builder checkpointPercentages(@Nullable List<Integer> checkpointPercentages) {
+
             this.checkpointPercentages = checkpointPercentages;
             return this;
         }
@@ -163,26 +166,31 @@ public final class GroupInstanceRefreshPreferences {
         }
         @CustomType.Setter
         public Builder instanceWarmup(@Nullable String instanceWarmup) {
+
             this.instanceWarmup = instanceWarmup;
             return this;
         }
         @CustomType.Setter
         public Builder minHealthyPercentage(@Nullable Integer minHealthyPercentage) {
+
             this.minHealthyPercentage = minHealthyPercentage;
             return this;
         }
         @CustomType.Setter
         public Builder scaleInProtectedInstances(@Nullable String scaleInProtectedInstances) {
+
             this.scaleInProtectedInstances = scaleInProtectedInstances;
             return this;
         }
         @CustomType.Setter
         public Builder skipMatching(@Nullable Boolean skipMatching) {
+
             this.skipMatching = skipMatching;
             return this;
         }
         @CustomType.Setter
         public Builder standbyInstances(@Nullable String standbyInstances) {
+
             this.standbyInstances = standbyInstances;
             return this;
         }

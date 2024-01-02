@@ -73,16 +73,19 @@ public final class InsightFiltersResourceAwsEc2InstanceLaunchedAt {
 
         @CustomType.Setter
         public Builder dateRange(@Nullable InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange dateRange) {
+
             this.dateRange = dateRange;
             return this;
         }
         @CustomType.Setter
         public Builder end(@Nullable String end) {
+
             this.end = end;
             return this;
         }
         @CustomType.Setter
         public Builder start(@Nullable String start) {
+
             this.start = start;
             return this;
         }

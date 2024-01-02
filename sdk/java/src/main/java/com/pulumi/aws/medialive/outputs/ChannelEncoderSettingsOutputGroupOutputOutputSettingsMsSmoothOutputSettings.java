@@ -50,11 +50,13 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmooth
 
         @CustomType.Setter
         public Builder h265PackagingType(@Nullable String h265PackagingType) {
+
             this.h265PackagingType = h265PackagingType;
             return this;
         }
         @CustomType.Setter
         public Builder nameModifier(@Nullable String nameModifier) {
+
             this.nameModifier = nameModifier;
             return this;
         }

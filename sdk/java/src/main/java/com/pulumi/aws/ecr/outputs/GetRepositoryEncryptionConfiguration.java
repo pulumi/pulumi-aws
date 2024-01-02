@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetRepositoryEncryptionConfiguration {
 
         @CustomType.Setter
         public Builder encryptionType(String encryptionType) {
-            this.encryptionType = Objects.requireNonNull(encryptionType);
+            if (encryptionType == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryEncryptionConfiguration", "encryptionType");
+            }
+            this.encryptionType = encryptionType;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKey(String kmsKey) {
-            this.kmsKey = Objects.requireNonNull(kmsKey);
+            if (kmsKey == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryEncryptionConfiguration", "kmsKey");
+            }
+            this.kmsKey = kmsKey;
             return this;
         }
         public GetRepositoryEncryptionConfiguration build() {

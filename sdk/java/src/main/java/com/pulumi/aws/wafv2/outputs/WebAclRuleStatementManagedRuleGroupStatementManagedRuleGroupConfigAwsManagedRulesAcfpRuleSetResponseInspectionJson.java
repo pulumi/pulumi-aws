@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         @CustomType.Setter
         public Builder failureValues(List<String> failureValues) {
-            this.failureValues = Objects.requireNonNull(failureValues);
+            if (failureValues == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson", "failureValues");
+            }
+            this.failureValues = failureValues;
             return this;
         }
         public Builder failureValues(String... failureValues) {
@@ -79,12 +83,18 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
         @CustomType.Setter
         public Builder identifier(String identifier) {
-            this.identifier = Objects.requireNonNull(identifier);
+            if (identifier == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson", "identifier");
+            }
+            this.identifier = identifier;
             return this;
         }
         @CustomType.Setter
         public Builder successValues(List<String> successValues) {
-            this.successValues = Objects.requireNonNull(successValues);
+            if (successValues == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson", "successValues");
+            }
+            this.successValues = successValues;
             return this;
         }
         public Builder successValues(String... successValues) {

@@ -5,6 +5,7 @@ package com.pulumi.aws.xray;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class EncryptionConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         public EncryptionConfigArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("EncryptionConfigArgs", "type");
+            }
             return $;
         }
     }

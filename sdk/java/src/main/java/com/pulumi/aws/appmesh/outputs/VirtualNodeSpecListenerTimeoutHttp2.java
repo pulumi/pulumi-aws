@@ -59,11 +59,13 @@ public final class VirtualNodeSpecListenerTimeoutHttp2 {
 
         @CustomType.Setter
         public Builder idle(@Nullable VirtualNodeSpecListenerTimeoutHttp2Idle idle) {
+
             this.idle = idle;
             return this;
         }
         @CustomType.Setter
         public Builder perRequest(@Nullable VirtualNodeSpecListenerTimeoutHttp2PerRequest perRequest) {
+
             this.perRequest = perRequest;
             return this;
         }

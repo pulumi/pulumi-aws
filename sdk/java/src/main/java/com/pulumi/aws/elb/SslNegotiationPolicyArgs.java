@@ -6,6 +6,7 @@ package com.pulumi.aws.elb;
 import com.pulumi.aws.elb.inputs.SslNegotiationPolicyAttributeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -266,8 +267,12 @@ public final class SslNegotiationPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         public SslNegotiationPolicyArgs build() {
-            $.lbPort = Objects.requireNonNull($.lbPort, "expected parameter 'lbPort' to be non-null");
-            $.loadBalancer = Objects.requireNonNull($.loadBalancer, "expected parameter 'loadBalancer' to be non-null");
+            if ($.lbPort == null) {
+                throw new MissingRequiredPropertyException("SslNegotiationPolicyArgs", "lbPort");
+            }
+            if ($.loadBalancer == null) {
+                throw new MissingRequiredPropertyException("SslNegotiationPolicyArgs", "loadBalancer");
+            }
             return $;
         }
     }

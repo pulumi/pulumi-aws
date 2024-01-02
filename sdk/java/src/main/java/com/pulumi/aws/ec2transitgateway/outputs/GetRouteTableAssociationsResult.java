@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway.outputs;
 
 import com.pulumi.aws.ec2transitgateway.outputs.GetRouteTableAssociationsFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,6 +72,7 @@ public final class GetRouteTableAssociationsResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetRouteTableAssociationsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -79,12 +81,18 @@ public final class GetRouteTableAssociationsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableAssociationsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableAssociationsResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -92,7 +100,10 @@ public final class GetRouteTableAssociationsResult {
         }
         @CustomType.Setter
         public Builder transitGatewayRouteTableId(String transitGatewayRouteTableId) {
-            this.transitGatewayRouteTableId = Objects.requireNonNull(transitGatewayRouteTableId);
+            if (transitGatewayRouteTableId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableAssociationsResult", "transitGatewayRouteTableId");
+            }
+            this.transitGatewayRouteTableId = transitGatewayRouteTableId;
             return this;
         }
         public GetRouteTableAssociationsResult build() {

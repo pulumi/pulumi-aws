@@ -59,11 +59,13 @@ public final class BucketServerSideEncryptionConfigurationV2Rule {
 
         @CustomType.Setter
         public Builder applyServerSideEncryptionByDefault(@Nullable BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault applyServerSideEncryptionByDefault) {
+
             this.applyServerSideEncryptionByDefault = applyServerSideEncryptionByDefault;
             return this;
         }
         @CustomType.Setter
         public Builder bucketKeyEnabled(@Nullable Boolean bucketKeyEnabled) {
+
             this.bucketKeyEnabled = bucketKeyEnabled;
             return this;
         }

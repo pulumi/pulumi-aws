@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -88,9 +89,15 @@ public final class KxVolumeAttachedClusterArgs extends com.pulumi.resources.Reso
         }
 
         public KxVolumeAttachedClusterArgs build() {
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
-            $.clusterStatus = Objects.requireNonNull($.clusterStatus, "expected parameter 'clusterStatus' to be non-null");
-            $.clusterType = Objects.requireNonNull($.clusterType, "expected parameter 'clusterType' to be non-null");
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("KxVolumeAttachedClusterArgs", "clusterName");
+            }
+            if ($.clusterStatus == null) {
+                throw new MissingRequiredPropertyException("KxVolumeAttachedClusterArgs", "clusterStatus");
+            }
+            if ($.clusterType == null) {
+                throw new MissingRequiredPropertyException("KxVolumeAttachedClusterArgs", "clusterType");
+            }
             return $;
         }
     }

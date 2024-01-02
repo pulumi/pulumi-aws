@@ -110,36 +110,43 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettings {
 
         @CustomType.Setter
         public Builder aacSettings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings aacSettings) {
+
             this.aacSettings = aacSettings;
             return this;
         }
         @CustomType.Setter
         public Builder ac3Settings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings ac3Settings) {
+
             this.ac3Settings = ac3Settings;
             return this;
         }
         @CustomType.Setter
         public Builder eac3AtmosSettings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings eac3AtmosSettings) {
+
             this.eac3AtmosSettings = eac3AtmosSettings;
             return this;
         }
         @CustomType.Setter
         public Builder eac3Settings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings eac3Settings) {
+
             this.eac3Settings = eac3Settings;
             return this;
         }
         @CustomType.Setter
         public Builder mp2Settings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings mp2Settings) {
+
             this.mp2Settings = mp2Settings;
             return this;
         }
         @CustomType.Setter
         public Builder passThroughSettings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings passThroughSettings) {
+
             this.passThroughSettings = passThroughSettings;
             return this;
         }
         @CustomType.Setter
         public Builder wavSettings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings wavSettings) {
+
             this.wavSettings = wavSettings;
             return this;
         }

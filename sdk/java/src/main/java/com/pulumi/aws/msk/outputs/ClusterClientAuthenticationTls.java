@@ -44,6 +44,7 @@ public final class ClusterClientAuthenticationTls {
 
         @CustomType.Setter
         public Builder certificateAuthorityArns(@Nullable List<String> certificateAuthorityArns) {
+
             this.certificateAuthorityArns = certificateAuthorityArns;
             return this;
         }

@@ -7,6 +7,7 @@ import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConf
 import com.pulumi.aws.acmpca.inputs.CertificateAuthorityRevocationConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -340,7 +341,9 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         }
 
         public CertificateAuthorityArgs build() {
-            $.certificateAuthorityConfiguration = Objects.requireNonNull($.certificateAuthorityConfiguration, "expected parameter 'certificateAuthorityConfiguration' to be non-null");
+            if ($.certificateAuthorityConfiguration == null) {
+                throw new MissingRequiredPropertyException("CertificateAuthorityArgs", "certificateAuthorityConfiguration");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class FirewallSubnetMapping {
 
         @CustomType.Setter
         public Builder ipAddressType(@Nullable String ipAddressType) {
+
             this.ipAddressType = ipAddressType;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("FirewallSubnetMapping", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public FirewallSubnetMapping build() {

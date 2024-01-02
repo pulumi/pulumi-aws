@@ -5,6 +5,7 @@ package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.aws.emr.outputs.ClusterMasterInstanceGroupEbsConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -117,11 +118,13 @@ public final class ClusterMasterInstanceGroup {
 
         @CustomType.Setter
         public Builder bidPrice(@Nullable String bidPrice) {
+
             this.bidPrice = bidPrice;
             return this;
         }
         @CustomType.Setter
         public Builder ebsConfigs(@Nullable List<ClusterMasterInstanceGroupEbsConfig> ebsConfigs) {
+
             this.ebsConfigs = ebsConfigs;
             return this;
         }
@@ -130,21 +133,27 @@ public final class ClusterMasterInstanceGroup {
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceCount(@Nullable Integer instanceCount) {
+
             this.instanceCount = instanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("ClusterMasterInstanceGroup", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

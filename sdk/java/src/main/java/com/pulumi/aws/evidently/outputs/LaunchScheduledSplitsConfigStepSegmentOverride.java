@@ -4,6 +4,7 @@
 package com.pulumi.aws.evidently.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -72,17 +73,26 @@ public final class LaunchScheduledSplitsConfigStepSegmentOverride {
 
         @CustomType.Setter
         public Builder evaluationOrder(Integer evaluationOrder) {
-            this.evaluationOrder = Objects.requireNonNull(evaluationOrder);
+            if (evaluationOrder == null) {
+              throw new MissingRequiredPropertyException("LaunchScheduledSplitsConfigStepSegmentOverride", "evaluationOrder");
+            }
+            this.evaluationOrder = evaluationOrder;
             return this;
         }
         @CustomType.Setter
         public Builder segment(String segment) {
-            this.segment = Objects.requireNonNull(segment);
+            if (segment == null) {
+              throw new MissingRequiredPropertyException("LaunchScheduledSplitsConfigStepSegmentOverride", "segment");
+            }
+            this.segment = segment;
             return this;
         }
         @CustomType.Setter
         public Builder weights(Map<String,Integer> weights) {
-            this.weights = Objects.requireNonNull(weights);
+            if (weights == null) {
+              throw new MissingRequiredPropertyException("LaunchScheduledSplitsConfigStepSegmentOverride", "weights");
+            }
+            this.weights = weights;
             return this;
         }
         public LaunchScheduledSplitsConfigStepSegmentOverride build() {

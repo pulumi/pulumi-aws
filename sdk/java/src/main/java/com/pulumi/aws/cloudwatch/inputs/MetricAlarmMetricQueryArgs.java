@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 import com.pulumi.aws.cloudwatch.inputs.MetricAlarmMetricQueryMetricArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -317,7 +318,9 @@ public final class MetricAlarmMetricQueryArgs extends com.pulumi.resources.Resou
         }
 
         public MetricAlarmMetricQueryArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("MetricAlarmMetricQueryArgs", "id");
+            }
             return $;
         }
     }

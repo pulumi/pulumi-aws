@@ -8,6 +8,7 @@ import com.pulumi.aws.imagebuilder.inputs.ImageRecipeComponentArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImageRecipeSystemsManagerAgentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -442,9 +443,15 @@ public final class ImageRecipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ImageRecipeArgs build() {
-            $.components = Objects.requireNonNull($.components, "expected parameter 'components' to be non-null");
-            $.parentImage = Objects.requireNonNull($.parentImage, "expected parameter 'parentImage' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.components == null) {
+                throw new MissingRequiredPropertyException("ImageRecipeArgs", "components");
+            }
+            if ($.parentImage == null) {
+                throw new MissingRequiredPropertyException("ImageRecipeArgs", "parentImage");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("ImageRecipeArgs", "version");
+            }
             return $;
         }
     }

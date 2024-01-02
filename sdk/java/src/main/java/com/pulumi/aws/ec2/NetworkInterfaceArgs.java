@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2;
 import com.pulumi.aws.ec2.inputs.NetworkInterfaceAttachmentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -852,7 +853,9 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
         }
 
         public NetworkInterfaceArgs build() {
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceArgs", "subnetId");
+            }
             return $;
         }
     }

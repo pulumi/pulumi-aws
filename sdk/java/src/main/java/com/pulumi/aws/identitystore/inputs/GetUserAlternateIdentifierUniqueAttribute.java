@@ -4,6 +4,7 @@
 package com.pulumi.aws.identitystore.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetUserAlternateIdentifierUniqueAttribute extends com.pulumi.
         }
 
         public GetUserAlternateIdentifierUniqueAttribute build() {
-            $.attributePath = Objects.requireNonNull($.attributePath, "expected parameter 'attributePath' to be non-null");
-            $.attributeValue = Objects.requireNonNull($.attributeValue, "expected parameter 'attributeValue' to be non-null");
+            if ($.attributePath == null) {
+                throw new MissingRequiredPropertyException("GetUserAlternateIdentifierUniqueAttribute", "attributePath");
+            }
+            if ($.attributeValue == null) {
+                throw new MissingRequiredPropertyException("GetUserAlternateIdentifierUniqueAttribute", "attributeValue");
+            }
             return $;
         }
     }

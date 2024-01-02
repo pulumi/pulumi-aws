@@ -7,6 +7,7 @@ import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfiguration
 import com.pulumi.aws.appautoscaling.inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -300,9 +301,15 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PolicyArgs build() {
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
-            $.scalableDimension = Objects.requireNonNull($.scalableDimension, "expected parameter 'scalableDimension' to be non-null");
-            $.serviceNamespace = Objects.requireNonNull($.serviceNamespace, "expected parameter 'serviceNamespace' to be non-null");
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "resourceId");
+            }
+            if ($.scalableDimension == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "scalableDimension");
+            }
+            if ($.serviceNamespace == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "serviceNamespace");
+            }
             return $;
         }
     }

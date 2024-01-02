@@ -6,6 +6,7 @@ package com.pulumi.aws.emr;
 import com.pulumi.aws.emr.inputs.ManagedScalingPolicyComputeLimitArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class ManagedScalingPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         public ManagedScalingPolicyArgs build() {
-            $.clusterId = Objects.requireNonNull($.clusterId, "expected parameter 'clusterId' to be non-null");
-            $.computeLimits = Objects.requireNonNull($.computeLimits, "expected parameter 'computeLimits' to be non-null");
+            if ($.clusterId == null) {
+                throw new MissingRequiredPropertyException("ManagedScalingPolicyArgs", "clusterId");
+            }
+            if ($.computeLimits == null) {
+                throw new MissingRequiredPropertyException("ManagedScalingPolicyArgs", "computeLimits");
+            }
             return $;
         }
     }

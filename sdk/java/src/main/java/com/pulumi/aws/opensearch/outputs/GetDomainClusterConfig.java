@@ -6,6 +6,7 @@ package com.pulumi.aws.opensearch.outputs;
 import com.pulumi.aws.opensearch.outputs.GetDomainClusterConfigColdStorageOption;
 import com.pulumi.aws.opensearch.outputs.GetDomainClusterConfigZoneAwarenessConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -195,7 +196,10 @@ public final class GetDomainClusterConfig {
 
         @CustomType.Setter
         public Builder coldStorageOptions(List<GetDomainClusterConfigColdStorageOption> coldStorageOptions) {
-            this.coldStorageOptions = Objects.requireNonNull(coldStorageOptions);
+            if (coldStorageOptions == null) {
+              throw new MissingRequiredPropertyException("GetDomainClusterConfig", "coldStorageOptions");
+            }
+            this.coldStorageOptions = coldStorageOptions;
             return this;
         }
         public Builder coldStorageOptions(GetDomainClusterConfigColdStorageOption... coldStorageOptions) {
@@ -203,52 +207,80 @@ public final class GetDomainClusterConfig {
         }
         @CustomType.Setter
         public Builder dedicatedMasterCount(Integer dedicatedMasterCount) {
-            this.dedicatedMasterCount = Objects.requireNonNull(dedicatedMasterCount);
+            if (dedicatedMasterCount == null) {
+              throw new MissingRequiredPropertyException("GetDomainClusterConfig", "dedicatedMasterCount");
+            }
+            this.dedicatedMasterCount = dedicatedMasterCount;
             return this;
         }
         @CustomType.Setter
         public Builder dedicatedMasterEnabled(Boolean dedicatedMasterEnabled) {
-            this.dedicatedMasterEnabled = Objects.requireNonNull(dedicatedMasterEnabled);
+            if (dedicatedMasterEnabled == null) {
+              throw new MissingRequiredPropertyException("GetDomainClusterConfig", "dedicatedMasterEnabled");
+            }
+            this.dedicatedMasterEnabled = dedicatedMasterEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder dedicatedMasterType(String dedicatedMasterType) {
-            this.dedicatedMasterType = Objects.requireNonNull(dedicatedMasterType);
+            if (dedicatedMasterType == null) {
+              throw new MissingRequiredPropertyException("GetDomainClusterConfig", "dedicatedMasterType");
+            }
+            this.dedicatedMasterType = dedicatedMasterType;
             return this;
         }
         @CustomType.Setter
         public Builder instanceCount(Integer instanceCount) {
-            this.instanceCount = Objects.requireNonNull(instanceCount);
+            if (instanceCount == null) {
+              throw new MissingRequiredPropertyException("GetDomainClusterConfig", "instanceCount");
+            }
+            this.instanceCount = instanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("GetDomainClusterConfig", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder multiAzWithStandbyEnabled(Boolean multiAzWithStandbyEnabled) {
-            this.multiAzWithStandbyEnabled = Objects.requireNonNull(multiAzWithStandbyEnabled);
+            if (multiAzWithStandbyEnabled == null) {
+              throw new MissingRequiredPropertyException("GetDomainClusterConfig", "multiAzWithStandbyEnabled");
+            }
+            this.multiAzWithStandbyEnabled = multiAzWithStandbyEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder warmCount(Integer warmCount) {
-            this.warmCount = Objects.requireNonNull(warmCount);
+            if (warmCount == null) {
+              throw new MissingRequiredPropertyException("GetDomainClusterConfig", "warmCount");
+            }
+            this.warmCount = warmCount;
             return this;
         }
         @CustomType.Setter
         public Builder warmEnabled(@Nullable Boolean warmEnabled) {
+
             this.warmEnabled = warmEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder warmType(String warmType) {
-            this.warmType = Objects.requireNonNull(warmType);
+            if (warmType == null) {
+              throw new MissingRequiredPropertyException("GetDomainClusterConfig", "warmType");
+            }
+            this.warmType = warmType;
             return this;
         }
         @CustomType.Setter
         public Builder zoneAwarenessConfigs(List<GetDomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfigs) {
-            this.zoneAwarenessConfigs = Objects.requireNonNull(zoneAwarenessConfigs);
+            if (zoneAwarenessConfigs == null) {
+              throw new MissingRequiredPropertyException("GetDomainClusterConfig", "zoneAwarenessConfigs");
+            }
+            this.zoneAwarenessConfigs = zoneAwarenessConfigs;
             return this;
         }
         public Builder zoneAwarenessConfigs(GetDomainClusterConfigZoneAwarenessConfig... zoneAwarenessConfigs) {
@@ -256,7 +288,10 @@ public final class GetDomainClusterConfig {
         }
         @CustomType.Setter
         public Builder zoneAwarenessEnabled(Boolean zoneAwarenessEnabled) {
-            this.zoneAwarenessEnabled = Objects.requireNonNull(zoneAwarenessEnabled);
+            if (zoneAwarenessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetDomainClusterConfig", "zoneAwarenessEnabled");
+            }
+            this.zoneAwarenessEnabled = zoneAwarenessEnabled;
             return this;
         }
         public GetDomainClusterConfig build() {

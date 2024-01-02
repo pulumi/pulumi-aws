@@ -44,6 +44,7 @@ public final class ListenerDefaultActionForward {
 
         @CustomType.Setter
         public Builder targetGroups(@Nullable List<ListenerDefaultActionForwardTargetGroup> targetGroups) {
+
             this.targetGroups = targetGroups;
             return this;
         }

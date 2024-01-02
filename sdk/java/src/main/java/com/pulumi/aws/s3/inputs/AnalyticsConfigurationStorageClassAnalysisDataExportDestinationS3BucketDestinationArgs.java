@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
         }
 
         public AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs build() {
-            $.bucketArn = Objects.requireNonNull($.bucketArn, "expected parameter 'bucketArn' to be non-null");
+            if ($.bucketArn == null) {
+                throw new MissingRequiredPropertyException("AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs", "bucketArn");
+            }
             return $;
         }
     }

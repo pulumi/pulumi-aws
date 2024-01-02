@@ -6,6 +6,7 @@ package com.pulumi.aws.appconfig;
 import com.pulumi.aws.appconfig.inputs.EventIntegrationEventFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -226,8 +227,12 @@ public final class EventIntegrationArgs extends com.pulumi.resources.ResourceArg
         }
 
         public EventIntegrationArgs build() {
-            $.eventFilter = Objects.requireNonNull($.eventFilter, "expected parameter 'eventFilter' to be non-null");
-            $.eventbridgeBus = Objects.requireNonNull($.eventbridgeBus, "expected parameter 'eventbridgeBus' to be non-null");
+            if ($.eventFilter == null) {
+                throw new MissingRequiredPropertyException("EventIntegrationArgs", "eventFilter");
+            }
+            if ($.eventbridgeBus == null) {
+                throw new MissingRequiredPropertyException("EventIntegrationArgs", "eventbridgeBus");
+            }
             return $;
         }
     }

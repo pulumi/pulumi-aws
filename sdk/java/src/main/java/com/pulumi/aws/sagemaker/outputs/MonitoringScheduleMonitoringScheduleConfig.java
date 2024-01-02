@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.MonitoringScheduleMonitoringScheduleConfigScheduleConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,16 +74,23 @@ public final class MonitoringScheduleMonitoringScheduleConfig {
 
         @CustomType.Setter
         public Builder monitoringJobDefinitionName(String monitoringJobDefinitionName) {
-            this.monitoringJobDefinitionName = Objects.requireNonNull(monitoringJobDefinitionName);
+            if (monitoringJobDefinitionName == null) {
+              throw new MissingRequiredPropertyException("MonitoringScheduleMonitoringScheduleConfig", "monitoringJobDefinitionName");
+            }
+            this.monitoringJobDefinitionName = monitoringJobDefinitionName;
             return this;
         }
         @CustomType.Setter
         public Builder monitoringType(String monitoringType) {
-            this.monitoringType = Objects.requireNonNull(monitoringType);
+            if (monitoringType == null) {
+              throw new MissingRequiredPropertyException("MonitoringScheduleMonitoringScheduleConfig", "monitoringType");
+            }
+            this.monitoringType = monitoringType;
             return this;
         }
         @CustomType.Setter
         public Builder scheduleConfig(@Nullable MonitoringScheduleMonitoringScheduleConfigScheduleConfig scheduleConfig) {
+
             this.scheduleConfig = scheduleConfig;
             return this;
         }

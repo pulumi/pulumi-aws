@@ -114,31 +114,37 @@ public final class EndpointMongodbSettings {
 
         @CustomType.Setter
         public Builder authMechanism(@Nullable String authMechanism) {
+
             this.authMechanism = authMechanism;
             return this;
         }
         @CustomType.Setter
         public Builder authSource(@Nullable String authSource) {
+
             this.authSource = authSource;
             return this;
         }
         @CustomType.Setter
         public Builder authType(@Nullable String authType) {
+
             this.authType = authType;
             return this;
         }
         @CustomType.Setter
         public Builder docsToInvestigate(@Nullable String docsToInvestigate) {
+
             this.docsToInvestigate = docsToInvestigate;
             return this;
         }
         @CustomType.Setter
         public Builder extractDocId(@Nullable String extractDocId) {
+
             this.extractDocId = extractDocId;
             return this;
         }
         @CustomType.Setter
         public Builder nestingLevel(@Nullable String nestingLevel) {
+
             this.nestingLevel = nestingLevel;
             return this;
         }

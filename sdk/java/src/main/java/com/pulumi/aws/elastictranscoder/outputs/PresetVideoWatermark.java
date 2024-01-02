@@ -170,51 +170,61 @@ public final class PresetVideoWatermark {
 
         @CustomType.Setter
         public Builder horizontalAlign(@Nullable String horizontalAlign) {
+
             this.horizontalAlign = horizontalAlign;
             return this;
         }
         @CustomType.Setter
         public Builder horizontalOffset(@Nullable String horizontalOffset) {
+
             this.horizontalOffset = horizontalOffset;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder maxHeight(@Nullable String maxHeight) {
+
             this.maxHeight = maxHeight;
             return this;
         }
         @CustomType.Setter
         public Builder maxWidth(@Nullable String maxWidth) {
+
             this.maxWidth = maxWidth;
             return this;
         }
         @CustomType.Setter
         public Builder opacity(@Nullable String opacity) {
+
             this.opacity = opacity;
             return this;
         }
         @CustomType.Setter
         public Builder sizingPolicy(@Nullable String sizingPolicy) {
+
             this.sizingPolicy = sizingPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder target(@Nullable String target) {
+
             this.target = target;
             return this;
         }
         @CustomType.Setter
         public Builder verticalAlign(@Nullable String verticalAlign) {
+
             this.verticalAlign = verticalAlign;
             return this;
         }
         @CustomType.Setter
         public Builder verticalOffset(@Nullable String verticalOffset) {
+
             this.verticalOffset = verticalOffset;
             return this;
         }

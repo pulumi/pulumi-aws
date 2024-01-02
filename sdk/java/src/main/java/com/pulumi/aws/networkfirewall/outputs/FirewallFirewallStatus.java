@@ -44,6 +44,7 @@ public final class FirewallFirewallStatus {
 
         @CustomType.Setter
         public Builder syncStates(@Nullable List<FirewallFirewallStatusSyncState> syncStates) {
+
             this.syncStates = syncStates;
             return this;
         }

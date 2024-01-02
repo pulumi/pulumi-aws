@@ -42,11 +42,13 @@ public final class ThingGroupMetadataRootToParentGroup {
 
         @CustomType.Setter
         public Builder groupArn(@Nullable String groupArn) {
+
             this.groupArn = groupArn;
             return this;
         }
         @CustomType.Setter
         public Builder groupName(@Nullable String groupName) {
+
             this.groupName = groupName;
             return this;
         }

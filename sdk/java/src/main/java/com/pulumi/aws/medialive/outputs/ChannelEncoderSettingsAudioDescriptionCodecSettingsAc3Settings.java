@@ -130,36 +130,43 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
 
         @CustomType.Setter
         public Builder bitrate(@Nullable Double bitrate) {
+
             this.bitrate = bitrate;
             return this;
         }
         @CustomType.Setter
         public Builder bitstreamMode(@Nullable String bitstreamMode) {
+
             this.bitstreamMode = bitstreamMode;
             return this;
         }
         @CustomType.Setter
         public Builder codingMode(@Nullable String codingMode) {
+
             this.codingMode = codingMode;
             return this;
         }
         @CustomType.Setter
         public Builder dialnorm(@Nullable Integer dialnorm) {
+
             this.dialnorm = dialnorm;
             return this;
         }
         @CustomType.Setter
         public Builder drcProfile(@Nullable String drcProfile) {
+
             this.drcProfile = drcProfile;
             return this;
         }
         @CustomType.Setter
         public Builder lfeFilter(@Nullable String lfeFilter) {
+
             this.lfeFilter = lfeFilter;
             return this;
         }
         @CustomType.Setter
         public Builder metadataControl(@Nullable String metadataControl) {
+
             this.metadataControl = metadataControl;
             return this;
         }

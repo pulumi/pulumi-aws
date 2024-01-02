@@ -5,6 +5,7 @@ package com.pulumi.aws.emr.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,8 +225,12 @@ public final class ClusterKerberosAttributesArgs extends com.pulumi.resources.Re
         }
 
         public ClusterKerberosAttributesArgs build() {
-            $.kdcAdminPassword = Objects.requireNonNull($.kdcAdminPassword, "expected parameter 'kdcAdminPassword' to be non-null");
-            $.realm = Objects.requireNonNull($.realm, "expected parameter 'realm' to be non-null");
+            if ($.kdcAdminPassword == null) {
+                throw new MissingRequiredPropertyException("ClusterKerberosAttributesArgs", "kdcAdminPassword");
+            }
+            if ($.realm == null) {
+                throw new MissingRequiredPropertyException("ClusterKerberosAttributesArgs", "realm");
+            }
             return $;
         }
     }

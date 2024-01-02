@@ -88,21 +88,25 @@ public final class ImageRecipeBlockDeviceMapping {
 
         @CustomType.Setter
         public Builder deviceName(@Nullable String deviceName) {
+
             this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder ebs(@Nullable ImageRecipeBlockDeviceMappingEbs ebs) {
+
             this.ebs = ebs;
             return this;
         }
         @CustomType.Setter
         public Builder noDevice(@Nullable Boolean noDevice) {
+
             this.noDevice = noDevice;
             return this;
         }
         @CustomType.Setter
         public Builder virtualName(@Nullable String virtualName) {
+
             this.virtualName = virtualName;
             return this;
         }

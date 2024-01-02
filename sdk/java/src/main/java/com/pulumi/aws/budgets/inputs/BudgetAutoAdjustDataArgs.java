@@ -6,6 +6,7 @@ package com.pulumi.aws.budgets.inputs;
 import com.pulumi.aws.budgets.inputs.BudgetAutoAdjustDataHistoricalOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -91,7 +92,9 @@ public final class BudgetAutoAdjustDataArgs extends com.pulumi.resources.Resourc
         }
 
         public BudgetAutoAdjustDataArgs build() {
-            $.autoAdjustType = Objects.requireNonNull($.autoAdjustType, "expected parameter 'autoAdjustType' to be non-null");
+            if ($.autoAdjustType == null) {
+                throw new MissingRequiredPropertyException("BudgetAutoAdjustDataArgs", "autoAdjustType");
+            }
             return $;
         }
     }

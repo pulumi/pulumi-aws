@@ -6,6 +6,7 @@ package com.pulumi.aws.glue.inputs;
 import com.pulumi.aws.glue.inputs.GetScriptDagEdge;
 import com.pulumi.aws.glue.inputs.GetScriptDagNode;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -142,8 +143,12 @@ public final class GetScriptPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetScriptPlainArgs build() {
-            $.dagEdges = Objects.requireNonNull($.dagEdges, "expected parameter 'dagEdges' to be non-null");
-            $.dagNodes = Objects.requireNonNull($.dagNodes, "expected parameter 'dagNodes' to be non-null");
+            if ($.dagEdges == null) {
+                throw new MissingRequiredPropertyException("GetScriptPlainArgs", "dagEdges");
+            }
+            if ($.dagNodes == null) {
+                throw new MissingRequiredPropertyException("GetScriptPlainArgs", "dagNodes");
+            }
             return $;
         }
     }

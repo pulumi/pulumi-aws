@@ -7,6 +7,7 @@ import com.pulumi.aws.lb.inputs.ListenerRuleActionArgs;
 import com.pulumi.aws.lb.inputs.ListenerRuleConditionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -249,9 +250,15 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ListenerRuleArgs build() {
-            $.actions = Objects.requireNonNull($.actions, "expected parameter 'actions' to be non-null");
-            $.conditions = Objects.requireNonNull($.conditions, "expected parameter 'conditions' to be non-null");
-            $.listenerArn = Objects.requireNonNull($.listenerArn, "expected parameter 'listenerArn' to be non-null");
+            if ($.actions == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleArgs", "actions");
+            }
+            if ($.conditions == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleArgs", "conditions");
+            }
+            if ($.listenerArn == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleArgs", "listenerArn");
+            }
             return $;
         }
     }

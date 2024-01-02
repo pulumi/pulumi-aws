@@ -5,6 +5,7 @@ package com.pulumi.aws.msk.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -134,7 +135,9 @@ public final class ReplicatorKafkaClusterVpcConfigArgs extends com.pulumi.resour
         }
 
         public ReplicatorKafkaClusterVpcConfigArgs build() {
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("ReplicatorKafkaClusterVpcConfigArgs", "subnetIds");
+            }
             return $;
         }
     }

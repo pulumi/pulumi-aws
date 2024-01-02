@@ -5,6 +5,7 @@ package com.pulumi.aws.ses;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class DomainIdentityVerificationArgs extends com.pulumi.resources.R
         }
 
         public DomainIdentityVerificationArgs build() {
-            $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");
+            if ($.domain == null) {
+                throw new MissingRequiredPropertyException("DomainIdentityVerificationArgs", "domain");
+            }
             return $;
         }
     }

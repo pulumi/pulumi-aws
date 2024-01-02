@@ -7,6 +7,7 @@ import com.pulumi.aws.cognito.inputs.ManagedUserPoolClientAnalyticsConfiguration
 import com.pulumi.aws.cognito.inputs.ManagedUserPoolClientTokenValidityUnitsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -946,7 +947,9 @@ public final class ManagedUserPoolClientArgs extends com.pulumi.resources.Resour
         }
 
         public ManagedUserPoolClientArgs build() {
-            $.userPoolId = Objects.requireNonNull($.userPoolId, "expected parameter 'userPoolId' to be non-null");
+            if ($.userPoolId == null) {
+                throw new MissingRequiredPropertyException("ManagedUserPoolClientArgs", "userPoolId");
+            }
             return $;
         }
     }

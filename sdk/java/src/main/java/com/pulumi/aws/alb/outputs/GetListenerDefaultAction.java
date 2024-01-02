@@ -9,6 +9,7 @@ import com.pulumi.aws.alb.outputs.GetListenerDefaultActionFixedResponse;
 import com.pulumi.aws.alb.outputs.GetListenerDefaultActionForward;
 import com.pulumi.aws.alb.outputs.GetListenerDefaultActionRedirect;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -83,7 +84,10 @@ public final class GetListenerDefaultAction {
 
         @CustomType.Setter
         public Builder authenticateCognitos(List<GetListenerDefaultActionAuthenticateCognito> authenticateCognitos) {
-            this.authenticateCognitos = Objects.requireNonNull(authenticateCognitos);
+            if (authenticateCognitos == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultAction", "authenticateCognitos");
+            }
+            this.authenticateCognitos = authenticateCognitos;
             return this;
         }
         public Builder authenticateCognitos(GetListenerDefaultActionAuthenticateCognito... authenticateCognitos) {
@@ -91,7 +95,10 @@ public final class GetListenerDefaultAction {
         }
         @CustomType.Setter
         public Builder authenticateOidcs(List<GetListenerDefaultActionAuthenticateOidc> authenticateOidcs) {
-            this.authenticateOidcs = Objects.requireNonNull(authenticateOidcs);
+            if (authenticateOidcs == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultAction", "authenticateOidcs");
+            }
+            this.authenticateOidcs = authenticateOidcs;
             return this;
         }
         public Builder authenticateOidcs(GetListenerDefaultActionAuthenticateOidc... authenticateOidcs) {
@@ -99,7 +106,10 @@ public final class GetListenerDefaultAction {
         }
         @CustomType.Setter
         public Builder fixedResponses(List<GetListenerDefaultActionFixedResponse> fixedResponses) {
-            this.fixedResponses = Objects.requireNonNull(fixedResponses);
+            if (fixedResponses == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultAction", "fixedResponses");
+            }
+            this.fixedResponses = fixedResponses;
             return this;
         }
         public Builder fixedResponses(GetListenerDefaultActionFixedResponse... fixedResponses) {
@@ -107,7 +117,10 @@ public final class GetListenerDefaultAction {
         }
         @CustomType.Setter
         public Builder forwards(List<GetListenerDefaultActionForward> forwards) {
-            this.forwards = Objects.requireNonNull(forwards);
+            if (forwards == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultAction", "forwards");
+            }
+            this.forwards = forwards;
             return this;
         }
         public Builder forwards(GetListenerDefaultActionForward... forwards) {
@@ -115,12 +128,18 @@ public final class GetListenerDefaultAction {
         }
         @CustomType.Setter
         public Builder order(Integer order) {
-            this.order = Objects.requireNonNull(order);
+            if (order == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultAction", "order");
+            }
+            this.order = order;
             return this;
         }
         @CustomType.Setter
         public Builder redirects(List<GetListenerDefaultActionRedirect> redirects) {
-            this.redirects = Objects.requireNonNull(redirects);
+            if (redirects == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultAction", "redirects");
+            }
+            this.redirects = redirects;
             return this;
         }
         public Builder redirects(GetListenerDefaultActionRedirect... redirects) {
@@ -128,12 +147,18 @@ public final class GetListenerDefaultAction {
         }
         @CustomType.Setter
         public Builder targetGroupArn(String targetGroupArn) {
-            this.targetGroupArn = Objects.requireNonNull(targetGroupArn);
+            if (targetGroupArn == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultAction", "targetGroupArn");
+            }
+            this.targetGroupArn = targetGroupArn;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetListenerDefaultAction", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetListenerDefaultAction build() {

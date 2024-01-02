@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class StreamConsumerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public StreamConsumerArgs build() {
-            $.streamArn = Objects.requireNonNull($.streamArn, "expected parameter 'streamArn' to be non-null");
+            if ($.streamArn == null) {
+                throw new MissingRequiredPropertyException("StreamConsumerArgs", "streamArn");
+            }
             return $;
         }
     }

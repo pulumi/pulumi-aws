@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecBackendDefaults;
 import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecListener;
 import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecLogging;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -75,12 +76,16 @@ public final class VirtualGatewaySpec {
 
         @CustomType.Setter
         public Builder backendDefaults(@Nullable VirtualGatewaySpecBackendDefaults backendDefaults) {
+
             this.backendDefaults = backendDefaults;
             return this;
         }
         @CustomType.Setter
         public Builder listeners(List<VirtualGatewaySpecListener> listeners) {
-            this.listeners = Objects.requireNonNull(listeners);
+            if (listeners == null) {
+              throw new MissingRequiredPropertyException("VirtualGatewaySpec", "listeners");
+            }
+            this.listeners = listeners;
             return this;
         }
         public Builder listeners(VirtualGatewaySpecListener... listeners) {
@@ -88,6 +93,7 @@ public final class VirtualGatewaySpec {
         }
         @CustomType.Setter
         public Builder logging(@Nullable VirtualGatewaySpecLogging logging) {
+
             this.logging = logging;
             return this;
         }

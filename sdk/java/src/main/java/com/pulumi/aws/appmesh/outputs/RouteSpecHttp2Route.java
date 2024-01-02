@@ -8,6 +8,7 @@ import com.pulumi.aws.appmesh.outputs.RouteSpecHttp2RouteMatch;
 import com.pulumi.aws.appmesh.outputs.RouteSpecHttp2RouteRetryPolicy;
 import com.pulumi.aws.appmesh.outputs.RouteSpecHttp2RouteTimeout;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -89,21 +90,29 @@ public final class RouteSpecHttp2Route {
 
         @CustomType.Setter
         public Builder action(RouteSpecHttp2RouteAction action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("RouteSpecHttp2Route", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder match(RouteSpecHttp2RouteMatch match) {
-            this.match = Objects.requireNonNull(match);
+            if (match == null) {
+              throw new MissingRequiredPropertyException("RouteSpecHttp2Route", "match");
+            }
+            this.match = match;
             return this;
         }
         @CustomType.Setter
         public Builder retryPolicy(@Nullable RouteSpecHttp2RouteRetryPolicy retryPolicy) {
+
             this.retryPolicy = retryPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(@Nullable RouteSpecHttp2RouteTimeout timeout) {
+
             this.timeout = timeout;
             return this;
         }

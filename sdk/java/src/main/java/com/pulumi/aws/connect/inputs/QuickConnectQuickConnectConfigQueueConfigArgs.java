@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class QuickConnectQuickConnectConfigQueueConfigArgs extends com.pul
         }
 
         public QuickConnectQuickConnectConfigQueueConfigArgs build() {
-            $.contactFlowId = Objects.requireNonNull($.contactFlowId, "expected parameter 'contactFlowId' to be non-null");
-            $.queueId = Objects.requireNonNull($.queueId, "expected parameter 'queueId' to be non-null");
+            if ($.contactFlowId == null) {
+                throw new MissingRequiredPropertyException("QuickConnectQuickConnectConfigQueueConfigArgs", "contactFlowId");
+            }
+            if ($.queueId == null) {
+                throw new MissingRequiredPropertyException("QuickConnectQuickConnectConfigQueueConfigArgs", "queueId");
+            }
             return $;
         }
     }

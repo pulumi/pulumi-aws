@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -475,8 +476,12 @@ public final class ComponentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ComponentArgs build() {
-            $.platform = Objects.requireNonNull($.platform, "expected parameter 'platform' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.platform == null) {
+                throw new MissingRequiredPropertyException("ComponentArgs", "platform");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("ComponentArgs", "version");
+            }
             return $;
         }
     }

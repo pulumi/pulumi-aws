@@ -6,6 +6,7 @@ package com.pulumi.aws.dynamodb;
 import com.pulumi.aws.dynamodb.inputs.GlobalTableReplicaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class GlobalTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GlobalTableArgs build() {
-            $.replicas = Objects.requireNonNull($.replicas, "expected parameter 'replicas' to be non-null");
+            if ($.replicas == null) {
+                throw new MissingRequiredPropertyException("GlobalTableArgs", "replicas");
+            }
             return $;
         }
     }

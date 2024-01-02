@@ -6,6 +6,7 @@ package com.pulumi.aws.networkfirewall.inputs;
 import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionArgs extends
         }
 
         public FirewallPolicyFirewallPolicyStatelessCustomActionArgs build() {
-            $.actionDefinition = Objects.requireNonNull($.actionDefinition, "expected parameter 'actionDefinition' to be non-null");
-            $.actionName = Objects.requireNonNull($.actionName, "expected parameter 'actionName' to be non-null");
+            if ($.actionDefinition == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicyStatelessCustomActionArgs", "actionDefinition");
+            }
+            if ($.actionName == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicyStatelessCustomActionArgs", "actionName");
+            }
             return $;
         }
     }

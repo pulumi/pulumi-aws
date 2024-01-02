@@ -5,6 +5,7 @@ package com.pulumi.aws.servicequotas.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class GetServiceQuotaArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetServiceQuotaArgs build() {
-            $.serviceCode = Objects.requireNonNull($.serviceCode, "expected parameter 'serviceCode' to be non-null");
+            if ($.serviceCode == null) {
+                throw new MissingRequiredPropertyException("GetServiceQuotaArgs", "serviceCode");
+            }
             return $;
         }
     }

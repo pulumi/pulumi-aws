@@ -6,6 +6,7 @@ package com.pulumi.aws.macie;
 import com.pulumi.aws.macie.inputs.FindingsFilterFindingCriteriaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -301,8 +302,12 @@ public final class FindingsFilterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public FindingsFilterArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.findingCriteria = Objects.requireNonNull($.findingCriteria, "expected parameter 'findingCriteria' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("FindingsFilterArgs", "action");
+            }
+            if ($.findingCriteria == null) {
+                throw new MissingRequiredPropertyException("FindingsFilterArgs", "findingCriteria");
+            }
             return $;
         }
     }

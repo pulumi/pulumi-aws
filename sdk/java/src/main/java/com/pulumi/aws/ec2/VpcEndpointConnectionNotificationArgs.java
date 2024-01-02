@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -208,8 +209,12 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
         }
 
         public VpcEndpointConnectionNotificationArgs build() {
-            $.connectionEvents = Objects.requireNonNull($.connectionEvents, "expected parameter 'connectionEvents' to be non-null");
-            $.connectionNotificationArn = Objects.requireNonNull($.connectionNotificationArn, "expected parameter 'connectionNotificationArn' to be non-null");
+            if ($.connectionEvents == null) {
+                throw new MissingRequiredPropertyException("VpcEndpointConnectionNotificationArgs", "connectionEvents");
+            }
+            if ($.connectionNotificationArn == null) {
+                throw new MissingRequiredPropertyException("VpcEndpointConnectionNotificationArgs", "connectionNotificationArn");
+            }
             return $;
         }
     }

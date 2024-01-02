@@ -59,11 +59,13 @@ public final class ConfigurationSetVdmOptions {
 
         @CustomType.Setter
         public Builder dashboardOptions(@Nullable ConfigurationSetVdmOptionsDashboardOptions dashboardOptions) {
+
             this.dashboardOptions = dashboardOptions;
             return this;
         }
         @CustomType.Setter
         public Builder guardianOptions(@Nullable ConfigurationSetVdmOptionsGuardianOptions guardianOptions) {
+
             this.guardianOptions = guardianOptions;
             return this;
         }

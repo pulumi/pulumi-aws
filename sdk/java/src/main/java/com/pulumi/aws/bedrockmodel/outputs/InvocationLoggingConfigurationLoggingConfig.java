@@ -6,6 +6,7 @@ package com.pulumi.aws.bedrockmodel.outputs;
 import com.pulumi.aws.bedrockmodel.outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfig;
 import com.pulumi.aws.bedrockmodel.outputs.InvocationLoggingConfigurationLoggingConfigS3Config;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -102,27 +103,38 @@ public final class InvocationLoggingConfigurationLoggingConfig {
 
         @CustomType.Setter
         public Builder cloudwatchConfig(@Nullable InvocationLoggingConfigurationLoggingConfigCloudwatchConfig cloudwatchConfig) {
+
             this.cloudwatchConfig = cloudwatchConfig;
             return this;
         }
         @CustomType.Setter
         public Builder embeddingDataDeliveryEnabled(Boolean embeddingDataDeliveryEnabled) {
-            this.embeddingDataDeliveryEnabled = Objects.requireNonNull(embeddingDataDeliveryEnabled);
+            if (embeddingDataDeliveryEnabled == null) {
+              throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfig", "embeddingDataDeliveryEnabled");
+            }
+            this.embeddingDataDeliveryEnabled = embeddingDataDeliveryEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder imageDataDeliveryEnabled(Boolean imageDataDeliveryEnabled) {
-            this.imageDataDeliveryEnabled = Objects.requireNonNull(imageDataDeliveryEnabled);
+            if (imageDataDeliveryEnabled == null) {
+              throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfig", "imageDataDeliveryEnabled");
+            }
+            this.imageDataDeliveryEnabled = imageDataDeliveryEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder s3Config(@Nullable InvocationLoggingConfigurationLoggingConfigS3Config s3Config) {
+
             this.s3Config = s3Config;
             return this;
         }
         @CustomType.Setter
         public Builder textDataDeliveryEnabled(Boolean textDataDeliveryEnabled) {
-            this.textDataDeliveryEnabled = Objects.requireNonNull(textDataDeliveryEnabled);
+            if (textDataDeliveryEnabled == null) {
+              throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfig", "textDataDeliveryEnabled");
+            }
+            this.textDataDeliveryEnabled = textDataDeliveryEnabled;
             return this;
         }
         public InvocationLoggingConfigurationLoggingConfig build() {

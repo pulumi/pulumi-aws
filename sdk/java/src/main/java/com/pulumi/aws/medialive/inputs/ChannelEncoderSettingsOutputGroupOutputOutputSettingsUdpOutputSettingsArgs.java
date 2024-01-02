@@ -8,6 +8,7 @@ import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOu
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -170,8 +171,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
         }
 
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs build() {
-            $.containerSettings = Objects.requireNonNull($.containerSettings, "expected parameter 'containerSettings' to be non-null");
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
+            if ($.containerSettings == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs", "containerSettings");
+            }
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs", "destination");
+            }
             return $;
         }
     }

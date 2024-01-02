@@ -13,6 +13,7 @@ import com.pulumi.aws.ec2.outputs.GetLaunchTemplateInstanceRequirementNetworkInt
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateInstanceRequirementTotalLocalStorageGb;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateInstanceRequirementVcpuCount;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -178,7 +179,10 @@ public final class GetLaunchTemplateInstanceRequirement {
 
         @CustomType.Setter
         public Builder acceleratorCounts(List<GetLaunchTemplateInstanceRequirementAcceleratorCount> acceleratorCounts) {
-            this.acceleratorCounts = Objects.requireNonNull(acceleratorCounts);
+            if (acceleratorCounts == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "acceleratorCounts");
+            }
+            this.acceleratorCounts = acceleratorCounts;
             return this;
         }
         public Builder acceleratorCounts(GetLaunchTemplateInstanceRequirementAcceleratorCount... acceleratorCounts) {
@@ -186,7 +190,10 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder acceleratorManufacturers(List<String> acceleratorManufacturers) {
-            this.acceleratorManufacturers = Objects.requireNonNull(acceleratorManufacturers);
+            if (acceleratorManufacturers == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "acceleratorManufacturers");
+            }
+            this.acceleratorManufacturers = acceleratorManufacturers;
             return this;
         }
         public Builder acceleratorManufacturers(String... acceleratorManufacturers) {
@@ -194,7 +201,10 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder acceleratorNames(List<String> acceleratorNames) {
-            this.acceleratorNames = Objects.requireNonNull(acceleratorNames);
+            if (acceleratorNames == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "acceleratorNames");
+            }
+            this.acceleratorNames = acceleratorNames;
             return this;
         }
         public Builder acceleratorNames(String... acceleratorNames) {
@@ -202,7 +212,10 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder acceleratorTotalMemoryMibs(List<GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs) {
-            this.acceleratorTotalMemoryMibs = Objects.requireNonNull(acceleratorTotalMemoryMibs);
+            if (acceleratorTotalMemoryMibs == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "acceleratorTotalMemoryMibs");
+            }
+            this.acceleratorTotalMemoryMibs = acceleratorTotalMemoryMibs;
             return this;
         }
         public Builder acceleratorTotalMemoryMibs(GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib... acceleratorTotalMemoryMibs) {
@@ -210,7 +223,10 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder acceleratorTypes(List<String> acceleratorTypes) {
-            this.acceleratorTypes = Objects.requireNonNull(acceleratorTypes);
+            if (acceleratorTypes == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "acceleratorTypes");
+            }
+            this.acceleratorTypes = acceleratorTypes;
             return this;
         }
         public Builder acceleratorTypes(String... acceleratorTypes) {
@@ -218,7 +234,10 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder allowedInstanceTypes(List<String> allowedInstanceTypes) {
-            this.allowedInstanceTypes = Objects.requireNonNull(allowedInstanceTypes);
+            if (allowedInstanceTypes == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "allowedInstanceTypes");
+            }
+            this.allowedInstanceTypes = allowedInstanceTypes;
             return this;
         }
         public Builder allowedInstanceTypes(String... allowedInstanceTypes) {
@@ -226,12 +245,18 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder bareMetal(String bareMetal) {
-            this.bareMetal = Objects.requireNonNull(bareMetal);
+            if (bareMetal == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "bareMetal");
+            }
+            this.bareMetal = bareMetal;
             return this;
         }
         @CustomType.Setter
         public Builder baselineEbsBandwidthMbps(List<GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps) {
-            this.baselineEbsBandwidthMbps = Objects.requireNonNull(baselineEbsBandwidthMbps);
+            if (baselineEbsBandwidthMbps == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "baselineEbsBandwidthMbps");
+            }
+            this.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
             return this;
         }
         public Builder baselineEbsBandwidthMbps(GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp... baselineEbsBandwidthMbps) {
@@ -239,12 +264,18 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder burstablePerformance(String burstablePerformance) {
-            this.burstablePerformance = Objects.requireNonNull(burstablePerformance);
+            if (burstablePerformance == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "burstablePerformance");
+            }
+            this.burstablePerformance = burstablePerformance;
             return this;
         }
         @CustomType.Setter
         public Builder cpuManufacturers(List<String> cpuManufacturers) {
-            this.cpuManufacturers = Objects.requireNonNull(cpuManufacturers);
+            if (cpuManufacturers == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "cpuManufacturers");
+            }
+            this.cpuManufacturers = cpuManufacturers;
             return this;
         }
         public Builder cpuManufacturers(String... cpuManufacturers) {
@@ -252,7 +283,10 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder excludedInstanceTypes(List<String> excludedInstanceTypes) {
-            this.excludedInstanceTypes = Objects.requireNonNull(excludedInstanceTypes);
+            if (excludedInstanceTypes == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "excludedInstanceTypes");
+            }
+            this.excludedInstanceTypes = excludedInstanceTypes;
             return this;
         }
         public Builder excludedInstanceTypes(String... excludedInstanceTypes) {
@@ -260,7 +294,10 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder instanceGenerations(List<String> instanceGenerations) {
-            this.instanceGenerations = Objects.requireNonNull(instanceGenerations);
+            if (instanceGenerations == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "instanceGenerations");
+            }
+            this.instanceGenerations = instanceGenerations;
             return this;
         }
         public Builder instanceGenerations(String... instanceGenerations) {
@@ -268,12 +305,18 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder localStorage(String localStorage) {
-            this.localStorage = Objects.requireNonNull(localStorage);
+            if (localStorage == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "localStorage");
+            }
+            this.localStorage = localStorage;
             return this;
         }
         @CustomType.Setter
         public Builder localStorageTypes(List<String> localStorageTypes) {
-            this.localStorageTypes = Objects.requireNonNull(localStorageTypes);
+            if (localStorageTypes == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "localStorageTypes");
+            }
+            this.localStorageTypes = localStorageTypes;
             return this;
         }
         public Builder localStorageTypes(String... localStorageTypes) {
@@ -281,7 +324,10 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder memoryGibPerVcpus(List<GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus) {
-            this.memoryGibPerVcpus = Objects.requireNonNull(memoryGibPerVcpus);
+            if (memoryGibPerVcpus == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "memoryGibPerVcpus");
+            }
+            this.memoryGibPerVcpus = memoryGibPerVcpus;
             return this;
         }
         public Builder memoryGibPerVcpus(GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus... memoryGibPerVcpus) {
@@ -289,7 +335,10 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder memoryMibs(List<GetLaunchTemplateInstanceRequirementMemoryMib> memoryMibs) {
-            this.memoryMibs = Objects.requireNonNull(memoryMibs);
+            if (memoryMibs == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "memoryMibs");
+            }
+            this.memoryMibs = memoryMibs;
             return this;
         }
         public Builder memoryMibs(GetLaunchTemplateInstanceRequirementMemoryMib... memoryMibs) {
@@ -297,7 +346,10 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder networkBandwidthGbps(List<GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps) {
-            this.networkBandwidthGbps = Objects.requireNonNull(networkBandwidthGbps);
+            if (networkBandwidthGbps == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "networkBandwidthGbps");
+            }
+            this.networkBandwidthGbps = networkBandwidthGbps;
             return this;
         }
         public Builder networkBandwidthGbps(GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp... networkBandwidthGbps) {
@@ -305,7 +357,10 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder networkInterfaceCounts(List<GetLaunchTemplateInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts) {
-            this.networkInterfaceCounts = Objects.requireNonNull(networkInterfaceCounts);
+            if (networkInterfaceCounts == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "networkInterfaceCounts");
+            }
+            this.networkInterfaceCounts = networkInterfaceCounts;
             return this;
         }
         public Builder networkInterfaceCounts(GetLaunchTemplateInstanceRequirementNetworkInterfaceCount... networkInterfaceCounts) {
@@ -313,22 +368,34 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder onDemandMaxPricePercentageOverLowestPrice(Integer onDemandMaxPricePercentageOverLowestPrice) {
-            this.onDemandMaxPricePercentageOverLowestPrice = Objects.requireNonNull(onDemandMaxPricePercentageOverLowestPrice);
+            if (onDemandMaxPricePercentageOverLowestPrice == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "onDemandMaxPricePercentageOverLowestPrice");
+            }
+            this.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             return this;
         }
         @CustomType.Setter
         public Builder requireHibernateSupport(Boolean requireHibernateSupport) {
-            this.requireHibernateSupport = Objects.requireNonNull(requireHibernateSupport);
+            if (requireHibernateSupport == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "requireHibernateSupport");
+            }
+            this.requireHibernateSupport = requireHibernateSupport;
             return this;
         }
         @CustomType.Setter
         public Builder spotMaxPricePercentageOverLowestPrice(Integer spotMaxPricePercentageOverLowestPrice) {
-            this.spotMaxPricePercentageOverLowestPrice = Objects.requireNonNull(spotMaxPricePercentageOverLowestPrice);
+            if (spotMaxPricePercentageOverLowestPrice == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "spotMaxPricePercentageOverLowestPrice");
+            }
+            this.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
             return this;
         }
         @CustomType.Setter
         public Builder totalLocalStorageGbs(List<GetLaunchTemplateInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs) {
-            this.totalLocalStorageGbs = Objects.requireNonNull(totalLocalStorageGbs);
+            if (totalLocalStorageGbs == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "totalLocalStorageGbs");
+            }
+            this.totalLocalStorageGbs = totalLocalStorageGbs;
             return this;
         }
         public Builder totalLocalStorageGbs(GetLaunchTemplateInstanceRequirementTotalLocalStorageGb... totalLocalStorageGbs) {
@@ -336,7 +403,10 @@ public final class GetLaunchTemplateInstanceRequirement {
         }
         @CustomType.Setter
         public Builder vcpuCounts(List<GetLaunchTemplateInstanceRequirementVcpuCount> vcpuCounts) {
-            this.vcpuCounts = Objects.requireNonNull(vcpuCounts);
+            if (vcpuCounts == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "vcpuCounts");
+            }
+            this.vcpuCounts = vcpuCounts;
             return this;
         }
         public Builder vcpuCounts(GetLaunchTemplateInstanceRequirementVcpuCount... vcpuCounts) {

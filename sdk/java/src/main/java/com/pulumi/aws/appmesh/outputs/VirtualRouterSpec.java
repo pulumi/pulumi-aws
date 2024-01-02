@@ -46,6 +46,7 @@ public final class VirtualRouterSpec {
 
         @CustomType.Setter
         public Builder listeners(@Nullable List<VirtualRouterSpecListener> listeners) {
+
             this.listeners = listeners;
             return this;
         }

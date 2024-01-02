@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -147,9 +148,15 @@ public final class GetSdkPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetSdkPlainArgs build() {
-            $.restApiId = Objects.requireNonNull($.restApiId, "expected parameter 'restApiId' to be non-null");
-            $.sdkType = Objects.requireNonNull($.sdkType, "expected parameter 'sdkType' to be non-null");
-            $.stageName = Objects.requireNonNull($.stageName, "expected parameter 'stageName' to be non-null");
+            if ($.restApiId == null) {
+                throw new MissingRequiredPropertyException("GetSdkPlainArgs", "restApiId");
+            }
+            if ($.sdkType == null) {
+                throw new MissingRequiredPropertyException("GetSdkPlainArgs", "sdkType");
+            }
+            if ($.stageName == null) {
+                throw new MissingRequiredPropertyException("GetSdkPlainArgs", "stageName");
+            }
             return $;
         }
     }
