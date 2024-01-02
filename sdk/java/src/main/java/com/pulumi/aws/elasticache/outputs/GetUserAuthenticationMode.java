@@ -43,11 +43,13 @@ public final class GetUserAuthenticationMode {
 
         @CustomType.Setter
         public Builder passwordCount(@Nullable Integer passwordCount) {
+
             this.passwordCount = passwordCount;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

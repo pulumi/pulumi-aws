@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.inputs;
 import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendVirtualServiceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class VirtualNodeSpecBackendArgs extends com.pulumi.resources.Resou
         }
 
         public VirtualNodeSpecBackendArgs build() {
-            $.virtualService = Objects.requireNonNull($.virtualService, "expected parameter 'virtualService' to be non-null");
+            if ($.virtualService == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecBackendArgs", "virtualService");
+            }
             return $;
         }
     }

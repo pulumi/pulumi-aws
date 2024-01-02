@@ -64,11 +64,13 @@ public final class VpcAttachmentOptions {
 
         @CustomType.Setter
         public Builder applianceModeSupport(@Nullable Boolean applianceModeSupport) {
+
             this.applianceModeSupport = applianceModeSupport;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Support(@Nullable Boolean ipv6Support) {
+
             this.ipv6Support = ipv6Support;
             return this;
         }

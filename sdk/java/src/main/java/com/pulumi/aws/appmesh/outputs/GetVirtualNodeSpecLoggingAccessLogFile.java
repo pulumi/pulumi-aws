@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecLoggingAccessLogFileFormat;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -42,7 +43,10 @@ public final class GetVirtualNodeSpecLoggingAccessLogFile {
 
         @CustomType.Setter
         public Builder formats(List<GetVirtualNodeSpecLoggingAccessLogFileFormat> formats) {
-            this.formats = Objects.requireNonNull(formats);
+            if (formats == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecLoggingAccessLogFile", "formats");
+            }
+            this.formats = formats;
             return this;
         }
         public Builder formats(GetVirtualNodeSpecLoggingAccessLogFileFormat... formats) {
@@ -50,7 +54,10 @@ public final class GetVirtualNodeSpecLoggingAccessLogFile {
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecLoggingAccessLogFile", "path");
+            }
+            this.path = path;
             return this;
         }
         public GetVirtualNodeSpecLoggingAccessLogFile build() {

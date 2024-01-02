@@ -59,11 +59,13 @@ public final class LocationFsxOntapFileSystemProtocol {
 
         @CustomType.Setter
         public Builder nfs(@Nullable LocationFsxOntapFileSystemProtocolNfs nfs) {
+
             this.nfs = nfs;
             return this;
         }
         @CustomType.Setter
         public Builder smb(@Nullable LocationFsxOntapFileSystemProtocolSmb smb) {
+
             this.smb = smb;
             return this;
         }

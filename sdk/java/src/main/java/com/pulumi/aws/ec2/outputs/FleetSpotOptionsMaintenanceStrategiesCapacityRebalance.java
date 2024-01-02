@@ -51,11 +51,13 @@ public final class FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
 
         @CustomType.Setter
         public Builder replacementStrategy(@Nullable String replacementStrategy) {
+
             this.replacementStrategy = replacementStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder terminationDelay(@Nullable Integer terminationDelay) {
+
             this.terminationDelay = terminationDelay;
             return this;
         }

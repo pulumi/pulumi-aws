@@ -6,6 +6,7 @@ package com.pulumi.aws.iam.inputs;
 import com.pulumi.aws.iam.inputs.GetPrincipalPolicySimulationContextArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -525,8 +526,12 @@ public final class GetPrincipalPolicySimulationArgs extends com.pulumi.resources
         }
 
         public GetPrincipalPolicySimulationArgs build() {
-            $.actionNames = Objects.requireNonNull($.actionNames, "expected parameter 'actionNames' to be non-null");
-            $.policySourceArn = Objects.requireNonNull($.policySourceArn, "expected parameter 'policySourceArn' to be non-null");
+            if ($.actionNames == null) {
+                throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationArgs", "actionNames");
+            }
+            if ($.policySourceArn == null) {
+                throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationArgs", "policySourceArn");
+            }
             return $;
         }
     }

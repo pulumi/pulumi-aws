@@ -5,6 +5,7 @@ package com.pulumi.aws.pricing.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GetProductFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         public GetProductFilterArgs build() {
-            $.field = Objects.requireNonNull($.field, "expected parameter 'field' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.field == null) {
+                throw new MissingRequiredPropertyException("GetProductFilterArgs", "field");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("GetProductFilterArgs", "value");
+            }
             return $;
         }
     }

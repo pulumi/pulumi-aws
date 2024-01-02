@@ -13,6 +13,7 @@ import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroup;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsTimecodeConfig;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsVideoDescription;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -165,6 +166,7 @@ public final class ChannelEncoderSettings {
 
         @CustomType.Setter
         public Builder audioDescriptions(@Nullable List<ChannelEncoderSettingsAudioDescription> audioDescriptions) {
+
             this.audioDescriptions = audioDescriptions;
             return this;
         }
@@ -173,11 +175,13 @@ public final class ChannelEncoderSettings {
         }
         @CustomType.Setter
         public Builder availBlanking(@Nullable ChannelEncoderSettingsAvailBlanking availBlanking) {
+
             this.availBlanking = availBlanking;
             return this;
         }
         @CustomType.Setter
         public Builder captionDescriptions(@Nullable List<ChannelEncoderSettingsCaptionDescription> captionDescriptions) {
+
             this.captionDescriptions = captionDescriptions;
             return this;
         }
@@ -186,22 +190,28 @@ public final class ChannelEncoderSettings {
         }
         @CustomType.Setter
         public Builder globalConfiguration(@Nullable ChannelEncoderSettingsGlobalConfiguration globalConfiguration) {
+
             this.globalConfiguration = globalConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder motionGraphicsConfiguration(@Nullable ChannelEncoderSettingsMotionGraphicsConfiguration motionGraphicsConfiguration) {
+
             this.motionGraphicsConfiguration = motionGraphicsConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder nielsenConfiguration(@Nullable ChannelEncoderSettingsNielsenConfiguration nielsenConfiguration) {
+
             this.nielsenConfiguration = nielsenConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder outputGroups(List<ChannelEncoderSettingsOutputGroup> outputGroups) {
-            this.outputGroups = Objects.requireNonNull(outputGroups);
+            if (outputGroups == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettings", "outputGroups");
+            }
+            this.outputGroups = outputGroups;
             return this;
         }
         public Builder outputGroups(ChannelEncoderSettingsOutputGroup... outputGroups) {
@@ -209,11 +219,15 @@ public final class ChannelEncoderSettings {
         }
         @CustomType.Setter
         public Builder timecodeConfig(ChannelEncoderSettingsTimecodeConfig timecodeConfig) {
-            this.timecodeConfig = Objects.requireNonNull(timecodeConfig);
+            if (timecodeConfig == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettings", "timecodeConfig");
+            }
+            this.timecodeConfig = timecodeConfig;
             return this;
         }
         @CustomType.Setter
         public Builder videoDescriptions(@Nullable List<ChannelEncoderSettingsVideoDescription> videoDescriptions) {
+
             this.videoDescriptions = videoDescriptions;
             return this;
         }

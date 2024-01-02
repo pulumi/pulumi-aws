@@ -59,11 +59,13 @@ public final class UserPoolAdminCreateUserConfig {
 
         @CustomType.Setter
         public Builder allowAdminCreateUserOnly(@Nullable Boolean allowAdminCreateUserOnly) {
+
             this.allowAdminCreateUserOnly = allowAdminCreateUserOnly;
             return this;
         }
         @CustomType.Setter
         public Builder inviteMessageTemplate(@Nullable UserPoolAdminCreateUserConfigInviteMessageTemplate inviteMessageTemplate) {
+
             this.inviteMessageTemplate = inviteMessageTemplate;
             return this;
         }

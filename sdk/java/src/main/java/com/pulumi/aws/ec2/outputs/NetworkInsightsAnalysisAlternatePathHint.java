@@ -58,11 +58,13 @@ public final class NetworkInsightsAnalysisAlternatePathHint {
 
         @CustomType.Setter
         public Builder componentArn(@Nullable String componentArn) {
+
             this.componentArn = componentArn;
             return this;
         }
         @CustomType.Setter
         public Builder componentId(@Nullable String componentId) {
+
             this.componentId = componentId;
             return this;
         }

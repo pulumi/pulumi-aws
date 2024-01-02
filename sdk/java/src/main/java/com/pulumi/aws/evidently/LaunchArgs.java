@@ -8,6 +8,7 @@ import com.pulumi.aws.evidently.inputs.LaunchMetricMonitorArgs;
 import com.pulumi.aws.evidently.inputs.LaunchScheduledSplitsConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -360,8 +361,12 @@ public final class LaunchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LaunchArgs build() {
-            $.groups = Objects.requireNonNull($.groups, "expected parameter 'groups' to be non-null");
-            $.project = Objects.requireNonNull($.project, "expected parameter 'project' to be non-null");
+            if ($.groups == null) {
+                throw new MissingRequiredPropertyException("LaunchArgs", "groups");
+            }
+            if ($.project == null) {
+                throw new MissingRequiredPropertyException("LaunchArgs", "project");
+            }
             return $;
         }
     }

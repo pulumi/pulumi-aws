@@ -5,6 +5,7 @@ package com.pulumi.aws.apprunner.outputs;
 
 import com.pulumi.aws.apprunner.outputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,12 +60,16 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
 
         @CustomType.Setter
         public Builder codeConfigurationValues(@Nullable ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues codeConfigurationValues) {
+
             this.codeConfigurationValues = codeConfigurationValues;
             return this;
         }
         @CustomType.Setter
         public Builder configurationSource(String configurationSource) {
-            this.configurationSource = Objects.requireNonNull(configurationSource);
+            if (configurationSource == null) {
+              throw new MissingRequiredPropertyException("ServiceSourceConfigurationCodeRepositoryCodeConfiguration", "configurationSource");
+            }
+            this.configurationSource = configurationSource;
             return this;
         }
         public ServiceSourceConfigurationCodeRepositoryCodeConfiguration build() {

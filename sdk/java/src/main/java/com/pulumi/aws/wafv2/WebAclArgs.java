@@ -11,6 +11,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -484,9 +485,15 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WebAclArgs build() {
-            $.defaultAction = Objects.requireNonNull($.defaultAction, "expected parameter 'defaultAction' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
-            $.visibilityConfig = Objects.requireNonNull($.visibilityConfig, "expected parameter 'visibilityConfig' to be non-null");
+            if ($.defaultAction == null) {
+                throw new MissingRequiredPropertyException("WebAclArgs", "defaultAction");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("WebAclArgs", "scope");
+            }
+            if ($.visibilityConfig == null) {
+                throw new MissingRequiredPropertyException("WebAclArgs", "visibilityConfig");
+            }
             return $;
         }
     }

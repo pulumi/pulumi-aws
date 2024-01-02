@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
         }
 
         public KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs build() {
-            $.code = Objects.requireNonNull($.code, "expected parameter 'code' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.code == null) {
+                throw new MissingRequiredPropertyException("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs", "code");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs", "type");
+            }
             return $;
         }
     }

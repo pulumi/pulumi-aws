@@ -44,6 +44,7 @@ public final class ResolverSyncConfigLambdaConflictHandlerConfig {
 
         @CustomType.Setter
         public Builder lambdaConflictHandlerArn(@Nullable String lambdaConflictHandlerArn) {
+
             this.lambdaConflictHandlerArn = lambdaConflictHandlerArn;
             return this;
         }

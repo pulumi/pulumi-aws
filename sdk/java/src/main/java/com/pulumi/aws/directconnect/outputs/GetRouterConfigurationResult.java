@@ -5,6 +5,7 @@ package com.pulumi.aws.directconnect.outputs;
 
 import com.pulumi.aws.directconnect.outputs.GetRouterConfigurationRouter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -98,22 +99,34 @@ public final class GetRouterConfigurationResult {
 
         @CustomType.Setter
         public Builder customerRouterConfig(String customerRouterConfig) {
-            this.customerRouterConfig = Objects.requireNonNull(customerRouterConfig);
+            if (customerRouterConfig == null) {
+              throw new MissingRequiredPropertyException("GetRouterConfigurationResult", "customerRouterConfig");
+            }
+            this.customerRouterConfig = customerRouterConfig;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRouterConfigurationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder routerTypeIdentifier(String routerTypeIdentifier) {
-            this.routerTypeIdentifier = Objects.requireNonNull(routerTypeIdentifier);
+            if (routerTypeIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetRouterConfigurationResult", "routerTypeIdentifier");
+            }
+            this.routerTypeIdentifier = routerTypeIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder routers(List<GetRouterConfigurationRouter> routers) {
-            this.routers = Objects.requireNonNull(routers);
+            if (routers == null) {
+              throw new MissingRequiredPropertyException("GetRouterConfigurationResult", "routers");
+            }
+            this.routers = routers;
             return this;
         }
         public Builder routers(GetRouterConfigurationRouter... routers) {
@@ -121,12 +134,18 @@ public final class GetRouterConfigurationResult {
         }
         @CustomType.Setter
         public Builder virtualInterfaceId(String virtualInterfaceId) {
-            this.virtualInterfaceId = Objects.requireNonNull(virtualInterfaceId);
+            if (virtualInterfaceId == null) {
+              throw new MissingRequiredPropertyException("GetRouterConfigurationResult", "virtualInterfaceId");
+            }
+            this.virtualInterfaceId = virtualInterfaceId;
             return this;
         }
         @CustomType.Setter
         public Builder virtualInterfaceName(String virtualInterfaceName) {
-            this.virtualInterfaceName = Objects.requireNonNull(virtualInterfaceName);
+            if (virtualInterfaceName == null) {
+              throw new MissingRequiredPropertyException("GetRouterConfigurationResult", "virtualInterfaceName");
+            }
+            this.virtualInterfaceName = virtualInterfaceName;
             return this;
         }
         public GetRouterConfigurationResult build() {

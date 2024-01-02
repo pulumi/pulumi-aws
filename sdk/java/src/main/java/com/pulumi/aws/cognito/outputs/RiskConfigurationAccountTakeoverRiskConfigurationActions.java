@@ -74,16 +74,19 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActions {
 
         @CustomType.Setter
         public Builder highAction(@Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction highAction) {
+
             this.highAction = highAction;
             return this;
         }
         @CustomType.Setter
         public Builder lowAction(@Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction lowAction) {
+
             this.lowAction = lowAction;
             return this;
         }
         @CustomType.Setter
         public Builder mediumAction(@Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction mediumAction) {
+
             this.mediumAction = mediumAction;
             return this;
         }

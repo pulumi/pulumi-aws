@@ -5,6 +5,7 @@ package com.pulumi.aws.appsync;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DomainNameArgs build() {
-            $.certificateArn = Objects.requireNonNull($.certificateArn, "expected parameter 'certificateArn' to be non-null");
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
+            if ($.certificateArn == null) {
+                throw new MissingRequiredPropertyException("DomainNameArgs", "certificateArn");
+            }
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("DomainNameArgs", "domainName");
+            }
             return $;
         }
     }

@@ -44,6 +44,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatC
 
         @CustomType.Setter
         public Builder s3InputFileType(@Nullable String s3InputFileType) {
+
             this.s3InputFileType = s3InputFileType;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.redshift;
 import com.pulumi.aws.redshift.inputs.ScheduledActionTargetActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -337,9 +338,15 @@ public final class ScheduledActionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ScheduledActionArgs build() {
-            $.iamRole = Objects.requireNonNull($.iamRole, "expected parameter 'iamRole' to be non-null");
-            $.schedule = Objects.requireNonNull($.schedule, "expected parameter 'schedule' to be non-null");
-            $.targetAction = Objects.requireNonNull($.targetAction, "expected parameter 'targetAction' to be non-null");
+            if ($.iamRole == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "iamRole");
+            }
+            if ($.schedule == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "schedule");
+            }
+            if ($.targetAction == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "targetAction");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront.inputs;
 import com.pulumi.aws.cloudfront.inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class RealtimeLogConfigEndpointArgs extends com.pulumi.resources.Re
         }
 
         public RealtimeLogConfigEndpointArgs build() {
-            $.kinesisStreamConfig = Objects.requireNonNull($.kinesisStreamConfig, "expected parameter 'kinesisStreamConfig' to be non-null");
-            $.streamType = Objects.requireNonNull($.streamType, "expected parameter 'streamType' to be non-null");
+            if ($.kinesisStreamConfig == null) {
+                throw new MissingRequiredPropertyException("RealtimeLogConfigEndpointArgs", "kinesisStreamConfig");
+            }
+            if ($.streamType == null) {
+                throw new MissingRequiredPropertyException("RealtimeLogConfigEndpointArgs", "streamType");
+            }
             return $;
         }
     }

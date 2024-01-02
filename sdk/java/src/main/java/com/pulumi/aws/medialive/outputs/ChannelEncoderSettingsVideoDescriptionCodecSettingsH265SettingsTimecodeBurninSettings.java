@@ -72,16 +72,19 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
 
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder timecodeBurninFontSize(@Nullable String timecodeBurninFontSize) {
+
             this.timecodeBurninFontSize = timecodeBurninFontSize;
             return this;
         }
         @CustomType.Setter
         public Builder timecodeBurninPosition(@Nullable String timecodeBurninPosition) {
+
             this.timecodeBurninPosition = timecodeBurninPosition;
             return this;
         }

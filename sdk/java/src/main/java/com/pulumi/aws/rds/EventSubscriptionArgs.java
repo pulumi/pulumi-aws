@@ -5,6 +5,7 @@ package com.pulumi.aws.rds;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -358,7 +359,9 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         public EventSubscriptionArgs build() {
-            $.snsTopic = Objects.requireNonNull($.snsTopic, "expected parameter 'snsTopic' to be non-null");
+            if ($.snsTopic == null) {
+                throw new MissingRequiredPropertyException("EventSubscriptionArgs", "snsTopic");
+            }
             return $;
         }
     }

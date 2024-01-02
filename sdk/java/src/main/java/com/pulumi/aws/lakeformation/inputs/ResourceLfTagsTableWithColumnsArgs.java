@@ -5,6 +5,7 @@ package com.pulumi.aws.lakeformation.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -291,8 +292,12 @@ public final class ResourceLfTagsTableWithColumnsArgs extends com.pulumi.resourc
         }
 
         public ResourceLfTagsTableWithColumnsArgs build() {
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("ResourceLfTagsTableWithColumnsArgs", "databaseName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ResourceLfTagsTableWithColumnsArgs", "name");
+            }
             return $;
         }
     }

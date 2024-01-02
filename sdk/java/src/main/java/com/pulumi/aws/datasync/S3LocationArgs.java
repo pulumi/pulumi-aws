@@ -6,6 +6,7 @@ package com.pulumi.aws.datasync;
 import com.pulumi.aws.datasync.inputs.S3LocationS3ConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -274,9 +275,15 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public S3LocationArgs build() {
-            $.s3BucketArn = Objects.requireNonNull($.s3BucketArn, "expected parameter 's3BucketArn' to be non-null");
-            $.s3Config = Objects.requireNonNull($.s3Config, "expected parameter 's3Config' to be non-null");
-            $.subdirectory = Objects.requireNonNull($.subdirectory, "expected parameter 'subdirectory' to be non-null");
+            if ($.s3BucketArn == null) {
+                throw new MissingRequiredPropertyException("S3LocationArgs", "s3BucketArn");
+            }
+            if ($.s3Config == null) {
+                throw new MissingRequiredPropertyException("S3LocationArgs", "s3Config");
+            }
+            if ($.subdirectory == null) {
+                throw new MissingRequiredPropertyException("S3LocationArgs", "subdirectory");
+            }
             return $;
         }
     }

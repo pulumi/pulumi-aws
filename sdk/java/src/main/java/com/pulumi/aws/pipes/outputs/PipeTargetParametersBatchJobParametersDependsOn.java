@@ -58,11 +58,13 @@ public final class PipeTargetParametersBatchJobParametersDependsOn {
 
         @CustomType.Setter
         public Builder jobId(@Nullable String jobId) {
+
             this.jobId = jobId;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

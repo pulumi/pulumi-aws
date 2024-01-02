@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class WorkforceCognitoConfig {
 
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("WorkforceCognitoConfig", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder userPool(String userPool) {
-            this.userPool = Objects.requireNonNull(userPool);
+            if (userPool == null) {
+              throw new MissingRequiredPropertyException("WorkforceCognitoConfig", "userPool");
+            }
+            this.userPool = userPool;
             return this;
         }
         public WorkforceCognitoConfig build() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs exte
         }
 
         public WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.textTransformations = Objects.requireNonNull($.textTransformations, "expected parameter 'textTransformations' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs", "name");
+            }
+            if ($.textTransformations == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs", "textTransformations");
+            }
             return $;
         }
     }

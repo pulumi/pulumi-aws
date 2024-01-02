@@ -8,6 +8,7 @@ import com.pulumi.aws.ec2.inputs.SpotFleetRequestLaunchSpecificationEphemeralBlo
 import com.pulumi.aws.ec2.inputs.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -521,8 +522,12 @@ public final class SpotFleetRequestLaunchSpecificationArgs extends com.pulumi.re
         }
 
         public SpotFleetRequestLaunchSpecificationArgs build() {
-            $.ami = Objects.requireNonNull($.ami, "expected parameter 'ami' to be non-null");
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
+            if ($.ami == null) {
+                throw new MissingRequiredPropertyException("SpotFleetRequestLaunchSpecificationArgs", "ami");
+            }
+            if ($.instanceType == null) {
+                throw new MissingRequiredPropertyException("SpotFleetRequestLaunchSpecificationArgs", "instanceType");
+            }
             return $;
         }
     }

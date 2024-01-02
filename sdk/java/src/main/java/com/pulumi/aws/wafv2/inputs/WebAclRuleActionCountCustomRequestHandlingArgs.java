@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleActionCountCustomRequestHandlingInsertHeaderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,7 +86,9 @@ public final class WebAclRuleActionCountCustomRequestHandlingArgs extends com.pu
         }
 
         public WebAclRuleActionCountCustomRequestHandlingArgs build() {
-            $.insertHeaders = Objects.requireNonNull($.insertHeaders, "expected parameter 'insertHeaders' to be non-null");
+            if ($.insertHeaders == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleActionCountCustomRequestHandlingArgs", "insertHeaders");
+            }
             return $;
         }
     }

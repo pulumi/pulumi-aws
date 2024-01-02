@@ -5,6 +5,7 @@ package com.pulumi.aws.costexplorer;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class CostAllocationTagArgs extends com.pulumi.resources.ResourceAr
         }
 
         public CostAllocationTagArgs build() {
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
-            $.tagKey = Objects.requireNonNull($.tagKey, "expected parameter 'tagKey' to be non-null");
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("CostAllocationTagArgs", "status");
+            }
+            if ($.tagKey == null) {
+                throw new MissingRequiredPropertyException("CostAllocationTagArgs", "tagKey");
+            }
             return $;
         }
     }

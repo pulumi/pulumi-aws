@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigFil
 import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -114,7 +115,9 @@ public final class AppImageConfigKernelGatewayImageConfigArgs extends com.pulumi
         }
 
         public AppImageConfigKernelGatewayImageConfigArgs build() {
-            $.kernelSpec = Objects.requireNonNull($.kernelSpec, "expected parameter 'kernelSpec' to be non-null");
+            if ($.kernelSpec == null) {
+                throw new MissingRequiredPropertyException("AppImageConfigKernelGatewayImageConfigArgs", "kernelSpec");
+            }
             return $;
         }
     }

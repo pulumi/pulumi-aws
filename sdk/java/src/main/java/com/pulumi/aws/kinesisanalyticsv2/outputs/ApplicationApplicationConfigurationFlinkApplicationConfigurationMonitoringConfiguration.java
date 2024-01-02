@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesisanalyticsv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,21 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
 
         @CustomType.Setter
         public Builder configurationType(String configurationType) {
-            this.configurationType = Objects.requireNonNull(configurationType);
+            if (configurationType == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration", "configurationType");
+            }
+            this.configurationType = configurationType;
             return this;
         }
         @CustomType.Setter
         public Builder logLevel(@Nullable String logLevel) {
+
             this.logLevel = logLevel;
             return this;
         }
         @CustomType.Setter
         public Builder metricsLevel(@Nullable String metricsLevel) {
+
             this.metricsLevel = metricsLevel;
             return this;
         }

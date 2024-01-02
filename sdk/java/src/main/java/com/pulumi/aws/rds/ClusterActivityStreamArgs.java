@@ -5,6 +5,7 @@ package com.pulumi.aws.rds;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class ClusterActivityStreamArgs extends com.pulumi.resources.Resour
         }
 
         public ClusterActivityStreamArgs build() {
-            $.kmsKeyId = Objects.requireNonNull($.kmsKeyId, "expected parameter 'kmsKeyId' to be non-null");
-            $.mode = Objects.requireNonNull($.mode, "expected parameter 'mode' to be non-null");
-            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
+            if ($.kmsKeyId == null) {
+                throw new MissingRequiredPropertyException("ClusterActivityStreamArgs", "kmsKeyId");
+            }
+            if ($.mode == null) {
+                throw new MissingRequiredPropertyException("ClusterActivityStreamArgs", "mode");
+            }
+            if ($.resourceArn == null) {
+                throw new MissingRequiredPropertyException("ClusterActivityStreamArgs", "resourceArn");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
         }
 
         public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs build() {
-            $.htmlBody = Objects.requireNonNull($.htmlBody, "expected parameter 'htmlBody' to be non-null");
-            $.subject = Objects.requireNonNull($.subject, "expected parameter 'subject' to be non-null");
-            $.textBody = Objects.requireNonNull($.textBody, "expected parameter 'textBody' to be non-null");
+            if ($.htmlBody == null) {
+                throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs", "htmlBody");
+            }
+            if ($.subject == null) {
+                throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs", "subject");
+            }
+            if ($.textBody == null) {
+                throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs", "textBody");
+            }
             return $;
         }
     }

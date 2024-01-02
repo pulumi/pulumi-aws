@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class EventTargetEcsTargetCapacityProviderStrategyArgs extends com.
         }
 
         public EventTargetEcsTargetCapacityProviderStrategyArgs build() {
-            $.capacityProvider = Objects.requireNonNull($.capacityProvider, "expected parameter 'capacityProvider' to be non-null");
+            if ($.capacityProvider == null) {
+                throw new MissingRequiredPropertyException("EventTargetEcsTargetCapacityProviderStrategyArgs", "capacityProvider");
+            }
             return $;
         }
     }

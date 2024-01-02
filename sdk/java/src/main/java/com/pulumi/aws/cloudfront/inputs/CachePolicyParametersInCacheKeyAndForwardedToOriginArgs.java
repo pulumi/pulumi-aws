@@ -8,6 +8,7 @@ import com.pulumi.aws.cloudfront.inputs.CachePolicyParametersInCacheKeyAndForwar
 import com.pulumi.aws.cloudfront.inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -227,9 +228,15 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
         }
 
         public CachePolicyParametersInCacheKeyAndForwardedToOriginArgs build() {
-            $.cookiesConfig = Objects.requireNonNull($.cookiesConfig, "expected parameter 'cookiesConfig' to be non-null");
-            $.headersConfig = Objects.requireNonNull($.headersConfig, "expected parameter 'headersConfig' to be non-null");
-            $.queryStringsConfig = Objects.requireNonNull($.queryStringsConfig, "expected parameter 'queryStringsConfig' to be non-null");
+            if ($.cookiesConfig == null) {
+                throw new MissingRequiredPropertyException("CachePolicyParametersInCacheKeyAndForwardedToOriginArgs", "cookiesConfig");
+            }
+            if ($.headersConfig == null) {
+                throw new MissingRequiredPropertyException("CachePolicyParametersInCacheKeyAndForwardedToOriginArgs", "headersConfig");
+            }
+            if ($.queryStringsConfig == null) {
+                throw new MissingRequiredPropertyException("CachePolicyParametersInCacheKeyAndForwardedToOriginArgs", "queryStringsConfig");
+            }
             return $;
         }
     }

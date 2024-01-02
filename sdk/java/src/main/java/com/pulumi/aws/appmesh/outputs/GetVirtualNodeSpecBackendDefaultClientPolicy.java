@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTl;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,7 +36,10 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicy {
 
         @CustomType.Setter
         public Builder tls(List<GetVirtualNodeSpecBackendDefaultClientPolicyTl> tls) {
-            this.tls = Objects.requireNonNull(tls);
+            if (tls == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendDefaultClientPolicy", "tls");
+            }
+            this.tls = tls;
             return this;
         }
         public Builder tls(GetVirtualNodeSpecBackendDefaultClientPolicyTl... tls) {

@@ -7,6 +7,7 @@ import com.pulumi.aws.costexplorer.inputs.CostCategoryRuleArgs;
 import com.pulumi.aws.costexplorer.inputs.CostCategorySplitChargeRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -330,8 +331,12 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CostCategoryArgs build() {
-            $.ruleVersion = Objects.requireNonNull($.ruleVersion, "expected parameter 'ruleVersion' to be non-null");
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
+            if ($.ruleVersion == null) {
+                throw new MissingRequiredPropertyException("CostCategoryArgs", "ruleVersion");
+            }
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("CostCategoryArgs", "rules");
+            }
             return $;
         }
     }

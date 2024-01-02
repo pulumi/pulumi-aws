@@ -5,6 +5,7 @@ package com.pulumi.aws.evidently.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class LaunchGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LaunchGroupArgs build() {
-            $.feature = Objects.requireNonNull($.feature, "expected parameter 'feature' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.variation = Objects.requireNonNull($.variation, "expected parameter 'variation' to be non-null");
+            if ($.feature == null) {
+                throw new MissingRequiredPropertyException("LaunchGroupArgs", "feature");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("LaunchGroupArgs", "name");
+            }
+            if ($.variation == null) {
+                throw new MissingRequiredPropertyException("LaunchGroupArgs", "variation");
+            }
             return $;
         }
     }

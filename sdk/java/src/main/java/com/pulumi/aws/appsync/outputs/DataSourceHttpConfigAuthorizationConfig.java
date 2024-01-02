@@ -59,11 +59,13 @@ public final class DataSourceHttpConfigAuthorizationConfig {
 
         @CustomType.Setter
         public Builder authorizationType(@Nullable String authorizationType) {
+
             this.authorizationType = authorizationType;
             return this;
         }
         @CustomType.Setter
         public Builder awsIamConfig(@Nullable DataSourceHttpConfigAuthorizationConfigAwsIamConfig awsIamConfig) {
+
             this.awsIamConfig = awsIamConfig;
             return this;
         }

@@ -44,6 +44,7 @@ public final class EventTargetKinesisTarget {
 
         @CustomType.Setter
         public Builder partitionKeyPath(@Nullable String partitionKeyPath) {
+
             this.partitionKeyPath = partitionKeyPath;
             return this;
         }

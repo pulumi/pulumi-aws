@@ -73,11 +73,13 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsV
 
         @CustomType.Setter
         public Builder assignPublicIp(@Nullable String assignPublicIp) {
+
             this.assignPublicIp = assignPublicIp;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
+
             this.securityGroups = securityGroups;
             return this;
         }
@@ -86,6 +88,7 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsV
         }
         @CustomType.Setter
         public Builder subnets(@Nullable List<String> subnets) {
+
             this.subnets = subnets;
             return this;
         }

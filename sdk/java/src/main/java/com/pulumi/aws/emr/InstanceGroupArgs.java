@@ -6,6 +6,7 @@ package com.pulumi.aws.emr;
 import com.pulumi.aws.emr.inputs.InstanceGroupEbsConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -562,8 +563,12 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public InstanceGroupArgs build() {
-            $.clusterId = Objects.requireNonNull($.clusterId, "expected parameter 'clusterId' to be non-null");
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
+            if ($.clusterId == null) {
+                throw new MissingRequiredPropertyException("InstanceGroupArgs", "clusterId");
+            }
+            if ($.instanceType == null) {
+                throw new MissingRequiredPropertyException("InstanceGroupArgs", "instanceType");
+            }
             return $;
         }
     }

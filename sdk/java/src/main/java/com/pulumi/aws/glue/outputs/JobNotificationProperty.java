@@ -44,6 +44,7 @@ public final class JobNotificationProperty {
 
         @CustomType.Setter
         public Builder notifyDelayAfter(@Nullable Integer notifyDelayAfter) {
+
             this.notifyDelayAfter = notifyDelayAfter;
             return this;
         }

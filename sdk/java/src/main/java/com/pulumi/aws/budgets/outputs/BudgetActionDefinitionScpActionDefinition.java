@@ -4,6 +4,7 @@
 package com.pulumi.aws.budgets.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class BudgetActionDefinitionScpActionDefinition {
 
         @CustomType.Setter
         public Builder policyId(String policyId) {
-            this.policyId = Objects.requireNonNull(policyId);
+            if (policyId == null) {
+              throw new MissingRequiredPropertyException("BudgetActionDefinitionScpActionDefinition", "policyId");
+            }
+            this.policyId = policyId;
             return this;
         }
         @CustomType.Setter
         public Builder targetIds(List<String> targetIds) {
-            this.targetIds = Objects.requireNonNull(targetIds);
+            if (targetIds == null) {
+              throw new MissingRequiredPropertyException("BudgetActionDefinitionScpActionDefinition", "targetIds");
+            }
+            this.targetIds = targetIds;
             return this;
         }
         public Builder targetIds(String... targetIds) {

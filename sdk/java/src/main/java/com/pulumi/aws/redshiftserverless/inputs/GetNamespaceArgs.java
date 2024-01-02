@@ -5,6 +5,7 @@ package com.pulumi.aws.redshiftserverless.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetNamespaceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetNamespaceArgs build() {
-            $.namespaceName = Objects.requireNonNull($.namespaceName, "expected parameter 'namespaceName' to be non-null");
+            if ($.namespaceName == null) {
+                throw new MissingRequiredPropertyException("GetNamespaceArgs", "namespaceName");
+            }
             return $;
         }
     }

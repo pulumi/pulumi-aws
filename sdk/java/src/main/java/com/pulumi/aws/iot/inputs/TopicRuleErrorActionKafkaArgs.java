@@ -6,6 +6,7 @@ package com.pulumi.aws.iot.inputs;
 import com.pulumi.aws.iot.inputs.TopicRuleErrorActionKafkaHeaderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -274,9 +275,15 @@ public final class TopicRuleErrorActionKafkaArgs extends com.pulumi.resources.Re
         }
 
         public TopicRuleErrorActionKafkaArgs build() {
-            $.clientProperties = Objects.requireNonNull($.clientProperties, "expected parameter 'clientProperties' to be non-null");
-            $.destinationArn = Objects.requireNonNull($.destinationArn, "expected parameter 'destinationArn' to be non-null");
-            $.topic = Objects.requireNonNull($.topic, "expected parameter 'topic' to be non-null");
+            if ($.clientProperties == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionKafkaArgs", "clientProperties");
+            }
+            if ($.destinationArn == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionKafkaArgs", "destinationArn");
+            }
+            if ($.topic == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionKafkaArgs", "topic");
+            }
             return $;
         }
     }

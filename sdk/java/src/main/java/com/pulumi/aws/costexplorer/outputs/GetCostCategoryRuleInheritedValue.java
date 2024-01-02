@@ -4,6 +4,7 @@
 package com.pulumi.aws.costexplorer.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetCostCategoryRuleInheritedValue {
 
         @CustomType.Setter
         public Builder dimensionKey(String dimensionKey) {
-            this.dimensionKey = Objects.requireNonNull(dimensionKey);
+            if (dimensionKey == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleInheritedValue", "dimensionKey");
+            }
+            this.dimensionKey = dimensionKey;
             return this;
         }
         @CustomType.Setter
         public Builder dimensionName(String dimensionName) {
-            this.dimensionName = Objects.requireNonNull(dimensionName);
+            if (dimensionName == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleInheritedValue", "dimensionName");
+            }
+            this.dimensionName = dimensionName;
             return this;
         }
         public GetCostCategoryRuleInheritedValue build() {

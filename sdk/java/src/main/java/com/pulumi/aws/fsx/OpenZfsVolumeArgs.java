@@ -8,6 +8,7 @@ import com.pulumi.aws.fsx.inputs.OpenZfsVolumeOriginSnapshotArgs;
 import com.pulumi.aws.fsx.inputs.OpenZfsVolumeUserAndGroupQuotaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -554,7 +555,9 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OpenZfsVolumeArgs build() {
-            $.parentVolumeId = Objects.requireNonNull($.parentVolumeId, "expected parameter 'parentVolumeId' to be non-null");
+            if ($.parentVolumeId == null) {
+                throw new MissingRequiredPropertyException("OpenZfsVolumeArgs", "parentVolumeId");
+            }
             return $;
         }
     }

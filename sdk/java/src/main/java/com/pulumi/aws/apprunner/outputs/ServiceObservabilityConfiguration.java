@@ -4,6 +4,7 @@
 package com.pulumi.aws.apprunner.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -59,12 +60,16 @@ public final class ServiceObservabilityConfiguration {
 
         @CustomType.Setter
         public Builder observabilityConfigurationArn(@Nullable String observabilityConfigurationArn) {
+
             this.observabilityConfigurationArn = observabilityConfigurationArn;
             return this;
         }
         @CustomType.Setter
         public Builder observabilityEnabled(Boolean observabilityEnabled) {
-            this.observabilityEnabled = Objects.requireNonNull(observabilityEnabled);
+            if (observabilityEnabled == null) {
+              throw new MissingRequiredPropertyException("ServiceObservabilityConfiguration", "observabilityEnabled");
+            }
+            this.observabilityEnabled = observabilityEnabled;
             return this;
         }
         public ServiceObservabilityConfiguration build() {

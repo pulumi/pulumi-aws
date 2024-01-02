@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs
         }
 
         public MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs build() {
-            $.providerName = Objects.requireNonNull($.providerName, "expected parameter 'providerName' to be non-null");
-            $.serviceName = Objects.requireNonNull($.serviceName, "expected parameter 'serviceName' to be non-null");
+            if ($.providerName == null) {
+                throw new MissingRequiredPropertyException("MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs", "providerName");
+            }
+            if ($.serviceName == null) {
+                throw new MissingRequiredPropertyException("MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs", "serviceName");
+            }
             return $;
         }
     }

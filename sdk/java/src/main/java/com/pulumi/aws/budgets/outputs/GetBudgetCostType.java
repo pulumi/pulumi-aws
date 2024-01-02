@@ -4,6 +4,7 @@
 package com.pulumi.aws.budgets.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -182,57 +183,90 @@ public final class GetBudgetCostType {
 
         @CustomType.Setter
         public Builder includeCredit(Boolean includeCredit) {
-            this.includeCredit = Objects.requireNonNull(includeCredit);
+            if (includeCredit == null) {
+              throw new MissingRequiredPropertyException("GetBudgetCostType", "includeCredit");
+            }
+            this.includeCredit = includeCredit;
             return this;
         }
         @CustomType.Setter
         public Builder includeDiscount(Boolean includeDiscount) {
-            this.includeDiscount = Objects.requireNonNull(includeDiscount);
+            if (includeDiscount == null) {
+              throw new MissingRequiredPropertyException("GetBudgetCostType", "includeDiscount");
+            }
+            this.includeDiscount = includeDiscount;
             return this;
         }
         @CustomType.Setter
         public Builder includeOtherSubscription(Boolean includeOtherSubscription) {
-            this.includeOtherSubscription = Objects.requireNonNull(includeOtherSubscription);
+            if (includeOtherSubscription == null) {
+              throw new MissingRequiredPropertyException("GetBudgetCostType", "includeOtherSubscription");
+            }
+            this.includeOtherSubscription = includeOtherSubscription;
             return this;
         }
         @CustomType.Setter
         public Builder includeRecurring(Boolean includeRecurring) {
-            this.includeRecurring = Objects.requireNonNull(includeRecurring);
+            if (includeRecurring == null) {
+              throw new MissingRequiredPropertyException("GetBudgetCostType", "includeRecurring");
+            }
+            this.includeRecurring = includeRecurring;
             return this;
         }
         @CustomType.Setter
         public Builder includeRefund(Boolean includeRefund) {
-            this.includeRefund = Objects.requireNonNull(includeRefund);
+            if (includeRefund == null) {
+              throw new MissingRequiredPropertyException("GetBudgetCostType", "includeRefund");
+            }
+            this.includeRefund = includeRefund;
             return this;
         }
         @CustomType.Setter
         public Builder includeSubscription(Boolean includeSubscription) {
-            this.includeSubscription = Objects.requireNonNull(includeSubscription);
+            if (includeSubscription == null) {
+              throw new MissingRequiredPropertyException("GetBudgetCostType", "includeSubscription");
+            }
+            this.includeSubscription = includeSubscription;
             return this;
         }
         @CustomType.Setter
         public Builder includeSupport(Boolean includeSupport) {
-            this.includeSupport = Objects.requireNonNull(includeSupport);
+            if (includeSupport == null) {
+              throw new MissingRequiredPropertyException("GetBudgetCostType", "includeSupport");
+            }
+            this.includeSupport = includeSupport;
             return this;
         }
         @CustomType.Setter
         public Builder includeTax(Boolean includeTax) {
-            this.includeTax = Objects.requireNonNull(includeTax);
+            if (includeTax == null) {
+              throw new MissingRequiredPropertyException("GetBudgetCostType", "includeTax");
+            }
+            this.includeTax = includeTax;
             return this;
         }
         @CustomType.Setter
         public Builder includeUpfront(Boolean includeUpfront) {
-            this.includeUpfront = Objects.requireNonNull(includeUpfront);
+            if (includeUpfront == null) {
+              throw new MissingRequiredPropertyException("GetBudgetCostType", "includeUpfront");
+            }
+            this.includeUpfront = includeUpfront;
             return this;
         }
         @CustomType.Setter
         public Builder useAmortized(Boolean useAmortized) {
-            this.useAmortized = Objects.requireNonNull(useAmortized);
+            if (useAmortized == null) {
+              throw new MissingRequiredPropertyException("GetBudgetCostType", "useAmortized");
+            }
+            this.useAmortized = useAmortized;
             return this;
         }
         @CustomType.Setter
         public Builder useBlended(Boolean useBlended) {
-            this.useBlended = Objects.requireNonNull(useBlended);
+            if (useBlended == null) {
+              throw new MissingRequiredPropertyException("GetBudgetCostType", "useBlended");
+            }
+            this.useBlended = useBlended;
             return this;
         }
         public GetBudgetCostType build() {

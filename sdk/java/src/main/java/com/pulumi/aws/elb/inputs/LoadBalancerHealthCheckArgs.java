@@ -5,6 +5,7 @@ package com.pulumi.aws.elb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -227,11 +228,21 @@ public final class LoadBalancerHealthCheckArgs extends com.pulumi.resources.Reso
         }
 
         public LoadBalancerHealthCheckArgs build() {
-            $.healthyThreshold = Objects.requireNonNull($.healthyThreshold, "expected parameter 'healthyThreshold' to be non-null");
-            $.interval = Objects.requireNonNull($.interval, "expected parameter 'interval' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
-            $.timeout = Objects.requireNonNull($.timeout, "expected parameter 'timeout' to be non-null");
-            $.unhealthyThreshold = Objects.requireNonNull($.unhealthyThreshold, "expected parameter 'unhealthyThreshold' to be non-null");
+            if ($.healthyThreshold == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerHealthCheckArgs", "healthyThreshold");
+            }
+            if ($.interval == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerHealthCheckArgs", "interval");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerHealthCheckArgs", "target");
+            }
+            if ($.timeout == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerHealthCheckArgs", "timeout");
+            }
+            if ($.unhealthyThreshold == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerHealthCheckArgs", "unhealthyThreshold");
+            }
             return $;
         }
     }

@@ -9,6 +9,7 @@ import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2RedirectAllRequestsT
 import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2RoutingRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -317,7 +318,9 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
         }
 
         public BucketWebsiteConfigurationV2Args build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("BucketWebsiteConfigurationV2Args", "bucket");
+            }
             return $;
         }
     }

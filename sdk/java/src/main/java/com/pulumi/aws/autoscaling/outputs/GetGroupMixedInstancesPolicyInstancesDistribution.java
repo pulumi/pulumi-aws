@@ -4,6 +4,7 @@
 package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -105,32 +106,50 @@ public final class GetGroupMixedInstancesPolicyInstancesDistribution {
 
         @CustomType.Setter
         public Builder onDemandAllocationStrategy(String onDemandAllocationStrategy) {
-            this.onDemandAllocationStrategy = Objects.requireNonNull(onDemandAllocationStrategy);
+            if (onDemandAllocationStrategy == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyInstancesDistribution", "onDemandAllocationStrategy");
+            }
+            this.onDemandAllocationStrategy = onDemandAllocationStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder onDemandBaseCapacity(Integer onDemandBaseCapacity) {
-            this.onDemandBaseCapacity = Objects.requireNonNull(onDemandBaseCapacity);
+            if (onDemandBaseCapacity == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyInstancesDistribution", "onDemandBaseCapacity");
+            }
+            this.onDemandBaseCapacity = onDemandBaseCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder onDemandPercentageAboveBaseCapacity(Integer onDemandPercentageAboveBaseCapacity) {
-            this.onDemandPercentageAboveBaseCapacity = Objects.requireNonNull(onDemandPercentageAboveBaseCapacity);
+            if (onDemandPercentageAboveBaseCapacity == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyInstancesDistribution", "onDemandPercentageAboveBaseCapacity");
+            }
+            this.onDemandPercentageAboveBaseCapacity = onDemandPercentageAboveBaseCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder spotAllocationStrategy(String spotAllocationStrategy) {
-            this.spotAllocationStrategy = Objects.requireNonNull(spotAllocationStrategy);
+            if (spotAllocationStrategy == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyInstancesDistribution", "spotAllocationStrategy");
+            }
+            this.spotAllocationStrategy = spotAllocationStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder spotInstancePools(Integer spotInstancePools) {
-            this.spotInstancePools = Objects.requireNonNull(spotInstancePools);
+            if (spotInstancePools == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyInstancesDistribution", "spotInstancePools");
+            }
+            this.spotInstancePools = spotInstancePools;
             return this;
         }
         @CustomType.Setter
         public Builder spotMaxPrice(String spotMaxPrice) {
-            this.spotMaxPrice = Objects.requireNonNull(spotMaxPrice);
+            if (spotMaxPrice == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyInstancesDistribution", "spotMaxPrice");
+            }
+            this.spotMaxPrice = spotMaxPrice;
             return this;
         }
         public GetGroupMixedInstancesPolicyInstancesDistribution build() {

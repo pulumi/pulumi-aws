@@ -4,6 +4,7 @@
 package com.pulumi.aws.alb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -84,47 +85,74 @@ public final class GetTargetGroupHealthCheck {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupHealthCheck", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder healthyThreshold(Integer healthyThreshold) {
-            this.healthyThreshold = Objects.requireNonNull(healthyThreshold);
+            if (healthyThreshold == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupHealthCheck", "healthyThreshold");
+            }
+            this.healthyThreshold = healthyThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder interval(Integer interval) {
-            this.interval = Objects.requireNonNull(interval);
+            if (interval == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupHealthCheck", "interval");
+            }
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder matcher(String matcher) {
-            this.matcher = Objects.requireNonNull(matcher);
+            if (matcher == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupHealthCheck", "matcher");
+            }
+            this.matcher = matcher;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupHealthCheck", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder port(String port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupHealthCheck", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupHealthCheck", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(Integer timeout) {
-            this.timeout = Objects.requireNonNull(timeout);
+            if (timeout == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupHealthCheck", "timeout");
+            }
+            this.timeout = timeout;
             return this;
         }
         @CustomType.Setter
         public Builder unhealthyThreshold(Integer unhealthyThreshold) {
-            this.unhealthyThreshold = Objects.requireNonNull(unhealthyThreshold);
+            if (unhealthyThreshold == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupHealthCheck", "unhealthyThreshold");
+            }
+            this.unhealthyThreshold = unhealthyThreshold;
             return this;
         }
         public GetTargetGroupHealthCheck build() {

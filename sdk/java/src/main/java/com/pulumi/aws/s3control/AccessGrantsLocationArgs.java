@@ -5,6 +5,7 @@ package com.pulumi.aws.s3control;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -172,8 +173,12 @@ public final class AccessGrantsLocationArgs extends com.pulumi.resources.Resourc
         }
 
         public AccessGrantsLocationArgs build() {
-            $.iamRoleArn = Objects.requireNonNull($.iamRoleArn, "expected parameter 'iamRoleArn' to be non-null");
-            $.locationScope = Objects.requireNonNull($.locationScope, "expected parameter 'locationScope' to be non-null");
+            if ($.iamRoleArn == null) {
+                throw new MissingRequiredPropertyException("AccessGrantsLocationArgs", "iamRoleArn");
+            }
+            if ($.locationScope == null) {
+                throw new MissingRequiredPropertyException("AccessGrantsLocationArgs", "locationScope");
+            }
             return $;
         }
     }

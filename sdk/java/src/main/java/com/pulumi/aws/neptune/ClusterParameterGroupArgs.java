@@ -6,6 +6,7 @@ package com.pulumi.aws.neptune;
 import com.pulumi.aws.neptune.inputs.ClusterParameterGroupParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -274,7 +275,9 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         public ClusterParameterGroupArgs build() {
-            $.family = Objects.requireNonNull($.family, "expected parameter 'family' to be non-null");
+            if ($.family == null) {
+                throw new MissingRequiredPropertyException("ClusterParameterGroupArgs", "family");
+            }
             return $;
         }
     }

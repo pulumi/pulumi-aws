@@ -5,6 +5,7 @@ package com.pulumi.aws.ses;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class ReceiptFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ReceiptFilterArgs build() {
-            $.cidr = Objects.requireNonNull($.cidr, "expected parameter 'cidr' to be non-null");
-            $.policy = Objects.requireNonNull($.policy, "expected parameter 'policy' to be non-null");
+            if ($.cidr == null) {
+                throw new MissingRequiredPropertyException("ReceiptFilterArgs", "cidr");
+            }
+            if ($.policy == null) {
+                throw new MissingRequiredPropertyException("ReceiptFilterArgs", "policy");
+            }
             return $;
         }
     }

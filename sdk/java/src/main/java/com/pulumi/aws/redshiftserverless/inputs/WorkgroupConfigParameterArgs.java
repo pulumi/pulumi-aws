@@ -5,6 +5,7 @@ package com.pulumi.aws.redshiftserverless.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class WorkgroupConfigParameterArgs extends com.pulumi.resources.Res
         }
 
         public WorkgroupConfigParameterArgs build() {
-            $.parameterKey = Objects.requireNonNull($.parameterKey, "expected parameter 'parameterKey' to be non-null");
-            $.parameterValue = Objects.requireNonNull($.parameterValue, "expected parameter 'parameterValue' to be non-null");
+            if ($.parameterKey == null) {
+                throw new MissingRequiredPropertyException("WorkgroupConfigParameterArgs", "parameterKey");
+            }
+            if ($.parameterValue == null) {
+                throw new MissingRequiredPropertyException("WorkgroupConfigParameterArgs", "parameterValue");
+            }
             return $;
         }
     }

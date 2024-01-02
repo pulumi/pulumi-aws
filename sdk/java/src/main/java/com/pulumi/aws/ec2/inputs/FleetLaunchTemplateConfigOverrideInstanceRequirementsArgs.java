@@ -14,6 +14,7 @@ import com.pulumi.aws.ec2.inputs.FleetLaunchTemplateConfigOverrideInstanceRequir
 import com.pulumi.aws.ec2.inputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1023,8 +1024,12 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs ext
         }
 
         public FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs build() {
-            $.memoryMib = Objects.requireNonNull($.memoryMib, "expected parameter 'memoryMib' to be non-null");
-            $.vcpuCount = Objects.requireNonNull($.vcpuCount, "expected parameter 'vcpuCount' to be non-null");
+            if ($.memoryMib == null) {
+                throw new MissingRequiredPropertyException("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs", "memoryMib");
+            }
+            if ($.vcpuCount == null) {
+                throw new MissingRequiredPropertyException("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs", "vcpuCount");
+            }
             return $;
         }
     }

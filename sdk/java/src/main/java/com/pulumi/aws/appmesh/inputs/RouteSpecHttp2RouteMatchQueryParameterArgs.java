@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.inputs;
 import com.pulumi.aws.appmesh.inputs.RouteSpecHttp2RouteMatchQueryParameterMatchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class RouteSpecHttp2RouteMatchQueryParameterArgs extends com.pulumi
         }
 
         public RouteSpecHttp2RouteMatchQueryParameterArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("RouteSpecHttp2RouteMatchQueryParameterArgs", "name");
+            }
             return $;
         }
     }

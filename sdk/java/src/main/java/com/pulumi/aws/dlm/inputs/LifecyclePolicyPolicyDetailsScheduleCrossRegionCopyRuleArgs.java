@@ -7,6 +7,7 @@ import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegion
 import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -264,8 +265,12 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
         }
 
         public LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs build() {
-            $.encrypted = Objects.requireNonNull($.encrypted, "expected parameter 'encrypted' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
+            if ($.encrypted == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs", "encrypted");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs", "target");
+            }
             return $;
         }
     }

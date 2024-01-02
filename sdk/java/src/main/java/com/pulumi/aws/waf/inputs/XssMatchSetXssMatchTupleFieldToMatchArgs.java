@@ -5,6 +5,7 @@ package com.pulumi.aws.waf.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -129,7 +130,9 @@ public final class XssMatchSetXssMatchTupleFieldToMatchArgs extends com.pulumi.r
         }
 
         public XssMatchSetXssMatchTupleFieldToMatchArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("XssMatchSetXssMatchTupleFieldToMatchArgs", "type");
+            }
             return $;
         }
     }

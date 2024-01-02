@@ -8,6 +8,7 @@ import com.pulumi.aws.wafregional.inputs.WebAclLoggingConfigurationArgs;
 import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -276,8 +277,12 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WebAclArgs build() {
-            $.defaultAction = Objects.requireNonNull($.defaultAction, "expected parameter 'defaultAction' to be non-null");
-            $.metricName = Objects.requireNonNull($.metricName, "expected parameter 'metricName' to be non-null");
+            if ($.defaultAction == null) {
+                throw new MissingRequiredPropertyException("WebAclArgs", "defaultAction");
+            }
+            if ($.metricName == null) {
+                throw new MissingRequiredPropertyException("WebAclArgs", "metricName");
+            }
             return $;
         }
     }

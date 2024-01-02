@@ -73,16 +73,19 @@ public final class SpotInstanceRequestPrivateDnsNameOptions {
 
         @CustomType.Setter
         public Builder enableResourceNameDnsARecord(@Nullable Boolean enableResourceNameDnsARecord) {
+
             this.enableResourceNameDnsARecord = enableResourceNameDnsARecord;
             return this;
         }
         @CustomType.Setter
         public Builder enableResourceNameDnsAaaaRecord(@Nullable Boolean enableResourceNameDnsAaaaRecord) {
+
             this.enableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
             return this;
         }
         @CustomType.Setter
         public Builder hostnameType(@Nullable String hostnameType) {
+
             this.hostnameType = hostnameType;
             return this;
         }

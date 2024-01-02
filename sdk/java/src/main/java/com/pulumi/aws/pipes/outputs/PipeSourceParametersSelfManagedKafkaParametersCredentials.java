@@ -4,6 +4,7 @@
 package com.pulumi.aws.pipes.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,21 +87,27 @@ public final class PipeSourceParametersSelfManagedKafkaParametersCredentials {
 
         @CustomType.Setter
         public Builder basicAuth(String basicAuth) {
-            this.basicAuth = Objects.requireNonNull(basicAuth);
+            if (basicAuth == null) {
+              throw new MissingRequiredPropertyException("PipeSourceParametersSelfManagedKafkaParametersCredentials", "basicAuth");
+            }
+            this.basicAuth = basicAuth;
             return this;
         }
         @CustomType.Setter
         public Builder clientCertificateTlsAuth(@Nullable String clientCertificateTlsAuth) {
+
             this.clientCertificateTlsAuth = clientCertificateTlsAuth;
             return this;
         }
         @CustomType.Setter
         public Builder saslScram256Auth(@Nullable String saslScram256Auth) {
+
             this.saslScram256Auth = saslScram256Auth;
             return this;
         }
         @CustomType.Setter
         public Builder saslScram512Auth(@Nullable String saslScram512Auth) {
+
             this.saslScram512Auth = saslScram512Auth;
             return this;
         }

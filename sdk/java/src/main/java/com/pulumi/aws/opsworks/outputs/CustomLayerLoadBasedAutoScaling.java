@@ -74,16 +74,19 @@ public final class CustomLayerLoadBasedAutoScaling {
 
         @CustomType.Setter
         public Builder downscaling(@Nullable CustomLayerLoadBasedAutoScalingDownscaling downscaling) {
+
             this.downscaling = downscaling;
             return this;
         }
         @CustomType.Setter
         public Builder enable(@Nullable Boolean enable) {
+
             this.enable = enable;
             return this;
         }
         @CustomType.Setter
         public Builder upscaling(@Nullable CustomLayerLoadBasedAutoScalingUpscaling upscaling) {
+
             this.upscaling = upscaling;
             return this;
         }

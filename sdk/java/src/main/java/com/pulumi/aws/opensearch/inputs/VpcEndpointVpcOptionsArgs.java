@@ -5,6 +5,7 @@ package com.pulumi.aws.opensearch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -172,7 +173,9 @@ public final class VpcEndpointVpcOptionsArgs extends com.pulumi.resources.Resour
         }
 
         public VpcEndpointVpcOptionsArgs build() {
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("VpcEndpointVpcOptionsArgs", "subnetIds");
+            }
             return $;
         }
     }

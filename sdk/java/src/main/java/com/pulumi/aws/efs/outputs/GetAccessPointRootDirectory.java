@@ -5,6 +5,7 @@ package com.pulumi.aws.efs.outputs;
 
 import com.pulumi.aws.efs.outputs.GetAccessPointRootDirectoryCreationInfo;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class GetAccessPointRootDirectory {
 
         @CustomType.Setter
         public Builder creationInfos(List<GetAccessPointRootDirectoryCreationInfo> creationInfos) {
-            this.creationInfos = Objects.requireNonNull(creationInfos);
+            if (creationInfos == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointRootDirectory", "creationInfos");
+            }
+            this.creationInfos = creationInfos;
             return this;
         }
         public Builder creationInfos(GetAccessPointRootDirectoryCreationInfo... creationInfos) {
@@ -66,7 +70,10 @@ public final class GetAccessPointRootDirectory {
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointRootDirectory", "path");
+            }
+            this.path = path;
             return this;
         }
         public GetAccessPointRootDirectory build() {

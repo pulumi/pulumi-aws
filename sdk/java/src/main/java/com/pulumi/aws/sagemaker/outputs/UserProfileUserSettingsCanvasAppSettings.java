@@ -120,11 +120,13 @@ public final class UserProfileUserSettingsCanvasAppSettings {
 
         @CustomType.Setter
         public Builder directDeploySettings(@Nullable UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings) {
+
             this.directDeploySettings = directDeploySettings;
             return this;
         }
         @CustomType.Setter
         public Builder identityProviderOauthSettings(@Nullable List<UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings) {
+
             this.identityProviderOauthSettings = identityProviderOauthSettings;
             return this;
         }
@@ -133,21 +135,25 @@ public final class UserProfileUserSettingsCanvasAppSettings {
         }
         @CustomType.Setter
         public Builder kendraSettings(@Nullable UserProfileUserSettingsCanvasAppSettingsKendraSettings kendraSettings) {
+
             this.kendraSettings = kendraSettings;
             return this;
         }
         @CustomType.Setter
         public Builder modelRegisterSettings(@Nullable UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings modelRegisterSettings) {
+
             this.modelRegisterSettings = modelRegisterSettings;
             return this;
         }
         @CustomType.Setter
         public Builder timeSeriesForecastingSettings(@Nullable UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings timeSeriesForecastingSettings) {
+
             this.timeSeriesForecastingSettings = timeSeriesForecastingSettings;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceSettings(@Nullable UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings workspaceSettings) {
+
             this.workspaceSettings = workspaceSettings;
             return this;
         }

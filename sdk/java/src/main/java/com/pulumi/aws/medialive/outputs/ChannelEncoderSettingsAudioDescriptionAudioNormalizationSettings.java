@@ -73,16 +73,19 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSetti
 
         @CustomType.Setter
         public Builder algorithm(@Nullable String algorithm) {
+
             this.algorithm = algorithm;
             return this;
         }
         @CustomType.Setter
         public Builder algorithmControl(@Nullable String algorithmControl) {
+
             this.algorithmControl = algorithmControl;
             return this;
         }
         @CustomType.Setter
         public Builder targetLkfs(@Nullable Double targetLkfs) {
+
             this.targetLkfs = targetLkfs;
             return this;
         }

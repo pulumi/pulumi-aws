@@ -58,11 +58,13 @@ public final class DataSourceHttpConfigAuthorizationConfigAwsIamConfig {
 
         @CustomType.Setter
         public Builder signingRegion(@Nullable String signingRegion) {
+
             this.signingRegion = signingRegion;
             return this;
         }
         @CustomType.Setter
         public Builder signingServiceName(@Nullable String signingServiceName) {
+
             this.signingServiceName = signingServiceName;
             return this;
         }

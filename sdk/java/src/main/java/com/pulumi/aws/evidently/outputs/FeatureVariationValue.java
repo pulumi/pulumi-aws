@@ -86,21 +86,25 @@ public final class FeatureVariationValue {
 
         @CustomType.Setter
         public Builder boolValue(@Nullable String boolValue) {
+
             this.boolValue = boolValue;
             return this;
         }
         @CustomType.Setter
         public Builder doubleValue(@Nullable String doubleValue) {
+
             this.doubleValue = doubleValue;
             return this;
         }
         @CustomType.Setter
         public Builder longValue(@Nullable String longValue) {
+
             this.longValue = longValue;
             return this;
         }
         @CustomType.Setter
         public Builder stringValue(@Nullable String stringValue) {
+
             this.stringValue = stringValue;
             return this;
         }

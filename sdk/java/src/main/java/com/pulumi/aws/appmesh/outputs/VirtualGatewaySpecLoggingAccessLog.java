@@ -44,6 +44,7 @@ public final class VirtualGatewaySpecLoggingAccessLog {
 
         @CustomType.Setter
         public Builder file(@Nullable VirtualGatewaySpecLoggingAccessLogFile file) {
+
             this.file = file;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin.outputs;
 
 import com.pulumi.aws.ssoadmin.outputs.GetApplicationPortalOption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -149,41 +150,63 @@ public final class GetApplicationResult {
 
         @CustomType.Setter
         public Builder applicationAccount(String applicationAccount) {
-            this.applicationAccount = Objects.requireNonNull(applicationAccount);
+            if (applicationAccount == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "applicationAccount");
+            }
+            this.applicationAccount = applicationAccount;
             return this;
         }
         @CustomType.Setter
         public Builder applicationArn(String applicationArn) {
-            this.applicationArn = Objects.requireNonNull(applicationArn);
+            if (applicationArn == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "applicationArn");
+            }
+            this.applicationArn = applicationArn;
             return this;
         }
         @CustomType.Setter
         public Builder applicationProviderArn(String applicationProviderArn) {
-            this.applicationProviderArn = Objects.requireNonNull(applicationProviderArn);
+            if (applicationProviderArn == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "applicationProviderArn");
+            }
+            this.applicationProviderArn = applicationProviderArn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceArn(String instanceArn) {
-            this.instanceArn = Objects.requireNonNull(instanceArn);
+            if (instanceArn == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "instanceArn");
+            }
+            this.instanceArn = instanceArn;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder portalOptions(@Nullable List<GetApplicationPortalOption> portalOptions) {
+
             this.portalOptions = portalOptions;
             return this;
         }
@@ -192,7 +215,10 @@ public final class GetApplicationResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "status");
+            }
+            this.status = status;
             return this;
         }
         public GetApplicationResult build() {

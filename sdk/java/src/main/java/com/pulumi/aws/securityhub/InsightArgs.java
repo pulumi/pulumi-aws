@@ -6,6 +6,7 @@ package com.pulumi.aws.securityhub;
 import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -151,8 +152,12 @@ public final class InsightArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public InsightArgs build() {
-            $.filters = Objects.requireNonNull($.filters, "expected parameter 'filters' to be non-null");
-            $.groupByAttribute = Objects.requireNonNull($.groupByAttribute, "expected parameter 'groupByAttribute' to be non-null");
+            if ($.filters == null) {
+                throw new MissingRequiredPropertyException("InsightArgs", "filters");
+            }
+            if ($.groupByAttribute == null) {
+                throw new MissingRequiredPropertyException("InsightArgs", "groupByAttribute");
+            }
             return $;
         }
     }

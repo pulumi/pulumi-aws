@@ -5,6 +5,7 @@ package com.pulumi.aws.sesv2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DedicatedIpAssignmentArgs extends com.pulumi.resources.Resour
         }
 
         public DedicatedIpAssignmentArgs build() {
-            $.destinationPoolName = Objects.requireNonNull($.destinationPoolName, "expected parameter 'destinationPoolName' to be non-null");
-            $.ip = Objects.requireNonNull($.ip, "expected parameter 'ip' to be non-null");
+            if ($.destinationPoolName == null) {
+                throw new MissingRequiredPropertyException("DedicatedIpAssignmentArgs", "destinationPoolName");
+            }
+            if ($.ip == null) {
+                throw new MissingRequiredPropertyException("DedicatedIpAssignmentArgs", "ip");
+            }
             return $;
         }
     }

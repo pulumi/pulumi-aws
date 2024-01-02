@@ -4,6 +4,7 @@
 package com.pulumi.aws.codeartifact.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -91,32 +92,48 @@ public final class GetAuthorizationTokenResult {
 
         @CustomType.Setter
         public Builder authorizationToken(String authorizationToken) {
-            this.authorizationToken = Objects.requireNonNull(authorizationToken);
+            if (authorizationToken == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizationTokenResult", "authorizationToken");
+            }
+            this.authorizationToken = authorizationToken;
             return this;
         }
         @CustomType.Setter
         public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizationTokenResult", "domain");
+            }
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder domainOwner(String domainOwner) {
-            this.domainOwner = Objects.requireNonNull(domainOwner);
+            if (domainOwner == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizationTokenResult", "domainOwner");
+            }
+            this.domainOwner = domainOwner;
             return this;
         }
         @CustomType.Setter
         public Builder durationSeconds(@Nullable Integer durationSeconds) {
+
             this.durationSeconds = durationSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder expiration(String expiration) {
-            this.expiration = Objects.requireNonNull(expiration);
+            if (expiration == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizationTokenResult", "expiration");
+            }
+            this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizationTokenResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetAuthorizationTokenResult build() {

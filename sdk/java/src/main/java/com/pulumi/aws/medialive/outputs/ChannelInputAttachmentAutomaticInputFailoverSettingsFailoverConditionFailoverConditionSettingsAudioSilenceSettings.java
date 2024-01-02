@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -59,11 +60,15 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
 
         @CustomType.Setter
         public Builder audioSelectorName(String audioSelectorName) {
-            this.audioSelectorName = Objects.requireNonNull(audioSelectorName);
+            if (audioSelectorName == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings", "audioSelectorName");
+            }
+            this.audioSelectorName = audioSelectorName;
             return this;
         }
         @CustomType.Setter
         public Builder audioSilenceThresholdMsec(@Nullable Integer audioSilenceThresholdMsec) {
+
             this.audioSilenceThresholdMsec = audioSilenceThresholdMsec;
             return this;
         }

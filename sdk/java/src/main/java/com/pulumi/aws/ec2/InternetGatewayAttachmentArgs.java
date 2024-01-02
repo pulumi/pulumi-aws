@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class InternetGatewayAttachmentArgs extends com.pulumi.resources.Re
         }
 
         public InternetGatewayAttachmentArgs build() {
-            $.internetGatewayId = Objects.requireNonNull($.internetGatewayId, "expected parameter 'internetGatewayId' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.internetGatewayId == null) {
+                throw new MissingRequiredPropertyException("InternetGatewayAttachmentArgs", "internetGatewayId");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("InternetGatewayAttachmentArgs", "vpcId");
+            }
             return $;
         }
     }

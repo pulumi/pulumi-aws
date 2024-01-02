@@ -7,6 +7,7 @@ import com.pulumi.aws.quicksight.inputs.ThemeConfigurationArgs;
 import com.pulumi.aws.quicksight.inputs.ThemePermissionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -357,8 +358,12 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ThemeArgs build() {
-            $.baseThemeId = Objects.requireNonNull($.baseThemeId, "expected parameter 'baseThemeId' to be non-null");
-            $.themeId = Objects.requireNonNull($.themeId, "expected parameter 'themeId' to be non-null");
+            if ($.baseThemeId == null) {
+                throw new MissingRequiredPropertyException("ThemeArgs", "baseThemeId");
+            }
+            if ($.themeId == null) {
+                throw new MissingRequiredPropertyException("ThemeArgs", "themeId");
+            }
             return $;
         }
     }

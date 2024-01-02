@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,37 +72,58 @@ public final class GetVirtualGatewaySpecListenerHealthCheck {
 
         @CustomType.Setter
         public Builder healthyThreshold(Integer healthyThreshold) {
-            this.healthyThreshold = Objects.requireNonNull(healthyThreshold);
+            if (healthyThreshold == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerHealthCheck", "healthyThreshold");
+            }
+            this.healthyThreshold = healthyThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder intervalMillis(Integer intervalMillis) {
-            this.intervalMillis = Objects.requireNonNull(intervalMillis);
+            if (intervalMillis == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerHealthCheck", "intervalMillis");
+            }
+            this.intervalMillis = intervalMillis;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerHealthCheck", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerHealthCheck", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerHealthCheck", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutMillis(Integer timeoutMillis) {
-            this.timeoutMillis = Objects.requireNonNull(timeoutMillis);
+            if (timeoutMillis == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerHealthCheck", "timeoutMillis");
+            }
+            this.timeoutMillis = timeoutMillis;
             return this;
         }
         @CustomType.Setter
         public Builder unhealthyThreshold(Integer unhealthyThreshold) {
-            this.unhealthyThreshold = Objects.requireNonNull(unhealthyThreshold);
+            if (unhealthyThreshold == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerHealthCheck", "unhealthyThreshold");
+            }
+            this.unhealthyThreshold = unhealthyThreshold;
             return this;
         }
         public GetVirtualGatewaySpecListenerHealthCheck build() {

@@ -11,6 +11,7 @@ import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerTimeoutArgs;
 import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerTlsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -266,7 +267,9 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
         }
 
         public VirtualNodeSpecListenerArgs build() {
-            $.portMapping = Objects.requireNonNull($.portMapping, "expected parameter 'portMapping' to be non-null");
+            if ($.portMapping == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecListenerArgs", "portMapping");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.organizations.outputs;
 
 import com.pulumi.aws.organizations.outputs.GetDelegatedAdministratorsDelegatedAdministrator;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -66,7 +67,10 @@ public final class GetDelegatedAdministratorsResult {
 
         @CustomType.Setter
         public Builder delegatedAdministrators(List<GetDelegatedAdministratorsDelegatedAdministrator> delegatedAdministrators) {
-            this.delegatedAdministrators = Objects.requireNonNull(delegatedAdministrators);
+            if (delegatedAdministrators == null) {
+              throw new MissingRequiredPropertyException("GetDelegatedAdministratorsResult", "delegatedAdministrators");
+            }
+            this.delegatedAdministrators = delegatedAdministrators;
             return this;
         }
         public Builder delegatedAdministrators(GetDelegatedAdministratorsDelegatedAdministrator... delegatedAdministrators) {
@@ -74,11 +78,15 @@ public final class GetDelegatedAdministratorsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDelegatedAdministratorsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder servicePrincipal(@Nullable String servicePrincipal) {
+
             this.servicePrincipal = servicePrincipal;
             return this;
         }

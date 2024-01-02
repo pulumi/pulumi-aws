@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticsearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -102,26 +103,33 @@ public final class DomainEbsOptions {
 
         @CustomType.Setter
         public Builder ebsEnabled(Boolean ebsEnabled) {
-            this.ebsEnabled = Objects.requireNonNull(ebsEnabled);
+            if (ebsEnabled == null) {
+              throw new MissingRequiredPropertyException("DomainEbsOptions", "ebsEnabled");
+            }
+            this.ebsEnabled = ebsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
+
             this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder throughput(@Nullable Integer throughput) {
+
             this.throughput = throughput;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
+
             this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
         public Builder volumeType(@Nullable String volumeType) {
+
             this.volumeType = volumeType;
             return this;
         }

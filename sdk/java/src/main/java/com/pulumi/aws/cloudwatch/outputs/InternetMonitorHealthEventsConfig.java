@@ -58,11 +58,13 @@ public final class InternetMonitorHealthEventsConfig {
 
         @CustomType.Setter
         public Builder availabilityScoreThreshold(@Nullable Double availabilityScoreThreshold) {
+
             this.availabilityScoreThreshold = availabilityScoreThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder performanceScoreThreshold(@Nullable Double performanceScoreThreshold) {
+
             this.performanceScoreThreshold = performanceScoreThreshold;
             return this;
         }

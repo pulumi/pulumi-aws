@@ -5,6 +5,7 @@ package com.pulumi.aws.neptune;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -358,7 +359,9 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         public EventSubscriptionArgs build() {
-            $.snsTopicArn = Objects.requireNonNull($.snsTopicArn, "expected parameter 'snsTopicArn' to be non-null");
+            if ($.snsTopicArn == null) {
+                throw new MissingRequiredPropertyException("EventSubscriptionArgs", "snsTopicArn");
+            }
             return $;
         }
     }

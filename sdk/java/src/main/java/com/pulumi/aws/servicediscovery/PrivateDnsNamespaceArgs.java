@@ -5,6 +5,7 @@ package com.pulumi.aws.servicediscovery;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class PrivateDnsNamespaceArgs extends com.pulumi.resources.Resource
         }
 
         public PrivateDnsNamespaceArgs build() {
-            $.vpc = Objects.requireNonNull($.vpc, "expected parameter 'vpc' to be non-null");
+            if ($.vpc == null) {
+                throw new MissingRequiredPropertyException("PrivateDnsNamespaceArgs", "vpc");
+            }
             return $;
         }
     }

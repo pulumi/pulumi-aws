@@ -14,6 +14,7 @@ import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsTimecodeConfigArgs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsVideoDescriptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -421,8 +422,12 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         public ChannelEncoderSettingsArgs build() {
-            $.outputGroups = Objects.requireNonNull($.outputGroups, "expected parameter 'outputGroups' to be non-null");
-            $.timecodeConfig = Objects.requireNonNull($.timecodeConfig, "expected parameter 'timecodeConfig' to be non-null");
+            if ($.outputGroups == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsArgs", "outputGroups");
+            }
+            if ($.timecodeConfig == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsArgs", "timecodeConfig");
+            }
             return $;
         }
     }

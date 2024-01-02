@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkmanager.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -116,7 +117,9 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocat
         }
 
         public GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation build() {
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation", "location");
+            }
             return $;
         }
     }

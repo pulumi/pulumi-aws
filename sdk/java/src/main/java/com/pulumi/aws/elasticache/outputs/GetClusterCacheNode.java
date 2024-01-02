@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticache.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -77,27 +78,42 @@ public final class GetClusterCacheNode {
 
         @CustomType.Setter
         public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+            if (address == null) {
+              throw new MissingRequiredPropertyException("GetClusterCacheNode", "address");
+            }
+            this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+            if (availabilityZone == null) {
+              throw new MissingRequiredPropertyException("GetClusterCacheNode", "availabilityZone");
+            }
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetClusterCacheNode", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder outpostArn(String outpostArn) {
-            this.outpostArn = Objects.requireNonNull(outpostArn);
+            if (outpostArn == null) {
+              throw new MissingRequiredPropertyException("GetClusterCacheNode", "outpostArn");
+            }
+            this.outpostArn = outpostArn;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetClusterCacheNode", "port");
+            }
+            this.port = port;
             return this;
         }
         public GetClusterCacheNode build() {

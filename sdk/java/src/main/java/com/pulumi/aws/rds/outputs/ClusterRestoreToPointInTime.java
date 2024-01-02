@@ -4,6 +4,7 @@
 package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -89,21 +90,27 @@ public final class ClusterRestoreToPointInTime {
 
         @CustomType.Setter
         public Builder restoreToTime(@Nullable String restoreToTime) {
+
             this.restoreToTime = restoreToTime;
             return this;
         }
         @CustomType.Setter
         public Builder restoreType(@Nullable String restoreType) {
+
             this.restoreType = restoreType;
             return this;
         }
         @CustomType.Setter
         public Builder sourceClusterIdentifier(String sourceClusterIdentifier) {
-            this.sourceClusterIdentifier = Objects.requireNonNull(sourceClusterIdentifier);
+            if (sourceClusterIdentifier == null) {
+              throw new MissingRequiredPropertyException("ClusterRestoreToPointInTime", "sourceClusterIdentifier");
+            }
+            this.sourceClusterIdentifier = sourceClusterIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder useLatestRestorableTime(@Nullable Boolean useLatestRestorableTime) {
+
             this.useLatestRestorableTime = useLatestRestorableTime;
             return this;
         }

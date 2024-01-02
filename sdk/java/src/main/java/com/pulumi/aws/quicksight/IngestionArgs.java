@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -195,9 +196,15 @@ public final class IngestionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IngestionArgs build() {
-            $.dataSetId = Objects.requireNonNull($.dataSetId, "expected parameter 'dataSetId' to be non-null");
-            $.ingestionId = Objects.requireNonNull($.ingestionId, "expected parameter 'ingestionId' to be non-null");
-            $.ingestionType = Objects.requireNonNull($.ingestionType, "expected parameter 'ingestionType' to be non-null");
+            if ($.dataSetId == null) {
+                throw new MissingRequiredPropertyException("IngestionArgs", "dataSetId");
+            }
+            if ($.ingestionId == null) {
+                throw new MissingRequiredPropertyException("IngestionArgs", "ingestionId");
+            }
+            if ($.ingestionType == null) {
+                throw new MissingRequiredPropertyException("IngestionArgs", "ingestionType");
+            }
             return $;
         }
     }

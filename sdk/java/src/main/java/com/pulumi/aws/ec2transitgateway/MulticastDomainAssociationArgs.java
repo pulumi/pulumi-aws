@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class MulticastDomainAssociationArgs extends com.pulumi.resources.R
         }
 
         public MulticastDomainAssociationArgs build() {
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
-            $.transitGatewayAttachmentId = Objects.requireNonNull($.transitGatewayAttachmentId, "expected parameter 'transitGatewayAttachmentId' to be non-null");
-            $.transitGatewayMulticastDomainId = Objects.requireNonNull($.transitGatewayMulticastDomainId, "expected parameter 'transitGatewayMulticastDomainId' to be non-null");
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("MulticastDomainAssociationArgs", "subnetId");
+            }
+            if ($.transitGatewayAttachmentId == null) {
+                throw new MissingRequiredPropertyException("MulticastDomainAssociationArgs", "transitGatewayAttachmentId");
+            }
+            if ($.transitGatewayMulticastDomainId == null) {
+                throw new MissingRequiredPropertyException("MulticastDomainAssociationArgs", "transitGatewayMulticastDomainId");
+            }
             return $;
         }
     }

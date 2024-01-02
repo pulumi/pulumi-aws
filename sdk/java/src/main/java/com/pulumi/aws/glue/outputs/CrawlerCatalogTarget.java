@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -109,27 +110,36 @@ public final class CrawlerCatalogTarget {
 
         @CustomType.Setter
         public Builder connectionName(@Nullable String connectionName) {
+
             this.connectionName = connectionName;
             return this;
         }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("CrawlerCatalogTarget", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder dlqEventQueueArn(@Nullable String dlqEventQueueArn) {
+
             this.dlqEventQueueArn = dlqEventQueueArn;
             return this;
         }
         @CustomType.Setter
         public Builder eventQueueArn(@Nullable String eventQueueArn) {
+
             this.eventQueueArn = eventQueueArn;
             return this;
         }
         @CustomType.Setter
         public Builder tables(List<String> tables) {
-            this.tables = Objects.requireNonNull(tables);
+            if (tables == null) {
+              throw new MissingRequiredPropertyException("CrawlerCatalogTarget", "tables");
+            }
+            this.tables = tables;
             return this;
         }
         public Builder tables(String... tables) {

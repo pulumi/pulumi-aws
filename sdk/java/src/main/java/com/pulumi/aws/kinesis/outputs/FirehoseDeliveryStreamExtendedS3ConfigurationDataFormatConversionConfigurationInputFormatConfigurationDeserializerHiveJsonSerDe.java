@@ -44,6 +44,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
 
         @CustomType.Setter
         public Builder timestampFormats(@Nullable List<String> timestampFormats) {
+
             this.timestampFormats = timestampFormats;
             return this;
         }

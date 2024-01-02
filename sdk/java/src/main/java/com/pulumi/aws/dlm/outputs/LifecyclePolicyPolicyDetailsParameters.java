@@ -58,11 +58,13 @@ public final class LifecyclePolicyPolicyDetailsParameters {
 
         @CustomType.Setter
         public Builder excludeBootVolume(@Nullable Boolean excludeBootVolume) {
+
             this.excludeBootVolume = excludeBootVolume;
             return this;
         }
         @CustomType.Setter
         public Builder noReboot(@Nullable Boolean noReboot) {
+
             this.noReboot = noReboot;
             return this;
         }

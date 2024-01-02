@@ -14,6 +14,7 @@ import com.pulumi.aws.elasticsearch.outputs.GetDomainNodeToNodeEncryption;
 import com.pulumi.aws.elasticsearch.outputs.GetDomainSnapshotOption;
 import com.pulumi.aws.elasticsearch.outputs.GetDomainVpcOption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -355,17 +356,26 @@ public final class GetDomainResult {
 
         @CustomType.Setter
         public Builder accessPolicies(String accessPolicies) {
-            this.accessPolicies = Objects.requireNonNull(accessPolicies);
+            if (accessPolicies == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "accessPolicies");
+            }
+            this.accessPolicies = accessPolicies;
             return this;
         }
         @CustomType.Setter
         public Builder advancedOptions(Map<String,String> advancedOptions) {
-            this.advancedOptions = Objects.requireNonNull(advancedOptions);
+            if (advancedOptions == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "advancedOptions");
+            }
+            this.advancedOptions = advancedOptions;
             return this;
         }
         @CustomType.Setter
         public Builder advancedSecurityOptions(List<GetDomainAdvancedSecurityOption> advancedSecurityOptions) {
-            this.advancedSecurityOptions = Objects.requireNonNull(advancedSecurityOptions);
+            if (advancedSecurityOptions == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "advancedSecurityOptions");
+            }
+            this.advancedSecurityOptions = advancedSecurityOptions;
             return this;
         }
         public Builder advancedSecurityOptions(GetDomainAdvancedSecurityOption... advancedSecurityOptions) {
@@ -373,12 +383,18 @@ public final class GetDomainResult {
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder autoTuneOptions(List<GetDomainAutoTuneOption> autoTuneOptions) {
-            this.autoTuneOptions = Objects.requireNonNull(autoTuneOptions);
+            if (autoTuneOptions == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "autoTuneOptions");
+            }
+            this.autoTuneOptions = autoTuneOptions;
             return this;
         }
         public Builder autoTuneOptions(GetDomainAutoTuneOption... autoTuneOptions) {
@@ -386,7 +402,10 @@ public final class GetDomainResult {
         }
         @CustomType.Setter
         public Builder clusterConfigs(List<GetDomainClusterConfig> clusterConfigs) {
-            this.clusterConfigs = Objects.requireNonNull(clusterConfigs);
+            if (clusterConfigs == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "clusterConfigs");
+            }
+            this.clusterConfigs = clusterConfigs;
             return this;
         }
         public Builder clusterConfigs(GetDomainClusterConfig... clusterConfigs) {
@@ -394,7 +413,10 @@ public final class GetDomainResult {
         }
         @CustomType.Setter
         public Builder cognitoOptions(List<GetDomainCognitoOption> cognitoOptions) {
-            this.cognitoOptions = Objects.requireNonNull(cognitoOptions);
+            if (cognitoOptions == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "cognitoOptions");
+            }
+            this.cognitoOptions = cognitoOptions;
             return this;
         }
         public Builder cognitoOptions(GetDomainCognitoOption... cognitoOptions) {
@@ -402,27 +424,42 @@ public final class GetDomainResult {
         }
         @CustomType.Setter
         public Builder created(Boolean created) {
-            this.created = Objects.requireNonNull(created);
+            if (created == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "created");
+            }
+            this.created = created;
             return this;
         }
         @CustomType.Setter
         public Builder deleted(Boolean deleted) {
-            this.deleted = Objects.requireNonNull(deleted);
+            if (deleted == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "deleted");
+            }
+            this.deleted = deleted;
             return this;
         }
         @CustomType.Setter
         public Builder domainId(String domainId) {
-            this.domainId = Objects.requireNonNull(domainId);
+            if (domainId == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "domainId");
+            }
+            this.domainId = domainId;
             return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder ebsOptions(List<GetDomainEbsOption> ebsOptions) {
-            this.ebsOptions = Objects.requireNonNull(ebsOptions);
+            if (ebsOptions == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "ebsOptions");
+            }
+            this.ebsOptions = ebsOptions;
             return this;
         }
         public Builder ebsOptions(GetDomainEbsOption... ebsOptions) {
@@ -430,12 +467,18 @@ public final class GetDomainResult {
         }
         @CustomType.Setter
         public Builder elasticsearchVersion(String elasticsearchVersion) {
-            this.elasticsearchVersion = Objects.requireNonNull(elasticsearchVersion);
+            if (elasticsearchVersion == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "elasticsearchVersion");
+            }
+            this.elasticsearchVersion = elasticsearchVersion;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionAtRests(List<GetDomainEncryptionAtRest> encryptionAtRests) {
-            this.encryptionAtRests = Objects.requireNonNull(encryptionAtRests);
+            if (encryptionAtRests == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "encryptionAtRests");
+            }
+            this.encryptionAtRests = encryptionAtRests;
             return this;
         }
         public Builder encryptionAtRests(GetDomainEncryptionAtRest... encryptionAtRests) {
@@ -443,22 +486,34 @@ public final class GetDomainResult {
         }
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "endpoint");
+            }
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kibanaEndpoint(String kibanaEndpoint) {
-            this.kibanaEndpoint = Objects.requireNonNull(kibanaEndpoint);
+            if (kibanaEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "kibanaEndpoint");
+            }
+            this.kibanaEndpoint = kibanaEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder logPublishingOptions(List<GetDomainLogPublishingOption> logPublishingOptions) {
-            this.logPublishingOptions = Objects.requireNonNull(logPublishingOptions);
+            if (logPublishingOptions == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "logPublishingOptions");
+            }
+            this.logPublishingOptions = logPublishingOptions;
             return this;
         }
         public Builder logPublishingOptions(GetDomainLogPublishingOption... logPublishingOptions) {
@@ -466,7 +521,10 @@ public final class GetDomainResult {
         }
         @CustomType.Setter
         public Builder nodeToNodeEncryptions(List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions) {
-            this.nodeToNodeEncryptions = Objects.requireNonNull(nodeToNodeEncryptions);
+            if (nodeToNodeEncryptions == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "nodeToNodeEncryptions");
+            }
+            this.nodeToNodeEncryptions = nodeToNodeEncryptions;
             return this;
         }
         public Builder nodeToNodeEncryptions(GetDomainNodeToNodeEncryption... nodeToNodeEncryptions) {
@@ -474,12 +532,18 @@ public final class GetDomainResult {
         }
         @CustomType.Setter
         public Builder processing(Boolean processing) {
-            this.processing = Objects.requireNonNull(processing);
+            if (processing == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "processing");
+            }
+            this.processing = processing;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotOptions(List<GetDomainSnapshotOption> snapshotOptions) {
-            this.snapshotOptions = Objects.requireNonNull(snapshotOptions);
+            if (snapshotOptions == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "snapshotOptions");
+            }
+            this.snapshotOptions = snapshotOptions;
             return this;
         }
         public Builder snapshotOptions(GetDomainSnapshotOption... snapshotOptions) {
@@ -487,12 +551,18 @@ public final class GetDomainResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcOptions(List<GetDomainVpcOption> vpcOptions) {
-            this.vpcOptions = Objects.requireNonNull(vpcOptions);
+            if (vpcOptions == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "vpcOptions");
+            }
+            this.vpcOptions = vpcOptions;
             return this;
         }
         public Builder vpcOptions(GetDomainVpcOption... vpcOptions) {

@@ -6,6 +6,7 @@ package com.pulumi.aws.msk.inputs;
 import com.pulumi.aws.msk.inputs.ClusterOpenMonitoringPrometheusArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class ClusterOpenMonitoringArgs extends com.pulumi.resources.Resour
         }
 
         public ClusterOpenMonitoringArgs build() {
-            $.prometheus = Objects.requireNonNull($.prometheus, "expected parameter 'prometheus' to be non-null");
+            if ($.prometheus == null) {
+                throw new MissingRequiredPropertyException("ClusterOpenMonitoringArgs", "prometheus");
+            }
             return $;
         }
     }

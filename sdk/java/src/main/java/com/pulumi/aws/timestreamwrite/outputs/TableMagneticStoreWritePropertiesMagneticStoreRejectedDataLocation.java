@@ -44,6 +44,7 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
 
         @CustomType.Setter
         public Builder s3Configuration(@Nullable TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration s3Configuration) {
+
             this.s3Configuration = s3Configuration;
             return this;
         }

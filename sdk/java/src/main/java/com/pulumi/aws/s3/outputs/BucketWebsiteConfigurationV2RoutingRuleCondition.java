@@ -58,11 +58,13 @@ public final class BucketWebsiteConfigurationV2RoutingRuleCondition {
 
         @CustomType.Setter
         public Builder httpErrorCodeReturnedEquals(@Nullable String httpErrorCodeReturnedEquals) {
+
             this.httpErrorCodeReturnedEquals = httpErrorCodeReturnedEquals;
             return this;
         }
         @CustomType.Setter
         public Builder keyPrefixEquals(@Nullable String keyPrefixEquals) {
+
             this.keyPrefixEquals = keyPrefixEquals;
             return this;
         }

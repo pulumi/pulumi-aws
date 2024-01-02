@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -41,12 +42,18 @@ public final class GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference {
 
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder resourceArn(String resourceArn) {
-            this.resourceArn = Objects.requireNonNull(resourceArn);
+            if (resourceArn == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference", "resourceArn");
+            }
+            this.resourceArn = resourceArn;
             return this;
         }
         public GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference build() {

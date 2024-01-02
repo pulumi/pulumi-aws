@@ -5,6 +5,7 @@ package com.pulumi.aws.opensearch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -186,10 +187,18 @@ public final class GetServerlessSecurityConfigSamlOptionsArgs extends com.pulumi
         }
 
         public GetServerlessSecurityConfigSamlOptionsArgs build() {
-            $.groupAttribute = Objects.requireNonNull($.groupAttribute, "expected parameter 'groupAttribute' to be non-null");
-            $.metadata = Objects.requireNonNull($.metadata, "expected parameter 'metadata' to be non-null");
-            $.sessionTimeout = Objects.requireNonNull($.sessionTimeout, "expected parameter 'sessionTimeout' to be non-null");
-            $.userAttribute = Objects.requireNonNull($.userAttribute, "expected parameter 'userAttribute' to be non-null");
+            if ($.groupAttribute == null) {
+                throw new MissingRequiredPropertyException("GetServerlessSecurityConfigSamlOptionsArgs", "groupAttribute");
+            }
+            if ($.metadata == null) {
+                throw new MissingRequiredPropertyException("GetServerlessSecurityConfigSamlOptionsArgs", "metadata");
+            }
+            if ($.sessionTimeout == null) {
+                throw new MissingRequiredPropertyException("GetServerlessSecurityConfigSamlOptionsArgs", "sessionTimeout");
+            }
+            if ($.userAttribute == null) {
+                throw new MissingRequiredPropertyException("GetServerlessSecurityConfigSamlOptionsArgs", "userAttribute");
+            }
             return $;
         }
     }

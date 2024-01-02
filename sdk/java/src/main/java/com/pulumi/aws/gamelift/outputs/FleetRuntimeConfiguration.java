@@ -74,16 +74,19 @@ public final class FleetRuntimeConfiguration {
 
         @CustomType.Setter
         public Builder gameSessionActivationTimeoutSeconds(@Nullable Integer gameSessionActivationTimeoutSeconds) {
+
             this.gameSessionActivationTimeoutSeconds = gameSessionActivationTimeoutSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder maxConcurrentGameSessionActivations(@Nullable Integer maxConcurrentGameSessionActivations) {
+
             this.maxConcurrentGameSessionActivations = maxConcurrentGameSessionActivations;
             return this;
         }
         @CustomType.Setter
         public Builder serverProcesses(@Nullable List<FleetRuntimeConfigurationServerProcess> serverProcesses) {
+
             this.serverProcesses = serverProcesses;
             return this;
         }

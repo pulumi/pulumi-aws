@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -62,17 +63,26 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
 
         @CustomType.Setter
         public Builder cbetCheckDigitString(String cbetCheckDigitString) {
-            this.cbetCheckDigitString = Objects.requireNonNull(cbetCheckDigitString);
+            if (cbetCheckDigitString == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings", "cbetCheckDigitString");
+            }
+            this.cbetCheckDigitString = cbetCheckDigitString;
             return this;
         }
         @CustomType.Setter
         public Builder cbetStepaside(String cbetStepaside) {
-            this.cbetStepaside = Objects.requireNonNull(cbetStepaside);
+            if (cbetStepaside == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings", "cbetStepaside");
+            }
+            this.cbetStepaside = cbetStepaside;
             return this;
         }
         @CustomType.Setter
         public Builder csid(String csid) {
-            this.csid = Objects.requireNonNull(csid);
+            if (csid == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings", "csid");
+            }
+            this.csid = csid;
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings build() {

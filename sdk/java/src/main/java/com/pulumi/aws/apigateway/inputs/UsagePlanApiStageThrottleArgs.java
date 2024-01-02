@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -152,7 +153,9 @@ public final class UsagePlanApiStageThrottleArgs extends com.pulumi.resources.Re
         }
 
         public UsagePlanApiStageThrottleArgs build() {
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("UsagePlanApiStageThrottleArgs", "path");
+            }
             return $;
         }
     }

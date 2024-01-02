@@ -5,6 +5,7 @@ package com.pulumi.aws.route53recoveryreadiness;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -170,7 +171,9 @@ public final class RecoveryGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RecoveryGroupArgs build() {
-            $.recoveryGroupName = Objects.requireNonNull($.recoveryGroupName, "expected parameter 'recoveryGroupName' to be non-null");
+            if ($.recoveryGroupName == null) {
+                throw new MissingRequiredPropertyException("RecoveryGroupArgs", "recoveryGroupName");
+            }
             return $;
         }
     }

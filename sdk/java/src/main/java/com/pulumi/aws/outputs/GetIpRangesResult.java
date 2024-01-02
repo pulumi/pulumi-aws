@@ -4,6 +4,7 @@
 package com.pulumi.aws.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -114,7 +115,10 @@ public final class GetIpRangesResult {
 
         @CustomType.Setter
         public Builder cidrBlocks(List<String> cidrBlocks) {
-            this.cidrBlocks = Objects.requireNonNull(cidrBlocks);
+            if (cidrBlocks == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "cidrBlocks");
+            }
+            this.cidrBlocks = cidrBlocks;
             return this;
         }
         public Builder cidrBlocks(String... cidrBlocks) {
@@ -122,17 +126,26 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder createDate(String createDate) {
-            this.createDate = Objects.requireNonNull(createDate);
+            if (createDate == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "createDate");
+            }
+            this.createDate = createDate;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6CidrBlocks(List<String> ipv6CidrBlocks) {
-            this.ipv6CidrBlocks = Objects.requireNonNull(ipv6CidrBlocks);
+            if (ipv6CidrBlocks == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "ipv6CidrBlocks");
+            }
+            this.ipv6CidrBlocks = ipv6CidrBlocks;
             return this;
         }
         public Builder ipv6CidrBlocks(String... ipv6CidrBlocks) {
@@ -140,6 +153,7 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder regions(@Nullable List<String> regions) {
+
             this.regions = regions;
             return this;
         }
@@ -148,7 +162,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder services(List<String> services) {
-            this.services = Objects.requireNonNull(services);
+            if (services == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "services");
+            }
+            this.services = services;
             return this;
         }
         public Builder services(String... services) {
@@ -156,11 +173,15 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder syncToken(Integer syncToken) {
-            this.syncToken = Objects.requireNonNull(syncToken);
+            if (syncToken == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "syncToken");
+            }
+            this.syncToken = syncToken;
             return this;
         }
         @CustomType.Setter
         public Builder url(@Nullable String url) {
+
             this.url = url;
             return this;
         }

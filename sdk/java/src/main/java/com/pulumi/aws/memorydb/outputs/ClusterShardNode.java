@@ -80,16 +80,19 @@ public final class ClusterShardNode {
 
         @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
+
             this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder createTime(@Nullable String createTime) {
+
             this.createTime = createTime;
             return this;
         }
         @CustomType.Setter
         public Builder endpoints(@Nullable List<ClusterShardNodeEndpoint> endpoints) {
+
             this.endpoints = endpoints;
             return this;
         }
@@ -98,6 +101,7 @@ public final class ClusterShardNode {
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -236,8 +237,12 @@ public final class ContainerServiceDeploymentVersionContainerArgs extends com.pu
         }
 
         public ContainerServiceDeploymentVersionContainerArgs build() {
-            $.containerName = Objects.requireNonNull($.containerName, "expected parameter 'containerName' to be non-null");
-            $.image = Objects.requireNonNull($.image, "expected parameter 'image' to be non-null");
+            if ($.containerName == null) {
+                throw new MissingRequiredPropertyException("ContainerServiceDeploymentVersionContainerArgs", "containerName");
+            }
+            if ($.image == null) {
+                throw new MissingRequiredPropertyException("ContainerServiceDeploymentVersionContainerArgs", "image");
+            }
             return $;
         }
     }

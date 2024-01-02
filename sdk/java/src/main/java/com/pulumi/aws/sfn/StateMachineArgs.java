@@ -7,6 +7,7 @@ import com.pulumi.aws.sfn.inputs.StateMachineLoggingConfigurationArgs;
 import com.pulumi.aws.sfn.inputs.StateMachineTracingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -376,8 +377,12 @@ public final class StateMachineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public StateMachineArgs build() {
-            $.definition = Objects.requireNonNull($.definition, "expected parameter 'definition' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.definition == null) {
+                throw new MissingRequiredPropertyException("StateMachineArgs", "definition");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("StateMachineArgs", "roleArn");
+            }
             return $;
         }
     }

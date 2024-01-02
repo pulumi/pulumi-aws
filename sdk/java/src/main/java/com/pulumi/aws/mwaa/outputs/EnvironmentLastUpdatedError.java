@@ -42,11 +42,13 @@ public final class EnvironmentLastUpdatedError {
 
         @CustomType.Setter
         public Builder errorCode(@Nullable String errorCode) {
+
             this.errorCode = errorCode;
             return this;
         }
         @CustomType.Setter
         public Builder errorMessage(@Nullable String errorMessage) {
+
             this.errorMessage = errorMessage;
             return this;
         }

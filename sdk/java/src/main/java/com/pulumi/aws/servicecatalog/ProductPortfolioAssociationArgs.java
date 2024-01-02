@@ -5,6 +5,7 @@ package com.pulumi.aws.servicecatalog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -195,8 +196,12 @@ public final class ProductPortfolioAssociationArgs extends com.pulumi.resources.
         }
 
         public ProductPortfolioAssociationArgs build() {
-            $.portfolioId = Objects.requireNonNull($.portfolioId, "expected parameter 'portfolioId' to be non-null");
-            $.productId = Objects.requireNonNull($.productId, "expected parameter 'productId' to be non-null");
+            if ($.portfolioId == null) {
+                throw new MissingRequiredPropertyException("ProductPortfolioAssociationArgs", "portfolioId");
+            }
+            if ($.productId == null) {
+                throw new MissingRequiredPropertyException("ProductPortfolioAssociationArgs", "productId");
+            }
             return $;
         }
     }

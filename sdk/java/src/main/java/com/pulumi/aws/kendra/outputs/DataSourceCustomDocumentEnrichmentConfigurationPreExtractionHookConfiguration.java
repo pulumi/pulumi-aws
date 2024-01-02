@@ -5,6 +5,7 @@ package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.aws.kendra.outputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,17 +74,24 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
 
         @CustomType.Setter
         public Builder invocationCondition(@Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition invocationCondition) {
+
             this.invocationCondition = invocationCondition;
             return this;
         }
         @CustomType.Setter
         public Builder lambdaArn(String lambdaArn) {
-            this.lambdaArn = Objects.requireNonNull(lambdaArn);
+            if (lambdaArn == null) {
+              throw new MissingRequiredPropertyException("DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration", "lambdaArn");
+            }
+            this.lambdaArn = lambdaArn;
             return this;
         }
         @CustomType.Setter
         public Builder s3Bucket(String s3Bucket) {
-            this.s3Bucket = Objects.requireNonNull(s3Bucket);
+            if (s3Bucket == null) {
+              throw new MissingRequiredPropertyException("DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration", "s3Bucket");
+            }
+            this.s3Bucket = s3Bucket;
             return this;
         }
         public DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration build() {

@@ -59,11 +59,13 @@ public final class EndpointClientConnectOptions {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder lambdaFunctionArn(@Nullable String lambdaFunctionArn) {
+
             this.lambdaFunctionArn = lambdaFunctionArn;
             return this;
         }

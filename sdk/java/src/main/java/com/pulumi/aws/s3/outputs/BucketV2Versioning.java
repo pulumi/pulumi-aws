@@ -58,11 +58,13 @@ public final class BucketV2Versioning {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder mfaDelete(@Nullable Boolean mfaDelete) {
+
             this.mfaDelete = mfaDelete;
             return this;
         }

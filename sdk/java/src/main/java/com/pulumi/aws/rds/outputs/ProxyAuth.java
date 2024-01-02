@@ -114,31 +114,37 @@ public final class ProxyAuth {
 
         @CustomType.Setter
         public Builder authScheme(@Nullable String authScheme) {
+
             this.authScheme = authScheme;
             return this;
         }
         @CustomType.Setter
         public Builder clientPasswordAuthType(@Nullable String clientPasswordAuthType) {
+
             this.clientPasswordAuthType = clientPasswordAuthType;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder iamAuth(@Nullable String iamAuth) {
+
             this.iamAuth = iamAuth;
             return this;
         }
         @CustomType.Setter
         public Builder secretArn(@Nullable String secretArn) {
+
             this.secretArn = secretArn;
             return this;
         }
         @CustomType.Setter
         public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }

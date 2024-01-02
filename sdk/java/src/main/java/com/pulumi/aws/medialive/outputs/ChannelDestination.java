@@ -7,6 +7,7 @@ import com.pulumi.aws.medialive.outputs.ChannelDestinationMediaPackageSetting;
 import com.pulumi.aws.medialive.outputs.ChannelDestinationMultiplexSettings;
 import com.pulumi.aws.medialive.outputs.ChannelDestinationSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -90,11 +91,15 @@ public final class ChannelDestination {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("ChannelDestination", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder mediaPackageSettings(@Nullable List<ChannelDestinationMediaPackageSetting> mediaPackageSettings) {
+
             this.mediaPackageSettings = mediaPackageSettings;
             return this;
         }
@@ -103,11 +108,13 @@ public final class ChannelDestination {
         }
         @CustomType.Setter
         public Builder multiplexSettings(@Nullable ChannelDestinationMultiplexSettings multiplexSettings) {
+
             this.multiplexSettings = multiplexSettings;
             return this;
         }
         @CustomType.Setter
         public Builder settings(@Nullable List<ChannelDestinationSetting> settings) {
+
             this.settings = settings;
             return this;
         }

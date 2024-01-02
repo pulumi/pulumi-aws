@@ -36,6 +36,7 @@ public final class ResponseHeadersPolicyCorsConfigAccessControlAllowMethods {
 
         @CustomType.Setter
         public Builder items(@Nullable List<String> items) {
+
             this.items = items;
             return this;
         }

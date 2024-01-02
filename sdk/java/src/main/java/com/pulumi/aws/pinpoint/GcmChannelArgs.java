@@ -5,6 +5,7 @@ package com.pulumi.aws.pinpoint;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class GcmChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GcmChannelArgs build() {
-            $.apiKey = Objects.requireNonNull($.apiKey, "expected parameter 'apiKey' to be non-null");
-            $.applicationId = Objects.requireNonNull($.applicationId, "expected parameter 'applicationId' to be non-null");
+            if ($.apiKey == null) {
+                throw new MissingRequiredPropertyException("GcmChannelArgs", "apiKey");
+            }
+            if ($.applicationId == null) {
+                throw new MissingRequiredPropertyException("GcmChannelArgs", "applicationId");
+            }
             return $;
         }
     }

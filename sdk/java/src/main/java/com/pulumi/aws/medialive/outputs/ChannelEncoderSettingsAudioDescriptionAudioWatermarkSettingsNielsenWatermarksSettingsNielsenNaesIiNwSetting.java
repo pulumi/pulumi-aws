@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -49,12 +50,18 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
 
         @CustomType.Setter
         public Builder checkDigitString(String checkDigitString) {
-            this.checkDigitString = Objects.requireNonNull(checkDigitString);
+            if (checkDigitString == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting", "checkDigitString");
+            }
+            this.checkDigitString = checkDigitString;
             return this;
         }
         @CustomType.Setter
         public Builder sid(Double sid) {
-            this.sid = Objects.requireNonNull(sid);
+            if (sid == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting", "sid");
+            }
+            this.sid = sid;
             return this;
         }
         public ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting build() {

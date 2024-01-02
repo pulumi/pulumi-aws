@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.inputs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -378,8 +379,12 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Conf
         }
 
         public FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs build() {
-            $.bucketArn = Objects.requireNonNull($.bucketArn, "expected parameter 'bucketArn' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.bucketArn == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs", "bucketArn");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs", "roleArn");
+            }
             return $;
         }
     }

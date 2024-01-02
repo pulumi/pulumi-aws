@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs extends c
         }
 
         public GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs build() {
-            $.defaultTargetHostname = Objects.requireNonNull($.defaultTargetHostname, "expected parameter 'defaultTargetHostname' to be non-null");
+            if ($.defaultTargetHostname == null) {
+                throw new MissingRequiredPropertyException("GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs", "defaultTargetHostname");
+            }
             return $;
         }
     }

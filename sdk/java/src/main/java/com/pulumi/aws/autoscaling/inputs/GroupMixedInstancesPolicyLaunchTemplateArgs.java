@@ -7,6 +7,7 @@ import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplate
 import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -125,7 +126,9 @@ public final class GroupMixedInstancesPolicyLaunchTemplateArgs extends com.pulum
         }
 
         public GroupMixedInstancesPolicyLaunchTemplateArgs build() {
-            $.launchTemplateSpecification = Objects.requireNonNull($.launchTemplateSpecification, "expected parameter 'launchTemplateSpecification' to be non-null");
+            if ($.launchTemplateSpecification == null) {
+                throw new MissingRequiredPropertyException("GroupMixedInstancesPolicyLaunchTemplateArgs", "launchTemplateSpecification");
+            }
             return $;
         }
     }

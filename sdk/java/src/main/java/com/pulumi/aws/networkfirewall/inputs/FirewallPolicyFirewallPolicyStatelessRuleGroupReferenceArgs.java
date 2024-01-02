@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs e
         }
 
         public FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs build() {
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs", "priority");
+            }
+            if ($.resourceArn == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs", "resourceArn");
+            }
             return $;
         }
     }

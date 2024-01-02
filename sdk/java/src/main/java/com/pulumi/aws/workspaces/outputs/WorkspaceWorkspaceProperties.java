@@ -101,26 +101,31 @@ public final class WorkspaceWorkspaceProperties {
 
         @CustomType.Setter
         public Builder computeTypeName(@Nullable String computeTypeName) {
+
             this.computeTypeName = computeTypeName;
             return this;
         }
         @CustomType.Setter
         public Builder rootVolumeSizeGib(@Nullable Integer rootVolumeSizeGib) {
+
             this.rootVolumeSizeGib = rootVolumeSizeGib;
             return this;
         }
         @CustomType.Setter
         public Builder runningMode(@Nullable String runningMode) {
+
             this.runningMode = runningMode;
             return this;
         }
         @CustomType.Setter
         public Builder runningModeAutoStopTimeoutInMinutes(@Nullable Integer runningModeAutoStopTimeoutInMinutes) {
+
             this.runningModeAutoStopTimeoutInMinutes = runningModeAutoStopTimeoutInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder userVolumeSizeGib(@Nullable Integer userVolumeSizeGib) {
+
             this.userVolumeSizeGib = userVolumeSizeGib;
             return this;
         }

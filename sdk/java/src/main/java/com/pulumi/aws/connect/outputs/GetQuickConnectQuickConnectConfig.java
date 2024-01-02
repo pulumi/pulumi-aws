@@ -7,6 +7,7 @@ import com.pulumi.aws.connect.outputs.GetQuickConnectQuickConnectConfigPhoneConf
 import com.pulumi.aws.connect.outputs.GetQuickConnectQuickConnectConfigQueueConfig;
 import com.pulumi.aws.connect.outputs.GetQuickConnectQuickConnectConfigUserConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -88,7 +89,10 @@ public final class GetQuickConnectQuickConnectConfig {
 
         @CustomType.Setter
         public Builder phoneConfigs(List<GetQuickConnectQuickConnectConfigPhoneConfig> phoneConfigs) {
-            this.phoneConfigs = Objects.requireNonNull(phoneConfigs);
+            if (phoneConfigs == null) {
+              throw new MissingRequiredPropertyException("GetQuickConnectQuickConnectConfig", "phoneConfigs");
+            }
+            this.phoneConfigs = phoneConfigs;
             return this;
         }
         public Builder phoneConfigs(GetQuickConnectQuickConnectConfigPhoneConfig... phoneConfigs) {
@@ -96,7 +100,10 @@ public final class GetQuickConnectQuickConnectConfig {
         }
         @CustomType.Setter
         public Builder queueConfigs(List<GetQuickConnectQuickConnectConfigQueueConfig> queueConfigs) {
-            this.queueConfigs = Objects.requireNonNull(queueConfigs);
+            if (queueConfigs == null) {
+              throw new MissingRequiredPropertyException("GetQuickConnectQuickConnectConfig", "queueConfigs");
+            }
+            this.queueConfigs = queueConfigs;
             return this;
         }
         public Builder queueConfigs(GetQuickConnectQuickConnectConfigQueueConfig... queueConfigs) {
@@ -104,12 +111,18 @@ public final class GetQuickConnectQuickConnectConfig {
         }
         @CustomType.Setter
         public Builder quickConnectType(String quickConnectType) {
-            this.quickConnectType = Objects.requireNonNull(quickConnectType);
+            if (quickConnectType == null) {
+              throw new MissingRequiredPropertyException("GetQuickConnectQuickConnectConfig", "quickConnectType");
+            }
+            this.quickConnectType = quickConnectType;
             return this;
         }
         @CustomType.Setter
         public Builder userConfigs(List<GetQuickConnectQuickConnectConfigUserConfig> userConfigs) {
-            this.userConfigs = Objects.requireNonNull(userConfigs);
+            if (userConfigs == null) {
+              throw new MissingRequiredPropertyException("GetQuickConnectQuickConnectConfig", "userConfigs");
+            }
+            this.userConfigs = userConfigs;
             return this;
         }
         public Builder userConfigs(GetQuickConnectQuickConnectConfigUserConfig... userConfigs) {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
         @CustomType.Setter
         public Builder instanceUrl(String instanceUrl) {
-            this.instanceUrl = Objects.requireNonNull(instanceUrl);
+            if (instanceUrl == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog", "instanceUrl");
+            }
+            this.instanceUrl = instanceUrl;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog build() {

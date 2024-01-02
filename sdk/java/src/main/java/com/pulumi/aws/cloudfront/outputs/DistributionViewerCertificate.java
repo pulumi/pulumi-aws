@@ -101,26 +101,31 @@ public final class DistributionViewerCertificate {
 
         @CustomType.Setter
         public Builder acmCertificateArn(@Nullable String acmCertificateArn) {
+
             this.acmCertificateArn = acmCertificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder cloudfrontDefaultCertificate(@Nullable Boolean cloudfrontDefaultCertificate) {
+
             this.cloudfrontDefaultCertificate = cloudfrontDefaultCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder iamCertificateId(@Nullable String iamCertificateId) {
+
             this.iamCertificateId = iamCertificateId;
             return this;
         }
         @CustomType.Setter
         public Builder minimumProtocolVersion(@Nullable String minimumProtocolVersion) {
+
             this.minimumProtocolVersion = minimumProtocolVersion;
             return this;
         }
         @CustomType.Setter
         public Builder sslSupportMethod(@Nullable String sslSupportMethod) {
+
             this.sslSupportMethod = sslSupportMethod;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.opensearch;
 import com.pulumi.aws.opensearch.inputs.DomainSamlOptionsSamlOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -122,7 +123,9 @@ public final class DomainSamlOptionsArgs extends com.pulumi.resources.ResourceAr
         }
 
         public DomainSamlOptionsArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("DomainSamlOptionsArgs", "domainName");
+            }
             return $;
         }
     }

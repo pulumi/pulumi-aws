@@ -4,6 +4,7 @@
 package com.pulumi.aws.location.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -147,47 +148,74 @@ public final class GetTrackerResult {
 
         @CustomType.Setter
         public Builder createTime(String createTime) {
-            this.createTime = Objects.requireNonNull(createTime);
+            if (createTime == null) {
+              throw new MissingRequiredPropertyException("GetTrackerResult", "createTime");
+            }
+            this.createTime = createTime;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetTrackerResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTrackerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetTrackerResult", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder positionFiltering(String positionFiltering) {
-            this.positionFiltering = Objects.requireNonNull(positionFiltering);
+            if (positionFiltering == null) {
+              throw new MissingRequiredPropertyException("GetTrackerResult", "positionFiltering");
+            }
+            this.positionFiltering = positionFiltering;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetTrackerResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder trackerArn(String trackerArn) {
-            this.trackerArn = Objects.requireNonNull(trackerArn);
+            if (trackerArn == null) {
+              throw new MissingRequiredPropertyException("GetTrackerResult", "trackerArn");
+            }
+            this.trackerArn = trackerArn;
             return this;
         }
         @CustomType.Setter
         public Builder trackerName(String trackerName) {
-            this.trackerName = Objects.requireNonNull(trackerName);
+            if (trackerName == null) {
+              throw new MissingRequiredPropertyException("GetTrackerResult", "trackerName");
+            }
+            this.trackerName = trackerName;
             return this;
         }
         @CustomType.Setter
         public Builder updateTime(String updateTime) {
-            this.updateTime = Objects.requireNonNull(updateTime);
+            if (updateTime == null) {
+              throw new MissingRequiredPropertyException("GetTrackerResult", "updateTime");
+            }
+            this.updateTime = updateTime;
             return this;
         }
         public GetTrackerResult build() {

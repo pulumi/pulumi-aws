@@ -44,6 +44,7 @@ public final class VpnConnectionTunnel2LogOptions {
 
         @CustomType.Setter
         public Builder cloudwatchLogOptions(@Nullable VpnConnectionTunnel2LogOptionsCloudwatchLogOptions cloudwatchLogOptions) {
+
             this.cloudwatchLogOptions = cloudwatchLogOptions;
             return this;
         }

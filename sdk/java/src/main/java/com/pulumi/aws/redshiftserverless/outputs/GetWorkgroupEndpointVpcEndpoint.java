@@ -5,6 +5,7 @@ package com.pulumi.aws.redshiftserverless.outputs;
 
 import com.pulumi.aws.redshiftserverless.outputs.GetWorkgroupEndpointVpcEndpointNetworkInterface;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,7 +73,10 @@ public final class GetWorkgroupEndpointVpcEndpoint {
 
         @CustomType.Setter
         public Builder networkInterfaces(List<GetWorkgroupEndpointVpcEndpointNetworkInterface> networkInterfaces) {
-            this.networkInterfaces = Objects.requireNonNull(networkInterfaces);
+            if (networkInterfaces == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupEndpointVpcEndpoint", "networkInterfaces");
+            }
+            this.networkInterfaces = networkInterfaces;
             return this;
         }
         public Builder networkInterfaces(GetWorkgroupEndpointVpcEndpointNetworkInterface... networkInterfaces) {
@@ -80,12 +84,18 @@ public final class GetWorkgroupEndpointVpcEndpoint {
         }
         @CustomType.Setter
         public Builder vpcEndpointId(String vpcEndpointId) {
-            this.vpcEndpointId = Objects.requireNonNull(vpcEndpointId);
+            if (vpcEndpointId == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupEndpointVpcEndpoint", "vpcEndpointId");
+            }
+            this.vpcEndpointId = vpcEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupEndpointVpcEndpoint", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetWorkgroupEndpointVpcEndpoint build() {

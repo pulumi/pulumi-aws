@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.BucketObjectLockConfigurationRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,11 +60,15 @@ public final class BucketObjectLockConfiguration {
 
         @CustomType.Setter
         public Builder objectLockEnabled(String objectLockEnabled) {
-            this.objectLockEnabled = Objects.requireNonNull(objectLockEnabled);
+            if (objectLockEnabled == null) {
+              throw new MissingRequiredPropertyException("BucketObjectLockConfiguration", "objectLockEnabled");
+            }
+            this.objectLockEnabled = objectLockEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder rule(@Nullable BucketObjectLockConfigurationRule rule) {
+
             this.rule = rule;
             return this;
         }

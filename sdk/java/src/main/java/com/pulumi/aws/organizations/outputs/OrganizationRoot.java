@@ -88,21 +88,25 @@ public final class OrganizationRoot {
 
         @CustomType.Setter
         public Builder arn(@Nullable String arn) {
+
             this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder policyTypes(@Nullable List<OrganizationRootPolicyType> policyTypes) {
+
             this.policyTypes = policyTypes;
             return this;
         }

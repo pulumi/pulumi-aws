@@ -5,6 +5,7 @@ package com.pulumi.aws.budgets.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class BudgetActionActionThresholdArgs extends com.pulumi.resources.
         }
 
         public BudgetActionActionThresholdArgs build() {
-            $.actionThresholdType = Objects.requireNonNull($.actionThresholdType, "expected parameter 'actionThresholdType' to be non-null");
-            $.actionThresholdValue = Objects.requireNonNull($.actionThresholdValue, "expected parameter 'actionThresholdValue' to be non-null");
+            if ($.actionThresholdType == null) {
+                throw new MissingRequiredPropertyException("BudgetActionActionThresholdArgs", "actionThresholdType");
+            }
+            if ($.actionThresholdValue == null) {
+                throw new MissingRequiredPropertyException("BudgetActionActionThresholdArgs", "actionThresholdValue");
+            }
             return $;
         }
     }

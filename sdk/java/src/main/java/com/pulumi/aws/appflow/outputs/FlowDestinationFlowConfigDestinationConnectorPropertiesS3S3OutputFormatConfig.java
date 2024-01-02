@@ -89,21 +89,25 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
 
         @CustomType.Setter
         public Builder aggregationConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig aggregationConfig) {
+
             this.aggregationConfig = aggregationConfig;
             return this;
         }
         @CustomType.Setter
         public Builder fileType(@Nullable String fileType) {
+
             this.fileType = fileType;
             return this;
         }
         @CustomType.Setter
         public Builder prefixConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig prefixConfig) {
+
             this.prefixConfig = prefixConfig;
             return this;
         }
         @CustomType.Setter
         public Builder preserveSourceDataTyping(@Nullable Boolean preserveSourceDataTyping) {
+
             this.preserveSourceDataTyping = preserveSourceDataTyping;
             return this;
         }

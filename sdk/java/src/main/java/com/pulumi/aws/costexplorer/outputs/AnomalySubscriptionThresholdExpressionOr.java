@@ -74,16 +74,19 @@ public final class AnomalySubscriptionThresholdExpressionOr {
 
         @CustomType.Setter
         public Builder costCategory(@Nullable AnomalySubscriptionThresholdExpressionOrCostCategory costCategory) {
+
             this.costCategory = costCategory;
             return this;
         }
         @CustomType.Setter
         public Builder dimension(@Nullable AnomalySubscriptionThresholdExpressionOrDimension dimension) {
+
             this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable AnomalySubscriptionThresholdExpressionOrTags tags) {
+
             this.tags = tags;
             return this;
         }

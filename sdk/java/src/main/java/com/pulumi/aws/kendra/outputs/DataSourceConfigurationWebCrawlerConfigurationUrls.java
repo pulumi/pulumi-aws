@@ -59,11 +59,13 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrls {
 
         @CustomType.Setter
         public Builder seedUrlConfiguration(@Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration seedUrlConfiguration) {
+
             this.seedUrlConfiguration = seedUrlConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder siteMapsConfiguration(@Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration siteMapsConfiguration) {
+
             this.siteMapsConfiguration = siteMapsConfiguration;
             return this;
         }

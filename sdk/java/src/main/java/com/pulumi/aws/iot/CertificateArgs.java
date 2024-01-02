@@ -5,6 +5,7 @@ package com.pulumi.aws.iot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -220,7 +221,9 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CertificateArgs build() {
-            $.active = Objects.requireNonNull($.active, "expected parameter 'active' to be non-null");
+            if ($.active == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "active");
+            }
             return $;
         }
     }

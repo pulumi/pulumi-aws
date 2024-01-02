@@ -58,11 +58,13 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocat
 
         @CustomType.Setter
         public Builder bucket(@Nullable String bucket) {
+
             this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }

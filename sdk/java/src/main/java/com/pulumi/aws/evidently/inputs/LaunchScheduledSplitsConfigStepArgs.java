@@ -6,6 +6,7 @@ package com.pulumi.aws.evidently.inputs;
 import com.pulumi.aws.evidently.inputs.LaunchScheduledSplitsConfigStepSegmentOverrideArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -164,8 +165,12 @@ public final class LaunchScheduledSplitsConfigStepArgs extends com.pulumi.resour
         }
 
         public LaunchScheduledSplitsConfigStepArgs build() {
-            $.groupWeights = Objects.requireNonNull($.groupWeights, "expected parameter 'groupWeights' to be non-null");
-            $.startTime = Objects.requireNonNull($.startTime, "expected parameter 'startTime' to be non-null");
+            if ($.groupWeights == null) {
+                throw new MissingRequiredPropertyException("LaunchScheduledSplitsConfigStepArgs", "groupWeights");
+            }
+            if ($.startTime == null) {
+                throw new MissingRequiredPropertyException("LaunchScheduledSplitsConfigStepArgs", "startTime");
+            }
             return $;
         }
     }

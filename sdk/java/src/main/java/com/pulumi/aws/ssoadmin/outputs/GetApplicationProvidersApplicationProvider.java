@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin.outputs;
 
 import com.pulumi.aws.ssoadmin.outputs.GetApplicationProvidersApplicationProviderDisplayData;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,11 +74,15 @@ public final class GetApplicationProvidersApplicationProvider {
 
         @CustomType.Setter
         public Builder applicationProviderArn(String applicationProviderArn) {
-            this.applicationProviderArn = Objects.requireNonNull(applicationProviderArn);
+            if (applicationProviderArn == null) {
+              throw new MissingRequiredPropertyException("GetApplicationProvidersApplicationProvider", "applicationProviderArn");
+            }
+            this.applicationProviderArn = applicationProviderArn;
             return this;
         }
         @CustomType.Setter
         public Builder displayDatas(@Nullable List<GetApplicationProvidersApplicationProviderDisplayData> displayDatas) {
+
             this.displayDatas = displayDatas;
             return this;
         }
@@ -86,7 +91,10 @@ public final class GetApplicationProvidersApplicationProvider {
         }
         @CustomType.Setter
         public Builder federationProtocol(String federationProtocol) {
-            this.federationProtocol = Objects.requireNonNull(federationProtocol);
+            if (federationProtocol == null) {
+              throw new MissingRequiredPropertyException("GetApplicationProvidersApplicationProvider", "federationProtocol");
+            }
+            this.federationProtocol = federationProtocol;
             return this;
         }
         public GetApplicationProvidersApplicationProvider build() {

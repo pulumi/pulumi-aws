@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class FlowDefinitionHumanLoopActivationConfigHumanLoopActivationCon
         }
 
         public FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs build() {
-            $.humanLoopActivationConditions = Objects.requireNonNull($.humanLoopActivationConditions, "expected parameter 'humanLoopActivationConditions' to be non-null");
+            if ($.humanLoopActivationConditions == null) {
+                throw new MissingRequiredPropertyException("FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs", "humanLoopActivationConditions");
+            }
             return $;
         }
     }

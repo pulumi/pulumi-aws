@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -146,7 +147,9 @@ public final class GetPrebuiltEcrImagePlainArgs extends com.pulumi.resources.Inv
         }
 
         public GetPrebuiltEcrImagePlainArgs build() {
-            $.repositoryName = Objects.requireNonNull($.repositoryName, "expected parameter 'repositoryName' to be non-null");
+            if ($.repositoryName == null) {
+                throw new MissingRequiredPropertyException("GetPrebuiltEcrImagePlainArgs", "repositoryName");
+            }
             return $;
         }
     }

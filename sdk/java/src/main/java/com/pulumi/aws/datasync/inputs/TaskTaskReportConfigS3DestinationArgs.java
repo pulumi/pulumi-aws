@@ -5,6 +5,7 @@ package com.pulumi.aws.datasync.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class TaskTaskReportConfigS3DestinationArgs extends com.pulumi.reso
         }
 
         public TaskTaskReportConfigS3DestinationArgs build() {
-            $.bucketAccessRoleArn = Objects.requireNonNull($.bucketAccessRoleArn, "expected parameter 'bucketAccessRoleArn' to be non-null");
-            $.s3BucketArn = Objects.requireNonNull($.s3BucketArn, "expected parameter 's3BucketArn' to be non-null");
+            if ($.bucketAccessRoleArn == null) {
+                throw new MissingRequiredPropertyException("TaskTaskReportConfigS3DestinationArgs", "bucketAccessRoleArn");
+            }
+            if ($.s3BucketArn == null) {
+                throw new MissingRequiredPropertyException("TaskTaskReportConfigS3DestinationArgs", "s3BucketArn");
+            }
             return $;
         }
     }

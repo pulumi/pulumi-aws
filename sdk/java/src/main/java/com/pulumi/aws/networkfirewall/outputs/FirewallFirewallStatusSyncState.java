@@ -60,6 +60,7 @@ public final class FirewallFirewallStatusSyncState {
 
         @CustomType.Setter
         public Builder attachments(@Nullable List<FirewallFirewallStatusSyncStateAttachment> attachments) {
+
             this.attachments = attachments;
             return this;
         }
@@ -68,6 +69,7 @@ public final class FirewallFirewallStatusSyncState {
         }
         @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
+
             this.availabilityZone = availabilityZone;
             return this;
         }

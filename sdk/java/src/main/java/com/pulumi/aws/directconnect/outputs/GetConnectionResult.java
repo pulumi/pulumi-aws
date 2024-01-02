@@ -4,6 +4,7 @@
 package com.pulumi.aws.directconnect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -176,57 +177,90 @@ public final class GetConnectionResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder awsDevice(String awsDevice) {
-            this.awsDevice = Objects.requireNonNull(awsDevice);
+            if (awsDevice == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "awsDevice");
+            }
+            this.awsDevice = awsDevice;
             return this;
         }
         @CustomType.Setter
         public Builder bandwidth(String bandwidth) {
-            this.bandwidth = Objects.requireNonNull(bandwidth);
+            if (bandwidth == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "bandwidth");
+            }
+            this.bandwidth = bandwidth;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ownerAccountId(String ownerAccountId) {
-            this.ownerAccountId = Objects.requireNonNull(ownerAccountId);
+            if (ownerAccountId == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "ownerAccountId");
+            }
+            this.ownerAccountId = ownerAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder partnerName(String partnerName) {
-            this.partnerName = Objects.requireNonNull(partnerName);
+            if (partnerName == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "partnerName");
+            }
+            this.partnerName = partnerName;
             return this;
         }
         @CustomType.Setter
         public Builder providerName(String providerName) {
-            this.providerName = Objects.requireNonNull(providerName);
+            if (providerName == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "providerName");
+            }
+            this.providerName = providerName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vlanId(Integer vlanId) {
-            this.vlanId = Objects.requireNonNull(vlanId);
+            if (vlanId == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "vlanId");
+            }
+            this.vlanId = vlanId;
             return this;
         }
         public GetConnectionResult build() {

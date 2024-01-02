@@ -8,6 +8,7 @@ import com.pulumi.aws.s3.inputs.InventoryFilterArgs;
 import com.pulumi.aws.s3.inputs.InventoryScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -350,10 +351,18 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public InventoryArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
-            $.includedObjectVersions = Objects.requireNonNull($.includedObjectVersions, "expected parameter 'includedObjectVersions' to be non-null");
-            $.schedule = Objects.requireNonNull($.schedule, "expected parameter 'schedule' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("InventoryArgs", "bucket");
+            }
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("InventoryArgs", "destination");
+            }
+            if ($.includedObjectVersions == null) {
+                throw new MissingRequiredPropertyException("InventoryArgs", "includedObjectVersions");
+            }
+            if ($.schedule == null) {
+                throw new MissingRequiredPropertyException("InventoryArgs", "schedule");
+            }
             return $;
         }
     }

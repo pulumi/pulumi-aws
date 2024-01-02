@@ -72,16 +72,19 @@ public final class AppCampaignHook {
 
         @CustomType.Setter
         public Builder lambdaFunctionName(@Nullable String lambdaFunctionName) {
+
             this.lambdaFunctionName = lambdaFunctionName;
             return this;
         }
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder webUrl(@Nullable String webUrl) {
+
             this.webUrl = webUrl;
             return this;
         }

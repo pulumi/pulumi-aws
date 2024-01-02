@@ -59,6 +59,7 @@ public final class IndexIndexStatistic {
 
         @CustomType.Setter
         public Builder faqStatistics(@Nullable List<IndexIndexStatisticFaqStatistic> faqStatistics) {
+
             this.faqStatistics = faqStatistics;
             return this;
         }
@@ -67,6 +68,7 @@ public final class IndexIndexStatistic {
         }
         @CustomType.Setter
         public Builder textDocumentStatistics(@Nullable List<IndexIndexStatisticTextDocumentStatistic> textDocumentStatistics) {
+
             this.textDocumentStatistics = textDocumentStatistics;
             return this;
         }

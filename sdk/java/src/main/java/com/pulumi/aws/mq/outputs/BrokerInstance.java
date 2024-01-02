@@ -49,11 +49,13 @@ public final class BrokerInstance {
 
         @CustomType.Setter
         public Builder consoleUrl(@Nullable String consoleUrl) {
+
             this.consoleUrl = consoleUrl;
             return this;
         }
         @CustomType.Setter
         public Builder endpoints(@Nullable List<String> endpoints) {
+
             this.endpoints = endpoints;
             return this;
         }
@@ -62,6 +64,7 @@ public final class BrokerInstance {
         }
         @CustomType.Setter
         public Builder ipAddress(@Nullable String ipAddress) {
+
             this.ipAddress = ipAddress;
             return this;
         }

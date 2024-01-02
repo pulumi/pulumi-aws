@@ -56,11 +56,13 @@ public final class ListenerDefaultAction {
 
         @CustomType.Setter
         public Builder fixedResponse(@Nullable ListenerDefaultActionFixedResponse fixedResponse) {
+
             this.fixedResponse = fixedResponse;
             return this;
         }
         @CustomType.Setter
         public Builder forwards(@Nullable List<ListenerDefaultActionForward> forwards) {
+
             this.forwards = forwards;
             return this;
         }

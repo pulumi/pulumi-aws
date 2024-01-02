@@ -18,6 +18,7 @@ import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisReturnPathComponentT
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute;
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisReturnPathComponentVpc;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -133,7 +134,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
 
         @CustomType.Setter
         public Builder aclRules(List<GetNetworkInsightsAnalysisReturnPathComponentAclRule> aclRules) {
-            this.aclRules = Objects.requireNonNull(aclRules);
+            if (aclRules == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponent", "aclRules");
+            }
+            this.aclRules = aclRules;
             return this;
         }
         public Builder aclRules(GetNetworkInsightsAnalysisReturnPathComponentAclRule... aclRules) {
@@ -141,7 +145,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
         }
         @CustomType.Setter
         public Builder additionalDetails(List<GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail> additionalDetails) {
-            this.additionalDetails = Objects.requireNonNull(additionalDetails);
+            if (additionalDetails == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponent", "additionalDetails");
+            }
+            this.additionalDetails = additionalDetails;
             return this;
         }
         public Builder additionalDetails(GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail... additionalDetails) {
@@ -149,7 +156,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
         }
         @CustomType.Setter
         public Builder attachedTos(List<GetNetworkInsightsAnalysisReturnPathComponentAttachedTo> attachedTos) {
-            this.attachedTos = Objects.requireNonNull(attachedTos);
+            if (attachedTos == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponent", "attachedTos");
+            }
+            this.attachedTos = attachedTos;
             return this;
         }
         public Builder attachedTos(GetNetworkInsightsAnalysisReturnPathComponentAttachedTo... attachedTos) {
@@ -157,7 +167,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
         }
         @CustomType.Setter
         public Builder components(List<GetNetworkInsightsAnalysisReturnPathComponentComponent> components) {
-            this.components = Objects.requireNonNull(components);
+            if (components == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponent", "components");
+            }
+            this.components = components;
             return this;
         }
         public Builder components(GetNetworkInsightsAnalysisReturnPathComponentComponent... components) {
@@ -165,7 +178,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
         }
         @CustomType.Setter
         public Builder destinationVpcs(List<GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc> destinationVpcs) {
-            this.destinationVpcs = Objects.requireNonNull(destinationVpcs);
+            if (destinationVpcs == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponent", "destinationVpcs");
+            }
+            this.destinationVpcs = destinationVpcs;
             return this;
         }
         public Builder destinationVpcs(GetNetworkInsightsAnalysisReturnPathComponentDestinationVpc... destinationVpcs) {
@@ -173,7 +189,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
         }
         @CustomType.Setter
         public Builder inboundHeaders(List<GetNetworkInsightsAnalysisReturnPathComponentInboundHeader> inboundHeaders) {
-            this.inboundHeaders = Objects.requireNonNull(inboundHeaders);
+            if (inboundHeaders == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponent", "inboundHeaders");
+            }
+            this.inboundHeaders = inboundHeaders;
             return this;
         }
         public Builder inboundHeaders(GetNetworkInsightsAnalysisReturnPathComponentInboundHeader... inboundHeaders) {
@@ -181,7 +200,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
         }
         @CustomType.Setter
         public Builder outboundHeaders(List<GetNetworkInsightsAnalysisReturnPathComponentOutboundHeader> outboundHeaders) {
-            this.outboundHeaders = Objects.requireNonNull(outboundHeaders);
+            if (outboundHeaders == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponent", "outboundHeaders");
+            }
+            this.outboundHeaders = outboundHeaders;
             return this;
         }
         public Builder outboundHeaders(GetNetworkInsightsAnalysisReturnPathComponentOutboundHeader... outboundHeaders) {
@@ -189,7 +211,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
         }
         @CustomType.Setter
         public Builder routeTableRoutes(List<GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute> routeTableRoutes) {
-            this.routeTableRoutes = Objects.requireNonNull(routeTableRoutes);
+            if (routeTableRoutes == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponent", "routeTableRoutes");
+            }
+            this.routeTableRoutes = routeTableRoutes;
             return this;
         }
         public Builder routeTableRoutes(GetNetworkInsightsAnalysisReturnPathComponentRouteTableRoute... routeTableRoutes) {
@@ -197,7 +222,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
         }
         @CustomType.Setter
         public Builder securityGroupRules(List<GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule> securityGroupRules) {
-            this.securityGroupRules = Objects.requireNonNull(securityGroupRules);
+            if (securityGroupRules == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponent", "securityGroupRules");
+            }
+            this.securityGroupRules = securityGroupRules;
             return this;
         }
         public Builder securityGroupRules(GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRule... securityGroupRules) {
@@ -205,12 +233,18 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
         }
         @CustomType.Setter
         public Builder sequenceNumber(Integer sequenceNumber) {
-            this.sequenceNumber = Objects.requireNonNull(sequenceNumber);
+            if (sequenceNumber == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponent", "sequenceNumber");
+            }
+            this.sequenceNumber = sequenceNumber;
             return this;
         }
         @CustomType.Setter
         public Builder sourceVpcs(List<GetNetworkInsightsAnalysisReturnPathComponentSourceVpc> sourceVpcs) {
-            this.sourceVpcs = Objects.requireNonNull(sourceVpcs);
+            if (sourceVpcs == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponent", "sourceVpcs");
+            }
+            this.sourceVpcs = sourceVpcs;
             return this;
         }
         public Builder sourceVpcs(GetNetworkInsightsAnalysisReturnPathComponentSourceVpc... sourceVpcs) {
@@ -218,7 +252,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
         }
         @CustomType.Setter
         public Builder subnets(List<GetNetworkInsightsAnalysisReturnPathComponentSubnet> subnets) {
-            this.subnets = Objects.requireNonNull(subnets);
+            if (subnets == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponent", "subnets");
+            }
+            this.subnets = subnets;
             return this;
         }
         public Builder subnets(GetNetworkInsightsAnalysisReturnPathComponentSubnet... subnets) {
@@ -226,7 +263,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
         }
         @CustomType.Setter
         public Builder transitGatewayRouteTableRoutes(List<GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes) {
-            this.transitGatewayRouteTableRoutes = Objects.requireNonNull(transitGatewayRouteTableRoutes);
+            if (transitGatewayRouteTableRoutes == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponent", "transitGatewayRouteTableRoutes");
+            }
+            this.transitGatewayRouteTableRoutes = transitGatewayRouteTableRoutes;
             return this;
         }
         public Builder transitGatewayRouteTableRoutes(GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute... transitGatewayRouteTableRoutes) {
@@ -234,7 +274,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
         }
         @CustomType.Setter
         public Builder transitGateways(List<GetNetworkInsightsAnalysisReturnPathComponentTransitGateway> transitGateways) {
-            this.transitGateways = Objects.requireNonNull(transitGateways);
+            if (transitGateways == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponent", "transitGateways");
+            }
+            this.transitGateways = transitGateways;
             return this;
         }
         public Builder transitGateways(GetNetworkInsightsAnalysisReturnPathComponentTransitGateway... transitGateways) {
@@ -242,7 +285,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponent {
         }
         @CustomType.Setter
         public Builder vpcs(List<GetNetworkInsightsAnalysisReturnPathComponentVpc> vpcs) {
-            this.vpcs = Objects.requireNonNull(vpcs);
+            if (vpcs == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponent", "vpcs");
+            }
+            this.vpcs = vpcs;
             return this;
         }
         public Builder vpcs(GetNetworkInsightsAnalysisReturnPathComponentVpc... vpcs) {

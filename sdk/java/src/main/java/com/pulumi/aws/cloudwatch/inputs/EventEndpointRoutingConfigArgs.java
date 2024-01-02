@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigFailoverConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class EventEndpointRoutingConfigArgs extends com.pulumi.resources.R
         }
 
         public EventEndpointRoutingConfigArgs build() {
-            $.failoverConfig = Objects.requireNonNull($.failoverConfig, "expected parameter 'failoverConfig' to be non-null");
+            if ($.failoverConfig == null) {
+                throw new MissingRequiredPropertyException("EventEndpointRoutingConfigArgs", "failoverConfig");
+            }
             return $;
         }
     }

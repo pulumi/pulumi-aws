@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs build() {
-            $.accessKeyId = Objects.requireNonNull($.accessKeyId, "expected parameter 'accessKeyId' to be non-null");
-            $.datakey = Objects.requireNonNull($.datakey, "expected parameter 'datakey' to be non-null");
-            $.secretAccessKey = Objects.requireNonNull($.secretAccessKey, "expected parameter 'secretAccessKey' to be non-null");
-            $.userId = Objects.requireNonNull($.userId, "expected parameter 'userId' to be non-null");
+            if ($.accessKeyId == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs", "accessKeyId");
+            }
+            if ($.datakey == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs", "datakey");
+            }
+            if ($.secretAccessKey == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs", "secretAccessKey");
+            }
+            if ($.userId == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs", "userId");
+            }
             return $;
         }
     }

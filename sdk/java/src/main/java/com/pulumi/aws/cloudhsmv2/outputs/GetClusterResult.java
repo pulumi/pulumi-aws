@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudhsmv2.outputs;
 
 import com.pulumi.aws.cloudhsmv2.outputs.GetClusterClusterCertificate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,10 @@ public final class GetClusterResult {
 
         @CustomType.Setter
         public Builder clusterCertificates(List<GetClusterClusterCertificate> clusterCertificates) {
-            this.clusterCertificates = Objects.requireNonNull(clusterCertificates);
+            if (clusterCertificates == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "clusterCertificates");
+            }
+            this.clusterCertificates = clusterCertificates;
             return this;
         }
         public Builder clusterCertificates(GetClusterClusterCertificate... clusterCertificates) {
@@ -132,27 +136,42 @@ public final class GetClusterResult {
         }
         @CustomType.Setter
         public Builder clusterId(String clusterId) {
-            this.clusterId = Objects.requireNonNull(clusterId);
+            if (clusterId == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "clusterId");
+            }
+            this.clusterId = clusterId;
             return this;
         }
         @CustomType.Setter
         public Builder clusterState(String clusterState) {
-            this.clusterState = Objects.requireNonNull(clusterState);
+            if (clusterState == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "clusterState");
+            }
+            this.clusterState = clusterState;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupId(String securityGroupId) {
-            this.securityGroupId = Objects.requireNonNull(securityGroupId);
+            if (securityGroupId == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "securityGroupId");
+            }
+            this.securityGroupId = securityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -160,7 +179,10 @@ public final class GetClusterResult {
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetClusterResult build() {

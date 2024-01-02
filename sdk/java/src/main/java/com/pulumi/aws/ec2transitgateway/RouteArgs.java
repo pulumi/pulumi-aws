@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RouteArgs build() {
-            $.destinationCidrBlock = Objects.requireNonNull($.destinationCidrBlock, "expected parameter 'destinationCidrBlock' to be non-null");
-            $.transitGatewayRouteTableId = Objects.requireNonNull($.transitGatewayRouteTableId, "expected parameter 'transitGatewayRouteTableId' to be non-null");
+            if ($.destinationCidrBlock == null) {
+                throw new MissingRequiredPropertyException("RouteArgs", "destinationCidrBlock");
+            }
+            if ($.transitGatewayRouteTableId == null) {
+                throw new MissingRequiredPropertyException("RouteArgs", "transitGatewayRouteTableId");
+            }
             return $;
         }
     }

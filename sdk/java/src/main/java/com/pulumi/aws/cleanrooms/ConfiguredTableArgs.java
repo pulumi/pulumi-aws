@@ -6,6 +6,7 @@ package com.pulumi.aws.cleanrooms;
 import com.pulumi.aws.cleanrooms.inputs.ConfiguredTableTableReferenceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -282,9 +283,15 @@ public final class ConfiguredTableArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ConfiguredTableArgs build() {
-            $.allowedColumns = Objects.requireNonNull($.allowedColumns, "expected parameter 'allowedColumns' to be non-null");
-            $.analysisMethod = Objects.requireNonNull($.analysisMethod, "expected parameter 'analysisMethod' to be non-null");
-            $.tableReference = Objects.requireNonNull($.tableReference, "expected parameter 'tableReference' to be non-null");
+            if ($.allowedColumns == null) {
+                throw new MissingRequiredPropertyException("ConfiguredTableArgs", "allowedColumns");
+            }
+            if ($.analysisMethod == null) {
+                throw new MissingRequiredPropertyException("ConfiguredTableArgs", "analysisMethod");
+            }
+            if ($.tableReference == null) {
+                throw new MissingRequiredPropertyException("ConfiguredTableArgs", "tableReference");
+            }
             return $;
         }
     }

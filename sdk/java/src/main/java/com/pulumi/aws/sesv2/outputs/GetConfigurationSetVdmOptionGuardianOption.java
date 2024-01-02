@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetConfigurationSetVdmOptionGuardianOption {
 
         @CustomType.Setter
         public Builder optimizedSharedDelivery(String optimizedSharedDelivery) {
-            this.optimizedSharedDelivery = Objects.requireNonNull(optimizedSharedDelivery);
+            if (optimizedSharedDelivery == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetVdmOptionGuardianOption", "optimizedSharedDelivery");
+            }
+            this.optimizedSharedDelivery = optimizedSharedDelivery;
             return this;
         }
         public GetConfigurationSetVdmOptionGuardianOption build() {

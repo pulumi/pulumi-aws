@@ -77,16 +77,19 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
 
         @CustomType.Setter
         public Builder largeDataDeliveryS3Config(@Nullable InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config largeDataDeliveryS3Config) {
+
             this.largeDataDeliveryS3Config = largeDataDeliveryS3Config;
             return this;
         }
         @CustomType.Setter
         public Builder logGroupName(@Nullable String logGroupName) {
+
             this.logGroupName = logGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
+
             this.roleArn = roleArn;
             return this;
         }

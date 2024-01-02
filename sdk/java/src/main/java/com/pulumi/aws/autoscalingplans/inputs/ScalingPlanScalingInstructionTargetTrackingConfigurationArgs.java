@@ -7,6 +7,7 @@ import com.pulumi.aws.autoscalingplans.inputs.ScalingPlanScalingInstructionTarge
 import com.pulumi.aws.autoscalingplans.inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -322,7 +323,9 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
         }
 
         public ScalingPlanScalingInstructionTargetTrackingConfigurationArgs build() {
-            $.targetValue = Objects.requireNonNull($.targetValue, "expected parameter 'targetValue' to be non-null");
+            if ($.targetValue == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScalingInstructionTargetTrackingConfigurationArgs", "targetValue");
+            }
             return $;
         }
     }

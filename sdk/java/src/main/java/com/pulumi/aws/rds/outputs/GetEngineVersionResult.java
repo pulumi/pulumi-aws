@@ -5,6 +5,7 @@ package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.aws.rds.outputs.GetEngineVersionFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -285,27 +286,40 @@ public final class GetEngineVersionResult {
 
         @CustomType.Setter
         public Builder defaultCharacterSet(String defaultCharacterSet) {
-            this.defaultCharacterSet = Objects.requireNonNull(defaultCharacterSet);
+            if (defaultCharacterSet == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "defaultCharacterSet");
+            }
+            this.defaultCharacterSet = defaultCharacterSet;
             return this;
         }
         @CustomType.Setter
         public Builder defaultOnly(@Nullable Boolean defaultOnly) {
+
             this.defaultOnly = defaultOnly;
             return this;
         }
         @CustomType.Setter
         public Builder engine(String engine) {
-            this.engine = Objects.requireNonNull(engine);
+            if (engine == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "engine");
+            }
+            this.engine = engine;
             return this;
         }
         @CustomType.Setter
         public Builder engineDescription(String engineDescription) {
-            this.engineDescription = Objects.requireNonNull(engineDescription);
+            if (engineDescription == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "engineDescription");
+            }
+            this.engineDescription = engineDescription;
             return this;
         }
         @CustomType.Setter
         public Builder exportableLogTypes(List<String> exportableLogTypes) {
-            this.exportableLogTypes = Objects.requireNonNull(exportableLogTypes);
+            if (exportableLogTypes == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "exportableLogTypes");
+            }
+            this.exportableLogTypes = exportableLogTypes;
             return this;
         }
         public Builder exportableLogTypes(String... exportableLogTypes) {
@@ -313,6 +327,7 @@ public final class GetEngineVersionResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetEngineVersionFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -321,21 +336,29 @@ public final class GetEngineVersionResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeAll(@Nullable Boolean includeAll) {
+
             this.includeAll = includeAll;
             return this;
         }
         @CustomType.Setter
         public Builder parameterGroupFamily(String parameterGroupFamily) {
-            this.parameterGroupFamily = Objects.requireNonNull(parameterGroupFamily);
+            if (parameterGroupFamily == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "parameterGroupFamily");
+            }
+            this.parameterGroupFamily = parameterGroupFamily;
             return this;
         }
         @CustomType.Setter
         public Builder preferredVersions(@Nullable List<String> preferredVersions) {
+
             this.preferredVersions = preferredVersions;
             return this;
         }
@@ -344,12 +367,18 @@ public final class GetEngineVersionResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder supportedCharacterSets(List<String> supportedCharacterSets) {
-            this.supportedCharacterSets = Objects.requireNonNull(supportedCharacterSets);
+            if (supportedCharacterSets == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportedCharacterSets");
+            }
+            this.supportedCharacterSets = supportedCharacterSets;
             return this;
         }
         public Builder supportedCharacterSets(String... supportedCharacterSets) {
@@ -357,7 +386,10 @@ public final class GetEngineVersionResult {
         }
         @CustomType.Setter
         public Builder supportedFeatureNames(List<String> supportedFeatureNames) {
-            this.supportedFeatureNames = Objects.requireNonNull(supportedFeatureNames);
+            if (supportedFeatureNames == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportedFeatureNames");
+            }
+            this.supportedFeatureNames = supportedFeatureNames;
             return this;
         }
         public Builder supportedFeatureNames(String... supportedFeatureNames) {
@@ -365,7 +397,10 @@ public final class GetEngineVersionResult {
         }
         @CustomType.Setter
         public Builder supportedModes(List<String> supportedModes) {
-            this.supportedModes = Objects.requireNonNull(supportedModes);
+            if (supportedModes == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportedModes");
+            }
+            this.supportedModes = supportedModes;
             return this;
         }
         public Builder supportedModes(String... supportedModes) {
@@ -373,7 +408,10 @@ public final class GetEngineVersionResult {
         }
         @CustomType.Setter
         public Builder supportedTimezones(List<String> supportedTimezones) {
-            this.supportedTimezones = Objects.requireNonNull(supportedTimezones);
+            if (supportedTimezones == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportedTimezones");
+            }
+            this.supportedTimezones = supportedTimezones;
             return this;
         }
         public Builder supportedTimezones(String... supportedTimezones) {
@@ -381,27 +419,42 @@ public final class GetEngineVersionResult {
         }
         @CustomType.Setter
         public Builder supportsGlobalDatabases(Boolean supportsGlobalDatabases) {
-            this.supportsGlobalDatabases = Objects.requireNonNull(supportsGlobalDatabases);
+            if (supportsGlobalDatabases == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportsGlobalDatabases");
+            }
+            this.supportsGlobalDatabases = supportsGlobalDatabases;
             return this;
         }
         @CustomType.Setter
         public Builder supportsLogExportsToCloudwatch(Boolean supportsLogExportsToCloudwatch) {
-            this.supportsLogExportsToCloudwatch = Objects.requireNonNull(supportsLogExportsToCloudwatch);
+            if (supportsLogExportsToCloudwatch == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportsLogExportsToCloudwatch");
+            }
+            this.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
             return this;
         }
         @CustomType.Setter
         public Builder supportsParallelQuery(Boolean supportsParallelQuery) {
-            this.supportsParallelQuery = Objects.requireNonNull(supportsParallelQuery);
+            if (supportsParallelQuery == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportsParallelQuery");
+            }
+            this.supportsParallelQuery = supportsParallelQuery;
             return this;
         }
         @CustomType.Setter
         public Builder supportsReadReplica(Boolean supportsReadReplica) {
-            this.supportsReadReplica = Objects.requireNonNull(supportsReadReplica);
+            if (supportsReadReplica == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportsReadReplica");
+            }
+            this.supportsReadReplica = supportsReadReplica;
             return this;
         }
         @CustomType.Setter
         public Builder validUpgradeTargets(List<String> validUpgradeTargets) {
-            this.validUpgradeTargets = Objects.requireNonNull(validUpgradeTargets);
+            if (validUpgradeTargets == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "validUpgradeTargets");
+            }
+            this.validUpgradeTargets = validUpgradeTargets;
             return this;
         }
         public Builder validUpgradeTargets(String... validUpgradeTargets) {
@@ -409,12 +462,18 @@ public final class GetEngineVersionResult {
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "version");
+            }
+            this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder versionDescription(String versionDescription) {
-            this.versionDescription = Objects.requireNonNull(versionDescription);
+            if (versionDescription == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "versionDescription");
+            }
+            this.versionDescription = versionDescription;
             return this;
         }
         public GetEngineVersionResult build() {

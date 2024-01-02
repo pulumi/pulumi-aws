@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -104,37 +105,54 @@ public final class GetDocumentResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetDocumentResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("GetDocumentResult", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder documentFormat(@Nullable String documentFormat) {
+
             this.documentFormat = documentFormat;
             return this;
         }
         @CustomType.Setter
         public Builder documentType(String documentType) {
-            this.documentType = Objects.requireNonNull(documentType);
+            if (documentType == null) {
+              throw new MissingRequiredPropertyException("GetDocumentResult", "documentType");
+            }
+            this.documentType = documentType;
             return this;
         }
         @CustomType.Setter
         public Builder documentVersion(@Nullable String documentVersion) {
+
             this.documentVersion = documentVersion;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDocumentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDocumentResult", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetDocumentResult build() {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,22 +88,30 @@ public final class EventTargetBatchTarget {
 
         @CustomType.Setter
         public Builder arraySize(@Nullable Integer arraySize) {
+
             this.arraySize = arraySize;
             return this;
         }
         @CustomType.Setter
         public Builder jobAttempts(@Nullable Integer jobAttempts) {
+
             this.jobAttempts = jobAttempts;
             return this;
         }
         @CustomType.Setter
         public Builder jobDefinition(String jobDefinition) {
-            this.jobDefinition = Objects.requireNonNull(jobDefinition);
+            if (jobDefinition == null) {
+              throw new MissingRequiredPropertyException("EventTargetBatchTarget", "jobDefinition");
+            }
+            this.jobDefinition = jobDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder jobName(String jobName) {
-            this.jobName = Objects.requireNonNull(jobName);
+            if (jobName == null) {
+              throw new MissingRequiredPropertyException("EventTargetBatchTarget", "jobName");
+            }
+            this.jobName = jobName;
             return this;
         }
         public EventTargetBatchTarget build() {

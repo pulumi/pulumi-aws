@@ -6,6 +6,7 @@ package com.pulumi.aws.cognito.outputs;
 import com.pulumi.aws.cognito.outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions;
 import com.pulumi.aws.cognito.outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -57,12 +58,18 @@ public final class RiskConfigurationAccountTakeoverRiskConfiguration {
 
         @CustomType.Setter
         public Builder actions(RiskConfigurationAccountTakeoverRiskConfigurationActions actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfiguration", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         @CustomType.Setter
         public Builder notifyConfiguration(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration) {
-            this.notifyConfiguration = Objects.requireNonNull(notifyConfiguration);
+            if (notifyConfiguration == null) {
+              throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfiguration", "notifyConfiguration");
+            }
+            this.notifyConfiguration = notifyConfiguration;
             return this;
         }
         public RiskConfigurationAccountTakeoverRiskConfiguration build() {

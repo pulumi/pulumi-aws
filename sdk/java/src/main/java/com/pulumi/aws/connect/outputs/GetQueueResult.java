@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.aws.connect.outputs.GetQueueOutboundCallerConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -170,42 +171,66 @@ public final class GetQueueResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder hoursOfOperationId(String hoursOfOperationId) {
-            this.hoursOfOperationId = Objects.requireNonNull(hoursOfOperationId);
+            if (hoursOfOperationId == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "hoursOfOperationId");
+            }
+            this.hoursOfOperationId = hoursOfOperationId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder maxContacts(Integer maxContacts) {
-            this.maxContacts = Objects.requireNonNull(maxContacts);
+            if (maxContacts == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "maxContacts");
+            }
+            this.maxContacts = maxContacts;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder outboundCallerConfigs(List<GetQueueOutboundCallerConfig> outboundCallerConfigs) {
-            this.outboundCallerConfigs = Objects.requireNonNull(outboundCallerConfigs);
+            if (outboundCallerConfigs == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "outboundCallerConfigs");
+            }
+            this.outboundCallerConfigs = outboundCallerConfigs;
             return this;
         }
         public Builder outboundCallerConfigs(GetQueueOutboundCallerConfig... outboundCallerConfigs) {
@@ -213,17 +238,26 @@ public final class GetQueueResult {
         }
         @CustomType.Setter
         public Builder queueId(String queueId) {
-            this.queueId = Objects.requireNonNull(queueId);
+            if (queueId == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "queueId");
+            }
+            this.queueId = queueId;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetQueueResult build() {

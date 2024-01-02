@@ -44,6 +44,7 @@ public final class TableImportTableInputFormatOptions {
 
         @CustomType.Setter
         public Builder csv(@Nullable TableImportTableInputFormatOptionsCsv csv) {
+
             this.csv = csv;
             return this;
         }

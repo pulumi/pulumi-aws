@@ -5,6 +5,7 @@ package com.pulumi.aws.evidently.outputs;
 
 import com.pulumi.aws.evidently.outputs.LaunchScheduledSplitsConfigStepSegmentOverride;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -75,11 +76,15 @@ public final class LaunchScheduledSplitsConfigStep {
 
         @CustomType.Setter
         public Builder groupWeights(Map<String,Integer> groupWeights) {
-            this.groupWeights = Objects.requireNonNull(groupWeights);
+            if (groupWeights == null) {
+              throw new MissingRequiredPropertyException("LaunchScheduledSplitsConfigStep", "groupWeights");
+            }
+            this.groupWeights = groupWeights;
             return this;
         }
         @CustomType.Setter
         public Builder segmentOverrides(@Nullable List<LaunchScheduledSplitsConfigStepSegmentOverride> segmentOverrides) {
+
             this.segmentOverrides = segmentOverrides;
             return this;
         }
@@ -88,7 +93,10 @@ public final class LaunchScheduledSplitsConfigStep {
         }
         @CustomType.Setter
         public Builder startTime(String startTime) {
-            this.startTime = Objects.requireNonNull(startTime);
+            if (startTime == null) {
+              throw new MissingRequiredPropertyException("LaunchScheduledSplitsConfigStep", "startTime");
+            }
+            this.startTime = startTime;
             return this;
         }
         public LaunchScheduledSplitsConfigStep build() {

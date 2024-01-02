@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrockfoundation.outputs;
 
 import com.pulumi.aws.bedrockfoundation.outputs.GetModelsModelSummary;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -84,31 +85,39 @@ public final class GetModelsResult {
 
         @CustomType.Setter
         public Builder byCustomizationType(@Nullable String byCustomizationType) {
+
             this.byCustomizationType = byCustomizationType;
             return this;
         }
         @CustomType.Setter
         public Builder byInferenceType(@Nullable String byInferenceType) {
+
             this.byInferenceType = byInferenceType;
             return this;
         }
         @CustomType.Setter
         public Builder byOutputModality(@Nullable String byOutputModality) {
+
             this.byOutputModality = byOutputModality;
             return this;
         }
         @CustomType.Setter
         public Builder byProvider(@Nullable String byProvider) {
+
             this.byProvider = byProvider;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetModelsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder modelSummaries(@Nullable List<GetModelsModelSummary> modelSummaries) {
+
             this.modelSummaries = modelSummaries;
             return this;
         }

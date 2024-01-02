@@ -6,6 +6,7 @@ package com.pulumi.aws.cfg;
 import com.pulumi.aws.cfg.inputs.RecorderRecordingGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -151,7 +152,9 @@ public final class RecorderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RecorderArgs build() {
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("RecorderArgs", "roleArn");
+            }
             return $;
         }
     }

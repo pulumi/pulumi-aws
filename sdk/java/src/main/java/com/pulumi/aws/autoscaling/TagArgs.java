@@ -6,6 +6,7 @@ package com.pulumi.aws.autoscaling;
 import com.pulumi.aws.autoscaling.inputs.TagTagArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TagArgs build() {
-            $.autoscalingGroupName = Objects.requireNonNull($.autoscalingGroupName, "expected parameter 'autoscalingGroupName' to be non-null");
-            $.tag = Objects.requireNonNull($.tag, "expected parameter 'tag' to be non-null");
+            if ($.autoscalingGroupName == null) {
+                throw new MissingRequiredPropertyException("TagArgs", "autoscalingGroupName");
+            }
+            if ($.tag == null) {
+                throw new MissingRequiredPropertyException("TagArgs", "tag");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
         @CustomType.Setter
         public Builder track(Integer track) {
-            this.track = Objects.requireNonNull(track);
+            if (track == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack", "track");
+            }
+            this.track = track;
             return this;
         }
         public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack build() {

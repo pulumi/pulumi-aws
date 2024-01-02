@@ -6,6 +6,7 @@ package com.pulumi.aws.fsx;
 import com.pulumi.aws.fsx.inputs.OntapFileSystemDiskIopsConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -665,10 +666,18 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public OntapFileSystemArgs build() {
-            $.deploymentType = Objects.requireNonNull($.deploymentType, "expected parameter 'deploymentType' to be non-null");
-            $.preferredSubnetId = Objects.requireNonNull($.preferredSubnetId, "expected parameter 'preferredSubnetId' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.throughputCapacity = Objects.requireNonNull($.throughputCapacity, "expected parameter 'throughputCapacity' to be non-null");
+            if ($.deploymentType == null) {
+                throw new MissingRequiredPropertyException("OntapFileSystemArgs", "deploymentType");
+            }
+            if ($.preferredSubnetId == null) {
+                throw new MissingRequiredPropertyException("OntapFileSystemArgs", "preferredSubnetId");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("OntapFileSystemArgs", "subnetIds");
+            }
+            if ($.throughputCapacity == null) {
+                throw new MissingRequiredPropertyException("OntapFileSystemArgs", "throughputCapacity");
+            }
             return $;
         }
     }

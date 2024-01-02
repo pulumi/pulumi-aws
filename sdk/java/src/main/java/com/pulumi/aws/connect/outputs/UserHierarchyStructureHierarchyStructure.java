@@ -108,26 +108,31 @@ public final class UserHierarchyStructureHierarchyStructure {
 
         @CustomType.Setter
         public Builder levelFive(@Nullable UserHierarchyStructureHierarchyStructureLevelFive levelFive) {
+
             this.levelFive = levelFive;
             return this;
         }
         @CustomType.Setter
         public Builder levelFour(@Nullable UserHierarchyStructureHierarchyStructureLevelFour levelFour) {
+
             this.levelFour = levelFour;
             return this;
         }
         @CustomType.Setter
         public Builder levelOne(@Nullable UserHierarchyStructureHierarchyStructureLevelOne levelOne) {
+
             this.levelOne = levelOne;
             return this;
         }
         @CustomType.Setter
         public Builder levelThree(@Nullable UserHierarchyStructureHierarchyStructureLevelThree levelThree) {
+
             this.levelThree = levelThree;
             return this;
         }
         @CustomType.Setter
         public Builder levelTwo(@Nullable UserHierarchyStructureHierarchyStructureLevelTwo levelTwo) {
+
             this.levelTwo = levelTwo;
             return this;
         }

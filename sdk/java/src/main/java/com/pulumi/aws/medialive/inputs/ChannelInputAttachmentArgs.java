@@ -7,6 +7,7 @@ import com.pulumi.aws.medialive.inputs.ChannelInputAttachmentAutomaticInputFailo
 import com.pulumi.aws.medialive.inputs.ChannelInputAttachmentInputSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -189,8 +190,12 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
         }
 
         public ChannelInputAttachmentArgs build() {
-            $.inputAttachmentName = Objects.requireNonNull($.inputAttachmentName, "expected parameter 'inputAttachmentName' to be non-null");
-            $.inputId = Objects.requireNonNull($.inputId, "expected parameter 'inputId' to be non-null");
+            if ($.inputAttachmentName == null) {
+                throw new MissingRequiredPropertyException("ChannelInputAttachmentArgs", "inputAttachmentName");
+            }
+            if ($.inputId == null) {
+                throw new MissingRequiredPropertyException("ChannelInputAttachmentArgs", "inputId");
+            }
             return $;
         }
     }

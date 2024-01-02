@@ -5,6 +5,7 @@ package com.pulumi.aws.msk.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -246,7 +247,9 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
         }
 
         public ReplicatorReplicationInfoListTopicReplicationArgs build() {
-            $.topicsToReplicates = Objects.requireNonNull($.topicsToReplicates, "expected parameter 'topicsToReplicates' to be non-null");
+            if ($.topicsToReplicates == null) {
+                throw new MissingRequiredPropertyException("ReplicatorReplicationInfoListTopicReplicationArgs", "topicsToReplicates");
+            }
             return $;
         }
     }

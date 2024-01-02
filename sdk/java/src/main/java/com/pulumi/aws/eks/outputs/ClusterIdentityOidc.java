@@ -44,6 +44,7 @@ public final class ClusterIdentityOidc {
 
         @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
+
             this.issuer = issuer;
             return this;
         }

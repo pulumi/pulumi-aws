@@ -44,6 +44,7 @@ public final class UserProfileUserSettingsTensorBoardAppSettings {
 
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec) {
+
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }

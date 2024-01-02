@@ -6,6 +6,7 @@ package com.pulumi.aws.autoscaling.outputs;
 import com.pulumi.aws.autoscaling.outputs.GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification;
 import com.pulumi.aws.autoscaling.outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverride;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplate {
 
         @CustomType.Setter
         public Builder launchTemplateSpecifications(List<GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification> launchTemplateSpecifications) {
-            this.launchTemplateSpecifications = Objects.requireNonNull(launchTemplateSpecifications);
+            if (launchTemplateSpecifications == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplate", "launchTemplateSpecifications");
+            }
+            this.launchTemplateSpecifications = launchTemplateSpecifications;
             return this;
         }
         public Builder launchTemplateSpecifications(GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification... launchTemplateSpecifications) {
@@ -66,7 +70,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplate {
         }
         @CustomType.Setter
         public Builder overrides(List<GetGroupMixedInstancesPolicyLaunchTemplateOverride> overrides) {
-            this.overrides = Objects.requireNonNull(overrides);
+            if (overrides == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplate", "overrides");
+            }
+            this.overrides = overrides;
             return this;
         }
         public Builder overrides(GetGroupMixedInstancesPolicyLaunchTemplateOverride... overrides) {

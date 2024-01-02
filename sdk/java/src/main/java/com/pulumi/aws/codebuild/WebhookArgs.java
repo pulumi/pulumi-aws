@@ -6,6 +6,7 @@ package com.pulumi.aws.codebuild;
 import com.pulumi.aws.codebuild.inputs.WebhookFilterGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,7 +200,9 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WebhookArgs build() {
-            $.projectName = Objects.requireNonNull($.projectName, "expected parameter 'projectName' to be non-null");
+            if ($.projectName == null) {
+                throw new MissingRequiredPropertyException("WebhookArgs", "projectName");
+            }
             return $;
         }
     }

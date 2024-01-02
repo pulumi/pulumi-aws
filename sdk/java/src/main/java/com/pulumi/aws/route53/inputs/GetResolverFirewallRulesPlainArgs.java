@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -120,7 +121,9 @@ public final class GetResolverFirewallRulesPlainArgs extends com.pulumi.resource
         }
 
         public GetResolverFirewallRulesPlainArgs build() {
-            $.firewallRuleGroupId = Objects.requireNonNull($.firewallRuleGroupId, "expected parameter 'firewallRuleGroupId' to be non-null");
+            if ($.firewallRuleGroupId == null) {
+                throw new MissingRequiredPropertyException("GetResolverFirewallRulesPlainArgs", "firewallRuleGroupId");
+            }
             return $;
         }
     }

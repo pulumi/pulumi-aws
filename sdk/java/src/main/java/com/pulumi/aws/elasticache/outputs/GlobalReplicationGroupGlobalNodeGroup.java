@@ -58,11 +58,13 @@ public final class GlobalReplicationGroupGlobalNodeGroup {
 
         @CustomType.Setter
         public Builder globalNodeGroupId(@Nullable String globalNodeGroupId) {
+
             this.globalNodeGroupId = globalNodeGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder slots(@Nullable String slots) {
+
             this.slots = slots;
             return this;
         }

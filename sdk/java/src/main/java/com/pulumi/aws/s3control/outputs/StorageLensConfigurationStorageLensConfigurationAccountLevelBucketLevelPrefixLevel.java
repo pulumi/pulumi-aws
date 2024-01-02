@@ -5,6 +5,7 @@ package com.pulumi.aws.s3control.outputs;
 
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
 
         @CustomType.Setter
         public Builder storageMetrics(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics storageMetrics) {
-            this.storageMetrics = Objects.requireNonNull(storageMetrics);
+            if (storageMetrics == null) {
+              throw new MissingRequiredPropertyException("StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel", "storageMetrics");
+            }
+            this.storageMetrics = storageMetrics;
             return this;
         }
         public StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel build() {

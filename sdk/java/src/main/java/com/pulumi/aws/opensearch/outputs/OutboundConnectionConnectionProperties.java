@@ -59,11 +59,13 @@ public final class OutboundConnectionConnectionProperties {
 
         @CustomType.Setter
         public Builder crossClusterSearch(@Nullable OutboundConnectionConnectionPropertiesCrossClusterSearch crossClusterSearch) {
+
             this.crossClusterSearch = crossClusterSearch;
             return this;
         }
         @CustomType.Setter
         public Builder endpoint(@Nullable String endpoint) {
+
             this.endpoint = endpoint;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -34,7 +35,10 @@ public final class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagCo
 
         @CustomType.Setter
         public Builder text(String text) {
-            this.text = Objects.requireNonNull(text);
+            if (text == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription", "text");
+            }
+            this.text = text;
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DistributionLocationArgs extends com.pulumi.resources.Resourc
         }
 
         public DistributionLocationArgs build() {
-            $.availabilityZone = Objects.requireNonNull($.availabilityZone, "expected parameter 'availabilityZone' to be non-null");
-            $.regionName = Objects.requireNonNull($.regionName, "expected parameter 'regionName' to be non-null");
+            if ($.availabilityZone == null) {
+                throw new MissingRequiredPropertyException("DistributionLocationArgs", "availabilityZone");
+            }
+            if ($.regionName == null) {
+                throw new MissingRequiredPropertyException("DistributionLocationArgs", "regionName");
+            }
             return $;
         }
     }

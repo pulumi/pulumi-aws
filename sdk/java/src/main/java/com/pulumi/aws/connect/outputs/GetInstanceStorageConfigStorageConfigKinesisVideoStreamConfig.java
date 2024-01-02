@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.aws.connect.outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -73,7 +74,10 @@ public final class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig
 
         @CustomType.Setter
         public Builder encryptionConfigs(List<GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig> encryptionConfigs) {
-            this.encryptionConfigs = Objects.requireNonNull(encryptionConfigs);
+            if (encryptionConfigs == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig", "encryptionConfigs");
+            }
+            this.encryptionConfigs = encryptionConfigs;
             return this;
         }
         public Builder encryptionConfigs(GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig... encryptionConfigs) {
@@ -81,12 +85,18 @@ public final class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig
         }
         @CustomType.Setter
         public Builder prefix(String prefix) {
-            this.prefix = Objects.requireNonNull(prefix);
+            if (prefix == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig", "prefix");
+            }
+            this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPeriodHours(Integer retentionPeriodHours) {
-            this.retentionPeriodHours = Objects.requireNonNull(retentionPeriodHours);
+            if (retentionPeriodHours == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig", "retentionPeriodHours");
+            }
+            this.retentionPeriodHours = retentionPeriodHours;
             return this;
         }
         public GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfig build() {

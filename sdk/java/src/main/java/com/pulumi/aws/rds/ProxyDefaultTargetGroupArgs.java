@@ -6,6 +6,7 @@ package com.pulumi.aws.rds;
 import com.pulumi.aws.rds.inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class ProxyDefaultTargetGroupArgs extends com.pulumi.resources.Reso
         }
 
         public ProxyDefaultTargetGroupArgs build() {
-            $.dbProxyName = Objects.requireNonNull($.dbProxyName, "expected parameter 'dbProxyName' to be non-null");
+            if ($.dbProxyName == null) {
+                throw new MissingRequiredPropertyException("ProxyDefaultTargetGroupArgs", "dbProxyName");
+            }
             return $;
         }
     }

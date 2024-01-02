@@ -5,6 +5,7 @@ package com.pulumi.aws.redshift;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class SnapshotScheduleAssociationArgs extends com.pulumi.resources.
         }
 
         public SnapshotScheduleAssociationArgs build() {
-            $.clusterIdentifier = Objects.requireNonNull($.clusterIdentifier, "expected parameter 'clusterIdentifier' to be non-null");
-            $.scheduleIdentifier = Objects.requireNonNull($.scheduleIdentifier, "expected parameter 'scheduleIdentifier' to be non-null");
+            if ($.clusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("SnapshotScheduleAssociationArgs", "clusterIdentifier");
+            }
+            if ($.scheduleIdentifier == null) {
+                throw new MissingRequiredPropertyException("SnapshotScheduleAssociationArgs", "scheduleIdentifier");
+            }
             return $;
         }
     }

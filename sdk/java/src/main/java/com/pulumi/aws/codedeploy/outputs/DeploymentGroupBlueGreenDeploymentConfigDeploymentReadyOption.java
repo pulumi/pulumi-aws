@@ -59,11 +59,13 @@ public final class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
 
         @CustomType.Setter
         public Builder actionOnTimeout(@Nullable String actionOnTimeout) {
+
             this.actionOnTimeout = actionOnTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder waitTimeInMinutes(@Nullable Integer waitTimeInMinutes) {
+
             this.waitTimeInMinutes = waitTimeInMinutes;
             return this;
         }

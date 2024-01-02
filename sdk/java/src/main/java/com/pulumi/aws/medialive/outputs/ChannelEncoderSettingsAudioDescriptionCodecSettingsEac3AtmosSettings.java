@@ -129,36 +129,43 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
 
         @CustomType.Setter
         public Builder bitrate(@Nullable Double bitrate) {
+
             this.bitrate = bitrate;
             return this;
         }
         @CustomType.Setter
         public Builder codingMode(@Nullable String codingMode) {
+
             this.codingMode = codingMode;
             return this;
         }
         @CustomType.Setter
         public Builder dialnorm(@Nullable Double dialnorm) {
+
             this.dialnorm = dialnorm;
             return this;
         }
         @CustomType.Setter
         public Builder drcLine(@Nullable String drcLine) {
+
             this.drcLine = drcLine;
             return this;
         }
         @CustomType.Setter
         public Builder drcRf(@Nullable String drcRf) {
+
             this.drcRf = drcRf;
             return this;
         }
         @CustomType.Setter
         public Builder heightTrim(@Nullable Double heightTrim) {
+
             this.heightTrim = heightTrim;
             return this;
         }
         @CustomType.Setter
         public Builder surroundTrim(@Nullable Double surroundTrim) {
+
             this.surroundTrim = surroundTrim;
             return this;
         }

@@ -44,6 +44,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
         @CustomType.Setter
         public Builder cannedAcl(@Nullable String cannedAcl) {
+
             this.cannedAcl = cannedAcl;
             return this;
         }

@@ -7,6 +7,7 @@ import com.pulumi.aws.customerprofiles.inputs.DomainMatchingAutoMergingConflictR
 import com.pulumi.aws.customerprofiles.inputs.DomainMatchingAutoMergingConsolidationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.util.Objects;
@@ -174,7 +175,9 @@ public final class DomainMatchingAutoMergingArgs extends com.pulumi.resources.Re
         }
 
         public DomainMatchingAutoMergingArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("DomainMatchingAutoMergingArgs", "enabled");
+            }
             return $;
         }
     }

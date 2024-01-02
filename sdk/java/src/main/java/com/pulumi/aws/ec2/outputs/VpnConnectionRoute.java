@@ -72,16 +72,19 @@ public final class VpnConnectionRoute {
 
         @CustomType.Setter
         public Builder destinationCidrBlock(@Nullable String destinationCidrBlock) {
+
             this.destinationCidrBlock = destinationCidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder source(@Nullable String source) {
+
             this.source = source;
             return this;
         }
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }

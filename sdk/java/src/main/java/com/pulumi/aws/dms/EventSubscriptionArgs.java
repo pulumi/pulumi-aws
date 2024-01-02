@@ -5,6 +5,7 @@ package com.pulumi.aws.dms;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -321,10 +322,18 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         public EventSubscriptionArgs build() {
-            $.eventCategories = Objects.requireNonNull($.eventCategories, "expected parameter 'eventCategories' to be non-null");
-            $.snsTopicArn = Objects.requireNonNull($.snsTopicArn, "expected parameter 'snsTopicArn' to be non-null");
-            $.sourceIds = Objects.requireNonNull($.sourceIds, "expected parameter 'sourceIds' to be non-null");
-            $.sourceType = Objects.requireNonNull($.sourceType, "expected parameter 'sourceType' to be non-null");
+            if ($.eventCategories == null) {
+                throw new MissingRequiredPropertyException("EventSubscriptionArgs", "eventCategories");
+            }
+            if ($.snsTopicArn == null) {
+                throw new MissingRequiredPropertyException("EventSubscriptionArgs", "snsTopicArn");
+            }
+            if ($.sourceIds == null) {
+                throw new MissingRequiredPropertyException("EventSubscriptionArgs", "sourceIds");
+            }
+            if ($.sourceType == null) {
+                throw new MissingRequiredPropertyException("EventSubscriptionArgs", "sourceType");
+            }
             return $;
         }
     }

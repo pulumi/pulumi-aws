@@ -5,6 +5,7 @@ package com.pulumi.aws.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class GetComputeEnvironmentArgs extends com.pulumi.resources.Invoke
         }
 
         public GetComputeEnvironmentArgs build() {
-            $.computeEnvironmentName = Objects.requireNonNull($.computeEnvironmentName, "expected parameter 'computeEnvironmentName' to be non-null");
+            if ($.computeEnvironmentName == null) {
+                throw new MissingRequiredPropertyException("GetComputeEnvironmentArgs", "computeEnvironmentName");
+            }
             return $;
         }
     }

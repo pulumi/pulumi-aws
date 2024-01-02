@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecGrpcRouteMatchMetadataMatchRange;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -60,17 +61,26 @@ public final class GetRouteSpecGrpcRouteMatchMetadataMatch {
 
         @CustomType.Setter
         public Builder exact(String exact) {
-            this.exact = Objects.requireNonNull(exact);
+            if (exact == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRouteMatchMetadataMatch", "exact");
+            }
+            this.exact = exact;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(String prefix) {
-            this.prefix = Objects.requireNonNull(prefix);
+            if (prefix == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRouteMatchMetadataMatch", "prefix");
+            }
+            this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder ranges(List<GetRouteSpecGrpcRouteMatchMetadataMatchRange> ranges) {
-            this.ranges = Objects.requireNonNull(ranges);
+            if (ranges == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRouteMatchMetadataMatch", "ranges");
+            }
+            this.ranges = ranges;
             return this;
         }
         public Builder ranges(GetRouteSpecGrpcRouteMatchMetadataMatchRange... ranges) {
@@ -78,12 +88,18 @@ public final class GetRouteSpecGrpcRouteMatchMetadataMatch {
         }
         @CustomType.Setter
         public Builder regex(String regex) {
-            this.regex = Objects.requireNonNull(regex);
+            if (regex == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRouteMatchMetadataMatch", "regex");
+            }
+            this.regex = regex;
             return this;
         }
         @CustomType.Setter
         public Builder suffix(String suffix) {
-            this.suffix = Objects.requireNonNull(suffix);
+            if (suffix == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRouteMatchMetadataMatch", "suffix");
+            }
+            this.suffix = suffix;
             return this;
         }
         public GetRouteSpecGrpcRouteMatchMetadataMatch build() {

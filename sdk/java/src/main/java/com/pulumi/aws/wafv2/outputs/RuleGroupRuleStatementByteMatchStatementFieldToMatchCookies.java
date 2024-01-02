@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,7 +73,10 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies {
 
         @CustomType.Setter
         public Builder matchPatterns(List<RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern> matchPatterns) {
-            this.matchPatterns = Objects.requireNonNull(matchPatterns);
+            if (matchPatterns == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies", "matchPatterns");
+            }
+            this.matchPatterns = matchPatterns;
             return this;
         }
         public Builder matchPatterns(RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern... matchPatterns) {
@@ -80,12 +84,18 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies {
         }
         @CustomType.Setter
         public Builder matchScope(String matchScope) {
-            this.matchScope = Objects.requireNonNull(matchScope);
+            if (matchScope == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies", "matchScope");
+            }
+            this.matchScope = matchScope;
             return this;
         }
         @CustomType.Setter
         public Builder oversizeHandling(String oversizeHandling) {
-            this.oversizeHandling = Objects.requireNonNull(oversizeHandling);
+            if (oversizeHandling == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies", "oversizeHandling");
+            }
+            this.oversizeHandling = oversizeHandling;
             return this;
         }
         public RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies build() {

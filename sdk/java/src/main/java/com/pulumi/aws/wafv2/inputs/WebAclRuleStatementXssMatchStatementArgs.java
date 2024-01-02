@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementXssMatchStatementFieldToMa
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementXssMatchStatementTextTransformationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -125,7 +126,9 @@ public final class WebAclRuleStatementXssMatchStatementArgs extends com.pulumi.r
         }
 
         public WebAclRuleStatementXssMatchStatementArgs build() {
-            $.textTransformations = Objects.requireNonNull($.textTransformations, "expected parameter 'textTransformations' to be non-null");
+            if ($.textTransformations == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementXssMatchStatementArgs", "textTransformations");
+            }
             return $;
         }
     }

@@ -63,11 +63,13 @@ public final class GetGroupAlternateIdentifier {
 
         @CustomType.Setter
         public Builder externalId(@Nullable GetGroupAlternateIdentifierExternalId externalId) {
+
             this.externalId = externalId;
             return this;
         }
         @CustomType.Setter
         public Builder uniqueAttribute(@Nullable GetGroupAlternateIdentifierUniqueAttribute uniqueAttribute) {
+
             this.uniqueAttribute = uniqueAttribute;
             return this;
         }

@@ -74,16 +74,19 @@ public final class VirtualNodeSpecListenerTlsCertificate {
 
         @CustomType.Setter
         public Builder acm(@Nullable VirtualNodeSpecListenerTlsCertificateAcm acm) {
+
             this.acm = acm;
             return this;
         }
         @CustomType.Setter
         public Builder file(@Nullable VirtualNodeSpecListenerTlsCertificateFile file) {
+
             this.file = file;
             return this;
         }
         @CustomType.Setter
         public Builder sds(@Nullable VirtualNodeSpecListenerTlsCertificateSds sds) {
+
             this.sds = sds;
             return this;
         }

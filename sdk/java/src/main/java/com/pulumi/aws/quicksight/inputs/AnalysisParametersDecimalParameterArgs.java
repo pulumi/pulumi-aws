@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -105,8 +106,12 @@ public final class AnalysisParametersDecimalParameterArgs extends com.pulumi.res
         }
 
         public AnalysisParametersDecimalParameterArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.values = Objects.requireNonNull($.values, "expected parameter 'values' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("AnalysisParametersDecimalParameterArgs", "name");
+            }
+            if ($.values == null) {
+                throw new MissingRequiredPropertyException("AnalysisParametersDecimalParameterArgs", "values");
+            }
             return $;
         }
     }

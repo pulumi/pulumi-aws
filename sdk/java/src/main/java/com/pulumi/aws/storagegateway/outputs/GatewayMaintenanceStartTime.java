@@ -4,6 +4,7 @@
 package com.pulumi.aws.storagegateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,21 +88,27 @@ public final class GatewayMaintenanceStartTime {
 
         @CustomType.Setter
         public Builder dayOfMonth(@Nullable String dayOfMonth) {
+
             this.dayOfMonth = dayOfMonth;
             return this;
         }
         @CustomType.Setter
         public Builder dayOfWeek(@Nullable String dayOfWeek) {
+
             this.dayOfWeek = dayOfWeek;
             return this;
         }
         @CustomType.Setter
         public Builder hourOfDay(Integer hourOfDay) {
-            this.hourOfDay = Objects.requireNonNull(hourOfDay);
+            if (hourOfDay == null) {
+              throw new MissingRequiredPropertyException("GatewayMaintenanceStartTime", "hourOfDay");
+            }
+            this.hourOfDay = hourOfDay;
             return this;
         }
         @CustomType.Setter
         public Builder minuteOfHour(@Nullable Integer minuteOfHour) {
+
             this.minuteOfHour = minuteOfHour;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.connect.inputs;
 import com.pulumi.aws.connect.inputs.GetBotAssociationLexBotArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class GetBotAssociationArgs extends com.pulumi.resources.InvokeArgs
         }
 
         public GetBotAssociationArgs build() {
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
-            $.lexBot = Objects.requireNonNull($.lexBot, "expected parameter 'lexBot' to be non-null");
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("GetBotAssociationArgs", "instanceId");
+            }
+            if ($.lexBot == null) {
+                throw new MissingRequiredPropertyException("GetBotAssociationArgs", "lexBot");
+            }
             return $;
         }
     }

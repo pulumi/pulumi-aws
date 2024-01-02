@@ -6,6 +6,7 @@ package com.pulumi.aws.finspace.inputs;
 import com.pulumi.aws.finspace.inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -162,8 +163,12 @@ public final class KxEnvironmentTransitGatewayConfigurationArgs extends com.pulu
         }
 
         public KxEnvironmentTransitGatewayConfigurationArgs build() {
-            $.routableCidrSpace = Objects.requireNonNull($.routableCidrSpace, "expected parameter 'routableCidrSpace' to be non-null");
-            $.transitGatewayId = Objects.requireNonNull($.transitGatewayId, "expected parameter 'transitGatewayId' to be non-null");
+            if ($.routableCidrSpace == null) {
+                throw new MissingRequiredPropertyException("KxEnvironmentTransitGatewayConfigurationArgs", "routableCidrSpace");
+            }
+            if ($.transitGatewayId == null) {
+                throw new MissingRequiredPropertyException("KxEnvironmentTransitGatewayConfigurationArgs", "transitGatewayId");
+            }
             return $;
         }
     }

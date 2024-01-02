@@ -44,6 +44,7 @@ public final class FindingsFilterFindingCriteria {
 
         @CustomType.Setter
         public Builder criterions(@Nullable List<FindingsFilterFindingCriteriaCriterion> criterions) {
+
             this.criterions = criterions;
             return this;
         }

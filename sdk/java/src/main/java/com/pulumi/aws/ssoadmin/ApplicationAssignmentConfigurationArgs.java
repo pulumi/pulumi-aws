@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class ApplicationAssignmentConfigurationArgs extends com.pulumi.res
         }
 
         public ApplicationAssignmentConfigurationArgs build() {
-            $.applicationArn = Objects.requireNonNull($.applicationArn, "expected parameter 'applicationArn' to be non-null");
-            $.assignmentRequired = Objects.requireNonNull($.assignmentRequired, "expected parameter 'assignmentRequired' to be non-null");
+            if ($.applicationArn == null) {
+                throw new MissingRequiredPropertyException("ApplicationAssignmentConfigurationArgs", "applicationArn");
+            }
+            if ($.assignmentRequired == null) {
+                throw new MissingRequiredPropertyException("ApplicationAssignmentConfigurationArgs", "assignmentRequired");
+            }
             return $;
         }
     }

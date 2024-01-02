@@ -88,21 +88,25 @@ public final class MLTransformParametersFindMatchesParameters {
 
         @CustomType.Setter
         public Builder accuracyCostTradeOff(@Nullable Double accuracyCostTradeOff) {
+
             this.accuracyCostTradeOff = accuracyCostTradeOff;
             return this;
         }
         @CustomType.Setter
         public Builder enforceProvidedLabels(@Nullable Boolean enforceProvidedLabels) {
+
             this.enforceProvidedLabels = enforceProvidedLabels;
             return this;
         }
         @CustomType.Setter
         public Builder precisionRecallTradeOff(@Nullable Double precisionRecallTradeOff) {
+
             this.precisionRecallTradeOff = precisionRecallTradeOff;
             return this;
         }
         @CustomType.Setter
         public Builder primaryKeyColumnName(@Nullable String primaryKeyColumnName) {
+
             this.primaryKeyColumnName = primaryKeyColumnName;
             return this;
         }

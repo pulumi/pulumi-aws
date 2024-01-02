@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,7 +226,9 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserGroupArgs build() {
-            $.userPoolId = Objects.requireNonNull($.userPoolId, "expected parameter 'userPoolId' to be non-null");
+            if ($.userPoolId == null) {
+                throw new MissingRequiredPropertyException("UserGroupArgs", "userPoolId");
+            }
             return $;
         }
     }

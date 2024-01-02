@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
 
         @CustomType.Setter
         public Builder metricDataQueries(List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery> metricDataQueries) {
-            this.metricDataQueries = Objects.requireNonNull(metricDataQueries);
+            if (metricDataQueries == null) {
+              throw new MissingRequiredPropertyException("PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification", "metricDataQueries");
+            }
+            this.metricDataQueries = metricDataQueries;
             return this;
         }
         public Builder metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery... metricDataQueries) {

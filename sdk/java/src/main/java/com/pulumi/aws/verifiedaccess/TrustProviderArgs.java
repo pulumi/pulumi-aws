@@ -7,6 +7,7 @@ import com.pulumi.aws.verifiedaccess.inputs.TrustProviderDeviceOptionsArgs;
 import com.pulumi.aws.verifiedaccess.inputs.TrustProviderOidcOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -346,8 +347,12 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TrustProviderArgs build() {
-            $.policyReferenceName = Objects.requireNonNull($.policyReferenceName, "expected parameter 'policyReferenceName' to be non-null");
-            $.trustProviderType = Objects.requireNonNull($.trustProviderType, "expected parameter 'trustProviderType' to be non-null");
+            if ($.policyReferenceName == null) {
+                throw new MissingRequiredPropertyException("TrustProviderArgs", "policyReferenceName");
+            }
+            if ($.trustProviderType == null) {
+                throw new MissingRequiredPropertyException("TrustProviderArgs", "trustProviderType");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.storagegateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -374,11 +375,21 @@ public final class StoredIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
         }
 
         public StoredIscsiVolumeArgs build() {
-            $.diskId = Objects.requireNonNull($.diskId, "expected parameter 'diskId' to be non-null");
-            $.gatewayArn = Objects.requireNonNull($.gatewayArn, "expected parameter 'gatewayArn' to be non-null");
-            $.networkInterfaceId = Objects.requireNonNull($.networkInterfaceId, "expected parameter 'networkInterfaceId' to be non-null");
-            $.preserveExistingData = Objects.requireNonNull($.preserveExistingData, "expected parameter 'preserveExistingData' to be non-null");
-            $.targetName = Objects.requireNonNull($.targetName, "expected parameter 'targetName' to be non-null");
+            if ($.diskId == null) {
+                throw new MissingRequiredPropertyException("StoredIscsiVolumeArgs", "diskId");
+            }
+            if ($.gatewayArn == null) {
+                throw new MissingRequiredPropertyException("StoredIscsiVolumeArgs", "gatewayArn");
+            }
+            if ($.networkInterfaceId == null) {
+                throw new MissingRequiredPropertyException("StoredIscsiVolumeArgs", "networkInterfaceId");
+            }
+            if ($.preserveExistingData == null) {
+                throw new MissingRequiredPropertyException("StoredIscsiVolumeArgs", "preserveExistingData");
+            }
+            if ($.targetName == null) {
+                throw new MissingRequiredPropertyException("StoredIscsiVolumeArgs", "targetName");
+            }
             return $;
         }
     }

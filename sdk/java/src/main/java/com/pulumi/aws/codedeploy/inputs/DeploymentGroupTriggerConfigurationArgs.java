@@ -5,6 +5,7 @@ package com.pulumi.aws.codedeploy.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -159,9 +160,15 @@ public final class DeploymentGroupTriggerConfigurationArgs extends com.pulumi.re
         }
 
         public DeploymentGroupTriggerConfigurationArgs build() {
-            $.triggerEvents = Objects.requireNonNull($.triggerEvents, "expected parameter 'triggerEvents' to be non-null");
-            $.triggerName = Objects.requireNonNull($.triggerName, "expected parameter 'triggerName' to be non-null");
-            $.triggerTargetArn = Objects.requireNonNull($.triggerTargetArn, "expected parameter 'triggerTargetArn' to be non-null");
+            if ($.triggerEvents == null) {
+                throw new MissingRequiredPropertyException("DeploymentGroupTriggerConfigurationArgs", "triggerEvents");
+            }
+            if ($.triggerName == null) {
+                throw new MissingRequiredPropertyException("DeploymentGroupTriggerConfigurationArgs", "triggerName");
+            }
+            if ($.triggerTargetArn == null) {
+                throw new MissingRequiredPropertyException("DeploymentGroupTriggerConfigurationArgs", "triggerTargetArn");
+            }
             return $;
         }
     }

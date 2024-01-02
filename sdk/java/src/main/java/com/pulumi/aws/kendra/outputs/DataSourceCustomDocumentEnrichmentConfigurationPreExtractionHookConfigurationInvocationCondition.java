@@ -5,6 +5,7 @@ package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.aws.kendra.outputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,17 +74,24 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
 
         @CustomType.Setter
         public Builder conditionDocumentAttributeKey(String conditionDocumentAttributeKey) {
-            this.conditionDocumentAttributeKey = Objects.requireNonNull(conditionDocumentAttributeKey);
+            if (conditionDocumentAttributeKey == null) {
+              throw new MissingRequiredPropertyException("DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition", "conditionDocumentAttributeKey");
+            }
+            this.conditionDocumentAttributeKey = conditionDocumentAttributeKey;
             return this;
         }
         @CustomType.Setter
         public Builder conditionOnValue(@Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue conditionOnValue) {
+
             this.conditionOnValue = conditionOnValue;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         public DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition build() {

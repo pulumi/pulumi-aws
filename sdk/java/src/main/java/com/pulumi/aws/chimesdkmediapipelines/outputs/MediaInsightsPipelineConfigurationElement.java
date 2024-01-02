@@ -12,6 +12,7 @@ import com.pulumi.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfig
 import com.pulumi.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration;
 import com.pulumi.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -164,46 +165,57 @@ public final class MediaInsightsPipelineConfigurationElement {
 
         @CustomType.Setter
         public Builder amazonTranscribeCallAnalyticsProcessorConfiguration(@Nullable MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration amazonTranscribeCallAnalyticsProcessorConfiguration) {
+
             this.amazonTranscribeCallAnalyticsProcessorConfiguration = amazonTranscribeCallAnalyticsProcessorConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder amazonTranscribeProcessorConfiguration(@Nullable MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration amazonTranscribeProcessorConfiguration) {
+
             this.amazonTranscribeProcessorConfiguration = amazonTranscribeProcessorConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder kinesisDataStreamSinkConfiguration(@Nullable MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration kinesisDataStreamSinkConfiguration) {
+
             this.kinesisDataStreamSinkConfiguration = kinesisDataStreamSinkConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder lambdaFunctionSinkConfiguration(@Nullable MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration lambdaFunctionSinkConfiguration) {
+
             this.lambdaFunctionSinkConfiguration = lambdaFunctionSinkConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder s3RecordingSinkConfiguration(@Nullable MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration s3RecordingSinkConfiguration) {
+
             this.s3RecordingSinkConfiguration = s3RecordingSinkConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder snsTopicSinkConfiguration(@Nullable MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration snsTopicSinkConfiguration) {
+
             this.snsTopicSinkConfiguration = snsTopicSinkConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder sqsQueueSinkConfiguration(@Nullable MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration sqsQueueSinkConfiguration) {
+
             this.sqsQueueSinkConfiguration = sqsQueueSinkConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElement", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder voiceAnalyticsProcessorConfiguration(@Nullable MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration voiceAnalyticsProcessorConfiguration) {
+
             this.voiceAnalyticsProcessorConfiguration = voiceAnalyticsProcessorConfiguration;
             return this;
         }

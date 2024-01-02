@@ -5,6 +5,7 @@ package com.pulumi.aws.directoryservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -384,10 +385,18 @@ public final class TrustArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TrustArgs build() {
-            $.directoryId = Objects.requireNonNull($.directoryId, "expected parameter 'directoryId' to be non-null");
-            $.remoteDomainName = Objects.requireNonNull($.remoteDomainName, "expected parameter 'remoteDomainName' to be non-null");
-            $.trustDirection = Objects.requireNonNull($.trustDirection, "expected parameter 'trustDirection' to be non-null");
-            $.trustPassword = Objects.requireNonNull($.trustPassword, "expected parameter 'trustPassword' to be non-null");
+            if ($.directoryId == null) {
+                throw new MissingRequiredPropertyException("TrustArgs", "directoryId");
+            }
+            if ($.remoteDomainName == null) {
+                throw new MissingRequiredPropertyException("TrustArgs", "remoteDomainName");
+            }
+            if ($.trustDirection == null) {
+                throw new MissingRequiredPropertyException("TrustArgs", "trustDirection");
+            }
+            if ($.trustPassword == null) {
+                throw new MissingRequiredPropertyException("TrustArgs", "trustPassword");
+            }
             return $;
         }
     }

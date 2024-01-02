@@ -4,6 +4,7 @@
 package com.pulumi.aws.serverlessrepository.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -119,22 +120,34 @@ public final class GetApplicationResult {
 
         @CustomType.Setter
         public Builder applicationId(String applicationId) {
-            this.applicationId = Objects.requireNonNull(applicationId);
+            if (applicationId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "applicationId");
+            }
+            this.applicationId = applicationId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder requiredCapabilities(List<String> requiredCapabilities) {
-            this.requiredCapabilities = Objects.requireNonNull(requiredCapabilities);
+            if (requiredCapabilities == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "requiredCapabilities");
+            }
+            this.requiredCapabilities = requiredCapabilities;
             return this;
         }
         public Builder requiredCapabilities(String... requiredCapabilities) {
@@ -142,17 +155,26 @@ public final class GetApplicationResult {
         }
         @CustomType.Setter
         public Builder semanticVersion(String semanticVersion) {
-            this.semanticVersion = Objects.requireNonNull(semanticVersion);
+            if (semanticVersion == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "semanticVersion");
+            }
+            this.semanticVersion = semanticVersion;
             return this;
         }
         @CustomType.Setter
         public Builder sourceCodeUrl(String sourceCodeUrl) {
-            this.sourceCodeUrl = Objects.requireNonNull(sourceCodeUrl);
+            if (sourceCodeUrl == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "sourceCodeUrl");
+            }
+            this.sourceCodeUrl = sourceCodeUrl;
             return this;
         }
         @CustomType.Setter
         public Builder templateUrl(String templateUrl) {
-            this.templateUrl = Objects.requireNonNull(templateUrl);
+            if (templateUrl == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "templateUrl");
+            }
+            this.templateUrl = templateUrl;
             return this;
         }
         public GetApplicationResult build() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.emrserverless.inputs;
 import com.pulumi.aws.emrserverless.inputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class ApplicationInitialCapacityInitialCapacityConfigArgs extends c
         }
 
         public ApplicationInitialCapacityInitialCapacityConfigArgs build() {
-            $.workerCount = Objects.requireNonNull($.workerCount, "expected parameter 'workerCount' to be non-null");
+            if ($.workerCount == null) {
+                throw new MissingRequiredPropertyException("ApplicationInitialCapacityInitialCapacityConfigArgs", "workerCount");
+            }
             return $;
         }
     }

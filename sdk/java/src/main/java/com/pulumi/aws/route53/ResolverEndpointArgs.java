@@ -6,6 +6,7 @@ package com.pulumi.aws.route53;
 import com.pulumi.aws.route53.inputs.ResolverEndpointIpAddressArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -260,9 +261,15 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ResolverEndpointArgs build() {
-            $.direction = Objects.requireNonNull($.direction, "expected parameter 'direction' to be non-null");
-            $.ipAddresses = Objects.requireNonNull($.ipAddresses, "expected parameter 'ipAddresses' to be non-null");
-            $.securityGroupIds = Objects.requireNonNull($.securityGroupIds, "expected parameter 'securityGroupIds' to be non-null");
+            if ($.direction == null) {
+                throw new MissingRequiredPropertyException("ResolverEndpointArgs", "direction");
+            }
+            if ($.ipAddresses == null) {
+                throw new MissingRequiredPropertyException("ResolverEndpointArgs", "ipAddresses");
+            }
+            if ($.securityGroupIds == null) {
+                throw new MissingRequiredPropertyException("ResolverEndpointArgs", "securityGroupIds");
+            }
             return $;
         }
     }

@@ -42,11 +42,13 @@ public final class ChannelInputAttachmentInputSettingsVideoSelector {
 
         @CustomType.Setter
         public Builder colorSpace(@Nullable String colorSpace) {
+
             this.colorSpace = colorSpace;
             return this;
         }
         @CustomType.Setter
         public Builder colorSpaceUsage(@Nullable String colorSpaceUsage) {
+
             this.colorSpaceUsage = colorSpaceUsage;
             return this;
         }

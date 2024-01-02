@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.aws.connect.outputs.GetInstanceStorageConfigStorageConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -76,27 +77,42 @@ public final class GetInstanceStorageConfigResult {
 
         @CustomType.Setter
         public Builder associationId(String associationId) {
-            this.associationId = Objects.requireNonNull(associationId);
+            if (associationId == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigResult", "associationId");
+            }
+            this.associationId = associationId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceType(String resourceType) {
-            this.resourceType = Objects.requireNonNull(resourceType);
+            if (resourceType == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigResult", "resourceType");
+            }
+            this.resourceType = resourceType;
             return this;
         }
         @CustomType.Setter
         public Builder storageConfigs(List<GetInstanceStorageConfigStorageConfig> storageConfigs) {
-            this.storageConfigs = Objects.requireNonNull(storageConfigs);
+            if (storageConfigs == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigResult", "storageConfigs");
+            }
+            this.storageConfigs = storageConfigs;
             return this;
         }
         public Builder storageConfigs(GetInstanceStorageConfigStorageConfig... storageConfigs) {

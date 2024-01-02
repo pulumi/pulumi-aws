@@ -5,6 +5,7 @@ package com.pulumi.aws.kms;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -391,7 +392,9 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         public ReplicaExternalKeyArgs build() {
-            $.primaryKeyArn = Objects.requireNonNull($.primaryKeyArn, "expected parameter 'primaryKeyArn' to be non-null");
+            if ($.primaryKeyArn == null) {
+                throw new MissingRequiredPropertyException("ReplicaExternalKeyArgs", "primaryKeyArn");
+            }
             return $;
         }
     }

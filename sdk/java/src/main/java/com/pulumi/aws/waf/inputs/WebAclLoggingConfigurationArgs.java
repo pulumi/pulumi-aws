@@ -6,6 +6,7 @@ package com.pulumi.aws.waf.inputs;
 import com.pulumi.aws.waf.inputs.WebAclLoggingConfigurationRedactedFieldsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
         }
 
         public WebAclLoggingConfigurationArgs build() {
-            $.logDestination = Objects.requireNonNull($.logDestination, "expected parameter 'logDestination' to be non-null");
+            if ($.logDestination == null) {
+                throw new MissingRequiredPropertyException("WebAclLoggingConfigurationArgs", "logDestination");
+            }
             return $;
         }
     }

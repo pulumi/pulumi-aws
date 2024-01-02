@@ -84,26 +84,31 @@ public final class ReplicationConfigurationDestination {
 
         @CustomType.Setter
         public Builder availabilityZoneName(@Nullable String availabilityZoneName) {
+
             this.availabilityZoneName = availabilityZoneName;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemId(@Nullable String fileSystemId) {
+
             this.fileSystemId = fileSystemId;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }

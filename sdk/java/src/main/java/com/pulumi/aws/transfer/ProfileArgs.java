@@ -5,6 +5,7 @@ package com.pulumi.aws.transfer;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -199,8 +200,12 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProfileArgs build() {
-            $.as2Id = Objects.requireNonNull($.as2Id, "expected parameter 'as2Id' to be non-null");
-            $.profileType = Objects.requireNonNull($.profileType, "expected parameter 'profileType' to be non-null");
+            if ($.as2Id == null) {
+                throw new MissingRequiredPropertyException("ProfileArgs", "as2Id");
+            }
+            if ($.profileType == null) {
+                throw new MissingRequiredPropertyException("ProfileArgs", "profileType");
+            }
             return $;
         }
     }

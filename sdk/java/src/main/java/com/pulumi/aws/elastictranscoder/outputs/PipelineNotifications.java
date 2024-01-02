@@ -106,21 +106,25 @@ public final class PipelineNotifications {
 
         @CustomType.Setter
         public Builder completed(@Nullable String completed) {
+
             this.completed = completed;
             return this;
         }
         @CustomType.Setter
         public Builder error(@Nullable String error) {
+
             this.error = error;
             return this;
         }
         @CustomType.Setter
         public Builder progressing(@Nullable String progressing) {
+
             this.progressing = progressing;
             return this;
         }
         @CustomType.Setter
         public Builder warning(@Nullable String warning) {
+
             this.warning = warning;
             return this;
         }

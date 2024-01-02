@@ -6,6 +6,7 @@ package com.pulumi.aws.apigateway;
 import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -186,10 +187,18 @@ public final class MethodSettingsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public MethodSettingsArgs build() {
-            $.methodPath = Objects.requireNonNull($.methodPath, "expected parameter 'methodPath' to be non-null");
-            $.restApi = Objects.requireNonNull($.restApi, "expected parameter 'restApi' to be non-null");
-            $.settings = Objects.requireNonNull($.settings, "expected parameter 'settings' to be non-null");
-            $.stageName = Objects.requireNonNull($.stageName, "expected parameter 'stageName' to be non-null");
+            if ($.methodPath == null) {
+                throw new MissingRequiredPropertyException("MethodSettingsArgs", "methodPath");
+            }
+            if ($.restApi == null) {
+                throw new MissingRequiredPropertyException("MethodSettingsArgs", "restApi");
+            }
+            if ($.settings == null) {
+                throw new MissingRequiredPropertyException("MethodSettingsArgs", "settings");
+            }
+            if ($.stageName == null) {
+                throw new MissingRequiredPropertyException("MethodSettingsArgs", "stageName");
+            }
             return $;
         }
     }

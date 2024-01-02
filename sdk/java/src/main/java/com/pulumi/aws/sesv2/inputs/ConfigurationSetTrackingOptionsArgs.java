@@ -5,6 +5,7 @@ package com.pulumi.aws.sesv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ConfigurationSetTrackingOptionsArgs extends com.pulumi.resour
         }
 
         public ConfigurationSetTrackingOptionsArgs build() {
-            $.customRedirectDomain = Objects.requireNonNull($.customRedirectDomain, "expected parameter 'customRedirectDomain' to be non-null");
+            if ($.customRedirectDomain == null) {
+                throw new MissingRequiredPropertyException("ConfigurationSetTrackingOptionsArgs", "customRedirectDomain");
+            }
             return $;
         }
     }

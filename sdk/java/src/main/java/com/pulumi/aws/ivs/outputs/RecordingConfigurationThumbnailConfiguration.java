@@ -59,11 +59,13 @@ public final class RecordingConfigurationThumbnailConfiguration {
 
         @CustomType.Setter
         public Builder recordingMode(@Nullable String recordingMode) {
+
             this.recordingMode = recordingMode;
             return this;
         }
         @CustomType.Setter
         public Builder targetIntervalSeconds(@Nullable Integer targetIntervalSeconds) {
+
             this.targetIntervalSeconds = targetIntervalSeconds;
             return this;
         }

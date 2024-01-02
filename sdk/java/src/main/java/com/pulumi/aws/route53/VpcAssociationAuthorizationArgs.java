@@ -5,6 +5,7 @@ package com.pulumi.aws.route53;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class VpcAssociationAuthorizationArgs extends com.pulumi.resources.
         }
 
         public VpcAssociationAuthorizationArgs build() {
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
-            $.zoneId = Objects.requireNonNull($.zoneId, "expected parameter 'zoneId' to be non-null");
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("VpcAssociationAuthorizationArgs", "vpcId");
+            }
+            if ($.zoneId == null) {
+                throw new MissingRequiredPropertyException("VpcAssociationAuthorizationArgs", "zoneId");
+            }
             return $;
         }
     }

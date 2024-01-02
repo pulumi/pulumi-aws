@@ -5,6 +5,7 @@ package com.pulumi.aws.iam;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -195,8 +196,12 @@ public final class RolePolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RolePolicyArgs build() {
-            $.policy = Objects.requireNonNull($.policy, "expected parameter 'policy' to be non-null");
-            $.role = Objects.requireNonNull($.role, "expected parameter 'role' to be non-null");
+            if ($.policy == null) {
+                throw new MissingRequiredPropertyException("RolePolicyArgs", "policy");
+            }
+            if ($.role == null) {
+                throw new MissingRequiredPropertyException("RolePolicyArgs", "role");
+            }
             return $;
         }
     }

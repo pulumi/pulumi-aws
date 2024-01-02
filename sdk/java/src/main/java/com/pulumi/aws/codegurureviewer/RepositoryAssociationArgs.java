@@ -7,6 +7,7 @@ import com.pulumi.aws.codegurureviewer.inputs.RepositoryAssociationKmsKeyDetails
 import com.pulumi.aws.codegurureviewer.inputs.RepositoryAssociationRepositoryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -141,7 +142,9 @@ public final class RepositoryAssociationArgs extends com.pulumi.resources.Resour
         }
 
         public RepositoryAssociationArgs build() {
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("RepositoryAssociationArgs", "repository");
+            }
             return $;
         }
     }

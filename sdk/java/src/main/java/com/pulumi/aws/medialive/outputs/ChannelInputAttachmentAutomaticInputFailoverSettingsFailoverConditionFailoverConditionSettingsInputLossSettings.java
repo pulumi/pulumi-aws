@@ -44,6 +44,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
 
         @CustomType.Setter
         public Builder inputLossThresholdMsec(@Nullable Integer inputLossThresholdMsec) {
+
             this.inputLossThresholdMsec = inputLossThresholdMsec;
             return this;
         }

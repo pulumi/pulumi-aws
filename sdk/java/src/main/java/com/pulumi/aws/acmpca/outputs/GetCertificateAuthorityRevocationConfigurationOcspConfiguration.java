@@ -4,6 +4,7 @@
 package com.pulumi.aws.acmpca.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -41,12 +42,18 @@ public final class GetCertificateAuthorityRevocationConfigurationOcspConfigurati
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetCertificateAuthorityRevocationConfigurationOcspConfiguration", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder ocspCustomCname(String ocspCustomCname) {
-            this.ocspCustomCname = Objects.requireNonNull(ocspCustomCname);
+            if (ocspCustomCname == null) {
+              throw new MissingRequiredPropertyException("GetCertificateAuthorityRevocationConfigurationOcspConfiguration", "ocspCustomCname");
+            }
+            this.ocspCustomCname = ocspCustomCname;
             return this;
         }
         public GetCertificateAuthorityRevocationConfigurationOcspConfiguration build() {

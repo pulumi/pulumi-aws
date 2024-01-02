@@ -58,11 +58,13 @@ public final class RemediationConfigurationExecutionControlsSsmControls {
 
         @CustomType.Setter
         public Builder concurrentExecutionRatePercentage(@Nullable Integer concurrentExecutionRatePercentage) {
+
             this.concurrentExecutionRatePercentage = concurrentExecutionRatePercentage;
             return this;
         }
         @CustomType.Setter
         public Builder errorPercentage(@Nullable Integer errorPercentage) {
+
             this.errorPercentage = errorPercentage;
             return this;
         }

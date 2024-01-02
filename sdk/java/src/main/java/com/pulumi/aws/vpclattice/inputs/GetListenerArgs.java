@@ -5,6 +5,7 @@ package com.pulumi.aws.vpclattice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class GetListenerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetListenerArgs build() {
-            $.listenerIdentifier = Objects.requireNonNull($.listenerIdentifier, "expected parameter 'listenerIdentifier' to be non-null");
-            $.serviceIdentifier = Objects.requireNonNull($.serviceIdentifier, "expected parameter 'serviceIdentifier' to be non-null");
+            if ($.listenerIdentifier == null) {
+                throw new MissingRequiredPropertyException("GetListenerArgs", "listenerIdentifier");
+            }
+            if ($.serviceIdentifier == null) {
+                throw new MissingRequiredPropertyException("GetListenerArgs", "serviceIdentifier");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.apigatewayv2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -225,9 +226,15 @@ public final class RouteResponseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RouteResponseArgs build() {
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
-            $.routeId = Objects.requireNonNull($.routeId, "expected parameter 'routeId' to be non-null");
-            $.routeResponseKey = Objects.requireNonNull($.routeResponseKey, "expected parameter 'routeResponseKey' to be non-null");
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("RouteResponseArgs", "apiId");
+            }
+            if ($.routeId == null) {
+                throw new MissingRequiredPropertyException("RouteResponseArgs", "routeId");
+            }
+            if ($.routeResponseKey == null) {
+                throw new MissingRequiredPropertyException("RouteResponseArgs", "routeResponseKey");
+            }
             return $;
         }
     }

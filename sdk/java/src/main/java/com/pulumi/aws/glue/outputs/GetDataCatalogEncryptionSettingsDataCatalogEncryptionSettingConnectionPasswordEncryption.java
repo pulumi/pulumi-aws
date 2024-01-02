@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingC
 
         @CustomType.Setter
         public Builder awsKmsKeyId(String awsKmsKeyId) {
-            this.awsKmsKeyId = Objects.requireNonNull(awsKmsKeyId);
+            if (awsKmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption", "awsKmsKeyId");
+            }
+            this.awsKmsKeyId = awsKmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder returnConnectionPasswordEncrypted(Boolean returnConnectionPasswordEncrypted) {
-            this.returnConnectionPasswordEncrypted = Objects.requireNonNull(returnConnectionPasswordEncrypted);
+            if (returnConnectionPasswordEncrypted == null) {
+              throw new MissingRequiredPropertyException("GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption", "returnConnectionPasswordEncrypted");
+            }
+            this.returnConnectionPasswordEncrypted = returnConnectionPasswordEncrypted;
             return this;
         }
         public GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption build() {

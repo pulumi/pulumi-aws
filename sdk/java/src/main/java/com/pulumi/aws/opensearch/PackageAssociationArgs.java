@@ -5,6 +5,7 @@ package com.pulumi.aws.opensearch;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class PackageAssociationArgs extends com.pulumi.resources.ResourceA
         }
 
         public PackageAssociationArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.packageId = Objects.requireNonNull($.packageId, "expected parameter 'packageId' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("PackageAssociationArgs", "domainName");
+            }
+            if ($.packageId == null) {
+                throw new MissingRequiredPropertyException("PackageAssociationArgs", "packageId");
+            }
             return $;
         }
     }

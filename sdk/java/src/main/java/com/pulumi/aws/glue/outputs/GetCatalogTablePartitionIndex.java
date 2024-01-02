@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -63,17 +64,26 @@ public final class GetCatalogTablePartitionIndex {
 
         @CustomType.Setter
         public Builder indexName(String indexName) {
-            this.indexName = Objects.requireNonNull(indexName);
+            if (indexName == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTablePartitionIndex", "indexName");
+            }
+            this.indexName = indexName;
             return this;
         }
         @CustomType.Setter
         public Builder indexStatus(String indexStatus) {
-            this.indexStatus = Objects.requireNonNull(indexStatus);
+            if (indexStatus == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTablePartitionIndex", "indexStatus");
+            }
+            this.indexStatus = indexStatus;
             return this;
         }
         @CustomType.Setter
         public Builder keys(List<String> keys) {
-            this.keys = Objects.requireNonNull(keys);
+            if (keys == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTablePartitionIndex", "keys");
+            }
+            this.keys = keys;
             return this;
         }
         public Builder keys(String... keys) {

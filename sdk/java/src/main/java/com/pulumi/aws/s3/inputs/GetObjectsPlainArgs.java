@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -256,7 +257,9 @@ public final class GetObjectsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetObjectsPlainArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("GetObjectsPlainArgs", "bucket");
+            }
             return $;
         }
     }

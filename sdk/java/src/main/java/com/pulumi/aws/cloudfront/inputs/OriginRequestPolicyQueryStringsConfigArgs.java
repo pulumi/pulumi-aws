@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront.inputs;
 import com.pulumi.aws.cloudfront.inputs.OriginRequestPolicyQueryStringsConfigQueryStringsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -74,7 +75,9 @@ public final class OriginRequestPolicyQueryStringsConfigArgs extends com.pulumi.
         }
 
         public OriginRequestPolicyQueryStringsConfigArgs build() {
-            $.queryStringBehavior = Objects.requireNonNull($.queryStringBehavior, "expected parameter 'queryStringBehavior' to be non-null");
+            if ($.queryStringBehavior == null) {
+                throw new MissingRequiredPropertyException("OriginRequestPolicyQueryStringsConfigArgs", "queryStringBehavior");
+            }
             return $;
         }
     }

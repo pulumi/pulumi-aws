@@ -44,6 +44,7 @@ public final class DashboardDashboardPublishOptionsAdHocFilteringOption {
 
         @CustomType.Setter
         public Builder availabilityStatus(@Nullable String availabilityStatus) {
+
             this.availabilityStatus = availabilityStatus;
             return this;
         }

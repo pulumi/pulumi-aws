@@ -5,6 +5,7 @@ package com.pulumi.aws.connect;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -229,9 +230,15 @@ public final class VocabularyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VocabularyArgs build() {
-            $.content = Objects.requireNonNull($.content, "expected parameter 'content' to be non-null");
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
-            $.languageCode = Objects.requireNonNull($.languageCode, "expected parameter 'languageCode' to be non-null");
+            if ($.content == null) {
+                throw new MissingRequiredPropertyException("VocabularyArgs", "content");
+            }
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("VocabularyArgs", "instanceId");
+            }
+            if ($.languageCode == null) {
+                throw new MissingRequiredPropertyException("VocabularyArgs", "languageCode");
+            }
             return $;
         }
     }

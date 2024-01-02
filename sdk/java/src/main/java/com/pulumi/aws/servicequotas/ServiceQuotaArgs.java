@@ -5,6 +5,7 @@ package com.pulumi.aws.servicequotas;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class ServiceQuotaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServiceQuotaArgs build() {
-            $.quotaCode = Objects.requireNonNull($.quotaCode, "expected parameter 'quotaCode' to be non-null");
-            $.serviceCode = Objects.requireNonNull($.serviceCode, "expected parameter 'serviceCode' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.quotaCode == null) {
+                throw new MissingRequiredPropertyException("ServiceQuotaArgs", "quotaCode");
+            }
+            if ($.serviceCode == null) {
+                throw new MissingRequiredPropertyException("ServiceQuotaArgs", "serviceCode");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("ServiceQuotaArgs", "value");
+            }
             return $;
         }
     }

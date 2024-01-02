@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.aws.connect.outputs.GetQuickConnectQuickConnectConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -127,32 +128,50 @@ public final class GetQuickConnectResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetQuickConnectResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetQuickConnectResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetQuickConnectResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetQuickConnectResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetQuickConnectResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder quickConnectConfigs(List<GetQuickConnectQuickConnectConfig> quickConnectConfigs) {
-            this.quickConnectConfigs = Objects.requireNonNull(quickConnectConfigs);
+            if (quickConnectConfigs == null) {
+              throw new MissingRequiredPropertyException("GetQuickConnectResult", "quickConnectConfigs");
+            }
+            this.quickConnectConfigs = quickConnectConfigs;
             return this;
         }
         public Builder quickConnectConfigs(GetQuickConnectQuickConnectConfig... quickConnectConfigs) {
@@ -160,12 +179,18 @@ public final class GetQuickConnectResult {
         }
         @CustomType.Setter
         public Builder quickConnectId(String quickConnectId) {
-            this.quickConnectId = Objects.requireNonNull(quickConnectId);
+            if (quickConnectId == null) {
+              throw new MissingRequiredPropertyException("GetQuickConnectResult", "quickConnectId");
+            }
+            this.quickConnectId = quickConnectId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetQuickConnectResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetQuickConnectResult build() {

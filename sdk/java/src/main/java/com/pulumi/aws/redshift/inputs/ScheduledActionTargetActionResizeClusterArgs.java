@@ -5,6 +5,7 @@ package com.pulumi.aws.redshift.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -226,7 +227,9 @@ public final class ScheduledActionTargetActionResizeClusterArgs extends com.pulu
         }
 
         public ScheduledActionTargetActionResizeClusterArgs build() {
-            $.clusterIdentifier = Objects.requireNonNull($.clusterIdentifier, "expected parameter 'clusterIdentifier' to be non-null");
+            if ($.clusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionTargetActionResizeClusterArgs", "clusterIdentifier");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.chime.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class SdkvoiceSipRuleTargetApplication {
 
         @CustomType.Setter
         public Builder awsRegion(String awsRegion) {
-            this.awsRegion = Objects.requireNonNull(awsRegion);
+            if (awsRegion == null) {
+              throw new MissingRequiredPropertyException("SdkvoiceSipRuleTargetApplication", "awsRegion");
+            }
+            this.awsRegion = awsRegion;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("SdkvoiceSipRuleTargetApplication", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder sipMediaApplicationId(String sipMediaApplicationId) {
-            this.sipMediaApplicationId = Objects.requireNonNull(sipMediaApplicationId);
+            if (sipMediaApplicationId == null) {
+              throw new MissingRequiredPropertyException("SdkvoiceSipRuleTargetApplication", "sipMediaApplicationId");
+            }
+            this.sipMediaApplicationId = sipMediaApplicationId;
             return this;
         }
         public SdkvoiceSipRuleTargetApplication build() {

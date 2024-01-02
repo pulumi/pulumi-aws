@@ -4,6 +4,7 @@
 package com.pulumi.aws.ivschat.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class LoggingConfigurationDestinationConfigurationCloudwatchLogs {
 
         @CustomType.Setter
         public Builder logGroupName(String logGroupName) {
-            this.logGroupName = Objects.requireNonNull(logGroupName);
+            if (logGroupName == null) {
+              throw new MissingRequiredPropertyException("LoggingConfigurationDestinationConfigurationCloudwatchLogs", "logGroupName");
+            }
+            this.logGroupName = logGroupName;
             return this;
         }
         public LoggingConfigurationDestinationConfigurationCloudwatchLogs build() {

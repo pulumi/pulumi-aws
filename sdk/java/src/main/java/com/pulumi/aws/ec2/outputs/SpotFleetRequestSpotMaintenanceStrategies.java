@@ -44,6 +44,7 @@ public final class SpotFleetRequestSpotMaintenanceStrategies {
 
         @CustomType.Setter
         public Builder capacityRebalance(@Nullable SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance capacityRebalance) {
+
             this.capacityRebalance = capacityRebalance;
             return this;
         }

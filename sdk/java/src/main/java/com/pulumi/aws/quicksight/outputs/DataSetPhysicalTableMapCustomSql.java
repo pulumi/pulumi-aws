@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.DataSetPhysicalTableMapCustomSqlColumn;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -87,6 +88,7 @@ public final class DataSetPhysicalTableMapCustomSql {
 
         @CustomType.Setter
         public Builder columns(@Nullable List<DataSetPhysicalTableMapCustomSqlColumn> columns) {
+
             this.columns = columns;
             return this;
         }
@@ -95,17 +97,26 @@ public final class DataSetPhysicalTableMapCustomSql {
         }
         @CustomType.Setter
         public Builder dataSourceArn(String dataSourceArn) {
-            this.dataSourceArn = Objects.requireNonNull(dataSourceArn);
+            if (dataSourceArn == null) {
+              throw new MissingRequiredPropertyException("DataSetPhysicalTableMapCustomSql", "dataSourceArn");
+            }
+            this.dataSourceArn = dataSourceArn;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DataSetPhysicalTableMapCustomSql", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sqlQuery(String sqlQuery) {
-            this.sqlQuery = Objects.requireNonNull(sqlQuery);
+            if (sqlQuery == null) {
+              throw new MissingRequiredPropertyException("DataSetPhysicalTableMapCustomSql", "sqlQuery");
+            }
+            this.sqlQuery = sqlQuery;
             return this;
         }
         public DataSetPhysicalTableMapCustomSql build() {

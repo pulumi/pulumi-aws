@@ -44,6 +44,7 @@ public final class AccessGrantAccessGrantsLocationConfiguration {
 
         @CustomType.Setter
         public Builder s3SubPrefix(@Nullable String s3SubPrefix) {
+
             this.s3SubPrefix = s3SubPrefix;
             return this;
         }

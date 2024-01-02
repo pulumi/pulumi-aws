@@ -6,6 +6,7 @@ package com.pulumi.aws.resourceexplorer;
 import com.pulumi.aws.resourceexplorer.inputs.IndexTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -132,7 +133,9 @@ public final class IndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IndexArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("IndexArgs", "type");
+            }
             return $;
         }
     }

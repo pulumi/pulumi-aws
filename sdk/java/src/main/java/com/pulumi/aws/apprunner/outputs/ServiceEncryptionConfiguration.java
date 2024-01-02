@@ -4,6 +4,7 @@
 package com.pulumi.aws.apprunner.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class ServiceEncryptionConfiguration {
 
         @CustomType.Setter
         public Builder kmsKey(String kmsKey) {
-            this.kmsKey = Objects.requireNonNull(kmsKey);
+            if (kmsKey == null) {
+              throw new MissingRequiredPropertyException("ServiceEncryptionConfiguration", "kmsKey");
+            }
+            this.kmsKey = kmsKey;
             return this;
         }
         public ServiceEncryptionConfiguration build() {

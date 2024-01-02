@@ -4,6 +4,7 @@
 package com.pulumi.aws.opsworks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -97,56 +98,71 @@ public final class StaticWebLayerCloudwatchConfigurationLogStream {
 
         @CustomType.Setter
         public Builder batchCount(@Nullable Integer batchCount) {
+
             this.batchCount = batchCount;
             return this;
         }
         @CustomType.Setter
         public Builder batchSize(@Nullable Integer batchSize) {
+
             this.batchSize = batchSize;
             return this;
         }
         @CustomType.Setter
         public Builder bufferDuration(@Nullable Integer bufferDuration) {
+
             this.bufferDuration = bufferDuration;
             return this;
         }
         @CustomType.Setter
         public Builder datetimeFormat(@Nullable String datetimeFormat) {
+
             this.datetimeFormat = datetimeFormat;
             return this;
         }
         @CustomType.Setter
         public Builder encoding(@Nullable String encoding) {
+
             this.encoding = encoding;
             return this;
         }
         @CustomType.Setter
         public Builder file(String file) {
-            this.file = Objects.requireNonNull(file);
+            if (file == null) {
+              throw new MissingRequiredPropertyException("StaticWebLayerCloudwatchConfigurationLogStream", "file");
+            }
+            this.file = file;
             return this;
         }
         @CustomType.Setter
         public Builder fileFingerprintLines(@Nullable String fileFingerprintLines) {
+
             this.fileFingerprintLines = fileFingerprintLines;
             return this;
         }
         @CustomType.Setter
         public Builder initialPosition(@Nullable String initialPosition) {
+
             this.initialPosition = initialPosition;
             return this;
         }
         @CustomType.Setter
         public Builder logGroupName(String logGroupName) {
-            this.logGroupName = Objects.requireNonNull(logGroupName);
+            if (logGroupName == null) {
+              throw new MissingRequiredPropertyException("StaticWebLayerCloudwatchConfigurationLogStream", "logGroupName");
+            }
+            this.logGroupName = logGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder multilineStartPattern(@Nullable String multilineStartPattern) {
+
             this.multilineStartPattern = multilineStartPattern;
             return this;
         }
         @CustomType.Setter
         public Builder timeZone(@Nullable String timeZone) {
+
             this.timeZone = timeZone;
             return this;
         }

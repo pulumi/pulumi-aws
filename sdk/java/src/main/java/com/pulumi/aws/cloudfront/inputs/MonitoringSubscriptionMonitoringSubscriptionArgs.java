@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront.inputs;
 import com.pulumi.aws.cloudfront.inputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class MonitoringSubscriptionMonitoringSubscriptionArgs extends com.
         }
 
         public MonitoringSubscriptionMonitoringSubscriptionArgs build() {
-            $.realtimeMetricsSubscriptionConfig = Objects.requireNonNull($.realtimeMetricsSubscriptionConfig, "expected parameter 'realtimeMetricsSubscriptionConfig' to be non-null");
+            if ($.realtimeMetricsSubscriptionConfig == null) {
+                throw new MissingRequiredPropertyException("MonitoringSubscriptionMonitoringSubscriptionArgs", "realtimeMetricsSubscriptionConfig");
+            }
             return $;
         }
     }

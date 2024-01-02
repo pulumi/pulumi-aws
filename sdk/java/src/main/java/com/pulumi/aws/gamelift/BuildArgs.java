@@ -6,6 +6,7 @@ package com.pulumi.aws.gamelift;
 import com.pulumi.aws.gamelift.inputs.BuildStorageLocationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -226,8 +227,12 @@ public final class BuildArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BuildArgs build() {
-            $.operatingSystem = Objects.requireNonNull($.operatingSystem, "expected parameter 'operatingSystem' to be non-null");
-            $.storageLocation = Objects.requireNonNull($.storageLocation, "expected parameter 'storageLocation' to be non-null");
+            if ($.operatingSystem == null) {
+                throw new MissingRequiredPropertyException("BuildArgs", "operatingSystem");
+            }
+            if ($.storageLocation == null) {
+                throw new MissingRequiredPropertyException("BuildArgs", "storageLocation");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.pipes.outputs;
 
 import com.pulumi.aws.pipes.outputs.PipeSourceParametersManagedStreamingKafkaParametersCredentials;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -116,32 +117,40 @@ public final class PipeSourceParametersManagedStreamingKafkaParameters {
 
         @CustomType.Setter
         public Builder batchSize(@Nullable Integer batchSize) {
+
             this.batchSize = batchSize;
             return this;
         }
         @CustomType.Setter
         public Builder consumerGroupId(@Nullable String consumerGroupId) {
+
             this.consumerGroupId = consumerGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder credentials(@Nullable PipeSourceParametersManagedStreamingKafkaParametersCredentials credentials) {
+
             this.credentials = credentials;
             return this;
         }
         @CustomType.Setter
         public Builder maximumBatchingWindowInSeconds(@Nullable Integer maximumBatchingWindowInSeconds) {
+
             this.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder startingPosition(@Nullable String startingPosition) {
+
             this.startingPosition = startingPosition;
             return this;
         }
         @CustomType.Setter
         public Builder topicName(String topicName) {
-            this.topicName = Objects.requireNonNull(topicName);
+            if (topicName == null) {
+              throw new MissingRequiredPropertyException("PipeSourceParametersManagedStreamingKafkaParameters", "topicName");
+            }
+            this.topicName = topicName;
             return this;
         }
         public PipeSourceParametersManagedStreamingKafkaParameters build() {

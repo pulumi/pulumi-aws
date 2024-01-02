@@ -6,6 +6,7 @@ package com.pulumi.aws.servicecatalog;
 import com.pulumi.aws.servicecatalog.inputs.ProductProvisioningArtifactParametersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -456,9 +457,15 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProductArgs build() {
-            $.owner = Objects.requireNonNull($.owner, "expected parameter 'owner' to be non-null");
-            $.provisioningArtifactParameters = Objects.requireNonNull($.provisioningArtifactParameters, "expected parameter 'provisioningArtifactParameters' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.owner == null) {
+                throw new MissingRequiredPropertyException("ProductArgs", "owner");
+            }
+            if ($.provisioningArtifactParameters == null) {
+                throw new MissingRequiredPropertyException("ProductArgs", "provisioningArtifactParameters");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ProductArgs", "type");
+            }
             return $;
         }
     }

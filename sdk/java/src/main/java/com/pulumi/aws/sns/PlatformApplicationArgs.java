@@ -5,6 +5,7 @@ package com.pulumi.aws.sns;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -528,8 +529,12 @@ public final class PlatformApplicationArgs extends com.pulumi.resources.Resource
         }
 
         public PlatformApplicationArgs build() {
-            $.platform = Objects.requireNonNull($.platform, "expected parameter 'platform' to be non-null");
-            $.platformCredential = Objects.requireNonNull($.platformCredential, "expected parameter 'platformCredential' to be non-null");
+            if ($.platform == null) {
+                throw new MissingRequiredPropertyException("PlatformApplicationArgs", "platform");
+            }
+            if ($.platformCredential == null) {
+                throw new MissingRequiredPropertyException("PlatformApplicationArgs", "platformCredential");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.directconnect.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetLocationPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetLocationPlainArgs build() {
-            $.locationCode = Objects.requireNonNull($.locationCode, "expected parameter 'locationCode' to be non-null");
+            if ($.locationCode == null) {
+                throw new MissingRequiredPropertyException("GetLocationPlainArgs", "locationCode");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.worklink.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -189,9 +190,15 @@ public final class FleetNetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FleetNetworkArgs build() {
-            $.securityGroupIds = Objects.requireNonNull($.securityGroupIds, "expected parameter 'securityGroupIds' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.securityGroupIds == null) {
+                throw new MissingRequiredPropertyException("FleetNetworkArgs", "securityGroupIds");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("FleetNetworkArgs", "subnetIds");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("FleetNetworkArgs", "vpcId");
+            }
             return $;
         }
     }

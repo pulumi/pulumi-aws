@@ -73,6 +73,7 @@ public final class FunctionImageConfig {
 
         @CustomType.Setter
         public Builder commands(@Nullable List<String> commands) {
+
             this.commands = commands;
             return this;
         }
@@ -81,6 +82,7 @@ public final class FunctionImageConfig {
         }
         @CustomType.Setter
         public Builder entryPoints(@Nullable List<String> entryPoints) {
+
             this.entryPoints = entryPoints;
             return this;
         }
@@ -89,6 +91,7 @@ public final class FunctionImageConfig {
         }
         @CustomType.Setter
         public Builder workingDirectory(@Nullable String workingDirectory) {
+
             this.workingDirectory = workingDirectory;
             return this;
         }

@@ -141,86 +141,103 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
 
         @CustomType.Setter
         public Builder audioFramesPerPes(@Nullable Integer audioFramesPerPes) {
+
             this.audioFramesPerPes = audioFramesPerPes;
             return this;
         }
         @CustomType.Setter
         public Builder audioPids(@Nullable String audioPids) {
+
             this.audioPids = audioPids;
             return this;
         }
         @CustomType.Setter
         public Builder ecmPid(@Nullable String ecmPid) {
+
             this.ecmPid = ecmPid;
             return this;
         }
         @CustomType.Setter
         public Builder nielsenId3Behavior(@Nullable String nielsenId3Behavior) {
+
             this.nielsenId3Behavior = nielsenId3Behavior;
             return this;
         }
         @CustomType.Setter
         public Builder patInterval(@Nullable Integer patInterval) {
+
             this.patInterval = patInterval;
             return this;
         }
         @CustomType.Setter
         public Builder pcrControl(@Nullable String pcrControl) {
+
             this.pcrControl = pcrControl;
             return this;
         }
         @CustomType.Setter
         public Builder pcrPeriod(@Nullable Integer pcrPeriod) {
+
             this.pcrPeriod = pcrPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder pcrPid(@Nullable String pcrPid) {
+
             this.pcrPid = pcrPid;
             return this;
         }
         @CustomType.Setter
         public Builder pmtInterval(@Nullable Integer pmtInterval) {
+
             this.pmtInterval = pmtInterval;
             return this;
         }
         @CustomType.Setter
         public Builder pmtPid(@Nullable String pmtPid) {
+
             this.pmtPid = pmtPid;
             return this;
         }
         @CustomType.Setter
         public Builder programNum(@Nullable Integer programNum) {
+
             this.programNum = programNum;
             return this;
         }
         @CustomType.Setter
         public Builder scte35Behavior(@Nullable String scte35Behavior) {
+
             this.scte35Behavior = scte35Behavior;
             return this;
         }
         @CustomType.Setter
         public Builder scte35Pid(@Nullable String scte35Pid) {
+
             this.scte35Pid = scte35Pid;
             return this;
         }
         @CustomType.Setter
         public Builder timedMetadataBehavior(@Nullable String timedMetadataBehavior) {
+
             this.timedMetadataBehavior = timedMetadataBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder timedMetadataPid(@Nullable String timedMetadataPid) {
+
             this.timedMetadataPid = timedMetadataPid;
             return this;
         }
         @CustomType.Setter
         public Builder transportStreamId(@Nullable Integer transportStreamId) {
+
             this.transportStreamId = transportStreamId;
             return this;
         }
         @CustomType.Setter
         public Builder videoPid(@Nullable String videoPid) {
+
             this.videoPid = videoPid;
             return this;
         }

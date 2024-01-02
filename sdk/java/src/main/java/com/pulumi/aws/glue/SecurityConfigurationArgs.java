@@ -6,6 +6,7 @@ package com.pulumi.aws.glue;
 import com.pulumi.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class SecurityConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         public SecurityConfigurationArgs build() {
-            $.encryptionConfiguration = Objects.requireNonNull($.encryptionConfiguration, "expected parameter 'encryptionConfiguration' to be non-null");
+            if ($.encryptionConfiguration == null) {
+                throw new MissingRequiredPropertyException("SecurityConfigurationArgs", "encryptionConfiguration");
+            }
             return $;
         }
     }

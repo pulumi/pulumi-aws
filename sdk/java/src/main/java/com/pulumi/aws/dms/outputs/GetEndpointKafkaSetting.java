@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -138,92 +139,146 @@ public final class GetEndpointKafkaSetting {
 
         @CustomType.Setter
         public Builder broker(String broker) {
-            this.broker = Objects.requireNonNull(broker);
+            if (broker == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "broker");
+            }
+            this.broker = broker;
             return this;
         }
         @CustomType.Setter
         public Builder includeControlDetails(Boolean includeControlDetails) {
-            this.includeControlDetails = Objects.requireNonNull(includeControlDetails);
+            if (includeControlDetails == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "includeControlDetails");
+            }
+            this.includeControlDetails = includeControlDetails;
             return this;
         }
         @CustomType.Setter
         public Builder includeNullAndEmpty(Boolean includeNullAndEmpty) {
-            this.includeNullAndEmpty = Objects.requireNonNull(includeNullAndEmpty);
+            if (includeNullAndEmpty == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "includeNullAndEmpty");
+            }
+            this.includeNullAndEmpty = includeNullAndEmpty;
             return this;
         }
         @CustomType.Setter
         public Builder includePartitionValue(Boolean includePartitionValue) {
-            this.includePartitionValue = Objects.requireNonNull(includePartitionValue);
+            if (includePartitionValue == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "includePartitionValue");
+            }
+            this.includePartitionValue = includePartitionValue;
             return this;
         }
         @CustomType.Setter
         public Builder includeTableAlterOperations(Boolean includeTableAlterOperations) {
-            this.includeTableAlterOperations = Objects.requireNonNull(includeTableAlterOperations);
+            if (includeTableAlterOperations == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "includeTableAlterOperations");
+            }
+            this.includeTableAlterOperations = includeTableAlterOperations;
             return this;
         }
         @CustomType.Setter
         public Builder includeTransactionDetails(Boolean includeTransactionDetails) {
-            this.includeTransactionDetails = Objects.requireNonNull(includeTransactionDetails);
+            if (includeTransactionDetails == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "includeTransactionDetails");
+            }
+            this.includeTransactionDetails = includeTransactionDetails;
             return this;
         }
         @CustomType.Setter
         public Builder messageFormat(String messageFormat) {
-            this.messageFormat = Objects.requireNonNull(messageFormat);
+            if (messageFormat == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "messageFormat");
+            }
+            this.messageFormat = messageFormat;
             return this;
         }
         @CustomType.Setter
         public Builder messageMaxBytes(Integer messageMaxBytes) {
-            this.messageMaxBytes = Objects.requireNonNull(messageMaxBytes);
+            if (messageMaxBytes == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "messageMaxBytes");
+            }
+            this.messageMaxBytes = messageMaxBytes;
             return this;
         }
         @CustomType.Setter
         public Builder noHexPrefix(Boolean noHexPrefix) {
-            this.noHexPrefix = Objects.requireNonNull(noHexPrefix);
+            if (noHexPrefix == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "noHexPrefix");
+            }
+            this.noHexPrefix = noHexPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder partitionIncludeSchemaTable(Boolean partitionIncludeSchemaTable) {
-            this.partitionIncludeSchemaTable = Objects.requireNonNull(partitionIncludeSchemaTable);
+            if (partitionIncludeSchemaTable == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "partitionIncludeSchemaTable");
+            }
+            this.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
             return this;
         }
         @CustomType.Setter
         public Builder saslPassword(String saslPassword) {
-            this.saslPassword = Objects.requireNonNull(saslPassword);
+            if (saslPassword == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "saslPassword");
+            }
+            this.saslPassword = saslPassword;
             return this;
         }
         @CustomType.Setter
         public Builder saslUsername(String saslUsername) {
-            this.saslUsername = Objects.requireNonNull(saslUsername);
+            if (saslUsername == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "saslUsername");
+            }
+            this.saslUsername = saslUsername;
             return this;
         }
         @CustomType.Setter
         public Builder securityProtocol(String securityProtocol) {
-            this.securityProtocol = Objects.requireNonNull(securityProtocol);
+            if (securityProtocol == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "securityProtocol");
+            }
+            this.securityProtocol = securityProtocol;
             return this;
         }
         @CustomType.Setter
         public Builder sslCaCertificateArn(String sslCaCertificateArn) {
-            this.sslCaCertificateArn = Objects.requireNonNull(sslCaCertificateArn);
+            if (sslCaCertificateArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "sslCaCertificateArn");
+            }
+            this.sslCaCertificateArn = sslCaCertificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder sslClientCertificateArn(String sslClientCertificateArn) {
-            this.sslClientCertificateArn = Objects.requireNonNull(sslClientCertificateArn);
+            if (sslClientCertificateArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "sslClientCertificateArn");
+            }
+            this.sslClientCertificateArn = sslClientCertificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder sslClientKeyArn(String sslClientKeyArn) {
-            this.sslClientKeyArn = Objects.requireNonNull(sslClientKeyArn);
+            if (sslClientKeyArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "sslClientKeyArn");
+            }
+            this.sslClientKeyArn = sslClientKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder sslClientKeyPassword(String sslClientKeyPassword) {
-            this.sslClientKeyPassword = Objects.requireNonNull(sslClientKeyPassword);
+            if (sslClientKeyPassword == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "sslClientKeyPassword");
+            }
+            this.sslClientKeyPassword = sslClientKeyPassword;
             return this;
         }
         @CustomType.Setter
         public Builder topic(String topic) {
-            this.topic = Objects.requireNonNull(topic);
+            if (topic == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "topic");
+            }
+            this.topic = topic;
             return this;
         }
         public GetEndpointKafkaSetting build() {

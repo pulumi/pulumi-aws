@@ -179,51 +179,61 @@ public final class DashboardDashboardPublishOptions {
 
         @CustomType.Setter
         public Builder adHocFilteringOption(@Nullable DashboardDashboardPublishOptionsAdHocFilteringOption adHocFilteringOption) {
+
             this.adHocFilteringOption = adHocFilteringOption;
             return this;
         }
         @CustomType.Setter
         public Builder dataPointDrillUpDownOption(@Nullable DashboardDashboardPublishOptionsDataPointDrillUpDownOption dataPointDrillUpDownOption) {
+
             this.dataPointDrillUpDownOption = dataPointDrillUpDownOption;
             return this;
         }
         @CustomType.Setter
         public Builder dataPointMenuLabelOption(@Nullable DashboardDashboardPublishOptionsDataPointMenuLabelOption dataPointMenuLabelOption) {
+
             this.dataPointMenuLabelOption = dataPointMenuLabelOption;
             return this;
         }
         @CustomType.Setter
         public Builder dataPointTooltipOption(@Nullable DashboardDashboardPublishOptionsDataPointTooltipOption dataPointTooltipOption) {
+
             this.dataPointTooltipOption = dataPointTooltipOption;
             return this;
         }
         @CustomType.Setter
         public Builder exportToCsvOption(@Nullable DashboardDashboardPublishOptionsExportToCsvOption exportToCsvOption) {
+
             this.exportToCsvOption = exportToCsvOption;
             return this;
         }
         @CustomType.Setter
         public Builder exportWithHiddenFieldsOption(@Nullable DashboardDashboardPublishOptionsExportWithHiddenFieldsOption exportWithHiddenFieldsOption) {
+
             this.exportWithHiddenFieldsOption = exportWithHiddenFieldsOption;
             return this;
         }
         @CustomType.Setter
         public Builder sheetControlsOption(@Nullable DashboardDashboardPublishOptionsSheetControlsOption sheetControlsOption) {
+
             this.sheetControlsOption = sheetControlsOption;
             return this;
         }
         @CustomType.Setter
         public Builder sheetLayoutElementMaximizationOption(@Nullable DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption sheetLayoutElementMaximizationOption) {
+
             this.sheetLayoutElementMaximizationOption = sheetLayoutElementMaximizationOption;
             return this;
         }
         @CustomType.Setter
         public Builder visualAxisSortOption(@Nullable DashboardDashboardPublishOptionsVisualAxisSortOption visualAxisSortOption) {
+
             this.visualAxisSortOption = visualAxisSortOption;
             return this;
         }
         @CustomType.Setter
         public Builder visualMenuOption(@Nullable DashboardDashboardPublishOptionsVisualMenuOption visualMenuOption) {
+
             this.visualMenuOption = visualMenuOption;
             return this;
         }

@@ -58,6 +58,7 @@ public final class DataSetColumnLevelPermissionRule {
 
         @CustomType.Setter
         public Builder columnNames(@Nullable List<String> columnNames) {
+
             this.columnNames = columnNames;
             return this;
         }
@@ -66,6 +67,7 @@ public final class DataSetColumnLevelPermissionRule {
         }
         @CustomType.Setter
         public Builder principals(@Nullable List<String> principals) {
+
             this.principals = principals;
             return this;
         }

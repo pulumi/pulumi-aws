@@ -44,6 +44,7 @@ public final class ClusterConfiguration {
 
         @CustomType.Setter
         public Builder executeCommandConfiguration(@Nullable ClusterConfigurationExecuteCommandConfiguration executeCommandConfiguration) {
+
             this.executeCommandConfiguration = executeCommandConfiguration;
             return this;
         }

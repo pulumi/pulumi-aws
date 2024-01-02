@@ -14,6 +14,7 @@ import com.pulumi.aws.finspace.inputs.KxClusterTickerplantLogConfigurationArgs;
 import com.pulumi.aws.finspace.inputs.KxClusterVpcConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -852,11 +853,21 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KxClusterArgs build() {
-            $.azMode = Objects.requireNonNull($.azMode, "expected parameter 'azMode' to be non-null");
-            $.environmentId = Objects.requireNonNull($.environmentId, "expected parameter 'environmentId' to be non-null");
-            $.releaseLabel = Objects.requireNonNull($.releaseLabel, "expected parameter 'releaseLabel' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.vpcConfiguration = Objects.requireNonNull($.vpcConfiguration, "expected parameter 'vpcConfiguration' to be non-null");
+            if ($.azMode == null) {
+                throw new MissingRequiredPropertyException("KxClusterArgs", "azMode");
+            }
+            if ($.environmentId == null) {
+                throw new MissingRequiredPropertyException("KxClusterArgs", "environmentId");
+            }
+            if ($.releaseLabel == null) {
+                throw new MissingRequiredPropertyException("KxClusterArgs", "releaseLabel");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("KxClusterArgs", "type");
+            }
+            if ($.vpcConfiguration == null) {
+                throw new MissingRequiredPropertyException("KxClusterArgs", "vpcConfiguration");
+            }
             return $;
         }
     }

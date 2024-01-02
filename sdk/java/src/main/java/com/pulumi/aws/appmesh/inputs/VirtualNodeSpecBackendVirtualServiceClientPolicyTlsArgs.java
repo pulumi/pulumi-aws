@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendVirtualServiceClientP
 import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.List;
@@ -201,7 +202,9 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs exten
         }
 
         public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs build() {
-            $.validation = Objects.requireNonNull($.validation, "expected parameter 'validation' to be non-null");
+            if ($.validation == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs", "validation");
+            }
             return $;
         }
     }

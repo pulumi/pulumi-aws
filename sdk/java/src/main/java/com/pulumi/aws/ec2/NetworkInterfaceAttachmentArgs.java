@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class NetworkInterfaceAttachmentArgs extends com.pulumi.resources.R
         }
 
         public NetworkInterfaceAttachmentArgs build() {
-            $.deviceIndex = Objects.requireNonNull($.deviceIndex, "expected parameter 'deviceIndex' to be non-null");
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
-            $.networkInterfaceId = Objects.requireNonNull($.networkInterfaceId, "expected parameter 'networkInterfaceId' to be non-null");
+            if ($.deviceIndex == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceAttachmentArgs", "deviceIndex");
+            }
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceAttachmentArgs", "instanceId");
+            }
+            if ($.networkInterfaceId == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceAttachmentArgs", "networkInterfaceId");
+            }
             return $;
         }
     }

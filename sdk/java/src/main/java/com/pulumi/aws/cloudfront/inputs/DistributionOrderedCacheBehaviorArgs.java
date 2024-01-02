@@ -8,6 +8,7 @@ import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorFunction
 import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -845,11 +846,21 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         public DistributionOrderedCacheBehaviorArgs build() {
-            $.allowedMethods = Objects.requireNonNull($.allowedMethods, "expected parameter 'allowedMethods' to be non-null");
-            $.cachedMethods = Objects.requireNonNull($.cachedMethods, "expected parameter 'cachedMethods' to be non-null");
-            $.pathPattern = Objects.requireNonNull($.pathPattern, "expected parameter 'pathPattern' to be non-null");
-            $.targetOriginId = Objects.requireNonNull($.targetOriginId, "expected parameter 'targetOriginId' to be non-null");
-            $.viewerProtocolPolicy = Objects.requireNonNull($.viewerProtocolPolicy, "expected parameter 'viewerProtocolPolicy' to be non-null");
+            if ($.allowedMethods == null) {
+                throw new MissingRequiredPropertyException("DistributionOrderedCacheBehaviorArgs", "allowedMethods");
+            }
+            if ($.cachedMethods == null) {
+                throw new MissingRequiredPropertyException("DistributionOrderedCacheBehaviorArgs", "cachedMethods");
+            }
+            if ($.pathPattern == null) {
+                throw new MissingRequiredPropertyException("DistributionOrderedCacheBehaviorArgs", "pathPattern");
+            }
+            if ($.targetOriginId == null) {
+                throw new MissingRequiredPropertyException("DistributionOrderedCacheBehaviorArgs", "targetOriginId");
+            }
+            if ($.viewerProtocolPolicy == null) {
+                throw new MissingRequiredPropertyException("DistributionOrderedCacheBehaviorArgs", "viewerProtocolPolicy");
+            }
             return $;
         }
     }

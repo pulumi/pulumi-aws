@@ -7,6 +7,7 @@ import com.pulumi.aws.workspaces.outputs.GetBundleComputeType;
 import com.pulumi.aws.workspaces.outputs.GetBundleRootStorage;
 import com.pulumi.aws.workspaces.outputs.GetBundleUserStorage;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -146,12 +147,16 @@ public final class GetBundleResult {
 
         @CustomType.Setter
         public Builder bundleId(@Nullable String bundleId) {
+
             this.bundleId = bundleId;
             return this;
         }
         @CustomType.Setter
         public Builder computeTypes(List<GetBundleComputeType> computeTypes) {
-            this.computeTypes = Objects.requireNonNull(computeTypes);
+            if (computeTypes == null) {
+              throw new MissingRequiredPropertyException("GetBundleResult", "computeTypes");
+            }
+            this.computeTypes = computeTypes;
             return this;
         }
         public Builder computeTypes(GetBundleComputeType... computeTypes) {
@@ -159,27 +164,38 @@ public final class GetBundleResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetBundleResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBundleResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder owner(@Nullable String owner) {
+
             this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder rootStorages(List<GetBundleRootStorage> rootStorages) {
-            this.rootStorages = Objects.requireNonNull(rootStorages);
+            if (rootStorages == null) {
+              throw new MissingRequiredPropertyException("GetBundleResult", "rootStorages");
+            }
+            this.rootStorages = rootStorages;
             return this;
         }
         public Builder rootStorages(GetBundleRootStorage... rootStorages) {
@@ -187,7 +203,10 @@ public final class GetBundleResult {
         }
         @CustomType.Setter
         public Builder userStorages(List<GetBundleUserStorage> userStorages) {
-            this.userStorages = Objects.requireNonNull(userStorages);
+            if (userStorages == null) {
+              throw new MissingRequiredPropertyException("GetBundleResult", "userStorages");
+            }
+            this.userStorages = userStorages;
             return this;
         }
         public Builder userStorages(GetBundleUserStorage... userStorages) {

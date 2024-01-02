@@ -5,6 +5,7 @@ package com.pulumi.aws.guardduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class DetectorDatasourcesS3LogsArgs extends com.pulumi.resources.Re
         }
 
         public DetectorDatasourcesS3LogsArgs build() {
-            $.enable = Objects.requireNonNull($.enable, "expected parameter 'enable' to be non-null");
+            if ($.enable == null) {
+                throw new MissingRequiredPropertyException("DetectorDatasourcesS3LogsArgs", "enable");
+            }
             return $;
         }
     }

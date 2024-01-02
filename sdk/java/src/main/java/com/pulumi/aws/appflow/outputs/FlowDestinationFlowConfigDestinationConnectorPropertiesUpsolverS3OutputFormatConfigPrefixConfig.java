@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
 
         @CustomType.Setter
         public Builder prefixFormat(@Nullable String prefixFormat) {
+
             this.prefixFormat = prefixFormat;
             return this;
         }
         @CustomType.Setter
         public Builder prefixType(String prefixType) {
-            this.prefixType = Objects.requireNonNull(prefixType);
+            if (prefixType == null) {
+              throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig", "prefixType");
+            }
+            this.prefixType = prefixType;
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig build() {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -319,127 +320,190 @@ public final class GetSnapshotResult {
 
         @CustomType.Setter
         public Builder allocatedStorage(Integer allocatedStorage) {
-            this.allocatedStorage = Objects.requireNonNull(allocatedStorage);
+            if (allocatedStorage == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "allocatedStorage");
+            }
+            this.allocatedStorage = allocatedStorage;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+            if (availabilityZone == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "availabilityZone");
+            }
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder dbInstanceIdentifier(@Nullable String dbInstanceIdentifier) {
+
             this.dbInstanceIdentifier = dbInstanceIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder dbSnapshotArn(String dbSnapshotArn) {
-            this.dbSnapshotArn = Objects.requireNonNull(dbSnapshotArn);
+            if (dbSnapshotArn == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "dbSnapshotArn");
+            }
+            this.dbSnapshotArn = dbSnapshotArn;
             return this;
         }
         @CustomType.Setter
         public Builder dbSnapshotIdentifier(@Nullable String dbSnapshotIdentifier) {
+
             this.dbSnapshotIdentifier = dbSnapshotIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+            if (encrypted == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "encrypted");
+            }
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder engine(String engine) {
-            this.engine = Objects.requireNonNull(engine);
+            if (engine == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "engine");
+            }
+            this.engine = engine;
             return this;
         }
         @CustomType.Setter
         public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+            if (engineVersion == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "engineVersion");
+            }
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includePublic(@Nullable Boolean includePublic) {
+
             this.includePublic = includePublic;
             return this;
         }
         @CustomType.Setter
         public Builder includeShared(@Nullable Boolean includeShared) {
+
             this.includeShared = includeShared;
             return this;
         }
         @CustomType.Setter
         public Builder iops(Integer iops) {
-            this.iops = Objects.requireNonNull(iops);
+            if (iops == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "iops");
+            }
+            this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder licenseModel(String licenseModel) {
-            this.licenseModel = Objects.requireNonNull(licenseModel);
+            if (licenseModel == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "licenseModel");
+            }
+            this.licenseModel = licenseModel;
             return this;
         }
         @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
+
             this.mostRecent = mostRecent;
             return this;
         }
         @CustomType.Setter
         public Builder optionGroupName(String optionGroupName) {
-            this.optionGroupName = Objects.requireNonNull(optionGroupName);
+            if (optionGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "optionGroupName");
+            }
+            this.optionGroupName = optionGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotCreateTime(String snapshotCreateTime) {
-            this.snapshotCreateTime = Objects.requireNonNull(snapshotCreateTime);
+            if (snapshotCreateTime == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "snapshotCreateTime");
+            }
+            this.snapshotCreateTime = snapshotCreateTime;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotType(@Nullable String snapshotType) {
+
             this.snapshotType = snapshotType;
             return this;
         }
         @CustomType.Setter
         public Builder sourceDbSnapshotIdentifier(String sourceDbSnapshotIdentifier) {
-            this.sourceDbSnapshotIdentifier = Objects.requireNonNull(sourceDbSnapshotIdentifier);
+            if (sourceDbSnapshotIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "sourceDbSnapshotIdentifier");
+            }
+            this.sourceDbSnapshotIdentifier = sourceDbSnapshotIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder sourceRegion(String sourceRegion) {
-            this.sourceRegion = Objects.requireNonNull(sourceRegion);
+            if (sourceRegion == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "sourceRegion");
+            }
+            this.sourceRegion = sourceRegion;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+            if (storageType == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "storageType");
+            }
+            this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetSnapshotResult build() {

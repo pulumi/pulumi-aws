@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class SpotDatafeedSubscriptionArgs extends com.pulumi.resources.Res
         }
 
         public SpotDatafeedSubscriptionArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("SpotDatafeedSubscriptionArgs", "bucket");
+            }
             return $;
         }
     }

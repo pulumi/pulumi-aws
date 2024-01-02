@@ -7,6 +7,7 @@ import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceInputColu
 import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,9 +162,15 @@ public final class DataSetPhysicalTableMapS3SourceArgs extends com.pulumi.resour
         }
 
         public DataSetPhysicalTableMapS3SourceArgs build() {
-            $.dataSourceArn = Objects.requireNonNull($.dataSourceArn, "expected parameter 'dataSourceArn' to be non-null");
-            $.inputColumns = Objects.requireNonNull($.inputColumns, "expected parameter 'inputColumns' to be non-null");
-            $.uploadSettings = Objects.requireNonNull($.uploadSettings, "expected parameter 'uploadSettings' to be non-null");
+            if ($.dataSourceArn == null) {
+                throw new MissingRequiredPropertyException("DataSetPhysicalTableMapS3SourceArgs", "dataSourceArn");
+            }
+            if ($.inputColumns == null) {
+                throw new MissingRequiredPropertyException("DataSetPhysicalTableMapS3SourceArgs", "inputColumns");
+            }
+            if ($.uploadSettings == null) {
+                throw new MissingRequiredPropertyException("DataSetPhysicalTableMapS3SourceArgs", "uploadSettings");
+            }
             return $;
         }
     }

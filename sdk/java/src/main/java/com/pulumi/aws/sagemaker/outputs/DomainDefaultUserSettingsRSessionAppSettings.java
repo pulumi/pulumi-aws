@@ -60,6 +60,7 @@ public final class DomainDefaultUserSettingsRSessionAppSettings {
 
         @CustomType.Setter
         public Builder customImages(@Nullable List<DomainDefaultUserSettingsRSessionAppSettingsCustomImage> customImages) {
+
             this.customImages = customImages;
             return this;
         }
@@ -68,6 +69,7 @@ public final class DomainDefaultUserSettingsRSessionAppSettings {
         }
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec defaultResourceSpec) {
+
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }

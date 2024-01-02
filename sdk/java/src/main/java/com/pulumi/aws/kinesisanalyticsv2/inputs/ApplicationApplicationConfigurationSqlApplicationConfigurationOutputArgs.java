@@ -9,6 +9,7 @@ import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurat
 import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -245,8 +246,12 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         public ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs build() {
-            $.destinationSchema = Objects.requireNonNull($.destinationSchema, "expected parameter 'destinationSchema' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.destinationSchema == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs", "destinationSchema");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs", "name");
+            }
             return $;
         }
     }

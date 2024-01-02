@@ -114,31 +114,37 @@ public final class UserPoolVerificationMessageTemplate {
 
         @CustomType.Setter
         public Builder defaultEmailOption(@Nullable String defaultEmailOption) {
+
             this.defaultEmailOption = defaultEmailOption;
             return this;
         }
         @CustomType.Setter
         public Builder emailMessage(@Nullable String emailMessage) {
+
             this.emailMessage = emailMessage;
             return this;
         }
         @CustomType.Setter
         public Builder emailMessageByLink(@Nullable String emailMessageByLink) {
+
             this.emailMessageByLink = emailMessageByLink;
             return this;
         }
         @CustomType.Setter
         public Builder emailSubject(@Nullable String emailSubject) {
+
             this.emailSubject = emailSubject;
             return this;
         }
         @CustomType.Setter
         public Builder emailSubjectByLink(@Nullable String emailSubjectByLink) {
+
             this.emailSubjectByLink = emailSubjectByLink;
             return this;
         }
         @CustomType.Setter
         public Builder smsMessage(@Nullable String smsMessage) {
+
             this.smsMessage = smsMessage;
             return this;
         }

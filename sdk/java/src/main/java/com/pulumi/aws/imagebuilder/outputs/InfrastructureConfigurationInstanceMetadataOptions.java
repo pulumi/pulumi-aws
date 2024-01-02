@@ -59,11 +59,13 @@ public final class InfrastructureConfigurationInstanceMetadataOptions {
 
         @CustomType.Setter
         public Builder httpPutResponseHopLimit(@Nullable Integer httpPutResponseHopLimit) {
+
             this.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
         @CustomType.Setter
         public Builder httpTokens(@Nullable String httpTokens) {
+
             this.httpTokens = httpTokens;
             return this;
         }

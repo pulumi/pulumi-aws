@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,7 +73,10 @@ public final class GetDistributionConfigurationDistributionContainerDistribution
 
         @CustomType.Setter
         public Builder containerTags(List<String> containerTags) {
-            this.containerTags = Objects.requireNonNull(containerTags);
+            if (containerTags == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionContainerDistributionConfiguration", "containerTags");
+            }
+            this.containerTags = containerTags;
             return this;
         }
         public Builder containerTags(String... containerTags) {
@@ -80,12 +84,18 @@ public final class GetDistributionConfigurationDistributionContainerDistribution
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionContainerDistributionConfiguration", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder targetRepositories(List<GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository> targetRepositories) {
-            this.targetRepositories = Objects.requireNonNull(targetRepositories);
+            if (targetRepositories == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionContainerDistributionConfiguration", "targetRepositories");
+            }
+            this.targetRepositories = targetRepositories;
             return this;
         }
         public Builder targetRepositories(GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository... targetRepositories) {

@@ -5,6 +5,7 @@ package com.pulumi.aws.gamelift.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class FleetRuntimeConfigurationServerProcessArgs extends com.pulumi
         }
 
         public FleetRuntimeConfigurationServerProcessArgs build() {
-            $.concurrentExecutions = Objects.requireNonNull($.concurrentExecutions, "expected parameter 'concurrentExecutions' to be non-null");
-            $.launchPath = Objects.requireNonNull($.launchPath, "expected parameter 'launchPath' to be non-null");
+            if ($.concurrentExecutions == null) {
+                throw new MissingRequiredPropertyException("FleetRuntimeConfigurationServerProcessArgs", "concurrentExecutions");
+            }
+            if ($.launchPath == null) {
+                throw new MissingRequiredPropertyException("FleetRuntimeConfigurationServerProcessArgs", "launchPath");
+            }
             return $;
         }
     }

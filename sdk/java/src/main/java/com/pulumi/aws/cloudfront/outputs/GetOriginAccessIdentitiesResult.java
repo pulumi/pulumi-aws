@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -92,6 +93,7 @@ public final class GetOriginAccessIdentitiesResult {
 
         @CustomType.Setter
         public Builder comments(@Nullable List<String> comments) {
+
             this.comments = comments;
             return this;
         }
@@ -100,7 +102,10 @@ public final class GetOriginAccessIdentitiesResult {
         }
         @CustomType.Setter
         public Builder iamArns(List<String> iamArns) {
-            this.iamArns = Objects.requireNonNull(iamArns);
+            if (iamArns == null) {
+              throw new MissingRequiredPropertyException("GetOriginAccessIdentitiesResult", "iamArns");
+            }
+            this.iamArns = iamArns;
             return this;
         }
         public Builder iamArns(String... iamArns) {
@@ -108,12 +113,18 @@ public final class GetOriginAccessIdentitiesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOriginAccessIdentitiesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetOriginAccessIdentitiesResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -121,7 +132,10 @@ public final class GetOriginAccessIdentitiesResult {
         }
         @CustomType.Setter
         public Builder s3CanonicalUserIds(List<String> s3CanonicalUserIds) {
-            this.s3CanonicalUserIds = Objects.requireNonNull(s3CanonicalUserIds);
+            if (s3CanonicalUserIds == null) {
+              throw new MissingRequiredPropertyException("GetOriginAccessIdentitiesResult", "s3CanonicalUserIds");
+            }
+            this.s3CanonicalUserIds = s3CanonicalUserIds;
             return this;
         }
         public Builder s3CanonicalUserIds(String... s3CanonicalUserIds) {

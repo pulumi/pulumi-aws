@@ -4,6 +4,7 @@
 package com.pulumi.aws.opensearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetDomainSoftwareUpdateOption {
 
         @CustomType.Setter
         public Builder autoSoftwareUpdateEnabled(Boolean autoSoftwareUpdateEnabled) {
-            this.autoSoftwareUpdateEnabled = Objects.requireNonNull(autoSoftwareUpdateEnabled);
+            if (autoSoftwareUpdateEnabled == null) {
+              throw new MissingRequiredPropertyException("GetDomainSoftwareUpdateOption", "autoSoftwareUpdateEnabled");
+            }
+            this.autoSoftwareUpdateEnabled = autoSoftwareUpdateEnabled;
             return this;
         }
         public GetDomainSoftwareUpdateOption build() {

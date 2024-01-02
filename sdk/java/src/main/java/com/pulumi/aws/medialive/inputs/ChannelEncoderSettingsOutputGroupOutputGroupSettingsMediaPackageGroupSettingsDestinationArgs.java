@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPack
         }
 
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs build() {
-            $.destinationRefId = Objects.requireNonNull($.destinationRefId, "expected parameter 'destinationRefId' to be non-null");
+            if ($.destinationRefId == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs", "destinationRefId");
+            }
             return $;
         }
     }

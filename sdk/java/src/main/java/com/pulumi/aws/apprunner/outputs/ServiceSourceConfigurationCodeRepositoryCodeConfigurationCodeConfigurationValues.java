@@ -4,6 +4,7 @@
 package com.pulumi.aws.apprunner.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -115,31 +116,39 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
 
         @CustomType.Setter
         public Builder buildCommand(@Nullable String buildCommand) {
+
             this.buildCommand = buildCommand;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable String port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder runtime(String runtime) {
-            this.runtime = Objects.requireNonNull(runtime);
+            if (runtime == null) {
+              throw new MissingRequiredPropertyException("ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues", "runtime");
+            }
+            this.runtime = runtime;
             return this;
         }
         @CustomType.Setter
         public Builder runtimeEnvironmentSecrets(@Nullable Map<String,String> runtimeEnvironmentSecrets) {
+
             this.runtimeEnvironmentSecrets = runtimeEnvironmentSecrets;
             return this;
         }
         @CustomType.Setter
         public Builder runtimeEnvironmentVariables(@Nullable Map<String,String> runtimeEnvironmentVariables) {
+
             this.runtimeEnvironmentVariables = runtimeEnvironmentVariables;
             return this;
         }
         @CustomType.Setter
         public Builder startCommand(@Nullable String startCommand) {
+
             this.startCommand = startCommand;
             return this;
         }

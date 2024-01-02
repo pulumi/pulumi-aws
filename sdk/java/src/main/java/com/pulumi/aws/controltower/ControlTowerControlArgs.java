@@ -5,6 +5,7 @@ package com.pulumi.aws.controltower;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ControlTowerControlArgs extends com.pulumi.resources.Resource
         }
 
         public ControlTowerControlArgs build() {
-            $.controlIdentifier = Objects.requireNonNull($.controlIdentifier, "expected parameter 'controlIdentifier' to be non-null");
-            $.targetIdentifier = Objects.requireNonNull($.targetIdentifier, "expected parameter 'targetIdentifier' to be non-null");
+            if ($.controlIdentifier == null) {
+                throw new MissingRequiredPropertyException("ControlTowerControlArgs", "controlIdentifier");
+            }
+            if ($.targetIdentifier == null) {
+                throw new MissingRequiredPropertyException("ControlTowerControlArgs", "targetIdentifier");
+            }
             return $;
         }
     }

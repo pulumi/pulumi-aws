@@ -5,6 +5,7 @@ package com.pulumi.aws.chimesdkmediapipelines.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -484,7 +485,9 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeProc
         }
 
         public MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs build() {
-            $.languageCode = Objects.requireNonNull($.languageCode, "expected parameter 'languageCode' to be non-null");
+            if ($.languageCode == null) {
+                throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs", "languageCode");
+            }
             return $;
         }
     }

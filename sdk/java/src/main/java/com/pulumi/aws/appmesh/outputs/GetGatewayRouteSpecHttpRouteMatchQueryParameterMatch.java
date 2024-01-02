@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -34,7 +35,10 @@ public final class GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch {
 
         @CustomType.Setter
         public Builder exact(String exact) {
-            this.exact = Objects.requireNonNull(exact);
+            if (exact == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch", "exact");
+            }
+            this.exact = exact;
             return this;
         }
         public GetGatewayRouteSpecHttpRouteMatchQueryParameterMatch build() {

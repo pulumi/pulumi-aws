@@ -130,6 +130,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
 
         @CustomType.Setter
         public Builder adMarkers(@Nullable List<String> adMarkers) {
+
             this.adMarkers = adMarkers;
             return this;
         }
@@ -138,31 +139,37 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
         @CustomType.Setter
         public Builder authenticationScheme(@Nullable String authenticationScheme) {
+
             this.authenticationScheme = authenticationScheme;
             return this;
         }
         @CustomType.Setter
         public Builder cacheFullBehavior(@Nullable String cacheFullBehavior) {
+
             this.cacheFullBehavior = cacheFullBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder cacheLength(@Nullable Integer cacheLength) {
+
             this.cacheLength = cacheLength;
             return this;
         }
         @CustomType.Setter
         public Builder captionData(@Nullable String captionData) {
+
             this.captionData = captionData;
             return this;
         }
         @CustomType.Setter
         public Builder inputLossAction(@Nullable String inputLossAction) {
+
             this.inputLossAction = inputLossAction;
             return this;
         }
         @CustomType.Setter
         public Builder restartDelay(@Nullable Integer restartDelay) {
+
             this.restartDelay = restartDelay;
             return this;
         }

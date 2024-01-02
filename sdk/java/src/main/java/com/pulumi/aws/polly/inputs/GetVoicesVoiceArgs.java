@@ -5,6 +5,7 @@ package com.pulumi.aws.polly.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -317,13 +318,27 @@ public final class GetVoicesVoiceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public GetVoicesVoiceArgs build() {
-            $.additionalLanguageCodes = Objects.requireNonNull($.additionalLanguageCodes, "expected parameter 'additionalLanguageCodes' to be non-null");
-            $.gender = Objects.requireNonNull($.gender, "expected parameter 'gender' to be non-null");
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.languageCode = Objects.requireNonNull($.languageCode, "expected parameter 'languageCode' to be non-null");
-            $.languageName = Objects.requireNonNull($.languageName, "expected parameter 'languageName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.supportedEngines = Objects.requireNonNull($.supportedEngines, "expected parameter 'supportedEngines' to be non-null");
+            if ($.additionalLanguageCodes == null) {
+                throw new MissingRequiredPropertyException("GetVoicesVoiceArgs", "additionalLanguageCodes");
+            }
+            if ($.gender == null) {
+                throw new MissingRequiredPropertyException("GetVoicesVoiceArgs", "gender");
+            }
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("GetVoicesVoiceArgs", "id");
+            }
+            if ($.languageCode == null) {
+                throw new MissingRequiredPropertyException("GetVoicesVoiceArgs", "languageCode");
+            }
+            if ($.languageName == null) {
+                throw new MissingRequiredPropertyException("GetVoicesVoiceArgs", "languageName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetVoicesVoiceArgs", "name");
+            }
+            if ($.supportedEngines == null) {
+                throw new MissingRequiredPropertyException("GetVoicesVoiceArgs", "supportedEngines");
+            }
             return $;
         }
     }

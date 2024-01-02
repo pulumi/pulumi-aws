@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class CatalogTableOpenTableFormatInputIcebergInputArgs extends com.
         }
 
         public CatalogTableOpenTableFormatInputIcebergInputArgs build() {
-            $.metadataOperation = Objects.requireNonNull($.metadataOperation, "expected parameter 'metadataOperation' to be non-null");
+            if ($.metadataOperation == null) {
+                throw new MissingRequiredPropertyException("CatalogTableOpenTableFormatInputIcebergInputArgs", "metadataOperation");
+            }
             return $;
         }
     }

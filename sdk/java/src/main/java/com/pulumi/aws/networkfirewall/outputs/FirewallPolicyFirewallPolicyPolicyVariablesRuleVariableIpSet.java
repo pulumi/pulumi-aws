@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet 
 
         @CustomType.Setter
         public Builder definitions(List<String> definitions) {
-            this.definitions = Objects.requireNonNull(definitions);
+            if (definitions == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet", "definitions");
+            }
+            this.definitions = definitions;
             return this;
         }
         public Builder definitions(String... definitions) {

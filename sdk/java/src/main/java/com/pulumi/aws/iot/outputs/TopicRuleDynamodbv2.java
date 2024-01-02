@@ -5,6 +5,7 @@ package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.aws.iot.outputs.TopicRuleDynamodbv2PutItem;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,12 +60,16 @@ public final class TopicRuleDynamodbv2 {
 
         @CustomType.Setter
         public Builder putItem(@Nullable TopicRuleDynamodbv2PutItem putItem) {
+
             this.putItem = putItem;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleDynamodbv2", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         public TopicRuleDynamodbv2 build() {

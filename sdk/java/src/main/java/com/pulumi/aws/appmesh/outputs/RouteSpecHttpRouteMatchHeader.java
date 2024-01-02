@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.RouteSpecHttpRouteMatchHeaderMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -74,17 +75,22 @@ public final class RouteSpecHttpRouteMatchHeader {
 
         @CustomType.Setter
         public Builder invert(@Nullable Boolean invert) {
+
             this.invert = invert;
             return this;
         }
         @CustomType.Setter
         public Builder match(@Nullable RouteSpecHttpRouteMatchHeaderMatch match) {
+
             this.match = match;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("RouteSpecHttpRouteMatchHeader", "name");
+            }
+            this.name = name;
             return this;
         }
         public RouteSpecHttpRouteMatchHeader build() {

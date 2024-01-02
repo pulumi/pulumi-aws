@@ -36,6 +36,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
 
         @CustomType.Setter
         public Builder repInterval(@Nullable Integer repInterval) {
+
             this.repInterval = repInterval;
             return this;
         }

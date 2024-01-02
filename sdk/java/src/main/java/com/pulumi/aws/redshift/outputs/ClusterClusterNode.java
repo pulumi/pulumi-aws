@@ -72,16 +72,19 @@ public final class ClusterClusterNode {
 
         @CustomType.Setter
         public Builder nodeRole(@Nullable String nodeRole) {
+
             this.nodeRole = nodeRole;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
+
             this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddress(@Nullable String publicIpAddress) {
+
             this.publicIpAddress = publicIpAddress;
             return this;
         }

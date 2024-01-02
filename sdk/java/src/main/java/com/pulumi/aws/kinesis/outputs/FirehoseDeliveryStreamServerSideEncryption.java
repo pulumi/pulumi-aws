@@ -77,16 +77,19 @@ public final class FirehoseDeliveryStreamServerSideEncryption {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder keyArn(@Nullable String keyArn) {
+
             this.keyArn = keyArn;
             return this;
         }
         @CustomType.Setter
         public Builder keyType(@Nullable String keyType) {
+
             this.keyType = keyType;
             return this;
         }

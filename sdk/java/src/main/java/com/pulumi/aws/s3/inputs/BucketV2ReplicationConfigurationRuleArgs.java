@@ -8,6 +8,7 @@ import com.pulumi.aws.s3.inputs.BucketV2ReplicationConfigurationRuleFilterArgs;
 import com.pulumi.aws.s3.inputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -370,8 +371,12 @@ public final class BucketV2ReplicationConfigurationRuleArgs extends com.pulumi.r
         }
 
         public BucketV2ReplicationConfigurationRuleArgs build() {
-            $.destinations = Objects.requireNonNull($.destinations, "expected parameter 'destinations' to be non-null");
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
+            if ($.destinations == null) {
+                throw new MissingRequiredPropertyException("BucketV2ReplicationConfigurationRuleArgs", "destinations");
+            }
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("BucketV2ReplicationConfigurationRuleArgs", "status");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.aws.ec2.inputs.AmiFromInstanceEbsBlockDeviceArgs;
 import com.pulumi.aws.ec2.inputs.AmiFromInstanceEphemeralBlockDeviceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -382,7 +383,9 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public AmiFromInstanceArgs build() {
-            $.sourceInstanceId = Objects.requireNonNull($.sourceInstanceId, "expected parameter 'sourceInstanceId' to be non-null");
+            if ($.sourceInstanceId == null) {
+                throw new MissingRequiredPropertyException("AmiFromInstanceArgs", "sourceInstanceId");
+            }
             return $;
         }
     }

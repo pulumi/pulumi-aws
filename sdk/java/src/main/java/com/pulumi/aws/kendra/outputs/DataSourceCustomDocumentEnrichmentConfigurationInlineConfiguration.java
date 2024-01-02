@@ -74,16 +74,19 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
 
         @CustomType.Setter
         public Builder condition(@Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition condition) {
+
             this.condition = condition;
             return this;
         }
         @CustomType.Setter
         public Builder documentContentDeletion(@Nullable Boolean documentContentDeletion) {
+
             this.documentContentDeletion = documentContentDeletion;
             return this;
         }
         @CustomType.Setter
         public Builder target(@Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget target) {
+
             this.target = target;
             return this;
         }

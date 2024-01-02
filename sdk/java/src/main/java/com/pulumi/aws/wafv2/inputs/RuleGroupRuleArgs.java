@@ -10,6 +10,7 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleVisibilityConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -315,11 +316,21 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RuleGroupRuleArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.statement = Objects.requireNonNull($.statement, "expected parameter 'statement' to be non-null");
-            $.visibilityConfig = Objects.requireNonNull($.visibilityConfig, "expected parameter 'visibilityConfig' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleArgs", "action");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleArgs", "name");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleArgs", "priority");
+            }
+            if ($.statement == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleArgs", "statement");
+            }
+            if ($.visibilityConfig == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleArgs", "visibilityConfig");
+            }
             return $;
         }
     }

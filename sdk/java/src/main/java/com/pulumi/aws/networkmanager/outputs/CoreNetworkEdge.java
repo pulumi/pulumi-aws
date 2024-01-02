@@ -74,16 +74,19 @@ public final class CoreNetworkEdge {
 
         @CustomType.Setter
         public Builder asn(@Nullable Integer asn) {
+
             this.asn = asn;
             return this;
         }
         @CustomType.Setter
         public Builder edgeLocation(@Nullable String edgeLocation) {
+
             this.edgeLocation = edgeLocation;
             return this;
         }
         @CustomType.Setter
         public Builder insideCidrBlocks(@Nullable List<String> insideCidrBlocks) {
+
             this.insideCidrBlocks = insideCidrBlocks;
             return this;
         }

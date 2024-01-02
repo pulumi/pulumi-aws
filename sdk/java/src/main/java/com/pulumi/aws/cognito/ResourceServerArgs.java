@@ -6,6 +6,7 @@ package com.pulumi.aws.cognito;
 import com.pulumi.aws.cognito.inputs.ResourceServerScopeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -179,8 +180,12 @@ public final class ResourceServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ResourceServerArgs build() {
-            $.identifier = Objects.requireNonNull($.identifier, "expected parameter 'identifier' to be non-null");
-            $.userPoolId = Objects.requireNonNull($.userPoolId, "expected parameter 'userPoolId' to be non-null");
+            if ($.identifier == null) {
+                throw new MissingRequiredPropertyException("ResourceServerArgs", "identifier");
+            }
+            if ($.userPoolId == null) {
+                throw new MissingRequiredPropertyException("ResourceServerArgs", "userPoolId");
+            }
             return $;
         }
     }

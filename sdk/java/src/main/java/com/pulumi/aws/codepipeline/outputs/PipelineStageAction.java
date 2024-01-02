@@ -4,6 +4,7 @@
 package com.pulumi.aws.codepipeline.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -205,16 +206,21 @@ public final class PipelineStageAction {
 
         @CustomType.Setter
         public Builder category(String category) {
-            this.category = Objects.requireNonNull(category);
+            if (category == null) {
+              throw new MissingRequiredPropertyException("PipelineStageAction", "category");
+            }
+            this.category = category;
             return this;
         }
         @CustomType.Setter
         public Builder configuration(@Nullable Map<String,String> configuration) {
+
             this.configuration = configuration;
             return this;
         }
         @CustomType.Setter
         public Builder inputArtifacts(@Nullable List<String> inputArtifacts) {
+
             this.inputArtifacts = inputArtifacts;
             return this;
         }
@@ -223,16 +229,21 @@ public final class PipelineStageAction {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("PipelineStageAction", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespace(@Nullable String namespace) {
+
             this.namespace = namespace;
             return this;
         }
         @CustomType.Setter
         public Builder outputArtifacts(@Nullable List<String> outputArtifacts) {
+
             this.outputArtifacts = outputArtifacts;
             return this;
         }
@@ -241,32 +252,44 @@ public final class PipelineStageAction {
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("PipelineStageAction", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder provider(String provider) {
-            this.provider = Objects.requireNonNull(provider);
+            if (provider == null) {
+              throw new MissingRequiredPropertyException("PipelineStageAction", "provider");
+            }
+            this.provider = provider;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
+
             this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder runOrder(@Nullable Integer runOrder) {
+
             this.runOrder = runOrder;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("PipelineStageAction", "version");
+            }
+            this.version = version;
             return this;
         }
         public PipelineStageAction build() {

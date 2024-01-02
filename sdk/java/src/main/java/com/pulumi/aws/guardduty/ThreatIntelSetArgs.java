@@ -5,6 +5,7 @@ package com.pulumi.aws.guardduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -263,10 +264,18 @@ public final class ThreatIntelSetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ThreatIntelSetArgs build() {
-            $.activate = Objects.requireNonNull($.activate, "expected parameter 'activate' to be non-null");
-            $.detectorId = Objects.requireNonNull($.detectorId, "expected parameter 'detectorId' to be non-null");
-            $.format = Objects.requireNonNull($.format, "expected parameter 'format' to be non-null");
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
+            if ($.activate == null) {
+                throw new MissingRequiredPropertyException("ThreatIntelSetArgs", "activate");
+            }
+            if ($.detectorId == null) {
+                throw new MissingRequiredPropertyException("ThreatIntelSetArgs", "detectorId");
+            }
+            if ($.format == null) {
+                throw new MissingRequiredPropertyException("ThreatIntelSetArgs", "format");
+            }
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("ThreatIntelSetArgs", "location");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.guardduty.inputs;
 import com.pulumi.aws.guardduty.inputs.FilterFindingCriteriaCriterionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -59,7 +60,9 @@ public final class FilterFindingCriteriaArgs extends com.pulumi.resources.Resour
         }
 
         public FilterFindingCriteriaArgs build() {
-            $.criterions = Objects.requireNonNull($.criterions, "expected parameter 'criterions' to be non-null");
+            if ($.criterions == null) {
+                throw new MissingRequiredPropertyException("FilterFindingCriteriaArgs", "criterions");
+            }
             return $;
         }
     }

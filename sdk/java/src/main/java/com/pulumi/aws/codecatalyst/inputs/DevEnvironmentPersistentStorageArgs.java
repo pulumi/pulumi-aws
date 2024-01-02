@@ -5,6 +5,7 @@ package com.pulumi.aws.codecatalyst.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class DevEnvironmentPersistentStorageArgs extends com.pulumi.resour
         }
 
         public DevEnvironmentPersistentStorageArgs build() {
-            $.size = Objects.requireNonNull($.size, "expected parameter 'size' to be non-null");
+            if ($.size == null) {
+                throw new MissingRequiredPropertyException("DevEnvironmentPersistentStorageArgs", "size");
+            }
             return $;
         }
     }

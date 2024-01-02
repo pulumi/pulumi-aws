@@ -60,6 +60,7 @@ public final class ContainerRecipeInstanceConfiguration {
 
         @CustomType.Setter
         public Builder blockDeviceMappings(@Nullable List<ContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings) {
+
             this.blockDeviceMappings = blockDeviceMappings;
             return this;
         }
@@ -68,6 +69,7 @@ public final class ContainerRecipeInstanceConfiguration {
         }
         @CustomType.Setter
         public Builder image(@Nullable String image) {
+
             this.image = image;
             return this;
         }

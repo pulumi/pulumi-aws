@@ -59,11 +59,13 @@ public final class ApplicationPortalOptions {
 
         @CustomType.Setter
         public Builder signInOptions(@Nullable ApplicationPortalOptionsSignInOptions signInOptions) {
+
             this.signInOptions = signInOptions;
             return this;
         }
         @CustomType.Setter
         public Builder visibility(@Nullable String visibility) {
+
             this.visibility = visibility;
             return this;
         }

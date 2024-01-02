@@ -74,16 +74,19 @@ public final class CostCategoryRuleRuleNot {
 
         @CustomType.Setter
         public Builder costCategory(@Nullable CostCategoryRuleRuleNotCostCategory costCategory) {
+
             this.costCategory = costCategory;
             return this;
         }
         @CustomType.Setter
         public Builder dimension(@Nullable CostCategoryRuleRuleNotDimension dimension) {
+
             this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable CostCategoryRuleRuleNotTags tags) {
+
             this.tags = tags;
             return this;
         }

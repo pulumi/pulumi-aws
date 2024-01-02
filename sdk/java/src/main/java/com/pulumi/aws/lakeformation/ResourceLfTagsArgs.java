@@ -9,6 +9,7 @@ import com.pulumi.aws.lakeformation.inputs.ResourceLfTagsTableArgs;
 import com.pulumi.aws.lakeformation.inputs.ResourceLfTagsTableWithColumnsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -257,7 +258,9 @@ public final class ResourceLfTagsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ResourceLfTagsArgs build() {
-            $.lfTags = Objects.requireNonNull($.lfTags, "expected parameter 'lfTags' to be non-null");
+            if ($.lfTags == null) {
+                throw new MissingRequiredPropertyException("ResourceLfTagsArgs", "lfTags");
+            }
             return $;
         }
     }

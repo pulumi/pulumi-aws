@@ -5,6 +5,7 @@ package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.aws.sesv2.outputs.GetEmailIdentityDkimSigningAttribute;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -128,17 +129,26 @@ public final class GetEmailIdentityResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder configurationSetName(String configurationSetName) {
-            this.configurationSetName = Objects.requireNonNull(configurationSetName);
+            if (configurationSetName == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityResult", "configurationSetName");
+            }
+            this.configurationSetName = configurationSetName;
             return this;
         }
         @CustomType.Setter
         public Builder dkimSigningAttributes(List<GetEmailIdentityDkimSigningAttribute> dkimSigningAttributes) {
-            this.dkimSigningAttributes = Objects.requireNonNull(dkimSigningAttributes);
+            if (dkimSigningAttributes == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityResult", "dkimSigningAttributes");
+            }
+            this.dkimSigningAttributes = dkimSigningAttributes;
             return this;
         }
         public Builder dkimSigningAttributes(GetEmailIdentityDkimSigningAttribute... dkimSigningAttributes) {
@@ -146,27 +156,42 @@ public final class GetEmailIdentityResult {
         }
         @CustomType.Setter
         public Builder emailIdentity(String emailIdentity) {
-            this.emailIdentity = Objects.requireNonNull(emailIdentity);
+            if (emailIdentity == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityResult", "emailIdentity");
+            }
+            this.emailIdentity = emailIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identityType(String identityType) {
-            this.identityType = Objects.requireNonNull(identityType);
+            if (identityType == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityResult", "identityType");
+            }
+            this.identityType = identityType;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder verifiedForSendingStatus(Boolean verifiedForSendingStatus) {
-            this.verifiedForSendingStatus = Objects.requireNonNull(verifiedForSendingStatus);
+            if (verifiedForSendingStatus == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityResult", "verifiedForSendingStatus");
+            }
+            this.verifiedForSendingStatus = verifiedForSendingStatus;
             return this;
         }
         public GetEmailIdentityResult build() {

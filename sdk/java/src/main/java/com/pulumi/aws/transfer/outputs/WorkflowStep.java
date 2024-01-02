@@ -9,6 +9,7 @@ import com.pulumi.aws.transfer.outputs.WorkflowStepDecryptStepDetails;
 import com.pulumi.aws.transfer.outputs.WorkflowStepDeleteStepDetails;
 import com.pulumi.aws.transfer.outputs.WorkflowStepTagStepDetails;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -119,32 +120,40 @@ public final class WorkflowStep {
 
         @CustomType.Setter
         public Builder copyStepDetails(@Nullable WorkflowStepCopyStepDetails copyStepDetails) {
+
             this.copyStepDetails = copyStepDetails;
             return this;
         }
         @CustomType.Setter
         public Builder customStepDetails(@Nullable WorkflowStepCustomStepDetails customStepDetails) {
+
             this.customStepDetails = customStepDetails;
             return this;
         }
         @CustomType.Setter
         public Builder decryptStepDetails(@Nullable WorkflowStepDecryptStepDetails decryptStepDetails) {
+
             this.decryptStepDetails = decryptStepDetails;
             return this;
         }
         @CustomType.Setter
         public Builder deleteStepDetails(@Nullable WorkflowStepDeleteStepDetails deleteStepDetails) {
+
             this.deleteStepDetails = deleteStepDetails;
             return this;
         }
         @CustomType.Setter
         public Builder tagStepDetails(@Nullable WorkflowStepTagStepDetails tagStepDetails) {
+
             this.tagStepDetails = tagStepDetails;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("WorkflowStep", "type");
+            }
+            this.type = type;
             return this;
         }
         public WorkflowStep build() {

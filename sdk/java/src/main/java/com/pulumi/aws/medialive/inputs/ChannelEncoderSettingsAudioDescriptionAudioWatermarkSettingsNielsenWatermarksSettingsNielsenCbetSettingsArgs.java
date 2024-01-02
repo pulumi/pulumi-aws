@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -128,9 +129,15 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
         }
 
         public ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs build() {
-            $.cbetCheckDigitString = Objects.requireNonNull($.cbetCheckDigitString, "expected parameter 'cbetCheckDigitString' to be non-null");
-            $.cbetStepaside = Objects.requireNonNull($.cbetStepaside, "expected parameter 'cbetStepaside' to be non-null");
-            $.csid = Objects.requireNonNull($.csid, "expected parameter 'csid' to be non-null");
+            if ($.cbetCheckDigitString == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs", "cbetCheckDigitString");
+            }
+            if ($.cbetStepaside == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs", "cbetStepaside");
+            }
+            if ($.csid == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs", "csid");
+            }
             return $;
         }
     }

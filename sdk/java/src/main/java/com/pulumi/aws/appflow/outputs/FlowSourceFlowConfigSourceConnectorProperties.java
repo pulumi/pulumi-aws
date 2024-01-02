@@ -269,81 +269,97 @@ public final class FlowSourceFlowConfigSourceConnectorProperties {
 
         @CustomType.Setter
         public Builder amplitude(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesAmplitude amplitude) {
+
             this.amplitude = amplitude;
             return this;
         }
         @CustomType.Setter
         public Builder customConnector(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector customConnector) {
+
             this.customConnector = customConnector;
             return this;
         }
         @CustomType.Setter
         public Builder datadog(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesDatadog datadog) {
+
             this.datadog = datadog;
             return this;
         }
         @CustomType.Setter
         public Builder dynatrace(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesDynatrace dynatrace) {
+
             this.dynatrace = dynatrace;
             return this;
         }
         @CustomType.Setter
         public Builder googleAnalytics(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics googleAnalytics) {
+
             this.googleAnalytics = googleAnalytics;
             return this;
         }
         @CustomType.Setter
         public Builder inforNexus(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesInforNexus inforNexus) {
+
             this.inforNexus = inforNexus;
             return this;
         }
         @CustomType.Setter
         public Builder marketo(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesMarketo marketo) {
+
             this.marketo = marketo;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3 s3) {
+
             this.s3 = s3;
             return this;
         }
         @CustomType.Setter
         public Builder salesforce(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesSalesforce salesforce) {
+
             this.salesforce = salesforce;
             return this;
         }
         @CustomType.Setter
         public Builder sapoData(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoData sapoData) {
+
             this.sapoData = sapoData;
             return this;
         }
         @CustomType.Setter
         public Builder serviceNow(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesServiceNow serviceNow) {
+
             this.serviceNow = serviceNow;
             return this;
         }
         @CustomType.Setter
         public Builder singular(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesSingular singular) {
+
             this.singular = singular;
             return this;
         }
         @CustomType.Setter
         public Builder slack(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesSlack slack) {
+
             this.slack = slack;
             return this;
         }
         @CustomType.Setter
         public Builder trendmicro(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro trendmicro) {
+
             this.trendmicro = trendmicro;
             return this;
         }
         @CustomType.Setter
         public Builder veeva(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesVeeva veeva) {
+
             this.veeva = veeva;
             return this;
         }
         @CustomType.Setter
         public Builder zendesk(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesZendesk zendesk) {
+
             this.zendesk = zendesk;
             return this;
         }

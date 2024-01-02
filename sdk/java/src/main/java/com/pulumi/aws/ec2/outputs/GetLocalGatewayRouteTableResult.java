@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetLocalGatewayRouteTableFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -82,6 +83,7 @@ public final class GetLocalGatewayRouteTableResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetLocalGatewayRouteTableFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -90,32 +92,50 @@ public final class GetLocalGatewayRouteTableResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayRouteTableResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder localGatewayId(String localGatewayId) {
-            this.localGatewayId = Objects.requireNonNull(localGatewayId);
+            if (localGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayRouteTableResult", "localGatewayId");
+            }
+            this.localGatewayId = localGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder localGatewayRouteTableId(String localGatewayRouteTableId) {
-            this.localGatewayRouteTableId = Objects.requireNonNull(localGatewayRouteTableId);
+            if (localGatewayRouteTableId == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayRouteTableResult", "localGatewayRouteTableId");
+            }
+            this.localGatewayRouteTableId = localGatewayRouteTableId;
             return this;
         }
         @CustomType.Setter
         public Builder outpostArn(String outpostArn) {
-            this.outpostArn = Objects.requireNonNull(outpostArn);
+            if (outpostArn == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayRouteTableResult", "outpostArn");
+            }
+            this.outpostArn = outpostArn;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayRouteTableResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayRouteTableResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetLocalGatewayRouteTableResult build() {

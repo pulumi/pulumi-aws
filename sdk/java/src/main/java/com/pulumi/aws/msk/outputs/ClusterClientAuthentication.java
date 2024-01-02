@@ -74,16 +74,19 @@ public final class ClusterClientAuthentication {
 
         @CustomType.Setter
         public Builder sasl(@Nullable ClusterClientAuthenticationSasl sasl) {
+
             this.sasl = sasl;
             return this;
         }
         @CustomType.Setter
         public Builder tls(@Nullable ClusterClientAuthenticationTls tls) {
+
             this.tls = tls;
             return this;
         }
         @CustomType.Setter
         public Builder unauthenticated(@Nullable Boolean unauthenticated) {
+
             this.unauthenticated = unauthenticated;
             return this;
         }

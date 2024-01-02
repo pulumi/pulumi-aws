@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileA
         }
 
         public VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs build() {
-            $.certificateChain = Objects.requireNonNull($.certificateChain, "expected parameter 'certificateChain' to be non-null");
-            $.privateKey = Objects.requireNonNull($.privateKey, "expected parameter 'privateKey' to be non-null");
+            if ($.certificateChain == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs", "certificateChain");
+            }
+            if ($.privateKey == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs", "privateKey");
+            }
             return $;
         }
     }

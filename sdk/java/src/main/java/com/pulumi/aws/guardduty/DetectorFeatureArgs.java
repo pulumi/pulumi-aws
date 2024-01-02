@@ -6,6 +6,7 @@ package com.pulumi.aws.guardduty;
 import com.pulumi.aws.guardduty.inputs.DetectorFeatureAdditionalConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,8 +200,12 @@ public final class DetectorFeatureArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public DetectorFeatureArgs build() {
-            $.detectorId = Objects.requireNonNull($.detectorId, "expected parameter 'detectorId' to be non-null");
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
+            if ($.detectorId == null) {
+                throw new MissingRequiredPropertyException("DetectorFeatureArgs", "detectorId");
+            }
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("DetectorFeatureArgs", "status");
+            }
             return $;
         }
     }

@@ -87,21 +87,25 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
 
         @CustomType.Setter
         public Builder port(@Nullable String port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder runtimeEnvironmentSecrets(@Nullable Map<String,String> runtimeEnvironmentSecrets) {
+
             this.runtimeEnvironmentSecrets = runtimeEnvironmentSecrets;
             return this;
         }
         @CustomType.Setter
         public Builder runtimeEnvironmentVariables(@Nullable Map<String,String> runtimeEnvironmentVariables) {
+
             this.runtimeEnvironmentVariables = runtimeEnvironmentVariables;
             return this;
         }
         @CustomType.Setter
         public Builder startCommand(@Nullable String startCommand) {
+
             this.startCommand = startCommand;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.pipes.inputs;
 import com.pulumi.aws.pipes.inputs.PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -337,7 +338,9 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
         }
 
         public PipeSourceParametersDynamodbStreamParametersArgs build() {
-            $.startingPosition = Objects.requireNonNull($.startingPosition, "expected parameter 'startingPosition' to be non-null");
+            if ($.startingPosition == null) {
+                throw new MissingRequiredPropertyException("PipeSourceParametersDynamodbStreamParametersArgs", "startingPosition");
+            }
             return $;
         }
     }

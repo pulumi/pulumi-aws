@@ -5,6 +5,7 @@ package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.aws.lex.outputs.IntentConfirmationPromptMessage;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -83,12 +84,18 @@ public final class IntentConfirmationPrompt {
 
         @CustomType.Setter
         public Builder maxAttempts(Integer maxAttempts) {
-            this.maxAttempts = Objects.requireNonNull(maxAttempts);
+            if (maxAttempts == null) {
+              throw new MissingRequiredPropertyException("IntentConfirmationPrompt", "maxAttempts");
+            }
+            this.maxAttempts = maxAttempts;
             return this;
         }
         @CustomType.Setter
         public Builder messages(List<IntentConfirmationPromptMessage> messages) {
-            this.messages = Objects.requireNonNull(messages);
+            if (messages == null) {
+              throw new MissingRequiredPropertyException("IntentConfirmationPrompt", "messages");
+            }
+            this.messages = messages;
             return this;
         }
         public Builder messages(IntentConfirmationPromptMessage... messages) {
@@ -96,6 +103,7 @@ public final class IntentConfirmationPrompt {
         }
         @CustomType.Setter
         public Builder responseCard(@Nullable String responseCard) {
+
             this.responseCard = responseCard;
             return this;
         }

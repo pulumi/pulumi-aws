@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class EgressOnlyInternetGatewayArgs extends com.pulumi.resources.Re
         }
 
         public EgressOnlyInternetGatewayArgs build() {
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("EgressOnlyInternetGatewayArgs", "vpcId");
+            }
             return $;
         }
     }

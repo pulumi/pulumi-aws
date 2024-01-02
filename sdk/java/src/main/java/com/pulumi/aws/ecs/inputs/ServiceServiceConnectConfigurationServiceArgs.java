@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs.inputs;
 import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -200,7 +201,9 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         public ServiceServiceConnectConfigurationServiceArgs build() {
-            $.portName = Objects.requireNonNull($.portName, "expected parameter 'portName' to be non-null");
+            if ($.portName == null) {
+                throw new MissingRequiredPropertyException("ServiceServiceConnectConfigurationServiceArgs", "portName");
+            }
             return $;
         }
     }

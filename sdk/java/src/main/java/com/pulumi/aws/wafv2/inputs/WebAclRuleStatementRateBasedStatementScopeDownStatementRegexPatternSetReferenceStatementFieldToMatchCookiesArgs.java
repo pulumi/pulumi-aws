@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -160,9 +161,15 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
         }
 
         public WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs build() {
-            $.matchPatterns = Objects.requireNonNull($.matchPatterns, "expected parameter 'matchPatterns' to be non-null");
-            $.matchScope = Objects.requireNonNull($.matchScope, "expected parameter 'matchScope' to be non-null");
-            $.oversizeHandling = Objects.requireNonNull($.oversizeHandling, "expected parameter 'oversizeHandling' to be non-null");
+            if ($.matchPatterns == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs", "matchPatterns");
+            }
+            if ($.matchScope == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs", "matchScope");
+            }
+            if ($.oversizeHandling == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs", "oversizeHandling");
+            }
             return $;
         }
     }

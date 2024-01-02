@@ -44,6 +44,7 @@ public final class UserPoolAccountRecoverySetting {
 
         @CustomType.Setter
         public Builder recoveryMechanisms(@Nullable List<UserPoolAccountRecoverySettingRecoveryMechanism> recoveryMechanisms) {
+
             this.recoveryMechanisms = recoveryMechanisms;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.pricing.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetProductFilter {
 
         @CustomType.Setter
         public Builder field(String field) {
-            this.field = Objects.requireNonNull(field);
+            if (field == null) {
+              throw new MissingRequiredPropertyException("GetProductFilter", "field");
+            }
+            this.field = field;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetProductFilter", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetProductFilter build() {

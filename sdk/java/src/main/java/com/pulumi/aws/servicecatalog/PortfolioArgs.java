@@ -5,6 +5,7 @@ package com.pulumi.aws.servicecatalog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class PortfolioArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PortfolioArgs build() {
-            $.providerName = Objects.requireNonNull($.providerName, "expected parameter 'providerName' to be non-null");
+            if ($.providerName == null) {
+                throw new MissingRequiredPropertyException("PortfolioArgs", "providerName");
+            }
             return $;
         }
     }

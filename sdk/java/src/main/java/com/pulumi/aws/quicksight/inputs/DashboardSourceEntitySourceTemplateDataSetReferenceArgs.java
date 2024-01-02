@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DashboardSourceEntitySourceTemplateDataSetReferenceArgs exten
         }
 
         public DashboardSourceEntitySourceTemplateDataSetReferenceArgs build() {
-            $.dataSetArn = Objects.requireNonNull($.dataSetArn, "expected parameter 'dataSetArn' to be non-null");
-            $.dataSetPlaceholder = Objects.requireNonNull($.dataSetPlaceholder, "expected parameter 'dataSetPlaceholder' to be non-null");
+            if ($.dataSetArn == null) {
+                throw new MissingRequiredPropertyException("DashboardSourceEntitySourceTemplateDataSetReferenceArgs", "dataSetArn");
+            }
+            if ($.dataSetPlaceholder == null) {
+                throw new MissingRequiredPropertyException("DashboardSourceEntitySourceTemplateDataSetReferenceArgs", "dataSetPlaceholder");
+            }
             return $;
         }
     }

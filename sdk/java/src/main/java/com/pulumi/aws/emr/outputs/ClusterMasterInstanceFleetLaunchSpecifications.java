@@ -59,6 +59,7 @@ public final class ClusterMasterInstanceFleetLaunchSpecifications {
 
         @CustomType.Setter
         public Builder onDemandSpecifications(@Nullable List<ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification> onDemandSpecifications) {
+
             this.onDemandSpecifications = onDemandSpecifications;
             return this;
         }
@@ -67,6 +68,7 @@ public final class ClusterMasterInstanceFleetLaunchSpecifications {
         }
         @CustomType.Setter
         public Builder spotSpecifications(@Nullable List<ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification> spotSpecifications) {
+
             this.spotSpecifications = spotSpecifications;
             return this;
         }

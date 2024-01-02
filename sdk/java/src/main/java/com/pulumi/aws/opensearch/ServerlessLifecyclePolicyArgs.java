@@ -5,6 +5,7 @@ package com.pulumi.aws.opensearch;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -195,8 +196,12 @@ public final class ServerlessLifecyclePolicyArgs extends com.pulumi.resources.Re
         }
 
         public ServerlessLifecyclePolicyArgs build() {
-            $.policy = Objects.requireNonNull($.policy, "expected parameter 'policy' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.policy == null) {
+                throw new MissingRequiredPropertyException("ServerlessLifecyclePolicyArgs", "policy");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ServerlessLifecyclePolicyArgs", "type");
+            }
             return $;
         }
     }

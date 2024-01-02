@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class EventTargetBatchTargetArgs extends com.pulumi.resources.Resou
         }
 
         public EventTargetBatchTargetArgs build() {
-            $.jobDefinition = Objects.requireNonNull($.jobDefinition, "expected parameter 'jobDefinition' to be non-null");
-            $.jobName = Objects.requireNonNull($.jobName, "expected parameter 'jobName' to be non-null");
+            if ($.jobDefinition == null) {
+                throw new MissingRequiredPropertyException("EventTargetBatchTargetArgs", "jobDefinition");
+            }
+            if ($.jobName == null) {
+                throw new MissingRequiredPropertyException("EventTargetBatchTargetArgs", "jobName");
+            }
             return $;
         }
     }

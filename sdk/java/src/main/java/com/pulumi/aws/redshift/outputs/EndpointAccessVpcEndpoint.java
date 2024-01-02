@@ -74,6 +74,7 @@ public final class EndpointAccessVpcEndpoint {
 
         @CustomType.Setter
         public Builder networkInterfaces(@Nullable List<EndpointAccessVpcEndpointNetworkInterface> networkInterfaces) {
+
             this.networkInterfaces = networkInterfaces;
             return this;
         }
@@ -82,11 +83,13 @@ public final class EndpointAccessVpcEndpoint {
         }
         @CustomType.Setter
         public Builder vpcEndpointId(@Nullable String vpcEndpointId) {
+
             this.vpcEndpointId = vpcEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
+
             this.vpcId = vpcId;
             return this;
         }

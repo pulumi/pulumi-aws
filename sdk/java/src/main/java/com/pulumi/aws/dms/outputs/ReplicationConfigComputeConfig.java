@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -169,46 +170,57 @@ public final class ReplicationConfigComputeConfig {
 
         @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
+
             this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder dnsNameServers(@Nullable String dnsNameServers) {
+
             this.dnsNameServers = dnsNameServers;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder maxCapacityUnits(@Nullable Integer maxCapacityUnits) {
+
             this.maxCapacityUnits = maxCapacityUnits;
             return this;
         }
         @CustomType.Setter
         public Builder minCapacityUnits(@Nullable Integer minCapacityUnits) {
+
             this.minCapacityUnits = minCapacityUnits;
             return this;
         }
         @CustomType.Setter
         public Builder multiAz(@Nullable Boolean multiAz) {
+
             this.multiAz = multiAz;
             return this;
         }
         @CustomType.Setter
         public Builder preferredMaintenanceWindow(@Nullable String preferredMaintenanceWindow) {
+
             this.preferredMaintenanceWindow = preferredMaintenanceWindow;
             return this;
         }
         @CustomType.Setter
         public Builder replicationSubnetGroupId(String replicationSubnetGroupId) {
-            this.replicationSubnetGroupId = Objects.requireNonNull(replicationSubnetGroupId);
+            if (replicationSubnetGroupId == null) {
+              throw new MissingRequiredPropertyException("ReplicationConfigComputeConfig", "replicationSubnetGroupId");
+            }
+            this.replicationSubnetGroupId = replicationSubnetGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcSecurityGroupIds(@Nullable List<String> vpcSecurityGroupIds) {
+
             this.vpcSecurityGroupIds = vpcSecurityGroupIds;
             return this;
         }

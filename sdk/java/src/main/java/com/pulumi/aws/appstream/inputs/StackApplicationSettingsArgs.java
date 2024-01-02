@@ -5,6 +5,7 @@ package com.pulumi.aws.appstream.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -122,7 +123,9 @@ public final class StackApplicationSettingsArgs extends com.pulumi.resources.Res
         }
 
         public StackApplicationSettingsArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("StackApplicationSettingsArgs", "enabled");
+            }
             return $;
         }
     }

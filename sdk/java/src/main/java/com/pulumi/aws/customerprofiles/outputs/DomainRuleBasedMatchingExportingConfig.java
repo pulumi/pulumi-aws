@@ -36,6 +36,7 @@ public final class DomainRuleBasedMatchingExportingConfig {
 
         @CustomType.Setter
         public Builder s3Exporting(@Nullable DomainRuleBasedMatchingExportingConfigS3Exporting s3Exporting) {
+
             this.s3Exporting = s3Exporting;
             return this;
         }

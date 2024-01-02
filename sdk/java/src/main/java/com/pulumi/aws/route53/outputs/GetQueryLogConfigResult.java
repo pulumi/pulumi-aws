@@ -5,6 +5,7 @@ package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.aws.route53.outputs.GetQueryLogConfigFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -95,16 +96,23 @@ public final class GetQueryLogConfigResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetQueryLogConfigResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder destinationArn(String destinationArn) {
-            this.destinationArn = Objects.requireNonNull(destinationArn);
+            if (destinationArn == null) {
+              throw new MissingRequiredPropertyException("GetQueryLogConfigResult", "destinationArn");
+            }
+            this.destinationArn = destinationArn;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetQueryLogConfigFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -113,32 +121,46 @@ public final class GetQueryLogConfigResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetQueryLogConfigResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetQueryLogConfigResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder resolverQueryLogConfigId(@Nullable String resolverQueryLogConfigId) {
+
             this.resolverQueryLogConfigId = resolverQueryLogConfigId;
             return this;
         }
         @CustomType.Setter
         public Builder shareStatus(String shareStatus) {
-            this.shareStatus = Objects.requireNonNull(shareStatus);
+            if (shareStatus == null) {
+              throw new MissingRequiredPropertyException("GetQueryLogConfigResult", "shareStatus");
+            }
+            this.shareStatus = shareStatus;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetQueryLogConfigResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetQueryLogConfigResult build() {

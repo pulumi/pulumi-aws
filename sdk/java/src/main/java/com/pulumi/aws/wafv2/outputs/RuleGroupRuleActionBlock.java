@@ -44,6 +44,7 @@ public final class RuleGroupRuleActionBlock {
 
         @CustomType.Setter
         public Builder customResponse(@Nullable RuleGroupRuleActionBlockCustomResponse customResponse) {
+
             this.customResponse = customResponse;
             return this;
         }

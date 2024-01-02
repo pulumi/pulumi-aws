@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class VirtualServiceSpecProviderVirtualRouter {
 
         @CustomType.Setter
         public Builder virtualRouterName(String virtualRouterName) {
-            this.virtualRouterName = Objects.requireNonNull(virtualRouterName);
+            if (virtualRouterName == null) {
+              throw new MissingRequiredPropertyException("VirtualServiceSpecProviderVirtualRouter", "virtualRouterName");
+            }
+            this.virtualRouterName = virtualRouterName;
             return this;
         }
         public VirtualServiceSpecProviderVirtualRouter build() {

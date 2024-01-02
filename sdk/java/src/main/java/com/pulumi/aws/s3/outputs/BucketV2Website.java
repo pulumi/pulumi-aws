@@ -88,21 +88,25 @@ public final class BucketV2Website {
 
         @CustomType.Setter
         public Builder errorDocument(@Nullable String errorDocument) {
+
             this.errorDocument = errorDocument;
             return this;
         }
         @CustomType.Setter
         public Builder indexDocument(@Nullable String indexDocument) {
+
             this.indexDocument = indexDocument;
             return this;
         }
         @CustomType.Setter
         public Builder redirectAllRequestsTo(@Nullable String redirectAllRequestsTo) {
+
             this.redirectAllRequestsTo = redirectAllRequestsTo;
             return this;
         }
         @CustomType.Setter
         public Builder routingRules(@Nullable String routingRules) {
+
             this.routingRules = routingRules;
             return this;
         }

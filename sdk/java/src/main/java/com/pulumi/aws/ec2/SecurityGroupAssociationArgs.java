@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class SecurityGroupAssociationArgs extends com.pulumi.resources.Res
         }
 
         public SecurityGroupAssociationArgs build() {
-            $.securityGroupId = Objects.requireNonNull($.securityGroupId, "expected parameter 'securityGroupId' to be non-null");
-            $.vpcEndpointId = Objects.requireNonNull($.vpcEndpointId, "expected parameter 'vpcEndpointId' to be non-null");
+            if ($.securityGroupId == null) {
+                throw new MissingRequiredPropertyException("SecurityGroupAssociationArgs", "securityGroupId");
+            }
+            if ($.vpcEndpointId == null) {
+                throw new MissingRequiredPropertyException("SecurityGroupAssociationArgs", "vpcEndpointId");
+            }
             return $;
         }
     }

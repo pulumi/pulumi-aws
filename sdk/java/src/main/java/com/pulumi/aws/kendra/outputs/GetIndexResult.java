@@ -10,6 +10,7 @@ import com.pulumi.aws.kendra.outputs.GetIndexServerSideEncryptionConfiguration;
 import com.pulumi.aws.kendra.outputs.GetIndexUserGroupResolutionConfiguration;
 import com.pulumi.aws.kendra.outputs.GetIndexUserTokenConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -288,12 +289,18 @@ public final class GetIndexResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder capacityUnits(List<GetIndexCapacityUnit> capacityUnits) {
-            this.capacityUnits = Objects.requireNonNull(capacityUnits);
+            if (capacityUnits == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "capacityUnits");
+            }
+            this.capacityUnits = capacityUnits;
             return this;
         }
         public Builder capacityUnits(GetIndexCapacityUnit... capacityUnits) {
@@ -301,17 +308,26 @@ public final class GetIndexResult {
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "createdAt");
+            }
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder documentMetadataConfigurationUpdates(List<GetIndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates) {
-            this.documentMetadataConfigurationUpdates = Objects.requireNonNull(documentMetadataConfigurationUpdates);
+            if (documentMetadataConfigurationUpdates == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "documentMetadataConfigurationUpdates");
+            }
+            this.documentMetadataConfigurationUpdates = documentMetadataConfigurationUpdates;
             return this;
         }
         public Builder documentMetadataConfigurationUpdates(GetIndexDocumentMetadataConfigurationUpdate... documentMetadataConfigurationUpdates) {
@@ -319,22 +335,34 @@ public final class GetIndexResult {
         }
         @CustomType.Setter
         public Builder edition(String edition) {
-            this.edition = Objects.requireNonNull(edition);
+            if (edition == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "edition");
+            }
+            this.edition = edition;
             return this;
         }
         @CustomType.Setter
         public Builder errorMessage(String errorMessage) {
-            this.errorMessage = Objects.requireNonNull(errorMessage);
+            if (errorMessage == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "errorMessage");
+            }
+            this.errorMessage = errorMessage;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder indexStatistics(List<GetIndexIndexStatistic> indexStatistics) {
-            this.indexStatistics = Objects.requireNonNull(indexStatistics);
+            if (indexStatistics == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "indexStatistics");
+            }
+            this.indexStatistics = indexStatistics;
             return this;
         }
         public Builder indexStatistics(GetIndexIndexStatistic... indexStatistics) {
@@ -342,17 +370,26 @@ public final class GetIndexResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder serverSideEncryptionConfigurations(List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations) {
-            this.serverSideEncryptionConfigurations = Objects.requireNonNull(serverSideEncryptionConfigurations);
+            if (serverSideEncryptionConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "serverSideEncryptionConfigurations");
+            }
+            this.serverSideEncryptionConfigurations = serverSideEncryptionConfigurations;
             return this;
         }
         public Builder serverSideEncryptionConfigurations(GetIndexServerSideEncryptionConfiguration... serverSideEncryptionConfigurations) {
@@ -360,27 +397,42 @@ public final class GetIndexResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder updatedAt(String updatedAt) {
-            this.updatedAt = Objects.requireNonNull(updatedAt);
+            if (updatedAt == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "updatedAt");
+            }
+            this.updatedAt = updatedAt;
             return this;
         }
         @CustomType.Setter
         public Builder userContextPolicy(String userContextPolicy) {
-            this.userContextPolicy = Objects.requireNonNull(userContextPolicy);
+            if (userContextPolicy == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "userContextPolicy");
+            }
+            this.userContextPolicy = userContextPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder userGroupResolutionConfigurations(List<GetIndexUserGroupResolutionConfiguration> userGroupResolutionConfigurations) {
-            this.userGroupResolutionConfigurations = Objects.requireNonNull(userGroupResolutionConfigurations);
+            if (userGroupResolutionConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "userGroupResolutionConfigurations");
+            }
+            this.userGroupResolutionConfigurations = userGroupResolutionConfigurations;
             return this;
         }
         public Builder userGroupResolutionConfigurations(GetIndexUserGroupResolutionConfiguration... userGroupResolutionConfigurations) {
@@ -388,7 +440,10 @@ public final class GetIndexResult {
         }
         @CustomType.Setter
         public Builder userTokenConfigurations(List<GetIndexUserTokenConfiguration> userTokenConfigurations) {
-            this.userTokenConfigurations = Objects.requireNonNull(userTokenConfigurations);
+            if (userTokenConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "userTokenConfigurations");
+            }
+            this.userTokenConfigurations = userTokenConfigurations;
             return this;
         }
         public Builder userTokenConfigurations(GetIndexUserTokenConfiguration... userTokenConfigurations) {

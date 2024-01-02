@@ -60,6 +60,7 @@ public final class NodeGroupResource {
 
         @CustomType.Setter
         public Builder autoscalingGroups(@Nullable List<NodeGroupResourceAutoscalingGroup> autoscalingGroups) {
+
             this.autoscalingGroups = autoscalingGroups;
             return this;
         }
@@ -68,6 +69,7 @@ public final class NodeGroupResource {
         }
         @CustomType.Setter
         public Builder remoteAccessSecurityGroupId(@Nullable String remoteAccessSecurityGroupId) {
+
             this.remoteAccessSecurityGroupId = remoteAccessSecurityGroupId;
             return this;
         }

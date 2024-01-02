@@ -5,6 +5,7 @@ package com.pulumi.aws.lakeformation.outputs;
 
 import com.pulumi.aws.lakeformation.outputs.PermissionsLfTagPolicyExpression;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -78,12 +79,16 @@ public final class PermissionsLfTagPolicy {
 
         @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
+
             this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder expressions(List<PermissionsLfTagPolicyExpression> expressions) {
-            this.expressions = Objects.requireNonNull(expressions);
+            if (expressions == null) {
+              throw new MissingRequiredPropertyException("PermissionsLfTagPolicy", "expressions");
+            }
+            this.expressions = expressions;
             return this;
         }
         public Builder expressions(PermissionsLfTagPolicyExpression... expressions) {
@@ -91,7 +96,10 @@ public final class PermissionsLfTagPolicy {
         }
         @CustomType.Setter
         public Builder resourceType(String resourceType) {
-            this.resourceType = Objects.requireNonNull(resourceType);
+            if (resourceType == null) {
+              throw new MissingRequiredPropertyException("PermissionsLfTagPolicy", "resourceType");
+            }
+            this.resourceType = resourceType;
             return this;
         }
         public PermissionsLfTagPolicy build() {

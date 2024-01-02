@@ -7,6 +7,7 @@ import com.pulumi.aws.grafana.inputs.WorkspaceNetworkAccessControlArgs;
 import com.pulumi.aws.grafana.inputs.WorkspaceVpcConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -683,9 +684,15 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkspaceArgs build() {
-            $.accountAccessType = Objects.requireNonNull($.accountAccessType, "expected parameter 'accountAccessType' to be non-null");
-            $.authenticationProviders = Objects.requireNonNull($.authenticationProviders, "expected parameter 'authenticationProviders' to be non-null");
-            $.permissionType = Objects.requireNonNull($.permissionType, "expected parameter 'permissionType' to be non-null");
+            if ($.accountAccessType == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "accountAccessType");
+            }
+            if ($.authenticationProviders == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "authenticationProviders");
+            }
+            if ($.permissionType == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "permissionType");
+            }
             return $;
         }
     }

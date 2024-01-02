@@ -5,6 +5,7 @@ package com.pulumi.aws.codebuild.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ProjectSecondarySourceVersionArgs extends com.pulumi.resource
         }
 
         public ProjectSecondarySourceVersionArgs build() {
-            $.sourceIdentifier = Objects.requireNonNull($.sourceIdentifier, "expected parameter 'sourceIdentifier' to be non-null");
-            $.sourceVersion = Objects.requireNonNull($.sourceVersion, "expected parameter 'sourceVersion' to be non-null");
+            if ($.sourceIdentifier == null) {
+                throw new MissingRequiredPropertyException("ProjectSecondarySourceVersionArgs", "sourceIdentifier");
+            }
+            if ($.sourceVersion == null) {
+                throw new MissingRequiredPropertyException("ProjectSecondarySourceVersionArgs", "sourceVersion");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.fsx.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class OpenZfsVolumeNfsExportsClientConfigurationArgs extends com.pu
         }
 
         public OpenZfsVolumeNfsExportsClientConfigurationArgs build() {
-            $.clients = Objects.requireNonNull($.clients, "expected parameter 'clients' to be non-null");
-            $.options = Objects.requireNonNull($.options, "expected parameter 'options' to be non-null");
+            if ($.clients == null) {
+                throw new MissingRequiredPropertyException("OpenZfsVolumeNfsExportsClientConfigurationArgs", "clients");
+            }
+            if ($.options == null) {
+                throw new MissingRequiredPropertyException("OpenZfsVolumeNfsExportsClientConfigurationArgs", "options");
+            }
             return $;
         }
     }

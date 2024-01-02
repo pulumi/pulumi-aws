@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScope
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -210,9 +211,15 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
         }
 
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs build() {
-            $.positionalConstraint = Objects.requireNonNull($.positionalConstraint, "expected parameter 'positionalConstraint' to be non-null");
-            $.searchString = Objects.requireNonNull($.searchString, "expected parameter 'searchString' to be non-null");
-            $.textTransformations = Objects.requireNonNull($.textTransformations, "expected parameter 'textTransformations' to be non-null");
+            if ($.positionalConstraint == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs", "positionalConstraint");
+            }
+            if ($.searchString == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs", "searchString");
+            }
+            if ($.textTransformations == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs", "textTransformations");
+            }
             return $;
         }
     }

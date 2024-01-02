@@ -58,11 +58,13 @@ public final class BrokerLogs {
 
         @CustomType.Setter
         public Builder audit(@Nullable Boolean audit) {
+
             this.audit = audit;
             return this;
         }
         @CustomType.Setter
         public Builder general(@Nullable Boolean general) {
+
             this.general = general;
             return this;
         }

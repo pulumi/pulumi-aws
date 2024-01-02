@@ -352,6 +352,7 @@ public final class NetworkInsightsAnalysisExplanation {
 
         @CustomType.Setter
         public Builder aclRules(@Nullable List<NetworkInsightsAnalysisExplanationAclRule> aclRules) {
+
             this.aclRules = aclRules;
             return this;
         }
@@ -360,6 +361,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder acls(@Nullable List<NetworkInsightsAnalysisExplanationAcl> acls) {
+
             this.acls = acls;
             return this;
         }
@@ -368,11 +370,13 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder address(@Nullable String address) {
+
             this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder addresses(@Nullable List<String> addresses) {
+
             this.addresses = addresses;
             return this;
         }
@@ -381,6 +385,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder attachedTos(@Nullable List<NetworkInsightsAnalysisExplanationAttachedTo> attachedTos) {
+
             this.attachedTos = attachedTos;
             return this;
         }
@@ -389,6 +394,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder availabilityZones(@Nullable List<String> availabilityZones) {
+
             this.availabilityZones = availabilityZones;
             return this;
         }
@@ -397,6 +403,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder cidrs(@Nullable List<String> cidrs) {
+
             this.cidrs = cidrs;
             return this;
         }
@@ -405,6 +412,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder classicLoadBalancerListeners(@Nullable List<NetworkInsightsAnalysisExplanationClassicLoadBalancerListener> classicLoadBalancerListeners) {
+
             this.classicLoadBalancerListeners = classicLoadBalancerListeners;
             return this;
         }
@@ -413,6 +421,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder components(@Nullable List<NetworkInsightsAnalysisExplanationComponent> components) {
+
             this.components = components;
             return this;
         }
@@ -421,6 +430,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder customerGateways(@Nullable List<NetworkInsightsAnalysisExplanationCustomerGateway> customerGateways) {
+
             this.customerGateways = customerGateways;
             return this;
         }
@@ -429,6 +439,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder destinationVpcs(@Nullable List<NetworkInsightsAnalysisExplanationDestinationVpc> destinationVpcs) {
+
             this.destinationVpcs = destinationVpcs;
             return this;
         }
@@ -437,6 +448,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder destinations(@Nullable List<NetworkInsightsAnalysisExplanationDestination> destinations) {
+
             this.destinations = destinations;
             return this;
         }
@@ -445,11 +457,13 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder direction(@Nullable String direction) {
+
             this.direction = direction;
             return this;
         }
         @CustomType.Setter
         public Builder elasticLoadBalancerListeners(@Nullable List<NetworkInsightsAnalysisExplanationElasticLoadBalancerListener> elasticLoadBalancerListeners) {
+
             this.elasticLoadBalancerListeners = elasticLoadBalancerListeners;
             return this;
         }
@@ -458,11 +472,13 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder explanationCode(@Nullable String explanationCode) {
+
             this.explanationCode = explanationCode;
             return this;
         }
         @CustomType.Setter
         public Builder ingressRouteTables(@Nullable List<NetworkInsightsAnalysisExplanationIngressRouteTable> ingressRouteTables) {
+
             this.ingressRouteTables = ingressRouteTables;
             return this;
         }
@@ -471,6 +487,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder internetGateways(@Nullable List<NetworkInsightsAnalysisExplanationInternetGateway> internetGateways) {
+
             this.internetGateways = internetGateways;
             return this;
         }
@@ -479,16 +496,19 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder loadBalancerArn(@Nullable String loadBalancerArn) {
+
             this.loadBalancerArn = loadBalancerArn;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerListenerPort(@Nullable Integer loadBalancerListenerPort) {
+
             this.loadBalancerListenerPort = loadBalancerListenerPort;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerTargetGroup(@Nullable List<NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroup) {
+
             this.loadBalancerTargetGroup = loadBalancerTargetGroup;
             return this;
         }
@@ -497,6 +517,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder loadBalancerTargetGroups(@Nullable List<NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroups) {
+
             this.loadBalancerTargetGroups = loadBalancerTargetGroups;
             return this;
         }
@@ -505,16 +526,19 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder loadBalancerTargetPort(@Nullable Integer loadBalancerTargetPort) {
+
             this.loadBalancerTargetPort = loadBalancerTargetPort;
             return this;
         }
         @CustomType.Setter
         public Builder missingComponent(@Nullable String missingComponent) {
+
             this.missingComponent = missingComponent;
             return this;
         }
         @CustomType.Setter
         public Builder natGateways(@Nullable List<NetworkInsightsAnalysisExplanationNatGateway> natGateways) {
+
             this.natGateways = natGateways;
             return this;
         }
@@ -523,6 +547,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder networkInterfaces(@Nullable List<NetworkInsightsAnalysisExplanationNetworkInterface> networkInterfaces) {
+
             this.networkInterfaces = networkInterfaces;
             return this;
         }
@@ -531,16 +556,19 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder packetField(@Nullable String packetField) {
+
             this.packetField = packetField;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder portRanges(@Nullable List<NetworkInsightsAnalysisExplanationPortRange> portRanges) {
+
             this.portRanges = portRanges;
             return this;
         }
@@ -549,6 +577,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder prefixLists(@Nullable List<NetworkInsightsAnalysisExplanationPrefixList> prefixLists) {
+
             this.prefixLists = prefixLists;
             return this;
         }
@@ -557,6 +586,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder protocols(@Nullable List<String> protocols) {
+
             this.protocols = protocols;
             return this;
         }
@@ -565,6 +595,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder routeTableRoutes(@Nullable List<NetworkInsightsAnalysisExplanationRouteTableRoute> routeTableRoutes) {
+
             this.routeTableRoutes = routeTableRoutes;
             return this;
         }
@@ -573,6 +604,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder routeTables(@Nullable List<NetworkInsightsAnalysisExplanationRouteTable> routeTables) {
+
             this.routeTables = routeTables;
             return this;
         }
@@ -581,6 +613,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder securityGroup(@Nullable List<NetworkInsightsAnalysisExplanationSecurityGroup> securityGroup) {
+
             this.securityGroup = securityGroup;
             return this;
         }
@@ -589,6 +622,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder securityGroupRules(@Nullable List<NetworkInsightsAnalysisExplanationSecurityGroupRule> securityGroupRules) {
+
             this.securityGroupRules = securityGroupRules;
             return this;
         }
@@ -597,6 +631,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder securityGroups(@Nullable List<NetworkInsightsAnalysisExplanationSecurityGroup> securityGroups) {
+
             this.securityGroups = securityGroups;
             return this;
         }
@@ -605,6 +640,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder sourceVpcs(@Nullable List<NetworkInsightsAnalysisExplanationSourceVpc> sourceVpcs) {
+
             this.sourceVpcs = sourceVpcs;
             return this;
         }
@@ -613,11 +649,13 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder subnetRouteTables(@Nullable List<NetworkInsightsAnalysisExplanationSubnetRouteTable> subnetRouteTables) {
+
             this.subnetRouteTables = subnetRouteTables;
             return this;
         }
@@ -626,6 +664,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder subnets(@Nullable List<NetworkInsightsAnalysisExplanationSubnet> subnets) {
+
             this.subnets = subnets;
             return this;
         }
@@ -634,6 +673,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder transitGatewayAttachments(@Nullable List<NetworkInsightsAnalysisExplanationTransitGatewayAttachment> transitGatewayAttachments) {
+
             this.transitGatewayAttachments = transitGatewayAttachments;
             return this;
         }
@@ -642,6 +682,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder transitGatewayRouteTableRoutes(@Nullable List<NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes) {
+
             this.transitGatewayRouteTableRoutes = transitGatewayRouteTableRoutes;
             return this;
         }
@@ -650,6 +691,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder transitGatewayRouteTables(@Nullable List<NetworkInsightsAnalysisExplanationTransitGatewayRouteTable> transitGatewayRouteTables) {
+
             this.transitGatewayRouteTables = transitGatewayRouteTables;
             return this;
         }
@@ -658,6 +700,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder transitGateways(@Nullable List<NetworkInsightsAnalysisExplanationTransitGateway> transitGateways) {
+
             this.transitGateways = transitGateways;
             return this;
         }
@@ -666,6 +709,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder vpcEndpoints(@Nullable List<NetworkInsightsAnalysisExplanationVpcEndpoint> vpcEndpoints) {
+
             this.vpcEndpoints = vpcEndpoints;
             return this;
         }
@@ -674,6 +718,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder vpcPeeringConnections(@Nullable List<NetworkInsightsAnalysisExplanationVpcPeeringConnection> vpcPeeringConnections) {
+
             this.vpcPeeringConnections = vpcPeeringConnections;
             return this;
         }
@@ -682,6 +727,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder vpcs(@Nullable List<NetworkInsightsAnalysisExplanationVpc> vpcs) {
+
             this.vpcs = vpcs;
             return this;
         }
@@ -690,6 +736,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder vpnConnections(@Nullable List<NetworkInsightsAnalysisExplanationVpnConnection> vpnConnections) {
+
             this.vpnConnections = vpnConnections;
             return this;
         }
@@ -698,6 +745,7 @@ public final class NetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder vpnGateways(@Nullable List<NetworkInsightsAnalysisExplanationVpnGateway> vpnGateways) {
+
             this.vpnGateways = vpnGateways;
             return this;
         }

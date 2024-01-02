@@ -5,6 +5,7 @@ package com.pulumi.aws.secretsmanager.outputs;
 
 import com.pulumi.aws.secretsmanager.outputs.GetSecretRotationRotationRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -93,22 +94,34 @@ public final class GetSecretRotationResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSecretRotationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder rotationEnabled(Boolean rotationEnabled) {
-            this.rotationEnabled = Objects.requireNonNull(rotationEnabled);
+            if (rotationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetSecretRotationResult", "rotationEnabled");
+            }
+            this.rotationEnabled = rotationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder rotationLambdaArn(String rotationLambdaArn) {
-            this.rotationLambdaArn = Objects.requireNonNull(rotationLambdaArn);
+            if (rotationLambdaArn == null) {
+              throw new MissingRequiredPropertyException("GetSecretRotationResult", "rotationLambdaArn");
+            }
+            this.rotationLambdaArn = rotationLambdaArn;
             return this;
         }
         @CustomType.Setter
         public Builder rotationRules(List<GetSecretRotationRotationRule> rotationRules) {
-            this.rotationRules = Objects.requireNonNull(rotationRules);
+            if (rotationRules == null) {
+              throw new MissingRequiredPropertyException("GetSecretRotationResult", "rotationRules");
+            }
+            this.rotationRules = rotationRules;
             return this;
         }
         public Builder rotationRules(GetSecretRotationRotationRule... rotationRules) {
@@ -116,7 +129,10 @@ public final class GetSecretRotationResult {
         }
         @CustomType.Setter
         public Builder secretId(String secretId) {
-            this.secretId = Objects.requireNonNull(secretId);
+            if (secretId == null) {
+              throw new MissingRequiredPropertyException("GetSecretRotationResult", "secretId");
+            }
+            this.secretId = secretId;
             return this;
         }
         public GetSecretRotationResult build() {

@@ -44,6 +44,7 @@ public final class WebAclAssociationConfigRequestBody {
 
         @CustomType.Setter
         public Builder cloudfronts(@Nullable List<WebAclAssociationConfigRequestBodyCloudfront> cloudfronts) {
+
             this.cloudfronts = cloudfronts;
             return this;
         }

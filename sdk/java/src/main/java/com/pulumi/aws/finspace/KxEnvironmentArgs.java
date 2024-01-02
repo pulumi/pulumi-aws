@@ -7,6 +7,7 @@ import com.pulumi.aws.finspace.inputs.KxEnvironmentCustomDnsConfigurationArgs;
 import com.pulumi.aws.finspace.inputs.KxEnvironmentTransitGatewayConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -283,7 +284,9 @@ public final class KxEnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KxEnvironmentArgs build() {
-            $.kmsKeyId = Objects.requireNonNull($.kmsKeyId, "expected parameter 'kmsKeyId' to be non-null");
+            if ($.kmsKeyId == null) {
+                throw new MissingRequiredPropertyException("KxEnvironmentArgs", "kmsKeyId");
+            }
             return $;
         }
     }

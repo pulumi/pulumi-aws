@@ -5,6 +5,7 @@ package com.pulumi.aws.mq.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class BrokerMaintenanceWindowStartTimeArgs extends com.pulumi.resou
         }
 
         public BrokerMaintenanceWindowStartTimeArgs build() {
-            $.dayOfWeek = Objects.requireNonNull($.dayOfWeek, "expected parameter 'dayOfWeek' to be non-null");
-            $.timeOfDay = Objects.requireNonNull($.timeOfDay, "expected parameter 'timeOfDay' to be non-null");
-            $.timeZone = Objects.requireNonNull($.timeZone, "expected parameter 'timeZone' to be non-null");
+            if ($.dayOfWeek == null) {
+                throw new MissingRequiredPropertyException("BrokerMaintenanceWindowStartTimeArgs", "dayOfWeek");
+            }
+            if ($.timeOfDay == null) {
+                throw new MissingRequiredPropertyException("BrokerMaintenanceWindowStartTimeArgs", "timeOfDay");
+            }
+            if ($.timeZone == null) {
+                throw new MissingRequiredPropertyException("BrokerMaintenanceWindowStartTimeArgs", "timeZone");
+            }
             return $;
         }
     }

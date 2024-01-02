@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder apiToken(String apiToken) {
-            this.apiToken = Objects.requireNonNull(apiToken);
+            if (apiToken == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace", "apiToken");
+            }
+            this.apiToken = apiToken;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace build() {

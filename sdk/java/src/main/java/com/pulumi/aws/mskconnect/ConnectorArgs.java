@@ -12,6 +12,7 @@ import com.pulumi.aws.mskconnect.inputs.ConnectorPluginArgs;
 import com.pulumi.aws.mskconnect.inputs.ConnectorWorkerConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -502,14 +503,30 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConnectorArgs build() {
-            $.capacity = Objects.requireNonNull($.capacity, "expected parameter 'capacity' to be non-null");
-            $.connectorConfiguration = Objects.requireNonNull($.connectorConfiguration, "expected parameter 'connectorConfiguration' to be non-null");
-            $.kafkaCluster = Objects.requireNonNull($.kafkaCluster, "expected parameter 'kafkaCluster' to be non-null");
-            $.kafkaClusterClientAuthentication = Objects.requireNonNull($.kafkaClusterClientAuthentication, "expected parameter 'kafkaClusterClientAuthentication' to be non-null");
-            $.kafkaClusterEncryptionInTransit = Objects.requireNonNull($.kafkaClusterEncryptionInTransit, "expected parameter 'kafkaClusterEncryptionInTransit' to be non-null");
-            $.kafkaconnectVersion = Objects.requireNonNull($.kafkaconnectVersion, "expected parameter 'kafkaconnectVersion' to be non-null");
-            $.plugins = Objects.requireNonNull($.plugins, "expected parameter 'plugins' to be non-null");
-            $.serviceExecutionRoleArn = Objects.requireNonNull($.serviceExecutionRoleArn, "expected parameter 'serviceExecutionRoleArn' to be non-null");
+            if ($.capacity == null) {
+                throw new MissingRequiredPropertyException("ConnectorArgs", "capacity");
+            }
+            if ($.connectorConfiguration == null) {
+                throw new MissingRequiredPropertyException("ConnectorArgs", "connectorConfiguration");
+            }
+            if ($.kafkaCluster == null) {
+                throw new MissingRequiredPropertyException("ConnectorArgs", "kafkaCluster");
+            }
+            if ($.kafkaClusterClientAuthentication == null) {
+                throw new MissingRequiredPropertyException("ConnectorArgs", "kafkaClusterClientAuthentication");
+            }
+            if ($.kafkaClusterEncryptionInTransit == null) {
+                throw new MissingRequiredPropertyException("ConnectorArgs", "kafkaClusterEncryptionInTransit");
+            }
+            if ($.kafkaconnectVersion == null) {
+                throw new MissingRequiredPropertyException("ConnectorArgs", "kafkaconnectVersion");
+            }
+            if ($.plugins == null) {
+                throw new MissingRequiredPropertyException("ConnectorArgs", "plugins");
+            }
+            if ($.serviceExecutionRoleArn == null) {
+                throw new MissingRequiredPropertyException("ConnectorArgs", "serviceExecutionRoleArn");
+            }
             return $;
         }
     }

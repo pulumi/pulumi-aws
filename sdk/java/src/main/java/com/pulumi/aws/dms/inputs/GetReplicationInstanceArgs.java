@@ -5,6 +5,7 @@ package com.pulumi.aws.dms.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -94,7 +95,9 @@ public final class GetReplicationInstanceArgs extends com.pulumi.resources.Invok
         }
 
         public GetReplicationInstanceArgs build() {
-            $.replicationInstanceId = Objects.requireNonNull($.replicationInstanceId, "expected parameter 'replicationInstanceId' to be non-null");
+            if ($.replicationInstanceId == null) {
+                throw new MissingRequiredPropertyException("GetReplicationInstanceArgs", "replicationInstanceId");
+            }
             return $;
         }
     }

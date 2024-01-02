@@ -5,6 +5,7 @@ package com.pulumi.aws.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class TopicRuleErrorActionDynamodbv2PutItemArgs extends com.pulumi.
         }
 
         public TopicRuleErrorActionDynamodbv2PutItemArgs build() {
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionDynamodbv2PutItemArgs", "tableName");
+            }
             return $;
         }
     }

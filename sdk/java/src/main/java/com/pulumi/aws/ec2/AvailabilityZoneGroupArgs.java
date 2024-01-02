@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AvailabilityZoneGroupArgs extends com.pulumi.resources.Resour
         }
 
         public AvailabilityZoneGroupArgs build() {
-            $.groupName = Objects.requireNonNull($.groupName, "expected parameter 'groupName' to be non-null");
-            $.optInStatus = Objects.requireNonNull($.optInStatus, "expected parameter 'optInStatus' to be non-null");
+            if ($.groupName == null) {
+                throw new MissingRequiredPropertyException("AvailabilityZoneGroupArgs", "groupName");
+            }
+            if ($.optInStatus == null) {
+                throw new MissingRequiredPropertyException("AvailabilityZoneGroupArgs", "optInStatus");
+            }
             return $;
         }
     }

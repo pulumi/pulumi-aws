@@ -6,6 +6,7 @@ package com.pulumi.aws.datasync.inputs;
 import com.pulumi.aws.datasync.inputs.LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,9 +189,15 @@ public final class LocationFsxOntapFileSystemProtocolSmbArgs extends com.pulumi.
         }
 
         public LocationFsxOntapFileSystemProtocolSmbArgs build() {
-            $.mountOptions = Objects.requireNonNull($.mountOptions, "expected parameter 'mountOptions' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.user = Objects.requireNonNull($.user, "expected parameter 'user' to be non-null");
+            if ($.mountOptions == null) {
+                throw new MissingRequiredPropertyException("LocationFsxOntapFileSystemProtocolSmbArgs", "mountOptions");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("LocationFsxOntapFileSystemProtocolSmbArgs", "password");
+            }
+            if ($.user == null) {
+                throw new MissingRequiredPropertyException("LocationFsxOntapFileSystemProtocolSmbArgs", "user");
+            }
             return $;
         }
     }

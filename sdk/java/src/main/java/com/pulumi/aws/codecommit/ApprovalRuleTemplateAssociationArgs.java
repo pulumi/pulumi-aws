@@ -5,6 +5,7 @@ package com.pulumi.aws.codecommit;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ApprovalRuleTemplateAssociationArgs extends com.pulumi.resour
         }
 
         public ApprovalRuleTemplateAssociationArgs build() {
-            $.approvalRuleTemplateName = Objects.requireNonNull($.approvalRuleTemplateName, "expected parameter 'approvalRuleTemplateName' to be non-null");
-            $.repositoryName = Objects.requireNonNull($.repositoryName, "expected parameter 'repositoryName' to be non-null");
+            if ($.approvalRuleTemplateName == null) {
+                throw new MissingRequiredPropertyException("ApprovalRuleTemplateAssociationArgs", "approvalRuleTemplateName");
+            }
+            if ($.repositoryName == null) {
+                throw new MissingRequiredPropertyException("ApprovalRuleTemplateAssociationArgs", "repositoryName");
+            }
             return $;
         }
     }

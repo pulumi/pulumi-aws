@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.inputs;
 import com.pulumi.aws.sagemaker.inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -225,8 +226,12 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
         }
 
         public DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs build() {
-            $.dataCapturedDestinationS3Uri = Objects.requireNonNull($.dataCapturedDestinationS3Uri, "expected parameter 'dataCapturedDestinationS3Uri' to be non-null");
-            $.datasetFormat = Objects.requireNonNull($.datasetFormat, "expected parameter 'datasetFormat' to be non-null");
+            if ($.dataCapturedDestinationS3Uri == null) {
+                throw new MissingRequiredPropertyException("DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs", "dataCapturedDestinationS3Uri");
+            }
+            if ($.datasetFormat == null) {
+                throw new MissingRequiredPropertyException("DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs", "datasetFormat");
+            }
             return $;
         }
     }

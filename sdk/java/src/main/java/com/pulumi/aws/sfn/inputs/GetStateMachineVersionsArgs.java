@@ -5,6 +5,7 @@ package com.pulumi.aws.sfn.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetStateMachineVersionsArgs extends com.pulumi.resources.Invo
         }
 
         public GetStateMachineVersionsArgs build() {
-            $.statemachineArn = Objects.requireNonNull($.statemachineArn, "expected parameter 'statemachineArn' to be non-null");
+            if ($.statemachineArn == null) {
+                throw new MissingRequiredPropertyException("GetStateMachineVersionsArgs", "statemachineArn");
+            }
             return $;
         }
     }

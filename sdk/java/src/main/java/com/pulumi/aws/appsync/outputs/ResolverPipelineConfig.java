@@ -44,6 +44,7 @@ public final class ResolverPipelineConfig {
 
         @CustomType.Setter
         public Builder functions(@Nullable List<String> functions) {
+
             this.functions = functions;
             return this;
         }

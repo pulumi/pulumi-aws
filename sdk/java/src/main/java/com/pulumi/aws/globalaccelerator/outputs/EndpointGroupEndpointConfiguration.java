@@ -76,16 +76,19 @@ public final class EndpointGroupEndpointConfiguration {
 
         @CustomType.Setter
         public Builder clientIpPreservationEnabled(@Nullable Boolean clientIpPreservationEnabled) {
+
             this.clientIpPreservationEnabled = clientIpPreservationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder endpointId(@Nullable String endpointId) {
+
             this.endpointId = endpointId;
             return this;
         }
         @CustomType.Setter
         public Builder weight(@Nullable Integer weight) {
+
             this.weight = weight;
             return this;
         }

@@ -7,6 +7,7 @@ import com.pulumi.aws.fsx.inputs.OntapVolumeSnaplockConfigurationAutocommitPerio
 import com.pulumi.aws.fsx.inputs.OntapVolumeSnaplockConfigurationRetentionPeriodArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -264,7 +265,9 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         public OntapVolumeSnaplockConfigurationArgs build() {
-            $.snaplockType = Objects.requireNonNull($.snaplockType, "expected parameter 'snaplockType' to be non-null");
+            if ($.snaplockType == null) {
+                throw new MissingRequiredPropertyException("OntapVolumeSnaplockConfigurationArgs", "snaplockType");
+            }
             return $;
         }
     }

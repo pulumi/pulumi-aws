@@ -54,21 +54,25 @@ public final class ServiceQuotaUsageMetricMetricDimension {
 
         @CustomType.Setter("class")
         public Builder class_(@Nullable String class_) {
+
             this.class_ = class_;
             return this;
         }
         @CustomType.Setter
         public Builder resource(@Nullable String resource) {
+
             this.resource = resource;
             return this;
         }
         @CustomType.Setter
         public Builder service(@Nullable String service) {
+
             this.service = service;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

@@ -59,11 +59,13 @@ public final class DataSourceConfiguration {
 
         @CustomType.Setter
         public Builder s3Configuration(@Nullable DataSourceConfigurationS3Configuration s3Configuration) {
+
             this.s3Configuration = s3Configuration;
             return this;
         }
         @CustomType.Setter
         public Builder webCrawlerConfiguration(@Nullable DataSourceConfigurationWebCrawlerConfiguration webCrawlerConfiguration) {
+
             this.webCrawlerConfiguration = webCrawlerConfiguration;
             return this;
         }

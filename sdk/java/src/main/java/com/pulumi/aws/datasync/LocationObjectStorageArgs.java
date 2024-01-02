@@ -5,6 +5,7 @@ package com.pulumi.aws.datasync;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -422,9 +423,15 @@ public final class LocationObjectStorageArgs extends com.pulumi.resources.Resour
         }
 
         public LocationObjectStorageArgs build() {
-            $.agentArns = Objects.requireNonNull($.agentArns, "expected parameter 'agentArns' to be non-null");
-            $.bucketName = Objects.requireNonNull($.bucketName, "expected parameter 'bucketName' to be non-null");
-            $.serverHostname = Objects.requireNonNull($.serverHostname, "expected parameter 'serverHostname' to be non-null");
+            if ($.agentArns == null) {
+                throw new MissingRequiredPropertyException("LocationObjectStorageArgs", "agentArns");
+            }
+            if ($.bucketName == null) {
+                throw new MissingRequiredPropertyException("LocationObjectStorageArgs", "bucketName");
+            }
+            if ($.serverHostname == null) {
+                throw new MissingRequiredPropertyException("LocationObjectStorageArgs", "serverHostname");
+            }
             return $;
         }
     }

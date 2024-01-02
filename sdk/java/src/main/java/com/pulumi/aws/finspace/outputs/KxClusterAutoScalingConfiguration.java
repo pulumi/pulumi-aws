@@ -4,6 +4,7 @@
 package com.pulumi.aws.finspace.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -114,32 +115,50 @@ public final class KxClusterAutoScalingConfiguration {
 
         @CustomType.Setter
         public Builder autoScalingMetric(String autoScalingMetric) {
-            this.autoScalingMetric = Objects.requireNonNull(autoScalingMetric);
+            if (autoScalingMetric == null) {
+              throw new MissingRequiredPropertyException("KxClusterAutoScalingConfiguration", "autoScalingMetric");
+            }
+            this.autoScalingMetric = autoScalingMetric;
             return this;
         }
         @CustomType.Setter
         public Builder maxNodeCount(Integer maxNodeCount) {
-            this.maxNodeCount = Objects.requireNonNull(maxNodeCount);
+            if (maxNodeCount == null) {
+              throw new MissingRequiredPropertyException("KxClusterAutoScalingConfiguration", "maxNodeCount");
+            }
+            this.maxNodeCount = maxNodeCount;
             return this;
         }
         @CustomType.Setter
         public Builder metricTarget(Double metricTarget) {
-            this.metricTarget = Objects.requireNonNull(metricTarget);
+            if (metricTarget == null) {
+              throw new MissingRequiredPropertyException("KxClusterAutoScalingConfiguration", "metricTarget");
+            }
+            this.metricTarget = metricTarget;
             return this;
         }
         @CustomType.Setter
         public Builder minNodeCount(Integer minNodeCount) {
-            this.minNodeCount = Objects.requireNonNull(minNodeCount);
+            if (minNodeCount == null) {
+              throw new MissingRequiredPropertyException("KxClusterAutoScalingConfiguration", "minNodeCount");
+            }
+            this.minNodeCount = minNodeCount;
             return this;
         }
         @CustomType.Setter
         public Builder scaleInCooldownSeconds(Double scaleInCooldownSeconds) {
-            this.scaleInCooldownSeconds = Objects.requireNonNull(scaleInCooldownSeconds);
+            if (scaleInCooldownSeconds == null) {
+              throw new MissingRequiredPropertyException("KxClusterAutoScalingConfiguration", "scaleInCooldownSeconds");
+            }
+            this.scaleInCooldownSeconds = scaleInCooldownSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder scaleOutCooldownSeconds(Double scaleOutCooldownSeconds) {
-            this.scaleOutCooldownSeconds = Objects.requireNonNull(scaleOutCooldownSeconds);
+            if (scaleOutCooldownSeconds == null) {
+              throw new MissingRequiredPropertyException("KxClusterAutoScalingConfiguration", "scaleOutCooldownSeconds");
+            }
+            this.scaleOutCooldownSeconds = scaleOutCooldownSeconds;
             return this;
         }
         public KxClusterAutoScalingConfiguration build() {

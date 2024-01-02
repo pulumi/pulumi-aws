@@ -4,6 +4,7 @@
 package com.pulumi.aws.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -78,7 +79,9 @@ public final class GetArnPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetArnPlainArgs build() {
-            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("GetArnPlainArgs", "arn");
+            }
             return $;
         }
     }

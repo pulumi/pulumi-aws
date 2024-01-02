@@ -4,6 +4,7 @@
 package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -185,57 +186,90 @@ public final class GetSupportedInstanceTypesSupportedInstanceType {
 
         @CustomType.Setter
         public Builder architecture(String architecture) {
-            this.architecture = Objects.requireNonNull(architecture);
+            if (architecture == null) {
+              throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "architecture");
+            }
+            this.architecture = architecture;
             return this;
         }
         @CustomType.Setter
         public Builder ebsOptimizedAvailable(Boolean ebsOptimizedAvailable) {
-            this.ebsOptimizedAvailable = Objects.requireNonNull(ebsOptimizedAvailable);
+            if (ebsOptimizedAvailable == null) {
+              throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "ebsOptimizedAvailable");
+            }
+            this.ebsOptimizedAvailable = ebsOptimizedAvailable;
             return this;
         }
         @CustomType.Setter
         public Builder ebsOptimizedByDefault(Boolean ebsOptimizedByDefault) {
-            this.ebsOptimizedByDefault = Objects.requireNonNull(ebsOptimizedByDefault);
+            if (ebsOptimizedByDefault == null) {
+              throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "ebsOptimizedByDefault");
+            }
+            this.ebsOptimizedByDefault = ebsOptimizedByDefault;
             return this;
         }
         @CustomType.Setter
         public Builder ebsStorageOnly(Boolean ebsStorageOnly) {
-            this.ebsStorageOnly = Objects.requireNonNull(ebsStorageOnly);
+            if (ebsStorageOnly == null) {
+              throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "ebsStorageOnly");
+            }
+            this.ebsStorageOnly = ebsStorageOnly;
             return this;
         }
         @CustomType.Setter
         public Builder instanceFamilyId(String instanceFamilyId) {
-            this.instanceFamilyId = Objects.requireNonNull(instanceFamilyId);
+            if (instanceFamilyId == null) {
+              throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "instanceFamilyId");
+            }
+            this.instanceFamilyId = instanceFamilyId;
             return this;
         }
         @CustomType.Setter
         public Builder is64BitsOnly(Boolean is64BitsOnly) {
-            this.is64BitsOnly = Objects.requireNonNull(is64BitsOnly);
+            if (is64BitsOnly == null) {
+              throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "is64BitsOnly");
+            }
+            this.is64BitsOnly = is64BitsOnly;
             return this;
         }
         @CustomType.Setter
         public Builder memoryGb(Double memoryGb) {
-            this.memoryGb = Objects.requireNonNull(memoryGb);
+            if (memoryGb == null) {
+              throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "memoryGb");
+            }
+            this.memoryGb = memoryGb;
             return this;
         }
         @CustomType.Setter
         public Builder numberOfDisks(Integer numberOfDisks) {
-            this.numberOfDisks = Objects.requireNonNull(numberOfDisks);
+            if (numberOfDisks == null) {
+              throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "numberOfDisks");
+            }
+            this.numberOfDisks = numberOfDisks;
             return this;
         }
         @CustomType.Setter
         public Builder storageGb(Integer storageGb) {
-            this.storageGb = Objects.requireNonNull(storageGb);
+            if (storageGb == null) {
+              throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "storageGb");
+            }
+            this.storageGb = storageGb;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder vcpu(Integer vcpu) {
-            this.vcpu = Objects.requireNonNull(vcpu);
+            if (vcpu == null) {
+              throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "vcpu");
+            }
+            this.vcpu = vcpu;
             return this;
         }
         public GetSupportedInstanceTypesSupportedInstanceType build() {

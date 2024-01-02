@@ -44,6 +44,7 @@ public final class StackSetInstanceDeploymentTargets {
 
         @CustomType.Setter
         public Builder organizationalUnitIds(@Nullable List<String> organizationalUnitIds) {
+
             this.organizationalUnitIds = organizationalUnitIds;
             return this;
         }

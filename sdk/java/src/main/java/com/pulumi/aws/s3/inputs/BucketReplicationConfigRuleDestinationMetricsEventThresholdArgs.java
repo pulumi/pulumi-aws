@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class BucketReplicationConfigRuleDestinationMetricsEventThresholdAr
         }
 
         public BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs build() {
-            $.minutes = Objects.requireNonNull($.minutes, "expected parameter 'minutes' to be non-null");
+            if ($.minutes == null) {
+                throw new MissingRequiredPropertyException("BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs", "minutes");
+            }
             return $;
         }
     }

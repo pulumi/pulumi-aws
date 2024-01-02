@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -101,27 +102,42 @@ public final class GetIndexDocumentMetadataConfigurationUpdateRelevance {
 
         @CustomType.Setter
         public Builder duration(String duration) {
-            this.duration = Objects.requireNonNull(duration);
+            if (duration == null) {
+              throw new MissingRequiredPropertyException("GetIndexDocumentMetadataConfigurationUpdateRelevance", "duration");
+            }
+            this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder freshness(Boolean freshness) {
-            this.freshness = Objects.requireNonNull(freshness);
+            if (freshness == null) {
+              throw new MissingRequiredPropertyException("GetIndexDocumentMetadataConfigurationUpdateRelevance", "freshness");
+            }
+            this.freshness = freshness;
             return this;
         }
         @CustomType.Setter
         public Builder importance(Integer importance) {
-            this.importance = Objects.requireNonNull(importance);
+            if (importance == null) {
+              throw new MissingRequiredPropertyException("GetIndexDocumentMetadataConfigurationUpdateRelevance", "importance");
+            }
+            this.importance = importance;
             return this;
         }
         @CustomType.Setter
         public Builder rankOrder(String rankOrder) {
-            this.rankOrder = Objects.requireNonNull(rankOrder);
+            if (rankOrder == null) {
+              throw new MissingRequiredPropertyException("GetIndexDocumentMetadataConfigurationUpdateRelevance", "rankOrder");
+            }
+            this.rankOrder = rankOrder;
             return this;
         }
         @CustomType.Setter
         public Builder valuesImportanceMap(Map<String,Integer> valuesImportanceMap) {
-            this.valuesImportanceMap = Objects.requireNonNull(valuesImportanceMap);
+            if (valuesImportanceMap == null) {
+              throw new MissingRequiredPropertyException("GetIndexDocumentMetadataConfigurationUpdateRelevance", "valuesImportanceMap");
+            }
+            this.valuesImportanceMap = valuesImportanceMap;
             return this;
         }
         public GetIndexDocumentMetadataConfigurationUpdateRelevance build() {

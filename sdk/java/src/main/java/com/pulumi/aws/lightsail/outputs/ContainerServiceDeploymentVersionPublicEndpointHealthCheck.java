@@ -115,31 +115,37 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
 
         @CustomType.Setter
         public Builder healthyThreshold(@Nullable Integer healthyThreshold) {
+
             this.healthyThreshold = healthyThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder intervalSeconds(@Nullable Integer intervalSeconds) {
+
             this.intervalSeconds = intervalSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder successCodes(@Nullable String successCodes) {
+
             this.successCodes = successCodes;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutSeconds(@Nullable Integer timeoutSeconds) {
+
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder unhealthyThreshold(@Nullable Integer unhealthyThreshold) {
+
             this.unhealthyThreshold = unhealthyThreshold;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.athena;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -225,9 +226,15 @@ public final class DataCatalogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DataCatalogArgs build() {
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.parameters = Objects.requireNonNull($.parameters, "expected parameter 'parameters' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("DataCatalogArgs", "description");
+            }
+            if ($.parameters == null) {
+                throw new MissingRequiredPropertyException("DataCatalogArgs", "parameters");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("DataCatalogArgs", "type");
+            }
             return $;
         }
     }

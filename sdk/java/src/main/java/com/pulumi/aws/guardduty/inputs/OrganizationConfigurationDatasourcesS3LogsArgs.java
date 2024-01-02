@@ -5,6 +5,7 @@ package com.pulumi.aws.guardduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class OrganizationConfigurationDatasourcesS3LogsArgs extends com.pu
         }
 
         public OrganizationConfigurationDatasourcesS3LogsArgs build() {
-            $.autoEnable = Objects.requireNonNull($.autoEnable, "expected parameter 'autoEnable' to be non-null");
+            if ($.autoEnable == null) {
+                throw new MissingRequiredPropertyException("OrganizationConfigurationDatasourcesS3LogsArgs", "autoEnable");
+            }
             return $;
         }
     }

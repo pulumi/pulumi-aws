@@ -58,11 +58,13 @@ public final class NodeGroupUpdateConfig {
 
         @CustomType.Setter
         public Builder maxUnavailable(@Nullable Integer maxUnavailable) {
+
             this.maxUnavailable = maxUnavailable;
             return this;
         }
         @CustomType.Setter
         public Builder maxUnavailablePercentage(@Nullable Integer maxUnavailablePercentage) {
+
             this.maxUnavailablePercentage = maxUnavailablePercentage;
             return this;
         }

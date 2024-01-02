@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -128,37 +129,50 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
         @CustomType.Setter
         public Builder accountName(@Nullable String accountName) {
+
             this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
+
             this.bucketPrefix = bucketPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder privateLinkServiceName(@Nullable String privateLinkServiceName) {
+
             this.privateLinkServiceName = privateLinkServiceName;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder stage(String stage) {
-            this.stage = Objects.requireNonNull(stage);
+            if (stage == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake", "stage");
+            }
+            this.stage = stage;
             return this;
         }
         @CustomType.Setter
         public Builder warehouse(String warehouse) {
-            this.warehouse = Objects.requireNonNull(warehouse);
+            if (warehouse == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake", "warehouse");
+            }
+            this.warehouse = warehouse;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake build() {

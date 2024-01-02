@@ -86,21 +86,25 @@ public final class TaskTaskReportConfigReportOverrides {
 
         @CustomType.Setter
         public Builder deletedOverride(@Nullable String deletedOverride) {
+
             this.deletedOverride = deletedOverride;
             return this;
         }
         @CustomType.Setter
         public Builder skippedOverride(@Nullable String skippedOverride) {
+
             this.skippedOverride = skippedOverride;
             return this;
         }
         @CustomType.Setter
         public Builder transferredOverride(@Nullable String transferredOverride) {
+
             this.transferredOverride = transferredOverride;
             return this;
         }
         @CustomType.Setter
         public Builder verifiedOverride(@Nullable String verifiedOverride) {
+
             this.verifiedOverride = verifiedOverride;
             return this;
         }

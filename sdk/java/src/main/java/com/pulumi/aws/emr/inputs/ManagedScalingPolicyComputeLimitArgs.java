@@ -5,6 +5,7 @@ package com.pulumi.aws.emr.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,9 +226,15 @@ public final class ManagedScalingPolicyComputeLimitArgs extends com.pulumi.resou
         }
 
         public ManagedScalingPolicyComputeLimitArgs build() {
-            $.maximumCapacityUnits = Objects.requireNonNull($.maximumCapacityUnits, "expected parameter 'maximumCapacityUnits' to be non-null");
-            $.minimumCapacityUnits = Objects.requireNonNull($.minimumCapacityUnits, "expected parameter 'minimumCapacityUnits' to be non-null");
-            $.unitType = Objects.requireNonNull($.unitType, "expected parameter 'unitType' to be non-null");
+            if ($.maximumCapacityUnits == null) {
+                throw new MissingRequiredPropertyException("ManagedScalingPolicyComputeLimitArgs", "maximumCapacityUnits");
+            }
+            if ($.minimumCapacityUnits == null) {
+                throw new MissingRequiredPropertyException("ManagedScalingPolicyComputeLimitArgs", "minimumCapacityUnits");
+            }
+            if ($.unitType == null) {
+                throw new MissingRequiredPropertyException("ManagedScalingPolicyComputeLimitArgs", "unitType");
+            }
             return $;
         }
     }

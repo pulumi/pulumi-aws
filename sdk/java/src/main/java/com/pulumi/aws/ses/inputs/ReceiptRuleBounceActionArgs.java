@@ -5,6 +5,7 @@ package com.pulumi.aws.ses.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -262,10 +263,18 @@ public final class ReceiptRuleBounceActionArgs extends com.pulumi.resources.Reso
         }
 
         public ReceiptRuleBounceActionArgs build() {
-            $.message = Objects.requireNonNull($.message, "expected parameter 'message' to be non-null");
-            $.position = Objects.requireNonNull($.position, "expected parameter 'position' to be non-null");
-            $.sender = Objects.requireNonNull($.sender, "expected parameter 'sender' to be non-null");
-            $.smtpReplyCode = Objects.requireNonNull($.smtpReplyCode, "expected parameter 'smtpReplyCode' to be non-null");
+            if ($.message == null) {
+                throw new MissingRequiredPropertyException("ReceiptRuleBounceActionArgs", "message");
+            }
+            if ($.position == null) {
+                throw new MissingRequiredPropertyException("ReceiptRuleBounceActionArgs", "position");
+            }
+            if ($.sender == null) {
+                throw new MissingRequiredPropertyException("ReceiptRuleBounceActionArgs", "sender");
+            }
+            if ($.smtpReplyCode == null) {
+                throw new MissingRequiredPropertyException("ReceiptRuleBounceActionArgs", "smtpReplyCode");
+            }
             return $;
         }
     }

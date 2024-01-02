@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -76,8 +77,12 @@ public final class ContainerServicePublicDomainNamesCertificateArgs extends com.
         }
 
         public ContainerServicePublicDomainNamesCertificateArgs build() {
-            $.certificateName = Objects.requireNonNull($.certificateName, "expected parameter 'certificateName' to be non-null");
-            $.domainNames = Objects.requireNonNull($.domainNames, "expected parameter 'domainNames' to be non-null");
+            if ($.certificateName == null) {
+                throw new MissingRequiredPropertyException("ContainerServicePublicDomainNamesCertificateArgs", "certificateName");
+            }
+            if ($.domainNames == null) {
+                throw new MissingRequiredPropertyException("ContainerServicePublicDomainNamesCertificateArgs", "domainNames");
+            }
             return $;
         }
     }

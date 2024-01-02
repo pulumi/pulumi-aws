@@ -6,6 +6,7 @@ package com.pulumi.aws.apprunner.inputs;
 import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -155,8 +156,12 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
         }
 
         public ServiceSourceConfigurationImageRepositoryArgs build() {
-            $.imageIdentifier = Objects.requireNonNull($.imageIdentifier, "expected parameter 'imageIdentifier' to be non-null");
-            $.imageRepositoryType = Objects.requireNonNull($.imageRepositoryType, "expected parameter 'imageRepositoryType' to be non-null");
+            if ($.imageIdentifier == null) {
+                throw new MissingRequiredPropertyException("ServiceSourceConfigurationImageRepositoryArgs", "imageIdentifier");
+            }
+            if ($.imageRepositoryType == null) {
+                throw new MissingRequiredPropertyException("ServiceSourceConfigurationImageRepositoryArgs", "imageRepositoryType");
+            }
             return $;
         }
     }

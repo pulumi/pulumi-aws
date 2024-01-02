@@ -5,6 +5,7 @@ package com.pulumi.aws.qldb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class StreamKinesisConfigurationArgs extends com.pulumi.resources.R
         }
 
         public StreamKinesisConfigurationArgs build() {
-            $.streamArn = Objects.requireNonNull($.streamArn, "expected parameter 'streamArn' to be non-null");
+            if ($.streamArn == null) {
+                throw new MissingRequiredPropertyException("StreamKinesisConfigurationArgs", "streamArn");
+            }
             return $;
         }
     }

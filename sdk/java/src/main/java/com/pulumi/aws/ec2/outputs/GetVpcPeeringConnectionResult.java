@@ -7,6 +7,7 @@ import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionCidrBlockSet;
 import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionFilter;
 import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionPeerCidrBlockSet;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -175,17 +176,26 @@ public final class GetVpcPeeringConnectionResult {
 
         @CustomType.Setter
         public Builder accepter(Map<String,Boolean> accepter) {
-            this.accepter = Objects.requireNonNull(accepter);
+            if (accepter == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "accepter");
+            }
+            this.accepter = accepter;
             return this;
         }
         @CustomType.Setter
         public Builder cidrBlock(String cidrBlock) {
-            this.cidrBlock = Objects.requireNonNull(cidrBlock);
+            if (cidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "cidrBlock");
+            }
+            this.cidrBlock = cidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder cidrBlockSets(List<GetVpcPeeringConnectionCidrBlockSet> cidrBlockSets) {
-            this.cidrBlockSets = Objects.requireNonNull(cidrBlockSets);
+            if (cidrBlockSets == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "cidrBlockSets");
+            }
+            this.cidrBlockSets = cidrBlockSets;
             return this;
         }
         public Builder cidrBlockSets(GetVpcPeeringConnectionCidrBlockSet... cidrBlockSets) {
@@ -193,6 +203,7 @@ public final class GetVpcPeeringConnectionResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcPeeringConnectionFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -201,22 +212,34 @@ public final class GetVpcPeeringConnectionResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder peerCidrBlock(String peerCidrBlock) {
-            this.peerCidrBlock = Objects.requireNonNull(peerCidrBlock);
+            if (peerCidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "peerCidrBlock");
+            }
+            this.peerCidrBlock = peerCidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder peerCidrBlockSets(List<GetVpcPeeringConnectionPeerCidrBlockSet> peerCidrBlockSets) {
-            this.peerCidrBlockSets = Objects.requireNonNull(peerCidrBlockSets);
+            if (peerCidrBlockSets == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "peerCidrBlockSets");
+            }
+            this.peerCidrBlockSets = peerCidrBlockSets;
             return this;
         }
         public Builder peerCidrBlockSets(GetVpcPeeringConnectionPeerCidrBlockSet... peerCidrBlockSets) {
@@ -224,42 +247,66 @@ public final class GetVpcPeeringConnectionResult {
         }
         @CustomType.Setter
         public Builder peerOwnerId(String peerOwnerId) {
-            this.peerOwnerId = Objects.requireNonNull(peerOwnerId);
+            if (peerOwnerId == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "peerOwnerId");
+            }
+            this.peerOwnerId = peerOwnerId;
             return this;
         }
         @CustomType.Setter
         public Builder peerRegion(String peerRegion) {
-            this.peerRegion = Objects.requireNonNull(peerRegion);
+            if (peerRegion == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "peerRegion");
+            }
+            this.peerRegion = peerRegion;
             return this;
         }
         @CustomType.Setter
         public Builder peerVpcId(String peerVpcId) {
-            this.peerVpcId = Objects.requireNonNull(peerVpcId);
+            if (peerVpcId == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "peerVpcId");
+            }
+            this.peerVpcId = peerVpcId;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder requester(Map<String,Boolean> requester) {
-            this.requester = Objects.requireNonNull(requester);
+            if (requester == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "requester");
+            }
+            this.requester = requester;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetVpcPeeringConnectionResult build() {

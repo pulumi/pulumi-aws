@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.aws.ec2.inputs.GetAmiIdsFilter;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -263,7 +264,9 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetAmiIdsPlainArgs build() {
-            $.owners = Objects.requireNonNull($.owners, "expected parameter 'owners' to be non-null");
+            if ($.owners == null) {
+                throw new MissingRequiredPropertyException("GetAmiIdsPlainArgs", "owners");
+            }
             return $;
         }
     }

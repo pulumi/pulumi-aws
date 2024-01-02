@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront;
 import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -151,7 +152,9 @@ public final class FieldLevelEncryptionProfileArgs extends com.pulumi.resources.
         }
 
         public FieldLevelEncryptionProfileArgs build() {
-            $.encryptionEntities = Objects.requireNonNull($.encryptionEntities, "expected parameter 'encryptionEntities' to be non-null");
+            if ($.encryptionEntities == null) {
+                throw new MissingRequiredPropertyException("FieldLevelEncryptionProfileArgs", "encryptionEntities");
+            }
             return $;
         }
     }

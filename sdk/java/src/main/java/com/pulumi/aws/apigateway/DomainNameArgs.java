@@ -7,6 +7,7 @@ import com.pulumi.aws.apigateway.inputs.DomainNameEndpointConfigurationArgs;
 import com.pulumi.aws.apigateway.inputs.DomainNameMutualTlsAuthenticationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -539,7 +540,9 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DomainNameArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("DomainNameArgs", "domainName");
+            }
             return $;
         }
     }

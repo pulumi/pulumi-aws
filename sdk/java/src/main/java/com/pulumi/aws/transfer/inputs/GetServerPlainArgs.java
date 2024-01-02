@@ -4,6 +4,7 @@
 package com.pulumi.aws.transfer.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetServerPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetServerPlainArgs build() {
-            $.serverId = Objects.requireNonNull($.serverId, "expected parameter 'serverId' to be non-null");
+            if ($.serverId == null) {
+                throw new MissingRequiredPropertyException("GetServerPlainArgs", "serverId");
+            }
             return $;
         }
     }

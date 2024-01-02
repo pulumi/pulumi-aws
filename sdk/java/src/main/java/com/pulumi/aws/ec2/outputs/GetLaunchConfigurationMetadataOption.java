@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetLaunchConfigurationMetadataOption {
 
         @CustomType.Setter
         public Builder httpEndpoint(String httpEndpoint) {
-            this.httpEndpoint = Objects.requireNonNull(httpEndpoint);
+            if (httpEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationMetadataOption", "httpEndpoint");
+            }
+            this.httpEndpoint = httpEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder httpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
-            this.httpPutResponseHopLimit = Objects.requireNonNull(httpPutResponseHopLimit);
+            if (httpPutResponseHopLimit == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationMetadataOption", "httpPutResponseHopLimit");
+            }
+            this.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
         @CustomType.Setter
         public Builder httpTokens(String httpTokens) {
-            this.httpTokens = Objects.requireNonNull(httpTokens);
+            if (httpTokens == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationMetadataOption", "httpTokens");
+            }
+            this.httpTokens = httpTokens;
             return this;
         }
         public GetLaunchConfigurationMetadataOption build() {

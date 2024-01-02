@@ -4,6 +4,7 @@
 package com.pulumi.aws.directoryservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -64,6 +65,7 @@ public final class DirectoryVpcSettings {
 
         @CustomType.Setter
         public Builder availabilityZones(@Nullable List<String> availabilityZones) {
+
             this.availabilityZones = availabilityZones;
             return this;
         }
@@ -72,7 +74,10 @@ public final class DirectoryVpcSettings {
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("DirectoryVpcSettings", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -80,7 +85,10 @@ public final class DirectoryVpcSettings {
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("DirectoryVpcSettings", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public DirectoryVpcSettings build() {

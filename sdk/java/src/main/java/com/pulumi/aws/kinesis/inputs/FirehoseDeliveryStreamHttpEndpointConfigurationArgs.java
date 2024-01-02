@@ -9,6 +9,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigura
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -488,8 +489,12 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         public FirehoseDeliveryStreamHttpEndpointConfigurationArgs build() {
-            $.s3Configuration = Objects.requireNonNull($.s3Configuration, "expected parameter 's3Configuration' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.s3Configuration == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamHttpEndpointConfigurationArgs", "s3Configuration");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamHttpEndpointConfigurationArgs", "url");
+            }
             return $;
         }
     }

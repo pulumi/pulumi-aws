@@ -48,16 +48,19 @@ public final class VpcConnectionTimeouts {
 
         @CustomType.Setter
         public Builder create(@Nullable String create) {
+
             this.create = create;
             return this;
         }
         @CustomType.Setter
         public Builder delete(@Nullable String delete) {
+
             this.delete = delete;
             return this;
         }
         @CustomType.Setter
         public Builder update(@Nullable String update) {
+
             this.update = update;
             return this;
         }

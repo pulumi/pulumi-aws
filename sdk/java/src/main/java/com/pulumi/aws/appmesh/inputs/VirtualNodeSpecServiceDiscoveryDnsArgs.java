@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class VirtualNodeSpecServiceDiscoveryDnsArgs extends com.pulumi.res
         }
 
         public VirtualNodeSpecServiceDiscoveryDnsArgs build() {
-            $.hostname = Objects.requireNonNull($.hostname, "expected parameter 'hostname' to be non-null");
+            if ($.hostname == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecServiceDiscoveryDnsArgs", "hostname");
+            }
             return $;
         }
     }

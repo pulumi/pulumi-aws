@@ -6,6 +6,7 @@ package com.pulumi.aws.fsx;
 import com.pulumi.aws.fsx.inputs.DataRepositoryAssociationS3Args;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -343,9 +344,15 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
         }
 
         public DataRepositoryAssociationArgs build() {
-            $.dataRepositoryPath = Objects.requireNonNull($.dataRepositoryPath, "expected parameter 'dataRepositoryPath' to be non-null");
-            $.fileSystemId = Objects.requireNonNull($.fileSystemId, "expected parameter 'fileSystemId' to be non-null");
-            $.fileSystemPath = Objects.requireNonNull($.fileSystemPath, "expected parameter 'fileSystemPath' to be non-null");
+            if ($.dataRepositoryPath == null) {
+                throw new MissingRequiredPropertyException("DataRepositoryAssociationArgs", "dataRepositoryPath");
+            }
+            if ($.fileSystemId == null) {
+                throw new MissingRequiredPropertyException("DataRepositoryAssociationArgs", "fileSystemId");
+            }
+            if ($.fileSystemPath == null) {
+                throw new MissingRequiredPropertyException("DataRepositoryAssociationArgs", "fileSystemPath");
+            }
             return $;
         }
     }

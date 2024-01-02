@@ -44,6 +44,7 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
 
         @CustomType.Setter
         public Builder header(@Nullable Boolean header) {
+
             this.header = header;
             return this;
         }

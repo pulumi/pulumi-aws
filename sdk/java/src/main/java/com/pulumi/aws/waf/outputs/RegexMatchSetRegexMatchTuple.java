@@ -5,6 +5,7 @@ package com.pulumi.aws.waf.outputs;
 
 import com.pulumi.aws.waf.outputs.RegexMatchSetRegexMatchTupleFieldToMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -77,17 +78,26 @@ public final class RegexMatchSetRegexMatchTuple {
 
         @CustomType.Setter
         public Builder fieldToMatch(RegexMatchSetRegexMatchTupleFieldToMatch fieldToMatch) {
-            this.fieldToMatch = Objects.requireNonNull(fieldToMatch);
+            if (fieldToMatch == null) {
+              throw new MissingRequiredPropertyException("RegexMatchSetRegexMatchTuple", "fieldToMatch");
+            }
+            this.fieldToMatch = fieldToMatch;
             return this;
         }
         @CustomType.Setter
         public Builder regexPatternSetId(String regexPatternSetId) {
-            this.regexPatternSetId = Objects.requireNonNull(regexPatternSetId);
+            if (regexPatternSetId == null) {
+              throw new MissingRequiredPropertyException("RegexMatchSetRegexMatchTuple", "regexPatternSetId");
+            }
+            this.regexPatternSetId = regexPatternSetId;
             return this;
         }
         @CustomType.Setter
         public Builder textTransformation(String textTransformation) {
-            this.textTransformation = Objects.requireNonNull(textTransformation);
+            if (textTransformation == null) {
+              throw new MissingRequiredPropertyException("RegexMatchSetRegexMatchTuple", "textTransformation");
+            }
+            this.textTransformation = textTransformation;
             return this;
         }
         public RegexMatchSetRegexMatchTuple build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.vpclattice.outputs;
 
 import com.pulumi.aws.vpclattice.outputs.ListenerRuleMatchHttpMatchPathMatchMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,12 +60,16 @@ public final class ListenerRuleMatchHttpMatchPathMatch {
 
         @CustomType.Setter
         public Builder caseSensitive(@Nullable Boolean caseSensitive) {
+
             this.caseSensitive = caseSensitive;
             return this;
         }
         @CustomType.Setter
         public Builder match(ListenerRuleMatchHttpMatchPathMatchMatch match) {
-            this.match = Objects.requireNonNull(match);
+            if (match == null) {
+              throw new MissingRequiredPropertyException("ListenerRuleMatchHttpMatchPathMatch", "match");
+            }
+            this.match = match;
             return this;
         }
         public ListenerRuleMatchHttpMatchPathMatch build() {

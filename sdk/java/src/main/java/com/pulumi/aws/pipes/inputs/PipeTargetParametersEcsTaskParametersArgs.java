@@ -10,6 +10,7 @@ import com.pulumi.aws.pipes.inputs.PipeTargetParametersEcsTaskParametersPlacemen
 import com.pulumi.aws.pipes.inputs.PipeTargetParametersEcsTaskParametersPlacementStrategyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -633,7 +634,9 @@ public final class PipeTargetParametersEcsTaskParametersArgs extends com.pulumi.
         }
 
         public PipeTargetParametersEcsTaskParametersArgs build() {
-            $.taskDefinitionArn = Objects.requireNonNull($.taskDefinitionArn, "expected parameter 'taskDefinitionArn' to be non-null");
+            if ($.taskDefinitionArn == null) {
+                throw new MissingRequiredPropertyException("PipeTargetParametersEcsTaskParametersArgs", "taskDefinitionArn");
+            }
             return $;
         }
     }

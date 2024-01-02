@@ -7,6 +7,7 @@ import com.pulumi.aws.macie2.inputs.ClassificationJobS3JobDefinitionArgs;
 import com.pulumi.aws.macie2.inputs.ClassificationJobScheduleFrequencyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -462,8 +463,12 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ClassificationJobArgs build() {
-            $.jobType = Objects.requireNonNull($.jobType, "expected parameter 'jobType' to be non-null");
-            $.s3JobDefinition = Objects.requireNonNull($.s3JobDefinition, "expected parameter 's3JobDefinition' to be non-null");
+            if ($.jobType == null) {
+                throw new MissingRequiredPropertyException("ClassificationJobArgs", "jobType");
+            }
+            if ($.s3JobDefinition == null) {
+                throw new MissingRequiredPropertyException("ClassificationJobArgs", "s3JobDefinition");
+            }
             return $;
         }
     }

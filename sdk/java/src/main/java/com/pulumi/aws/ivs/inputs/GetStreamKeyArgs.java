@@ -5,6 +5,7 @@ package com.pulumi.aws.ivs.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class GetStreamKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetStreamKeyArgs build() {
-            $.channelArn = Objects.requireNonNull($.channelArn, "expected parameter 'channelArn' to be non-null");
+            if ($.channelArn == null) {
+                throw new MissingRequiredPropertyException("GetStreamKeyArgs", "channelArn");
+            }
             return $;
         }
     }

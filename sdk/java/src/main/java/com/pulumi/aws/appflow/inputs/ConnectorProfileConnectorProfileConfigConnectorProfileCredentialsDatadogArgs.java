@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs build() {
-            $.apiKey = Objects.requireNonNull($.apiKey, "expected parameter 'apiKey' to be non-null");
-            $.applicationKey = Objects.requireNonNull($.applicationKey, "expected parameter 'applicationKey' to be non-null");
+            if ($.apiKey == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs", "apiKey");
+            }
+            if ($.applicationKey == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs", "applicationKey");
+            }
             return $;
         }
     }

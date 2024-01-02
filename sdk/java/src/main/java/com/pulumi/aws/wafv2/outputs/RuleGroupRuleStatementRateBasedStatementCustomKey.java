@@ -164,46 +164,55 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
 
         @CustomType.Setter
         public Builder cookie(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyCookie cookie) {
+
             this.cookie = cookie;
             return this;
         }
         @CustomType.Setter
         public Builder forwardedIp(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp forwardedIp) {
+
             this.forwardedIp = forwardedIp;
             return this;
         }
         @CustomType.Setter
         public Builder header(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyHeader header) {
+
             this.header = header;
             return this;
         }
         @CustomType.Setter
         public Builder httpMethod(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod httpMethod) {
+
             this.httpMethod = httpMethod;
             return this;
         }
         @CustomType.Setter
         public Builder ip(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyIp ip) {
+
             this.ip = ip;
             return this;
         }
         @CustomType.Setter
         public Builder labelNamespace(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace labelNamespace) {
+
             this.labelNamespace = labelNamespace;
             return this;
         }
         @CustomType.Setter
         public Builder queryArgument(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument queryArgument) {
+
             this.queryArgument = queryArgument;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString queryString) {
+
             this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder uriPath(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath uriPath) {
+
             this.uriPath = uriPath;
             return this;
         }

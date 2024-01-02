@@ -66,16 +66,19 @@ public final class SchedulingPolicyFairSharePolicy {
 
         @CustomType.Setter
         public Builder computeReservation(@Nullable Integer computeReservation) {
+
             this.computeReservation = computeReservation;
             return this;
         }
         @CustomType.Setter
         public Builder shareDecaySeconds(@Nullable Integer shareDecaySeconds) {
+
             this.shareDecaySeconds = shareDecaySeconds;
             return this;
         }
         @CustomType.Setter
         public Builder shareDistributions(@Nullable List<SchedulingPolicyFairSharePolicyShareDistribution> shareDistributions) {
+
             this.shareDistributions = shareDistributions;
             return this;
         }

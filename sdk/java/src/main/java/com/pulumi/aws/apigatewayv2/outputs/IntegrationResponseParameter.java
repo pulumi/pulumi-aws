@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigatewayv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -59,12 +60,18 @@ public final class IntegrationResponseParameter {
 
         @CustomType.Setter
         public Builder mappings(Map<String,String> mappings) {
-            this.mappings = Objects.requireNonNull(mappings);
+            if (mappings == null) {
+              throw new MissingRequiredPropertyException("IntegrationResponseParameter", "mappings");
+            }
+            this.mappings = mappings;
             return this;
         }
         @CustomType.Setter
         public Builder statusCode(String statusCode) {
-            this.statusCode = Objects.requireNonNull(statusCode);
+            if (statusCode == null) {
+              throw new MissingRequiredPropertyException("IntegrationResponseParameter", "statusCode");
+            }
+            this.statusCode = statusCode;
             return this;
         }
         public IntegrationResponseParameter build() {

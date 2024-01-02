@@ -74,16 +74,19 @@ public final class VirtualGatewaySpecListenerTlsCertificate {
 
         @CustomType.Setter
         public Builder acm(@Nullable VirtualGatewaySpecListenerTlsCertificateAcm acm) {
+
             this.acm = acm;
             return this;
         }
         @CustomType.Setter
         public Builder file(@Nullable VirtualGatewaySpecListenerTlsCertificateFile file) {
+
             this.file = file;
             return this;
         }
         @CustomType.Setter
         public Builder sds(@Nullable VirtualGatewaySpecListenerTlsCertificateSds sds) {
+
             this.sds = sds;
             return this;
         }

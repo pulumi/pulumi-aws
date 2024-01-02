@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetIndexIndexStatisticTextDocumentStatistic {
 
         @CustomType.Setter
         public Builder indexedTextBytes(Integer indexedTextBytes) {
-            this.indexedTextBytes = Objects.requireNonNull(indexedTextBytes);
+            if (indexedTextBytes == null) {
+              throw new MissingRequiredPropertyException("GetIndexIndexStatisticTextDocumentStatistic", "indexedTextBytes");
+            }
+            this.indexedTextBytes = indexedTextBytes;
             return this;
         }
         @CustomType.Setter
         public Builder indexedTextDocumentsCount(Integer indexedTextDocumentsCount) {
-            this.indexedTextDocumentsCount = Objects.requireNonNull(indexedTextDocumentsCount);
+            if (indexedTextDocumentsCount == null) {
+              throw new MissingRequiredPropertyException("GetIndexIndexStatisticTextDocumentStatistic", "indexedTextDocumentsCount");
+            }
+            this.indexedTextDocumentsCount = indexedTextDocumentsCount;
             return this;
         }
         public GetIndexIndexStatisticTextDocumentStatistic build() {

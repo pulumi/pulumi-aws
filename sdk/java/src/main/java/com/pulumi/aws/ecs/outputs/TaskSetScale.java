@@ -59,11 +59,13 @@ public final class TaskSetScale {
 
         @CustomType.Setter
         public Builder unit(@Nullable String unit) {
+
             this.unit = unit;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable Double value) {
+
             this.value = value;
             return this;
         }

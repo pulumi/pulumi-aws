@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail.outputs;
 
 import com.pulumi.aws.lightsail.outputs.ContainerServicePublicDomainNamesCertificate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,7 +36,10 @@ public final class ContainerServicePublicDomainNames {
 
         @CustomType.Setter
         public Builder certificates(List<ContainerServicePublicDomainNamesCertificate> certificates) {
-            this.certificates = Objects.requireNonNull(certificates);
+            if (certificates == null) {
+              throw new MissingRequiredPropertyException("ContainerServicePublicDomainNames", "certificates");
+            }
+            this.certificates = certificates;
             return this;
         }
         public Builder certificates(ContainerServicePublicDomainNamesCertificate... certificates) {

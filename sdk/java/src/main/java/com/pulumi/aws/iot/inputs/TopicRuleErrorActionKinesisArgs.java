@@ -5,6 +5,7 @@ package com.pulumi.aws.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class TopicRuleErrorActionKinesisArgs extends com.pulumi.resources.
         }
 
         public TopicRuleErrorActionKinesisArgs build() {
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.streamName = Objects.requireNonNull($.streamName, "expected parameter 'streamName' to be non-null");
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionKinesisArgs", "roleArn");
+            }
+            if ($.streamName == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionKinesisArgs", "streamName");
+            }
             return $;
         }
     }

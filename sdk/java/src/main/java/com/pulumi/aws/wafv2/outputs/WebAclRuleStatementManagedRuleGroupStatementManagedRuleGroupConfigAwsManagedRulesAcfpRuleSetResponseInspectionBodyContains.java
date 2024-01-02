@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         @CustomType.Setter
         public Builder failureStrings(List<String> failureStrings) {
-            this.failureStrings = Objects.requireNonNull(failureStrings);
+            if (failureStrings == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains", "failureStrings");
+            }
+            this.failureStrings = failureStrings;
             return this;
         }
         public Builder failureStrings(String... failureStrings) {
@@ -65,7 +69,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
         @CustomType.Setter
         public Builder successStrings(List<String> successStrings) {
-            this.successStrings = Objects.requireNonNull(successStrings);
+            if (successStrings == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains", "successStrings");
+            }
+            this.successStrings = successStrings;
             return this;
         }
         public Builder successStrings(String... successStrings) {

@@ -5,6 +5,7 @@ package com.pulumi.aws.memorydb.outputs;
 
 import com.pulumi.aws.memorydb.outputs.GetClusterShardNode;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -87,12 +88,18 @@ public final class GetClusterShard {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetClusterShard", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nodes(List<GetClusterShardNode> nodes) {
-            this.nodes = Objects.requireNonNull(nodes);
+            if (nodes == null) {
+              throw new MissingRequiredPropertyException("GetClusterShard", "nodes");
+            }
+            this.nodes = nodes;
             return this;
         }
         public Builder nodes(GetClusterShardNode... nodes) {
@@ -100,12 +107,18 @@ public final class GetClusterShard {
         }
         @CustomType.Setter
         public Builder numNodes(Integer numNodes) {
-            this.numNodes = Objects.requireNonNull(numNodes);
+            if (numNodes == null) {
+              throw new MissingRequiredPropertyException("GetClusterShard", "numNodes");
+            }
+            this.numNodes = numNodes;
             return this;
         }
         @CustomType.Setter
         public Builder slots(String slots) {
-            this.slots = Objects.requireNonNull(slots);
+            if (slots == null) {
+              throw new MissingRequiredPropertyException("GetClusterShard", "slots");
+            }
+            this.slots = slots;
             return this;
         }
         public GetClusterShard build() {

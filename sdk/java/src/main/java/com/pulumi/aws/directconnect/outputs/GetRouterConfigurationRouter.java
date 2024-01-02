@@ -4,6 +4,7 @@
 package com.pulumi.aws.directconnect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -152,32 +153,50 @@ public final class GetRouterConfigurationRouter {
 
         @CustomType.Setter
         public Builder platform(String platform) {
-            this.platform = Objects.requireNonNull(platform);
+            if (platform == null) {
+              throw new MissingRequiredPropertyException("GetRouterConfigurationRouter", "platform");
+            }
+            this.platform = platform;
             return this;
         }
         @CustomType.Setter
         public Builder routerTypeIdentifier(String routerTypeIdentifier) {
-            this.routerTypeIdentifier = Objects.requireNonNull(routerTypeIdentifier);
+            if (routerTypeIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetRouterConfigurationRouter", "routerTypeIdentifier");
+            }
+            this.routerTypeIdentifier = routerTypeIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder software(String software) {
-            this.software = Objects.requireNonNull(software);
+            if (software == null) {
+              throw new MissingRequiredPropertyException("GetRouterConfigurationRouter", "software");
+            }
+            this.software = software;
             return this;
         }
         @CustomType.Setter
         public Builder vendor(String vendor) {
-            this.vendor = Objects.requireNonNull(vendor);
+            if (vendor == null) {
+              throw new MissingRequiredPropertyException("GetRouterConfigurationRouter", "vendor");
+            }
+            this.vendor = vendor;
             return this;
         }
         @CustomType.Setter
         public Builder xsltTemplateName(String xsltTemplateName) {
-            this.xsltTemplateName = Objects.requireNonNull(xsltTemplateName);
+            if (xsltTemplateName == null) {
+              throw new MissingRequiredPropertyException("GetRouterConfigurationRouter", "xsltTemplateName");
+            }
+            this.xsltTemplateName = xsltTemplateName;
             return this;
         }
         @CustomType.Setter
         public Builder xsltTemplateNameForMacSec(String xsltTemplateNameForMacSec) {
-            this.xsltTemplateNameForMacSec = Objects.requireNonNull(xsltTemplateNameForMacSec);
+            if (xsltTemplateNameForMacSec == null) {
+              throw new MissingRequiredPropertyException("GetRouterConfigurationRouter", "xsltTemplateNameForMacSec");
+            }
+            this.xsltTemplateNameForMacSec = xsltTemplateNameForMacSec;
             return this;
         }
         public GetRouterConfigurationRouter build() {

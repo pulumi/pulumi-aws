@@ -72,16 +72,19 @@ public final class CatalogTableStorageDescriptorSchemaReferenceSchemaId {
 
         @CustomType.Setter
         public Builder registryName(@Nullable String registryName) {
+
             this.registryName = registryName;
             return this;
         }
         @CustomType.Setter
         public Builder schemaArn(@Nullable String schemaArn) {
+
             this.schemaArn = schemaArn;
             return this;
         }
         @CustomType.Setter
         public Builder schemaName(@Nullable String schemaName) {
+
             this.schemaName = schemaName;
             return this;
         }

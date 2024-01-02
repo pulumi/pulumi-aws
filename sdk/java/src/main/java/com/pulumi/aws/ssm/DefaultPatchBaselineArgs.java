@@ -5,6 +5,7 @@ package com.pulumi.aws.ssm;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -175,8 +176,12 @@ public final class DefaultPatchBaselineArgs extends com.pulumi.resources.Resourc
         }
 
         public DefaultPatchBaselineArgs build() {
-            $.baselineId = Objects.requireNonNull($.baselineId, "expected parameter 'baselineId' to be non-null");
-            $.operatingSystem = Objects.requireNonNull($.operatingSystem, "expected parameter 'operatingSystem' to be non-null");
+            if ($.baselineId == null) {
+                throw new MissingRequiredPropertyException("DefaultPatchBaselineArgs", "baselineId");
+            }
+            if ($.operatingSystem == null) {
+                throw new MissingRequiredPropertyException("DefaultPatchBaselineArgs", "operatingSystem");
+            }
             return $;
         }
     }

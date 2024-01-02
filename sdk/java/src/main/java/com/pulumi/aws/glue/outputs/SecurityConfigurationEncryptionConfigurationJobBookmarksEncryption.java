@@ -58,11 +58,13 @@ public final class SecurityConfigurationEncryptionConfigurationJobBookmarksEncry
 
         @CustomType.Setter
         public Builder jobBookmarksEncryptionMode(@Nullable String jobBookmarksEncryptionMode) {
+
             this.jobBookmarksEncryptionMode = jobBookmarksEncryptionMode;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }

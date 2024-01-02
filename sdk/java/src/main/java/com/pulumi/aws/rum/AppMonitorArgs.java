@@ -7,6 +7,7 @@ import com.pulumi.aws.rum.inputs.AppMonitorAppMonitorConfigurationArgs;
 import com.pulumi.aws.rum.inputs.AppMonitorCustomEventsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -265,7 +266,9 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AppMonitorArgs build() {
-            $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");
+            if ($.domain == null) {
+                throw new MissingRequiredPropertyException("AppMonitorArgs", "domain");
+            }
             return $;
         }
     }

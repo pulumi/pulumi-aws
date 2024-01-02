@@ -6,6 +6,7 @@ package com.pulumi.aws.networkmanager;
 import com.pulumi.aws.networkmanager.inputs.VpcAttachmentOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -245,9 +246,15 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VpcAttachmentArgs build() {
-            $.coreNetworkId = Objects.requireNonNull($.coreNetworkId, "expected parameter 'coreNetworkId' to be non-null");
-            $.subnetArns = Objects.requireNonNull($.subnetArns, "expected parameter 'subnetArns' to be non-null");
-            $.vpcArn = Objects.requireNonNull($.vpcArn, "expected parameter 'vpcArn' to be non-null");
+            if ($.coreNetworkId == null) {
+                throw new MissingRequiredPropertyException("VpcAttachmentArgs", "coreNetworkId");
+            }
+            if ($.subnetArns == null) {
+                throw new MissingRequiredPropertyException("VpcAttachmentArgs", "subnetArns");
+            }
+            if ($.vpcArn == null) {
+                throw new MissingRequiredPropertyException("VpcAttachmentArgs", "vpcArn");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.aws.connect.outputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,16 +74,23 @@ public final class InstanceStorageConfigStorageConfigS3Config {
 
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigS3Config", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder bucketPrefix(String bucketPrefix) {
-            this.bucketPrefix = Objects.requireNonNull(bucketPrefix);
+            if (bucketPrefix == null) {
+              throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigS3Config", "bucketPrefix");
+            }
+            this.bucketPrefix = bucketPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionConfig(@Nullable InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig encryptionConfig) {
+
             this.encryptionConfig = encryptionConfig;
             return this;
         }

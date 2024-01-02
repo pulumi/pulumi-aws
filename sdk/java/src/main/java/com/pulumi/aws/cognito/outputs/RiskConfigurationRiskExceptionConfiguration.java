@@ -66,6 +66,7 @@ public final class RiskConfigurationRiskExceptionConfiguration {
 
         @CustomType.Setter
         public Builder blockedIpRangeLists(@Nullable List<String> blockedIpRangeLists) {
+
             this.blockedIpRangeLists = blockedIpRangeLists;
             return this;
         }
@@ -74,6 +75,7 @@ public final class RiskConfigurationRiskExceptionConfiguration {
         }
         @CustomType.Setter
         public Builder skippedIpRangeLists(@Nullable List<String> skippedIpRangeLists) {
+
             this.skippedIpRangeLists = skippedIpRangeLists;
             return this;
         }

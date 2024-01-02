@@ -6,6 +6,7 @@ package com.pulumi.aws.lambda;
 import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -234,7 +235,9 @@ public final class FunctionEventInvokeConfigArgs extends com.pulumi.resources.Re
         }
 
         public FunctionEventInvokeConfigArgs build() {
-            $.functionName = Objects.requireNonNull($.functionName, "expected parameter 'functionName' to be non-null");
+            if ($.functionName == null) {
+                throw new MissingRequiredPropertyException("FunctionEventInvokeConfigArgs", "functionName");
+            }
             return $;
         }
     }

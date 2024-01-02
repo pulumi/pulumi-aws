@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -415,9 +416,15 @@ public final class DefaultSecurityGroupEgressArgs extends com.pulumi.resources.R
         }
 
         public DefaultSecurityGroupEgressArgs build() {
-            $.fromPort = Objects.requireNonNull($.fromPort, "expected parameter 'fromPort' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.toPort = Objects.requireNonNull($.toPort, "expected parameter 'toPort' to be non-null");
+            if ($.fromPort == null) {
+                throw new MissingRequiredPropertyException("DefaultSecurityGroupEgressArgs", "fromPort");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("DefaultSecurityGroupEgressArgs", "protocol");
+            }
+            if ($.toPort == null) {
+                throw new MissingRequiredPropertyException("DefaultSecurityGroupEgressArgs", "toPort");
+            }
             return $;
         }
     }

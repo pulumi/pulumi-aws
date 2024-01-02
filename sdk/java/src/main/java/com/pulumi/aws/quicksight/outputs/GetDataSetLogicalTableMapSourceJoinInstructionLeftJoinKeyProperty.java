@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -34,7 +35,10 @@ public final class GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProp
 
         @CustomType.Setter
         public Builder uniqueKey(Boolean uniqueKey) {
-            this.uniqueKey = Objects.requireNonNull(uniqueKey);
+            if (uniqueKey == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty", "uniqueKey");
+            }
+            this.uniqueKey = uniqueKey;
             return this;
         }
         public GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperty build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -222,11 +223,21 @@ public final class TopicRuleErrorActionElasticsearchArgs extends com.pulumi.reso
         }
 
         public TopicRuleErrorActionElasticsearchArgs build() {
-            $.endpoint = Objects.requireNonNull($.endpoint, "expected parameter 'endpoint' to be non-null");
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.index = Objects.requireNonNull($.index, "expected parameter 'index' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.endpoint == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionElasticsearchArgs", "endpoint");
+            }
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionElasticsearchArgs", "id");
+            }
+            if ($.index == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionElasticsearchArgs", "index");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionElasticsearchArgs", "roleArn");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionElasticsearchArgs", "type");
+            }
             return $;
         }
     }

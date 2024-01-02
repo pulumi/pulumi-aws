@@ -5,6 +5,7 @@ package com.pulumi.aws.storagegateway.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -299,9 +300,15 @@ public final class GatewaySmbActiveDirectorySettingsArgs extends com.pulumi.reso
         }
 
         public GatewaySmbActiveDirectorySettingsArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("GatewaySmbActiveDirectorySettingsArgs", "domainName");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("GatewaySmbActiveDirectorySettingsArgs", "password");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("GatewaySmbActiveDirectorySettingsArgs", "username");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ComputeEnvironmentEksConfiguration {
 
         @CustomType.Setter
         public Builder eksClusterArn(String eksClusterArn) {
-            this.eksClusterArn = Objects.requireNonNull(eksClusterArn);
+            if (eksClusterArn == null) {
+              throw new MissingRequiredPropertyException("ComputeEnvironmentEksConfiguration", "eksClusterArn");
+            }
+            this.eksClusterArn = eksClusterArn;
             return this;
         }
         @CustomType.Setter
         public Builder kubernetesNamespace(String kubernetesNamespace) {
-            this.kubernetesNamespace = Objects.requireNonNull(kubernetesNamespace);
+            if (kubernetesNamespace == null) {
+              throw new MissingRequiredPropertyException("ComputeEnvironmentEksConfiguration", "kubernetesNamespace");
+            }
+            this.kubernetesNamespace = kubernetesNamespace;
             return this;
         }
         public ComputeEnvironmentEksConfiguration build() {

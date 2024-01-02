@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class RoutingProfileMediaConcurrencyArgs extends com.pulumi.resourc
         }
 
         public RoutingProfileMediaConcurrencyArgs build() {
-            $.channel = Objects.requireNonNull($.channel, "expected parameter 'channel' to be non-null");
-            $.concurrency = Objects.requireNonNull($.concurrency, "expected parameter 'concurrency' to be non-null");
+            if ($.channel == null) {
+                throw new MissingRequiredPropertyException("RoutingProfileMediaConcurrencyArgs", "channel");
+            }
+            if ($.concurrency == null) {
+                throw new MissingRequiredPropertyException("RoutingProfileMediaConcurrencyArgs", "concurrency");
+            }
             return $;
         }
     }

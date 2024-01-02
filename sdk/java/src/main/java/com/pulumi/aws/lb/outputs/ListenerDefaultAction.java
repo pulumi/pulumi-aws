@@ -9,6 +9,7 @@ import com.pulumi.aws.lb.outputs.ListenerDefaultActionFixedResponse;
 import com.pulumi.aws.lb.outputs.ListenerDefaultActionForward;
 import com.pulumi.aws.lb.outputs.ListenerDefaultActionRedirect;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -152,42 +153,52 @@ public final class ListenerDefaultAction {
 
         @CustomType.Setter
         public Builder authenticateCognito(@Nullable ListenerDefaultActionAuthenticateCognito authenticateCognito) {
+
             this.authenticateCognito = authenticateCognito;
             return this;
         }
         @CustomType.Setter
         public Builder authenticateOidc(@Nullable ListenerDefaultActionAuthenticateOidc authenticateOidc) {
+
             this.authenticateOidc = authenticateOidc;
             return this;
         }
         @CustomType.Setter
         public Builder fixedResponse(@Nullable ListenerDefaultActionFixedResponse fixedResponse) {
+
             this.fixedResponse = fixedResponse;
             return this;
         }
         @CustomType.Setter
         public Builder forward(@Nullable ListenerDefaultActionForward forward) {
+
             this.forward = forward;
             return this;
         }
         @CustomType.Setter
         public Builder order(@Nullable Integer order) {
+
             this.order = order;
             return this;
         }
         @CustomType.Setter
         public Builder redirect(@Nullable ListenerDefaultActionRedirect redirect) {
+
             this.redirect = redirect;
             return this;
         }
         @CustomType.Setter
         public Builder targetGroupArn(@Nullable String targetGroupArn) {
+
             this.targetGroupArn = targetGroupArn;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ListenerDefaultAction", "type");
+            }
+            this.type = type;
             return this;
         }
         public ListenerDefaultAction build() {

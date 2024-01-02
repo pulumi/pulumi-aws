@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.aws.ec2.outputs.GetVpcIpamPoolCidrsFilter;
 import com.pulumi.aws.ec2.outputs.GetVpcIpamPoolCidrsIpamPoolCidr;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,6 +73,7 @@ public final class GetVpcIpamPoolCidrsResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcIpamPoolCidrsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -80,12 +82,18 @@ public final class GetVpcIpamPoolCidrsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpcIpamPoolCidrsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipamPoolCidrs(List<GetVpcIpamPoolCidrsIpamPoolCidr> ipamPoolCidrs) {
-            this.ipamPoolCidrs = Objects.requireNonNull(ipamPoolCidrs);
+            if (ipamPoolCidrs == null) {
+              throw new MissingRequiredPropertyException("GetVpcIpamPoolCidrsResult", "ipamPoolCidrs");
+            }
+            this.ipamPoolCidrs = ipamPoolCidrs;
             return this;
         }
         public Builder ipamPoolCidrs(GetVpcIpamPoolCidrsIpamPoolCidr... ipamPoolCidrs) {
@@ -93,7 +101,10 @@ public final class GetVpcIpamPoolCidrsResult {
         }
         @CustomType.Setter
         public Builder ipamPoolId(String ipamPoolId) {
-            this.ipamPoolId = Objects.requireNonNull(ipamPoolId);
+            if (ipamPoolId == null) {
+              throw new MissingRequiredPropertyException("GetVpcIpamPoolCidrsResult", "ipamPoolId");
+            }
+            this.ipamPoolId = ipamPoolId;
             return this;
         }
         public GetVpcIpamPoolCidrsResult build() {

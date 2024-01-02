@@ -5,6 +5,7 @@ package com.pulumi.aws.backup.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -303,7 +304,9 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         public ReportPlanReportSettingArgs build() {
-            $.reportTemplate = Objects.requireNonNull($.reportTemplate, "expected parameter 'reportTemplate' to be non-null");
+            if ($.reportTemplate == null) {
+                throw new MissingRequiredPropertyException("ReportPlanReportSettingArgs", "reportTemplate");
+            }
             return $;
         }
     }

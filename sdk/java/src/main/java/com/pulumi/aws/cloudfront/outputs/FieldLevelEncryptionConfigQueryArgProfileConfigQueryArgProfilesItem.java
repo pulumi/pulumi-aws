@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
 
         @CustomType.Setter
         public Builder profileId(String profileId) {
-            this.profileId = Objects.requireNonNull(profileId);
+            if (profileId == null) {
+              throw new MissingRequiredPropertyException("FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem", "profileId");
+            }
+            this.profileId = profileId;
             return this;
         }
         @CustomType.Setter
         public Builder queryArg(String queryArg) {
-            this.queryArg = Objects.requireNonNull(queryArg);
+            if (queryArg == null) {
+              throw new MissingRequiredPropertyException("FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem", "queryArg");
+            }
+            this.queryArg = queryArg;
             return this;
         }
         public FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem build() {

@@ -44,6 +44,7 @@ public final class TableComment {
 
         @CustomType.Setter
         public Builder message(@Nullable String message) {
+
             this.message = message;
             return this;
         }

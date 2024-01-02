@@ -44,6 +44,7 @@ public final class PipeTargetParametersBatchJobParametersRetryStrategy {
 
         @CustomType.Setter
         public Builder attempts(@Nullable Integer attempts) {
+
             this.attempts = attempts;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.ssoadmin.inputs;
 import com.pulumi.aws.ssoadmin.inputs.InstanceAccessControlAttributesAttributeValueArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class InstanceAccessControlAttributesAttributeArgs extends com.pulu
         }
 
         public InstanceAccessControlAttributesAttributeArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.values = Objects.requireNonNull($.values, "expected parameter 'values' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("InstanceAccessControlAttributesAttributeArgs", "key");
+            }
+            if ($.values == null) {
+                throw new MissingRequiredPropertyException("InstanceAccessControlAttributesAttributeArgs", "values");
+            }
             return $;
         }
     }

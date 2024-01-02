@@ -4,6 +4,7 @@
 package com.pulumi.aws.location.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -93,7 +94,9 @@ public final class GetMapPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetMapPlainArgs build() {
-            $.mapName = Objects.requireNonNull($.mapName, "expected parameter 'mapName' to be non-null");
+            if ($.mapName == null) {
+                throw new MissingRequiredPropertyException("GetMapPlainArgs", "mapName");
+            }
             return $;
         }
     }

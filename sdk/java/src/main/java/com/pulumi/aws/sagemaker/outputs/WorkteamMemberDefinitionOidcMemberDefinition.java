@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class WorkteamMemberDefinitionOidcMemberDefinition {
 
         @CustomType.Setter
         public Builder groups(List<String> groups) {
-            this.groups = Objects.requireNonNull(groups);
+            if (groups == null) {
+              throw new MissingRequiredPropertyException("WorkteamMemberDefinitionOidcMemberDefinition", "groups");
+            }
+            this.groups = groups;
             return this;
         }
         public Builder groups(String... groups) {

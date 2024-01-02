@@ -5,6 +5,7 @@ package com.pulumi.aws.inspector2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -147,8 +148,12 @@ public final class EnablerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EnablerArgs build() {
-            $.accountIds = Objects.requireNonNull($.accountIds, "expected parameter 'accountIds' to be non-null");
-            $.resourceTypes = Objects.requireNonNull($.resourceTypes, "expected parameter 'resourceTypes' to be non-null");
+            if ($.accountIds == null) {
+                throw new MissingRequiredPropertyException("EnablerArgs", "accountIds");
+            }
+            if ($.resourceTypes == null) {
+                throw new MissingRequiredPropertyException("EnablerArgs", "resourceTypes");
+            }
             return $;
         }
     }

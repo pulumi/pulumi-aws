@@ -6,6 +6,7 @@ package com.pulumi.aws.lb.outputs;
 import com.pulumi.aws.lb.outputs.ListenerDefaultActionForwardStickiness;
 import com.pulumi.aws.lb.outputs.ListenerDefaultActionForwardTargetGroup;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -64,12 +65,16 @@ public final class ListenerDefaultActionForward {
 
         @CustomType.Setter
         public Builder stickiness(@Nullable ListenerDefaultActionForwardStickiness stickiness) {
+
             this.stickiness = stickiness;
             return this;
         }
         @CustomType.Setter
         public Builder targetGroups(List<ListenerDefaultActionForwardTargetGroup> targetGroups) {
-            this.targetGroups = Objects.requireNonNull(targetGroups);
+            if (targetGroups == null) {
+              throw new MissingRequiredPropertyException("ListenerDefaultActionForward", "targetGroups");
+            }
+            this.targetGroups = targetGroups;
             return this;
         }
         public Builder targetGroups(ListenerDefaultActionForwardTargetGroup... targetGroups) {

@@ -7,6 +7,7 @@ import com.pulumi.aws.costexplorer.outputs.GetTagsFilter;
 import com.pulumi.aws.costexplorer.outputs.GetTagsSortBy;
 import com.pulumi.aws.costexplorer.outputs.GetTagsTimePeriod;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -92,21 +93,27 @@ public final class GetTagsResult {
 
         @CustomType.Setter
         public Builder filter(@Nullable GetTagsFilter filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTagsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder searchString(@Nullable String searchString) {
+
             this.searchString = searchString;
             return this;
         }
         @CustomType.Setter
         public Builder sortBies(@Nullable List<GetTagsSortBy> sortBies) {
+
             this.sortBies = sortBies;
             return this;
         }
@@ -115,12 +122,16 @@ public final class GetTagsResult {
         }
         @CustomType.Setter
         public Builder tagKey(@Nullable String tagKey) {
+
             this.tagKey = tagKey;
             return this;
         }
         @CustomType.Setter
         public Builder tags(List<String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetTagsResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public Builder tags(String... tags) {
@@ -128,7 +139,10 @@ public final class GetTagsResult {
         }
         @CustomType.Setter
         public Builder timePeriod(GetTagsTimePeriod timePeriod) {
-            this.timePeriod = Objects.requireNonNull(timePeriod);
+            if (timePeriod == null) {
+              throw new MissingRequiredPropertyException("GetTagsResult", "timePeriod");
+            }
+            this.timePeriod = timePeriod;
             return this;
         }
         public GetTagsResult build() {

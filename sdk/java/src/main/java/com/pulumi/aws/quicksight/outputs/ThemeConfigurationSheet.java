@@ -59,11 +59,13 @@ public final class ThemeConfigurationSheet {
 
         @CustomType.Setter
         public Builder tile(@Nullable ThemeConfigurationSheetTile tile) {
+
             this.tile = tile;
             return this;
         }
         @CustomType.Setter
         public Builder tileLayout(@Nullable ThemeConfigurationSheetTileLayout tileLayout) {
+
             this.tileLayout = tileLayout;
             return this;
         }

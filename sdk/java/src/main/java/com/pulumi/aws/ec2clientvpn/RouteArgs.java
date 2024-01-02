@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2clientvpn;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RouteArgs build() {
-            $.clientVpnEndpointId = Objects.requireNonNull($.clientVpnEndpointId, "expected parameter 'clientVpnEndpointId' to be non-null");
-            $.destinationCidrBlock = Objects.requireNonNull($.destinationCidrBlock, "expected parameter 'destinationCidrBlock' to be non-null");
-            $.targetVpcSubnetId = Objects.requireNonNull($.targetVpcSubnetId, "expected parameter 'targetVpcSubnetId' to be non-null");
+            if ($.clientVpnEndpointId == null) {
+                throw new MissingRequiredPropertyException("RouteArgs", "clientVpnEndpointId");
+            }
+            if ($.destinationCidrBlock == null) {
+                throw new MissingRequiredPropertyException("RouteArgs", "destinationCidrBlock");
+            }
+            if ($.targetVpcSubnetId == null) {
+                throw new MissingRequiredPropertyException("RouteArgs", "targetVpcSubnetId");
+            }
             return $;
         }
     }

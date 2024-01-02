@@ -6,6 +6,7 @@ package com.pulumi.aws.vpclattice;
 import com.pulumi.aws.vpclattice.inputs.TargetGroupAttachmentTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class TargetGroupAttachmentArgs extends com.pulumi.resources.Resour
         }
 
         public TargetGroupAttachmentArgs build() {
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
-            $.targetGroupIdentifier = Objects.requireNonNull($.targetGroupIdentifier, "expected parameter 'targetGroupIdentifier' to be non-null");
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("TargetGroupAttachmentArgs", "target");
+            }
+            if ($.targetGroupIdentifier == null) {
+                throw new MissingRequiredPropertyException("TargetGroupAttachmentArgs", "targetGroupIdentifier");
+            }
             return $;
         }
     }

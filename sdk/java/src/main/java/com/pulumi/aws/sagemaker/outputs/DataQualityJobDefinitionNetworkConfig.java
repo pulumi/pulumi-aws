@@ -73,16 +73,19 @@ public final class DataQualityJobDefinitionNetworkConfig {
 
         @CustomType.Setter
         public Builder enableInterContainerTrafficEncryption(@Nullable Boolean enableInterContainerTrafficEncryption) {
+
             this.enableInterContainerTrafficEncryption = enableInterContainerTrafficEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder enableNetworkIsolation(@Nullable Boolean enableNetworkIsolation) {
+
             this.enableNetworkIsolation = enableNetworkIsolation;
             return this;
         }
         @CustomType.Setter
         public Builder vpcConfig(@Nullable DataQualityJobDefinitionNetworkConfigVpcConfig vpcConfig) {
+
             this.vpcConfig = vpcConfig;
             return this;
         }

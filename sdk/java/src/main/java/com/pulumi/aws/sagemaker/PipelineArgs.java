@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.inputs.PipelineParallelismConfigurationArgs;
 import com.pulumi.aws.sagemaker.inputs.PipelinePipelineDefinitionS3LocationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -338,8 +339,12 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PipelineArgs build() {
-            $.pipelineDisplayName = Objects.requireNonNull($.pipelineDisplayName, "expected parameter 'pipelineDisplayName' to be non-null");
-            $.pipelineName = Objects.requireNonNull($.pipelineName, "expected parameter 'pipelineName' to be non-null");
+            if ($.pipelineDisplayName == null) {
+                throw new MissingRequiredPropertyException("PipelineArgs", "pipelineDisplayName");
+            }
+            if ($.pipelineName == null) {
+                throw new MissingRequiredPropertyException("PipelineArgs", "pipelineName");
+            }
             return $;
         }
     }

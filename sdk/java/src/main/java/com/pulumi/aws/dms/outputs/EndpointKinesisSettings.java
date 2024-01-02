@@ -157,46 +157,55 @@ public final class EndpointKinesisSettings {
 
         @CustomType.Setter
         public Builder includeControlDetails(@Nullable Boolean includeControlDetails) {
+
             this.includeControlDetails = includeControlDetails;
             return this;
         }
         @CustomType.Setter
         public Builder includeNullAndEmpty(@Nullable Boolean includeNullAndEmpty) {
+
             this.includeNullAndEmpty = includeNullAndEmpty;
             return this;
         }
         @CustomType.Setter
         public Builder includePartitionValue(@Nullable Boolean includePartitionValue) {
+
             this.includePartitionValue = includePartitionValue;
             return this;
         }
         @CustomType.Setter
         public Builder includeTableAlterOperations(@Nullable Boolean includeTableAlterOperations) {
+
             this.includeTableAlterOperations = includeTableAlterOperations;
             return this;
         }
         @CustomType.Setter
         public Builder includeTransactionDetails(@Nullable Boolean includeTransactionDetails) {
+
             this.includeTransactionDetails = includeTransactionDetails;
             return this;
         }
         @CustomType.Setter
         public Builder messageFormat(@Nullable String messageFormat) {
+
             this.messageFormat = messageFormat;
             return this;
         }
         @CustomType.Setter
         public Builder partitionIncludeSchemaTable(@Nullable Boolean partitionIncludeSchemaTable) {
+
             this.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccessRoleArn(@Nullable String serviceAccessRoleArn) {
+
             this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder streamArn(@Nullable String streamArn) {
+
             this.streamArn = streamArn;
             return this;
         }

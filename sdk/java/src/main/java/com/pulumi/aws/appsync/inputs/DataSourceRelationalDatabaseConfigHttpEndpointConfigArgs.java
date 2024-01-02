@@ -5,6 +5,7 @@ package com.pulumi.aws.appsync.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,8 +225,12 @@ public final class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs exte
         }
 
         public DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs build() {
-            $.awsSecretStoreArn = Objects.requireNonNull($.awsSecretStoreArn, "expected parameter 'awsSecretStoreArn' to be non-null");
-            $.dbClusterIdentifier = Objects.requireNonNull($.dbClusterIdentifier, "expected parameter 'dbClusterIdentifier' to be non-null");
+            if ($.awsSecretStoreArn == null) {
+                throw new MissingRequiredPropertyException("DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs", "awsSecretStoreArn");
+            }
+            if ($.dbClusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs", "dbClusterIdentifier");
+            }
             return $;
         }
     }

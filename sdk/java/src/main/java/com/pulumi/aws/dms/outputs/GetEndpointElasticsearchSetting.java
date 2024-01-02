@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -53,22 +54,34 @@ public final class GetEndpointElasticsearchSetting {
 
         @CustomType.Setter
         public Builder endpointUri(String endpointUri) {
-            this.endpointUri = Objects.requireNonNull(endpointUri);
+            if (endpointUri == null) {
+              throw new MissingRequiredPropertyException("GetEndpointElasticsearchSetting", "endpointUri");
+            }
+            this.endpointUri = endpointUri;
             return this;
         }
         @CustomType.Setter
         public Builder errorRetryDuration(Integer errorRetryDuration) {
-            this.errorRetryDuration = Objects.requireNonNull(errorRetryDuration);
+            if (errorRetryDuration == null) {
+              throw new MissingRequiredPropertyException("GetEndpointElasticsearchSetting", "errorRetryDuration");
+            }
+            this.errorRetryDuration = errorRetryDuration;
             return this;
         }
         @CustomType.Setter
         public Builder fullLoadErrorPercentage(Integer fullLoadErrorPercentage) {
-            this.fullLoadErrorPercentage = Objects.requireNonNull(fullLoadErrorPercentage);
+            if (fullLoadErrorPercentage == null) {
+              throw new MissingRequiredPropertyException("GetEndpointElasticsearchSetting", "fullLoadErrorPercentage");
+            }
+            this.fullLoadErrorPercentage = fullLoadErrorPercentage;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccessRoleArn(String serviceAccessRoleArn) {
-            this.serviceAccessRoleArn = Objects.requireNonNull(serviceAccessRoleArn);
+            if (serviceAccessRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointElasticsearchSetting", "serviceAccessRoleArn");
+            }
+            this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
         public GetEndpointElasticsearchSetting build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,7 +159,9 @@ public final class ImagePipelineScheduleArgs extends com.pulumi.resources.Resour
         }
 
         public ImagePipelineScheduleArgs build() {
-            $.scheduleExpression = Objects.requireNonNull($.scheduleExpression, "expected parameter 'scheduleExpression' to be non-null");
+            if ($.scheduleExpression == null) {
+                throw new MissingRequiredPropertyException("ImagePipelineScheduleArgs", "scheduleExpression");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.acmpca.inputs;
 import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -149,9 +150,15 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationArgs ext
         }
 
         public CertificateAuthorityCertificateAuthorityConfigurationArgs build() {
-            $.keyAlgorithm = Objects.requireNonNull($.keyAlgorithm, "expected parameter 'keyAlgorithm' to be non-null");
-            $.signingAlgorithm = Objects.requireNonNull($.signingAlgorithm, "expected parameter 'signingAlgorithm' to be non-null");
-            $.subject = Objects.requireNonNull($.subject, "expected parameter 'subject' to be non-null");
+            if ($.keyAlgorithm == null) {
+                throw new MissingRequiredPropertyException("CertificateAuthorityCertificateAuthorityConfigurationArgs", "keyAlgorithm");
+            }
+            if ($.signingAlgorithm == null) {
+                throw new MissingRequiredPropertyException("CertificateAuthorityCertificateAuthorityConfigurationArgs", "signingAlgorithm");
+            }
+            if ($.subject == null) {
+                throw new MissingRequiredPropertyException("CertificateAuthorityCertificateAuthorityConfigurationArgs", "subject");
+            }
             return $;
         }
     }

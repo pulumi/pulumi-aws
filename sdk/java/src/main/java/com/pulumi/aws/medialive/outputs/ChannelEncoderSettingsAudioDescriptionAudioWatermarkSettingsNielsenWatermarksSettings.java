@@ -75,16 +75,19 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
 
         @CustomType.Setter
         public Builder nielsenCbetSettings(@Nullable ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings nielsenCbetSettings) {
+
             this.nielsenCbetSettings = nielsenCbetSettings;
             return this;
         }
         @CustomType.Setter
         public Builder nielsenDistributionType(@Nullable String nielsenDistributionType) {
+
             this.nielsenDistributionType = nielsenDistributionType;
             return this;
         }
         @CustomType.Setter
         public Builder nielsenNaesIiNwSettings(@Nullable List<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting> nielsenNaesIiNwSettings) {
+
             this.nielsenNaesIiNwSettings = nielsenNaesIiNwSettings;
             return this;
         }

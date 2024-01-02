@@ -5,6 +5,7 @@ package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.aws.lex.outputs.GetSlotTypeEnumerationValue;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -170,22 +171,34 @@ public final class GetSlotTypeResult {
 
         @CustomType.Setter
         public Builder checksum(String checksum) {
-            this.checksum = Objects.requireNonNull(checksum);
+            if (checksum == null) {
+              throw new MissingRequiredPropertyException("GetSlotTypeResult", "checksum");
+            }
+            this.checksum = checksum;
             return this;
         }
         @CustomType.Setter
         public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+            if (createdDate == null) {
+              throw new MissingRequiredPropertyException("GetSlotTypeResult", "createdDate");
+            }
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetSlotTypeResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder enumerationValues(List<GetSlotTypeEnumerationValue> enumerationValues) {
-            this.enumerationValues = Objects.requireNonNull(enumerationValues);
+            if (enumerationValues == null) {
+              throw new MissingRequiredPropertyException("GetSlotTypeResult", "enumerationValues");
+            }
+            this.enumerationValues = enumerationValues;
             return this;
         }
         public Builder enumerationValues(GetSlotTypeEnumerationValue... enumerationValues) {
@@ -193,26 +206,39 @@ public final class GetSlotTypeResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSlotTypeResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastUpdatedDate(String lastUpdatedDate) {
-            this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
+            if (lastUpdatedDate == null) {
+              throw new MissingRequiredPropertyException("GetSlotTypeResult", "lastUpdatedDate");
+            }
+            this.lastUpdatedDate = lastUpdatedDate;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSlotTypeResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder valueSelectionStrategy(String valueSelectionStrategy) {
-            this.valueSelectionStrategy = Objects.requireNonNull(valueSelectionStrategy);
+            if (valueSelectionStrategy == null) {
+              throw new MissingRequiredPropertyException("GetSlotTypeResult", "valueSelectionStrategy");
+            }
+            this.valueSelectionStrategy = valueSelectionStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }

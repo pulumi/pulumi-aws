@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisExplanationAclRulePortRange;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -68,17 +69,26 @@ public final class GetNetworkInsightsAnalysisExplanationAclRule {
 
         @CustomType.Setter
         public Builder cidr(String cidr) {
-            this.cidr = Objects.requireNonNull(cidr);
+            if (cidr == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanationAclRule", "cidr");
+            }
+            this.cidr = cidr;
             return this;
         }
         @CustomType.Setter
         public Builder egress(Boolean egress) {
-            this.egress = Objects.requireNonNull(egress);
+            if (egress == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanationAclRule", "egress");
+            }
+            this.egress = egress;
             return this;
         }
         @CustomType.Setter
         public Builder portRanges(List<GetNetworkInsightsAnalysisExplanationAclRulePortRange> portRanges) {
-            this.portRanges = Objects.requireNonNull(portRanges);
+            if (portRanges == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanationAclRule", "portRanges");
+            }
+            this.portRanges = portRanges;
             return this;
         }
         public Builder portRanges(GetNetworkInsightsAnalysisExplanationAclRulePortRange... portRanges) {
@@ -86,17 +96,26 @@ public final class GetNetworkInsightsAnalysisExplanationAclRule {
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanationAclRule", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder ruleAction(String ruleAction) {
-            this.ruleAction = Objects.requireNonNull(ruleAction);
+            if (ruleAction == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanationAclRule", "ruleAction");
+            }
+            this.ruleAction = ruleAction;
             return this;
         }
         @CustomType.Setter
         public Builder ruleNumber(Integer ruleNumber) {
-            this.ruleNumber = Objects.requireNonNull(ruleNumber);
+            if (ruleNumber == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanationAclRule", "ruleNumber");
+            }
+            this.ruleNumber = ruleNumber;
             return this;
         }
         public GetNetworkInsightsAnalysisExplanationAclRule build() {

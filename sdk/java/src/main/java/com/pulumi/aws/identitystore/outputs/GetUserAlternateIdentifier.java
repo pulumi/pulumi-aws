@@ -63,11 +63,13 @@ public final class GetUserAlternateIdentifier {
 
         @CustomType.Setter
         public Builder externalId(@Nullable GetUserAlternateIdentifierExternalId externalId) {
+
             this.externalId = externalId;
             return this;
         }
         @CustomType.Setter
         public Builder uniqueAttribute(@Nullable GetUserAlternateIdentifierUniqueAttribute uniqueAttribute) {
+
             this.uniqueAttribute = uniqueAttribute;
             return this;
         }

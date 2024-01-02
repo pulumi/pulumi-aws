@@ -36,6 +36,7 @@ public final class RecorderRecordingGroupRecordingStrategy {
 
         @CustomType.Setter
         public Builder useOnly(@Nullable String useOnly) {
+
             this.useOnly = useOnly;
             return this;
         }

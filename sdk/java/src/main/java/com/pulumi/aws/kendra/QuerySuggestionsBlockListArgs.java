@@ -6,6 +6,7 @@ package com.pulumi.aws.kendra;
 import com.pulumi.aws.kendra.inputs.QuerySuggestionsBlockListSourceS3PathArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -271,9 +272,15 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
         }
 
         public QuerySuggestionsBlockListArgs build() {
-            $.indexId = Objects.requireNonNull($.indexId, "expected parameter 'indexId' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.sourceS3Path = Objects.requireNonNull($.sourceS3Path, "expected parameter 'sourceS3Path' to be non-null");
+            if ($.indexId == null) {
+                throw new MissingRequiredPropertyException("QuerySuggestionsBlockListArgs", "indexId");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("QuerySuggestionsBlockListArgs", "roleArn");
+            }
+            if ($.sourceS3Path == null) {
+                throw new MissingRequiredPropertyException("QuerySuggestionsBlockListArgs", "sourceS3Path");
+            }
             return $;
         }
     }

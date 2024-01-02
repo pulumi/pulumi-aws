@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -225,8 +226,12 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ImageArgs build() {
-            $.imageName = Objects.requireNonNull($.imageName, "expected parameter 'imageName' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.imageName == null) {
+                throw new MissingRequiredPropertyException("ImageArgs", "imageName");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("ImageArgs", "roleArn");
+            }
             return $;
         }
     }

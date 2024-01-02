@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive;
 import com.pulumi.aws.medialive.inputs.MultiplexMultiplexSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -246,7 +247,9 @@ public final class MultiplexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MultiplexArgs build() {
-            $.availabilityZones = Objects.requireNonNull($.availabilityZones, "expected parameter 'availabilityZones' to be non-null");
+            if ($.availabilityZones == null) {
+                throw new MissingRequiredPropertyException("MultiplexArgs", "availabilityZones");
+            }
             return $;
         }
     }

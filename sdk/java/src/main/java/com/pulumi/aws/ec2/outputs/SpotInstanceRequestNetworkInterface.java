@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -88,22 +89,30 @@ public final class SpotInstanceRequestNetworkInterface {
 
         @CustomType.Setter
         public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
+
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
         public Builder deviceIndex(Integer deviceIndex) {
-            this.deviceIndex = Objects.requireNonNull(deviceIndex);
+            if (deviceIndex == null) {
+              throw new MissingRequiredPropertyException("SpotInstanceRequestNetworkInterface", "deviceIndex");
+            }
+            this.deviceIndex = deviceIndex;
             return this;
         }
         @CustomType.Setter
         public Builder networkCardIndex(@Nullable Integer networkCardIndex) {
+
             this.networkCardIndex = networkCardIndex;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+            if (networkInterfaceId == null) {
+              throw new MissingRequiredPropertyException("SpotInstanceRequestNetworkInterface", "networkInterfaceId");
+            }
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         public SpotInstanceRequestNetworkInterface build() {

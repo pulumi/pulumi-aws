@@ -6,6 +6,7 @@ package com.pulumi.aws.connect;
 import com.pulumi.aws.connect.inputs.QueueOutboundCallerConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -386,8 +387,12 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public QueueArgs build() {
-            $.hoursOfOperationId = Objects.requireNonNull($.hoursOfOperationId, "expected parameter 'hoursOfOperationId' to be non-null");
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
+            if ($.hoursOfOperationId == null) {
+                throw new MissingRequiredPropertyException("QueueArgs", "hoursOfOperationId");
+            }
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("QueueArgs", "instanceId");
+            }
             return $;
         }
     }

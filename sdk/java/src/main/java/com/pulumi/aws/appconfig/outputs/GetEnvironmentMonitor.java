@@ -4,6 +4,7 @@
 package com.pulumi.aws.appconfig.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetEnvironmentMonitor {
 
         @CustomType.Setter
         public Builder alarmArn(String alarmArn) {
-            this.alarmArn = Objects.requireNonNull(alarmArn);
+            if (alarmArn == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentMonitor", "alarmArn");
+            }
+            this.alarmArn = alarmArn;
             return this;
         }
         @CustomType.Setter
         public Builder alarmRoleArn(String alarmRoleArn) {
-            this.alarmRoleArn = Objects.requireNonNull(alarmRoleArn);
+            if (alarmRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentMonitor", "alarmRoleArn");
+            }
+            this.alarmRoleArn = alarmRoleArn;
             return this;
         }
         public GetEnvironmentMonitor build() {

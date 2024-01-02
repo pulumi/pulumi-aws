@@ -5,6 +5,7 @@ package com.pulumi.aws.sesv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class GetConfigurationSetArgs extends com.pulumi.resources.InvokeAr
         }
 
         public GetConfigurationSetArgs build() {
-            $.configurationSetName = Objects.requireNonNull($.configurationSetName, "expected parameter 'configurationSetName' to be non-null");
+            if ($.configurationSetName == null) {
+                throw new MissingRequiredPropertyException("GetConfigurationSetArgs", "configurationSetName");
+            }
             return $;
         }
     }

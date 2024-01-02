@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class DataSourceParametersTwitterArgs extends com.pulumi.resources.
         }
 
         public DataSourceParametersTwitterArgs build() {
-            $.maxRows = Objects.requireNonNull($.maxRows, "expected parameter 'maxRows' to be non-null");
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
+            if ($.maxRows == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersTwitterArgs", "maxRows");
+            }
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersTwitterArgs", "query");
+            }
             return $;
         }
     }

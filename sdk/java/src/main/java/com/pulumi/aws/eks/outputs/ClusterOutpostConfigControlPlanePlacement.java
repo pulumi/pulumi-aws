@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class ClusterOutpostConfigControlPlanePlacement {
 
         @CustomType.Setter
         public Builder groupName(String groupName) {
-            this.groupName = Objects.requireNonNull(groupName);
+            if (groupName == null) {
+              throw new MissingRequiredPropertyException("ClusterOutpostConfigControlPlanePlacement", "groupName");
+            }
+            this.groupName = groupName;
             return this;
         }
         public ClusterOutpostConfigControlPlanePlacement build() {

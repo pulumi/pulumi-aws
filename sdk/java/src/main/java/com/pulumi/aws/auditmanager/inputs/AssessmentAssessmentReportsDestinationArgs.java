@@ -5,6 +5,7 @@ package com.pulumi.aws.auditmanager.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AssessmentAssessmentReportsDestinationArgs extends com.pulumi
         }
 
         public AssessmentAssessmentReportsDestinationArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
-            $.destinationType = Objects.requireNonNull($.destinationType, "expected parameter 'destinationType' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("AssessmentAssessmentReportsDestinationArgs", "destination");
+            }
+            if ($.destinationType == null) {
+                throw new MissingRequiredPropertyException("AssessmentAssessmentReportsDestinationArgs", "destinationType");
+            }
             return $;
         }
     }

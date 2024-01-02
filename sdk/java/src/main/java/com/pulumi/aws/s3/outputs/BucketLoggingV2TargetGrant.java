@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.BucketLoggingV2TargetGrantGrantee;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,12 +58,18 @@ public final class BucketLoggingV2TargetGrant {
 
         @CustomType.Setter
         public Builder grantee(BucketLoggingV2TargetGrantGrantee grantee) {
-            this.grantee = Objects.requireNonNull(grantee);
+            if (grantee == null) {
+              throw new MissingRequiredPropertyException("BucketLoggingV2TargetGrant", "grantee");
+            }
+            this.grantee = grantee;
             return this;
         }
         @CustomType.Setter
         public Builder permission(String permission) {
-            this.permission = Objects.requireNonNull(permission);
+            if (permission == null) {
+              throw new MissingRequiredPropertyException("BucketLoggingV2TargetGrant", "permission");
+            }
+            this.permission = permission;
             return this;
         }
         public BucketLoggingV2TargetGrant build() {

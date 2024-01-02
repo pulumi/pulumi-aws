@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,12 +59,18 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyCookie {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementCustomKeyCookie", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder textTransformations(List<WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation> textTransformations) {
-            this.textTransformations = Objects.requireNonNull(textTransformations);
+            if (textTransformations == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementCustomKeyCookie", "textTransformations");
+            }
+            this.textTransformations = textTransformations;
             return this;
         }
         public Builder textTransformations(WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation... textTransformations) {

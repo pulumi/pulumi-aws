@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class GetInfrastructureConfigurationInstanceMetadataOption {
 
         @CustomType.Setter
         public Builder httpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
-            this.httpPutResponseHopLimit = Objects.requireNonNull(httpPutResponseHopLimit);
+            if (httpPutResponseHopLimit == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationInstanceMetadataOption", "httpPutResponseHopLimit");
+            }
+            this.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
         @CustomType.Setter
         public Builder httpTokens(String httpTokens) {
-            this.httpTokens = Objects.requireNonNull(httpTokens);
+            if (httpTokens == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationInstanceMetadataOption", "httpTokens");
+            }
+            this.httpTokens = httpTokens;
             return this;
         }
         public GetInfrastructureConfigurationInstanceMetadataOption build() {

@@ -44,6 +44,7 @@ public final class AnalysisSourceEntity {
 
         @CustomType.Setter
         public Builder sourceTemplate(@Nullable AnalysisSourceEntitySourceTemplate sourceTemplate) {
+
             this.sourceTemplate = sourceTemplate;
             return this;
         }

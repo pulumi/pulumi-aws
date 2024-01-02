@@ -5,6 +5,7 @@ package com.pulumi.aws.ses.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class ReceiptRuleAddHeaderActionArgs extends com.pulumi.resources.R
         }
 
         public ReceiptRuleAddHeaderActionArgs build() {
-            $.headerName = Objects.requireNonNull($.headerName, "expected parameter 'headerName' to be non-null");
-            $.headerValue = Objects.requireNonNull($.headerValue, "expected parameter 'headerValue' to be non-null");
-            $.position = Objects.requireNonNull($.position, "expected parameter 'position' to be non-null");
+            if ($.headerName == null) {
+                throw new MissingRequiredPropertyException("ReceiptRuleAddHeaderActionArgs", "headerName");
+            }
+            if ($.headerValue == null) {
+                throw new MissingRequiredPropertyException("ReceiptRuleAddHeaderActionArgs", "headerValue");
+            }
+            if ($.position == null) {
+                throw new MissingRequiredPropertyException("ReceiptRuleAddHeaderActionArgs", "position");
+            }
             return $;
         }
     }

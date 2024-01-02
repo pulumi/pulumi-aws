@@ -10,6 +10,7 @@ import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRulePrimary;
 import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleRegion;
 import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleSecondary;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -301,7 +302,9 @@ public final class GetTrafficPolicyDocumentRule extends com.pulumi.resources.Inv
         }
 
         public GetTrafficPolicyDocumentRule build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("GetTrafficPolicyDocumentRule", "id");
+            }
             return $;
         }
     }

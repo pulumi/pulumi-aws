@@ -58,11 +58,13 @@ public final class LaunchExecution {
 
         @CustomType.Setter
         public Builder endedTime(@Nullable String endedTime) {
+
             this.endedTime = endedTime;
             return this;
         }
         @CustomType.Setter
         public Builder startedTime(@Nullable String startedTime) {
+
             this.startedTime = startedTime;
             return this;
         }

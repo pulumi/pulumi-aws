@@ -5,6 +5,7 @@ package com.pulumi.aws.lakeformation.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -119,8 +120,12 @@ public final class GetPermissionsDataLocationArgs extends com.pulumi.resources.R
         }
 
         public GetPermissionsDataLocationArgs build() {
-            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
-            $.catalogId = Objects.requireNonNull($.catalogId, "expected parameter 'catalogId' to be non-null");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("GetPermissionsDataLocationArgs", "arn");
+            }
+            if ($.catalogId == null) {
+                throw new MissingRequiredPropertyException("GetPermissionsDataLocationArgs", "catalogId");
+            }
             return $;
         }
     }

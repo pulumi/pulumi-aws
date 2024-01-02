@@ -5,6 +5,7 @@ package com.pulumi.aws.kms.outputs;
 
 import com.pulumi.aws.kms.outputs.GetSecretSecret;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -50,12 +51,18 @@ public final class GetSecretResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSecretResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder secrets(List<GetSecretSecret> secrets) {
-            this.secrets = Objects.requireNonNull(secrets);
+            if (secrets == null) {
+              throw new MissingRequiredPropertyException("GetSecretResult", "secrets");
+            }
+            this.secrets = secrets;
             return this;
         }
         public Builder secrets(GetSecretSecret... secrets) {

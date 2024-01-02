@@ -5,6 +5,7 @@ package com.pulumi.aws.lex.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -222,11 +223,21 @@ public final class V2modelsBotMemberArgs extends com.pulumi.resources.ResourceAr
         }
 
         public V2modelsBotMemberArgs build() {
-            $.aliasId = Objects.requireNonNull($.aliasId, "expected parameter 'aliasId' to be non-null");
-            $.aliasName = Objects.requireNonNull($.aliasName, "expected parameter 'aliasName' to be non-null");
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.aliasId == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotMemberArgs", "aliasId");
+            }
+            if ($.aliasName == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotMemberArgs", "aliasName");
+            }
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotMemberArgs", "id");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotMemberArgs", "name");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotMemberArgs", "version");
+            }
             return $;
         }
     }

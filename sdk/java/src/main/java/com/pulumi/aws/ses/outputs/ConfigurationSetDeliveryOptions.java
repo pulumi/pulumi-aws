@@ -44,6 +44,7 @@ public final class ConfigurationSetDeliveryOptions {
 
         @CustomType.Setter
         public Builder tlsPolicy(@Nullable String tlsPolicy) {
+
             this.tlsPolicy = tlsPolicy;
             return this;
         }

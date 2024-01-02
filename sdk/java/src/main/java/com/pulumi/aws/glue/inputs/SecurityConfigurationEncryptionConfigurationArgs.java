@@ -8,6 +8,7 @@ import com.pulumi.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationJo
 import com.pulumi.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -110,9 +111,15 @@ public final class SecurityConfigurationEncryptionConfigurationArgs extends com.
         }
 
         public SecurityConfigurationEncryptionConfigurationArgs build() {
-            $.cloudwatchEncryption = Objects.requireNonNull($.cloudwatchEncryption, "expected parameter 'cloudwatchEncryption' to be non-null");
-            $.jobBookmarksEncryption = Objects.requireNonNull($.jobBookmarksEncryption, "expected parameter 'jobBookmarksEncryption' to be non-null");
-            $.s3Encryption = Objects.requireNonNull($.s3Encryption, "expected parameter 's3Encryption' to be non-null");
+            if ($.cloudwatchEncryption == null) {
+                throw new MissingRequiredPropertyException("SecurityConfigurationEncryptionConfigurationArgs", "cloudwatchEncryption");
+            }
+            if ($.jobBookmarksEncryption == null) {
+                throw new MissingRequiredPropertyException("SecurityConfigurationEncryptionConfigurationArgs", "jobBookmarksEncryption");
+            }
+            if ($.s3Encryption == null) {
+                throw new MissingRequiredPropertyException("SecurityConfigurationEncryptionConfigurationArgs", "s3Encryption");
+            }
             return $;
         }
     }

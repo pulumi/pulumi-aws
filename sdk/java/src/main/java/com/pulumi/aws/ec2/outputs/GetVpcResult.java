@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.aws.ec2.outputs.GetVpcCidrBlockAssociation;
 import com.pulumi.aws.ec2.outputs.GetVpcFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -226,17 +227,26 @@ public final class GetVpcResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder cidrBlock(String cidrBlock) {
-            this.cidrBlock = Objects.requireNonNull(cidrBlock);
+            if (cidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "cidrBlock");
+            }
+            this.cidrBlock = cidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder cidrBlockAssociations(List<GetVpcCidrBlockAssociation> cidrBlockAssociations) {
-            this.cidrBlockAssociations = Objects.requireNonNull(cidrBlockAssociations);
+            if (cidrBlockAssociations == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "cidrBlockAssociations");
+            }
+            this.cidrBlockAssociations = cidrBlockAssociations;
             return this;
         }
         public Builder cidrBlockAssociations(GetVpcCidrBlockAssociation... cidrBlockAssociations) {
@@ -244,31 +254,47 @@ public final class GetVpcResult {
         }
         @CustomType.Setter("default")
         public Builder default_(Boolean default_) {
-            this.default_ = Objects.requireNonNull(default_);
+            if (default_ == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "default_");
+            }
+            this.default_ = default_;
             return this;
         }
         @CustomType.Setter
         public Builder dhcpOptionsId(String dhcpOptionsId) {
-            this.dhcpOptionsId = Objects.requireNonNull(dhcpOptionsId);
+            if (dhcpOptionsId == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "dhcpOptionsId");
+            }
+            this.dhcpOptionsId = dhcpOptionsId;
             return this;
         }
         @CustomType.Setter
         public Builder enableDnsHostnames(Boolean enableDnsHostnames) {
-            this.enableDnsHostnames = Objects.requireNonNull(enableDnsHostnames);
+            if (enableDnsHostnames == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "enableDnsHostnames");
+            }
+            this.enableDnsHostnames = enableDnsHostnames;
             return this;
         }
         @CustomType.Setter
         public Builder enableDnsSupport(Boolean enableDnsSupport) {
-            this.enableDnsSupport = Objects.requireNonNull(enableDnsSupport);
+            if (enableDnsSupport == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "enableDnsSupport");
+            }
+            this.enableDnsSupport = enableDnsSupport;
             return this;
         }
         @CustomType.Setter
         public Builder enableNetworkAddressUsageMetrics(Boolean enableNetworkAddressUsageMetrics) {
-            this.enableNetworkAddressUsageMetrics = Objects.requireNonNull(enableNetworkAddressUsageMetrics);
+            if (enableNetworkAddressUsageMetrics == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "enableNetworkAddressUsageMetrics");
+            }
+            this.enableNetworkAddressUsageMetrics = enableNetworkAddressUsageMetrics;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -277,42 +303,66 @@ public final class GetVpcResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceTenancy(String instanceTenancy) {
-            this.instanceTenancy = Objects.requireNonNull(instanceTenancy);
+            if (instanceTenancy == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "instanceTenancy");
+            }
+            this.instanceTenancy = instanceTenancy;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6AssociationId(String ipv6AssociationId) {
-            this.ipv6AssociationId = Objects.requireNonNull(ipv6AssociationId);
+            if (ipv6AssociationId == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "ipv6AssociationId");
+            }
+            this.ipv6AssociationId = ipv6AssociationId;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6CidrBlock(String ipv6CidrBlock) {
-            this.ipv6CidrBlock = Objects.requireNonNull(ipv6CidrBlock);
+            if (ipv6CidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "ipv6CidrBlock");
+            }
+            this.ipv6CidrBlock = ipv6CidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder mainRouteTableId(String mainRouteTableId) {
-            this.mainRouteTableId = Objects.requireNonNull(mainRouteTableId);
+            if (mainRouteTableId == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "mainRouteTableId");
+            }
+            this.mainRouteTableId = mainRouteTableId;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetVpcResult build() {

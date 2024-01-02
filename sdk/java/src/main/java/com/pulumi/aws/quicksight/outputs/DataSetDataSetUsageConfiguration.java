@@ -58,11 +58,13 @@ public final class DataSetDataSetUsageConfiguration {
 
         @CustomType.Setter
         public Builder disableUseAsDirectQuerySource(@Nullable Boolean disableUseAsDirectQuerySource) {
+
             this.disableUseAsDirectQuerySource = disableUseAsDirectQuerySource;
             return this;
         }
         @CustomType.Setter
         public Builder disableUseAsImportedSource(@Nullable Boolean disableUseAsImportedSource) {
+
             this.disableUseAsImportedSource = disableUseAsImportedSource;
             return this;
         }

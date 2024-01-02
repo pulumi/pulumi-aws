@@ -44,6 +44,7 @@ public final class BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpl
 
         @CustomType.Setter
         public Builder daysAfterInitiation(@Nullable Integer daysAfterInitiation) {
+
             this.daysAfterInitiation = daysAfterInitiation;
             return this;
         }

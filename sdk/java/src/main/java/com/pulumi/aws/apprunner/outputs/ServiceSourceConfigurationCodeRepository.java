@@ -6,6 +6,7 @@ package com.pulumi.aws.apprunner.outputs;
 import com.pulumi.aws.apprunner.outputs.ServiceSourceConfigurationCodeRepositoryCodeConfiguration;
 import com.pulumi.aws.apprunner.outputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersion;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -88,21 +89,29 @@ public final class ServiceSourceConfigurationCodeRepository {
 
         @CustomType.Setter
         public Builder codeConfiguration(@Nullable ServiceSourceConfigurationCodeRepositoryCodeConfiguration codeConfiguration) {
+
             this.codeConfiguration = codeConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryUrl(String repositoryUrl) {
-            this.repositoryUrl = Objects.requireNonNull(repositoryUrl);
+            if (repositoryUrl == null) {
+              throw new MissingRequiredPropertyException("ServiceSourceConfigurationCodeRepository", "repositoryUrl");
+            }
+            this.repositoryUrl = repositoryUrl;
             return this;
         }
         @CustomType.Setter
         public Builder sourceCodeVersion(ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion) {
-            this.sourceCodeVersion = Objects.requireNonNull(sourceCodeVersion);
+            if (sourceCodeVersion == null) {
+              throw new MissingRequiredPropertyException("ServiceSourceConfigurationCodeRepository", "sourceCodeVersion");
+            }
+            this.sourceCodeVersion = sourceCodeVersion;
             return this;
         }
         @CustomType.Setter
         public Builder sourceDirectory(@Nullable String sourceDirectory) {
+
             this.sourceDirectory = sourceDirectory;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -119,8 +120,12 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
         }
 
         public FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs build() {
-            $.parameterName = Objects.requireNonNull($.parameterName, "expected parameter 'parameterName' to be non-null");
-            $.parameterValue = Objects.requireNonNull($.parameterValue, "expected parameter 'parameterValue' to be non-null");
+            if ($.parameterName == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs", "parameterName");
+            }
+            if ($.parameterValue == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs", "parameterValue");
+            }
             return $;
         }
     }

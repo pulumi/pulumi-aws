@@ -116,31 +116,37 @@ public final class StackSetOperationPreferences {
 
         @CustomType.Setter
         public Builder failureToleranceCount(@Nullable Integer failureToleranceCount) {
+
             this.failureToleranceCount = failureToleranceCount;
             return this;
         }
         @CustomType.Setter
         public Builder failureTolerancePercentage(@Nullable Integer failureTolerancePercentage) {
+
             this.failureTolerancePercentage = failureTolerancePercentage;
             return this;
         }
         @CustomType.Setter
         public Builder maxConcurrentCount(@Nullable Integer maxConcurrentCount) {
+
             this.maxConcurrentCount = maxConcurrentCount;
             return this;
         }
         @CustomType.Setter
         public Builder maxConcurrentPercentage(@Nullable Integer maxConcurrentPercentage) {
+
             this.maxConcurrentPercentage = maxConcurrentPercentage;
             return this;
         }
         @CustomType.Setter
         public Builder regionConcurrencyType(@Nullable String regionConcurrencyType) {
+
             this.regionConcurrencyType = regionConcurrencyType;
             return this;
         }
         @CustomType.Setter
         public Builder regionOrders(@Nullable List<String> regionOrders) {
+
             this.regionOrders = regionOrders;
             return this;
         }

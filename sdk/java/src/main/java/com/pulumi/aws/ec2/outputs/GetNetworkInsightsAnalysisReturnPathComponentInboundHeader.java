@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRange;
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -61,7 +62,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentInboundHeader {
 
         @CustomType.Setter
         public Builder destinationAddresses(List<String> destinationAddresses) {
-            this.destinationAddresses = Objects.requireNonNull(destinationAddresses);
+            if (destinationAddresses == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentInboundHeader", "destinationAddresses");
+            }
+            this.destinationAddresses = destinationAddresses;
             return this;
         }
         public Builder destinationAddresses(String... destinationAddresses) {
@@ -69,7 +73,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentInboundHeader {
         }
         @CustomType.Setter
         public Builder destinationPortRanges(List<GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRange> destinationPortRanges) {
-            this.destinationPortRanges = Objects.requireNonNull(destinationPortRanges);
+            if (destinationPortRanges == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentInboundHeader", "destinationPortRanges");
+            }
+            this.destinationPortRanges = destinationPortRanges;
             return this;
         }
         public Builder destinationPortRanges(GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRange... destinationPortRanges) {
@@ -77,12 +84,18 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentInboundHeader {
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentInboundHeader", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder sourceAddresses(List<String> sourceAddresses) {
-            this.sourceAddresses = Objects.requireNonNull(sourceAddresses);
+            if (sourceAddresses == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentInboundHeader", "sourceAddresses");
+            }
+            this.sourceAddresses = sourceAddresses;
             return this;
         }
         public Builder sourceAddresses(String... sourceAddresses) {
@@ -90,7 +103,10 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentInboundHeader {
         }
         @CustomType.Setter
         public Builder sourcePortRanges(List<GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange> sourcePortRanges) {
-            this.sourcePortRanges = Objects.requireNonNull(sourcePortRanges);
+            if (sourcePortRanges == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentInboundHeader", "sourcePortRanges");
+            }
+            this.sourcePortRanges = sourcePortRanges;
             return this;
         }
         public Builder sourcePortRanges(GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange... sourcePortRanges) {

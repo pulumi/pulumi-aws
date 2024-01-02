@@ -5,6 +5,7 @@ package com.pulumi.aws.s3control.outputs;
 
 import com.pulumi.aws.s3control.outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
 
         @CustomType.Setter
         public Builder awsLambda(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda awsLambda) {
-            this.awsLambda = Objects.requireNonNull(awsLambda);
+            if (awsLambda == null) {
+              throw new MissingRequiredPropertyException("ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation", "awsLambda");
+            }
+            this.awsLambda = awsLambda;
             return this;
         }
         public ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation build() {

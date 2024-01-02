@@ -5,6 +5,7 @@ package com.pulumi.aws.resourcegroupstaggingapi.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,9 @@ public final class GetResourcesTagFilterArgs extends com.pulumi.resources.Resour
         }
 
         public GetResourcesTagFilterArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetResourcesTagFilterArgs", "key");
+            }
             return $;
         }
     }

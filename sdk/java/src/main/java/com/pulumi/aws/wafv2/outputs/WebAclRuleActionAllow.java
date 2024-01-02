@@ -44,6 +44,7 @@ public final class WebAclRuleActionAllow {
 
         @CustomType.Setter
         public Builder customRequestHandling(@Nullable WebAclRuleActionAllowCustomRequestHandling customRequestHandling) {
+
             this.customRequestHandling = customRequestHandling;
             return this;
         }

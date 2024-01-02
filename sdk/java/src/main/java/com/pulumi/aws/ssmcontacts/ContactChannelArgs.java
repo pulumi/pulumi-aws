@@ -6,6 +6,7 @@ package com.pulumi.aws.ssmcontacts;
 import com.pulumi.aws.ssmcontacts.inputs.ContactChannelDeliveryAddressArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,9 +189,15 @@ public final class ContactChannelArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ContactChannelArgs build() {
-            $.contactId = Objects.requireNonNull($.contactId, "expected parameter 'contactId' to be non-null");
-            $.deliveryAddress = Objects.requireNonNull($.deliveryAddress, "expected parameter 'deliveryAddress' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.contactId == null) {
+                throw new MissingRequiredPropertyException("ContactChannelArgs", "contactId");
+            }
+            if ($.deliveryAddress == null) {
+                throw new MissingRequiredPropertyException("ContactChannelArgs", "deliveryAddress");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ContactChannelArgs", "type");
+            }
             return $;
         }
     }

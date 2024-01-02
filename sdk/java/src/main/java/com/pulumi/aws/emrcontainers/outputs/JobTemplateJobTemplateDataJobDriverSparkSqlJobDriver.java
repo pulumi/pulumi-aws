@@ -58,11 +58,13 @@ public final class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver {
 
         @CustomType.Setter
         public Builder entryPoint(@Nullable String entryPoint) {
+
             this.entryPoint = entryPoint;
             return this;
         }
         @CustomType.Setter
         public Builder sparkSqlParameters(@Nullable String sparkSqlParameters) {
+
             this.sparkSqlParameters = sparkSqlParameters;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecGrpcRouteMatchMetadata;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -61,7 +62,10 @@ public final class GetRouteSpecGrpcRouteMatch {
 
         @CustomType.Setter
         public Builder metadatas(List<GetRouteSpecGrpcRouteMatchMetadata> metadatas) {
-            this.metadatas = Objects.requireNonNull(metadatas);
+            if (metadatas == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRouteMatch", "metadatas");
+            }
+            this.metadatas = metadatas;
             return this;
         }
         public Builder metadatas(GetRouteSpecGrpcRouteMatchMetadata... metadatas) {
@@ -69,22 +73,34 @@ public final class GetRouteSpecGrpcRouteMatch {
         }
         @CustomType.Setter
         public Builder methodName(String methodName) {
-            this.methodName = Objects.requireNonNull(methodName);
+            if (methodName == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRouteMatch", "methodName");
+            }
+            this.methodName = methodName;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRouteMatch", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(String prefix) {
-            this.prefix = Objects.requireNonNull(prefix);
+            if (prefix == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRouteMatch", "prefix");
+            }
+            this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRouteMatch", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         public GetRouteSpecGrpcRouteMatch build() {

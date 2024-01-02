@@ -59,11 +59,13 @@ public final class RouteSpecHttp2RouteTimeout {
 
         @CustomType.Setter
         public Builder idle(@Nullable RouteSpecHttp2RouteTimeoutIdle idle) {
+
             this.idle = idle;
             return this;
         }
         @CustomType.Setter
         public Builder perRequest(@Nullable RouteSpecHttp2RouteTimeoutPerRequest perRequest) {
+
             this.perRequest = perRequest;
             return this;
         }

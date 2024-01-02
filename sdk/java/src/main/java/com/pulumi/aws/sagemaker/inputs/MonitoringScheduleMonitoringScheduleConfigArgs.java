@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.inputs;
 import com.pulumi.aws.sagemaker.inputs.MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -151,8 +152,12 @@ public final class MonitoringScheduleMonitoringScheduleConfigArgs extends com.pu
         }
 
         public MonitoringScheduleMonitoringScheduleConfigArgs build() {
-            $.monitoringJobDefinitionName = Objects.requireNonNull($.monitoringJobDefinitionName, "expected parameter 'monitoringJobDefinitionName' to be non-null");
-            $.monitoringType = Objects.requireNonNull($.monitoringType, "expected parameter 'monitoringType' to be non-null");
+            if ($.monitoringJobDefinitionName == null) {
+                throw new MissingRequiredPropertyException("MonitoringScheduleMonitoringScheduleConfigArgs", "monitoringJobDefinitionName");
+            }
+            if ($.monitoringType == null) {
+                throw new MissingRequiredPropertyException("MonitoringScheduleMonitoringScheduleConfigArgs", "monitoringType");
+            }
             return $;
         }
     }

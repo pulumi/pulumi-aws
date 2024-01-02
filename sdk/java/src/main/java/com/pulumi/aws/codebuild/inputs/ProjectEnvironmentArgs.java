@@ -7,6 +7,7 @@ import com.pulumi.aws.codebuild.inputs.ProjectEnvironmentEnvironmentVariableArgs
 import com.pulumi.aws.codebuild.inputs.ProjectEnvironmentRegistryCredentialArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -349,9 +350,15 @@ public final class ProjectEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         public ProjectEnvironmentArgs build() {
-            $.computeType = Objects.requireNonNull($.computeType, "expected parameter 'computeType' to be non-null");
-            $.image = Objects.requireNonNull($.image, "expected parameter 'image' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.computeType == null) {
+                throw new MissingRequiredPropertyException("ProjectEnvironmentArgs", "computeType");
+            }
+            if ($.image == null) {
+                throw new MissingRequiredPropertyException("ProjectEnvironmentArgs", "image");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ProjectEnvironmentArgs", "type");
+            }
             return $;
         }
     }

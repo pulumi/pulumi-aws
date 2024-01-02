@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetImagePipelineSchedule {
 
         @CustomType.Setter
         public Builder pipelineExecutionStartCondition(String pipelineExecutionStartCondition) {
-            this.pipelineExecutionStartCondition = Objects.requireNonNull(pipelineExecutionStartCondition);
+            if (pipelineExecutionStartCondition == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineSchedule", "pipelineExecutionStartCondition");
+            }
+            this.pipelineExecutionStartCondition = pipelineExecutionStartCondition;
             return this;
         }
         @CustomType.Setter
         public Builder scheduleExpression(String scheduleExpression) {
-            this.scheduleExpression = Objects.requireNonNull(scheduleExpression);
+            if (scheduleExpression == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineSchedule", "scheduleExpression");
+            }
+            this.scheduleExpression = scheduleExpression;
             return this;
         }
         public GetImagePipelineSchedule build() {

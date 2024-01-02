@@ -7,6 +7,7 @@ import com.pulumi.aws.bedrockmodel.inputs.InvocationLoggingConfigurationLoggingC
 import com.pulumi.aws.bedrockmodel.inputs.InvocationLoggingConfigurationLoggingConfigS3ConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -226,9 +227,15 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         public InvocationLoggingConfigurationLoggingConfigArgs build() {
-            $.embeddingDataDeliveryEnabled = Objects.requireNonNull($.embeddingDataDeliveryEnabled, "expected parameter 'embeddingDataDeliveryEnabled' to be non-null");
-            $.imageDataDeliveryEnabled = Objects.requireNonNull($.imageDataDeliveryEnabled, "expected parameter 'imageDataDeliveryEnabled' to be non-null");
-            $.textDataDeliveryEnabled = Objects.requireNonNull($.textDataDeliveryEnabled, "expected parameter 'textDataDeliveryEnabled' to be non-null");
+            if ($.embeddingDataDeliveryEnabled == null) {
+                throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfigArgs", "embeddingDataDeliveryEnabled");
+            }
+            if ($.imageDataDeliveryEnabled == null) {
+                throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfigArgs", "imageDataDeliveryEnabled");
+            }
+            if ($.textDataDeliveryEnabled == null) {
+                throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfigArgs", "textDataDeliveryEnabled");
+            }
             return $;
         }
     }

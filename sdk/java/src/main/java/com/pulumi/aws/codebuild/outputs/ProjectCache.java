@@ -73,11 +73,13 @@ public final class ProjectCache {
 
         @CustomType.Setter
         public Builder location(@Nullable String location) {
+
             this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder modes(@Nullable List<String> modes) {
+
             this.modes = modes;
             return this;
         }
@@ -86,6 +88,7 @@ public final class ProjectCache {
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

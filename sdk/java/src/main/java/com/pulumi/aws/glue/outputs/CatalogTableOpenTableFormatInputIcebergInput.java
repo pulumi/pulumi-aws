@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class CatalogTableOpenTableFormatInputIcebergInput {
 
         @CustomType.Setter
         public Builder metadataOperation(String metadataOperation) {
-            this.metadataOperation = Objects.requireNonNull(metadataOperation);
+            if (metadataOperation == null) {
+              throw new MissingRequiredPropertyException("CatalogTableOpenTableFormatInputIcebergInput", "metadataOperation");
+            }
+            this.metadataOperation = metadataOperation;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
 
         @CustomType.Setter
         public Builder objectPath(String objectPath) {
-            this.objectPath = Objects.requireNonNull(objectPath);
+            if (objectPath == null) {
+              throw new MissingRequiredPropertyException("FlowSourceFlowConfigSourceConnectorPropertiesSapoData", "objectPath");
+            }
+            this.objectPath = objectPath;
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesSapoData build() {

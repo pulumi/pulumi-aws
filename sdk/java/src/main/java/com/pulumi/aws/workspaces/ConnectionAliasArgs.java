@@ -6,6 +6,7 @@ package com.pulumi.aws.workspaces;
 import com.pulumi.aws.workspaces.inputs.ConnectionAliasTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -132,7 +133,9 @@ public final class ConnectionAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ConnectionAliasArgs build() {
-            $.connectionString = Objects.requireNonNull($.connectionString, "expected parameter 'connectionString' to be non-null");
+            if ($.connectionString == null) {
+                throw new MissingRequiredPropertyException("ConnectionAliasArgs", "connectionString");
+            }
             return $;
         }
     }

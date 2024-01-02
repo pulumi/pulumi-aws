@@ -78,16 +78,19 @@ public final class ClassificationJobScheduleFrequency {
 
         @CustomType.Setter
         public Builder dailySchedule(@Nullable Boolean dailySchedule) {
+
             this.dailySchedule = dailySchedule;
             return this;
         }
         @CustomType.Setter
         public Builder monthlySchedule(@Nullable Integer monthlySchedule) {
+
             this.monthlySchedule = monthlySchedule;
             return this;
         }
         @CustomType.Setter
         public Builder weeklySchedule(@Nullable String weeklySchedule) {
+
             this.weeklySchedule = weeklySchedule;
             return this;
         }

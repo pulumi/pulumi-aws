@@ -5,6 +5,7 @@ package com.pulumi.aws.ssmincidents.outputs;
 
 import com.pulumi.aws.ssmincidents.outputs.GetResponsePlanActionSsmAutomationParameter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -115,22 +116,34 @@ public final class GetResponsePlanActionSsmAutomation {
 
         @CustomType.Setter
         public Builder documentName(String documentName) {
-            this.documentName = Objects.requireNonNull(documentName);
+            if (documentName == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanActionSsmAutomation", "documentName");
+            }
+            this.documentName = documentName;
             return this;
         }
         @CustomType.Setter
         public Builder documentVersion(String documentVersion) {
-            this.documentVersion = Objects.requireNonNull(documentVersion);
+            if (documentVersion == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanActionSsmAutomation", "documentVersion");
+            }
+            this.documentVersion = documentVersion;
             return this;
         }
         @CustomType.Setter
         public Builder dynamicParameters(Map<String,String> dynamicParameters) {
-            this.dynamicParameters = Objects.requireNonNull(dynamicParameters);
+            if (dynamicParameters == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanActionSsmAutomation", "dynamicParameters");
+            }
+            this.dynamicParameters = dynamicParameters;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(List<GetResponsePlanActionSsmAutomationParameter> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanActionSsmAutomation", "parameters");
+            }
+            this.parameters = parameters;
             return this;
         }
         public Builder parameters(GetResponsePlanActionSsmAutomationParameter... parameters) {
@@ -138,12 +151,18 @@ public final class GetResponsePlanActionSsmAutomation {
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanActionSsmAutomation", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder targetAccount(String targetAccount) {
-            this.targetAccount = Objects.requireNonNull(targetAccount);
+            if (targetAccount == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanActionSsmAutomation", "targetAccount");
+            }
+            this.targetAccount = targetAccount;
             return this;
         }
         public GetResponsePlanActionSsmAutomation build() {

@@ -44,6 +44,7 @@ public final class DeploymentGroupEc2TagSet {
 
         @CustomType.Setter
         public Builder ec2TagFilters(@Nullable List<DeploymentGroupEc2TagSetEc2TagFilter> ec2TagFilters) {
+
             this.ec2TagFilters = ec2TagFilters;
             return this;
         }

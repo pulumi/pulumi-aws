@@ -6,6 +6,7 @@ package com.pulumi.aws.s3control;
 import com.pulumi.aws.s3control.inputs.ObjectLambdaAccessPointConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -151,7 +152,9 @@ public final class ObjectLambdaAccessPointArgs extends com.pulumi.resources.Reso
         }
 
         public ObjectLambdaAccessPointArgs build() {
-            $.configuration = Objects.requireNonNull($.configuration, "expected parameter 'configuration' to be non-null");
+            if ($.configuration == null) {
+                throw new MissingRequiredPropertyException("ObjectLambdaAccessPointArgs", "configuration");
+            }
             return $;
         }
     }

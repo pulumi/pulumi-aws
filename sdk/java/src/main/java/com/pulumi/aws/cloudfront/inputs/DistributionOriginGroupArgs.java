@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudfront.inputs.DistributionOriginGroupFailoverCriteriaA
 import com.pulumi.aws.cloudfront.inputs.DistributionOriginGroupMemberArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,9 +162,15 @@ public final class DistributionOriginGroupArgs extends com.pulumi.resources.Reso
         }
 
         public DistributionOriginGroupArgs build() {
-            $.failoverCriteria = Objects.requireNonNull($.failoverCriteria, "expected parameter 'failoverCriteria' to be non-null");
-            $.members = Objects.requireNonNull($.members, "expected parameter 'members' to be non-null");
-            $.originId = Objects.requireNonNull($.originId, "expected parameter 'originId' to be non-null");
+            if ($.failoverCriteria == null) {
+                throw new MissingRequiredPropertyException("DistributionOriginGroupArgs", "failoverCriteria");
+            }
+            if ($.members == null) {
+                throw new MissingRequiredPropertyException("DistributionOriginGroupArgs", "members");
+            }
+            if ($.originId == null) {
+                throw new MissingRequiredPropertyException("DistributionOriginGroupArgs", "originId");
+            }
             return $;
         }
     }

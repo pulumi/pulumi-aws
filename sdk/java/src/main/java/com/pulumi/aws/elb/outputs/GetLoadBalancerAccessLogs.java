@@ -4,6 +4,7 @@
 package com.pulumi.aws.elb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -54,22 +55,34 @@ public final class GetLoadBalancerAccessLogs {
 
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerAccessLogs", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder bucketPrefix(String bucketPrefix) {
-            this.bucketPrefix = Objects.requireNonNull(bucketPrefix);
+            if (bucketPrefix == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerAccessLogs", "bucketPrefix");
+            }
+            this.bucketPrefix = bucketPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerAccessLogs", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder interval(Integer interval) {
-            this.interval = Objects.requireNonNull(interval);
+            if (interval == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerAccessLogs", "interval");
+            }
+            this.interval = interval;
             return this;
         }
         public GetLoadBalancerAccessLogs build() {

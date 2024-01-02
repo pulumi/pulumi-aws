@@ -50,16 +50,19 @@ public final class StaticWebLayerLoadBasedAutoScaling {
 
         @CustomType.Setter
         public Builder downscaling(@Nullable StaticWebLayerLoadBasedAutoScalingDownscaling downscaling) {
+
             this.downscaling = downscaling;
             return this;
         }
         @CustomType.Setter
         public Builder enable(@Nullable Boolean enable) {
+
             this.enable = enable;
             return this;
         }
         @CustomType.Setter
         public Builder upscaling(@Nullable StaticWebLayerLoadBasedAutoScalingUpscaling upscaling) {
+
             this.upscaling = upscaling;
             return this;
         }

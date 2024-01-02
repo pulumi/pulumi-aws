@@ -5,6 +5,7 @@ package com.pulumi.aws.redshift.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class ClusterSnapshotCopyArgs extends com.pulumi.resources.Resource
         }
 
         public ClusterSnapshotCopyArgs build() {
-            $.destinationRegion = Objects.requireNonNull($.destinationRegion, "expected parameter 'destinationRegion' to be non-null");
+            if ($.destinationRegion == null) {
+                throw new MissingRequiredPropertyException("ClusterSnapshotCopyArgs", "destinationRegion");
+            }
             return $;
         }
     }

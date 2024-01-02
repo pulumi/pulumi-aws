@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class VpcEndpointConnectionAccepterArgs extends com.pulumi.resource
         }
 
         public VpcEndpointConnectionAccepterArgs build() {
-            $.vpcEndpointId = Objects.requireNonNull($.vpcEndpointId, "expected parameter 'vpcEndpointId' to be non-null");
-            $.vpcEndpointServiceId = Objects.requireNonNull($.vpcEndpointServiceId, "expected parameter 'vpcEndpointServiceId' to be non-null");
+            if ($.vpcEndpointId == null) {
+                throw new MissingRequiredPropertyException("VpcEndpointConnectionAccepterArgs", "vpcEndpointId");
+            }
+            if ($.vpcEndpointServiceId == null) {
+                throw new MissingRequiredPropertyException("VpcEndpointConnectionAccepterArgs", "vpcEndpointServiceId");
+            }
             return $;
         }
     }

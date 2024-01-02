@@ -6,6 +6,7 @@ package com.pulumi.aws.finspace;
 import com.pulumi.aws.finspace.inputs.KxVolumeNas1ConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -368,10 +369,18 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KxVolumeArgs build() {
-            $.availabilityZones = Objects.requireNonNull($.availabilityZones, "expected parameter 'availabilityZones' to be non-null");
-            $.azMode = Objects.requireNonNull($.azMode, "expected parameter 'azMode' to be non-null");
-            $.environmentId = Objects.requireNonNull($.environmentId, "expected parameter 'environmentId' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.availabilityZones == null) {
+                throw new MissingRequiredPropertyException("KxVolumeArgs", "availabilityZones");
+            }
+            if ($.azMode == null) {
+                throw new MissingRequiredPropertyException("KxVolumeArgs", "azMode");
+            }
+            if ($.environmentId == null) {
+                throw new MissingRequiredPropertyException("KxVolumeArgs", "environmentId");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("KxVolumeArgs", "type");
+            }
             return $;
         }
     }

@@ -10,6 +10,7 @@ import com.pulumi.aws.ec2.inputs.FleetSpotOptionsArgs;
 import com.pulumi.aws.ec2.inputs.FleetTargetCapacitySpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -697,8 +698,12 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FleetArgs build() {
-            $.launchTemplateConfigs = Objects.requireNonNull($.launchTemplateConfigs, "expected parameter 'launchTemplateConfigs' to be non-null");
-            $.targetCapacitySpecification = Objects.requireNonNull($.targetCapacitySpecification, "expected parameter 'targetCapacitySpecification' to be non-null");
+            if ($.launchTemplateConfigs == null) {
+                throw new MissingRequiredPropertyException("FleetArgs", "launchTemplateConfigs");
+            }
+            if ($.targetCapacitySpecification == null) {
+                throw new MissingRequiredPropertyException("FleetArgs", "targetCapacitySpecification");
+            }
             return $;
         }
     }

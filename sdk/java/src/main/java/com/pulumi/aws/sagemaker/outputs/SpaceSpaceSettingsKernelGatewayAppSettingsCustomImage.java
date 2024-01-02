@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,23 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage {
 
         @CustomType.Setter
         public Builder appImageConfigName(String appImageConfigName) {
-            this.appImageConfigName = Objects.requireNonNull(appImageConfigName);
+            if (appImageConfigName == null) {
+              throw new MissingRequiredPropertyException("SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage", "appImageConfigName");
+            }
+            this.appImageConfigName = appImageConfigName;
             return this;
         }
         @CustomType.Setter
         public Builder imageName(String imageName) {
-            this.imageName = Objects.requireNonNull(imageName);
+            if (imageName == null) {
+              throw new MissingRequiredPropertyException("SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage", "imageName");
+            }
+            this.imageName = imageName;
             return this;
         }
         @CustomType.Setter
         public Builder imageVersionNumber(@Nullable Integer imageVersionNumber) {
+
             this.imageVersionNumber = imageVersionNumber;
             return this;
         }
