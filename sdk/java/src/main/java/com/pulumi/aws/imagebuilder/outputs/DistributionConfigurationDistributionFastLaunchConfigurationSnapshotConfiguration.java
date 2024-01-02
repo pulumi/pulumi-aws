@@ -44,6 +44,7 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationS
 
         @CustomType.Setter
         public Builder targetResourceCount(@Nullable Integer targetResourceCount) {
+
             this.targetResourceCount = targetResourceCount;
             return this;
         }

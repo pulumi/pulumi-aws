@@ -187,21 +187,25 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatch {
 
         @CustomType.Setter
         public Builder allQueryArguments(@Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArguments allQueryArguments) {
+
             this.allQueryArguments = allQueryArguments;
             return this;
         }
         @CustomType.Setter
         public Builder body(@Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchBody body) {
+
             this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder cookies(@Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies cookies) {
+
             this.cookies = cookies;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -210,36 +214,43 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatch {
         }
         @CustomType.Setter
         public Builder ja3Fingerprint(@Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint) {
+
             this.ja3Fingerprint = ja3Fingerprint;
             return this;
         }
         @CustomType.Setter
         public Builder jsonBody(@Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody jsonBody) {
+
             this.jsonBody = jsonBody;
             return this;
         }
         @CustomType.Setter
         public Builder method(@Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchMethod method) {
+
             this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(@Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString queryString) {
+
             this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder singleHeader(@Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader singleHeader) {
+
             this.singleHeader = singleHeader;
             return this;
         }
         @CustomType.Setter
         public Builder singleQueryArgument(@Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument) {
+
             this.singleQueryArgument = singleQueryArgument;
             return this;
         }
         @CustomType.Setter
         public Builder uriPath(@Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath uriPath) {
+
             this.uriPath = uriPath;
             return this;
         }

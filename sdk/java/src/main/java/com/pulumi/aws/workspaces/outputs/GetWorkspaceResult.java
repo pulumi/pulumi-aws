@@ -5,6 +5,7 @@ package com.pulumi.aws.workspaces.outputs;
 
 import com.pulumi.aws.workspaces.outputs.GetWorkspaceWorkspaceProperty;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -142,67 +143,106 @@ public final class GetWorkspaceResult {
 
         @CustomType.Setter
         public Builder bundleId(String bundleId) {
-            this.bundleId = Objects.requireNonNull(bundleId);
+            if (bundleId == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "bundleId");
+            }
+            this.bundleId = bundleId;
             return this;
         }
         @CustomType.Setter
         public Builder computerName(String computerName) {
-            this.computerName = Objects.requireNonNull(computerName);
+            if (computerName == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "computerName");
+            }
+            this.computerName = computerName;
             return this;
         }
         @CustomType.Setter
         public Builder directoryId(String directoryId) {
-            this.directoryId = Objects.requireNonNull(directoryId);
+            if (directoryId == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "directoryId");
+            }
+            this.directoryId = directoryId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+            if (ipAddress == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "ipAddress");
+            }
+            this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder rootVolumeEncryptionEnabled(Boolean rootVolumeEncryptionEnabled) {
-            this.rootVolumeEncryptionEnabled = Objects.requireNonNull(rootVolumeEncryptionEnabled);
+            if (rootVolumeEncryptionEnabled == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "rootVolumeEncryptionEnabled");
+            }
+            this.rootVolumeEncryptionEnabled = rootVolumeEncryptionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder userName(String userName) {
-            this.userName = Objects.requireNonNull(userName);
+            if (userName == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "userName");
+            }
+            this.userName = userName;
             return this;
         }
         @CustomType.Setter
         public Builder userVolumeEncryptionEnabled(Boolean userVolumeEncryptionEnabled) {
-            this.userVolumeEncryptionEnabled = Objects.requireNonNull(userVolumeEncryptionEnabled);
+            if (userVolumeEncryptionEnabled == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "userVolumeEncryptionEnabled");
+            }
+            this.userVolumeEncryptionEnabled = userVolumeEncryptionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder volumeEncryptionKey(String volumeEncryptionKey) {
-            this.volumeEncryptionKey = Objects.requireNonNull(volumeEncryptionKey);
+            if (volumeEncryptionKey == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "volumeEncryptionKey");
+            }
+            this.volumeEncryptionKey = volumeEncryptionKey;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
-            this.workspaceId = Objects.requireNonNull(workspaceId);
+            if (workspaceId == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "workspaceId");
+            }
+            this.workspaceId = workspaceId;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceProperties(List<GetWorkspaceWorkspaceProperty> workspaceProperties) {
-            this.workspaceProperties = Objects.requireNonNull(workspaceProperties);
+            if (workspaceProperties == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "workspaceProperties");
+            }
+            this.workspaceProperties = workspaceProperties;
             return this;
         }
         public Builder workspaceProperties(GetWorkspaceWorkspaceProperty... workspaceProperties) {

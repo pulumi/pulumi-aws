@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,7 +36,10 @@ public final class GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDef
 
         @CustomType.Setter
         public Builder publishMetricActions(List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction> publishMetricActions) {
-            this.publishMetricActions = Objects.requireNonNull(publishMetricActions);
+            if (publishMetricActions == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition", "publishMetricActions");
+            }
+            this.publishMetricActions = publishMetricActions;
             return this;
         }
         public Builder publishMetricActions(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction... publishMetricActions) {

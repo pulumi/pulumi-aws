@@ -73,16 +73,19 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Setting
 
         @CustomType.Setter
         public Builder bitrate(@Nullable Double bitrate) {
+
             this.bitrate = bitrate;
             return this;
         }
         @CustomType.Setter
         public Builder codingMode(@Nullable String codingMode) {
+
             this.codingMode = codingMode;
             return this;
         }
         @CustomType.Setter
         public Builder sampleRate(@Nullable Double sampleRate) {
+
             this.sampleRate = sampleRate;
             return this;
         }

@@ -7,6 +7,7 @@ import com.pulumi.aws.lex.inputs.V2modelsBotVersionLocaleSpecificationArgs;
 import com.pulumi.aws.lex.inputs.V2modelsBotVersionTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -215,8 +216,12 @@ public final class V2modelsBotVersionArgs extends com.pulumi.resources.ResourceA
         }
 
         public V2modelsBotVersionArgs build() {
-            $.botId = Objects.requireNonNull($.botId, "expected parameter 'botId' to be non-null");
-            $.localeSpecification = Objects.requireNonNull($.localeSpecification, "expected parameter 'localeSpecification' to be non-null");
+            if ($.botId == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotVersionArgs", "botId");
+            }
+            if ($.localeSpecification == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotVersionArgs", "localeSpecification");
+            }
             return $;
         }
     }

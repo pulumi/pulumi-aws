@@ -4,6 +4,7 @@
 package com.pulumi.aws.finspace.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,11 +59,15 @@ public final class KxClusterDatabaseCacheConfiguration {
 
         @CustomType.Setter
         public Builder cacheType(String cacheType) {
-            this.cacheType = Objects.requireNonNull(cacheType);
+            if (cacheType == null) {
+              throw new MissingRequiredPropertyException("KxClusterDatabaseCacheConfiguration", "cacheType");
+            }
+            this.cacheType = cacheType;
             return this;
         }
         @CustomType.Setter
         public Builder dbPaths(@Nullable List<String> dbPaths) {
+
             this.dbPaths = dbPaths;
             return this;
         }

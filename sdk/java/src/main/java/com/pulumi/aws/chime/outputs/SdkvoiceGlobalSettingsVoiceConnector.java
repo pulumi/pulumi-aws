@@ -44,6 +44,7 @@ public final class SdkvoiceGlobalSettingsVoiceConnector {
 
         @CustomType.Setter
         public Builder cdrBucket(@Nullable String cdrBucket) {
+
             this.cdrBucket = cdrBucket;
             return this;
         }

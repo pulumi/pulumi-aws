@@ -61,11 +61,13 @@ public final class DataSourceCredentials {
 
         @CustomType.Setter
         public Builder copySourceArn(@Nullable String copySourceArn) {
+
             this.copySourceArn = copySourceArn;
             return this;
         }
         @CustomType.Setter
         public Builder credentialPair(@Nullable DataSourceCredentialsCredentialPair credentialPair) {
+
             this.credentialPair = credentialPair;
             return this;
         }

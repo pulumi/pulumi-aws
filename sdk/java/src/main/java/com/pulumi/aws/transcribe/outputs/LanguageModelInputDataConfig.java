@@ -4,6 +4,7 @@
 package com.pulumi.aws.transcribe.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -76,16 +77,23 @@ public final class LanguageModelInputDataConfig {
 
         @CustomType.Setter
         public Builder dataAccessRoleArn(String dataAccessRoleArn) {
-            this.dataAccessRoleArn = Objects.requireNonNull(dataAccessRoleArn);
+            if (dataAccessRoleArn == null) {
+              throw new MissingRequiredPropertyException("LanguageModelInputDataConfig", "dataAccessRoleArn");
+            }
+            this.dataAccessRoleArn = dataAccessRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder s3Uri(String s3Uri) {
-            this.s3Uri = Objects.requireNonNull(s3Uri);
+            if (s3Uri == null) {
+              throw new MissingRequiredPropertyException("LanguageModelInputDataConfig", "s3Uri");
+            }
+            this.s3Uri = s3Uri;
             return this;
         }
         @CustomType.Setter
         public Builder tuningDataS3Uri(@Nullable String tuningDataS3Uri) {
+
             this.tuningDataS3Uri = tuningDataS3Uri;
             return this;
         }

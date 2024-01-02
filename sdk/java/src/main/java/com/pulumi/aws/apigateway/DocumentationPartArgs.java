@@ -6,6 +6,7 @@ package com.pulumi.aws.apigateway;
 import com.pulumi.aws.apigateway.inputs.DocumentationPartLocationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -149,9 +150,15 @@ public final class DocumentationPartArgs extends com.pulumi.resources.ResourceAr
         }
 
         public DocumentationPartArgs build() {
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
-            $.properties = Objects.requireNonNull($.properties, "expected parameter 'properties' to be non-null");
-            $.restApiId = Objects.requireNonNull($.restApiId, "expected parameter 'restApiId' to be non-null");
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("DocumentationPartArgs", "location");
+            }
+            if ($.properties == null) {
+                throw new MissingRequiredPropertyException("DocumentationPartArgs", "properties");
+            }
+            if ($.restApiId == null) {
+                throw new MissingRequiredPropertyException("DocumentationPartArgs", "restApiId");
+            }
             return $;
         }
     }

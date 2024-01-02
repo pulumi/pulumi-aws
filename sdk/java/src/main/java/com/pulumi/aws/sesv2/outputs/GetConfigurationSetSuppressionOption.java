@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class GetConfigurationSetSuppressionOption {
 
         @CustomType.Setter
         public Builder suppressedReasons(List<String> suppressedReasons) {
-            this.suppressedReasons = Objects.requireNonNull(suppressedReasons);
+            if (suppressedReasons == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetSuppressionOption", "suppressedReasons");
+            }
+            this.suppressedReasons = suppressedReasons;
             return this;
         }
         public Builder suppressedReasons(String... suppressedReasons) {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -215,77 +216,122 @@ public final class GetInstanceResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder autoResolveBestVoicesEnabled(Boolean autoResolveBestVoicesEnabled) {
-            this.autoResolveBestVoicesEnabled = Objects.requireNonNull(autoResolveBestVoicesEnabled);
+            if (autoResolveBestVoicesEnabled == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "autoResolveBestVoicesEnabled");
+            }
+            this.autoResolveBestVoicesEnabled = autoResolveBestVoicesEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder contactFlowLogsEnabled(Boolean contactFlowLogsEnabled) {
-            this.contactFlowLogsEnabled = Objects.requireNonNull(contactFlowLogsEnabled);
+            if (contactFlowLogsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "contactFlowLogsEnabled");
+            }
+            this.contactFlowLogsEnabled = contactFlowLogsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder contactLensEnabled(Boolean contactLensEnabled) {
-            this.contactLensEnabled = Objects.requireNonNull(contactLensEnabled);
+            if (contactLensEnabled == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "contactLensEnabled");
+            }
+            this.contactLensEnabled = contactLensEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder createdTime(String createdTime) {
-            this.createdTime = Objects.requireNonNull(createdTime);
+            if (createdTime == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "createdTime");
+            }
+            this.createdTime = createdTime;
             return this;
         }
         @CustomType.Setter
         public Builder earlyMediaEnabled(Boolean earlyMediaEnabled) {
-            this.earlyMediaEnabled = Objects.requireNonNull(earlyMediaEnabled);
+            if (earlyMediaEnabled == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "earlyMediaEnabled");
+            }
+            this.earlyMediaEnabled = earlyMediaEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identityManagementType(String identityManagementType) {
-            this.identityManagementType = Objects.requireNonNull(identityManagementType);
+            if (identityManagementType == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "identityManagementType");
+            }
+            this.identityManagementType = identityManagementType;
             return this;
         }
         @CustomType.Setter
         public Builder inboundCallsEnabled(Boolean inboundCallsEnabled) {
-            this.inboundCallsEnabled = Objects.requireNonNull(inboundCallsEnabled);
+            if (inboundCallsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "inboundCallsEnabled");
+            }
+            this.inboundCallsEnabled = inboundCallsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder instanceAlias(String instanceAlias) {
-            this.instanceAlias = Objects.requireNonNull(instanceAlias);
+            if (instanceAlias == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "instanceAlias");
+            }
+            this.instanceAlias = instanceAlias;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder multiPartyConferenceEnabled(Boolean multiPartyConferenceEnabled) {
-            this.multiPartyConferenceEnabled = Objects.requireNonNull(multiPartyConferenceEnabled);
+            if (multiPartyConferenceEnabled == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "multiPartyConferenceEnabled");
+            }
+            this.multiPartyConferenceEnabled = multiPartyConferenceEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder outboundCallsEnabled(Boolean outboundCallsEnabled) {
-            this.outboundCallsEnabled = Objects.requireNonNull(outboundCallsEnabled);
+            if (outboundCallsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "outboundCallsEnabled");
+            }
+            this.outboundCallsEnabled = outboundCallsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder serviceRole(String serviceRole) {
-            this.serviceRole = Objects.requireNonNull(serviceRole);
+            if (serviceRole == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "serviceRole");
+            }
+            this.serviceRole = serviceRole;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "status");
+            }
+            this.status = status;
             return this;
         }
         public GetInstanceResult build() {

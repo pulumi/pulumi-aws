@@ -73,16 +73,19 @@ public final class ResolverSyncConfig {
 
         @CustomType.Setter
         public Builder conflictDetection(@Nullable String conflictDetection) {
+
             this.conflictDetection = conflictDetection;
             return this;
         }
         @CustomType.Setter
         public Builder conflictHandler(@Nullable String conflictHandler) {
+
             this.conflictHandler = conflictHandler;
             return this;
         }
         @CustomType.Setter
         public Builder lambdaConflictHandlerConfig(@Nullable ResolverSyncConfigLambdaConflictHandlerConfig lambdaConflictHandlerConfig) {
+
             this.lambdaConflictHandlerConfig = lambdaConflictHandlerConfig;
             return this;
         }

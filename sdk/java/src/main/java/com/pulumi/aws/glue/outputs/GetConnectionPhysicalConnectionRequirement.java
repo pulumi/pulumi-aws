@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -47,12 +48,18 @@ public final class GetConnectionPhysicalConnectionRequirement {
 
         @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+            if (availabilityZone == null) {
+              throw new MissingRequiredPropertyException("GetConnectionPhysicalConnectionRequirement", "availabilityZone");
+            }
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupIdLists(List<String> securityGroupIdLists) {
-            this.securityGroupIdLists = Objects.requireNonNull(securityGroupIdLists);
+            if (securityGroupIdLists == null) {
+              throw new MissingRequiredPropertyException("GetConnectionPhysicalConnectionRequirement", "securityGroupIdLists");
+            }
+            this.securityGroupIdLists = securityGroupIdLists;
             return this;
         }
         public Builder securityGroupIdLists(String... securityGroupIdLists) {
@@ -60,7 +67,10 @@ public final class GetConnectionPhysicalConnectionRequirement {
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetConnectionPhysicalConnectionRequirement", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public GetConnectionPhysicalConnectionRequirement build() {

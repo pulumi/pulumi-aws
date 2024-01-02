@@ -7,6 +7,7 @@ import com.pulumi.aws.iot.inputs.TopicRuleErrorActionTimestreamDimensionArgs;
 import com.pulumi.aws.iot.inputs.TopicRuleErrorActionTimestreamTimestampArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -237,10 +238,18 @@ public final class TopicRuleErrorActionTimestreamArgs extends com.pulumi.resourc
         }
 
         public TopicRuleErrorActionTimestreamArgs build() {
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.dimensions = Objects.requireNonNull($.dimensions, "expected parameter 'dimensions' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionTimestreamArgs", "databaseName");
+            }
+            if ($.dimensions == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionTimestreamArgs", "dimensions");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionTimestreamArgs", "roleArn");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionTimestreamArgs", "tableName");
+            }
             return $;
         }
     }

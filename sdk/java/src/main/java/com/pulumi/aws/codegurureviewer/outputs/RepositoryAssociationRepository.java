@@ -57,21 +57,25 @@ public final class RepositoryAssociationRepository {
 
         @CustomType.Setter
         public Builder bitbucket(@Nullable RepositoryAssociationRepositoryBitbucket bitbucket) {
+
             this.bitbucket = bitbucket;
             return this;
         }
         @CustomType.Setter
         public Builder codecommit(@Nullable RepositoryAssociationRepositoryCodecommit codecommit) {
+
             this.codecommit = codecommit;
             return this;
         }
         @CustomType.Setter
         public Builder githubEnterpriseServer(@Nullable RepositoryAssociationRepositoryGithubEnterpriseServer githubEnterpriseServer) {
+
             this.githubEnterpriseServer = githubEnterpriseServer;
             return this;
         }
         @CustomType.Setter
         public Builder s3Bucket(@Nullable RepositoryAssociationRepositoryS3Bucket s3Bucket) {
+
             this.s3Bucket = s3Bucket;
             return this;
         }

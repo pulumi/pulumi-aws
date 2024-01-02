@@ -135,6 +135,7 @@ public final class NetworkInsightsAnalysisForwardPathComponent {
 
         @CustomType.Setter
         public Builder aclRules(@Nullable List<NetworkInsightsAnalysisForwardPathComponentAclRule> aclRules) {
+
             this.aclRules = aclRules;
             return this;
         }
@@ -143,6 +144,7 @@ public final class NetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder additionalDetails(@Nullable List<NetworkInsightsAnalysisForwardPathComponentAdditionalDetail> additionalDetails) {
+
             this.additionalDetails = additionalDetails;
             return this;
         }
@@ -151,6 +153,7 @@ public final class NetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder attachedTos(@Nullable List<NetworkInsightsAnalysisForwardPathComponentAttachedTo> attachedTos) {
+
             this.attachedTos = attachedTos;
             return this;
         }
@@ -159,6 +162,7 @@ public final class NetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder components(@Nullable List<NetworkInsightsAnalysisForwardPathComponentComponent> components) {
+
             this.components = components;
             return this;
         }
@@ -167,6 +171,7 @@ public final class NetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder destinationVpcs(@Nullable List<NetworkInsightsAnalysisForwardPathComponentDestinationVpc> destinationVpcs) {
+
             this.destinationVpcs = destinationVpcs;
             return this;
         }
@@ -175,6 +180,7 @@ public final class NetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder inboundHeaders(@Nullable List<NetworkInsightsAnalysisForwardPathComponentInboundHeader> inboundHeaders) {
+
             this.inboundHeaders = inboundHeaders;
             return this;
         }
@@ -183,6 +189,7 @@ public final class NetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder outboundHeaders(@Nullable List<NetworkInsightsAnalysisForwardPathComponentOutboundHeader> outboundHeaders) {
+
             this.outboundHeaders = outboundHeaders;
             return this;
         }
@@ -191,6 +198,7 @@ public final class NetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder routeTableRoutes(@Nullable List<NetworkInsightsAnalysisForwardPathComponentRouteTableRoute> routeTableRoutes) {
+
             this.routeTableRoutes = routeTableRoutes;
             return this;
         }
@@ -199,6 +207,7 @@ public final class NetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder securityGroupRules(@Nullable List<NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule> securityGroupRules) {
+
             this.securityGroupRules = securityGroupRules;
             return this;
         }
@@ -207,11 +216,13 @@ public final class NetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder sequenceNumber(@Nullable Integer sequenceNumber) {
+
             this.sequenceNumber = sequenceNumber;
             return this;
         }
         @CustomType.Setter
         public Builder sourceVpcs(@Nullable List<NetworkInsightsAnalysisForwardPathComponentSourceVpc> sourceVpcs) {
+
             this.sourceVpcs = sourceVpcs;
             return this;
         }
@@ -220,6 +231,7 @@ public final class NetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder subnets(@Nullable List<NetworkInsightsAnalysisForwardPathComponentSubnet> subnets) {
+
             this.subnets = subnets;
             return this;
         }
@@ -228,6 +240,7 @@ public final class NetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder transitGatewayRouteTableRoutes(@Nullable List<NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes) {
+
             this.transitGatewayRouteTableRoutes = transitGatewayRouteTableRoutes;
             return this;
         }
@@ -236,6 +249,7 @@ public final class NetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder transitGateways(@Nullable List<NetworkInsightsAnalysisForwardPathComponentTransitGateway> transitGateways) {
+
             this.transitGateways = transitGateways;
             return this;
         }
@@ -244,6 +258,7 @@ public final class NetworkInsightsAnalysisForwardPathComponent {
         }
         @CustomType.Setter
         public Builder vpcs(@Nullable List<NetworkInsightsAnalysisForwardPathComponentVpc> vpcs) {
+
             this.vpcs = vpcs;
             return this;
         }

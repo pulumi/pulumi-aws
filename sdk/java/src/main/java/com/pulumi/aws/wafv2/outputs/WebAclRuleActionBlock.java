@@ -44,6 +44,7 @@ public final class WebAclRuleActionBlock {
 
         @CustomType.Setter
         public Builder customResponse(@Nullable WebAclRuleActionBlockCustomResponse customResponse) {
+
             this.customResponse = customResponse;
             return this;
         }

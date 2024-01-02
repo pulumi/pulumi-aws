@@ -4,6 +4,7 @@
 package com.pulumi.aws.organizations.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetOrganizationalUnitChildAccountsPlainArgs extends com.pulum
         }
 
         public GetOrganizationalUnitChildAccountsPlainArgs build() {
-            $.parentId = Objects.requireNonNull($.parentId, "expected parameter 'parentId' to be non-null");
+            if ($.parentId == null) {
+                throw new MissingRequiredPropertyException("GetOrganizationalUnitChildAccountsPlainArgs", "parentId");
+            }
             return $;
         }
     }

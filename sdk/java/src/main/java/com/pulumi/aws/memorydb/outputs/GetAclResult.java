@@ -4,6 +4,7 @@
 package com.pulumi.aws.memorydb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -106,32 +107,50 @@ public final class GetAclResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetAclResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAclResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder minimumEngineVersion(String minimumEngineVersion) {
-            this.minimumEngineVersion = Objects.requireNonNull(minimumEngineVersion);
+            if (minimumEngineVersion == null) {
+              throw new MissingRequiredPropertyException("GetAclResult", "minimumEngineVersion");
+            }
+            this.minimumEngineVersion = minimumEngineVersion;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAclResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAclResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder userNames(List<String> userNames) {
-            this.userNames = Objects.requireNonNull(userNames);
+            if (userNames == null) {
+              throw new MissingRequiredPropertyException("GetAclResult", "userNames");
+            }
+            this.userNames = userNames;
             return this;
         }
         public Builder userNames(String... userNames) {

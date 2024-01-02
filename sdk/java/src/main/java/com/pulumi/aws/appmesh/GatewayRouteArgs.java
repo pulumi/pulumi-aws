@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh;
 import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -263,9 +264,15 @@ public final class GatewayRouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GatewayRouteArgs build() {
-            $.meshName = Objects.requireNonNull($.meshName, "expected parameter 'meshName' to be non-null");
-            $.spec = Objects.requireNonNull($.spec, "expected parameter 'spec' to be non-null");
-            $.virtualGatewayName = Objects.requireNonNull($.virtualGatewayName, "expected parameter 'virtualGatewayName' to be non-null");
+            if ($.meshName == null) {
+                throw new MissingRequiredPropertyException("GatewayRouteArgs", "meshName");
+            }
+            if ($.spec == null) {
+                throw new MissingRequiredPropertyException("GatewayRouteArgs", "spec");
+            }
+            if ($.virtualGatewayName == null) {
+                throw new MissingRequiredPropertyException("GatewayRouteArgs", "virtualGatewayName");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ChannelMaintenance {
 
         @CustomType.Setter
         public Builder maintenanceDay(String maintenanceDay) {
-            this.maintenanceDay = Objects.requireNonNull(maintenanceDay);
+            if (maintenanceDay == null) {
+              throw new MissingRequiredPropertyException("ChannelMaintenance", "maintenanceDay");
+            }
+            this.maintenanceDay = maintenanceDay;
             return this;
         }
         @CustomType.Setter
         public Builder maintenanceStartTime(String maintenanceStartTime) {
-            this.maintenanceStartTime = Objects.requireNonNull(maintenanceStartTime);
+            if (maintenanceStartTime == null) {
+              throw new MissingRequiredPropertyException("ChannelMaintenance", "maintenanceStartTime");
+            }
+            this.maintenanceStartTime = maintenanceStartTime;
             return this;
         }
         public ChannelMaintenance build() {

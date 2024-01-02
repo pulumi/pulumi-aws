@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.DistributionDefaultCacheBehaviorForwardedValuesCookies;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -88,11 +89,15 @@ public final class DistributionDefaultCacheBehaviorForwardedValues {
 
         @CustomType.Setter
         public Builder cookies(DistributionDefaultCacheBehaviorForwardedValuesCookies cookies) {
-            this.cookies = Objects.requireNonNull(cookies);
+            if (cookies == null) {
+              throw new MissingRequiredPropertyException("DistributionDefaultCacheBehaviorForwardedValues", "cookies");
+            }
+            this.cookies = cookies;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<String> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -101,11 +106,15 @@ public final class DistributionDefaultCacheBehaviorForwardedValues {
         }
         @CustomType.Setter
         public Builder queryString(Boolean queryString) {
-            this.queryString = Objects.requireNonNull(queryString);
+            if (queryString == null) {
+              throw new MissingRequiredPropertyException("DistributionDefaultCacheBehaviorForwardedValues", "queryString");
+            }
+            this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder queryStringCacheKeys(@Nullable List<String> queryStringCacheKeys) {
+
             this.queryStringCacheKeys = queryStringCacheKeys;
             return this;
         }

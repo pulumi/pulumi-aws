@@ -5,6 +5,7 @@ package com.pulumi.aws.iam;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -339,8 +340,12 @@ public final class ServerCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ServerCertificateArgs build() {
-            $.certificateBody = Objects.requireNonNull($.certificateBody, "expected parameter 'certificateBody' to be non-null");
-            $.privateKey = Objects.requireNonNull($.privateKey, "expected parameter 'privateKey' to be non-null");
+            if ($.certificateBody == null) {
+                throw new MissingRequiredPropertyException("ServerCertificateArgs", "certificateBody");
+            }
+            if ($.privateKey == null) {
+                throw new MissingRequiredPropertyException("ServerCertificateArgs", "privateKey");
+            }
             return $;
         }
     }

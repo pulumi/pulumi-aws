@@ -58,11 +58,13 @@ public final class VpcEndpointDnsEntry {
 
         @CustomType.Setter
         public Builder dnsName(@Nullable String dnsName) {
+
             this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
         public Builder hostedZoneId(@Nullable String hostedZoneId) {
+
             this.hostedZoneId = hostedZoneId;
             return this;
         }

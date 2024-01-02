@@ -4,6 +4,7 @@
 package com.pulumi.aws.oam.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -105,32 +106,50 @@ public final class GetSinkResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetSinkResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSinkResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSinkResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sinkId(String sinkId) {
-            this.sinkId = Objects.requireNonNull(sinkId);
+            if (sinkId == null) {
+              throw new MissingRequiredPropertyException("GetSinkResult", "sinkId");
+            }
+            this.sinkId = sinkId;
             return this;
         }
         @CustomType.Setter
         public Builder sinkIdentifier(String sinkIdentifier) {
-            this.sinkIdentifier = Objects.requireNonNull(sinkIdentifier);
+            if (sinkIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetSinkResult", "sinkIdentifier");
+            }
+            this.sinkIdentifier = sinkIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSinkResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetSinkResult build() {

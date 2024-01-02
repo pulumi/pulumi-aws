@@ -58,6 +58,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersVpc {
 
         @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
+
             this.securityGroups = securityGroups;
             return this;
         }
@@ -66,6 +67,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersVpc {
         }
         @CustomType.Setter
         public Builder subnets(@Nullable List<String> subnets) {
+
             this.subnets = subnets;
             return this;
         }

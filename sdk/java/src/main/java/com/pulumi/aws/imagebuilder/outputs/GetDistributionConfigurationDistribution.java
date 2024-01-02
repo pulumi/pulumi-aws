@@ -8,6 +8,7 @@ import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistribut
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionFastLaunchConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionLaunchTemplateConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -117,7 +118,10 @@ public final class GetDistributionConfigurationDistribution {
 
         @CustomType.Setter
         public Builder amiDistributionConfigurations(List<GetDistributionConfigurationDistributionAmiDistributionConfiguration> amiDistributionConfigurations) {
-            this.amiDistributionConfigurations = Objects.requireNonNull(amiDistributionConfigurations);
+            if (amiDistributionConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistribution", "amiDistributionConfigurations");
+            }
+            this.amiDistributionConfigurations = amiDistributionConfigurations;
             return this;
         }
         public Builder amiDistributionConfigurations(GetDistributionConfigurationDistributionAmiDistributionConfiguration... amiDistributionConfigurations) {
@@ -125,7 +129,10 @@ public final class GetDistributionConfigurationDistribution {
         }
         @CustomType.Setter
         public Builder containerDistributionConfigurations(List<GetDistributionConfigurationDistributionContainerDistributionConfiguration> containerDistributionConfigurations) {
-            this.containerDistributionConfigurations = Objects.requireNonNull(containerDistributionConfigurations);
+            if (containerDistributionConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistribution", "containerDistributionConfigurations");
+            }
+            this.containerDistributionConfigurations = containerDistributionConfigurations;
             return this;
         }
         public Builder containerDistributionConfigurations(GetDistributionConfigurationDistributionContainerDistributionConfiguration... containerDistributionConfigurations) {
@@ -133,7 +140,10 @@ public final class GetDistributionConfigurationDistribution {
         }
         @CustomType.Setter
         public Builder fastLaunchConfigurations(List<GetDistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations) {
-            this.fastLaunchConfigurations = Objects.requireNonNull(fastLaunchConfigurations);
+            if (fastLaunchConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistribution", "fastLaunchConfigurations");
+            }
+            this.fastLaunchConfigurations = fastLaunchConfigurations;
             return this;
         }
         public Builder fastLaunchConfigurations(GetDistributionConfigurationDistributionFastLaunchConfiguration... fastLaunchConfigurations) {
@@ -141,7 +151,10 @@ public final class GetDistributionConfigurationDistribution {
         }
         @CustomType.Setter
         public Builder launchTemplateConfigurations(List<GetDistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations) {
-            this.launchTemplateConfigurations = Objects.requireNonNull(launchTemplateConfigurations);
+            if (launchTemplateConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistribution", "launchTemplateConfigurations");
+            }
+            this.launchTemplateConfigurations = launchTemplateConfigurations;
             return this;
         }
         public Builder launchTemplateConfigurations(GetDistributionConfigurationDistributionLaunchTemplateConfiguration... launchTemplateConfigurations) {
@@ -149,7 +162,10 @@ public final class GetDistributionConfigurationDistribution {
         }
         @CustomType.Setter
         public Builder licenseConfigurationArns(List<String> licenseConfigurationArns) {
-            this.licenseConfigurationArns = Objects.requireNonNull(licenseConfigurationArns);
+            if (licenseConfigurationArns == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistribution", "licenseConfigurationArns");
+            }
+            this.licenseConfigurationArns = licenseConfigurationArns;
             return this;
         }
         public Builder licenseConfigurationArns(String... licenseConfigurationArns) {
@@ -157,7 +173,10 @@ public final class GetDistributionConfigurationDistribution {
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistribution", "region");
+            }
+            this.region = region;
             return this;
         }
         public GetDistributionConfigurationDistribution build() {

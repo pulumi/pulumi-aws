@@ -115,31 +115,37 @@ public final class VpnConnectionVgwTelemetry {
 
         @CustomType.Setter
         public Builder acceptedRouteCount(@Nullable Integer acceptedRouteCount) {
+
             this.acceptedRouteCount = acceptedRouteCount;
             return this;
         }
         @CustomType.Setter
         public Builder certificateArn(@Nullable String certificateArn) {
+
             this.certificateArn = certificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder lastStatusChange(@Nullable String lastStatusChange) {
+
             this.lastStatusChange = lastStatusChange;
             return this;
         }
         @CustomType.Setter
         public Builder outsideIpAddress(@Nullable String outsideIpAddress) {
+
             this.outsideIpAddress = outsideIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statusMessage(@Nullable String statusMessage) {
+
             this.statusMessage = statusMessage;
             return this;
         }

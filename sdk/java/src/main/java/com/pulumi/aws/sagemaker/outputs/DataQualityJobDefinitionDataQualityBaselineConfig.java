@@ -59,11 +59,13 @@ public final class DataQualityJobDefinitionDataQualityBaselineConfig {
 
         @CustomType.Setter
         public Builder constraintsResource(@Nullable DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource constraintsResource) {
+
             this.constraintsResource = constraintsResource;
             return this;
         }
         @CustomType.Setter
         public Builder statisticsResource(@Nullable DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource statisticsResource) {
+
             this.statisticsResource = statisticsResource;
             return this;
         }

@@ -58,11 +58,13 @@ public final class IndexCapacityUnits {
 
         @CustomType.Setter
         public Builder queryCapacityUnits(@Nullable Integer queryCapacityUnits) {
+
             this.queryCapacityUnits = queryCapacityUnits;
             return this;
         }
         @CustomType.Setter
         public Builder storageCapacityUnits(@Nullable Integer storageCapacityUnits) {
+
             this.storageCapacityUnits = storageCapacityUnits;
             return this;
         }

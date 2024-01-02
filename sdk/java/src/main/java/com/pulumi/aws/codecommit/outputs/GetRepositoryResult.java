@@ -4,6 +4,7 @@
 package com.pulumi.aws.codecommit.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -104,32 +105,50 @@ public final class GetRepositoryResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder cloneUrlHttp(String cloneUrlHttp) {
-            this.cloneUrlHttp = Objects.requireNonNull(cloneUrlHttp);
+            if (cloneUrlHttp == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "cloneUrlHttp");
+            }
+            this.cloneUrlHttp = cloneUrlHttp;
             return this;
         }
         @CustomType.Setter
         public Builder cloneUrlSsh(String cloneUrlSsh) {
-            this.cloneUrlSsh = Objects.requireNonNull(cloneUrlSsh);
+            if (cloneUrlSsh == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "cloneUrlSsh");
+            }
+            this.cloneUrlSsh = cloneUrlSsh;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryId(String repositoryId) {
-            this.repositoryId = Objects.requireNonNull(repositoryId);
+            if (repositoryId == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "repositoryId");
+            }
+            this.repositoryId = repositoryId;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
-            this.repositoryName = Objects.requireNonNull(repositoryName);
+            if (repositoryName == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "repositoryName");
+            }
+            this.repositoryName = repositoryName;
             return this;
         }
         public GetRepositoryResult build() {

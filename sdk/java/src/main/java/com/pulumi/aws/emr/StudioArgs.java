@@ -5,6 +5,7 @@ package com.pulumi.aws.emr;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -540,13 +541,27 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public StudioArgs build() {
-            $.authMode = Objects.requireNonNull($.authMode, "expected parameter 'authMode' to be non-null");
-            $.defaultS3Location = Objects.requireNonNull($.defaultS3Location, "expected parameter 'defaultS3Location' to be non-null");
-            $.engineSecurityGroupId = Objects.requireNonNull($.engineSecurityGroupId, "expected parameter 'engineSecurityGroupId' to be non-null");
-            $.serviceRole = Objects.requireNonNull($.serviceRole, "expected parameter 'serviceRole' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
-            $.workspaceSecurityGroupId = Objects.requireNonNull($.workspaceSecurityGroupId, "expected parameter 'workspaceSecurityGroupId' to be non-null");
+            if ($.authMode == null) {
+                throw new MissingRequiredPropertyException("StudioArgs", "authMode");
+            }
+            if ($.defaultS3Location == null) {
+                throw new MissingRequiredPropertyException("StudioArgs", "defaultS3Location");
+            }
+            if ($.engineSecurityGroupId == null) {
+                throw new MissingRequiredPropertyException("StudioArgs", "engineSecurityGroupId");
+            }
+            if ($.serviceRole == null) {
+                throw new MissingRequiredPropertyException("StudioArgs", "serviceRole");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("StudioArgs", "subnetIds");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("StudioArgs", "vpcId");
+            }
+            if ($.workspaceSecurityGroupId == null) {
+                throw new MissingRequiredPropertyException("StudioArgs", "workspaceSecurityGroupId");
+            }
             return $;
         }
     }

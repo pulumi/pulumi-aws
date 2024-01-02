@@ -5,6 +5,7 @@ package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.aws.fsx.outputs.FileCacheDataRepositoryAssociationNf;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -148,16 +149,21 @@ public final class FileCacheDataRepositoryAssociation {
 
         @CustomType.Setter
         public Builder associationId(@Nullable String associationId) {
+
             this.associationId = associationId;
             return this;
         }
         @CustomType.Setter
         public Builder dataRepositoryPath(String dataRepositoryPath) {
-            this.dataRepositoryPath = Objects.requireNonNull(dataRepositoryPath);
+            if (dataRepositoryPath == null) {
+              throw new MissingRequiredPropertyException("FileCacheDataRepositoryAssociation", "dataRepositoryPath");
+            }
+            this.dataRepositoryPath = dataRepositoryPath;
             return this;
         }
         @CustomType.Setter
         public Builder dataRepositorySubdirectories(@Nullable List<String> dataRepositorySubdirectories) {
+
             this.dataRepositorySubdirectories = dataRepositorySubdirectories;
             return this;
         }
@@ -166,31 +172,39 @@ public final class FileCacheDataRepositoryAssociation {
         }
         @CustomType.Setter
         public Builder fileCacheId(@Nullable String fileCacheId) {
+
             this.fileCacheId = fileCacheId;
             return this;
         }
         @CustomType.Setter
         public Builder fileCachePath(String fileCachePath) {
-            this.fileCachePath = Objects.requireNonNull(fileCachePath);
+            if (fileCachePath == null) {
+              throw new MissingRequiredPropertyException("FileCacheDataRepositoryAssociation", "fileCachePath");
+            }
+            this.fileCachePath = fileCachePath;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemId(@Nullable String fileSystemId) {
+
             this.fileSystemId = fileSystemId;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemPath(@Nullable String fileSystemPath) {
+
             this.fileSystemPath = fileSystemPath;
             return this;
         }
         @CustomType.Setter
         public Builder importedFileChunkSize(@Nullable Integer importedFileChunkSize) {
+
             this.importedFileChunkSize = importedFileChunkSize;
             return this;
         }
         @CustomType.Setter
         public Builder nfs(@Nullable List<FileCacheDataRepositoryAssociationNf> nfs) {
+
             this.nfs = nfs;
             return this;
         }
@@ -199,11 +213,13 @@ public final class FileCacheDataRepositoryAssociation {
         }
         @CustomType.Setter
         public Builder resourceArn(@Nullable String resourceArn) {
+
             this.resourceArn = resourceArn;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }

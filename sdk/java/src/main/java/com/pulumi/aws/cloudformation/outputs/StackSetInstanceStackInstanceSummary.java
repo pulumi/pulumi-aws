@@ -72,16 +72,19 @@ public final class StackSetInstanceStackInstanceSummary {
 
         @CustomType.Setter
         public Builder accountId(@Nullable String accountId) {
+
             this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder organizationalUnitId(@Nullable String organizationalUnitId) {
+
             this.organizationalUnitId = organizationalUnitId;
             return this;
         }
         @CustomType.Setter
         public Builder stackId(@Nullable String stackId) {
+
             this.stackId = stackId;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -130,21 +131,25 @@ public final class ClusterVpcConfig {
 
         @CustomType.Setter
         public Builder clusterSecurityGroupId(@Nullable String clusterSecurityGroupId) {
+
             this.clusterSecurityGroupId = clusterSecurityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder endpointPrivateAccess(@Nullable Boolean endpointPrivateAccess) {
+
             this.endpointPrivateAccess = endpointPrivateAccess;
             return this;
         }
         @CustomType.Setter
         public Builder endpointPublicAccess(@Nullable Boolean endpointPublicAccess) {
+
             this.endpointPublicAccess = endpointPublicAccess;
             return this;
         }
         @CustomType.Setter
         public Builder publicAccessCidrs(@Nullable List<String> publicAccessCidrs) {
+
             this.publicAccessCidrs = publicAccessCidrs;
             return this;
         }
@@ -153,6 +158,7 @@ public final class ClusterVpcConfig {
         }
         @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+
             this.securityGroupIds = securityGroupIds;
             return this;
         }
@@ -161,7 +167,10 @@ public final class ClusterVpcConfig {
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("ClusterVpcConfig", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -169,6 +178,7 @@ public final class ClusterVpcConfig {
         }
         @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
+
             this.vpcId = vpcId;
             return this;
         }

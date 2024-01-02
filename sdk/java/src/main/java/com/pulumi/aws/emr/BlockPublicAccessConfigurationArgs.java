@@ -6,6 +6,7 @@ package com.pulumi.aws.emr;
 import com.pulumi.aws.emr.inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -133,7 +134,9 @@ public final class BlockPublicAccessConfigurationArgs extends com.pulumi.resourc
         }
 
         public BlockPublicAccessConfigurationArgs build() {
-            $.blockPublicSecurityGroupRules = Objects.requireNonNull($.blockPublicSecurityGroupRules, "expected parameter 'blockPublicSecurityGroupRules' to be non-null");
+            if ($.blockPublicSecurityGroupRules == null) {
+                throw new MissingRequiredPropertyException("BlockPublicAccessConfigurationArgs", "blockPublicSecurityGroupRules");
+            }
             return $;
         }
     }

@@ -9,6 +9,7 @@ import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentA
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -249,8 +250,12 @@ public final class GetCoreNetworkPolicyDocumentArgs extends com.pulumi.resources
         }
 
         public GetCoreNetworkPolicyDocumentArgs build() {
-            $.coreNetworkConfigurations = Objects.requireNonNull($.coreNetworkConfigurations, "expected parameter 'coreNetworkConfigurations' to be non-null");
-            $.segments = Objects.requireNonNull($.segments, "expected parameter 'segments' to be non-null");
+            if ($.coreNetworkConfigurations == null) {
+                throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentArgs", "coreNetworkConfigurations");
+            }
+            if ($.segments == null) {
+                throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentArgs", "segments");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.securityhub.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class InsightFiltersNetworkSourceIpv6Args extends com.pulumi.resour
         }
 
         public InsightFiltersNetworkSourceIpv6Args build() {
-            $.cidr = Objects.requireNonNull($.cidr, "expected parameter 'cidr' to be non-null");
+            if ($.cidr == null) {
+                throw new MissingRequiredPropertyException("InsightFiltersNetworkSourceIpv6Args", "cidr");
+            }
             return $;
         }
     }

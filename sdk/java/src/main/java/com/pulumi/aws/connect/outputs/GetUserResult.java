@@ -6,6 +6,7 @@ package com.pulumi.aws.connect.outputs;
 import com.pulumi.aws.connect.outputs.GetUserIdentityInfo;
 import com.pulumi.aws.connect.outputs.GetUserPhoneConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -184,27 +185,42 @@ public final class GetUserResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder directoryUserId(String directoryUserId) {
-            this.directoryUserId = Objects.requireNonNull(directoryUserId);
+            if (directoryUserId == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "directoryUserId");
+            }
+            this.directoryUserId = directoryUserId;
             return this;
         }
         @CustomType.Setter
         public Builder hierarchyGroupId(String hierarchyGroupId) {
-            this.hierarchyGroupId = Objects.requireNonNull(hierarchyGroupId);
+            if (hierarchyGroupId == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "hierarchyGroupId");
+            }
+            this.hierarchyGroupId = hierarchyGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identityInfos(List<GetUserIdentityInfo> identityInfos) {
-            this.identityInfos = Objects.requireNonNull(identityInfos);
+            if (identityInfos == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "identityInfos");
+            }
+            this.identityInfos = identityInfos;
             return this;
         }
         public Builder identityInfos(GetUserIdentityInfo... identityInfos) {
@@ -212,17 +228,26 @@ public final class GetUserResult {
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder phoneConfigs(List<GetUserPhoneConfig> phoneConfigs) {
-            this.phoneConfigs = Objects.requireNonNull(phoneConfigs);
+            if (phoneConfigs == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "phoneConfigs");
+            }
+            this.phoneConfigs = phoneConfigs;
             return this;
         }
         public Builder phoneConfigs(GetUserPhoneConfig... phoneConfigs) {
@@ -230,12 +255,18 @@ public final class GetUserResult {
         }
         @CustomType.Setter
         public Builder routingProfileId(String routingProfileId) {
-            this.routingProfileId = Objects.requireNonNull(routingProfileId);
+            if (routingProfileId == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "routingProfileId");
+            }
+            this.routingProfileId = routingProfileId;
             return this;
         }
         @CustomType.Setter
         public Builder securityProfileIds(List<String> securityProfileIds) {
-            this.securityProfileIds = Objects.requireNonNull(securityProfileIds);
+            if (securityProfileIds == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "securityProfileIds");
+            }
+            this.securityProfileIds = securityProfileIds;
             return this;
         }
         public Builder securityProfileIds(String... securityProfileIds) {
@@ -243,12 +274,18 @@ public final class GetUserResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder userId(String userId) {
-            this.userId = Objects.requireNonNull(userId);
+            if (userId == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "userId");
+            }
+            this.userId = userId;
             return this;
         }
         public GetUserResult build() {

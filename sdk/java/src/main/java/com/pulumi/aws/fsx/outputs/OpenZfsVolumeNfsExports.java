@@ -5,6 +5,7 @@ package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.aws.fsx.outputs.OpenZfsVolumeNfsExportsClientConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class OpenZfsVolumeNfsExports {
 
         @CustomType.Setter
         public Builder clientConfigurations(List<OpenZfsVolumeNfsExportsClientConfiguration> clientConfigurations) {
-            this.clientConfigurations = Objects.requireNonNull(clientConfigurations);
+            if (clientConfigurations == null) {
+              throw new MissingRequiredPropertyException("OpenZfsVolumeNfsExports", "clientConfigurations");
+            }
+            this.clientConfigurations = clientConfigurations;
             return this;
         }
         public Builder clientConfigurations(OpenZfsVolumeNfsExportsClientConfiguration... clientConfigurations) {

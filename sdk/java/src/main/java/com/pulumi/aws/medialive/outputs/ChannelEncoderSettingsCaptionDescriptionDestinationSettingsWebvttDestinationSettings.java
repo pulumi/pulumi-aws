@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWe
 
         @CustomType.Setter
         public Builder styleControl(String styleControl) {
-            this.styleControl = Objects.requireNonNull(styleControl);
+            if (styleControl == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings", "styleControl");
+            }
+            this.styleControl = styleControl;
             return this;
         }
         public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings build() {

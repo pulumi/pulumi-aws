@@ -5,6 +5,7 @@ package com.pulumi.aws.apigatewayv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class RouteRequestParameterArgs extends com.pulumi.resources.Resour
         }
 
         public RouteRequestParameterArgs build() {
-            $.requestParameterKey = Objects.requireNonNull($.requestParameterKey, "expected parameter 'requestParameterKey' to be non-null");
-            $.required = Objects.requireNonNull($.required, "expected parameter 'required' to be non-null");
+            if ($.requestParameterKey == null) {
+                throw new MissingRequiredPropertyException("RouteRequestParameterArgs", "requestParameterKey");
+            }
+            if ($.required == null) {
+                throw new MissingRequiredPropertyException("RouteRequestParameterArgs", "required");
+            }
             return $;
         }
     }

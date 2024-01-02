@@ -6,6 +6,7 @@ package com.pulumi.aws.autoscaling.outputs;
 import com.pulumi.aws.autoscaling.outputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification;
 import com.pulumi.aws.autoscaling.outputs.GroupMixedInstancesPolicyLaunchTemplateOverride;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -59,11 +60,15 @@ public final class GroupMixedInstancesPolicyLaunchTemplate {
 
         @CustomType.Setter
         public Builder launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification launchTemplateSpecification) {
-            this.launchTemplateSpecification = Objects.requireNonNull(launchTemplateSpecification);
+            if (launchTemplateSpecification == null) {
+              throw new MissingRequiredPropertyException("GroupMixedInstancesPolicyLaunchTemplate", "launchTemplateSpecification");
+            }
+            this.launchTemplateSpecification = launchTemplateSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder overrides(@Nullable List<GroupMixedInstancesPolicyLaunchTemplateOverride> overrides) {
+
             this.overrides = overrides;
             return this;
         }

@@ -44,6 +44,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
 
         @CustomType.Setter
         public Builder temporalFilterSettings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings temporalFilterSettings) {
+
             this.temporalFilterSettings = temporalFilterSettings;
             return this;
         }

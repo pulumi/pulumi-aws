@@ -6,6 +6,7 @@ package com.pulumi.aws.chime;
 import com.pulumi.aws.chime.inputs.VoiceConnectorOrganizationRouteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -163,8 +164,12 @@ public final class VoiceConnectorOrganizationArgs extends com.pulumi.resources.R
         }
 
         public VoiceConnectorOrganizationArgs build() {
-            $.routes = Objects.requireNonNull($.routes, "expected parameter 'routes' to be non-null");
-            $.voiceConnectorId = Objects.requireNonNull($.voiceConnectorId, "expected parameter 'voiceConnectorId' to be non-null");
+            if ($.routes == null) {
+                throw new MissingRequiredPropertyException("VoiceConnectorOrganizationArgs", "routes");
+            }
+            if ($.voiceConnectorId == null) {
+                throw new MissingRequiredPropertyException("VoiceConnectorOrganizationArgs", "voiceConnectorId");
+            }
             return $;
         }
     }

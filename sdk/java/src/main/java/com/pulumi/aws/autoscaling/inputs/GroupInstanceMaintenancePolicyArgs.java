@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GroupInstanceMaintenancePolicyArgs extends com.pulumi.resourc
         }
 
         public GroupInstanceMaintenancePolicyArgs build() {
-            $.maxHealthyPercentage = Objects.requireNonNull($.maxHealthyPercentage, "expected parameter 'maxHealthyPercentage' to be non-null");
-            $.minHealthyPercentage = Objects.requireNonNull($.minHealthyPercentage, "expected parameter 'minHealthyPercentage' to be non-null");
+            if ($.maxHealthyPercentage == null) {
+                throw new MissingRequiredPropertyException("GroupInstanceMaintenancePolicyArgs", "maxHealthyPercentage");
+            }
+            if ($.minHealthyPercentage == null) {
+                throw new MissingRequiredPropertyException("GroupInstanceMaintenancePolicyArgs", "minHealthyPercentage");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.securityhub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class InviteAccepterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public InviteAccepterArgs build() {
-            $.masterId = Objects.requireNonNull($.masterId, "expected parameter 'masterId' to be non-null");
+            if ($.masterId == null) {
+                throw new MissingRequiredPropertyException("InviteAccepterArgs", "masterId");
+            }
             return $;
         }
     }

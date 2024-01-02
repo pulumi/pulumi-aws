@@ -89,21 +89,25 @@ public final class CanaryRunConfig {
 
         @CustomType.Setter
         public Builder activeTracing(@Nullable Boolean activeTracing) {
+
             this.activeTracing = activeTracing;
             return this;
         }
         @CustomType.Setter
         public Builder environmentVariables(@Nullable Map<String,String> environmentVariables) {
+
             this.environmentVariables = environmentVariables;
             return this;
         }
         @CustomType.Setter
         public Builder memoryInMb(@Nullable Integer memoryInMb) {
+
             this.memoryInMb = memoryInMb;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutInSeconds(@Nullable Integer timeoutInSeconds) {
+
             this.timeoutInSeconds = timeoutInSeconds;
             return this;
         }

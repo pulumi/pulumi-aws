@@ -5,6 +5,7 @@ package com.pulumi.aws.appconfig;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,10 +225,18 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
         }
 
         public HostedConfigurationVersionArgs build() {
-            $.applicationId = Objects.requireNonNull($.applicationId, "expected parameter 'applicationId' to be non-null");
-            $.configurationProfileId = Objects.requireNonNull($.configurationProfileId, "expected parameter 'configurationProfileId' to be non-null");
-            $.content = Objects.requireNonNull($.content, "expected parameter 'content' to be non-null");
-            $.contentType = Objects.requireNonNull($.contentType, "expected parameter 'contentType' to be non-null");
+            if ($.applicationId == null) {
+                throw new MissingRequiredPropertyException("HostedConfigurationVersionArgs", "applicationId");
+            }
+            if ($.configurationProfileId == null) {
+                throw new MissingRequiredPropertyException("HostedConfigurationVersionArgs", "configurationProfileId");
+            }
+            if ($.content == null) {
+                throw new MissingRequiredPropertyException("HostedConfigurationVersionArgs", "content");
+            }
+            if ($.contentType == null) {
+                throw new MissingRequiredPropertyException("HostedConfigurationVersionArgs", "contentType");
+            }
             return $;
         }
     }

@@ -254,81 +254,97 @@ public final class FlowTaskConnectorOperator {
 
         @CustomType.Setter
         public Builder amplitude(@Nullable String amplitude) {
+
             this.amplitude = amplitude;
             return this;
         }
         @CustomType.Setter
         public Builder customConnector(@Nullable String customConnector) {
+
             this.customConnector = customConnector;
             return this;
         }
         @CustomType.Setter
         public Builder datadog(@Nullable String datadog) {
+
             this.datadog = datadog;
             return this;
         }
         @CustomType.Setter
         public Builder dynatrace(@Nullable String dynatrace) {
+
             this.dynatrace = dynatrace;
             return this;
         }
         @CustomType.Setter
         public Builder googleAnalytics(@Nullable String googleAnalytics) {
+
             this.googleAnalytics = googleAnalytics;
             return this;
         }
         @CustomType.Setter
         public Builder inforNexus(@Nullable String inforNexus) {
+
             this.inforNexus = inforNexus;
             return this;
         }
         @CustomType.Setter
         public Builder marketo(@Nullable String marketo) {
+
             this.marketo = marketo;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable String s3) {
+
             this.s3 = s3;
             return this;
         }
         @CustomType.Setter
         public Builder salesforce(@Nullable String salesforce) {
+
             this.salesforce = salesforce;
             return this;
         }
         @CustomType.Setter
         public Builder sapoData(@Nullable String sapoData) {
+
             this.sapoData = sapoData;
             return this;
         }
         @CustomType.Setter
         public Builder serviceNow(@Nullable String serviceNow) {
+
             this.serviceNow = serviceNow;
             return this;
         }
         @CustomType.Setter
         public Builder singular(@Nullable String singular) {
+
             this.singular = singular;
             return this;
         }
         @CustomType.Setter
         public Builder slack(@Nullable String slack) {
+
             this.slack = slack;
             return this;
         }
         @CustomType.Setter
         public Builder trendmicro(@Nullable String trendmicro) {
+
             this.trendmicro = trendmicro;
             return this;
         }
         @CustomType.Setter
         public Builder veeva(@Nullable String veeva) {
+
             this.veeva = veeva;
             return this;
         }
         @CustomType.Setter
         public Builder zendesk(@Nullable String zendesk) {
+
             this.zendesk = zendesk;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.dynamodb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -41,12 +42,18 @@ public final class GetTableTtl {
 
         @CustomType.Setter
         public Builder attributeName(String attributeName) {
-            this.attributeName = Objects.requireNonNull(attributeName);
+            if (attributeName == null) {
+              throw new MissingRequiredPropertyException("GetTableTtl", "attributeName");
+            }
+            this.attributeName = attributeName;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetTableTtl", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         public GetTableTtl build() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.mskconnect.inputs;
 import com.pulumi.aws.mskconnect.inputs.ConnectorPluginCustomPluginArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class ConnectorPluginArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ConnectorPluginArgs build() {
-            $.customPlugin = Objects.requireNonNull($.customPlugin, "expected parameter 'customPlugin' to be non-null");
+            if ($.customPlugin == null) {
+                throw new MissingRequiredPropertyException("ConnectorPluginArgs", "customPlugin");
+            }
             return $;
         }
     }

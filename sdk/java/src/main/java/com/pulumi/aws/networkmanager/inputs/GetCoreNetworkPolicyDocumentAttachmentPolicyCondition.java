@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkmanager.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -146,7 +147,9 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition extends
         }
 
         public GetCoreNetworkPolicyDocumentAttachmentPolicyCondition build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentAttachmentPolicyCondition", "type");
+            }
             return $;
         }
     }

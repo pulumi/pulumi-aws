@@ -73,6 +73,7 @@ public final class AppImageConfigJupyterLabImageConfigContainerConfig {
 
         @CustomType.Setter
         public Builder containerArguments(@Nullable List<String> containerArguments) {
+
             this.containerArguments = containerArguments;
             return this;
         }
@@ -81,6 +82,7 @@ public final class AppImageConfigJupyterLabImageConfigContainerConfig {
         }
         @CustomType.Setter
         public Builder containerEntrypoints(@Nullable List<String> containerEntrypoints) {
+
             this.containerEntrypoints = containerEntrypoints;
             return this;
         }
@@ -89,6 +91,7 @@ public final class AppImageConfigJupyterLabImageConfigContainerConfig {
         }
         @CustomType.Setter
         public Builder containerEnvironmentVariables(@Nullable Map<String,String> containerEnvironmentVariables) {
+
             this.containerEnvironmentVariables = containerEnvironmentVariables;
             return this;
         }

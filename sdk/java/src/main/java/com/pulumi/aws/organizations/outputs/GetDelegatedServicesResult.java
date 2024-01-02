@@ -5,6 +5,7 @@ package com.pulumi.aws.organizations.outputs;
 
 import com.pulumi.aws.organizations.outputs.GetDelegatedServicesDelegatedService;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -64,12 +65,18 @@ public final class GetDelegatedServicesResult {
 
         @CustomType.Setter
         public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("GetDelegatedServicesResult", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder delegatedServices(List<GetDelegatedServicesDelegatedService> delegatedServices) {
-            this.delegatedServices = Objects.requireNonNull(delegatedServices);
+            if (delegatedServices == null) {
+              throw new MissingRequiredPropertyException("GetDelegatedServicesResult", "delegatedServices");
+            }
+            this.delegatedServices = delegatedServices;
             return this;
         }
         public Builder delegatedServices(GetDelegatedServicesDelegatedService... delegatedServices) {
@@ -77,7 +84,10 @@ public final class GetDelegatedServicesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDelegatedServicesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetDelegatedServicesResult build() {

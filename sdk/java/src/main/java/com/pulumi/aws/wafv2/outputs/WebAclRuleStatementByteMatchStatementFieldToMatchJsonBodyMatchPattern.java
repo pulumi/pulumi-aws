@@ -52,11 +52,13 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatc
 
         @CustomType.Setter
         public Builder all(@Nullable WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder includedPaths(@Nullable List<String> includedPaths) {
+
             this.includedPaths = includedPaths;
             return this;
         }

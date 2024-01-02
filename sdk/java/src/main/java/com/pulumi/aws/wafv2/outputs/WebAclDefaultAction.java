@@ -59,11 +59,13 @@ public final class WebAclDefaultAction {
 
         @CustomType.Setter
         public Builder allow(@Nullable WebAclDefaultActionAllow allow) {
+
             this.allow = allow;
             return this;
         }
         @CustomType.Setter
         public Builder block(@Nullable WebAclDefaultActionBlock block) {
+
             this.block = block;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction;
 import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -59,6 +60,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions {
 
         @CustomType.Setter
         public Builder customActions(@Nullable List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomAction> customActions) {
+
             this.customActions = customActions;
             return this;
         }
@@ -67,7 +69,10 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions {
         }
         @CustomType.Setter
         public Builder statelessRules(List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule> statelessRules) {
-            this.statelessRules = Objects.requireNonNull(statelessRules);
+            if (statelessRules == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions", "statelessRules");
+            }
+            this.statelessRules = statelessRules;
             return this;
         }
         public Builder statelessRules(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule... statelessRules) {

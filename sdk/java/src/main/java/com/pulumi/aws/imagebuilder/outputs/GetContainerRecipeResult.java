@@ -7,6 +7,7 @@ import com.pulumi.aws.imagebuilder.outputs.GetContainerRecipeComponent;
 import com.pulumi.aws.imagebuilder.outputs.GetContainerRecipeInstanceConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.GetContainerRecipeTargetRepository;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -279,12 +280,18 @@ public final class GetContainerRecipeResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder components(List<GetContainerRecipeComponent> components) {
-            this.components = Objects.requireNonNull(components);
+            if (components == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "components");
+            }
+            this.components = components;
             return this;
         }
         public Builder components(GetContainerRecipeComponent... components) {
@@ -292,37 +299,58 @@ public final class GetContainerRecipeResult {
         }
         @CustomType.Setter
         public Builder containerType(String containerType) {
-            this.containerType = Objects.requireNonNull(containerType);
+            if (containerType == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "containerType");
+            }
+            this.containerType = containerType;
             return this;
         }
         @CustomType.Setter
         public Builder dateCreated(String dateCreated) {
-            this.dateCreated = Objects.requireNonNull(dateCreated);
+            if (dateCreated == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "dateCreated");
+            }
+            this.dateCreated = dateCreated;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder dockerfileTemplateData(String dockerfileTemplateData) {
-            this.dockerfileTemplateData = Objects.requireNonNull(dockerfileTemplateData);
+            if (dockerfileTemplateData == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "dockerfileTemplateData");
+            }
+            this.dockerfileTemplateData = dockerfileTemplateData;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+            if (encrypted == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "encrypted");
+            }
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceConfigurations(List<GetContainerRecipeInstanceConfiguration> instanceConfigurations) {
-            this.instanceConfigurations = Objects.requireNonNull(instanceConfigurations);
+            if (instanceConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "instanceConfigurations");
+            }
+            this.instanceConfigurations = instanceConfigurations;
             return this;
         }
         public Builder instanceConfigurations(GetContainerRecipeInstanceConfiguration... instanceConfigurations) {
@@ -330,37 +358,56 @@ public final class GetContainerRecipeResult {
         }
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder parentImage(String parentImage) {
-            this.parentImage = Objects.requireNonNull(parentImage);
+            if (parentImage == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "parentImage");
+            }
+            this.parentImage = parentImage;
             return this;
         }
         @CustomType.Setter
         public Builder platform(String platform) {
-            this.platform = Objects.requireNonNull(platform);
+            if (platform == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "platform");
+            }
+            this.platform = platform;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder targetRepositories(List<GetContainerRecipeTargetRepository> targetRepositories) {
-            this.targetRepositories = Objects.requireNonNull(targetRepositories);
+            if (targetRepositories == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "targetRepositories");
+            }
+            this.targetRepositories = targetRepositories;
             return this;
         }
         public Builder targetRepositories(GetContainerRecipeTargetRepository... targetRepositories) {
@@ -368,12 +415,18 @@ public final class GetContainerRecipeResult {
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "version");
+            }
+            this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder workingDirectory(String workingDirectory) {
-            this.workingDirectory = Objects.requireNonNull(workingDirectory);
+            if (workingDirectory == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "workingDirectory");
+            }
+            this.workingDirectory = workingDirectory;
             return this;
         }
         public GetContainerRecipeResult build() {

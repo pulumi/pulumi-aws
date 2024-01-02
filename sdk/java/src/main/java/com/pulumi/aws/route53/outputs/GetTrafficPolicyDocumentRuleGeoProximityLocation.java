@@ -143,41 +143,49 @@ public final class GetTrafficPolicyDocumentRuleGeoProximityLocation {
 
         @CustomType.Setter
         public Builder bias(@Nullable String bias) {
+
             this.bias = bias;
             return this;
         }
         @CustomType.Setter
         public Builder endpointReference(@Nullable String endpointReference) {
+
             this.endpointReference = endpointReference;
             return this;
         }
         @CustomType.Setter
         public Builder evaluateTargetHealth(@Nullable Boolean evaluateTargetHealth) {
+
             this.evaluateTargetHealth = evaluateTargetHealth;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheck(@Nullable String healthCheck) {
+
             this.healthCheck = healthCheck;
             return this;
         }
         @CustomType.Setter
         public Builder latitude(@Nullable String latitude) {
+
             this.latitude = latitude;
             return this;
         }
         @CustomType.Setter
         public Builder longitude(@Nullable String longitude) {
+
             this.longitude = longitude;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder ruleReference(@Nullable String ruleReference) {
+
             this.ruleReference = ruleReference;
             return this;
         }

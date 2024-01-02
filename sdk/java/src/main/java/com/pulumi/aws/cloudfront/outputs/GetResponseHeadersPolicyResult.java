@@ -9,6 +9,7 @@ import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicyRemoveHeadersCo
 import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicySecurityHeadersConfig;
 import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicyServerTimingHeadersConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -144,12 +145,18 @@ public final class GetResponseHeadersPolicyResult {
 
         @CustomType.Setter
         public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+            if (comment == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyResult", "comment");
+            }
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder corsConfigs(List<GetResponseHeadersPolicyCorsConfig> corsConfigs) {
-            this.corsConfigs = Objects.requireNonNull(corsConfigs);
+            if (corsConfigs == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyResult", "corsConfigs");
+            }
+            this.corsConfigs = corsConfigs;
             return this;
         }
         public Builder corsConfigs(GetResponseHeadersPolicyCorsConfig... corsConfigs) {
@@ -157,7 +164,10 @@ public final class GetResponseHeadersPolicyResult {
         }
         @CustomType.Setter
         public Builder customHeadersConfigs(List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs) {
-            this.customHeadersConfigs = Objects.requireNonNull(customHeadersConfigs);
+            if (customHeadersConfigs == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyResult", "customHeadersConfigs");
+            }
+            this.customHeadersConfigs = customHeadersConfigs;
             return this;
         }
         public Builder customHeadersConfigs(GetResponseHeadersPolicyCustomHeadersConfig... customHeadersConfigs) {
@@ -165,22 +175,34 @@ public final class GetResponseHeadersPolicyResult {
         }
         @CustomType.Setter
         public Builder etag(String etag) {
-            this.etag = Objects.requireNonNull(etag);
+            if (etag == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyResult", "etag");
+            }
+            this.etag = etag;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder removeHeadersConfigs(List<GetResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfigs) {
-            this.removeHeadersConfigs = Objects.requireNonNull(removeHeadersConfigs);
+            if (removeHeadersConfigs == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyResult", "removeHeadersConfigs");
+            }
+            this.removeHeadersConfigs = removeHeadersConfigs;
             return this;
         }
         public Builder removeHeadersConfigs(GetResponseHeadersPolicyRemoveHeadersConfig... removeHeadersConfigs) {
@@ -188,7 +210,10 @@ public final class GetResponseHeadersPolicyResult {
         }
         @CustomType.Setter
         public Builder securityHeadersConfigs(List<GetResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfigs) {
-            this.securityHeadersConfigs = Objects.requireNonNull(securityHeadersConfigs);
+            if (securityHeadersConfigs == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyResult", "securityHeadersConfigs");
+            }
+            this.securityHeadersConfigs = securityHeadersConfigs;
             return this;
         }
         public Builder securityHeadersConfigs(GetResponseHeadersPolicySecurityHeadersConfig... securityHeadersConfigs) {
@@ -196,7 +221,10 @@ public final class GetResponseHeadersPolicyResult {
         }
         @CustomType.Setter
         public Builder serverTimingHeadersConfigs(List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs) {
-            this.serverTimingHeadersConfigs = Objects.requireNonNull(serverTimingHeadersConfigs);
+            if (serverTimingHeadersConfigs == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyResult", "serverTimingHeadersConfigs");
+            }
+            this.serverTimingHeadersConfigs = serverTimingHeadersConfigs;
             return this;
         }
         public Builder serverTimingHeadersConfigs(GetResponseHeadersPolicyServerTimingHeadersConfig... serverTimingHeadersConfigs) {

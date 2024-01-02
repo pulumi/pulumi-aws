@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.outputs;
 import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationReferenceDataSourcesS3;
 import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationReferenceDataSourcesSchema;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -88,22 +89,32 @@ public final class AnalyticsApplicationReferenceDataSources {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder s3(AnalyticsApplicationReferenceDataSourcesS3 s3) {
-            this.s3 = Objects.requireNonNull(s3);
+            if (s3 == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSources", "s3");
+            }
+            this.s3 = s3;
             return this;
         }
         @CustomType.Setter
         public Builder schema(AnalyticsApplicationReferenceDataSourcesSchema schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSources", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         @CustomType.Setter
         public Builder tableName(String tableName) {
-            this.tableName = Objects.requireNonNull(tableName);
+            if (tableName == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSources", "tableName");
+            }
+            this.tableName = tableName;
             return this;
         }
         public AnalyticsApplicationReferenceDataSources build() {

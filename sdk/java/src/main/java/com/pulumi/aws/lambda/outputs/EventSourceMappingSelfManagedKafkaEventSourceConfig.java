@@ -44,6 +44,7 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfig {
 
         @CustomType.Setter
         public Builder consumerGroupId(@Nullable String consumerGroupId) {
+
             this.consumerGroupId = consumerGroupId;
             return this;
         }

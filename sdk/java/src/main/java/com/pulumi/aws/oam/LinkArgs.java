@@ -5,6 +5,7 @@ package com.pulumi.aws.oam;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -207,9 +208,15 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LinkArgs build() {
-            $.labelTemplate = Objects.requireNonNull($.labelTemplate, "expected parameter 'labelTemplate' to be non-null");
-            $.resourceTypes = Objects.requireNonNull($.resourceTypes, "expected parameter 'resourceTypes' to be non-null");
-            $.sinkIdentifier = Objects.requireNonNull($.sinkIdentifier, "expected parameter 'sinkIdentifier' to be non-null");
+            if ($.labelTemplate == null) {
+                throw new MissingRequiredPropertyException("LinkArgs", "labelTemplate");
+            }
+            if ($.resourceTypes == null) {
+                throw new MissingRequiredPropertyException("LinkArgs", "resourceTypes");
+            }
+            if ($.sinkIdentifier == null) {
+                throw new MissingRequiredPropertyException("LinkArgs", "sinkIdentifier");
+            }
             return $;
         }
     }

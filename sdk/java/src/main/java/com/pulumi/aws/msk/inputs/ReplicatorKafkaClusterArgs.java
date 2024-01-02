@@ -7,6 +7,7 @@ import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterAmazonMskClusterArgs;
 import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -112,8 +113,12 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
         }
 
         public ReplicatorKafkaClusterArgs build() {
-            $.amazonMskCluster = Objects.requireNonNull($.amazonMskCluster, "expected parameter 'amazonMskCluster' to be non-null");
-            $.vpcConfig = Objects.requireNonNull($.vpcConfig, "expected parameter 'vpcConfig' to be non-null");
+            if ($.amazonMskCluster == null) {
+                throw new MissingRequiredPropertyException("ReplicatorKafkaClusterArgs", "amazonMskCluster");
+            }
+            if ($.vpcConfig == null) {
+                throw new MissingRequiredPropertyException("ReplicatorKafkaClusterArgs", "vpcConfig");
+            }
             return $;
         }
     }

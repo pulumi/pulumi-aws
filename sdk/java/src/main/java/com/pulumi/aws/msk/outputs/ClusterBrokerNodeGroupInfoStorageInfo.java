@@ -44,6 +44,7 @@ public final class ClusterBrokerNodeGroupInfoStorageInfo {
 
         @CustomType.Setter
         public Builder ebsStorageInfo(@Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo ebsStorageInfo) {
+
             this.ebsStorageInfo = ebsStorageInfo;
             return this;
         }

@@ -59,11 +59,13 @@ public final class ProjectDataDelivery {
 
         @CustomType.Setter
         public Builder cloudwatchLogs(@Nullable ProjectDataDeliveryCloudwatchLogs cloudwatchLogs) {
+
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
         @CustomType.Setter
         public Builder s3Destination(@Nullable ProjectDataDeliveryS3Destination s3Destination) {
+
             this.s3Destination = s3Destination;
             return this;
         }

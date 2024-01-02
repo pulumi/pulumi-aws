@@ -73,16 +73,19 @@ public final class InsightFiltersThreatIntelIndicatorLastObservedAt {
 
         @CustomType.Setter
         public Builder dateRange(@Nullable InsightFiltersThreatIntelIndicatorLastObservedAtDateRange dateRange) {
+
             this.dateRange = dateRange;
             return this;
         }
         @CustomType.Setter
         public Builder end(@Nullable String end) {
+
             this.end = end;
             return this;
         }
         @CustomType.Setter
         public Builder start(@Nullable String start) {
+
             this.start = start;
             return this;
         }

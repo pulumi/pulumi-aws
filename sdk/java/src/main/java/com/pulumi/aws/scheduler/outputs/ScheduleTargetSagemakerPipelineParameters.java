@@ -44,6 +44,7 @@ public final class ScheduleTargetSagemakerPipelineParameters {
 
         @CustomType.Setter
         public Builder pipelineParameters(@Nullable List<ScheduleTargetSagemakerPipelineParametersPipelineParameter> pipelineParameters) {
+
             this.pipelineParameters = pipelineParameters;
             return this;
         }

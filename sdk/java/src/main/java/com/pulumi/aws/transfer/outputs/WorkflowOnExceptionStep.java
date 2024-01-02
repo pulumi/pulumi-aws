@@ -9,6 +9,7 @@ import com.pulumi.aws.transfer.outputs.WorkflowOnExceptionStepDecryptStepDetails
 import com.pulumi.aws.transfer.outputs.WorkflowOnExceptionStepDeleteStepDetails;
 import com.pulumi.aws.transfer.outputs.WorkflowOnExceptionStepTagStepDetails;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -119,32 +120,40 @@ public final class WorkflowOnExceptionStep {
 
         @CustomType.Setter
         public Builder copyStepDetails(@Nullable WorkflowOnExceptionStepCopyStepDetails copyStepDetails) {
+
             this.copyStepDetails = copyStepDetails;
             return this;
         }
         @CustomType.Setter
         public Builder customStepDetails(@Nullable WorkflowOnExceptionStepCustomStepDetails customStepDetails) {
+
             this.customStepDetails = customStepDetails;
             return this;
         }
         @CustomType.Setter
         public Builder decryptStepDetails(@Nullable WorkflowOnExceptionStepDecryptStepDetails decryptStepDetails) {
+
             this.decryptStepDetails = decryptStepDetails;
             return this;
         }
         @CustomType.Setter
         public Builder deleteStepDetails(@Nullable WorkflowOnExceptionStepDeleteStepDetails deleteStepDetails) {
+
             this.deleteStepDetails = deleteStepDetails;
             return this;
         }
         @CustomType.Setter
         public Builder tagStepDetails(@Nullable WorkflowOnExceptionStepTagStepDetails tagStepDetails) {
+
             this.tagStepDetails = tagStepDetails;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("WorkflowOnExceptionStep", "type");
+            }
+            this.type = type;
             return this;
         }
         public WorkflowOnExceptionStep build() {

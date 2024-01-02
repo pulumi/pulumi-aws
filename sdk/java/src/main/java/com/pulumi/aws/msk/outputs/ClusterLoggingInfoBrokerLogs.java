@@ -50,16 +50,19 @@ public final class ClusterLoggingInfoBrokerLogs {
 
         @CustomType.Setter
         public Builder cloudwatchLogs(@Nullable ClusterLoggingInfoBrokerLogsCloudwatchLogs cloudwatchLogs) {
+
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
         @CustomType.Setter
         public Builder firehose(@Nullable ClusterLoggingInfoBrokerLogsFirehose firehose) {
+
             this.firehose = firehose;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable ClusterLoggingInfoBrokerLogsS3 s3) {
+
             this.s3 = s3;
             return this;
         }

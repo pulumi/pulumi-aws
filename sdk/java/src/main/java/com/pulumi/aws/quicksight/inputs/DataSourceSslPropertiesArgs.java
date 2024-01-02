@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class DataSourceSslPropertiesArgs extends com.pulumi.resources.Reso
         }
 
         public DataSourceSslPropertiesArgs build() {
-            $.disableSsl = Objects.requireNonNull($.disableSsl, "expected parameter 'disableSsl' to be non-null");
+            if ($.disableSsl == null) {
+                throw new MissingRequiredPropertyException("DataSourceSslPropertiesArgs", "disableSsl");
+            }
             return $;
         }
     }

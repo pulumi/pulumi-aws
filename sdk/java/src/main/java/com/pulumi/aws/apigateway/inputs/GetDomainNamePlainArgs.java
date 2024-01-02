@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -93,7 +94,9 @@ public final class GetDomainNamePlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         public GetDomainNamePlainArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("GetDomainNamePlainArgs", "domainName");
+            }
             return $;
         }
     }

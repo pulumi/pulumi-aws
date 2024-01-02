@@ -5,6 +5,7 @@ package com.pulumi.aws.lambda.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class CodeSigningConfigAllowedPublishersArgs extends com.pulumi.res
         }
 
         public CodeSigningConfigAllowedPublishersArgs build() {
-            $.signingProfileVersionArns = Objects.requireNonNull($.signingProfileVersionArns, "expected parameter 'signingProfileVersionArns' to be non-null");
+            if ($.signingProfileVersionArns == null) {
+                throw new MissingRequiredPropertyException("CodeSigningConfigAllowedPublishersArgs", "signingProfileVersionArns");
+            }
             return $;
         }
     }

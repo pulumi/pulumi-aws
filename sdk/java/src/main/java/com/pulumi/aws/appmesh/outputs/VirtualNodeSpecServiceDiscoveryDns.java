@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,21 @@ public final class VirtualNodeSpecServiceDiscoveryDns {
 
         @CustomType.Setter
         public Builder hostname(String hostname) {
-            this.hostname = Objects.requireNonNull(hostname);
+            if (hostname == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecServiceDiscoveryDns", "hostname");
+            }
+            this.hostname = hostname;
             return this;
         }
         @CustomType.Setter
         public Builder ipPreference(@Nullable String ipPreference) {
+
             this.ipPreference = ipPreference;
             return this;
         }
         @CustomType.Setter
         public Builder responseType(@Nullable String responseType) {
+
             this.responseType = responseType;
             return this;
         }

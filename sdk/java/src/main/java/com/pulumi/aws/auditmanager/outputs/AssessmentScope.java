@@ -59,6 +59,7 @@ public final class AssessmentScope {
 
         @CustomType.Setter
         public Builder awsAccounts(@Nullable List<AssessmentScopeAwsAccount> awsAccounts) {
+
             this.awsAccounts = awsAccounts;
             return this;
         }
@@ -67,6 +68,7 @@ public final class AssessmentScope {
         }
         @CustomType.Setter
         public Builder awsServices(@Nullable List<AssessmentScopeAwsService> awsServices) {
+
             this.awsServices = awsServices;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -82,27 +83,42 @@ public final class GetResourceResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder parentId(String parentId) {
-            this.parentId = Objects.requireNonNull(parentId);
+            if (parentId == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "parentId");
+            }
+            this.parentId = parentId;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder pathPart(String pathPart) {
-            this.pathPart = Objects.requireNonNull(pathPart);
+            if (pathPart == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "pathPart");
+            }
+            this.pathPart = pathPart;
             return this;
         }
         @CustomType.Setter
         public Builder restApiId(String restApiId) {
-            this.restApiId = Objects.requireNonNull(restApiId);
+            if (restApiId == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "restApiId");
+            }
+            this.restApiId = restApiId;
             return this;
         }
         public GetResourceResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.organizations;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         public PolicyAttachmentArgs build() {
-            $.policyId = Objects.requireNonNull($.policyId, "expected parameter 'policyId' to be non-null");
-            $.targetId = Objects.requireNonNull($.targetId, "expected parameter 'targetId' to be non-null");
+            if ($.policyId == null) {
+                throw new MissingRequiredPropertyException("PolicyAttachmentArgs", "policyId");
+            }
+            if ($.targetId == null) {
+                throw new MissingRequiredPropertyException("PolicyAttachmentArgs", "targetId");
+            }
             return $;
         }
     }

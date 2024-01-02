@@ -116,31 +116,37 @@ public final class ChannelEncoderSettingsGlobalConfiguration {
 
         @CustomType.Setter
         public Builder initialAudioGain(@Nullable Integer initialAudioGain) {
+
             this.initialAudioGain = initialAudioGain;
             return this;
         }
         @CustomType.Setter
         public Builder inputEndAction(@Nullable String inputEndAction) {
+
             this.inputEndAction = inputEndAction;
             return this;
         }
         @CustomType.Setter
         public Builder inputLossBehavior(@Nullable ChannelEncoderSettingsGlobalConfigurationInputLossBehavior inputLossBehavior) {
+
             this.inputLossBehavior = inputLossBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder outputLockingMode(@Nullable String outputLockingMode) {
+
             this.outputLockingMode = outputLockingMode;
             return this;
         }
         @CustomType.Setter
         public Builder outputTimingSource(@Nullable String outputTimingSource) {
+
             this.outputTimingSource = outputTimingSource;
             return this;
         }
         @CustomType.Setter
         public Builder supportLowFramerateInputs(@Nullable String supportLowFramerateInputs) {
+
             this.supportLowFramerateInputs = supportLowFramerateInputs;
             return this;
         }

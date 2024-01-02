@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetVirtualNodeSpecListenerConnectionPoolHttp {
 
         @CustomType.Setter
         public Builder maxConnections(Integer maxConnections) {
-            this.maxConnections = Objects.requireNonNull(maxConnections);
+            if (maxConnections == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerConnectionPoolHttp", "maxConnections");
+            }
+            this.maxConnections = maxConnections;
             return this;
         }
         @CustomType.Setter
         public Builder maxPendingRequests(Integer maxPendingRequests) {
-            this.maxPendingRequests = Objects.requireNonNull(maxPendingRequests);
+            if (maxPendingRequests == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerConnectionPoolHttp", "maxPendingRequests");
+            }
+            this.maxPendingRequests = maxPendingRequests;
             return this;
         }
         public GetVirtualNodeSpecListenerConnectionPoolHttp build() {

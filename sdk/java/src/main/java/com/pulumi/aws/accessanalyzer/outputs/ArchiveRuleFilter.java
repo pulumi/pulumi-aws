@@ -4,6 +4,7 @@
 package com.pulumi.aws.accessanalyzer.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -101,6 +102,7 @@ public final class ArchiveRuleFilter {
 
         @CustomType.Setter
         public Builder contains(@Nullable List<String> contains) {
+
             this.contains = contains;
             return this;
         }
@@ -109,11 +111,15 @@ public final class ArchiveRuleFilter {
         }
         @CustomType.Setter
         public Builder criteria(String criteria) {
-            this.criteria = Objects.requireNonNull(criteria);
+            if (criteria == null) {
+              throw new MissingRequiredPropertyException("ArchiveRuleFilter", "criteria");
+            }
+            this.criteria = criteria;
             return this;
         }
         @CustomType.Setter
         public Builder eqs(@Nullable List<String> eqs) {
+
             this.eqs = eqs;
             return this;
         }
@@ -122,11 +128,13 @@ public final class ArchiveRuleFilter {
         }
         @CustomType.Setter
         public Builder exists(@Nullable String exists) {
+
             this.exists = exists;
             return this;
         }
         @CustomType.Setter
         public Builder neqs(@Nullable List<String> neqs) {
+
             this.neqs = neqs;
             return this;
         }

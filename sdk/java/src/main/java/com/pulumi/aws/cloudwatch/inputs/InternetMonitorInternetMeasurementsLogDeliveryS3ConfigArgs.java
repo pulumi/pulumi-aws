@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -90,7 +91,9 @@ public final class InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs ex
         }
 
         public InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs build() {
-            $.bucketName = Objects.requireNonNull($.bucketName, "expected parameter 'bucketName' to be non-null");
+            if ($.bucketName == null) {
+                throw new MissingRequiredPropertyException("InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs", "bucketName");
+            }
             return $;
         }
     }

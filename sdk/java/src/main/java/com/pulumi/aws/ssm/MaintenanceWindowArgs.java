@@ -5,6 +5,7 @@ package com.pulumi.aws.ssm;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -486,9 +487,15 @@ public final class MaintenanceWindowArgs extends com.pulumi.resources.ResourceAr
         }
 
         public MaintenanceWindowArgs build() {
-            $.cutoff = Objects.requireNonNull($.cutoff, "expected parameter 'cutoff' to be non-null");
-            $.duration = Objects.requireNonNull($.duration, "expected parameter 'duration' to be non-null");
-            $.schedule = Objects.requireNonNull($.schedule, "expected parameter 'schedule' to be non-null");
+            if ($.cutoff == null) {
+                throw new MissingRequiredPropertyException("MaintenanceWindowArgs", "cutoff");
+            }
+            if ($.duration == null) {
+                throw new MissingRequiredPropertyException("MaintenanceWindowArgs", "duration");
+            }
+            if ($.schedule == null) {
+                throw new MissingRequiredPropertyException("MaintenanceWindowArgs", "schedule");
+            }
             return $;
         }
     }

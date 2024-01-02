@@ -5,6 +5,7 @@ package com.pulumi.aws.fis.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration
         }
 
         public ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs build() {
-            $.logGroupArn = Objects.requireNonNull($.logGroupArn, "expected parameter 'logGroupArn' to be non-null");
+            if ($.logGroupArn == null) {
+                throw new MissingRequiredPropertyException("ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs", "logGroupArn");
+            }
             return $;
         }
     }

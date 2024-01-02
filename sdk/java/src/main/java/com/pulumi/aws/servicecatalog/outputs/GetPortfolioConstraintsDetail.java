@@ -4,6 +4,7 @@
 package com.pulumi.aws.servicecatalog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -108,32 +109,50 @@ public final class GetPortfolioConstraintsDetail {
 
         @CustomType.Setter
         public Builder constraintId(String constraintId) {
-            this.constraintId = Objects.requireNonNull(constraintId);
+            if (constraintId == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioConstraintsDetail", "constraintId");
+            }
+            this.constraintId = constraintId;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioConstraintsDetail", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioConstraintsDetail", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder portfolioId(String portfolioId) {
-            this.portfolioId = Objects.requireNonNull(portfolioId);
+            if (portfolioId == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioConstraintsDetail", "portfolioId");
+            }
+            this.portfolioId = portfolioId;
             return this;
         }
         @CustomType.Setter
         public Builder productId(String productId) {
-            this.productId = Objects.requireNonNull(productId);
+            if (productId == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioConstraintsDetail", "productId");
+            }
+            this.productId = productId;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioConstraintsDetail", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetPortfolioConstraintsDetail build() {

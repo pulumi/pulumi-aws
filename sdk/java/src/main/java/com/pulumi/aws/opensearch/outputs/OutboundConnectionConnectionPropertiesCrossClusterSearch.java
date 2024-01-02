@@ -44,6 +44,7 @@ public final class OutboundConnectionConnectionPropertiesCrossClusterSearch {
 
         @CustomType.Setter
         public Builder skipUnavailable(@Nullable String skipUnavailable) {
+
             this.skipUnavailable = skipUnavailable;
             return this;
         }

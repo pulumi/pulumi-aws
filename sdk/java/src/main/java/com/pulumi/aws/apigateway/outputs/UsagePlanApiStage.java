@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.aws.apigateway.outputs.UsagePlanApiStageThrottle;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,16 +74,23 @@ public final class UsagePlanApiStage {
 
         @CustomType.Setter
         public Builder apiId(String apiId) {
-            this.apiId = Objects.requireNonNull(apiId);
+            if (apiId == null) {
+              throw new MissingRequiredPropertyException("UsagePlanApiStage", "apiId");
+            }
+            this.apiId = apiId;
             return this;
         }
         @CustomType.Setter
         public Builder stage(String stage) {
-            this.stage = Objects.requireNonNull(stage);
+            if (stage == null) {
+              throw new MissingRequiredPropertyException("UsagePlanApiStage", "stage");
+            }
+            this.stage = stage;
             return this;
         }
         @CustomType.Setter
         public Builder throttles(@Nullable List<UsagePlanApiStageThrottle> throttles) {
+
             this.throttles = throttles;
             return this;
         }

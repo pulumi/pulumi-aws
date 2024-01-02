@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssmincidents.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,7 +47,10 @@ public final class ResponsePlanIncidentTemplateNotificationTarget {
 
         @CustomType.Setter
         public Builder snsTopicArn(String snsTopicArn) {
-            this.snsTopicArn = Objects.requireNonNull(snsTopicArn);
+            if (snsTopicArn == null) {
+              throw new MissingRequiredPropertyException("ResponsePlanIncidentTemplateNotificationTarget", "snsTopicArn");
+            }
+            this.snsTopicArn = snsTopicArn;
             return this;
         }
         public ResponsePlanIncidentTemplateNotificationTarget build() {

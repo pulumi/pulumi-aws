@@ -6,6 +6,7 @@ package com.pulumi.aws.ram.inputs;
 import com.pulumi.aws.ram.inputs.GetResourceShareFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -237,8 +238,12 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetResourceShareArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.resourceOwner = Objects.requireNonNull($.resourceOwner, "expected parameter 'resourceOwner' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetResourceShareArgs", "name");
+            }
+            if ($.resourceOwner == null) {
+                throw new MissingRequiredPropertyException("GetResourceShareArgs", "resourceOwner");
+            }
             return $;
         }
     }

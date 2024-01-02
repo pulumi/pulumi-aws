@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -69,7 +70,9 @@ public final class GetResolverFirewallRuleGroupAssociationPlainArgs extends com.
         }
 
         public GetResolverFirewallRuleGroupAssociationPlainArgs build() {
-            $.firewallRuleGroupAssociationId = Objects.requireNonNull($.firewallRuleGroupAssociationId, "expected parameter 'firewallRuleGroupAssociationId' to be non-null");
+            if ($.firewallRuleGroupAssociationId == null) {
+                throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationPlainArgs", "firewallRuleGroupAssociationId");
+            }
             return $;
         }
     }

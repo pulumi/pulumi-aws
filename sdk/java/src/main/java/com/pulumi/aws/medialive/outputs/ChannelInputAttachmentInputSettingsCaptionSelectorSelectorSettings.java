@@ -134,36 +134,43 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
         @CustomType.Setter
         public Builder ancillarySourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings ancillarySourceSettings) {
+
             this.ancillarySourceSettings = ancillarySourceSettings;
             return this;
         }
         @CustomType.Setter
         public Builder aribSourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings aribSourceSettings) {
+
             this.aribSourceSettings = aribSourceSettings;
             return this;
         }
         @CustomType.Setter
         public Builder dvbSubSourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings dvbSubSourceSettings) {
+
             this.dvbSubSourceSettings = dvbSubSourceSettings;
             return this;
         }
         @CustomType.Setter
         public Builder embeddedSourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings embeddedSourceSettings) {
+
             this.embeddedSourceSettings = embeddedSourceSettings;
             return this;
         }
         @CustomType.Setter
         public Builder scte20SourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings scte20SourceSettings) {
+
             this.scte20SourceSettings = scte20SourceSettings;
             return this;
         }
         @CustomType.Setter
         public Builder scte27SourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings scte27SourceSettings) {
+
             this.scte27SourceSettings = scte27SourceSettings;
             return this;
         }
         @CustomType.Setter
         public Builder teletextSourceSettings(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings teletextSourceSettings) {
+
             this.teletextSourceSettings = teletextSourceSettings;
             return this;
         }

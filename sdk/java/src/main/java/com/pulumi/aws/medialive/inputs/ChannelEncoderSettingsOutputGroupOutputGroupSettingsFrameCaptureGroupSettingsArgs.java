@@ -7,6 +7,7 @@ import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGr
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -94,7 +95,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
         }
 
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs", "destination");
+            }
             return $;
         }
     }

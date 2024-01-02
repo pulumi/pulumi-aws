@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight;
 import com.pulumi.aws.quicksight.inputs.RefreshScheduleScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -196,8 +197,12 @@ public final class RefreshScheduleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public RefreshScheduleArgs build() {
-            $.dataSetId = Objects.requireNonNull($.dataSetId, "expected parameter 'dataSetId' to be non-null");
-            $.scheduleId = Objects.requireNonNull($.scheduleId, "expected parameter 'scheduleId' to be non-null");
+            if ($.dataSetId == null) {
+                throw new MissingRequiredPropertyException("RefreshScheduleArgs", "dataSetId");
+            }
+            if ($.scheduleId == null) {
+                throw new MissingRequiredPropertyException("RefreshScheduleArgs", "scheduleId");
+            }
             return $;
         }
     }

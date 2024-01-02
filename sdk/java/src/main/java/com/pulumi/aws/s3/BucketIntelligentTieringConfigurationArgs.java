@@ -7,6 +7,7 @@ import com.pulumi.aws.s3.inputs.BucketIntelligentTieringConfigurationFilterArgs;
 import com.pulumi.aws.s3.inputs.BucketIntelligentTieringConfigurationTieringArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -237,8 +238,12 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
         }
 
         public BucketIntelligentTieringConfigurationArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.tierings = Objects.requireNonNull($.tierings, "expected parameter 'tierings' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("BucketIntelligentTieringConfigurationArgs", "bucket");
+            }
+            if ($.tierings == null) {
+                throw new MissingRequiredPropertyException("BucketIntelligentTieringConfigurationArgs", "tierings");
+            }
             return $;
         }
     }

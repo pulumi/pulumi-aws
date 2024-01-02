@@ -58,11 +58,13 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesM
 
         @CustomType.Setter
         public Builder all(@Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder excludedCookies(@Nullable List<String> excludedCookies) {
+
             this.excludedCookies = excludedCookies;
             return this;
         }
@@ -71,6 +73,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesM
         }
         @CustomType.Setter
         public Builder includedCookies(@Nullable List<String> includedCookies) {
+
             this.includedCookies = includedCookies;
             return this;
         }

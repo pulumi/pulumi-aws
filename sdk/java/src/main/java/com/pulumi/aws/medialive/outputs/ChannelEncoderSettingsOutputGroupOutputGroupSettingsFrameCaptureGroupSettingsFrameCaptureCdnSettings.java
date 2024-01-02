@@ -36,6 +36,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
 
         @CustomType.Setter
         public Builder frameCaptureS3Settings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings frameCaptureS3Settings) {
+
             this.frameCaptureS3Settings = frameCaptureS3Settings;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -34,7 +35,10 @@ public final class V2modelsBotVersionLocaleSpecification {
 
         @CustomType.Setter
         public Builder sourceBotVersion(String sourceBotVersion) {
-            this.sourceBotVersion = Objects.requireNonNull(sourceBotVersion);
+            if (sourceBotVersion == null) {
+              throw new MissingRequiredPropertyException("V2modelsBotVersionLocaleSpecification", "sourceBotVersion");
+            }
+            this.sourceBotVersion = sourceBotVersion;
             return this;
         }
         public V2modelsBotVersionLocaleSpecification build() {

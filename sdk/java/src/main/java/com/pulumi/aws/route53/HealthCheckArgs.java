@@ -5,6 +5,7 @@ package com.pulumi.aws.route53;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -864,7 +865,9 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public HealthCheckArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("HealthCheckArgs", "type");
+            }
             return $;
         }
     }

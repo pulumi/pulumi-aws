@@ -74,16 +74,19 @@ public final class GetTagsFilterOr {
 
         @CustomType.Setter
         public Builder costCategory(@Nullable GetTagsFilterOrCostCategory costCategory) {
+
             this.costCategory = costCategory;
             return this;
         }
         @CustomType.Setter
         public Builder dimension(@Nullable GetTagsFilterOrDimension dimension) {
+
             this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable GetTagsFilterOrTags tags) {
+
             this.tags = tags;
             return this;
         }

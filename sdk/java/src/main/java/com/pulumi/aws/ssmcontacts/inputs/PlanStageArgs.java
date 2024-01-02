@@ -6,6 +6,7 @@ package com.pulumi.aws.ssmcontacts.inputs;
 import com.pulumi.aws.ssmcontacts.inputs.PlanStageTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class PlanStageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PlanStageArgs build() {
-            $.durationInMinutes = Objects.requireNonNull($.durationInMinutes, "expected parameter 'durationInMinutes' to be non-null");
+            if ($.durationInMinutes == null) {
+                throw new MissingRequiredPropertyException("PlanStageArgs", "durationInMinutes");
+            }
             return $;
         }
     }

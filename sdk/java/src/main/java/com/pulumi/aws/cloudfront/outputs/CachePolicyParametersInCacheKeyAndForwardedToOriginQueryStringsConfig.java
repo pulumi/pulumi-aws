@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,11 +60,15 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStrin
 
         @CustomType.Setter
         public Builder queryStringBehavior(String queryStringBehavior) {
-            this.queryStringBehavior = Objects.requireNonNull(queryStringBehavior);
+            if (queryStringBehavior == null) {
+              throw new MissingRequiredPropertyException("CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig", "queryStringBehavior");
+            }
+            this.queryStringBehavior = queryStringBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder queryStrings(@Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings queryStrings) {
+
             this.queryStrings = queryStrings;
             return this;
         }

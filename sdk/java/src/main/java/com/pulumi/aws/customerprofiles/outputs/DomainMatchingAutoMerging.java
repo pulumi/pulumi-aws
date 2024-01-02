@@ -6,6 +6,7 @@ package com.pulumi.aws.customerprofiles.outputs;
 import com.pulumi.aws.customerprofiles.outputs.DomainMatchingAutoMergingConflictResolution;
 import com.pulumi.aws.customerprofiles.outputs.DomainMatchingAutoMergingConsolidation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.util.Objects;
@@ -83,21 +84,27 @@ public final class DomainMatchingAutoMerging {
 
         @CustomType.Setter
         public Builder conflictResolution(@Nullable DomainMatchingAutoMergingConflictResolution conflictResolution) {
+
             this.conflictResolution = conflictResolution;
             return this;
         }
         @CustomType.Setter
         public Builder consolidation(@Nullable DomainMatchingAutoMergingConsolidation consolidation) {
+
             this.consolidation = consolidation;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("DomainMatchingAutoMerging", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder minAllowedConfidenceScoreForMerging(@Nullable Double minAllowedConfidenceScoreForMerging) {
+
             this.minAllowedConfidenceScoreForMerging = minAllowedConfidenceScoreForMerging;
             return this;
         }

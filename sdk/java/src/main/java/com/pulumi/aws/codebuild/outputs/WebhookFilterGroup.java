@@ -44,6 +44,7 @@ public final class WebhookFilterGroup {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<WebhookFilterGroupFilter> filters) {
+
             this.filters = filters;
             return this;
         }

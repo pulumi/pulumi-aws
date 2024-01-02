@@ -10,6 +10,7 @@ import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatele
 import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -411,8 +412,12 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
         }
 
         public FirewallPolicyFirewallPolicyArgs build() {
-            $.statelessDefaultActions = Objects.requireNonNull($.statelessDefaultActions, "expected parameter 'statelessDefaultActions' to be non-null");
-            $.statelessFragmentDefaultActions = Objects.requireNonNull($.statelessFragmentDefaultActions, "expected parameter 'statelessFragmentDefaultActions' to be non-null");
+            if ($.statelessDefaultActions == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicyArgs", "statelessDefaultActions");
+            }
+            if ($.statelessFragmentDefaultActions == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicyArgs", "statelessFragmentDefaultActions");
+            }
             return $;
         }
     }

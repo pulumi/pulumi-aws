@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudformation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -192,7 +193,10 @@ public final class GetStackResult {
 
         @CustomType.Setter
         public Builder capabilities(List<String> capabilities) {
-            this.capabilities = Objects.requireNonNull(capabilities);
+            if (capabilities == null) {
+              throw new MissingRequiredPropertyException("GetStackResult", "capabilities");
+            }
+            this.capabilities = capabilities;
             return this;
         }
         public Builder capabilities(String... capabilities) {
@@ -200,32 +204,50 @@ public final class GetStackResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetStackResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder disableRollback(Boolean disableRollback) {
-            this.disableRollback = Objects.requireNonNull(disableRollback);
+            if (disableRollback == null) {
+              throw new MissingRequiredPropertyException("GetStackResult", "disableRollback");
+            }
+            this.disableRollback = disableRollback;
             return this;
         }
         @CustomType.Setter
         public Builder iamRoleArn(String iamRoleArn) {
-            this.iamRoleArn = Objects.requireNonNull(iamRoleArn);
+            if (iamRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetStackResult", "iamRoleArn");
+            }
+            this.iamRoleArn = iamRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetStackResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetStackResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder notificationArns(List<String> notificationArns) {
-            this.notificationArns = Objects.requireNonNull(notificationArns);
+            if (notificationArns == null) {
+              throw new MissingRequiredPropertyException("GetStackResult", "notificationArns");
+            }
+            this.notificationArns = notificationArns;
             return this;
         }
         public Builder notificationArns(String... notificationArns) {
@@ -233,27 +255,42 @@ public final class GetStackResult {
         }
         @CustomType.Setter
         public Builder outputs(Map<String,String> outputs) {
-            this.outputs = Objects.requireNonNull(outputs);
+            if (outputs == null) {
+              throw new MissingRequiredPropertyException("GetStackResult", "outputs");
+            }
+            this.outputs = outputs;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(Map<String,String> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetStackResult", "parameters");
+            }
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetStackResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder templateBody(String templateBody) {
-            this.templateBody = Objects.requireNonNull(templateBody);
+            if (templateBody == null) {
+              throw new MissingRequiredPropertyException("GetStackResult", "templateBody");
+            }
+            this.templateBody = templateBody;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutInMinutes(Integer timeoutInMinutes) {
-            this.timeoutInMinutes = Objects.requireNonNull(timeoutInMinutes);
+            if (timeoutInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetStackResult", "timeoutInMinutes");
+            }
+            this.timeoutInMinutes = timeoutInMinutes;
             return this;
         }
         public GetStackResult build() {

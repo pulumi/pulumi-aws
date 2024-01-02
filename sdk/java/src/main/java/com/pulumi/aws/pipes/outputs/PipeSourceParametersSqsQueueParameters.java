@@ -58,11 +58,13 @@ public final class PipeSourceParametersSqsQueueParameters {
 
         @CustomType.Setter
         public Builder batchSize(@Nullable Integer batchSize) {
+
             this.batchSize = batchSize;
             return this;
         }
         @CustomType.Setter
         public Builder maximumBatchingWindowInSeconds(@Nullable Integer maximumBatchingWindowInSeconds) {
+
             this.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
             return this;
         }

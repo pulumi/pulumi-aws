@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,9 @@ public final class DistributionRestrictionsGeoRestrictionArgs extends com.pulumi
         }
 
         public DistributionRestrictionsGeoRestrictionArgs build() {
-            $.restrictionType = Objects.requireNonNull($.restrictionType, "expected parameter 'restrictionType' to be non-null");
+            if ($.restrictionType == null) {
+                throw new MissingRequiredPropertyException("DistributionRestrictionsGeoRestrictionArgs", "restrictionType");
+            }
             return $;
         }
     }

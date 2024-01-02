@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class RuleGroupRuleGroupStatefulRuleOptionsArgs extends com.pulumi.
         }
 
         public RuleGroupRuleGroupStatefulRuleOptionsArgs build() {
-            $.ruleOrder = Objects.requireNonNull($.ruleOrder, "expected parameter 'ruleOrder' to be non-null");
+            if ($.ruleOrder == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupStatefulRuleOptionsArgs", "ruleOrder");
+            }
             return $;
         }
     }

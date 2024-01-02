@@ -5,6 +5,7 @@ package com.pulumi.aws.sesv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -195,9 +196,15 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ContactListTopicArgs build() {
-            $.defaultSubscriptionStatus = Objects.requireNonNull($.defaultSubscriptionStatus, "expected parameter 'defaultSubscriptionStatus' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.topicName = Objects.requireNonNull($.topicName, "expected parameter 'topicName' to be non-null");
+            if ($.defaultSubscriptionStatus == null) {
+                throw new MissingRequiredPropertyException("ContactListTopicArgs", "defaultSubscriptionStatus");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("ContactListTopicArgs", "displayName");
+            }
+            if ($.topicName == null) {
+                throw new MissingRequiredPropertyException("ContactListTopicArgs", "topicName");
+            }
             return $;
         }
     }

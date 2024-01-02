@@ -7,6 +7,7 @@ import com.pulumi.aws.ec2.outputs.SpotFleetRequestLaunchSpecificationEbsBlockDev
 import com.pulumi.aws.ec2.outputs.SpotFleetRequestLaunchSpecificationEphemeralBlockDevice;
 import com.pulumi.aws.ec2.outputs.SpotFleetRequestLaunchSpecificationRootBlockDevice;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -204,21 +205,27 @@ public final class SpotFleetRequestLaunchSpecification {
 
         @CustomType.Setter
         public Builder ami(String ami) {
-            this.ami = Objects.requireNonNull(ami);
+            if (ami == null) {
+              throw new MissingRequiredPropertyException("SpotFleetRequestLaunchSpecification", "ami");
+            }
+            this.ami = ami;
             return this;
         }
         @CustomType.Setter
         public Builder associatePublicIpAddress(@Nullable Boolean associatePublicIpAddress) {
+
             this.associatePublicIpAddress = associatePublicIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
+
             this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder ebsBlockDevices(@Nullable List<SpotFleetRequestLaunchSpecificationEbsBlockDevice> ebsBlockDevices) {
+
             this.ebsBlockDevices = ebsBlockDevices;
             return this;
         }
@@ -227,11 +234,13 @@ public final class SpotFleetRequestLaunchSpecification {
         }
         @CustomType.Setter
         public Builder ebsOptimized(@Nullable Boolean ebsOptimized) {
+
             this.ebsOptimized = ebsOptimized;
             return this;
         }
         @CustomType.Setter
         public Builder ephemeralBlockDevices(@Nullable List<SpotFleetRequestLaunchSpecificationEphemeralBlockDevice> ephemeralBlockDevices) {
+
             this.ephemeralBlockDevices = ephemeralBlockDevices;
             return this;
         }
@@ -240,41 +249,51 @@ public final class SpotFleetRequestLaunchSpecification {
         }
         @CustomType.Setter
         public Builder iamInstanceProfile(@Nullable String iamInstanceProfile) {
+
             this.iamInstanceProfile = iamInstanceProfile;
             return this;
         }
         @CustomType.Setter
         public Builder iamInstanceProfileArn(@Nullable String iamInstanceProfileArn) {
+
             this.iamInstanceProfileArn = iamInstanceProfileArn;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("SpotFleetRequestLaunchSpecification", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder keyName(@Nullable String keyName) {
+
             this.keyName = keyName;
             return this;
         }
         @CustomType.Setter
         public Builder monitoring(@Nullable Boolean monitoring) {
+
             this.monitoring = monitoring;
             return this;
         }
         @CustomType.Setter
         public Builder placementGroup(@Nullable String placementGroup) {
+
             this.placementGroup = placementGroup;
             return this;
         }
         @CustomType.Setter
         public Builder placementTenancy(@Nullable String placementTenancy) {
+
             this.placementTenancy = placementTenancy;
             return this;
         }
         @CustomType.Setter
         public Builder rootBlockDevices(@Nullable List<SpotFleetRequestLaunchSpecificationRootBlockDevice> rootBlockDevices) {
+
             this.rootBlockDevices = rootBlockDevices;
             return this;
         }
@@ -283,26 +302,31 @@ public final class SpotFleetRequestLaunchSpecification {
         }
         @CustomType.Setter
         public Builder spotPrice(@Nullable String spotPrice) {
+
             this.spotPrice = spotPrice;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder userData(@Nullable String userData) {
+
             this.userData = userData;
             return this;
         }
         @CustomType.Setter
         public Builder vpcSecurityGroupIds(@Nullable List<String> vpcSecurityGroupIds) {
+
             this.vpcSecurityGroupIds = vpcSecurityGroupIds;
             return this;
         }
@@ -311,6 +335,7 @@ public final class SpotFleetRequestLaunchSpecification {
         }
         @CustomType.Setter
         public Builder weightedCapacity(@Nullable String weightedCapacity) {
+
             this.weightedCapacity = weightedCapacity;
             return this;
         }

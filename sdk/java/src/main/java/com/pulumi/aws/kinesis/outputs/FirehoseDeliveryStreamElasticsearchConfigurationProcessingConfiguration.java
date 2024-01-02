@@ -60,11 +60,13 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationProcessingCon
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder processors(@Nullable List<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor> processors) {
+
             this.processors = processors;
             return this;
         }

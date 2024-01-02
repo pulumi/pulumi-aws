@@ -11,6 +11,7 @@ import com.pulumi.aws.identitystore.outputs.GetUserFilter;
 import com.pulumi.aws.identitystore.outputs.GetUserName;
 import com.pulumi.aws.identitystore.outputs.GetUserPhoneNumber;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -284,7 +285,10 @@ public final class GetUserResult {
 
         @CustomType.Setter
         public Builder addresses(List<GetUserAddress> addresses) {
-            this.addresses = Objects.requireNonNull(addresses);
+            if (addresses == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "addresses");
+            }
+            this.addresses = addresses;
             return this;
         }
         public Builder addresses(GetUserAddress... addresses) {
@@ -292,17 +296,24 @@ public final class GetUserResult {
         }
         @CustomType.Setter
         public Builder alternateIdentifier(@Nullable GetUserAlternateIdentifier alternateIdentifier) {
+
             this.alternateIdentifier = alternateIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder emails(List<GetUserEmail> emails) {
-            this.emails = Objects.requireNonNull(emails);
+            if (emails == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "emails");
+            }
+            this.emails = emails;
             return this;
         }
         public Builder emails(GetUserEmail... emails) {
@@ -310,7 +321,10 @@ public final class GetUserResult {
         }
         @CustomType.Setter
         public Builder externalIds(List<GetUserExternalId> externalIds) {
-            this.externalIds = Objects.requireNonNull(externalIds);
+            if (externalIds == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "externalIds");
+            }
+            this.externalIds = externalIds;
             return this;
         }
         public Builder externalIds(GetUserExternalId... externalIds) {
@@ -318,27 +332,40 @@ public final class GetUserResult {
         }
         @CustomType.Setter
         public Builder filter(@Nullable GetUserFilter filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identityStoreId(String identityStoreId) {
-            this.identityStoreId = Objects.requireNonNull(identityStoreId);
+            if (identityStoreId == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "identityStoreId");
+            }
+            this.identityStoreId = identityStoreId;
             return this;
         }
         @CustomType.Setter
         public Builder locale(String locale) {
-            this.locale = Objects.requireNonNull(locale);
+            if (locale == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "locale");
+            }
+            this.locale = locale;
             return this;
         }
         @CustomType.Setter
         public Builder names(List<GetUserName> names) {
-            this.names = Objects.requireNonNull(names);
+            if (names == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "names");
+            }
+            this.names = names;
             return this;
         }
         public Builder names(GetUserName... names) {
@@ -346,12 +373,18 @@ public final class GetUserResult {
         }
         @CustomType.Setter
         public Builder nickname(String nickname) {
-            this.nickname = Objects.requireNonNull(nickname);
+            if (nickname == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "nickname");
+            }
+            this.nickname = nickname;
             return this;
         }
         @CustomType.Setter
         public Builder phoneNumbers(List<GetUserPhoneNumber> phoneNumbers) {
-            this.phoneNumbers = Objects.requireNonNull(phoneNumbers);
+            if (phoneNumbers == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "phoneNumbers");
+            }
+            this.phoneNumbers = phoneNumbers;
             return this;
         }
         public Builder phoneNumbers(GetUserPhoneNumber... phoneNumbers) {
@@ -359,37 +392,58 @@ public final class GetUserResult {
         }
         @CustomType.Setter
         public Builder preferredLanguage(String preferredLanguage) {
-            this.preferredLanguage = Objects.requireNonNull(preferredLanguage);
+            if (preferredLanguage == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "preferredLanguage");
+            }
+            this.preferredLanguage = preferredLanguage;
             return this;
         }
         @CustomType.Setter
         public Builder profileUrl(String profileUrl) {
-            this.profileUrl = Objects.requireNonNull(profileUrl);
+            if (profileUrl == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "profileUrl");
+            }
+            this.profileUrl = profileUrl;
             return this;
         }
         @CustomType.Setter
         public Builder timezone(String timezone) {
-            this.timezone = Objects.requireNonNull(timezone);
+            if (timezone == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "timezone");
+            }
+            this.timezone = timezone;
             return this;
         }
         @CustomType.Setter
         public Builder title(String title) {
-            this.title = Objects.requireNonNull(title);
+            if (title == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "title");
+            }
+            this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder userId(String userId) {
-            this.userId = Objects.requireNonNull(userId);
+            if (userId == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "userId");
+            }
+            this.userId = userId;
             return this;
         }
         @CustomType.Setter
         public Builder userName(String userName) {
-            this.userName = Objects.requireNonNull(userName);
+            if (userName == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "userName");
+            }
+            this.userName = userName;
             return this;
         }
         @CustomType.Setter
         public Builder userType(String userType) {
-            this.userType = Objects.requireNonNull(userType);
+            if (userType == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "userType");
+            }
+            this.userType = userType;
             return this;
         }
         public GetUserResult build() {

@@ -11,6 +11,7 @@ import com.pulumi.aws.mq.outputs.GetBrokerLogs;
 import com.pulumi.aws.mq.outputs.GetBrokerMaintenanceWindowStartTime;
 import com.pulumi.aws.mq.outputs.GetBrokerUser;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -178,42 +179,66 @@ public final class GetBrokerResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder authenticationStrategy(String authenticationStrategy) {
-            this.authenticationStrategy = Objects.requireNonNull(authenticationStrategy);
+            if (authenticationStrategy == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "authenticationStrategy");
+            }
+            this.authenticationStrategy = authenticationStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder autoMinorVersionUpgrade(Boolean autoMinorVersionUpgrade) {
-            this.autoMinorVersionUpgrade = Objects.requireNonNull(autoMinorVersionUpgrade);
+            if (autoMinorVersionUpgrade == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "autoMinorVersionUpgrade");
+            }
+            this.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
             return this;
         }
         @CustomType.Setter
         public Builder brokerId(String brokerId) {
-            this.brokerId = Objects.requireNonNull(brokerId);
+            if (brokerId == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "brokerId");
+            }
+            this.brokerId = brokerId;
             return this;
         }
         @CustomType.Setter
         public Builder brokerName(String brokerName) {
-            this.brokerName = Objects.requireNonNull(brokerName);
+            if (brokerName == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "brokerName");
+            }
+            this.brokerName = brokerName;
             return this;
         }
         @CustomType.Setter
         public Builder configuration(GetBrokerConfiguration configuration) {
-            this.configuration = Objects.requireNonNull(configuration);
+            if (configuration == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "configuration");
+            }
+            this.configuration = configuration;
             return this;
         }
         @CustomType.Setter
         public Builder deploymentMode(String deploymentMode) {
-            this.deploymentMode = Objects.requireNonNull(deploymentMode);
+            if (deploymentMode == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "deploymentMode");
+            }
+            this.deploymentMode = deploymentMode;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionOptions(List<GetBrokerEncryptionOption> encryptionOptions) {
-            this.encryptionOptions = Objects.requireNonNull(encryptionOptions);
+            if (encryptionOptions == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "encryptionOptions");
+            }
+            this.encryptionOptions = encryptionOptions;
             return this;
         }
         public Builder encryptionOptions(GetBrokerEncryptionOption... encryptionOptions) {
@@ -221,27 +246,42 @@ public final class GetBrokerResult {
         }
         @CustomType.Setter
         public Builder engineType(String engineType) {
-            this.engineType = Objects.requireNonNull(engineType);
+            if (engineType == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "engineType");
+            }
+            this.engineType = engineType;
             return this;
         }
         @CustomType.Setter
         public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+            if (engineVersion == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "engineVersion");
+            }
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
         public Builder hostInstanceType(String hostInstanceType) {
-            this.hostInstanceType = Objects.requireNonNull(hostInstanceType);
+            if (hostInstanceType == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "hostInstanceType");
+            }
+            this.hostInstanceType = hostInstanceType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instances(List<GetBrokerInstance> instances) {
-            this.instances = Objects.requireNonNull(instances);
+            if (instances == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "instances");
+            }
+            this.instances = instances;
             return this;
         }
         public Builder instances(GetBrokerInstance... instances) {
@@ -249,7 +289,10 @@ public final class GetBrokerResult {
         }
         @CustomType.Setter
         public Builder ldapServerMetadatas(List<GetBrokerLdapServerMetadata> ldapServerMetadatas) {
-            this.ldapServerMetadatas = Objects.requireNonNull(ldapServerMetadatas);
+            if (ldapServerMetadatas == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "ldapServerMetadatas");
+            }
+            this.ldapServerMetadatas = ldapServerMetadatas;
             return this;
         }
         public Builder ldapServerMetadatas(GetBrokerLdapServerMetadata... ldapServerMetadatas) {
@@ -257,22 +300,34 @@ public final class GetBrokerResult {
         }
         @CustomType.Setter
         public Builder logs(GetBrokerLogs logs) {
-            this.logs = Objects.requireNonNull(logs);
+            if (logs == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "logs");
+            }
+            this.logs = logs;
             return this;
         }
         @CustomType.Setter
         public Builder maintenanceWindowStartTime(GetBrokerMaintenanceWindowStartTime maintenanceWindowStartTime) {
-            this.maintenanceWindowStartTime = Objects.requireNonNull(maintenanceWindowStartTime);
+            if (maintenanceWindowStartTime == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "maintenanceWindowStartTime");
+            }
+            this.maintenanceWindowStartTime = maintenanceWindowStartTime;
             return this;
         }
         @CustomType.Setter
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
-            this.publiclyAccessible = Objects.requireNonNull(publiclyAccessible);
+            if (publiclyAccessible == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "publiclyAccessible");
+            }
+            this.publiclyAccessible = publiclyAccessible;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
-            this.securityGroups = Objects.requireNonNull(securityGroups);
+            if (securityGroups == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "securityGroups");
+            }
+            this.securityGroups = securityGroups;
             return this;
         }
         public Builder securityGroups(String... securityGroups) {
@@ -280,12 +335,18 @@ public final class GetBrokerResult {
         }
         @CustomType.Setter
         public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+            if (storageType == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "storageType");
+            }
+            this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -293,12 +354,18 @@ public final class GetBrokerResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder users(List<GetBrokerUser> users) {
-            this.users = Objects.requireNonNull(users);
+            if (users == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "users");
+            }
+            this.users = users;
             return this;
         }
         public Builder users(GetBrokerUser... users) {

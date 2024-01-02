@@ -6,6 +6,7 @@ package com.pulumi.aws.s3.inputs;
 import com.pulumi.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class AnalyticsConfigurationStorageClassAnalysisArgs extends com.pu
         }
 
         public AnalyticsConfigurationStorageClassAnalysisArgs build() {
-            $.dataExport = Objects.requireNonNull($.dataExport, "expected parameter 'dataExport' to be non-null");
+            if ($.dataExport == null) {
+                throw new MissingRequiredPropertyException("AnalyticsConfigurationStorageClassAnalysisArgs", "dataExport");
+            }
             return $;
         }
     }

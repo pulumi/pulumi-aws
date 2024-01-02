@@ -7,6 +7,7 @@ import com.pulumi.aws.ec2.outputs.GetRouteTableAssociation;
 import com.pulumi.aws.ec2.outputs.GetRouteTableFilter;
 import com.pulumi.aws.ec2.outputs.GetRouteTableRoute;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -164,12 +165,18 @@ public final class GetRouteTableResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder associations(List<GetRouteTableAssociation> associations) {
-            this.associations = Objects.requireNonNull(associations);
+            if (associations == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "associations");
+            }
+            this.associations = associations;
             return this;
         }
         public Builder associations(GetRouteTableAssociation... associations) {
@@ -177,6 +184,7 @@ public final class GetRouteTableResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetRouteTableFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -185,27 +193,42 @@ public final class GetRouteTableResult {
         }
         @CustomType.Setter
         public Builder gatewayId(String gatewayId) {
-            this.gatewayId = Objects.requireNonNull(gatewayId);
+            if (gatewayId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "gatewayId");
+            }
+            this.gatewayId = gatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder routeTableId(String routeTableId) {
-            this.routeTableId = Objects.requireNonNull(routeTableId);
+            if (routeTableId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "routeTableId");
+            }
+            this.routeTableId = routeTableId;
             return this;
         }
         @CustomType.Setter
         public Builder routes(List<GetRouteTableRoute> routes) {
-            this.routes = Objects.requireNonNull(routes);
+            if (routes == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "routes");
+            }
+            this.routes = routes;
             return this;
         }
         public Builder routes(GetRouteTableRoute... routes) {
@@ -213,17 +236,26 @@ public final class GetRouteTableResult {
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetRouteTableResult build() {

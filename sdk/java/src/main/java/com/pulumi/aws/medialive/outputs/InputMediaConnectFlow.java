@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class InputMediaConnectFlow {
 
         @CustomType.Setter
         public Builder flowArn(String flowArn) {
-            this.flowArn = Objects.requireNonNull(flowArn);
+            if (flowArn == null) {
+              throw new MissingRequiredPropertyException("InputMediaConnectFlow", "flowArn");
+            }
+            this.flowArn = flowArn;
             return this;
         }
         public InputMediaConnectFlow build() {

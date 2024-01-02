@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class FlowDefinitionOutputConfigArgs extends com.pulumi.resources.R
         }
 
         public FlowDefinitionOutputConfigArgs build() {
-            $.s3OutputPath = Objects.requireNonNull($.s3OutputPath, "expected parameter 's3OutputPath' to be non-null");
+            if ($.s3OutputPath == null) {
+                throw new MissingRequiredPropertyException("FlowDefinitionOutputConfigArgs", "s3OutputPath");
+            }
             return $;
         }
     }

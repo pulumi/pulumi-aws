@@ -5,6 +5,7 @@ package com.pulumi.aws.rbin.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class RuleRetentionPeriodArgs extends com.pulumi.resources.Resource
         }
 
         public RuleRetentionPeriodArgs build() {
-            $.retentionPeriodUnit = Objects.requireNonNull($.retentionPeriodUnit, "expected parameter 'retentionPeriodUnit' to be non-null");
-            $.retentionPeriodValue = Objects.requireNonNull($.retentionPeriodValue, "expected parameter 'retentionPeriodValue' to be non-null");
+            if ($.retentionPeriodUnit == null) {
+                throw new MissingRequiredPropertyException("RuleRetentionPeriodArgs", "retentionPeriodUnit");
+            }
+            if ($.retentionPeriodValue == null) {
+                throw new MissingRequiredPropertyException("RuleRetentionPeriodArgs", "retentionPeriodValue");
+            }
             return $;
         }
     }

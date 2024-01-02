@@ -16,6 +16,7 @@ import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsSharingSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsSpaceStorageSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsTensorBoardAppSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -267,16 +268,19 @@ public final class UserProfileUserSettings {
 
         @CustomType.Setter
         public Builder canvasAppSettings(@Nullable UserProfileUserSettingsCanvasAppSettings canvasAppSettings) {
+
             this.canvasAppSettings = canvasAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder codeEditorAppSettings(@Nullable UserProfileUserSettingsCodeEditorAppSettings codeEditorAppSettings) {
+
             this.codeEditorAppSettings = codeEditorAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder customFileSystemConfigs(@Nullable List<UserProfileUserSettingsCustomFileSystemConfig> customFileSystemConfigs) {
+
             this.customFileSystemConfigs = customFileSystemConfigs;
             return this;
         }
@@ -285,46 +289,57 @@ public final class UserProfileUserSettings {
         }
         @CustomType.Setter
         public Builder customPosixUserConfig(@Nullable UserProfileUserSettingsCustomPosixUserConfig customPosixUserConfig) {
+
             this.customPosixUserConfig = customPosixUserConfig;
             return this;
         }
         @CustomType.Setter
         public Builder defaultLandingUri(@Nullable String defaultLandingUri) {
+
             this.defaultLandingUri = defaultLandingUri;
             return this;
         }
         @CustomType.Setter
         public Builder executionRole(String executionRole) {
-            this.executionRole = Objects.requireNonNull(executionRole);
+            if (executionRole == null) {
+              throw new MissingRequiredPropertyException("UserProfileUserSettings", "executionRole");
+            }
+            this.executionRole = executionRole;
             return this;
         }
         @CustomType.Setter
         public Builder jupyterLabAppSettings(@Nullable UserProfileUserSettingsJupyterLabAppSettings jupyterLabAppSettings) {
+
             this.jupyterLabAppSettings = jupyterLabAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder jupyterServerAppSettings(@Nullable UserProfileUserSettingsJupyterServerAppSettings jupyterServerAppSettings) {
+
             this.jupyterServerAppSettings = jupyterServerAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder kernelGatewayAppSettings(@Nullable UserProfileUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings) {
+
             this.kernelGatewayAppSettings = kernelGatewayAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder rSessionAppSettings(@Nullable UserProfileUserSettingsRSessionAppSettings rSessionAppSettings) {
+
             this.rSessionAppSettings = rSessionAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder rStudioServerProAppSettings(@Nullable UserProfileUserSettingsRStudioServerProAppSettings rStudioServerProAppSettings) {
+
             this.rStudioServerProAppSettings = rStudioServerProAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
+
             this.securityGroups = securityGroups;
             return this;
         }
@@ -333,21 +348,25 @@ public final class UserProfileUserSettings {
         }
         @CustomType.Setter
         public Builder sharingSettings(@Nullable UserProfileUserSettingsSharingSettings sharingSettings) {
+
             this.sharingSettings = sharingSettings;
             return this;
         }
         @CustomType.Setter
         public Builder spaceStorageSettings(@Nullable UserProfileUserSettingsSpaceStorageSettings spaceStorageSettings) {
+
             this.spaceStorageSettings = spaceStorageSettings;
             return this;
         }
         @CustomType.Setter
         public Builder studioWebPortal(@Nullable String studioWebPortal) {
+
             this.studioWebPortal = studioWebPortal;
             return this;
         }
         @CustomType.Setter
         public Builder tensorBoardAppSettings(@Nullable UserProfileUserSettingsTensorBoardAppSettings tensorBoardAppSettings) {
+
             this.tensorBoardAppSettings = tensorBoardAppSettings;
             return this;
         }

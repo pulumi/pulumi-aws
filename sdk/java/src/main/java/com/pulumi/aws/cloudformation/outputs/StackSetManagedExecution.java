@@ -44,6 +44,7 @@ public final class StackSetManagedExecution {
 
         @CustomType.Setter
         public Builder active(@Nullable Boolean active) {
+
             this.active = active;
             return this;
         }

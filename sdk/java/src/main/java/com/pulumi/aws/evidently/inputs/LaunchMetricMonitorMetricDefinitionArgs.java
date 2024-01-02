@@ -5,6 +5,7 @@ package com.pulumi.aws.evidently.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class LaunchMetricMonitorMetricDefinitionArgs extends com.pulumi.re
         }
 
         public LaunchMetricMonitorMetricDefinitionArgs build() {
-            $.entityIdKey = Objects.requireNonNull($.entityIdKey, "expected parameter 'entityIdKey' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.valueKey = Objects.requireNonNull($.valueKey, "expected parameter 'valueKey' to be non-null");
+            if ($.entityIdKey == null) {
+                throw new MissingRequiredPropertyException("LaunchMetricMonitorMetricDefinitionArgs", "entityIdKey");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("LaunchMetricMonitorMetricDefinitionArgs", "name");
+            }
+            if ($.valueKey == null) {
+                throw new MissingRequiredPropertyException("LaunchMetricMonitorMetricDefinitionArgs", "valueKey");
+            }
             return $;
         }
     }

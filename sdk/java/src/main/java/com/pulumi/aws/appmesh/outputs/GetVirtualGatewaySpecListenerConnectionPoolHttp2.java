@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -34,7 +35,10 @@ public final class GetVirtualGatewaySpecListenerConnectionPoolHttp2 {
 
         @CustomType.Setter
         public Builder maxRequests(Integer maxRequests) {
-            this.maxRequests = Objects.requireNonNull(maxRequests);
+            if (maxRequests == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerConnectionPoolHttp2", "maxRequests");
+            }
+            this.maxRequests = maxRequests;
             return this;
         }
         public GetVirtualGatewaySpecListenerConnectionPoolHttp2 build() {

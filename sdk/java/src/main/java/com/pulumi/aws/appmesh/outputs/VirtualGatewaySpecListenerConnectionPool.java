@@ -74,16 +74,19 @@ public final class VirtualGatewaySpecListenerConnectionPool {
 
         @CustomType.Setter
         public Builder grpc(@Nullable VirtualGatewaySpecListenerConnectionPoolGrpc grpc) {
+
             this.grpc = grpc;
             return this;
         }
         @CustomType.Setter
         public Builder http(@Nullable VirtualGatewaySpecListenerConnectionPoolHttp http) {
+
             this.http = http;
             return this;
         }
         @CustomType.Setter
         public Builder http2(@Nullable VirtualGatewaySpecListenerConnectionPoolHttp2 http2) {
+
             this.http2 = http2;
             return this;
         }

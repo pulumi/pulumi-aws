@@ -17,6 +17,7 @@ import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsSpaceStorageSettin
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsTensorBoardAppSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -664,7 +665,9 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
         }
 
         public UserProfileUserSettingsArgs build() {
-            $.executionRole = Objects.requireNonNull($.executionRole, "expected parameter 'executionRole' to be non-null");
+            if ($.executionRole == null) {
+                throw new MissingRequiredPropertyException("UserProfileUserSettingsArgs", "executionRole");
+            }
             return $;
         }
     }

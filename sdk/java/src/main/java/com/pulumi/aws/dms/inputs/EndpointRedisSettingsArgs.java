@@ -5,6 +5,7 @@ package com.pulumi.aws.dms.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -299,9 +300,15 @@ public final class EndpointRedisSettingsArgs extends com.pulumi.resources.Resour
         }
 
         public EndpointRedisSettingsArgs build() {
-            $.authType = Objects.requireNonNull($.authType, "expected parameter 'authType' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.serverName = Objects.requireNonNull($.serverName, "expected parameter 'serverName' to be non-null");
+            if ($.authType == null) {
+                throw new MissingRequiredPropertyException("EndpointRedisSettingsArgs", "authType");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("EndpointRedisSettingsArgs", "port");
+            }
+            if ($.serverName == null) {
+                throw new MissingRequiredPropertyException("EndpointRedisSettingsArgs", "serverName");
+            }
             return $;
         }
     }

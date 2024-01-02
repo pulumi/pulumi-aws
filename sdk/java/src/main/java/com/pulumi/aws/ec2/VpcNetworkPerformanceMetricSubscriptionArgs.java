@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class VpcNetworkPerformanceMetricSubscriptionArgs extends com.pulum
         }
 
         public VpcNetworkPerformanceMetricSubscriptionArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("VpcNetworkPerformanceMetricSubscriptionArgs", "destination");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("VpcNetworkPerformanceMetricSubscriptionArgs", "source");
+            }
             return $;
         }
     }

@@ -58,11 +58,13 @@ public final class FeatureGroupFeatureDefinition {
 
         @CustomType.Setter
         public Builder featureName(@Nullable String featureName) {
+
             this.featureName = featureName;
             return this;
         }
         @CustomType.Setter
         public Builder featureType(@Nullable String featureType) {
+
             this.featureType = featureType;
             return this;
         }

@@ -44,6 +44,7 @@ public final class EventEndpointRoutingConfigFailoverConfigSecondary {
 
         @CustomType.Setter
         public Builder route(@Nullable String route) {
+
             this.route = route;
             return this;
         }

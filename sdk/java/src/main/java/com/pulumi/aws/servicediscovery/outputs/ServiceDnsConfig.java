@@ -5,6 +5,7 @@ package com.pulumi.aws.servicediscovery.outputs;
 
 import com.pulumi.aws.servicediscovery.outputs.ServiceDnsConfigDnsRecord;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -74,7 +75,10 @@ public final class ServiceDnsConfig {
 
         @CustomType.Setter
         public Builder dnsRecords(List<ServiceDnsConfigDnsRecord> dnsRecords) {
-            this.dnsRecords = Objects.requireNonNull(dnsRecords);
+            if (dnsRecords == null) {
+              throw new MissingRequiredPropertyException("ServiceDnsConfig", "dnsRecords");
+            }
+            this.dnsRecords = dnsRecords;
             return this;
         }
         public Builder dnsRecords(ServiceDnsConfigDnsRecord... dnsRecords) {
@@ -82,11 +86,15 @@ public final class ServiceDnsConfig {
         }
         @CustomType.Setter
         public Builder namespaceId(String namespaceId) {
-            this.namespaceId = Objects.requireNonNull(namespaceId);
+            if (namespaceId == null) {
+              throw new MissingRequiredPropertyException("ServiceDnsConfig", "namespaceId");
+            }
+            this.namespaceId = namespaceId;
             return this;
         }
         @CustomType.Setter
         public Builder routingPolicy(@Nullable String routingPolicy) {
+
             this.routingPolicy = routingPolicy;
             return this;
         }

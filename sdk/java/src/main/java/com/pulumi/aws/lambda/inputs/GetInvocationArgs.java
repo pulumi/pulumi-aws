@@ -5,6 +5,7 @@ package com.pulumi.aws.lambda.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -154,8 +155,12 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetInvocationArgs build() {
-            $.functionName = Objects.requireNonNull($.functionName, "expected parameter 'functionName' to be non-null");
-            $.input = Objects.requireNonNull($.input, "expected parameter 'input' to be non-null");
+            if ($.functionName == null) {
+                throw new MissingRequiredPropertyException("GetInvocationArgs", "functionName");
+            }
+            if ($.input == null) {
+                throw new MissingRequiredPropertyException("GetInvocationArgs", "input");
+            }
             return $;
         }
     }

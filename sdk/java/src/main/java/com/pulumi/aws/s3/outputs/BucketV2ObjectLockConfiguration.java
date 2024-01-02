@@ -76,11 +76,13 @@ public final class BucketV2ObjectLockConfiguration {
 
         @CustomType.Setter
         public Builder objectLockEnabled(@Nullable String objectLockEnabled) {
+
             this.objectLockEnabled = objectLockEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder rules(@Nullable List<BucketV2ObjectLockConfigurationRule> rules) {
+
             this.rules = rules;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.imagebuilder;
 import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -210,7 +211,9 @@ public final class DistributionConfigurationArgs extends com.pulumi.resources.Re
         }
 
         public DistributionConfigurationArgs build() {
-            $.distributions = Objects.requireNonNull($.distributions, "expected parameter 'distributions' to be non-null");
+            if ($.distributions == null) {
+                throw new MissingRequiredPropertyException("DistributionConfigurationArgs", "distributions");
+            }
             return $;
         }
     }

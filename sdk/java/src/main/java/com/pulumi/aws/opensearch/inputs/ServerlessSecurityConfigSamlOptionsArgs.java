@@ -5,6 +5,7 @@ package com.pulumi.aws.opensearch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class ServerlessSecurityConfigSamlOptionsArgs extends com.pulumi.re
         }
 
         public ServerlessSecurityConfigSamlOptionsArgs build() {
-            $.metadata = Objects.requireNonNull($.metadata, "expected parameter 'metadata' to be non-null");
+            if ($.metadata == null) {
+                throw new MissingRequiredPropertyException("ServerlessSecurityConfigSamlOptionsArgs", "metadata");
+            }
             return $;
         }
     }

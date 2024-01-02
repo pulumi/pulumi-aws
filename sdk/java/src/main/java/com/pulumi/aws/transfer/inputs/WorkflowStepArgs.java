@@ -10,6 +10,7 @@ import com.pulumi.aws.transfer.inputs.WorkflowStepDeleteStepDetailsArgs;
 import com.pulumi.aws.transfer.inputs.WorkflowStepTagStepDetailsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -266,7 +267,9 @@ public final class WorkflowStepArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkflowStepArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("WorkflowStepArgs", "type");
+            }
             return $;
         }
     }

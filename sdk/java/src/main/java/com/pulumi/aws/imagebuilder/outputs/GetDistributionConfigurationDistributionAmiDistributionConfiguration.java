@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -115,22 +116,34 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
 
         @CustomType.Setter
         public Builder amiTags(Map<String,String> amiTags) {
-            this.amiTags = Objects.requireNonNull(amiTags);
+            if (amiTags == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionAmiDistributionConfiguration", "amiTags");
+            }
+            this.amiTags = amiTags;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionAmiDistributionConfiguration", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionAmiDistributionConfiguration", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder launchPermissions(List<GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermissions) {
-            this.launchPermissions = Objects.requireNonNull(launchPermissions);
+            if (launchPermissions == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionAmiDistributionConfiguration", "launchPermissions");
+            }
+            this.launchPermissions = launchPermissions;
             return this;
         }
         public Builder launchPermissions(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission... launchPermissions) {
@@ -138,12 +151,18 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionAmiDistributionConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder targetAccountIds(List<String> targetAccountIds) {
-            this.targetAccountIds = Objects.requireNonNull(targetAccountIds);
+            if (targetAccountIds == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionAmiDistributionConfiguration", "targetAccountIds");
+            }
+            this.targetAccountIds = targetAccountIds;
             return this;
         }
         public Builder targetAccountIds(String... targetAccountIds) {

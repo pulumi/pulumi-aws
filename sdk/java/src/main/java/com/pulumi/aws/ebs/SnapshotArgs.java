@@ -5,6 +5,7 @@ package com.pulumi.aws.ebs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -301,7 +302,9 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SnapshotArgs build() {
-            $.volumeId = Objects.requireNonNull($.volumeId, "expected parameter 'volumeId' to be non-null");
+            if ($.volumeId == null) {
+                throw new MissingRequiredPropertyException("SnapshotArgs", "volumeId");
+            }
             return $;
         }
     }

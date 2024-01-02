@@ -5,6 +5,7 @@ package com.pulumi.aws.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class TopicRuleCloudwatchAlarmArgs extends com.pulumi.resources.Res
         }
 
         public TopicRuleCloudwatchAlarmArgs build() {
-            $.alarmName = Objects.requireNonNull($.alarmName, "expected parameter 'alarmName' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.stateReason = Objects.requireNonNull($.stateReason, "expected parameter 'stateReason' to be non-null");
-            $.stateValue = Objects.requireNonNull($.stateValue, "expected parameter 'stateValue' to be non-null");
+            if ($.alarmName == null) {
+                throw new MissingRequiredPropertyException("TopicRuleCloudwatchAlarmArgs", "alarmName");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("TopicRuleCloudwatchAlarmArgs", "roleArn");
+            }
+            if ($.stateReason == null) {
+                throw new MissingRequiredPropertyException("TopicRuleCloudwatchAlarmArgs", "stateReason");
+            }
+            if ($.stateValue == null) {
+                throw new MissingRequiredPropertyException("TopicRuleCloudwatchAlarmArgs", "stateValue");
+            }
             return $;
         }
     }

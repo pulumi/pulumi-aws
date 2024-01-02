@@ -7,6 +7,7 @@ import com.pulumi.aws.emrcontainers.inputs.JobTemplateJobTemplateDataConfigurati
 import com.pulumi.aws.emrcontainers.inputs.JobTemplateJobTemplateDataJobDriverArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -227,9 +228,15 @@ public final class JobTemplateJobTemplateDataArgs extends com.pulumi.resources.R
         }
 
         public JobTemplateJobTemplateDataArgs build() {
-            $.executionRoleArn = Objects.requireNonNull($.executionRoleArn, "expected parameter 'executionRoleArn' to be non-null");
-            $.jobDriver = Objects.requireNonNull($.jobDriver, "expected parameter 'jobDriver' to be non-null");
-            $.releaseLabel = Objects.requireNonNull($.releaseLabel, "expected parameter 'releaseLabel' to be non-null");
+            if ($.executionRoleArn == null) {
+                throw new MissingRequiredPropertyException("JobTemplateJobTemplateDataArgs", "executionRoleArn");
+            }
+            if ($.jobDriver == null) {
+                throw new MissingRequiredPropertyException("JobTemplateJobTemplateDataArgs", "jobDriver");
+            }
+            if ($.releaseLabel == null) {
+                throw new MissingRequiredPropertyException("JobTemplateJobTemplateDataArgs", "releaseLabel");
+            }
             return $;
         }
     }

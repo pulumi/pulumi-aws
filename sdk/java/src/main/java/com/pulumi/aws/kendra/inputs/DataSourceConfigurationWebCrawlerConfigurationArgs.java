@@ -8,6 +8,7 @@ import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurati
 import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -398,7 +399,9 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         public DataSourceConfigurationWebCrawlerConfigurationArgs build() {
-            $.urls = Objects.requireNonNull($.urls, "expected parameter 'urls' to be non-null");
+            if ($.urls == null) {
+                throw new MissingRequiredPropertyException("DataSourceConfigurationWebCrawlerConfigurationArgs", "urls");
+            }
             return $;
         }
     }

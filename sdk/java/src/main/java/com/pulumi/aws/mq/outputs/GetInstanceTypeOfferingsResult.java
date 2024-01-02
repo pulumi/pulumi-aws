@@ -5,6 +5,7 @@ package com.pulumi.aws.mq.outputs;
 
 import com.pulumi.aws.mq.outputs.GetInstanceTypeOfferingsBrokerInstanceOption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -102,7 +103,10 @@ public final class GetInstanceTypeOfferingsResult {
 
         @CustomType.Setter
         public Builder brokerInstanceOptions(List<GetInstanceTypeOfferingsBrokerInstanceOption> brokerInstanceOptions) {
-            this.brokerInstanceOptions = Objects.requireNonNull(brokerInstanceOptions);
+            if (brokerInstanceOptions == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingsResult", "brokerInstanceOptions");
+            }
+            this.brokerInstanceOptions = brokerInstanceOptions;
             return this;
         }
         public Builder brokerInstanceOptions(GetInstanceTypeOfferingsBrokerInstanceOption... brokerInstanceOptions) {
@@ -110,21 +114,27 @@ public final class GetInstanceTypeOfferingsResult {
         }
         @CustomType.Setter
         public Builder engineType(@Nullable String engineType) {
+
             this.engineType = engineType;
             return this;
         }
         @CustomType.Setter
         public Builder hostInstanceType(@Nullable String hostInstanceType) {
+
             this.hostInstanceType = hostInstanceType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder storageType(@Nullable String storageType) {
+
             this.storageType = storageType;
             return this;
         }

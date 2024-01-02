@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.DistributionRestrictionsGeoRestriction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -34,7 +35,10 @@ public final class DistributionRestrictions {
 
         @CustomType.Setter
         public Builder geoRestriction(DistributionRestrictionsGeoRestriction geoRestriction) {
-            this.geoRestriction = Objects.requireNonNull(geoRestriction);
+            if (geoRestriction == null) {
+              throw new MissingRequiredPropertyException("DistributionRestrictions", "geoRestriction");
+            }
+            this.geoRestriction = geoRestriction;
             return this;
         }
         public DistributionRestrictions build() {

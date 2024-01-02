@@ -44,6 +44,7 @@ public final class BucketLifecycleRuleNoncurrentVersionExpiration {
 
         @CustomType.Setter
         public Builder days(@Nullable Integer days) {
+
             this.days = days;
             return this;
         }

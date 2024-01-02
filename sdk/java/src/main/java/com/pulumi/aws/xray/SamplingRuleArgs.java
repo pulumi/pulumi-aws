@@ -5,6 +5,7 @@ package com.pulumi.aws.xray;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -523,16 +524,36 @@ public final class SamplingRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SamplingRuleArgs build() {
-            $.fixedRate = Objects.requireNonNull($.fixedRate, "expected parameter 'fixedRate' to be non-null");
-            $.host = Objects.requireNonNull($.host, "expected parameter 'host' to be non-null");
-            $.httpMethod = Objects.requireNonNull($.httpMethod, "expected parameter 'httpMethod' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.reservoirSize = Objects.requireNonNull($.reservoirSize, "expected parameter 'reservoirSize' to be non-null");
-            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
-            $.serviceName = Objects.requireNonNull($.serviceName, "expected parameter 'serviceName' to be non-null");
-            $.serviceType = Objects.requireNonNull($.serviceType, "expected parameter 'serviceType' to be non-null");
-            $.urlPath = Objects.requireNonNull($.urlPath, "expected parameter 'urlPath' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.fixedRate == null) {
+                throw new MissingRequiredPropertyException("SamplingRuleArgs", "fixedRate");
+            }
+            if ($.host == null) {
+                throw new MissingRequiredPropertyException("SamplingRuleArgs", "host");
+            }
+            if ($.httpMethod == null) {
+                throw new MissingRequiredPropertyException("SamplingRuleArgs", "httpMethod");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("SamplingRuleArgs", "priority");
+            }
+            if ($.reservoirSize == null) {
+                throw new MissingRequiredPropertyException("SamplingRuleArgs", "reservoirSize");
+            }
+            if ($.resourceArn == null) {
+                throw new MissingRequiredPropertyException("SamplingRuleArgs", "resourceArn");
+            }
+            if ($.serviceName == null) {
+                throw new MissingRequiredPropertyException("SamplingRuleArgs", "serviceName");
+            }
+            if ($.serviceType == null) {
+                throw new MissingRequiredPropertyException("SamplingRuleArgs", "serviceType");
+            }
+            if ($.urlPath == null) {
+                throw new MissingRequiredPropertyException("SamplingRuleArgs", "urlPath");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("SamplingRuleArgs", "version");
+            }
             return $;
         }
     }

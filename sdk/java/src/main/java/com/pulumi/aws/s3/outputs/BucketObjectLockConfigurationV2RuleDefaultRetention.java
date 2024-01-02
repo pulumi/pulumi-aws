@@ -73,16 +73,19 @@ public final class BucketObjectLockConfigurationV2RuleDefaultRetention {
 
         @CustomType.Setter
         public Builder days(@Nullable Integer days) {
+
             this.days = days;
             return this;
         }
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder years(@Nullable Integer years) {
+
             this.years = years;
             return this;
         }

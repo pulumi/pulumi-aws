@@ -6,6 +6,7 @@ package com.pulumi.aws.glue.inputs;
 import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -152,7 +153,9 @@ public final class CatalogTableStorageDescriptorSchemaReferenceArgs extends com.
         }
 
         public CatalogTableStorageDescriptorSchemaReferenceArgs build() {
-            $.schemaVersionNumber = Objects.requireNonNull($.schemaVersionNumber, "expected parameter 'schemaVersionNumber' to be non-null");
+            if ($.schemaVersionNumber == null) {
+                throw new MissingRequiredPropertyException("CatalogTableStorageDescriptorSchemaReferenceArgs", "schemaVersionNumber");
+            }
             return $;
         }
     }

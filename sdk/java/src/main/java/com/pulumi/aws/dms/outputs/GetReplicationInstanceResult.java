@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -268,72 +269,114 @@ public final class GetReplicationInstanceResult {
 
         @CustomType.Setter
         public Builder allocatedStorage(Integer allocatedStorage) {
-            this.allocatedStorage = Objects.requireNonNull(allocatedStorage);
+            if (allocatedStorage == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "allocatedStorage");
+            }
+            this.allocatedStorage = allocatedStorage;
             return this;
         }
         @CustomType.Setter
         public Builder autoMinorVersionUpgrade(Boolean autoMinorVersionUpgrade) {
-            this.autoMinorVersionUpgrade = Objects.requireNonNull(autoMinorVersionUpgrade);
+            if (autoMinorVersionUpgrade == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "autoMinorVersionUpgrade");
+            }
+            this.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+            if (availabilityZone == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "availabilityZone");
+            }
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+            if (engineVersion == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "engineVersion");
+            }
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+            if (kmsKeyArn == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "kmsKeyArn");
+            }
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder multiAz(Boolean multiAz) {
-            this.multiAz = Objects.requireNonNull(multiAz);
+            if (multiAz == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "multiAz");
+            }
+            this.multiAz = multiAz;
             return this;
         }
         @CustomType.Setter
         public Builder networkType(String networkType) {
-            this.networkType = Objects.requireNonNull(networkType);
+            if (networkType == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "networkType");
+            }
+            this.networkType = networkType;
             return this;
         }
         @CustomType.Setter
         public Builder preferredMaintenanceWindow(String preferredMaintenanceWindow) {
-            this.preferredMaintenanceWindow = Objects.requireNonNull(preferredMaintenanceWindow);
+            if (preferredMaintenanceWindow == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "preferredMaintenanceWindow");
+            }
+            this.preferredMaintenanceWindow = preferredMaintenanceWindow;
             return this;
         }
         @CustomType.Setter
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
-            this.publiclyAccessible = Objects.requireNonNull(publiclyAccessible);
+            if (publiclyAccessible == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "publiclyAccessible");
+            }
+            this.publiclyAccessible = publiclyAccessible;
             return this;
         }
         @CustomType.Setter
         public Builder replicationInstanceArn(String replicationInstanceArn) {
-            this.replicationInstanceArn = Objects.requireNonNull(replicationInstanceArn);
+            if (replicationInstanceArn == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "replicationInstanceArn");
+            }
+            this.replicationInstanceArn = replicationInstanceArn;
             return this;
         }
         @CustomType.Setter
         public Builder replicationInstanceClass(String replicationInstanceClass) {
-            this.replicationInstanceClass = Objects.requireNonNull(replicationInstanceClass);
+            if (replicationInstanceClass == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "replicationInstanceClass");
+            }
+            this.replicationInstanceClass = replicationInstanceClass;
             return this;
         }
         @CustomType.Setter
         public Builder replicationInstanceId(String replicationInstanceId) {
-            this.replicationInstanceId = Objects.requireNonNull(replicationInstanceId);
+            if (replicationInstanceId == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "replicationInstanceId");
+            }
+            this.replicationInstanceId = replicationInstanceId;
             return this;
         }
         @CustomType.Setter
         public Builder replicationInstancePrivateIps(List<String> replicationInstancePrivateIps) {
-            this.replicationInstancePrivateIps = Objects.requireNonNull(replicationInstancePrivateIps);
+            if (replicationInstancePrivateIps == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "replicationInstancePrivateIps");
+            }
+            this.replicationInstancePrivateIps = replicationInstancePrivateIps;
             return this;
         }
         public Builder replicationInstancePrivateIps(String... replicationInstancePrivateIps) {
@@ -341,7 +384,10 @@ public final class GetReplicationInstanceResult {
         }
         @CustomType.Setter
         public Builder replicationInstancePublicIps(List<String> replicationInstancePublicIps) {
-            this.replicationInstancePublicIps = Objects.requireNonNull(replicationInstancePublicIps);
+            if (replicationInstancePublicIps == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "replicationInstancePublicIps");
+            }
+            this.replicationInstancePublicIps = replicationInstancePublicIps;
             return this;
         }
         public Builder replicationInstancePublicIps(String... replicationInstancePublicIps) {
@@ -349,17 +395,26 @@ public final class GetReplicationInstanceResult {
         }
         @CustomType.Setter
         public Builder replicationSubnetGroupId(String replicationSubnetGroupId) {
-            this.replicationSubnetGroupId = Objects.requireNonNull(replicationSubnetGroupId);
+            if (replicationSubnetGroupId == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "replicationSubnetGroupId");
+            }
+            this.replicationSubnetGroupId = replicationSubnetGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcSecurityGroupIds(List<String> vpcSecurityGroupIds) {
-            this.vpcSecurityGroupIds = Objects.requireNonNull(vpcSecurityGroupIds);
+            if (vpcSecurityGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "vpcSecurityGroupIds");
+            }
+            this.vpcSecurityGroupIds = vpcSecurityGroupIds;
             return this;
         }
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {

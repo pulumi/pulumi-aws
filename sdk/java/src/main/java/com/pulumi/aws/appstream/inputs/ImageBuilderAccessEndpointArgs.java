@@ -5,6 +5,7 @@ package com.pulumi.aws.appstream.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class ImageBuilderAccessEndpointArgs extends com.pulumi.resources.R
         }
 
         public ImageBuilderAccessEndpointArgs build() {
-            $.endpointType = Objects.requireNonNull($.endpointType, "expected parameter 'endpointType' to be non-null");
+            if ($.endpointType == null) {
+                throw new MissingRequiredPropertyException("ImageBuilderAccessEndpointArgs", "endpointType");
+            }
             return $;
         }
     }

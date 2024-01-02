@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate 
 
         @CustomType.Setter
         public Builder files(List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile> files) {
-            this.files = Objects.requireNonNull(files);
+            if (files == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate", "files");
+            }
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFile... files) {
@@ -50,7 +54,10 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate 
         }
         @CustomType.Setter
         public Builder sds(List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+            if (sds == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificate", "sds");
+            }
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSd... sds) {

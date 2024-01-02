@@ -4,6 +4,7 @@
 package com.pulumi.aws.finspace.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,23 @@ public final class KxClusterCode {
 
         @CustomType.Setter
         public Builder s3Bucket(String s3Bucket) {
-            this.s3Bucket = Objects.requireNonNull(s3Bucket);
+            if (s3Bucket == null) {
+              throw new MissingRequiredPropertyException("KxClusterCode", "s3Bucket");
+            }
+            this.s3Bucket = s3Bucket;
             return this;
         }
         @CustomType.Setter
         public Builder s3Key(String s3Key) {
-            this.s3Key = Objects.requireNonNull(s3Key);
+            if (s3Key == null) {
+              throw new MissingRequiredPropertyException("KxClusterCode", "s3Key");
+            }
+            this.s3Key = s3Key;
             return this;
         }
         @CustomType.Setter
         public Builder s3ObjectVersion(@Nullable String s3ObjectVersion) {
+
             this.s3ObjectVersion = s3ObjectVersion;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.GetThemeConfigurationSheetTileBorder;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class GetThemeConfigurationSheetTile {
 
         @CustomType.Setter
         public Builder borders(List<GetThemeConfigurationSheetTileBorder> borders) {
-            this.borders = Objects.requireNonNull(borders);
+            if (borders == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationSheetTile", "borders");
+            }
+            this.borders = borders;
             return this;
         }
         public Builder borders(GetThemeConfigurationSheetTileBorder... borders) {

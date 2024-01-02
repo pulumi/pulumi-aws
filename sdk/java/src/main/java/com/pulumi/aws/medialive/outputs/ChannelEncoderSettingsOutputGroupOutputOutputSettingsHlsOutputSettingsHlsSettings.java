@@ -57,21 +57,25 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
 
         @CustomType.Setter
         public Builder audioOnlyHlsSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings audioOnlyHlsSettings) {
+
             this.audioOnlyHlsSettings = audioOnlyHlsSettings;
             return this;
         }
         @CustomType.Setter
         public Builder fmp4HlsSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings fmp4HlsSettings) {
+
             this.fmp4HlsSettings = fmp4HlsSettings;
             return this;
         }
         @CustomType.Setter
         public Builder frameCaptureHlsSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings frameCaptureHlsSettings) {
+
             this.frameCaptureHlsSettings = frameCaptureHlsSettings;
             return this;
         }
         @CustomType.Setter
         public Builder standardHlsSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings standardHlsSettings) {
+
             this.standardHlsSettings = standardHlsSettings;
             return this;
         }

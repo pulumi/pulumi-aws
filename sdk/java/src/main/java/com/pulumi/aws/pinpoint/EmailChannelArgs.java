@@ -5,6 +5,7 @@ package com.pulumi.aws.pinpoint;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -262,9 +263,15 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EmailChannelArgs build() {
-            $.applicationId = Objects.requireNonNull($.applicationId, "expected parameter 'applicationId' to be non-null");
-            $.fromAddress = Objects.requireNonNull($.fromAddress, "expected parameter 'fromAddress' to be non-null");
-            $.identity = Objects.requireNonNull($.identity, "expected parameter 'identity' to be non-null");
+            if ($.applicationId == null) {
+                throw new MissingRequiredPropertyException("EmailChannelArgs", "applicationId");
+            }
+            if ($.fromAddress == null) {
+                throw new MissingRequiredPropertyException("EmailChannelArgs", "fromAddress");
+            }
+            if ($.identity == null) {
+                throw new MissingRequiredPropertyException("EmailChannelArgs", "identity");
+            }
             return $;
         }
     }

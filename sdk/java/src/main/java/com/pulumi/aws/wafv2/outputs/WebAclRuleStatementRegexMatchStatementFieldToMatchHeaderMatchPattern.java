@@ -74,11 +74,13 @@ public final class WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatch
 
         @CustomType.Setter
         public Builder all(@Nullable WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder excludedHeaders(@Nullable List<String> excludedHeaders) {
+
             this.excludedHeaders = excludedHeaders;
             return this;
         }
@@ -87,6 +89,7 @@ public final class WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatch
         }
         @CustomType.Setter
         public Builder includedHeaders(@Nullable List<String> includedHeaders) {
+
             this.includedHeaders = includedHeaders;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.codepipeline.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class CustomActionTypeInputArtifactDetails {
 
         @CustomType.Setter
         public Builder maximumCount(Integer maximumCount) {
-            this.maximumCount = Objects.requireNonNull(maximumCount);
+            if (maximumCount == null) {
+              throw new MissingRequiredPropertyException("CustomActionTypeInputArtifactDetails", "maximumCount");
+            }
+            this.maximumCount = maximumCount;
             return this;
         }
         @CustomType.Setter
         public Builder minimumCount(Integer minimumCount) {
-            this.minimumCount = Objects.requireNonNull(minimumCount);
+            if (minimumCount == null) {
+              throw new MissingRequiredPropertyException("CustomActionTypeInputArtifactDetails", "minimumCount");
+            }
+            this.minimumCount = minimumCount;
             return this;
         }
         public CustomActionTypeInputArtifactDetails build() {

@@ -7,6 +7,7 @@ import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigArgs;
 import com.pulumi.aws.comprehend.inputs.EntityRecognizerVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -476,9 +477,15 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
         }
 
         public EntityRecognizerArgs build() {
-            $.dataAccessRoleArn = Objects.requireNonNull($.dataAccessRoleArn, "expected parameter 'dataAccessRoleArn' to be non-null");
-            $.inputDataConfig = Objects.requireNonNull($.inputDataConfig, "expected parameter 'inputDataConfig' to be non-null");
-            $.languageCode = Objects.requireNonNull($.languageCode, "expected parameter 'languageCode' to be non-null");
+            if ($.dataAccessRoleArn == null) {
+                throw new MissingRequiredPropertyException("EntityRecognizerArgs", "dataAccessRoleArn");
+            }
+            if ($.inputDataConfig == null) {
+                throw new MissingRequiredPropertyException("EntityRecognizerArgs", "inputDataConfig");
+            }
+            if ($.languageCode == null) {
+                throw new MissingRequiredPropertyException("EntityRecognizerArgs", "languageCode");
+            }
             return $;
         }
     }

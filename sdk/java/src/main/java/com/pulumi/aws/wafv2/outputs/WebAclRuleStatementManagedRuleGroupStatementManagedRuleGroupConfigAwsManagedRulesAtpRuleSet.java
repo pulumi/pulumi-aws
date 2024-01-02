@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -89,21 +90,27 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         @CustomType.Setter
         public Builder enableRegexInPath(@Nullable Boolean enableRegexInPath) {
+
             this.enableRegexInPath = enableRegexInPath;
             return this;
         }
         @CustomType.Setter
         public Builder loginPath(String loginPath) {
-            this.loginPath = Objects.requireNonNull(loginPath);
+            if (loginPath == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet", "loginPath");
+            }
+            this.loginPath = loginPath;
             return this;
         }
         @CustomType.Setter
         public Builder requestInspection(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection requestInspection) {
+
             this.requestInspection = requestInspection;
             return this;
         }
         @CustomType.Setter
         public Builder responseInspection(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection responseInspection) {
+
             this.responseInspection = responseInspection;
             return this;
         }

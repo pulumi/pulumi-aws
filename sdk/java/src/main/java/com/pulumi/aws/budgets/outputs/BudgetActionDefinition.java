@@ -74,16 +74,19 @@ public final class BudgetActionDefinition {
 
         @CustomType.Setter
         public Builder iamActionDefinition(@Nullable BudgetActionDefinitionIamActionDefinition iamActionDefinition) {
+
             this.iamActionDefinition = iamActionDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder scpActionDefinition(@Nullable BudgetActionDefinitionScpActionDefinition scpActionDefinition) {
+
             this.scpActionDefinition = scpActionDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder ssmActionDefinition(@Nullable BudgetActionDefinitionSsmActionDefinition ssmActionDefinition) {
+
             this.ssmActionDefinition = ssmActionDefinition;
             return this;
         }

@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudfront.outputs.GetOriginRequestPolicyCookiesConfig;
 import com.pulumi.aws.cloudfront.outputs.GetOriginRequestPolicyHeadersConfig;
 import com.pulumi.aws.cloudfront.outputs.GetOriginRequestPolicyQueryStringsConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -116,12 +117,18 @@ public final class GetOriginRequestPolicyResult {
 
         @CustomType.Setter
         public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+            if (comment == null) {
+              throw new MissingRequiredPropertyException("GetOriginRequestPolicyResult", "comment");
+            }
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder cookiesConfigs(List<GetOriginRequestPolicyCookiesConfig> cookiesConfigs) {
-            this.cookiesConfigs = Objects.requireNonNull(cookiesConfigs);
+            if (cookiesConfigs == null) {
+              throw new MissingRequiredPropertyException("GetOriginRequestPolicyResult", "cookiesConfigs");
+            }
+            this.cookiesConfigs = cookiesConfigs;
             return this;
         }
         public Builder cookiesConfigs(GetOriginRequestPolicyCookiesConfig... cookiesConfigs) {
@@ -129,12 +136,18 @@ public final class GetOriginRequestPolicyResult {
         }
         @CustomType.Setter
         public Builder etag(String etag) {
-            this.etag = Objects.requireNonNull(etag);
+            if (etag == null) {
+              throw new MissingRequiredPropertyException("GetOriginRequestPolicyResult", "etag");
+            }
+            this.etag = etag;
             return this;
         }
         @CustomType.Setter
         public Builder headersConfigs(List<GetOriginRequestPolicyHeadersConfig> headersConfigs) {
-            this.headersConfigs = Objects.requireNonNull(headersConfigs);
+            if (headersConfigs == null) {
+              throw new MissingRequiredPropertyException("GetOriginRequestPolicyResult", "headersConfigs");
+            }
+            this.headersConfigs = headersConfigs;
             return this;
         }
         public Builder headersConfigs(GetOriginRequestPolicyHeadersConfig... headersConfigs) {
@@ -142,17 +155,22 @@ public final class GetOriginRequestPolicyResult {
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder queryStringsConfigs(List<GetOriginRequestPolicyQueryStringsConfig> queryStringsConfigs) {
-            this.queryStringsConfigs = Objects.requireNonNull(queryStringsConfigs);
+            if (queryStringsConfigs == null) {
+              throw new MissingRequiredPropertyException("GetOriginRequestPolicyResult", "queryStringsConfigs");
+            }
+            this.queryStringsConfigs = queryStringsConfigs;
             return this;
         }
         public Builder queryStringsConfigs(GetOriginRequestPolicyQueryStringsConfig... queryStringsConfigs) {

@@ -5,6 +5,7 @@ package com.pulumi.aws.apprunner.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ServiceEncryptionConfigurationArgs extends com.pulumi.resourc
         }
 
         public ServiceEncryptionConfigurationArgs build() {
-            $.kmsKey = Objects.requireNonNull($.kmsKey, "expected parameter 'kmsKey' to be non-null");
+            if ($.kmsKey == null) {
+                throw new MissingRequiredPropertyException("ServiceEncryptionConfigurationArgs", "kmsKey");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.sagemaker.inputs.DeviceDeviceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class DeviceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DeviceArgs build() {
-            $.device = Objects.requireNonNull($.device, "expected parameter 'device' to be non-null");
-            $.deviceFleetName = Objects.requireNonNull($.deviceFleetName, "expected parameter 'deviceFleetName' to be non-null");
+            if ($.device == null) {
+                throw new MissingRequiredPropertyException("DeviceArgs", "device");
+            }
+            if ($.deviceFleetName == null) {
+                throw new MissingRequiredPropertyException("DeviceArgs", "deviceFleetName");
+            }
             return $;
         }
     }

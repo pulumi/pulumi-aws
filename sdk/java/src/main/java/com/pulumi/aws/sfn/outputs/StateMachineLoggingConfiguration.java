@@ -73,16 +73,19 @@ public final class StateMachineLoggingConfiguration {
 
         @CustomType.Setter
         public Builder includeExecutionData(@Nullable Boolean includeExecutionData) {
+
             this.includeExecutionData = includeExecutionData;
             return this;
         }
         @CustomType.Setter
         public Builder level(@Nullable String level) {
+
             this.level = level;
             return this;
         }
         @CustomType.Setter
         public Builder logDestination(@Nullable String logDestination) {
+
             this.logDestination = logDestination;
             return this;
         }

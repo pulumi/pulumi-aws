@@ -42,11 +42,13 @@ public final class FileCacheLustreConfigurationLogConfiguration {
 
         @CustomType.Setter
         public Builder destination(@Nullable String destination) {
+
             this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder level(@Nullable String level) {
+
             this.level = level;
             return this;
         }

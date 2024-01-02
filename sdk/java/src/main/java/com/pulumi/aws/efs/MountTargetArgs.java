@@ -5,6 +5,7 @@ package com.pulumi.aws.efs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -207,8 +208,12 @@ public final class MountTargetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MountTargetArgs build() {
-            $.fileSystemId = Objects.requireNonNull($.fileSystemId, "expected parameter 'fileSystemId' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.fileSystemId == null) {
+                throw new MissingRequiredPropertyException("MountTargetArgs", "fileSystemId");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("MountTargetArgs", "subnetId");
+            }
             return $;
         }
     }

@@ -221,6 +221,7 @@ public final class CatalogTableStorageDescriptor {
 
         @CustomType.Setter
         public Builder bucketColumns(@Nullable List<String> bucketColumns) {
+
             this.bucketColumns = bucketColumns;
             return this;
         }
@@ -229,6 +230,7 @@ public final class CatalogTableStorageDescriptor {
         }
         @CustomType.Setter
         public Builder columns(@Nullable List<CatalogTableStorageDescriptorColumn> columns) {
+
             this.columns = columns;
             return this;
         }
@@ -237,51 +239,61 @@ public final class CatalogTableStorageDescriptor {
         }
         @CustomType.Setter
         public Builder compressed(@Nullable Boolean compressed) {
+
             this.compressed = compressed;
             return this;
         }
         @CustomType.Setter
         public Builder inputFormat(@Nullable String inputFormat) {
+
             this.inputFormat = inputFormat;
             return this;
         }
         @CustomType.Setter
         public Builder location(@Nullable String location) {
+
             this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder numberOfBuckets(@Nullable Integer numberOfBuckets) {
+
             this.numberOfBuckets = numberOfBuckets;
             return this;
         }
         @CustomType.Setter
         public Builder outputFormat(@Nullable String outputFormat) {
+
             this.outputFormat = outputFormat;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
+
             this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder schemaReference(@Nullable CatalogTableStorageDescriptorSchemaReference schemaReference) {
+
             this.schemaReference = schemaReference;
             return this;
         }
         @CustomType.Setter
         public Builder serDeInfo(@Nullable CatalogTableStorageDescriptorSerDeInfo serDeInfo) {
+
             this.serDeInfo = serDeInfo;
             return this;
         }
         @CustomType.Setter
         public Builder skewedInfo(@Nullable CatalogTableStorageDescriptorSkewedInfo skewedInfo) {
+
             this.skewedInfo = skewedInfo;
             return this;
         }
         @CustomType.Setter
         public Builder sortColumns(@Nullable List<CatalogTableStorageDescriptorSortColumn> sortColumns) {
+
             this.sortColumns = sortColumns;
             return this;
         }
@@ -290,6 +302,7 @@ public final class CatalogTableStorageDescriptor {
         }
         @CustomType.Setter
         public Builder storedAsSubDirectories(@Nullable Boolean storedAsSubDirectories) {
+
             this.storedAsSubDirectories = storedAsSubDirectories;
             return this;
         }

@@ -44,6 +44,7 @@ public final class TablePointInTimeRecovery {
 
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }

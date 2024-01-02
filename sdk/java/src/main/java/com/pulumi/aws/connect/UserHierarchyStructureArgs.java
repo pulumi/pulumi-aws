@@ -6,6 +6,7 @@ package com.pulumi.aws.connect;
 import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class UserHierarchyStructureArgs extends com.pulumi.resources.Resou
         }
 
         public UserHierarchyStructureArgs build() {
-            $.hierarchyStructure = Objects.requireNonNull($.hierarchyStructure, "expected parameter 'hierarchyStructure' to be non-null");
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
+            if ($.hierarchyStructure == null) {
+                throw new MissingRequiredPropertyException("UserHierarchyStructureArgs", "hierarchyStructure");
+            }
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("UserHierarchyStructureArgs", "instanceId");
+            }
             return $;
         }
     }

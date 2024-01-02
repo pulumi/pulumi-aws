@@ -5,6 +5,7 @@ package com.pulumi.aws.mq.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -244,8 +245,12 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BrokerUserArgs build() {
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("BrokerUserArgs", "password");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("BrokerUserArgs", "username");
+            }
             return $;
         }
     }

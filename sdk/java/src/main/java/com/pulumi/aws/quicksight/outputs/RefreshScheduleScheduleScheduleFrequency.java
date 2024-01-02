@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDay;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -87,21 +88,27 @@ public final class RefreshScheduleScheduleScheduleFrequency {
 
         @CustomType.Setter
         public Builder interval(String interval) {
-            this.interval = Objects.requireNonNull(interval);
+            if (interval == null) {
+              throw new MissingRequiredPropertyException("RefreshScheduleScheduleScheduleFrequency", "interval");
+            }
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder refreshOnDay(@Nullable RefreshScheduleScheduleScheduleFrequencyRefreshOnDay refreshOnDay) {
+
             this.refreshOnDay = refreshOnDay;
             return this;
         }
         @CustomType.Setter
         public Builder timeOfTheDay(@Nullable String timeOfTheDay) {
+
             this.timeOfTheDay = timeOfTheDay;
             return this;
         }
         @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
+
             this.timezone = timezone;
             return this;
         }

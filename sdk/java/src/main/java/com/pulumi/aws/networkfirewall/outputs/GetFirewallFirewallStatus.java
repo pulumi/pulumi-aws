@@ -6,6 +6,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallFirewallStatusCapacityUsageSummary;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallFirewallStatusSyncState;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -79,7 +80,10 @@ public final class GetFirewallFirewallStatus {
 
         @CustomType.Setter
         public Builder capacityUsageSummaries(List<GetFirewallFirewallStatusCapacityUsageSummary> capacityUsageSummaries) {
-            this.capacityUsageSummaries = Objects.requireNonNull(capacityUsageSummaries);
+            if (capacityUsageSummaries == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatus", "capacityUsageSummaries");
+            }
+            this.capacityUsageSummaries = capacityUsageSummaries;
             return this;
         }
         public Builder capacityUsageSummaries(GetFirewallFirewallStatusCapacityUsageSummary... capacityUsageSummaries) {
@@ -87,17 +91,26 @@ public final class GetFirewallFirewallStatus {
         }
         @CustomType.Setter
         public Builder configurationSyncStateSummary(String configurationSyncStateSummary) {
-            this.configurationSyncStateSummary = Objects.requireNonNull(configurationSyncStateSummary);
+            if (configurationSyncStateSummary == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatus", "configurationSyncStateSummary");
+            }
+            this.configurationSyncStateSummary = configurationSyncStateSummary;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatus", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder syncStates(List<GetFirewallFirewallStatusSyncState> syncStates) {
-            this.syncStates = Objects.requireNonNull(syncStates);
+            if (syncStates == null) {
+              throw new MissingRequiredPropertyException("GetFirewallFirewallStatus", "syncStates");
+            }
+            this.syncStates = syncStates;
             return this;
         }
         public Builder syncStates(GetFirewallFirewallStatusSyncState... syncStates) {

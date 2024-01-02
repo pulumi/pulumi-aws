@@ -59,11 +59,13 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettings {
 
         @CustomType.Setter
         public Builder constantBitrate(@Nullable Integer constantBitrate) {
+
             this.constantBitrate = constantBitrate;
             return this;
         }
         @CustomType.Setter
         public Builder statmuxSettings(@Nullable MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings statmuxSettings) {
+
             this.statmuxSettings = statmuxSettings;
             return this;
         }

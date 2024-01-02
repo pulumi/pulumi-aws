@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class BucketOwnershipControlsRule {
 
         @CustomType.Setter
         public Builder objectOwnership(String objectOwnership) {
-            this.objectOwnership = Objects.requireNonNull(objectOwnership);
+            if (objectOwnership == null) {
+              throw new MissingRequiredPropertyException("BucketOwnershipControlsRule", "objectOwnership");
+            }
+            this.objectOwnership = objectOwnership;
             return this;
         }
         public BucketOwnershipControlsRule build() {

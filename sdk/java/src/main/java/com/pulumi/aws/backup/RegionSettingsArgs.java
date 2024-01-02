@@ -5,6 +5,7 @@ package com.pulumi.aws.backup;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -115,7 +116,9 @@ public final class RegionSettingsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public RegionSettingsArgs build() {
-            $.resourceTypeOptInPreference = Objects.requireNonNull($.resourceTypeOptInPreference, "expected parameter 'resourceTypeOptInPreference' to be non-null");
+            if ($.resourceTypeOptInPreference == null) {
+                throw new MissingRequiredPropertyException("RegionSettingsArgs", "resourceTypeOptInPreference");
+            }
             return $;
         }
     }

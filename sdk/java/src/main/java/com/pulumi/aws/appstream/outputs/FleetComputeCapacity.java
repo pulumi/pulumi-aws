@@ -4,6 +4,7 @@
 package com.pulumi.aws.appstream.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,21 +87,27 @@ public final class FleetComputeCapacity {
 
         @CustomType.Setter
         public Builder available(@Nullable Integer available) {
+
             this.available = available;
             return this;
         }
         @CustomType.Setter
         public Builder desiredInstances(Integer desiredInstances) {
-            this.desiredInstances = Objects.requireNonNull(desiredInstances);
+            if (desiredInstances == null) {
+              throw new MissingRequiredPropertyException("FleetComputeCapacity", "desiredInstances");
+            }
+            this.desiredInstances = desiredInstances;
             return this;
         }
         @CustomType.Setter
         public Builder inUse(@Nullable Integer inUse) {
+
             this.inUse = inUse;
             return this;
         }
         @CustomType.Setter
         public Builder running(@Nullable Integer running) {
+
             this.running = running;
             return this;
         }

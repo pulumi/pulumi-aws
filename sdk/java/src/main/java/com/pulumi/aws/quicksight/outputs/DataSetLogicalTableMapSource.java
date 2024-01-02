@@ -73,16 +73,19 @@ public final class DataSetLogicalTableMapSource {
 
         @CustomType.Setter
         public Builder dataSetArn(@Nullable String dataSetArn) {
+
             this.dataSetArn = dataSetArn;
             return this;
         }
         @CustomType.Setter
         public Builder joinInstruction(@Nullable DataSetLogicalTableMapSourceJoinInstruction joinInstruction) {
+
             this.joinInstruction = joinInstruction;
             return this;
         }
         @CustomType.Setter
         public Builder physicalTableId(@Nullable String physicalTableId) {
+
             this.physicalTableId = physicalTableId;
             return this;
         }

@@ -73,16 +73,19 @@ public final class InstanceListenerEndpoint {
 
         @CustomType.Setter
         public Builder address(@Nullable String address) {
+
             this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder hostedZoneId(@Nullable String hostedZoneId) {
+
             this.hostedZoneId = hostedZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }

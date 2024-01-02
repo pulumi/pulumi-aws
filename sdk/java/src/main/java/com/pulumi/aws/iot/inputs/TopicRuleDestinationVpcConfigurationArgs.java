@@ -5,6 +5,7 @@ package com.pulumi.aws.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -208,9 +209,15 @@ public final class TopicRuleDestinationVpcConfigurationArgs extends com.pulumi.r
         }
 
         public TopicRuleDestinationVpcConfigurationArgs build() {
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("TopicRuleDestinationVpcConfigurationArgs", "roleArn");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("TopicRuleDestinationVpcConfigurationArgs", "subnetIds");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("TopicRuleDestinationVpcConfigurationArgs", "vpcId");
+            }
             return $;
         }
     }

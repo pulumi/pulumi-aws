@@ -5,6 +5,7 @@ package com.pulumi.aws.servicecatalog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class TagOptionResourceAssociationArgs extends com.pulumi.resources
         }
 
         public TagOptionResourceAssociationArgs build() {
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
-            $.tagOptionId = Objects.requireNonNull($.tagOptionId, "expected parameter 'tagOptionId' to be non-null");
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("TagOptionResourceAssociationArgs", "resourceId");
+            }
+            if ($.tagOptionId == null) {
+                throw new MissingRequiredPropertyException("TagOptionResourceAssociationArgs", "tagOptionId");
+            }
             return $;
         }
     }

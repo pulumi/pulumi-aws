@@ -59,11 +59,13 @@ public final class PermissionsBoundaryAttachmentPermissionsBoundary {
 
         @CustomType.Setter
         public Builder customerManagedPolicyReference(@Nullable PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference customerManagedPolicyReference) {
+
             this.customerManagedPolicyReference = customerManagedPolicyReference;
             return this;
         }
         @CustomType.Setter
         public Builder managedPolicyArn(@Nullable String managedPolicyArn) {
+
             this.managedPolicyArn = managedPolicyArn;
             return this;
         }

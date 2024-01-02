@@ -6,6 +6,7 @@ package com.pulumi.aws.xray;
 import com.pulumi.aws.xray.inputs.GroupInsightsConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -189,8 +190,12 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GroupArgs build() {
-            $.filterExpression = Objects.requireNonNull($.filterExpression, "expected parameter 'filterExpression' to be non-null");
-            $.groupName = Objects.requireNonNull($.groupName, "expected parameter 'groupName' to be non-null");
+            if ($.filterExpression == null) {
+                throw new MissingRequiredPropertyException("GroupArgs", "filterExpression");
+            }
+            if ($.groupName == null) {
+                throw new MissingRequiredPropertyException("GroupArgs", "groupName");
+            }
             return $;
         }
     }

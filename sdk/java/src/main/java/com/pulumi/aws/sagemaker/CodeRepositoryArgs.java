@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.sagemaker.inputs.CodeRepositoryGitConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -152,8 +153,12 @@ public final class CodeRepositoryArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public CodeRepositoryArgs build() {
-            $.codeRepositoryName = Objects.requireNonNull($.codeRepositoryName, "expected parameter 'codeRepositoryName' to be non-null");
-            $.gitConfig = Objects.requireNonNull($.gitConfig, "expected parameter 'gitConfig' to be non-null");
+            if ($.codeRepositoryName == null) {
+                throw new MissingRequiredPropertyException("CodeRepositoryArgs", "codeRepositoryName");
+            }
+            if ($.gitConfig == null) {
+                throw new MissingRequiredPropertyException("CodeRepositoryArgs", "gitConfig");
+            }
             return $;
         }
     }

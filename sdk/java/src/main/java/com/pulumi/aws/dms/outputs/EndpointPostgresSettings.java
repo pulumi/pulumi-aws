@@ -256,81 +256,97 @@ public final class EndpointPostgresSettings {
 
         @CustomType.Setter
         public Builder afterConnectScript(@Nullable String afterConnectScript) {
+
             this.afterConnectScript = afterConnectScript;
             return this;
         }
         @CustomType.Setter
         public Builder babelfishDatabaseName(@Nullable String babelfishDatabaseName) {
+
             this.babelfishDatabaseName = babelfishDatabaseName;
             return this;
         }
         @CustomType.Setter
         public Builder captureDdls(@Nullable Boolean captureDdls) {
+
             this.captureDdls = captureDdls;
             return this;
         }
         @CustomType.Setter
         public Builder databaseMode(@Nullable String databaseMode) {
+
             this.databaseMode = databaseMode;
             return this;
         }
         @CustomType.Setter
         public Builder ddlArtifactsSchema(@Nullable String ddlArtifactsSchema) {
+
             this.ddlArtifactsSchema = ddlArtifactsSchema;
             return this;
         }
         @CustomType.Setter
         public Builder executeTimeout(@Nullable Integer executeTimeout) {
+
             this.executeTimeout = executeTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder failTasksOnLobTruncation(@Nullable Boolean failTasksOnLobTruncation) {
+
             this.failTasksOnLobTruncation = failTasksOnLobTruncation;
             return this;
         }
         @CustomType.Setter
         public Builder heartbeatEnable(@Nullable Boolean heartbeatEnable) {
+
             this.heartbeatEnable = heartbeatEnable;
             return this;
         }
         @CustomType.Setter
         public Builder heartbeatFrequency(@Nullable Integer heartbeatFrequency) {
+
             this.heartbeatFrequency = heartbeatFrequency;
             return this;
         }
         @CustomType.Setter
         public Builder heartbeatSchema(@Nullable String heartbeatSchema) {
+
             this.heartbeatSchema = heartbeatSchema;
             return this;
         }
         @CustomType.Setter
         public Builder mapBooleanAsBoolean(@Nullable Boolean mapBooleanAsBoolean) {
+
             this.mapBooleanAsBoolean = mapBooleanAsBoolean;
             return this;
         }
         @CustomType.Setter
         public Builder mapJsonbAsClob(@Nullable Boolean mapJsonbAsClob) {
+
             this.mapJsonbAsClob = mapJsonbAsClob;
             return this;
         }
         @CustomType.Setter
         public Builder mapLongVarcharAs(@Nullable String mapLongVarcharAs) {
+
             this.mapLongVarcharAs = mapLongVarcharAs;
             return this;
         }
         @CustomType.Setter
         public Builder maxFileSize(@Nullable Integer maxFileSize) {
+
             this.maxFileSize = maxFileSize;
             return this;
         }
         @CustomType.Setter
         public Builder pluginName(@Nullable String pluginName) {
+
             this.pluginName = pluginName;
             return this;
         }
         @CustomType.Setter
         public Builder slotName(@Nullable String slotName) {
+
             this.slotName = slotName;
             return this;
         }

@@ -8,6 +8,7 @@ import com.pulumi.aws.rbin.inputs.RuleResourceTagArgs;
 import com.pulumi.aws.rbin.inputs.RuleRetentionPeriodArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -264,8 +265,12 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RuleArgs build() {
-            $.resourceType = Objects.requireNonNull($.resourceType, "expected parameter 'resourceType' to be non-null");
-            $.retentionPeriod = Objects.requireNonNull($.retentionPeriod, "expected parameter 'retentionPeriod' to be non-null");
+            if ($.resourceType == null) {
+                throw new MissingRequiredPropertyException("RuleArgs", "resourceType");
+            }
+            if ($.retentionPeriod == null) {
+                throw new MissingRequiredPropertyException("RuleArgs", "retentionPeriod");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.chime.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -82,7 +83,9 @@ public final class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationAr
         }
 
         public SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs build() {
-            $.kmsKeyArn = Objects.requireNonNull($.kmsKeyArn, "expected parameter 'kmsKeyArn' to be non-null");
+            if ($.kmsKeyArn == null) {
+                throw new MissingRequiredPropertyException("SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs", "kmsKeyArn");
+            }
             return $;
         }
     }

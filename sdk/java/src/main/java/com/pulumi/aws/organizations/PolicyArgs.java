@@ -5,6 +5,7 @@ package com.pulumi.aws.organizations;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -263,7 +264,9 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PolicyArgs build() {
-            $.content = Objects.requireNonNull($.content, "expected parameter 'content' to be non-null");
+            if ($.content == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "content");
+            }
             return $;
         }
     }

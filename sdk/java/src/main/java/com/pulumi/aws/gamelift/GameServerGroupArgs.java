@@ -8,6 +8,7 @@ import com.pulumi.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
 import com.pulumi.aws.gamelift.inputs.GameServerGroupLaunchTemplateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -447,12 +448,24 @@ public final class GameServerGroupArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public GameServerGroupArgs build() {
-            $.gameServerGroupName = Objects.requireNonNull($.gameServerGroupName, "expected parameter 'gameServerGroupName' to be non-null");
-            $.instanceDefinitions = Objects.requireNonNull($.instanceDefinitions, "expected parameter 'instanceDefinitions' to be non-null");
-            $.launchTemplate = Objects.requireNonNull($.launchTemplate, "expected parameter 'launchTemplate' to be non-null");
-            $.maxSize = Objects.requireNonNull($.maxSize, "expected parameter 'maxSize' to be non-null");
-            $.minSize = Objects.requireNonNull($.minSize, "expected parameter 'minSize' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.gameServerGroupName == null) {
+                throw new MissingRequiredPropertyException("GameServerGroupArgs", "gameServerGroupName");
+            }
+            if ($.instanceDefinitions == null) {
+                throw new MissingRequiredPropertyException("GameServerGroupArgs", "instanceDefinitions");
+            }
+            if ($.launchTemplate == null) {
+                throw new MissingRequiredPropertyException("GameServerGroupArgs", "launchTemplate");
+            }
+            if ($.maxSize == null) {
+                throw new MissingRequiredPropertyException("GameServerGroupArgs", "maxSize");
+            }
+            if ($.minSize == null) {
+                throw new MissingRequiredPropertyException("GameServerGroupArgs", "minSize");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("GameServerGroupArgs", "roleArn");
+            }
             return $;
         }
     }

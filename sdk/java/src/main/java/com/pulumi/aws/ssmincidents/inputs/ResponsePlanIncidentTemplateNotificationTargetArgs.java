@@ -5,6 +5,7 @@ package com.pulumi.aws.ssmincidents.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -82,7 +83,9 @@ public final class ResponsePlanIncidentTemplateNotificationTargetArgs extends co
         }
 
         public ResponsePlanIncidentTemplateNotificationTargetArgs build() {
-            $.snsTopicArn = Objects.requireNonNull($.snsTopicArn, "expected parameter 'snsTopicArn' to be non-null");
+            if ($.snsTopicArn == null) {
+                throw new MissingRequiredPropertyException("ResponsePlanIncidentTemplateNotificationTargetArgs", "snsTopicArn");
+            }
             return $;
         }
     }

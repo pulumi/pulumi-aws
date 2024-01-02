@@ -12,6 +12,7 @@ import com.pulumi.aws.medialive.inputs.ChannelMaintenanceArgs;
 import com.pulumi.aws.medialive.inputs.ChannelVpcArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -558,11 +559,21 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ChannelArgs build() {
-            $.channelClass = Objects.requireNonNull($.channelClass, "expected parameter 'channelClass' to be non-null");
-            $.destinations = Objects.requireNonNull($.destinations, "expected parameter 'destinations' to be non-null");
-            $.encoderSettings = Objects.requireNonNull($.encoderSettings, "expected parameter 'encoderSettings' to be non-null");
-            $.inputAttachments = Objects.requireNonNull($.inputAttachments, "expected parameter 'inputAttachments' to be non-null");
-            $.inputSpecification = Objects.requireNonNull($.inputSpecification, "expected parameter 'inputSpecification' to be non-null");
+            if ($.channelClass == null) {
+                throw new MissingRequiredPropertyException("ChannelArgs", "channelClass");
+            }
+            if ($.destinations == null) {
+                throw new MissingRequiredPropertyException("ChannelArgs", "destinations");
+            }
+            if ($.encoderSettings == null) {
+                throw new MissingRequiredPropertyException("ChannelArgs", "encoderSettings");
+            }
+            if ($.inputAttachments == null) {
+                throw new MissingRequiredPropertyException("ChannelArgs", "inputAttachments");
+            }
+            if ($.inputSpecification == null) {
+                throw new MissingRequiredPropertyException("ChannelArgs", "inputSpecification");
+            }
             return $;
         }
     }

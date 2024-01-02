@@ -130,11 +130,13 @@ public final class ClusterCoreInstanceFleet {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceTypeConfigs(@Nullable List<ClusterCoreInstanceFleetInstanceTypeConfig> instanceTypeConfigs) {
+
             this.instanceTypeConfigs = instanceTypeConfigs;
             return this;
         }
@@ -143,31 +145,37 @@ public final class ClusterCoreInstanceFleet {
         }
         @CustomType.Setter
         public Builder launchSpecifications(@Nullable ClusterCoreInstanceFleetLaunchSpecifications launchSpecifications) {
+
             this.launchSpecifications = launchSpecifications;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder provisionedOnDemandCapacity(@Nullable Integer provisionedOnDemandCapacity) {
+
             this.provisionedOnDemandCapacity = provisionedOnDemandCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder provisionedSpotCapacity(@Nullable Integer provisionedSpotCapacity) {
+
             this.provisionedSpotCapacity = provisionedSpotCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder targetOnDemandCapacity(@Nullable Integer targetOnDemandCapacity) {
+
             this.targetOnDemandCapacity = targetOnDemandCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder targetSpotCapacity(@Nullable Integer targetSpotCapacity) {
+
             this.targetSpotCapacity = targetSpotCapacity;
             return this;
         }

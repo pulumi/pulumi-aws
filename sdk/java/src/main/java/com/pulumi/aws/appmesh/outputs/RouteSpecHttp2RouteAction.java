@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.RouteSpecHttp2RouteActionWeightedTarget;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -45,7 +46,10 @@ public final class RouteSpecHttp2RouteAction {
 
         @CustomType.Setter
         public Builder weightedTargets(List<RouteSpecHttp2RouteActionWeightedTarget> weightedTargets) {
-            this.weightedTargets = Objects.requireNonNull(weightedTargets);
+            if (weightedTargets == null) {
+              throw new MissingRequiredPropertyException("RouteSpecHttp2RouteAction", "weightedTargets");
+            }
+            this.weightedTargets = weightedTargets;
             return this;
         }
         public Builder weightedTargets(RouteSpecHttp2RouteActionWeightedTarget... weightedTargets) {

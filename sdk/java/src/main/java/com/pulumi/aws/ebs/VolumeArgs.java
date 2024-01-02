@@ -5,6 +5,7 @@ package com.pulumi.aws.ebs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -494,7 +495,9 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VolumeArgs build() {
-            $.availabilityZone = Objects.requireNonNull($.availabilityZone, "expected parameter 'availabilityZone' to be non-null");
+            if ($.availabilityZone == null) {
+                throw new MissingRequiredPropertyException("VolumeArgs", "availabilityZone");
+            }
             return $;
         }
     }

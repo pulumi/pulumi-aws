@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -99,27 +100,42 @@ public final class GetInstanceMetadataOption {
 
         @CustomType.Setter
         public Builder httpEndpoint(String httpEndpoint) {
-            this.httpEndpoint = Objects.requireNonNull(httpEndpoint);
+            if (httpEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetInstanceMetadataOption", "httpEndpoint");
+            }
+            this.httpEndpoint = httpEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder httpProtocolIpv6(String httpProtocolIpv6) {
-            this.httpProtocolIpv6 = Objects.requireNonNull(httpProtocolIpv6);
+            if (httpProtocolIpv6 == null) {
+              throw new MissingRequiredPropertyException("GetInstanceMetadataOption", "httpProtocolIpv6");
+            }
+            this.httpProtocolIpv6 = httpProtocolIpv6;
             return this;
         }
         @CustomType.Setter
         public Builder httpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
-            this.httpPutResponseHopLimit = Objects.requireNonNull(httpPutResponseHopLimit);
+            if (httpPutResponseHopLimit == null) {
+              throw new MissingRequiredPropertyException("GetInstanceMetadataOption", "httpPutResponseHopLimit");
+            }
+            this.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
         @CustomType.Setter
         public Builder httpTokens(String httpTokens) {
-            this.httpTokens = Objects.requireNonNull(httpTokens);
+            if (httpTokens == null) {
+              throw new MissingRequiredPropertyException("GetInstanceMetadataOption", "httpTokens");
+            }
+            this.httpTokens = httpTokens;
             return this;
         }
         @CustomType.Setter
         public Builder instanceMetadataTags(String instanceMetadataTags) {
-            this.instanceMetadataTags = Objects.requireNonNull(instanceMetadataTags);
+            if (instanceMetadataTags == null) {
+              throw new MissingRequiredPropertyException("GetInstanceMetadataOption", "instanceMetadataTags");
+            }
+            this.instanceMetadataTags = instanceMetadataTags;
             return this;
         }
         public GetInstanceMetadataOption build() {

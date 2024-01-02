@@ -10,6 +10,7 @@ import com.pulumi.aws.eks.inputs.NodeGroupTaintArgs;
 import com.pulumi.aws.eks.inputs.NodeGroupUpdateConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -791,10 +792,18 @@ public final class NodeGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NodeGroupArgs build() {
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
-            $.nodeRoleArn = Objects.requireNonNull($.nodeRoleArn, "expected parameter 'nodeRoleArn' to be non-null");
-            $.scalingConfig = Objects.requireNonNull($.scalingConfig, "expected parameter 'scalingConfig' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("NodeGroupArgs", "clusterName");
+            }
+            if ($.nodeRoleArn == null) {
+                throw new MissingRequiredPropertyException("NodeGroupArgs", "nodeRoleArn");
+            }
+            if ($.scalingConfig == null) {
+                throw new MissingRequiredPropertyException("NodeGroupArgs", "scalingConfig");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("NodeGroupArgs", "subnetIds");
+            }
             return $;
         }
     }

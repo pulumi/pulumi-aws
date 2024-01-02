@@ -6,6 +6,7 @@ package com.pulumi.aws.networkfirewall.inputs;
 import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class RuleGroupRuleGroupRuleVariablesPortSetArgs extends com.pulumi
         }
 
         public RuleGroupRuleGroupRuleVariablesPortSetArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.portSet = Objects.requireNonNull($.portSet, "expected parameter 'portSet' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRuleVariablesPortSetArgs", "key");
+            }
+            if ($.portSet == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRuleVariablesPortSetArgs", "portSet");
+            }
             return $;
         }
     }

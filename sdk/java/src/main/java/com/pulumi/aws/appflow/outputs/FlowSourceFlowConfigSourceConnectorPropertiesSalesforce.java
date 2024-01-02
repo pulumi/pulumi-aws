@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,22 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
 
         @CustomType.Setter
         public Builder enableDynamicFieldUpdate(@Nullable Boolean enableDynamicFieldUpdate) {
+
             this.enableDynamicFieldUpdate = enableDynamicFieldUpdate;
             return this;
         }
         @CustomType.Setter
         public Builder includeDeletedRecords(@Nullable Boolean includeDeletedRecords) {
+
             this.includeDeletedRecords = includeDeletedRecords;
             return this;
         }
         @CustomType.Setter
         public Builder object(String object) {
-            this.object = Objects.requireNonNull(object);
+            if (object == null) {
+              throw new MissingRequiredPropertyException("FlowSourceFlowConfigSourceConnectorPropertiesSalesforce", "object");
+            }
+            this.object = object;
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesSalesforce build() {

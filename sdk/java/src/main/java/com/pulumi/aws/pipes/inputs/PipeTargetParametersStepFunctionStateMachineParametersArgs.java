@@ -5,6 +5,7 @@ package com.pulumi.aws.pipes.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class PipeTargetParametersStepFunctionStateMachineParametersArgs ex
         }
 
         public PipeTargetParametersStepFunctionStateMachineParametersArgs build() {
-            $.invocationType = Objects.requireNonNull($.invocationType, "expected parameter 'invocationType' to be non-null");
+            if ($.invocationType == null) {
+                throw new MissingRequiredPropertyException("PipeTargetParametersStepFunctionStateMachineParametersArgs", "invocationType");
+            }
             return $;
         }
     }

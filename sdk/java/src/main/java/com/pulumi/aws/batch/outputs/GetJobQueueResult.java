@@ -5,6 +5,7 @@ package com.pulumi.aws.batch.outputs;
 
 import com.pulumi.aws.batch.outputs.GetJobQueueComputeEnvironmentOrder;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -174,12 +175,18 @@ public final class GetJobQueueResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetJobQueueResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder computeEnvironmentOrders(List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders) {
-            this.computeEnvironmentOrders = Objects.requireNonNull(computeEnvironmentOrders);
+            if (computeEnvironmentOrders == null) {
+              throw new MissingRequiredPropertyException("GetJobQueueResult", "computeEnvironmentOrders");
+            }
+            this.computeEnvironmentOrders = computeEnvironmentOrders;
             return this;
         }
         public Builder computeEnvironmentOrders(GetJobQueueComputeEnvironmentOrder... computeEnvironmentOrders) {
@@ -187,42 +194,66 @@ public final class GetJobQueueResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetJobQueueResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetJobQueueResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("GetJobQueueResult", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder schedulingPolicyArn(String schedulingPolicyArn) {
-            this.schedulingPolicyArn = Objects.requireNonNull(schedulingPolicyArn);
+            if (schedulingPolicyArn == null) {
+              throw new MissingRequiredPropertyException("GetJobQueueResult", "schedulingPolicyArn");
+            }
+            this.schedulingPolicyArn = schedulingPolicyArn;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetJobQueueResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetJobQueueResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statusReason(String statusReason) {
-            this.statusReason = Objects.requireNonNull(statusReason);
+            if (statusReason == null) {
+              throw new MissingRequiredPropertyException("GetJobQueueResult", "statusReason");
+            }
+            this.statusReason = statusReason;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetJobQueueResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetJobQueueResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.aws.glue.outputs.MLTransformParametersFindMatchesParameters;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,12 +58,18 @@ public final class MLTransformParameters {
 
         @CustomType.Setter
         public Builder findMatchesParameters(MLTransformParametersFindMatchesParameters findMatchesParameters) {
-            this.findMatchesParameters = Objects.requireNonNull(findMatchesParameters);
+            if (findMatchesParameters == null) {
+              throw new MissingRequiredPropertyException("MLTransformParameters", "findMatchesParameters");
+            }
+            this.findMatchesParameters = findMatchesParameters;
             return this;
         }
         @CustomType.Setter
         public Builder transformType(String transformType) {
-            this.transformType = Objects.requireNonNull(transformType);
+            if (transformType == null) {
+              throw new MissingRequiredPropertyException("MLTransformParameters", "transformType");
+            }
+            this.transformType = transformType;
             return this;
         }
         public MLTransformParameters build() {

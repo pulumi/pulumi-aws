@@ -4,6 +4,7 @@
 package com.pulumi.aws.ses.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,23 @@ public final class ReceiptRuleWorkmailAction {
 
         @CustomType.Setter
         public Builder organizationArn(String organizationArn) {
-            this.organizationArn = Objects.requireNonNull(organizationArn);
+            if (organizationArn == null) {
+              throw new MissingRequiredPropertyException("ReceiptRuleWorkmailAction", "organizationArn");
+            }
+            this.organizationArn = organizationArn;
             return this;
         }
         @CustomType.Setter
         public Builder position(Integer position) {
-            this.position = Objects.requireNonNull(position);
+            if (position == null) {
+              throw new MissingRequiredPropertyException("ReceiptRuleWorkmailAction", "position");
+            }
+            this.position = position;
             return this;
         }
         @CustomType.Setter
         public Builder topicArn(@Nullable String topicArn) {
+
             this.topicArn = topicArn;
             return this;
         }

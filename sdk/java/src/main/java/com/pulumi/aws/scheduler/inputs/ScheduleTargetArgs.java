@@ -12,6 +12,7 @@ import com.pulumi.aws.scheduler.inputs.ScheduleTargetSagemakerPipelineParameters
 import com.pulumi.aws.scheduler.inputs.ScheduleTargetSqsParametersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -424,8 +425,12 @@ public final class ScheduleTargetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ScheduleTargetArgs build() {
-            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("ScheduleTargetArgs", "arn");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("ScheduleTargetArgs", "roleArn");
+            }
             return $;
         }
     }

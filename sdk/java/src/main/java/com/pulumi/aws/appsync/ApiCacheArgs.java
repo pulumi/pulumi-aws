@@ -5,6 +5,7 @@ package com.pulumi.aws.appsync;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -263,10 +264,18 @@ public final class ApiCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApiCacheArgs build() {
-            $.apiCachingBehavior = Objects.requireNonNull($.apiCachingBehavior, "expected parameter 'apiCachingBehavior' to be non-null");
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
-            $.ttl = Objects.requireNonNull($.ttl, "expected parameter 'ttl' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.apiCachingBehavior == null) {
+                throw new MissingRequiredPropertyException("ApiCacheArgs", "apiCachingBehavior");
+            }
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("ApiCacheArgs", "apiId");
+            }
+            if ($.ttl == null) {
+                throw new MissingRequiredPropertyException("ApiCacheArgs", "ttl");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ApiCacheArgs", "type");
+            }
             return $;
         }
     }

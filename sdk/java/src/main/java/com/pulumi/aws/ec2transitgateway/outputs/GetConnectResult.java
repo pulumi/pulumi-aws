@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway.outputs;
 
 import com.pulumi.aws.ec2transitgateway.outputs.GetConnectFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -114,6 +115,7 @@ public final class GetConnectResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetConnectFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -122,32 +124,50 @@ public final class GetConnectResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConnectResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetConnectResult", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetConnectResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayConnectId(String transitGatewayConnectId) {
-            this.transitGatewayConnectId = Objects.requireNonNull(transitGatewayConnectId);
+            if (transitGatewayConnectId == null) {
+              throw new MissingRequiredPropertyException("GetConnectResult", "transitGatewayConnectId");
+            }
+            this.transitGatewayConnectId = transitGatewayConnectId;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+            if (transitGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetConnectResult", "transitGatewayId");
+            }
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder transportAttachmentId(String transportAttachmentId) {
-            this.transportAttachmentId = Objects.requireNonNull(transportAttachmentId);
+            if (transportAttachmentId == null) {
+              throw new MissingRequiredPropertyException("GetConnectResult", "transportAttachmentId");
+            }
+            this.transportAttachmentId = transportAttachmentId;
             return this;
         }
         public GetConnectResult build() {

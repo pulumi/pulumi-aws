@@ -4,6 +4,7 @@
 package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class InstanceFleetLaunchSpecificationsOnDemandSpecification {
 
         @CustomType.Setter
         public Builder allocationStrategy(String allocationStrategy) {
-            this.allocationStrategy = Objects.requireNonNull(allocationStrategy);
+            if (allocationStrategy == null) {
+              throw new MissingRequiredPropertyException("InstanceFleetLaunchSpecificationsOnDemandSpecification", "allocationStrategy");
+            }
+            this.allocationStrategy = allocationStrategy;
             return this;
         }
         public InstanceFleetLaunchSpecificationsOnDemandSpecification build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.cfg;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class AggregateAuthorizationArgs extends com.pulumi.resources.Resou
         }
 
         public AggregateAuthorizationArgs build() {
-            $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
+            if ($.accountId == null) {
+                throw new MissingRequiredPropertyException("AggregateAuthorizationArgs", "accountId");
+            }
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("AggregateAuthorizationArgs", "region");
+            }
             return $;
         }
     }

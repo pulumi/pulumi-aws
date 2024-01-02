@@ -5,6 +5,7 @@ package com.pulumi.aws.chimesdkmediapipelines.outputs;
 
 import com.pulumi.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -60,12 +61,16 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfiguration 
 
         @CustomType.Setter
         public Builder disabled(@Nullable Boolean disabled) {
+
             this.disabled = disabled;
             return this;
         }
         @CustomType.Setter
         public Builder rules(List<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule> rules) {
-            this.rules = Objects.requireNonNull(rules);
+            if (rules == null) {
+              throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationRealTimeAlertConfiguration", "rules");
+            }
+            this.rules = rules;
             return this;
         }
         public Builder rules(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule... rules) {

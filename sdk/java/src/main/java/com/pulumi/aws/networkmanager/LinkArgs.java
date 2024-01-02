@@ -6,6 +6,7 @@ package com.pulumi.aws.networkmanager;
 import com.pulumi.aws.networkmanager.inputs.LinkBandwidthArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -300,9 +301,15 @@ public final class LinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LinkArgs build() {
-            $.bandwidth = Objects.requireNonNull($.bandwidth, "expected parameter 'bandwidth' to be non-null");
-            $.globalNetworkId = Objects.requireNonNull($.globalNetworkId, "expected parameter 'globalNetworkId' to be non-null");
-            $.siteId = Objects.requireNonNull($.siteId, "expected parameter 'siteId' to be non-null");
+            if ($.bandwidth == null) {
+                throw new MissingRequiredPropertyException("LinkArgs", "bandwidth");
+            }
+            if ($.globalNetworkId == null) {
+                throw new MissingRequiredPropertyException("LinkArgs", "globalNetworkId");
+            }
+            if ($.siteId == null) {
+                throw new MissingRequiredPropertyException("LinkArgs", "siteId");
+            }
             return $;
         }
     }

@@ -44,6 +44,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
 
         @CustomType.Setter
         public Builder failoverConditionSettings(@Nullable ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings failoverConditionSettings) {
+
             this.failoverConditionSettings = failoverConditionSettings;
             return this;
         }

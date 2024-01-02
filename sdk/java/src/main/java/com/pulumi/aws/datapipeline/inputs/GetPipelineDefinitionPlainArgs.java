@@ -5,6 +5,7 @@ package com.pulumi.aws.datapipeline.inputs;
 
 import com.pulumi.aws.datapipeline.inputs.GetPipelineDefinitionParameterValue;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -104,7 +105,9 @@ public final class GetPipelineDefinitionPlainArgs extends com.pulumi.resources.I
         }
 
         public GetPipelineDefinitionPlainArgs build() {
-            $.pipelineId = Objects.requireNonNull($.pipelineId, "expected parameter 'pipelineId' to be non-null");
+            if ($.pipelineId == null) {
+                throw new MissingRequiredPropertyException("GetPipelineDefinitionPlainArgs", "pipelineId");
+            }
             return $;
         }
     }

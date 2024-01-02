@@ -59,11 +59,13 @@ public final class NodeGroupRemoteAccess {
 
         @CustomType.Setter
         public Builder ec2SshKey(@Nullable String ec2SshKey) {
+
             this.ec2SshKey = ec2SshKey;
             return this;
         }
         @CustomType.Setter
         public Builder sourceSecurityGroupIds(@Nullable List<String> sourceSecurityGroupIds) {
+
             this.sourceSecurityGroupIds = sourceSecurityGroupIds;
             return this;
         }

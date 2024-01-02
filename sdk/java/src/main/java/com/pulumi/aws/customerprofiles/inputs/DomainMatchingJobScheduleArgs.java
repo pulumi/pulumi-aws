@@ -5,6 +5,7 @@ package com.pulumi.aws.customerprofiles.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DomainMatchingJobScheduleArgs extends com.pulumi.resources.Re
         }
 
         public DomainMatchingJobScheduleArgs build() {
-            $.dayOfTheWeek = Objects.requireNonNull($.dayOfTheWeek, "expected parameter 'dayOfTheWeek' to be non-null");
-            $.time = Objects.requireNonNull($.time, "expected parameter 'time' to be non-null");
+            if ($.dayOfTheWeek == null) {
+                throw new MissingRequiredPropertyException("DomainMatchingJobScheduleArgs", "dayOfTheWeek");
+            }
+            if ($.time == null) {
+                throw new MissingRequiredPropertyException("DomainMatchingJobScheduleArgs", "time");
+            }
             return $;
         }
     }

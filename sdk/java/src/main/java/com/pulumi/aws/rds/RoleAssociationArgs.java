@@ -5,6 +5,7 @@ package com.pulumi.aws.rds;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class RoleAssociationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public RoleAssociationArgs build() {
-            $.dbInstanceIdentifier = Objects.requireNonNull($.dbInstanceIdentifier, "expected parameter 'dbInstanceIdentifier' to be non-null");
-            $.featureName = Objects.requireNonNull($.featureName, "expected parameter 'featureName' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.dbInstanceIdentifier == null) {
+                throw new MissingRequiredPropertyException("RoleAssociationArgs", "dbInstanceIdentifier");
+            }
+            if ($.featureName == null) {
+                throw new MissingRequiredPropertyException("RoleAssociationArgs", "featureName");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("RoleAssociationArgs", "roleArn");
+            }
             return $;
         }
     }

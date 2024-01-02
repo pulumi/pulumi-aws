@@ -5,6 +5,7 @@ package com.pulumi.aws.sns;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -493,9 +494,15 @@ public final class TopicSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         public TopicSubscriptionArgs build() {
-            $.endpoint = Objects.requireNonNull($.endpoint, "expected parameter 'endpoint' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.topic = Objects.requireNonNull($.topic, "expected parameter 'topic' to be non-null");
+            if ($.endpoint == null) {
+                throw new MissingRequiredPropertyException("TopicSubscriptionArgs", "endpoint");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("TopicSubscriptionArgs", "protocol");
+            }
+            if ($.topic == null) {
+                throw new MissingRequiredPropertyException("TopicSubscriptionArgs", "topic");
+            }
             return $;
         }
     }

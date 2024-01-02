@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -59,11 +60,15 @@ public final class ResolverRuleTargetIp {
 
         @CustomType.Setter
         public Builder ip(String ip) {
-            this.ip = Objects.requireNonNull(ip);
+            if (ip == null) {
+              throw new MissingRequiredPropertyException("ResolverRuleTargetIp", "ip");
+            }
+            this.ip = ip;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }

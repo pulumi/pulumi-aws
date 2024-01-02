@@ -7,6 +7,7 @@ import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterArgs;
 import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -255,10 +256,18 @@ public final class ReplicatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ReplicatorArgs build() {
-            $.kafkaClusters = Objects.requireNonNull($.kafkaClusters, "expected parameter 'kafkaClusters' to be non-null");
-            $.replicationInfoList = Objects.requireNonNull($.replicationInfoList, "expected parameter 'replicationInfoList' to be non-null");
-            $.replicatorName = Objects.requireNonNull($.replicatorName, "expected parameter 'replicatorName' to be non-null");
-            $.serviceExecutionRoleArn = Objects.requireNonNull($.serviceExecutionRoleArn, "expected parameter 'serviceExecutionRoleArn' to be non-null");
+            if ($.kafkaClusters == null) {
+                throw new MissingRequiredPropertyException("ReplicatorArgs", "kafkaClusters");
+            }
+            if ($.replicationInfoList == null) {
+                throw new MissingRequiredPropertyException("ReplicatorArgs", "replicationInfoList");
+            }
+            if ($.replicatorName == null) {
+                throw new MissingRequiredPropertyException("ReplicatorArgs", "replicatorName");
+            }
+            if ($.serviceExecutionRoleArn == null) {
+                throw new MissingRequiredPropertyException("ReplicatorArgs", "serviceExecutionRoleArn");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.servicequotas.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -335,14 +336,30 @@ public final class GetTemplatesTemplateArgs extends com.pulumi.resources.Resourc
         }
 
         public GetTemplatesTemplateArgs build() {
-            $.globalQuota = Objects.requireNonNull($.globalQuota, "expected parameter 'globalQuota' to be non-null");
-            $.quotaCode = Objects.requireNonNull($.quotaCode, "expected parameter 'quotaCode' to be non-null");
-            $.quotaName = Objects.requireNonNull($.quotaName, "expected parameter 'quotaName' to be non-null");
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
-            $.serviceCode = Objects.requireNonNull($.serviceCode, "expected parameter 'serviceCode' to be non-null");
-            $.serviceName = Objects.requireNonNull($.serviceName, "expected parameter 'serviceName' to be non-null");
-            $.unit = Objects.requireNonNull($.unit, "expected parameter 'unit' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.globalQuota == null) {
+                throw new MissingRequiredPropertyException("GetTemplatesTemplateArgs", "globalQuota");
+            }
+            if ($.quotaCode == null) {
+                throw new MissingRequiredPropertyException("GetTemplatesTemplateArgs", "quotaCode");
+            }
+            if ($.quotaName == null) {
+                throw new MissingRequiredPropertyException("GetTemplatesTemplateArgs", "quotaName");
+            }
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("GetTemplatesTemplateArgs", "region");
+            }
+            if ($.serviceCode == null) {
+                throw new MissingRequiredPropertyException("GetTemplatesTemplateArgs", "serviceCode");
+            }
+            if ($.serviceName == null) {
+                throw new MissingRequiredPropertyException("GetTemplatesTemplateArgs", "serviceName");
+            }
+            if ($.unit == null) {
+                throw new MissingRequiredPropertyException("GetTemplatesTemplateArgs", "unit");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("GetTemplatesTemplateArgs", "value");
+            }
             return $;
         }
     }

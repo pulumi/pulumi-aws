@@ -6,6 +6,7 @@ package com.pulumi.aws.emrcontainers.inputs;
 import com.pulumi.aws.emrcontainers.inputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -163,7 +164,9 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesApplicationCo
         }
 
         public JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs build() {
-            $.classification = Objects.requireNonNull($.classification, "expected parameter 'classification' to be non-null");
+            if ($.classification == null) {
+                throw new MissingRequiredPropertyException("JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs", "classification");
+            }
             return $;
         }
     }

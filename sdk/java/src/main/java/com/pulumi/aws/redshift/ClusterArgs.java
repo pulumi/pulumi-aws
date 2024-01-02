@@ -7,6 +7,7 @@ import com.pulumi.aws.redshift.inputs.ClusterLoggingArgs;
 import com.pulumi.aws.redshift.inputs.ClusterSnapshotCopyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1691,8 +1692,12 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
-            $.clusterIdentifier = Objects.requireNonNull($.clusterIdentifier, "expected parameter 'clusterIdentifier' to be non-null");
-            $.nodeType = Objects.requireNonNull($.nodeType, "expected parameter 'nodeType' to be non-null");
+            if ($.clusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "clusterIdentifier");
+            }
+            if ($.nodeType == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "nodeType");
+            }
             return $;
         }
     }

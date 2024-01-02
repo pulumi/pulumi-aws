@@ -186,6 +186,7 @@ public final class BrokerLdapServerMetadata {
 
         @CustomType.Setter
         public Builder hosts(@Nullable List<String> hosts) {
+
             this.hosts = hosts;
             return this;
         }
@@ -194,51 +195,61 @@ public final class BrokerLdapServerMetadata {
         }
         @CustomType.Setter
         public Builder roleBase(@Nullable String roleBase) {
+
             this.roleBase = roleBase;
             return this;
         }
         @CustomType.Setter
         public Builder roleName(@Nullable String roleName) {
+
             this.roleName = roleName;
             return this;
         }
         @CustomType.Setter
         public Builder roleSearchMatching(@Nullable String roleSearchMatching) {
+
             this.roleSearchMatching = roleSearchMatching;
             return this;
         }
         @CustomType.Setter
         public Builder roleSearchSubtree(@Nullable Boolean roleSearchSubtree) {
+
             this.roleSearchSubtree = roleSearchSubtree;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccountPassword(@Nullable String serviceAccountPassword) {
+
             this.serviceAccountPassword = serviceAccountPassword;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccountUsername(@Nullable String serviceAccountUsername) {
+
             this.serviceAccountUsername = serviceAccountUsername;
             return this;
         }
         @CustomType.Setter
         public Builder userBase(@Nullable String userBase) {
+
             this.userBase = userBase;
             return this;
         }
         @CustomType.Setter
         public Builder userRoleName(@Nullable String userRoleName) {
+
             this.userRoleName = userRoleName;
             return this;
         }
         @CustomType.Setter
         public Builder userSearchMatching(@Nullable String userSearchMatching) {
+
             this.userSearchMatching = userSearchMatching;
             return this;
         }
         @CustomType.Setter
         public Builder userSearchSubtree(@Nullable Boolean userSearchSubtree) {
+
             this.userSearchSubtree = userSearchSubtree;
             return this;
         }

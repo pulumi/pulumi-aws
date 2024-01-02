@@ -224,66 +224,79 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
 
         @CustomType.Setter
         public Builder aribDestinationSettings(@Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings aribDestinationSettings) {
+
             this.aribDestinationSettings = aribDestinationSettings;
             return this;
         }
         @CustomType.Setter
         public Builder burnInDestinationSettings(@Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings burnInDestinationSettings) {
+
             this.burnInDestinationSettings = burnInDestinationSettings;
             return this;
         }
         @CustomType.Setter
         public Builder dvbSubDestinationSettings(@Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings dvbSubDestinationSettings) {
+
             this.dvbSubDestinationSettings = dvbSubDestinationSettings;
             return this;
         }
         @CustomType.Setter
         public Builder ebuTtDDestinationSettings(@Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings ebuTtDDestinationSettings) {
+
             this.ebuTtDDestinationSettings = ebuTtDDestinationSettings;
             return this;
         }
         @CustomType.Setter
         public Builder embeddedDestinationSettings(@Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings embeddedDestinationSettings) {
+
             this.embeddedDestinationSettings = embeddedDestinationSettings;
             return this;
         }
         @CustomType.Setter
         public Builder embeddedPlusScte20DestinationSettings(@Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings embeddedPlusScte20DestinationSettings) {
+
             this.embeddedPlusScte20DestinationSettings = embeddedPlusScte20DestinationSettings;
             return this;
         }
         @CustomType.Setter
         public Builder rtmpCaptionInfoDestinationSettings(@Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings rtmpCaptionInfoDestinationSettings) {
+
             this.rtmpCaptionInfoDestinationSettings = rtmpCaptionInfoDestinationSettings;
             return this;
         }
         @CustomType.Setter
         public Builder scte20PlusEmbeddedDestinationSettings(@Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings scte20PlusEmbeddedDestinationSettings) {
+
             this.scte20PlusEmbeddedDestinationSettings = scte20PlusEmbeddedDestinationSettings;
             return this;
         }
         @CustomType.Setter
         public Builder scte27DestinationSettings(@Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings scte27DestinationSettings) {
+
             this.scte27DestinationSettings = scte27DestinationSettings;
             return this;
         }
         @CustomType.Setter
         public Builder smpteTtDestinationSettings(@Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings smpteTtDestinationSettings) {
+
             this.smpteTtDestinationSettings = smpteTtDestinationSettings;
             return this;
         }
         @CustomType.Setter
         public Builder teletextDestinationSettings(@Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings teletextDestinationSettings) {
+
             this.teletextDestinationSettings = teletextDestinationSettings;
             return this;
         }
         @CustomType.Setter
         public Builder ttmlDestinationSettings(@Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings ttmlDestinationSettings) {
+
             this.ttmlDestinationSettings = ttmlDestinationSettings;
             return this;
         }
         @CustomType.Setter
         public Builder webvttDestinationSettings(@Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings webvttDestinationSettings) {
+
             this.webvttDestinationSettings = webvttDestinationSettings;
             return this;
         }

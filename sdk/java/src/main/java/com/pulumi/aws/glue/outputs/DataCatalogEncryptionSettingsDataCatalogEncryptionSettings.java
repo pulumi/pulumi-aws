@@ -6,6 +6,7 @@ package com.pulumi.aws.glue.outputs;
 import com.pulumi.aws.glue.outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption;
 import com.pulumi.aws.glue.outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -57,12 +58,18 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
 
         @CustomType.Setter
         public Builder connectionPasswordEncryption(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption connectionPasswordEncryption) {
-            this.connectionPasswordEncryption = Objects.requireNonNull(connectionPasswordEncryption);
+            if (connectionPasswordEncryption == null) {
+              throw new MissingRequiredPropertyException("DataCatalogEncryptionSettingsDataCatalogEncryptionSettings", "connectionPasswordEncryption");
+            }
+            this.connectionPasswordEncryption = connectionPasswordEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionAtRest(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest encryptionAtRest) {
-            this.encryptionAtRest = Objects.requireNonNull(encryptionAtRest);
+            if (encryptionAtRest == null) {
+              throw new MissingRequiredPropertyException("DataCatalogEncryptionSettingsDataCatalogEncryptionSettings", "encryptionAtRest");
+            }
+            this.encryptionAtRest = encryptionAtRest;
             return this;
         }
         public DataCatalogEncryptionSettingsDataCatalogEncryptionSettings build() {

@@ -58,11 +58,13 @@ public final class PipeTargetParametersEcsTaskParametersPlacementConstraint {
 
         @CustomType.Setter
         public Builder expression(@Nullable String expression) {
+
             this.expression = expression;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

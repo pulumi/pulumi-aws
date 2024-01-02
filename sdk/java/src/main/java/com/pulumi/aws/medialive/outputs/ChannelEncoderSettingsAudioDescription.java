@@ -8,6 +8,7 @@ import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionAu
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionCodecSettings;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionRemixSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -172,56 +173,71 @@ public final class ChannelEncoderSettingsAudioDescription {
 
         @CustomType.Setter
         public Builder audioNormalizationSettings(@Nullable ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings audioNormalizationSettings) {
+
             this.audioNormalizationSettings = audioNormalizationSettings;
             return this;
         }
         @CustomType.Setter
         public Builder audioSelectorName(String audioSelectorName) {
-            this.audioSelectorName = Objects.requireNonNull(audioSelectorName);
+            if (audioSelectorName == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescription", "audioSelectorName");
+            }
+            this.audioSelectorName = audioSelectorName;
             return this;
         }
         @CustomType.Setter
         public Builder audioType(@Nullable String audioType) {
+
             this.audioType = audioType;
             return this;
         }
         @CustomType.Setter
         public Builder audioTypeControl(@Nullable String audioTypeControl) {
+
             this.audioTypeControl = audioTypeControl;
             return this;
         }
         @CustomType.Setter
         public Builder audioWatermarkSettings(@Nullable ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings audioWatermarkSettings) {
+
             this.audioWatermarkSettings = audioWatermarkSettings;
             return this;
         }
         @CustomType.Setter
         public Builder codecSettings(@Nullable ChannelEncoderSettingsAudioDescriptionCodecSettings codecSettings) {
+
             this.codecSettings = codecSettings;
             return this;
         }
         @CustomType.Setter
         public Builder languageCode(@Nullable String languageCode) {
+
             this.languageCode = languageCode;
             return this;
         }
         @CustomType.Setter
         public Builder languageCodeControl(@Nullable String languageCodeControl) {
+
             this.languageCodeControl = languageCodeControl;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescription", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder remixSettings(@Nullable ChannelEncoderSettingsAudioDescriptionRemixSettings remixSettings) {
+
             this.remixSettings = remixSettings;
             return this;
         }
         @CustomType.Setter
         public Builder streamName(@Nullable String streamName) {
+
             this.streamName = streamName;
             return this;
         }

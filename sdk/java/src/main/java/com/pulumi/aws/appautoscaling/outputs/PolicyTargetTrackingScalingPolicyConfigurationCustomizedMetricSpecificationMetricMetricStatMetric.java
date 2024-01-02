@@ -5,6 +5,7 @@ package com.pulumi.aws.appautoscaling.outputs;
 
 import com.pulumi.aws.appautoscaling.outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,6 +74,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
 
         @CustomType.Setter
         public Builder dimensions(@Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension> dimensions) {
+
             this.dimensions = dimensions;
             return this;
         }
@@ -81,12 +83,18 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
         @CustomType.Setter
         public Builder metricName(String metricName) {
-            this.metricName = Objects.requireNonNull(metricName);
+            if (metricName == null) {
+              throw new MissingRequiredPropertyException("PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric", "metricName");
+            }
+            this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
         public Builder namespace(String namespace) {
-            this.namespace = Objects.requireNonNull(namespace);
+            if (namespace == null) {
+              throw new MissingRequiredPropertyException("PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric", "namespace");
+            }
+            this.namespace = namespace;
             return this;
         }
         public PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric build() {

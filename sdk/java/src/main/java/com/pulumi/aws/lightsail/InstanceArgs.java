@@ -6,6 +6,7 @@ package com.pulumi.aws.lightsail;
 import com.pulumi.aws.lightsail.inputs.InstanceAddOnArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -402,9 +403,15 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public InstanceArgs build() {
-            $.availabilityZone = Objects.requireNonNull($.availabilityZone, "expected parameter 'availabilityZone' to be non-null");
-            $.blueprintId = Objects.requireNonNull($.blueprintId, "expected parameter 'blueprintId' to be non-null");
-            $.bundleId = Objects.requireNonNull($.bundleId, "expected parameter 'bundleId' to be non-null");
+            if ($.availabilityZone == null) {
+                throw new MissingRequiredPropertyException("InstanceArgs", "availabilityZone");
+            }
+            if ($.blueprintId == null) {
+                throw new MissingRequiredPropertyException("InstanceArgs", "blueprintId");
+            }
+            if ($.bundleId == null) {
+                throw new MissingRequiredPropertyException("InstanceArgs", "bundleId");
+            }
             return $;
         }
     }

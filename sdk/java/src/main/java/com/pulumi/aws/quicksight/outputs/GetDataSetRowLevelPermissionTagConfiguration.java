@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.GetDataSetRowLevelPermissionTagConfigurationTagRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -42,12 +43,18 @@ public final class GetDataSetRowLevelPermissionTagConfiguration {
 
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetDataSetRowLevelPermissionTagConfiguration", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tagRules(List<GetDataSetRowLevelPermissionTagConfigurationTagRule> tagRules) {
-            this.tagRules = Objects.requireNonNull(tagRules);
+            if (tagRules == null) {
+              throw new MissingRequiredPropertyException("GetDataSetRowLevelPermissionTagConfiguration", "tagRules");
+            }
+            this.tagRules = tagRules;
             return this;
         }
         public Builder tagRules(GetDataSetRowLevelPermissionTagConfigurationTagRule... tagRules) {

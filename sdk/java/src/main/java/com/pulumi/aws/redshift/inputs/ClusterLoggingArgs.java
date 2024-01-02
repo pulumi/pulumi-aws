@@ -5,6 +5,7 @@ package com.pulumi.aws.redshift.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -240,7 +241,9 @@ public final class ClusterLoggingArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ClusterLoggingArgs build() {
-            $.enable = Objects.requireNonNull($.enable, "expected parameter 'enable' to be non-null");
+            if ($.enable == null) {
+                throw new MissingRequiredPropertyException("ClusterLoggingArgs", "enable");
+            }
             return $;
         }
     }

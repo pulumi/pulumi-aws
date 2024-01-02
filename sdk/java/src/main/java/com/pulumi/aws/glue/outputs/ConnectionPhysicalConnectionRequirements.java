@@ -73,11 +73,13 @@ public final class ConnectionPhysicalConnectionRequirements {
 
         @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
+
             this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupIdLists(@Nullable List<String> securityGroupIdLists) {
+
             this.securityGroupIdLists = securityGroupIdLists;
             return this;
         }
@@ -86,6 +88,7 @@ public final class ConnectionPhysicalConnectionRequirements {
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }

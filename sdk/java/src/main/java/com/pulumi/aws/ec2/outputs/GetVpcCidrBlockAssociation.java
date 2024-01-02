@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -72,17 +73,26 @@ public final class GetVpcCidrBlockAssociation {
 
         @CustomType.Setter
         public Builder associationId(String associationId) {
-            this.associationId = Objects.requireNonNull(associationId);
+            if (associationId == null) {
+              throw new MissingRequiredPropertyException("GetVpcCidrBlockAssociation", "associationId");
+            }
+            this.associationId = associationId;
             return this;
         }
         @CustomType.Setter
         public Builder cidrBlock(String cidrBlock) {
-            this.cidrBlock = Objects.requireNonNull(cidrBlock);
+            if (cidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetVpcCidrBlockAssociation", "cidrBlock");
+            }
+            this.cidrBlock = cidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetVpcCidrBlockAssociation", "state");
+            }
+            this.state = state;
             return this;
         }
         public GetVpcCidrBlockAssociation build() {

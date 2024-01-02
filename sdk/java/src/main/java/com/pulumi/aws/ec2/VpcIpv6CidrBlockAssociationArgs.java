@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class VpcIpv6CidrBlockAssociationArgs extends com.pulumi.resources.
         }
 
         public VpcIpv6CidrBlockAssociationArgs build() {
-            $.ipv6IpamPoolId = Objects.requireNonNull($.ipv6IpamPoolId, "expected parameter 'ipv6IpamPoolId' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.ipv6IpamPoolId == null) {
+                throw new MissingRequiredPropertyException("VpcIpv6CidrBlockAssociationArgs", "ipv6IpamPoolId");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("VpcIpv6CidrBlockAssociationArgs", "vpcId");
+            }
             return $;
         }
     }

@@ -10,6 +10,7 @@ import com.pulumi.aws.ecs.inputs.TaskSetScaleArgs;
 import com.pulumi.aws.ecs.inputs.TaskSetServiceRegistriesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -630,9 +631,15 @@ public final class TaskSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TaskSetArgs build() {
-            $.cluster = Objects.requireNonNull($.cluster, "expected parameter 'cluster' to be non-null");
-            $.service = Objects.requireNonNull($.service, "expected parameter 'service' to be non-null");
-            $.taskDefinition = Objects.requireNonNull($.taskDefinition, "expected parameter 'taskDefinition' to be non-null");
+            if ($.cluster == null) {
+                throw new MissingRequiredPropertyException("TaskSetArgs", "cluster");
+            }
+            if ($.service == null) {
+                throw new MissingRequiredPropertyException("TaskSetArgs", "service");
+            }
+            if ($.taskDefinition == null) {
+                throw new MissingRequiredPropertyException("TaskSetArgs", "taskDefinition");
+            }
             return $;
         }
     }

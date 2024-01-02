@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrockfoundation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -156,7 +157,10 @@ public final class GetModelsModelSummary {
 
         @CustomType.Setter
         public Builder customizationsSupporteds(List<String> customizationsSupporteds) {
-            this.customizationsSupporteds = Objects.requireNonNull(customizationsSupporteds);
+            if (customizationsSupporteds == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "customizationsSupporteds");
+            }
+            this.customizationsSupporteds = customizationsSupporteds;
             return this;
         }
         public Builder customizationsSupporteds(String... customizationsSupporteds) {
@@ -164,7 +168,10 @@ public final class GetModelsModelSummary {
         }
         @CustomType.Setter
         public Builder inferenceTypesSupporteds(List<String> inferenceTypesSupporteds) {
-            this.inferenceTypesSupporteds = Objects.requireNonNull(inferenceTypesSupporteds);
+            if (inferenceTypesSupporteds == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "inferenceTypesSupporteds");
+            }
+            this.inferenceTypesSupporteds = inferenceTypesSupporteds;
             return this;
         }
         public Builder inferenceTypesSupporteds(String... inferenceTypesSupporteds) {
@@ -172,7 +179,10 @@ public final class GetModelsModelSummary {
         }
         @CustomType.Setter
         public Builder inputModalities(List<String> inputModalities) {
-            this.inputModalities = Objects.requireNonNull(inputModalities);
+            if (inputModalities == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "inputModalities");
+            }
+            this.inputModalities = inputModalities;
             return this;
         }
         public Builder inputModalities(String... inputModalities) {
@@ -180,22 +190,34 @@ public final class GetModelsModelSummary {
         }
         @CustomType.Setter
         public Builder modelArn(String modelArn) {
-            this.modelArn = Objects.requireNonNull(modelArn);
+            if (modelArn == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "modelArn");
+            }
+            this.modelArn = modelArn;
             return this;
         }
         @CustomType.Setter
         public Builder modelId(String modelId) {
-            this.modelId = Objects.requireNonNull(modelId);
+            if (modelId == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "modelId");
+            }
+            this.modelId = modelId;
             return this;
         }
         @CustomType.Setter
         public Builder modelName(String modelName) {
-            this.modelName = Objects.requireNonNull(modelName);
+            if (modelName == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "modelName");
+            }
+            this.modelName = modelName;
             return this;
         }
         @CustomType.Setter
         public Builder outputModalities(List<String> outputModalities) {
-            this.outputModalities = Objects.requireNonNull(outputModalities);
+            if (outputModalities == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "outputModalities");
+            }
+            this.outputModalities = outputModalities;
             return this;
         }
         public Builder outputModalities(String... outputModalities) {
@@ -203,12 +225,18 @@ public final class GetModelsModelSummary {
         }
         @CustomType.Setter
         public Builder providerName(String providerName) {
-            this.providerName = Objects.requireNonNull(providerName);
+            if (providerName == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "providerName");
+            }
+            this.providerName = providerName;
             return this;
         }
         @CustomType.Setter
         public Builder responseStreamingSupported(Boolean responseStreamingSupported) {
-            this.responseStreamingSupported = Objects.requireNonNull(responseStreamingSupported);
+            if (responseStreamingSupported == null) {
+              throw new MissingRequiredPropertyException("GetModelsModelSummary", "responseStreamingSupported");
+            }
+            this.responseStreamingSupported = responseStreamingSupported;
             return this;
         }
         public GetModelsModelSummary build() {

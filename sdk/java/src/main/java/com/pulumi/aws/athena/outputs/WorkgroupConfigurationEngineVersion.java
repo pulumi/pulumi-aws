@@ -58,11 +58,13 @@ public final class WorkgroupConfigurationEngineVersion {
 
         @CustomType.Setter
         public Builder effectiveEngineVersion(@Nullable String effectiveEngineVersion) {
+
             this.effectiveEngineVersion = effectiveEngineVersion;
             return this;
         }
         @CustomType.Setter
         public Builder selectedEngineVersion(@Nullable String selectedEngineVersion) {
+
             this.selectedEngineVersion = selectedEngineVersion;
             return this;
         }

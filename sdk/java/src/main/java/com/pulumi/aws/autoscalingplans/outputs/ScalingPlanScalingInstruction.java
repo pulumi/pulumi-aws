@@ -7,6 +7,7 @@ import com.pulumi.aws.autoscalingplans.outputs.ScalingPlanScalingInstructionCust
 import com.pulumi.aws.autoscalingplans.outputs.ScalingPlanScalingInstructionPredefinedLoadMetricSpecification;
 import com.pulumi.aws.autoscalingplans.outputs.ScalingPlanScalingInstructionTargetTrackingConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -240,72 +241,98 @@ public final class ScalingPlanScalingInstruction {
 
         @CustomType.Setter
         public Builder customizedLoadMetricSpecification(@Nullable ScalingPlanScalingInstructionCustomizedLoadMetricSpecification customizedLoadMetricSpecification) {
+
             this.customizedLoadMetricSpecification = customizedLoadMetricSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder disableDynamicScaling(@Nullable Boolean disableDynamicScaling) {
+
             this.disableDynamicScaling = disableDynamicScaling;
             return this;
         }
         @CustomType.Setter
         public Builder maxCapacity(Integer maxCapacity) {
-            this.maxCapacity = Objects.requireNonNull(maxCapacity);
+            if (maxCapacity == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanScalingInstruction", "maxCapacity");
+            }
+            this.maxCapacity = maxCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder minCapacity(Integer minCapacity) {
-            this.minCapacity = Objects.requireNonNull(minCapacity);
+            if (minCapacity == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanScalingInstruction", "minCapacity");
+            }
+            this.minCapacity = minCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder predefinedLoadMetricSpecification(@Nullable ScalingPlanScalingInstructionPredefinedLoadMetricSpecification predefinedLoadMetricSpecification) {
+
             this.predefinedLoadMetricSpecification = predefinedLoadMetricSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder predictiveScalingMaxCapacityBehavior(@Nullable String predictiveScalingMaxCapacityBehavior) {
+
             this.predictiveScalingMaxCapacityBehavior = predictiveScalingMaxCapacityBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder predictiveScalingMaxCapacityBuffer(@Nullable Integer predictiveScalingMaxCapacityBuffer) {
+
             this.predictiveScalingMaxCapacityBuffer = predictiveScalingMaxCapacityBuffer;
             return this;
         }
         @CustomType.Setter
         public Builder predictiveScalingMode(@Nullable String predictiveScalingMode) {
+
             this.predictiveScalingMode = predictiveScalingMode;
             return this;
         }
         @CustomType.Setter
         public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+            if (resourceId == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanScalingInstruction", "resourceId");
+            }
+            this.resourceId = resourceId;
             return this;
         }
         @CustomType.Setter
         public Builder scalableDimension(String scalableDimension) {
-            this.scalableDimension = Objects.requireNonNull(scalableDimension);
+            if (scalableDimension == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanScalingInstruction", "scalableDimension");
+            }
+            this.scalableDimension = scalableDimension;
             return this;
         }
         @CustomType.Setter
         public Builder scalingPolicyUpdateBehavior(@Nullable String scalingPolicyUpdateBehavior) {
+
             this.scalingPolicyUpdateBehavior = scalingPolicyUpdateBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder scheduledActionBufferTime(@Nullable Integer scheduledActionBufferTime) {
+
             this.scheduledActionBufferTime = scheduledActionBufferTime;
             return this;
         }
         @CustomType.Setter
         public Builder serviceNamespace(String serviceNamespace) {
-            this.serviceNamespace = Objects.requireNonNull(serviceNamespace);
+            if (serviceNamespace == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanScalingInstruction", "serviceNamespace");
+            }
+            this.serviceNamespace = serviceNamespace;
             return this;
         }
         @CustomType.Setter
         public Builder targetTrackingConfigurations(List<ScalingPlanScalingInstructionTargetTrackingConfiguration> targetTrackingConfigurations) {
-            this.targetTrackingConfigurations = Objects.requireNonNull(targetTrackingConfigurations);
+            if (targetTrackingConfigurations == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanScalingInstruction", "targetTrackingConfigurations");
+            }
+            this.targetTrackingConfigurations = targetTrackingConfigurations;
             return this;
         }
         public Builder targetTrackingConfigurations(ScalingPlanScalingInstructionTargetTrackingConfiguration... targetTrackingConfigurations) {

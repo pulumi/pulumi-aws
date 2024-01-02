@@ -59,11 +59,13 @@ public final class InstanceFleetInstanceTypeConfigConfiguration {
 
         @CustomType.Setter
         public Builder classification(@Nullable String classification) {
+
             this.classification = classification;
             return this;
         }
         @CustomType.Setter
         public Builder properties(@Nullable Map<String,String> properties) {
+
             this.properties = properties;
             return this;
         }

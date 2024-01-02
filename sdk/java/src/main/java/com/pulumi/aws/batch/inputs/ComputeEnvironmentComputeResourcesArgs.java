@@ -7,6 +7,7 @@ import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesEc2Configur
 import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesLaunchTemplateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -713,9 +714,15 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         public ComputeEnvironmentComputeResourcesArgs build() {
-            $.maxVcpus = Objects.requireNonNull($.maxVcpus, "expected parameter 'maxVcpus' to be non-null");
-            $.subnets = Objects.requireNonNull($.subnets, "expected parameter 'subnets' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.maxVcpus == null) {
+                throw new MissingRequiredPropertyException("ComputeEnvironmentComputeResourcesArgs", "maxVcpus");
+            }
+            if ($.subnets == null) {
+                throw new MissingRequiredPropertyException("ComputeEnvironmentComputeResourcesArgs", "subnets");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ComputeEnvironmentComputeResourcesArgs", "type");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -120,8 +121,12 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetServicePlainArgs build() {
-            $.clusterArn = Objects.requireNonNull($.clusterArn, "expected parameter 'clusterArn' to be non-null");
-            $.serviceName = Objects.requireNonNull($.serviceName, "expected parameter 'serviceName' to be non-null");
+            if ($.clusterArn == null) {
+                throw new MissingRequiredPropertyException("GetServicePlainArgs", "clusterArn");
+            }
+            if ($.serviceName == null) {
+                throw new MissingRequiredPropertyException("GetServicePlainArgs", "serviceName");
+            }
             return $;
         }
     }

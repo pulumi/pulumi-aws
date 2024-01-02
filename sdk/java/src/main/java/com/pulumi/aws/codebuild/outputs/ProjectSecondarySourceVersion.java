@@ -4,6 +4,7 @@
 package com.pulumi.aws.codebuild.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ProjectSecondarySourceVersion {
 
         @CustomType.Setter
         public Builder sourceIdentifier(String sourceIdentifier) {
-            this.sourceIdentifier = Objects.requireNonNull(sourceIdentifier);
+            if (sourceIdentifier == null) {
+              throw new MissingRequiredPropertyException("ProjectSecondarySourceVersion", "sourceIdentifier");
+            }
+            this.sourceIdentifier = sourceIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder sourceVersion(String sourceVersion) {
-            this.sourceVersion = Objects.requireNonNull(sourceVersion);
+            if (sourceVersion == null) {
+              throw new MissingRequiredPropertyException("ProjectSecondarySourceVersion", "sourceVersion");
+            }
+            this.sourceVersion = sourceVersion;
             return this;
         }
         public ProjectSecondarySourceVersion build() {

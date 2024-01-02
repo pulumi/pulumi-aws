@@ -15,6 +15,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamServerSideEncryptionA
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -626,7 +627,9 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         public FirehoseDeliveryStreamArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamArgs", "destination");
+            }
             return $;
         }
     }

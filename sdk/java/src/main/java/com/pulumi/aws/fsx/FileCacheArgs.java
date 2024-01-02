@@ -7,6 +7,7 @@ import com.pulumi.aws.fsx.inputs.FileCacheDataRepositoryAssociationArgs;
 import com.pulumi.aws.fsx.inputs.FileCacheLustreConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -470,10 +471,18 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FileCacheArgs build() {
-            $.fileCacheType = Objects.requireNonNull($.fileCacheType, "expected parameter 'fileCacheType' to be non-null");
-            $.fileCacheTypeVersion = Objects.requireNonNull($.fileCacheTypeVersion, "expected parameter 'fileCacheTypeVersion' to be non-null");
-            $.storageCapacity = Objects.requireNonNull($.storageCapacity, "expected parameter 'storageCapacity' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
+            if ($.fileCacheType == null) {
+                throw new MissingRequiredPropertyException("FileCacheArgs", "fileCacheType");
+            }
+            if ($.fileCacheTypeVersion == null) {
+                throw new MissingRequiredPropertyException("FileCacheArgs", "fileCacheTypeVersion");
+            }
+            if ($.storageCapacity == null) {
+                throw new MissingRequiredPropertyException("FileCacheArgs", "storageCapacity");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("FileCacheArgs", "subnetIds");
+            }
             return $;
         }
     }

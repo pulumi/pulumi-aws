@@ -62,11 +62,13 @@ public final class RoomMessageReviewHandler {
 
         @CustomType.Setter
         public Builder fallbackResult(@Nullable String fallbackResult) {
+
             this.fallbackResult = fallbackResult;
             return this;
         }
         @CustomType.Setter
         public Builder uri(@Nullable String uri) {
+
             this.uri = uri;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.signer.outputs;
 import com.pulumi.aws.signer.outputs.GetSigningProfileRevocationRecord;
 import com.pulumi.aws.signer.outputs.GetSigningProfileSignatureValidityPeriod;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -178,32 +179,50 @@ public final class GetSigningProfileResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder platformDisplayName(String platformDisplayName) {
-            this.platformDisplayName = Objects.requireNonNull(platformDisplayName);
+            if (platformDisplayName == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileResult", "platformDisplayName");
+            }
+            this.platformDisplayName = platformDisplayName;
             return this;
         }
         @CustomType.Setter
         public Builder platformId(String platformId) {
-            this.platformId = Objects.requireNonNull(platformId);
+            if (platformId == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileResult", "platformId");
+            }
+            this.platformId = platformId;
             return this;
         }
         @CustomType.Setter
         public Builder revocationRecords(List<GetSigningProfileRevocationRecord> revocationRecords) {
-            this.revocationRecords = Objects.requireNonNull(revocationRecords);
+            if (revocationRecords == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileResult", "revocationRecords");
+            }
+            this.revocationRecords = revocationRecords;
             return this;
         }
         public Builder revocationRecords(GetSigningProfileRevocationRecord... revocationRecords) {
@@ -211,7 +230,10 @@ public final class GetSigningProfileResult {
         }
         @CustomType.Setter
         public Builder signatureValidityPeriods(List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods) {
-            this.signatureValidityPeriods = Objects.requireNonNull(signatureValidityPeriods);
+            if (signatureValidityPeriods == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileResult", "signatureValidityPeriods");
+            }
+            this.signatureValidityPeriods = signatureValidityPeriods;
             return this;
         }
         public Builder signatureValidityPeriods(GetSigningProfileSignatureValidityPeriod... signatureValidityPeriods) {
@@ -219,22 +241,34 @@ public final class GetSigningProfileResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileResult", "version");
+            }
+            this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder versionArn(String versionArn) {
-            this.versionArn = Objects.requireNonNull(versionArn);
+            if (versionArn == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileResult", "versionArn");
+            }
+            this.versionArn = versionArn;
             return this;
         }
         public GetSigningProfileResult build() {

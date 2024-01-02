@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.inputs;
 import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class GatewayRouteSpecHttp2RouteActionTargetArgs extends com.pulumi
         }
 
         public GatewayRouteSpecHttp2RouteActionTargetArgs build() {
-            $.virtualService = Objects.requireNonNull($.virtualService, "expected parameter 'virtualService' to be non-null");
+            if ($.virtualService == null) {
+                throw new MissingRequiredPropertyException("GatewayRouteSpecHttp2RouteActionTargetArgs", "virtualService");
+            }
             return $;
         }
     }

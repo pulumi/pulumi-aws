@@ -7,6 +7,7 @@ import com.pulumi.aws.datasync.inputs.LocationHdfsNameNodeArgs;
 import com.pulumi.aws.datasync.inputs.LocationHdfsQopConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -545,8 +546,12 @@ public final class LocationHdfsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LocationHdfsArgs build() {
-            $.agentArns = Objects.requireNonNull($.agentArns, "expected parameter 'agentArns' to be non-null");
-            $.nameNodes = Objects.requireNonNull($.nameNodes, "expected parameter 'nameNodes' to be non-null");
+            if ($.agentArns == null) {
+                throw new MissingRequiredPropertyException("LocationHdfsArgs", "agentArns");
+            }
+            if ($.nameNodes == null) {
+                throw new MissingRequiredPropertyException("LocationHdfsArgs", "nameNodes");
+            }
             return $;
         }
     }

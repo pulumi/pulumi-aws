@@ -4,6 +4,7 @@
 package com.pulumi.aws.finspace.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -102,27 +103,38 @@ public final class KxClusterScalingGroupConfiguration {
 
         @CustomType.Setter
         public Builder cpu(@Nullable Double cpu) {
+
             this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
         public Builder memoryLimit(@Nullable Integer memoryLimit) {
+
             this.memoryLimit = memoryLimit;
             return this;
         }
         @CustomType.Setter
         public Builder memoryReservation(Integer memoryReservation) {
-            this.memoryReservation = Objects.requireNonNull(memoryReservation);
+            if (memoryReservation == null) {
+              throw new MissingRequiredPropertyException("KxClusterScalingGroupConfiguration", "memoryReservation");
+            }
+            this.memoryReservation = memoryReservation;
             return this;
         }
         @CustomType.Setter
         public Builder nodeCount(Integer nodeCount) {
-            this.nodeCount = Objects.requireNonNull(nodeCount);
+            if (nodeCount == null) {
+              throw new MissingRequiredPropertyException("KxClusterScalingGroupConfiguration", "nodeCount");
+            }
+            this.nodeCount = nodeCount;
             return this;
         }
         @CustomType.Setter
         public Builder scalingGroupName(String scalingGroupName) {
-            this.scalingGroupName = Objects.requireNonNull(scalingGroupName);
+            if (scalingGroupName == null) {
+              throw new MissingRequiredPropertyException("KxClusterScalingGroupConfiguration", "scalingGroupName");
+            }
+            this.scalingGroupName = scalingGroupName;
             return this;
         }
         public KxClusterScalingGroupConfiguration build() {

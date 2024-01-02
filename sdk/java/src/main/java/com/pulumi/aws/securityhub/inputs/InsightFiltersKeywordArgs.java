@@ -5,6 +5,7 @@ package com.pulumi.aws.securityhub.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class InsightFiltersKeywordArgs extends com.pulumi.resources.Resour
         }
 
         public InsightFiltersKeywordArgs build() {
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("InsightFiltersKeywordArgs", "value");
+            }
             return $;
         }
     }

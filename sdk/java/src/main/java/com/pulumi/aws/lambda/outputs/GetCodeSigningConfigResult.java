@@ -6,6 +6,7 @@ package com.pulumi.aws.lambda.outputs;
 import com.pulumi.aws.lambda.outputs.GetCodeSigningConfigAllowedPublisher;
 import com.pulumi.aws.lambda.outputs.GetCodeSigningConfigPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -121,7 +122,10 @@ public final class GetCodeSigningConfigResult {
 
         @CustomType.Setter
         public Builder allowedPublishers(List<GetCodeSigningConfigAllowedPublisher> allowedPublishers) {
-            this.allowedPublishers = Objects.requireNonNull(allowedPublishers);
+            if (allowedPublishers == null) {
+              throw new MissingRequiredPropertyException("GetCodeSigningConfigResult", "allowedPublishers");
+            }
+            this.allowedPublishers = allowedPublishers;
             return this;
         }
         public Builder allowedPublishers(GetCodeSigningConfigAllowedPublisher... allowedPublishers) {
@@ -129,32 +133,50 @@ public final class GetCodeSigningConfigResult {
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetCodeSigningConfigResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder configId(String configId) {
-            this.configId = Objects.requireNonNull(configId);
+            if (configId == null) {
+              throw new MissingRequiredPropertyException("GetCodeSigningConfigResult", "configId");
+            }
+            this.configId = configId;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetCodeSigningConfigResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCodeSigningConfigResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastModified(String lastModified) {
-            this.lastModified = Objects.requireNonNull(lastModified);
+            if (lastModified == null) {
+              throw new MissingRequiredPropertyException("GetCodeSigningConfigResult", "lastModified");
+            }
+            this.lastModified = lastModified;
             return this;
         }
         @CustomType.Setter
         public Builder policies(List<GetCodeSigningConfigPolicy> policies) {
-            this.policies = Objects.requireNonNull(policies);
+            if (policies == null) {
+              throw new MissingRequiredPropertyException("GetCodeSigningConfigResult", "policies");
+            }
+            this.policies = policies;
             return this;
         }
         public Builder policies(GetCodeSigningConfigPolicy... policies) {

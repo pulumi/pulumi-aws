@@ -5,6 +5,7 @@ package com.pulumi.aws.eks.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -135,8 +136,12 @@ public final class GetAddonArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetAddonArgs build() {
-            $.addonName = Objects.requireNonNull($.addonName, "expected parameter 'addonName' to be non-null");
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
+            if ($.addonName == null) {
+                throw new MissingRequiredPropertyException("GetAddonArgs", "addonName");
+            }
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("GetAddonArgs", "clusterName");
+            }
             return $;
         }
     }

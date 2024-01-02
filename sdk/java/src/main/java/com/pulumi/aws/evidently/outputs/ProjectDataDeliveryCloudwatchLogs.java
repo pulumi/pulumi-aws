@@ -48,6 +48,7 @@ public final class ProjectDataDeliveryCloudwatchLogs {
 
         @CustomType.Setter
         public Builder logGroup(@Nullable String logGroup) {
+
             this.logGroup = logGroup;
             return this;
         }

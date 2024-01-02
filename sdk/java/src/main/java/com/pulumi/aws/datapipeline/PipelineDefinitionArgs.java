@@ -8,6 +8,7 @@ import com.pulumi.aws.datapipeline.inputs.PipelineDefinitionParameterValueArgs;
 import com.pulumi.aws.datapipeline.inputs.PipelineDefinitionPipelineObjectArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -231,8 +232,12 @@ public final class PipelineDefinitionArgs extends com.pulumi.resources.ResourceA
         }
 
         public PipelineDefinitionArgs build() {
-            $.pipelineId = Objects.requireNonNull($.pipelineId, "expected parameter 'pipelineId' to be non-null");
-            $.pipelineObjects = Objects.requireNonNull($.pipelineObjects, "expected parameter 'pipelineObjects' to be non-null");
+            if ($.pipelineId == null) {
+                throw new MissingRequiredPropertyException("PipelineDefinitionArgs", "pipelineId");
+            }
+            if ($.pipelineObjects == null) {
+                throw new MissingRequiredPropertyException("PipelineDefinitionArgs", "pipelineObjects");
+            }
             return $;
         }
     }

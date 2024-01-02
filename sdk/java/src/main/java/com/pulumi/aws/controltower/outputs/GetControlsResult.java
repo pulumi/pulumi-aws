@@ -4,6 +4,7 @@
 package com.pulumi.aws.controltower.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -63,7 +64,10 @@ public final class GetControlsResult {
 
         @CustomType.Setter
         public Builder enabledControls(List<String> enabledControls) {
-            this.enabledControls = Objects.requireNonNull(enabledControls);
+            if (enabledControls == null) {
+              throw new MissingRequiredPropertyException("GetControlsResult", "enabledControls");
+            }
+            this.enabledControls = enabledControls;
             return this;
         }
         public Builder enabledControls(String... enabledControls) {
@@ -71,12 +75,18 @@ public final class GetControlsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetControlsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder targetIdentifier(String targetIdentifier) {
-            this.targetIdentifier = Objects.requireNonNull(targetIdentifier);
+            if (targetIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetControlsResult", "targetIdentifier");
+            }
+            this.targetIdentifier = targetIdentifier;
             return this;
         }
         public GetControlsResult build() {

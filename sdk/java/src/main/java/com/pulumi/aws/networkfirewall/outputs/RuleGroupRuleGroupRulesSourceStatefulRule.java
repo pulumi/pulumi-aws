@@ -6,6 +6,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroupRulesSourceStatefulRuleHeader;
 import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,17 +74,26 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRule {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatefulRule", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder header(RuleGroupRuleGroupRulesSourceStatefulRuleHeader header) {
-            this.header = Objects.requireNonNull(header);
+            if (header == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatefulRule", "header");
+            }
+            this.header = header;
             return this;
         }
         @CustomType.Setter
         public Builder ruleOptions(List<RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption> ruleOptions) {
-            this.ruleOptions = Objects.requireNonNull(ruleOptions);
+            if (ruleOptions == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatefulRule", "ruleOptions");
+            }
+            this.ruleOptions = ruleOptions;
             return this;
         }
         public Builder ruleOptions(RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption... ruleOptions) {

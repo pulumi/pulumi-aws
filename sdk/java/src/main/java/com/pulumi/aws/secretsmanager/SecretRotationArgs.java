@@ -6,6 +6,7 @@ package com.pulumi.aws.secretsmanager;
 import com.pulumi.aws.secretsmanager.inputs.SecretRotationRotationRulesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -151,8 +152,12 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public SecretRotationArgs build() {
-            $.rotationRules = Objects.requireNonNull($.rotationRules, "expected parameter 'rotationRules' to be non-null");
-            $.secretId = Objects.requireNonNull($.secretId, "expected parameter 'secretId' to be non-null");
+            if ($.rotationRules == null) {
+                throw new MissingRequiredPropertyException("SecretRotationArgs", "rotationRules");
+            }
+            if ($.secretId == null) {
+                throw new MissingRequiredPropertyException("SecretRotationArgs", "secretId");
+            }
             return $;
         }
     }

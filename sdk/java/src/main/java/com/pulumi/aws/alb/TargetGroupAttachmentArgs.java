@@ -5,6 +5,7 @@ package com.pulumi.aws.alb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -196,8 +197,12 @@ public final class TargetGroupAttachmentArgs extends com.pulumi.resources.Resour
         }
 
         public TargetGroupAttachmentArgs build() {
-            $.targetGroupArn = Objects.requireNonNull($.targetGroupArn, "expected parameter 'targetGroupArn' to be non-null");
-            $.targetId = Objects.requireNonNull($.targetId, "expected parameter 'targetId' to be non-null");
+            if ($.targetGroupArn == null) {
+                throw new MissingRequiredPropertyException("TargetGroupAttachmentArgs", "targetGroupArn");
+            }
+            if ($.targetId == null) {
+                throw new MissingRequiredPropertyException("TargetGroupAttachmentArgs", "targetId");
+            }
             return $;
         }
     }

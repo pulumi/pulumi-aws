@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -67,12 +68,18 @@ public final class GetFunctionUrlCor {
 
         @CustomType.Setter
         public Builder allowCredentials(Boolean allowCredentials) {
-            this.allowCredentials = Objects.requireNonNull(allowCredentials);
+            if (allowCredentials == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlCor", "allowCredentials");
+            }
+            this.allowCredentials = allowCredentials;
             return this;
         }
         @CustomType.Setter
         public Builder allowHeaders(List<String> allowHeaders) {
-            this.allowHeaders = Objects.requireNonNull(allowHeaders);
+            if (allowHeaders == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlCor", "allowHeaders");
+            }
+            this.allowHeaders = allowHeaders;
             return this;
         }
         public Builder allowHeaders(String... allowHeaders) {
@@ -80,7 +87,10 @@ public final class GetFunctionUrlCor {
         }
         @CustomType.Setter
         public Builder allowMethods(List<String> allowMethods) {
-            this.allowMethods = Objects.requireNonNull(allowMethods);
+            if (allowMethods == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlCor", "allowMethods");
+            }
+            this.allowMethods = allowMethods;
             return this;
         }
         public Builder allowMethods(String... allowMethods) {
@@ -88,7 +98,10 @@ public final class GetFunctionUrlCor {
         }
         @CustomType.Setter
         public Builder allowOrigins(List<String> allowOrigins) {
-            this.allowOrigins = Objects.requireNonNull(allowOrigins);
+            if (allowOrigins == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlCor", "allowOrigins");
+            }
+            this.allowOrigins = allowOrigins;
             return this;
         }
         public Builder allowOrigins(String... allowOrigins) {
@@ -96,7 +109,10 @@ public final class GetFunctionUrlCor {
         }
         @CustomType.Setter
         public Builder exposeHeaders(List<String> exposeHeaders) {
-            this.exposeHeaders = Objects.requireNonNull(exposeHeaders);
+            if (exposeHeaders == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlCor", "exposeHeaders");
+            }
+            this.exposeHeaders = exposeHeaders;
             return this;
         }
         public Builder exposeHeaders(String... exposeHeaders) {
@@ -104,7 +120,10 @@ public final class GetFunctionUrlCor {
         }
         @CustomType.Setter
         public Builder maxAge(Integer maxAge) {
-            this.maxAge = Objects.requireNonNull(maxAge);
+            if (maxAge == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlCor", "maxAge");
+            }
+            this.maxAge = maxAge;
             return this;
         }
         public GetFunctionUrlCor build() {

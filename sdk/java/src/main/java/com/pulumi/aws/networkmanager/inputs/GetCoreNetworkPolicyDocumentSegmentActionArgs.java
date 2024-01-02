@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -376,8 +377,12 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         public GetCoreNetworkPolicyDocumentSegmentActionArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.segment = Objects.requireNonNull($.segment, "expected parameter 'segment' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentSegmentActionArgs", "action");
+            }
+            if ($.segment == null) {
+                throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentSegmentActionArgs", "segment");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class RequestValidatorArgs extends com.pulumi.resources.ResourceArg
         }
 
         public RequestValidatorArgs build() {
-            $.restApi = Objects.requireNonNull($.restApi, "expected parameter 'restApi' to be non-null");
+            if ($.restApi == null) {
+                throw new MissingRequiredPropertyException("RequestValidatorArgs", "restApi");
+            }
             return $;
         }
     }

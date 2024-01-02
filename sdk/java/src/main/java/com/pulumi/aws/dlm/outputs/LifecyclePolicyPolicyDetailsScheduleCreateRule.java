@@ -101,26 +101,31 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRule {
 
         @CustomType.Setter
         public Builder cronExpression(@Nullable String cronExpression) {
+
             this.cronExpression = cronExpression;
             return this;
         }
         @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
+
             this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder intervalUnit(@Nullable String intervalUnit) {
+
             this.intervalUnit = intervalUnit;
             return this;
         }
         @CustomType.Setter
         public Builder location(@Nullable String location) {
+
             this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder times(@Nullable String times) {
+
             this.times = times;
             return this;
         }

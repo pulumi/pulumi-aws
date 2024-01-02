@@ -4,6 +4,7 @@
 package com.pulumi.aws.location.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -133,42 +134,66 @@ public final class GetGeofenceCollectionResult {
 
         @CustomType.Setter
         public Builder collectionArn(String collectionArn) {
-            this.collectionArn = Objects.requireNonNull(collectionArn);
+            if (collectionArn == null) {
+              throw new MissingRequiredPropertyException("GetGeofenceCollectionResult", "collectionArn");
+            }
+            this.collectionArn = collectionArn;
             return this;
         }
         @CustomType.Setter
         public Builder collectionName(String collectionName) {
-            this.collectionName = Objects.requireNonNull(collectionName);
+            if (collectionName == null) {
+              throw new MissingRequiredPropertyException("GetGeofenceCollectionResult", "collectionName");
+            }
+            this.collectionName = collectionName;
             return this;
         }
         @CustomType.Setter
         public Builder createTime(String createTime) {
-            this.createTime = Objects.requireNonNull(createTime);
+            if (createTime == null) {
+              throw new MissingRequiredPropertyException("GetGeofenceCollectionResult", "createTime");
+            }
+            this.createTime = createTime;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetGeofenceCollectionResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGeofenceCollectionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetGeofenceCollectionResult", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetGeofenceCollectionResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder updateTime(String updateTime) {
-            this.updateTime = Objects.requireNonNull(updateTime);
+            if (updateTime == null) {
+              throw new MissingRequiredPropertyException("GetGeofenceCollectionResult", "updateTime");
+            }
+            this.updateTime = updateTime;
             return this;
         }
         public GetGeofenceCollectionResult build() {

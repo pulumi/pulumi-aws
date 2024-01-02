@@ -10,6 +10,7 @@ import com.pulumi.aws.elastictranscoder.inputs.PipelineThumbnailConfigArgs;
 import com.pulumi.aws.elastictranscoder.inputs.PipelineThumbnailConfigPermissionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -470,8 +471,12 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PipelineArgs build() {
-            $.inputBucket = Objects.requireNonNull($.inputBucket, "expected parameter 'inputBucket' to be non-null");
-            $.role = Objects.requireNonNull($.role, "expected parameter 'role' to be non-null");
+            if ($.inputBucket == null) {
+                throw new MissingRequiredPropertyException("PipelineArgs", "inputBucket");
+            }
+            if ($.role == null) {
+                throw new MissingRequiredPropertyException("PipelineArgs", "role");
+            }
             return $;
         }
     }

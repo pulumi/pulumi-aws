@@ -6,6 +6,7 @@ package com.pulumi.aws.rds;
 import com.pulumi.aws.rds.inputs.ProxyAuthArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -444,10 +445,18 @@ public final class ProxyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProxyArgs build() {
-            $.auths = Objects.requireNonNull($.auths, "expected parameter 'auths' to be non-null");
-            $.engineFamily = Objects.requireNonNull($.engineFamily, "expected parameter 'engineFamily' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.vpcSubnetIds = Objects.requireNonNull($.vpcSubnetIds, "expected parameter 'vpcSubnetIds' to be non-null");
+            if ($.auths == null) {
+                throw new MissingRequiredPropertyException("ProxyArgs", "auths");
+            }
+            if ($.engineFamily == null) {
+                throw new MissingRequiredPropertyException("ProxyArgs", "engineFamily");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("ProxyArgs", "roleArn");
+            }
+            if ($.vpcSubnetIds == null) {
+                throw new MissingRequiredPropertyException("ProxyArgs", "vpcSubnetIds");
+            }
             return $;
         }
     }

@@ -59,11 +59,13 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder basicAuthCredentials(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials basicAuthCredentials) {
+
             this.basicAuthCredentials = basicAuthCredentials;
             return this;
         }
         @CustomType.Setter
         public Builder oauthCredentials(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials oauthCredentials) {
+
             this.oauthCredentials = oauthCredentials;
             return this;
         }

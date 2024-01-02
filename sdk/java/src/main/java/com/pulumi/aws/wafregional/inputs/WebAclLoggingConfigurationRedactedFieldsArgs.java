@@ -6,6 +6,7 @@ package com.pulumi.aws.wafregional.inputs;
 import com.pulumi.aws.wafregional.inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,7 +86,9 @@ public final class WebAclLoggingConfigurationRedactedFieldsArgs extends com.pulu
         }
 
         public WebAclLoggingConfigurationRedactedFieldsArgs build() {
-            $.fieldToMatches = Objects.requireNonNull($.fieldToMatches, "expected parameter 'fieldToMatches' to be non-null");
+            if ($.fieldToMatches == null) {
+                throw new MissingRequiredPropertyException("WebAclLoggingConfigurationRedactedFieldsArgs", "fieldToMatches");
+            }
             return $;
         }
     }

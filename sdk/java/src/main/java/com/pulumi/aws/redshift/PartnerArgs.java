@@ -5,6 +5,7 @@ package com.pulumi.aws.redshift;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class PartnerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PartnerArgs build() {
-            $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
-            $.clusterIdentifier = Objects.requireNonNull($.clusterIdentifier, "expected parameter 'clusterIdentifier' to be non-null");
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.partnerName = Objects.requireNonNull($.partnerName, "expected parameter 'partnerName' to be non-null");
+            if ($.accountId == null) {
+                throw new MissingRequiredPropertyException("PartnerArgs", "accountId");
+            }
+            if ($.clusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("PartnerArgs", "clusterIdentifier");
+            }
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("PartnerArgs", "databaseName");
+            }
+            if ($.partnerName == null) {
+                throw new MissingRequiredPropertyException("PartnerArgs", "partnerName");
+            }
             return $;
         }
     }

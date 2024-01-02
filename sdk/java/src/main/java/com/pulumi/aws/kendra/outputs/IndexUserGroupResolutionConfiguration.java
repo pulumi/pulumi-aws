@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class IndexUserGroupResolutionConfiguration {
 
         @CustomType.Setter
         public Builder userGroupResolutionMode(String userGroupResolutionMode) {
-            this.userGroupResolutionMode = Objects.requireNonNull(userGroupResolutionMode);
+            if (userGroupResolutionMode == null) {
+              throw new MissingRequiredPropertyException("IndexUserGroupResolutionConfiguration", "userGroupResolutionMode");
+            }
+            this.userGroupResolutionMode = userGroupResolutionMode;
             return this;
         }
         public IndexUserGroupResolutionConfiguration build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.cleanrooms.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -112,9 +113,15 @@ public final class CollaborationMemberArgs extends com.pulumi.resources.Resource
         }
 
         public CollaborationMemberArgs build() {
-            $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.memberAbilities = Objects.requireNonNull($.memberAbilities, "expected parameter 'memberAbilities' to be non-null");
+            if ($.accountId == null) {
+                throw new MissingRequiredPropertyException("CollaborationMemberArgs", "accountId");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("CollaborationMemberArgs", "displayName");
+            }
+            if ($.memberAbilities == null) {
+                throw new MissingRequiredPropertyException("CollaborationMemberArgs", "memberAbilities");
+            }
             return $;
         }
     }

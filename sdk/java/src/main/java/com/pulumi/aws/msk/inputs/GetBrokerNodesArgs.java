@@ -5,6 +5,7 @@ package com.pulumi.aws.msk.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetBrokerNodesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetBrokerNodesArgs build() {
-            $.clusterArn = Objects.requireNonNull($.clusterArn, "expected parameter 'clusterArn' to be non-null");
+            if ($.clusterArn == null) {
+                throw new MissingRequiredPropertyException("GetBrokerNodesArgs", "clusterArn");
+            }
             return $;
         }
     }

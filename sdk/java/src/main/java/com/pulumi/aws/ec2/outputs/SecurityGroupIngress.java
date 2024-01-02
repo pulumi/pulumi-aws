@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -167,6 +168,7 @@ public final class SecurityGroupIngress {
 
         @CustomType.Setter
         public Builder cidrBlocks(@Nullable List<String> cidrBlocks) {
+
             this.cidrBlocks = cidrBlocks;
             return this;
         }
@@ -175,16 +177,21 @@ public final class SecurityGroupIngress {
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder fromPort(Integer fromPort) {
-            this.fromPort = Objects.requireNonNull(fromPort);
+            if (fromPort == null) {
+              throw new MissingRequiredPropertyException("SecurityGroupIngress", "fromPort");
+            }
+            this.fromPort = fromPort;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6CidrBlocks(@Nullable List<String> ipv6CidrBlocks) {
+
             this.ipv6CidrBlocks = ipv6CidrBlocks;
             return this;
         }
@@ -193,6 +200,7 @@ public final class SecurityGroupIngress {
         }
         @CustomType.Setter
         public Builder prefixListIds(@Nullable List<String> prefixListIds) {
+
             this.prefixListIds = prefixListIds;
             return this;
         }
@@ -201,11 +209,15 @@ public final class SecurityGroupIngress {
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("SecurityGroupIngress", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
+
             this.securityGroups = securityGroups;
             return this;
         }
@@ -214,12 +226,16 @@ public final class SecurityGroupIngress {
         }
         @CustomType.Setter
         public Builder self(@Nullable Boolean self) {
+
             this.self = self;
             return this;
         }
         @CustomType.Setter
         public Builder toPort(Integer toPort) {
-            this.toPort = Objects.requireNonNull(toPort);
+            if (toPort == null) {
+              throw new MissingRequiredPropertyException("SecurityGroupIngress", "toPort");
+            }
+            this.toPort = toPort;
             return this;
         }
         public SecurityGroupIngress build() {

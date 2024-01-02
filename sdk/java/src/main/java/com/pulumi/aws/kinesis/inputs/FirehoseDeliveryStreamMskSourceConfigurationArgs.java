@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.inputs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -149,9 +150,15 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
         }
 
         public FirehoseDeliveryStreamMskSourceConfigurationArgs build() {
-            $.authenticationConfiguration = Objects.requireNonNull($.authenticationConfiguration, "expected parameter 'authenticationConfiguration' to be non-null");
-            $.mskClusterArn = Objects.requireNonNull($.mskClusterArn, "expected parameter 'mskClusterArn' to be non-null");
-            $.topicName = Objects.requireNonNull($.topicName, "expected parameter 'topicName' to be non-null");
+            if ($.authenticationConfiguration == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamMskSourceConfigurationArgs", "authenticationConfiguration");
+            }
+            if ($.mskClusterArn == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamMskSourceConfigurationArgs", "mskClusterArn");
+            }
+            if ($.topicName == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamMskSourceConfigurationArgs", "topicName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -233,9 +234,15 @@ public final class KxScalingGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public KxScalingGroupArgs build() {
-            $.availabilityZoneId = Objects.requireNonNull($.availabilityZoneId, "expected parameter 'availabilityZoneId' to be non-null");
-            $.environmentId = Objects.requireNonNull($.environmentId, "expected parameter 'environmentId' to be non-null");
-            $.hostType = Objects.requireNonNull($.hostType, "expected parameter 'hostType' to be non-null");
+            if ($.availabilityZoneId == null) {
+                throw new MissingRequiredPropertyException("KxScalingGroupArgs", "availabilityZoneId");
+            }
+            if ($.environmentId == null) {
+                throw new MissingRequiredPropertyException("KxScalingGroupArgs", "environmentId");
+            }
+            if ($.hostType == null) {
+                throw new MissingRequiredPropertyException("KxScalingGroupArgs", "hostType");
+            }
             return $;
         }
     }

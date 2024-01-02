@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetLinkBandwidth {
 
         @CustomType.Setter
         public Builder downloadSpeed(Integer downloadSpeed) {
-            this.downloadSpeed = Objects.requireNonNull(downloadSpeed);
+            if (downloadSpeed == null) {
+              throw new MissingRequiredPropertyException("GetLinkBandwidth", "downloadSpeed");
+            }
+            this.downloadSpeed = downloadSpeed;
             return this;
         }
         @CustomType.Setter
         public Builder uploadSpeed(Integer uploadSpeed) {
-            this.uploadSpeed = Objects.requireNonNull(uploadSpeed);
+            if (uploadSpeed == null) {
+              throw new MissingRequiredPropertyException("GetLinkBandwidth", "uploadSpeed");
+            }
+            this.uploadSpeed = uploadSpeed;
             return this;
         }
         public GetLinkBandwidth build() {

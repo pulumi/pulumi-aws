@@ -4,6 +4,7 @@
 package com.pulumi.aws.codepipeline.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -129,36 +130,51 @@ public final class CustomActionTypeConfigurationProperty {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder key(Boolean key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("CustomActionTypeConfigurationProperty", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("CustomActionTypeConfigurationProperty", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder queryable(@Nullable Boolean queryable) {
+
             this.queryable = queryable;
             return this;
         }
         @CustomType.Setter
         public Builder required(Boolean required) {
-            this.required = Objects.requireNonNull(required);
+            if (required == null) {
+              throw new MissingRequiredPropertyException("CustomActionTypeConfigurationProperty", "required");
+            }
+            this.required = required;
             return this;
         }
         @CustomType.Setter
         public Builder secret(Boolean secret) {
-            this.secret = Objects.requireNonNull(secret);
+            if (secret == null) {
+              throw new MissingRequiredPropertyException("CustomActionTypeConfigurationProperty", "secret");
+            }
+            this.secret = secret;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

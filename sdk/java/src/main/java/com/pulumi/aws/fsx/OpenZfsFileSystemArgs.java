@@ -7,6 +7,7 @@ import com.pulumi.aws.fsx.inputs.OpenZfsFileSystemDiskIopsConfigurationArgs;
 import com.pulumi.aws.fsx.inputs.OpenZfsFileSystemRootVolumeConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -768,9 +769,15 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         public OpenZfsFileSystemArgs build() {
-            $.deploymentType = Objects.requireNonNull($.deploymentType, "expected parameter 'deploymentType' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.throughputCapacity = Objects.requireNonNull($.throughputCapacity, "expected parameter 'throughputCapacity' to be non-null");
+            if ($.deploymentType == null) {
+                throw new MissingRequiredPropertyException("OpenZfsFileSystemArgs", "deploymentType");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("OpenZfsFileSystemArgs", "subnetIds");
+            }
+            if ($.throughputCapacity == null) {
+                throw new MissingRequiredPropertyException("OpenZfsFileSystemArgs", "throughputCapacity");
+            }
             return $;
         }
     }

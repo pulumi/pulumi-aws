@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesisanalyticsv2.outputs;
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn;
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -75,7 +76,10 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         @CustomType.Setter
         public Builder recordColumns(List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn> recordColumns) {
-            this.recordColumns = Objects.requireNonNull(recordColumns);
+            if (recordColumns == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema", "recordColumns");
+            }
+            this.recordColumns = recordColumns;
             return this;
         }
         public Builder recordColumns(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn... recordColumns) {
@@ -83,12 +87,16 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
         @CustomType.Setter
         public Builder recordEncoding(@Nullable String recordEncoding) {
+
             this.recordEncoding = recordEncoding;
             return this;
         }
         @CustomType.Setter
         public Builder recordFormat(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat recordFormat) {
-            this.recordFormat = Objects.requireNonNull(recordFormat);
+            if (recordFormat == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema", "recordFormat");
+            }
+            this.recordFormat = recordFormat;
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema build() {

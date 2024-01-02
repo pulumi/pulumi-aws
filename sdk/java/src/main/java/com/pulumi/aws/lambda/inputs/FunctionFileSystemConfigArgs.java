@@ -5,6 +5,7 @@ package com.pulumi.aws.lambda.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class FunctionFileSystemConfigArgs extends com.pulumi.resources.Res
         }
 
         public FunctionFileSystemConfigArgs build() {
-            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
-            $.localMountPath = Objects.requireNonNull($.localMountPath, "expected parameter 'localMountPath' to be non-null");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("FunctionFileSystemConfigArgs", "arn");
+            }
+            if ($.localMountPath == null) {
+                throw new MissingRequiredPropertyException("FunctionFileSystemConfigArgs", "localMountPath");
+            }
             return $;
         }
     }

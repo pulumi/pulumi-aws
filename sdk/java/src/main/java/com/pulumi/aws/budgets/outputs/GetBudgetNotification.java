@@ -4,6 +4,7 @@
 package com.pulumi.aws.budgets.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -114,17 +115,26 @@ public final class GetBudgetNotification {
 
         @CustomType.Setter
         public Builder comparisonOperator(String comparisonOperator) {
-            this.comparisonOperator = Objects.requireNonNull(comparisonOperator);
+            if (comparisonOperator == null) {
+              throw new MissingRequiredPropertyException("GetBudgetNotification", "comparisonOperator");
+            }
+            this.comparisonOperator = comparisonOperator;
             return this;
         }
         @CustomType.Setter
         public Builder notificationType(String notificationType) {
-            this.notificationType = Objects.requireNonNull(notificationType);
+            if (notificationType == null) {
+              throw new MissingRequiredPropertyException("GetBudgetNotification", "notificationType");
+            }
+            this.notificationType = notificationType;
             return this;
         }
         @CustomType.Setter
         public Builder subscriberEmailAddresses(List<String> subscriberEmailAddresses) {
-            this.subscriberEmailAddresses = Objects.requireNonNull(subscriberEmailAddresses);
+            if (subscriberEmailAddresses == null) {
+              throw new MissingRequiredPropertyException("GetBudgetNotification", "subscriberEmailAddresses");
+            }
+            this.subscriberEmailAddresses = subscriberEmailAddresses;
             return this;
         }
         public Builder subscriberEmailAddresses(String... subscriberEmailAddresses) {
@@ -132,7 +142,10 @@ public final class GetBudgetNotification {
         }
         @CustomType.Setter
         public Builder subscriberSnsTopicArns(List<String> subscriberSnsTopicArns) {
-            this.subscriberSnsTopicArns = Objects.requireNonNull(subscriberSnsTopicArns);
+            if (subscriberSnsTopicArns == null) {
+              throw new MissingRequiredPropertyException("GetBudgetNotification", "subscriberSnsTopicArns");
+            }
+            this.subscriberSnsTopicArns = subscriberSnsTopicArns;
             return this;
         }
         public Builder subscriberSnsTopicArns(String... subscriberSnsTopicArns) {
@@ -140,12 +153,18 @@ public final class GetBudgetNotification {
         }
         @CustomType.Setter
         public Builder threshold(Double threshold) {
-            this.threshold = Objects.requireNonNull(threshold);
+            if (threshold == null) {
+              throw new MissingRequiredPropertyException("GetBudgetNotification", "threshold");
+            }
+            this.threshold = threshold;
             return this;
         }
         @CustomType.Setter
         public Builder thresholdType(String thresholdType) {
-            this.thresholdType = Objects.requireNonNull(thresholdType);
+            if (thresholdType == null) {
+              throw new MissingRequiredPropertyException("GetBudgetNotification", "thresholdType");
+            }
+            this.thresholdType = thresholdType;
             return this;
         }
         public GetBudgetNotification build() {

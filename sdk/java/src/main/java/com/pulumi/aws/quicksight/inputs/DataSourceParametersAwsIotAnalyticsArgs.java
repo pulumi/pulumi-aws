@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class DataSourceParametersAwsIotAnalyticsArgs extends com.pulumi.re
         }
 
         public DataSourceParametersAwsIotAnalyticsArgs build() {
-            $.dataSetName = Objects.requireNonNull($.dataSetName, "expected parameter 'dataSetName' to be non-null");
+            if ($.dataSetName == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersAwsIotAnalyticsArgs", "dataSetName");
+            }
             return $;
         }
     }

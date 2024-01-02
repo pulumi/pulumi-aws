@@ -5,6 +5,7 @@ package com.pulumi.aws.route53recoveryreadiness.outputs;
 
 import com.pulumi.aws.route53recoveryreadiness.outputs.ResourceSetResourceDnsTargetResourceTargetResource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -101,26 +102,33 @@ public final class ResourceSetResourceDnsTargetResource {
 
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("ResourceSetResourceDnsTargetResource", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder hostedZoneArn(@Nullable String hostedZoneArn) {
+
             this.hostedZoneArn = hostedZoneArn;
             return this;
         }
         @CustomType.Setter
         public Builder recordSetId(@Nullable String recordSetId) {
+
             this.recordSetId = recordSetId;
             return this;
         }
         @CustomType.Setter
         public Builder recordType(@Nullable String recordType) {
+
             this.recordType = recordType;
             return this;
         }
         @CustomType.Setter
         public Builder targetResource(@Nullable ResourceSetResourceDnsTargetResourceTargetResource targetResource) {
+
             this.targetResource = targetResource;
             return this;
         }

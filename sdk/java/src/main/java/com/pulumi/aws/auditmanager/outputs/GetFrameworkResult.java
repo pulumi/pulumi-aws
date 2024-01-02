@@ -5,6 +5,7 @@ package com.pulumi.aws.auditmanager.outputs;
 
 import com.pulumi.aws.auditmanager.outputs.GetFrameworkControlSet;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -80,16 +81,23 @@ public final class GetFrameworkResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder complianceType(String complianceType) {
-            this.complianceType = Objects.requireNonNull(complianceType);
+            if (complianceType == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkResult", "complianceType");
+            }
+            this.complianceType = complianceType;
             return this;
         }
         @CustomType.Setter
         public Builder controlSets(@Nullable List<GetFrameworkControlSet> controlSets) {
+
             this.controlSets = controlSets;
             return this;
         }
@@ -98,27 +106,42 @@ public final class GetFrameworkResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder frameworkType(String frameworkType) {
-            this.frameworkType = Objects.requireNonNull(frameworkType);
+            if (frameworkType == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkResult", "frameworkType");
+            }
+            this.frameworkType = frameworkType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetFrameworkResult build() {

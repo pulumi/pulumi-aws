@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs.outputs;
 import com.pulumi.aws.ecs.outputs.GetClusterServiceConnectDefault;
 import com.pulumi.aws.ecs.outputs.GetClusterSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -165,37 +166,58 @@ public final class GetClusterResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder clusterName(String clusterName) {
-            this.clusterName = Objects.requireNonNull(clusterName);
+            if (clusterName == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "clusterName");
+            }
+            this.clusterName = clusterName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder pendingTasksCount(Integer pendingTasksCount) {
-            this.pendingTasksCount = Objects.requireNonNull(pendingTasksCount);
+            if (pendingTasksCount == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "pendingTasksCount");
+            }
+            this.pendingTasksCount = pendingTasksCount;
             return this;
         }
         @CustomType.Setter
         public Builder registeredContainerInstancesCount(Integer registeredContainerInstancesCount) {
-            this.registeredContainerInstancesCount = Objects.requireNonNull(registeredContainerInstancesCount);
+            if (registeredContainerInstancesCount == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "registeredContainerInstancesCount");
+            }
+            this.registeredContainerInstancesCount = registeredContainerInstancesCount;
             return this;
         }
         @CustomType.Setter
         public Builder runningTasksCount(Integer runningTasksCount) {
-            this.runningTasksCount = Objects.requireNonNull(runningTasksCount);
+            if (runningTasksCount == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "runningTasksCount");
+            }
+            this.runningTasksCount = runningTasksCount;
             return this;
         }
         @CustomType.Setter
         public Builder serviceConnectDefaults(List<GetClusterServiceConnectDefault> serviceConnectDefaults) {
-            this.serviceConnectDefaults = Objects.requireNonNull(serviceConnectDefaults);
+            if (serviceConnectDefaults == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "serviceConnectDefaults");
+            }
+            this.serviceConnectDefaults = serviceConnectDefaults;
             return this;
         }
         public Builder serviceConnectDefaults(GetClusterServiceConnectDefault... serviceConnectDefaults) {
@@ -203,7 +225,10 @@ public final class GetClusterResult {
         }
         @CustomType.Setter
         public Builder settings(List<GetClusterSetting> settings) {
-            this.settings = Objects.requireNonNull(settings);
+            if (settings == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "settings");
+            }
+            this.settings = settings;
             return this;
         }
         public Builder settings(GetClusterSetting... settings) {
@@ -211,12 +236,18 @@ public final class GetClusterResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetClusterResult build() {

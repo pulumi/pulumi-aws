@@ -4,6 +4,7 @@
 package com.pulumi.aws.codegurureviewer.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class RepositoryAssociationRepositoryS3Bucket {
 
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("RepositoryAssociationRepositoryS3Bucket", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("RepositoryAssociationRepositoryS3Bucket", "name");
+            }
+            this.name = name;
             return this;
         }
         public RepositoryAssociationRepositoryS3Bucket build() {

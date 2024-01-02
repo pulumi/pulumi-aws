@@ -8,6 +8,7 @@ import com.pulumi.aws.ses.inputs.EventDestinationKinesisDestinationArgs;
 import com.pulumi.aws.ses.inputs.EventDestinationSnsDestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -331,8 +332,12 @@ public final class EventDestinationArgs extends com.pulumi.resources.ResourceArg
         }
 
         public EventDestinationArgs build() {
-            $.configurationSetName = Objects.requireNonNull($.configurationSetName, "expected parameter 'configurationSetName' to be non-null");
-            $.matchingTypes = Objects.requireNonNull($.matchingTypes, "expected parameter 'matchingTypes' to be non-null");
+            if ($.configurationSetName == null) {
+                throw new MissingRequiredPropertyException("EventDestinationArgs", "configurationSetName");
+            }
+            if ($.matchingTypes == null) {
+                throw new MissingRequiredPropertyException("EventDestinationArgs", "matchingTypes");
+            }
             return $;
         }
     }

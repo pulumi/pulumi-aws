@@ -44,6 +44,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody
 
         @CustomType.Setter
         public Builder oversizeHandling(@Nullable String oversizeHandling) {
+
             this.oversizeHandling = oversizeHandling;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.inputs;
 import com.pulumi.aws.sagemaker.inputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigArgs extend
         }
 
         public DataQualityJobDefinitionDataQualityJobOutputConfigArgs build() {
-            $.monitoringOutputs = Objects.requireNonNull($.monitoringOutputs, "expected parameter 'monitoringOutputs' to be non-null");
+            if ($.monitoringOutputs == null) {
+                throw new MissingRequiredPropertyException("DataQualityJobDefinitionDataQualityJobOutputConfigArgs", "monitoringOutputs");
+            }
             return $;
         }
     }

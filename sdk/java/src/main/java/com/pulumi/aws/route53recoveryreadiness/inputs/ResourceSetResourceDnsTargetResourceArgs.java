@@ -6,6 +6,7 @@ package com.pulumi.aws.route53recoveryreadiness.inputs;
 import com.pulumi.aws.route53recoveryreadiness.inputs.ResourceSetResourceDnsTargetResourceTargetResourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -225,7 +226,9 @@ public final class ResourceSetResourceDnsTargetResourceArgs extends com.pulumi.r
         }
 
         public ResourceSetResourceDnsTargetResourceArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("ResourceSetResourceDnsTargetResourceArgs", "domainName");
+            }
             return $;
         }
     }

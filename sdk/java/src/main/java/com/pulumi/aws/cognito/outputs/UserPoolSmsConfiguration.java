@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,23 @@ public final class UserPoolSmsConfiguration {
 
         @CustomType.Setter
         public Builder externalId(String externalId) {
-            this.externalId = Objects.requireNonNull(externalId);
+            if (externalId == null) {
+              throw new MissingRequiredPropertyException("UserPoolSmsConfiguration", "externalId");
+            }
+            this.externalId = externalId;
             return this;
         }
         @CustomType.Setter
         public Builder snsCallerArn(String snsCallerArn) {
-            this.snsCallerArn = Objects.requireNonNull(snsCallerArn);
+            if (snsCallerArn == null) {
+              throw new MissingRequiredPropertyException("UserPoolSmsConfiguration", "snsCallerArn");
+            }
+            this.snsCallerArn = snsCallerArn;
             return this;
         }
         @CustomType.Setter
         public Builder snsRegion(@Nullable String snsRegion) {
+
             this.snsRegion = snsRegion;
             return this;
         }

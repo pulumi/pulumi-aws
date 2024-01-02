@@ -5,6 +5,7 @@ package com.pulumi.aws.polly.outputs;
 
 import com.pulumi.aws.polly.outputs.GetVoicesVoice;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -87,26 +88,33 @@ public final class GetVoicesResult {
 
         @CustomType.Setter
         public Builder engine(@Nullable String engine) {
+
             this.engine = engine;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVoicesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeAdditionalLanguageCodes(@Nullable Boolean includeAdditionalLanguageCodes) {
+
             this.includeAdditionalLanguageCodes = includeAdditionalLanguageCodes;
             return this;
         }
         @CustomType.Setter
         public Builder languageCode(@Nullable String languageCode) {
+
             this.languageCode = languageCode;
             return this;
         }
         @CustomType.Setter
         public Builder voices(@Nullable List<GetVoicesVoice> voices) {
+
             this.voices = voices;
             return this;
         }

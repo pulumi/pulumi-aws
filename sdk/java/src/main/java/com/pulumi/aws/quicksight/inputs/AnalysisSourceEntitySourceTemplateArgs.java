@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.inputs;
 import com.pulumi.aws.quicksight.inputs.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class AnalysisSourceEntitySourceTemplateArgs extends com.pulumi.res
         }
 
         public AnalysisSourceEntitySourceTemplateArgs build() {
-            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
-            $.dataSetReferences = Objects.requireNonNull($.dataSetReferences, "expected parameter 'dataSetReferences' to be non-null");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("AnalysisSourceEntitySourceTemplateArgs", "arn");
+            }
+            if ($.dataSetReferences == null) {
+                throw new MissingRequiredPropertyException("AnalysisSourceEntitySourceTemplateArgs", "dataSetReferences");
+            }
             return $;
         }
     }

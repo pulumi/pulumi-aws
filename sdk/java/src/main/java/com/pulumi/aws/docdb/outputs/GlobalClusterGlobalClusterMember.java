@@ -59,11 +59,13 @@ public final class GlobalClusterGlobalClusterMember {
 
         @CustomType.Setter
         public Builder dbClusterArn(@Nullable String dbClusterArn) {
+
             this.dbClusterArn = dbClusterArn;
             return this;
         }
         @CustomType.Setter
         public Builder isWriter(@Nullable Boolean isWriter) {
+
             this.isWriter = isWriter;
             return this;
         }

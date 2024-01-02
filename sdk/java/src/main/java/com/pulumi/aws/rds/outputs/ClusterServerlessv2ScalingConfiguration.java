@@ -4,6 +4,7 @@
 package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ClusterServerlessv2ScalingConfiguration {
 
         @CustomType.Setter
         public Builder maxCapacity(Double maxCapacity) {
-            this.maxCapacity = Objects.requireNonNull(maxCapacity);
+            if (maxCapacity == null) {
+              throw new MissingRequiredPropertyException("ClusterServerlessv2ScalingConfiguration", "maxCapacity");
+            }
+            this.maxCapacity = maxCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder minCapacity(Double minCapacity) {
-            this.minCapacity = Objects.requireNonNull(minCapacity);
+            if (minCapacity == null) {
+              throw new MissingRequiredPropertyException("ClusterServerlessv2ScalingConfiguration", "minCapacity");
+            }
+            this.minCapacity = minCapacity;
             return this;
         }
         public ClusterServerlessv2ScalingConfiguration build() {

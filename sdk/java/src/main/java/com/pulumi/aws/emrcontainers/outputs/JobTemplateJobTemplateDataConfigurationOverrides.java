@@ -60,6 +60,7 @@ public final class JobTemplateJobTemplateDataConfigurationOverrides {
 
         @CustomType.Setter
         public Builder applicationConfigurations(@Nullable List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration> applicationConfigurations) {
+
             this.applicationConfigurations = applicationConfigurations;
             return this;
         }
@@ -68,6 +69,7 @@ public final class JobTemplateJobTemplateDataConfigurationOverrides {
         }
         @CustomType.Setter
         public Builder monitoringConfiguration(@Nullable JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration monitoringConfiguration) {
+
             this.monitoringConfiguration = monitoringConfiguration;
             return this;
         }

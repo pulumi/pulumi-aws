@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetVpcEndpointDnsEntry {
 
         @CustomType.Setter
         public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+            if (dnsName == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointDnsEntry", "dnsName");
+            }
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
         public Builder hostedZoneId(String hostedZoneId) {
-            this.hostedZoneId = Objects.requireNonNull(hostedZoneId);
+            if (hostedZoneId == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointDnsEntry", "hostedZoneId");
+            }
+            this.hostedZoneId = hostedZoneId;
             return this;
         }
         public GetVpcEndpointDnsEntry build() {

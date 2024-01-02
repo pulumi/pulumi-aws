@@ -8,6 +8,7 @@ import com.pulumi.aws.appmesh.outputs.RouteSpecGrpcRouteMatch;
 import com.pulumi.aws.appmesh.outputs.RouteSpecGrpcRouteRetryPolicy;
 import com.pulumi.aws.appmesh.outputs.RouteSpecGrpcRouteTimeout;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -89,21 +90,27 @@ public final class RouteSpecGrpcRoute {
 
         @CustomType.Setter
         public Builder action(RouteSpecGrpcRouteAction action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("RouteSpecGrpcRoute", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder match(@Nullable RouteSpecGrpcRouteMatch match) {
+
             this.match = match;
             return this;
         }
         @CustomType.Setter
         public Builder retryPolicy(@Nullable RouteSpecGrpcRouteRetryPolicy retryPolicy) {
+
             this.retryPolicy = retryPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(@Nullable RouteSpecGrpcRouteTimeout timeout) {
+
             this.timeout = timeout;
             return this;
         }

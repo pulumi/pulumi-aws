@@ -5,6 +5,7 @@ package com.pulumi.aws.apprunner;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -209,9 +210,15 @@ public final class VpcConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VpcConnectorArgs build() {
-            $.securityGroups = Objects.requireNonNull($.securityGroups, "expected parameter 'securityGroups' to be non-null");
-            $.subnets = Objects.requireNonNull($.subnets, "expected parameter 'subnets' to be non-null");
-            $.vpcConnectorName = Objects.requireNonNull($.vpcConnectorName, "expected parameter 'vpcConnectorName' to be non-null");
+            if ($.securityGroups == null) {
+                throw new MissingRequiredPropertyException("VpcConnectorArgs", "securityGroups");
+            }
+            if ($.subnets == null) {
+                throw new MissingRequiredPropertyException("VpcConnectorArgs", "subnets");
+            }
+            if ($.vpcConnectorName == null) {
+                throw new MissingRequiredPropertyException("VpcConnectorArgs", "vpcConnectorName");
+            }
             return $;
         }
     }

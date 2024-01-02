@@ -59,11 +59,13 @@ public final class ThingTypeProperties {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder searchableAttributes(@Nullable List<String> searchableAttributes) {
+
             this.searchableAttributes = searchableAttributes;
             return this;
         }

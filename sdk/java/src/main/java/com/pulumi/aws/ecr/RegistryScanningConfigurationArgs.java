@@ -6,6 +6,7 @@ package com.pulumi.aws.ecr;
 import com.pulumi.aws.ecr.inputs.RegistryScanningConfigurationRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class RegistryScanningConfigurationArgs extends com.pulumi.resource
         }
 
         public RegistryScanningConfigurationArgs build() {
-            $.scanType = Objects.requireNonNull($.scanType, "expected parameter 'scanType' to be non-null");
+            if ($.scanType == null) {
+                throw new MissingRequiredPropertyException("RegistryScanningConfigurationArgs", "scanType");
+            }
             return $;
         }
     }

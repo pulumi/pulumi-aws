@@ -5,6 +5,7 @@ package com.pulumi.aws.iam;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class SigningCertificateArgs extends com.pulumi.resources.ResourceA
         }
 
         public SigningCertificateArgs build() {
-            $.certificateBody = Objects.requireNonNull($.certificateBody, "expected parameter 'certificateBody' to be non-null");
-            $.userName = Objects.requireNonNull($.userName, "expected parameter 'userName' to be non-null");
+            if ($.certificateBody == null) {
+                throw new MissingRequiredPropertyException("SigningCertificateArgs", "certificateBody");
+            }
+            if ($.userName == null) {
+                throw new MissingRequiredPropertyException("SigningCertificateArgs", "userName");
+            }
             return $;
         }
     }

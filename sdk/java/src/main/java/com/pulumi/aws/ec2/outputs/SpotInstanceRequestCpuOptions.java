@@ -77,16 +77,19 @@ public final class SpotInstanceRequestCpuOptions {
 
         @CustomType.Setter
         public Builder amdSevSnp(@Nullable String amdSevSnp) {
+
             this.amdSevSnp = amdSevSnp;
             return this;
         }
         @CustomType.Setter
         public Builder coreCount(@Nullable Integer coreCount) {
+
             this.coreCount = coreCount;
             return this;
         }
         @CustomType.Setter
         public Builder threadsPerCore(@Nullable Integer threadsPerCore) {
+
             this.threadsPerCore = threadsPerCore;
             return this;
         }

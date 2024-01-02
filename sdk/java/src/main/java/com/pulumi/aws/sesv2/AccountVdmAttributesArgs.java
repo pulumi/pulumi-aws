@@ -7,6 +7,7 @@ import com.pulumi.aws.sesv2.inputs.AccountVdmAttributesDashboardAttributesArgs;
 import com.pulumi.aws.sesv2.inputs.AccountVdmAttributesGuardianAttributesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -160,7 +161,9 @@ public final class AccountVdmAttributesArgs extends com.pulumi.resources.Resourc
         }
 
         public AccountVdmAttributesArgs build() {
-            $.vdmEnabled = Objects.requireNonNull($.vdmEnabled, "expected parameter 'vdmEnabled' to be non-null");
+            if ($.vdmEnabled == null) {
+                throw new MissingRequiredPropertyException("AccountVdmAttributesArgs", "vdmEnabled");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.gamelift;
 import com.pulumi.aws.gamelift.inputs.MatchmakingConfigurationGamePropertyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -619,8 +620,12 @@ public final class MatchmakingConfigurationArgs extends com.pulumi.resources.Res
         }
 
         public MatchmakingConfigurationArgs build() {
-            $.requestTimeoutSeconds = Objects.requireNonNull($.requestTimeoutSeconds, "expected parameter 'requestTimeoutSeconds' to be non-null");
-            $.ruleSetName = Objects.requireNonNull($.ruleSetName, "expected parameter 'ruleSetName' to be non-null");
+            if ($.requestTimeoutSeconds == null) {
+                throw new MissingRequiredPropertyException("MatchmakingConfigurationArgs", "requestTimeoutSeconds");
+            }
+            if ($.ruleSetName == null) {
+                throw new MissingRequiredPropertyException("MatchmakingConfigurationArgs", "ruleSetName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.route53;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ResolverConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ResolverConfigArgs build() {
-            $.autodefinedReverseFlag = Objects.requireNonNull($.autodefinedReverseFlag, "expected parameter 'autodefinedReverseFlag' to be non-null");
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
+            if ($.autodefinedReverseFlag == null) {
+                throw new MissingRequiredPropertyException("ResolverConfigArgs", "autodefinedReverseFlag");
+            }
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("ResolverConfigArgs", "resourceId");
+            }
             return $;
         }
     }

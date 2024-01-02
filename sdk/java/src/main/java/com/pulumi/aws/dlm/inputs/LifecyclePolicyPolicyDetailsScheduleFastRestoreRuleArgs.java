@@ -5,6 +5,7 @@ package com.pulumi.aws.dlm.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -199,7 +200,9 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
         }
 
         public LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs build() {
-            $.availabilityZones = Objects.requireNonNull($.availabilityZones, "expected parameter 'availabilityZones' to be non-null");
+            if ($.availabilityZones == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs", "availabilityZones");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.fsx.inputs;
 import com.pulumi.aws.fsx.inputs.FileCacheDataRepositoryAssociationNfArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -370,8 +371,12 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         public FileCacheDataRepositoryAssociationArgs build() {
-            $.dataRepositoryPath = Objects.requireNonNull($.dataRepositoryPath, "expected parameter 'dataRepositoryPath' to be non-null");
-            $.fileCachePath = Objects.requireNonNull($.fileCachePath, "expected parameter 'fileCachePath' to be non-null");
+            if ($.dataRepositoryPath == null) {
+                throw new MissingRequiredPropertyException("FileCacheDataRepositoryAssociationArgs", "dataRepositoryPath");
+            }
+            if ($.fileCachePath == null) {
+                throw new MissingRequiredPropertyException("FileCacheDataRepositoryAssociationArgs", "fileCachePath");
+            }
             return $;
         }
     }

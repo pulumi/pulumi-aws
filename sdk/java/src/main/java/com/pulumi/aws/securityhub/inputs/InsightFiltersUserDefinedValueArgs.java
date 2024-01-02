@@ -5,6 +5,7 @@ package com.pulumi.aws.securityhub.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class InsightFiltersUserDefinedValueArgs extends com.pulumi.resourc
         }
 
         public InsightFiltersUserDefinedValueArgs build() {
-            $.comparison = Objects.requireNonNull($.comparison, "expected parameter 'comparison' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.comparison == null) {
+                throw new MissingRequiredPropertyException("InsightFiltersUserDefinedValueArgs", "comparison");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("InsightFiltersUserDefinedValueArgs", "key");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("InsightFiltersUserDefinedValueArgs", "value");
+            }
             return $;
         }
     }

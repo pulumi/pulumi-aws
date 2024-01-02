@@ -5,6 +5,7 @@ package com.pulumi.aws.ssmcontacts.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class PlanStageTargetChannelTargetInfoArgs extends com.pulumi.resou
         }
 
         public PlanStageTargetChannelTargetInfoArgs build() {
-            $.contactChannelId = Objects.requireNonNull($.contactChannelId, "expected parameter 'contactChannelId' to be non-null");
+            if ($.contactChannelId == null) {
+                throw new MissingRequiredPropertyException("PlanStageTargetChannelTargetInfoArgs", "contactChannelId");
+            }
             return $;
         }
     }

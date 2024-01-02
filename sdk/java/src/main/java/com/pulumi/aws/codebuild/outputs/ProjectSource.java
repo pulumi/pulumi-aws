@@ -6,6 +6,7 @@ package com.pulumi.aws.codebuild.outputs;
 import com.pulumi.aws.codebuild.outputs.ProjectSourceBuildStatusConfig;
 import com.pulumi.aws.codebuild.outputs.ProjectSourceGitSubmodulesConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -146,42 +147,52 @@ public final class ProjectSource {
 
         @CustomType.Setter
         public Builder buildStatusConfig(@Nullable ProjectSourceBuildStatusConfig buildStatusConfig) {
+
             this.buildStatusConfig = buildStatusConfig;
             return this;
         }
         @CustomType.Setter
         public Builder buildspec(@Nullable String buildspec) {
+
             this.buildspec = buildspec;
             return this;
         }
         @CustomType.Setter
         public Builder gitCloneDepth(@Nullable Integer gitCloneDepth) {
+
             this.gitCloneDepth = gitCloneDepth;
             return this;
         }
         @CustomType.Setter
         public Builder gitSubmodulesConfig(@Nullable ProjectSourceGitSubmodulesConfig gitSubmodulesConfig) {
+
             this.gitSubmodulesConfig = gitSubmodulesConfig;
             return this;
         }
         @CustomType.Setter
         public Builder insecureSsl(@Nullable Boolean insecureSsl) {
+
             this.insecureSsl = insecureSsl;
             return this;
         }
         @CustomType.Setter
         public Builder location(@Nullable String location) {
+
             this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder reportBuildStatus(@Nullable Boolean reportBuildStatus) {
+
             this.reportBuildStatus = reportBuildStatus;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ProjectSource", "type");
+            }
+            this.type = type;
             return this;
         }
         public ProjectSource build() {

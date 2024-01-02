@@ -5,6 +5,7 @@ package com.pulumi.aws.kendra.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
         }
 
         public DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs build() {
-            $.credentials = Objects.requireNonNull($.credentials, "expected parameter 'credentials' to be non-null");
-            $.host = Objects.requireNonNull($.host, "expected parameter 'host' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
+            if ($.credentials == null) {
+                throw new MissingRequiredPropertyException("DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs", "credentials");
+            }
+            if ($.host == null) {
+                throw new MissingRequiredPropertyException("DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs", "host");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs", "port");
+            }
             return $;
         }
     }

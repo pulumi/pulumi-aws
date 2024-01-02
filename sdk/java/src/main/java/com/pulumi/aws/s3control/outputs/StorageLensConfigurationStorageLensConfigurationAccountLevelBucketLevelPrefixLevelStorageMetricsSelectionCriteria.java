@@ -74,16 +74,19 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
 
         @CustomType.Setter
         public Builder delimiter(@Nullable String delimiter) {
+
             this.delimiter = delimiter;
             return this;
         }
         @CustomType.Setter
         public Builder maxDepth(@Nullable Integer maxDepth) {
+
             this.maxDepth = maxDepth;
             return this;
         }
         @CustomType.Setter
         public Builder minStorageBytesPercentage(@Nullable Double minStorageBytesPercentage) {
+
             this.minStorageBytesPercentage = minStorageBytesPercentage;
             return this;
         }

@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudformation.inputs.StackSetInstanceDeploymentTargetsArg
 import com.pulumi.aws.cloudformation.inputs.StackSetInstanceOperationPreferencesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -339,7 +340,9 @@ public final class StackSetInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         public StackSetInstanceArgs build() {
-            $.stackSetName = Objects.requireNonNull($.stackSetName, "expected parameter 'stackSetName' to be non-null");
+            if ($.stackSetName == null) {
+                throw new MissingRequiredPropertyException("StackSetInstanceArgs", "stackSetName");
+            }
             return $;
         }
     }

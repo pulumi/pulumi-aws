@@ -6,6 +6,7 @@ package com.pulumi.aws.s3.inputs;
 import com.pulumi.aws.s3.inputs.BucketLoggingV2TargetGrantGranteeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class BucketLoggingV2TargetGrantArgs extends com.pulumi.resources.R
         }
 
         public BucketLoggingV2TargetGrantArgs build() {
-            $.grantee = Objects.requireNonNull($.grantee, "expected parameter 'grantee' to be non-null");
-            $.permission = Objects.requireNonNull($.permission, "expected parameter 'permission' to be non-null");
+            if ($.grantee == null) {
+                throw new MissingRequiredPropertyException("BucketLoggingV2TargetGrantArgs", "grantee");
+            }
+            if ($.permission == null) {
+                throw new MissingRequiredPropertyException("BucketLoggingV2TargetGrantArgs", "permission");
+            }
             return $;
         }
     }

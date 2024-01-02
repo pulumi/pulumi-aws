@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch;
 import com.pulumi.aws.cloudwatch.inputs.MetricAlarmMetricQueryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -935,8 +936,12 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MetricAlarmArgs build() {
-            $.comparisonOperator = Objects.requireNonNull($.comparisonOperator, "expected parameter 'comparisonOperator' to be non-null");
-            $.evaluationPeriods = Objects.requireNonNull($.evaluationPeriods, "expected parameter 'evaluationPeriods' to be non-null");
+            if ($.comparisonOperator == null) {
+                throw new MissingRequiredPropertyException("MetricAlarmArgs", "comparisonOperator");
+            }
+            if ($.evaluationPeriods == null) {
+                throw new MissingRequiredPropertyException("MetricAlarmArgs", "evaluationPeriods");
+            }
             return $;
         }
     }

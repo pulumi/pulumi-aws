@@ -5,6 +5,7 @@ package com.pulumi.aws.s3control;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class BucketArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BucketArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.outpostId = Objects.requireNonNull($.outpostId, "expected parameter 'outpostId' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("BucketArgs", "bucket");
+            }
+            if ($.outpostId == null) {
+                throw new MissingRequiredPropertyException("BucketArgs", "outpostId");
+            }
             return $;
         }
     }

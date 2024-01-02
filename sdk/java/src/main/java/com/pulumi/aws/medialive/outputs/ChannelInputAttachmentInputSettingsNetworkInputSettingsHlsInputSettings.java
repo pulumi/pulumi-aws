@@ -93,26 +93,31 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
 
         @CustomType.Setter
         public Builder bandwidth(@Nullable Integer bandwidth) {
+
             this.bandwidth = bandwidth;
             return this;
         }
         @CustomType.Setter
         public Builder bufferSegments(@Nullable Integer bufferSegments) {
+
             this.bufferSegments = bufferSegments;
             return this;
         }
         @CustomType.Setter
         public Builder retries(@Nullable Integer retries) {
+
             this.retries = retries;
             return this;
         }
         @CustomType.Setter
         public Builder retryInterval(@Nullable Integer retryInterval) {
+
             this.retryInterval = retryInterval;
             return this;
         }
         @CustomType.Setter
         public Builder scte35Source(@Nullable String scte35Source) {
+
             this.scte35Source = scte35Source;
             return this;
         }

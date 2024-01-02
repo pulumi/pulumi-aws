@@ -5,6 +5,7 @@ package com.pulumi.aws.chimesdkmediapipelines.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         public MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs build() {
-            $.dataAccessRoleArn = Objects.requireNonNull($.dataAccessRoleArn, "expected parameter 'dataAccessRoleArn' to be non-null");
-            $.outputLocation = Objects.requireNonNull($.outputLocation, "expected parameter 'outputLocation' to be non-null");
+            if ($.dataAccessRoleArn == null) {
+                throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs", "dataAccessRoleArn");
+            }
+            if ($.outputLocation == null) {
+                throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs", "outputLocation");
+            }
             return $;
         }
     }

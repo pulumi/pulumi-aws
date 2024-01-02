@@ -8,6 +8,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationPr
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -376,9 +377,15 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
         }
 
         public FirehoseDeliveryStreamSplunkConfigurationArgs build() {
-            $.hecEndpoint = Objects.requireNonNull($.hecEndpoint, "expected parameter 'hecEndpoint' to be non-null");
-            $.hecToken = Objects.requireNonNull($.hecToken, "expected parameter 'hecToken' to be non-null");
-            $.s3Configuration = Objects.requireNonNull($.s3Configuration, "expected parameter 's3Configuration' to be non-null");
+            if ($.hecEndpoint == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfigurationArgs", "hecEndpoint");
+            }
+            if ($.hecToken == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfigurationArgs", "hecToken");
+            }
+            if ($.s3Configuration == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfigurationArgs", "s3Configuration");
+            }
             return $;
         }
     }

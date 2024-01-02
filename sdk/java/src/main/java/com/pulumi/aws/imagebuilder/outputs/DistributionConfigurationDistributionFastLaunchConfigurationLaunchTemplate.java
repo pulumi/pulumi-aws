@@ -72,16 +72,19 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationL
 
         @CustomType.Setter
         public Builder launchTemplateId(@Nullable String launchTemplateId) {
+
             this.launchTemplateId = launchTemplateId;
             return this;
         }
         @CustomType.Setter
         public Builder launchTemplateName(@Nullable String launchTemplateName) {
+
             this.launchTemplateName = launchTemplateName;
             return this;
         }
         @CustomType.Setter
         public Builder launchTemplateVersion(@Nullable String launchTemplateVersion) {
+
             this.launchTemplateVersion = launchTemplateVersion;
             return this;
         }

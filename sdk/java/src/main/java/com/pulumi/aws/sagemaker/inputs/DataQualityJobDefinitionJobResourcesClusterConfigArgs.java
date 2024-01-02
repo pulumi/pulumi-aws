@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class DataQualityJobDefinitionJobResourcesClusterConfigArgs extends
         }
 
         public DataQualityJobDefinitionJobResourcesClusterConfigArgs build() {
-            $.instanceCount = Objects.requireNonNull($.instanceCount, "expected parameter 'instanceCount' to be non-null");
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
-            $.volumeSizeInGb = Objects.requireNonNull($.volumeSizeInGb, "expected parameter 'volumeSizeInGb' to be non-null");
+            if ($.instanceCount == null) {
+                throw new MissingRequiredPropertyException("DataQualityJobDefinitionJobResourcesClusterConfigArgs", "instanceCount");
+            }
+            if ($.instanceType == null) {
+                throw new MissingRequiredPropertyException("DataQualityJobDefinitionJobResourcesClusterConfigArgs", "instanceType");
+            }
+            if ($.volumeSizeInGb == null) {
+                throw new MissingRequiredPropertyException("DataQualityJobDefinitionJobResourcesClusterConfigArgs", "volumeSizeInGb");
+            }
             return $;
         }
     }

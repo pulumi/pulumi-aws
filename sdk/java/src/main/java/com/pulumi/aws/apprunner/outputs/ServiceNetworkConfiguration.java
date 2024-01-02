@@ -74,16 +74,19 @@ public final class ServiceNetworkConfiguration {
 
         @CustomType.Setter
         public Builder egressConfiguration(@Nullable ServiceNetworkConfigurationEgressConfiguration egressConfiguration) {
+
             this.egressConfiguration = egressConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder ingressConfiguration(@Nullable ServiceNetworkConfigurationIngressConfiguration ingressConfiguration) {
+
             this.ingressConfiguration = ingressConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddressType(@Nullable String ipAddressType) {
+
             this.ipAddressType = ipAddressType;
             return this;
         }

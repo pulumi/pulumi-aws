@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -147,42 +148,62 @@ public final class GetLaunchTemplateNetworkInterface {
 
         @CustomType.Setter
         public Builder associateCarrierIpAddress(String associateCarrierIpAddress) {
-            this.associateCarrierIpAddress = Objects.requireNonNull(associateCarrierIpAddress);
+            if (associateCarrierIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "associateCarrierIpAddress");
+            }
+            this.associateCarrierIpAddress = associateCarrierIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder associatePublicIpAddress(@Nullable Boolean associatePublicIpAddress) {
+
             this.associatePublicIpAddress = associatePublicIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
+
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder deviceIndex(Integer deviceIndex) {
-            this.deviceIndex = Objects.requireNonNull(deviceIndex);
+            if (deviceIndex == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "deviceIndex");
+            }
+            this.deviceIndex = deviceIndex;
             return this;
         }
         @CustomType.Setter
         public Builder interfaceType(String interfaceType) {
-            this.interfaceType = Objects.requireNonNull(interfaceType);
+            if (interfaceType == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "interfaceType");
+            }
+            this.interfaceType = interfaceType;
             return this;
         }
         @CustomType.Setter
         public Builder ipv4AddressCount(Integer ipv4AddressCount) {
-            this.ipv4AddressCount = Objects.requireNonNull(ipv4AddressCount);
+            if (ipv4AddressCount == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "ipv4AddressCount");
+            }
+            this.ipv4AddressCount = ipv4AddressCount;
             return this;
         }
         @CustomType.Setter
         public Builder ipv4Addresses(List<String> ipv4Addresses) {
-            this.ipv4Addresses = Objects.requireNonNull(ipv4Addresses);
+            if (ipv4Addresses == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "ipv4Addresses");
+            }
+            this.ipv4Addresses = ipv4Addresses;
             return this;
         }
         public Builder ipv4Addresses(String... ipv4Addresses) {
@@ -190,12 +211,18 @@ public final class GetLaunchTemplateNetworkInterface {
         }
         @CustomType.Setter
         public Builder ipv4PrefixCount(Integer ipv4PrefixCount) {
-            this.ipv4PrefixCount = Objects.requireNonNull(ipv4PrefixCount);
+            if (ipv4PrefixCount == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "ipv4PrefixCount");
+            }
+            this.ipv4PrefixCount = ipv4PrefixCount;
             return this;
         }
         @CustomType.Setter
         public Builder ipv4Prefixes(List<String> ipv4Prefixes) {
-            this.ipv4Prefixes = Objects.requireNonNull(ipv4Prefixes);
+            if (ipv4Prefixes == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "ipv4Prefixes");
+            }
+            this.ipv4Prefixes = ipv4Prefixes;
             return this;
         }
         public Builder ipv4Prefixes(String... ipv4Prefixes) {
@@ -203,12 +230,18 @@ public final class GetLaunchTemplateNetworkInterface {
         }
         @CustomType.Setter
         public Builder ipv6AddressCount(Integer ipv6AddressCount) {
-            this.ipv6AddressCount = Objects.requireNonNull(ipv6AddressCount);
+            if (ipv6AddressCount == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "ipv6AddressCount");
+            }
+            this.ipv6AddressCount = ipv6AddressCount;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Addresses(List<String> ipv6Addresses) {
-            this.ipv6Addresses = Objects.requireNonNull(ipv6Addresses);
+            if (ipv6Addresses == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "ipv6Addresses");
+            }
+            this.ipv6Addresses = ipv6Addresses;
             return this;
         }
         public Builder ipv6Addresses(String... ipv6Addresses) {
@@ -216,12 +249,18 @@ public final class GetLaunchTemplateNetworkInterface {
         }
         @CustomType.Setter
         public Builder ipv6PrefixCount(Integer ipv6PrefixCount) {
-            this.ipv6PrefixCount = Objects.requireNonNull(ipv6PrefixCount);
+            if (ipv6PrefixCount == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "ipv6PrefixCount");
+            }
+            this.ipv6PrefixCount = ipv6PrefixCount;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Prefixes(List<String> ipv6Prefixes) {
-            this.ipv6Prefixes = Objects.requireNonNull(ipv6Prefixes);
+            if (ipv6Prefixes == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "ipv6Prefixes");
+            }
+            this.ipv6Prefixes = ipv6Prefixes;
             return this;
         }
         public Builder ipv6Prefixes(String... ipv6Prefixes) {
@@ -229,22 +268,34 @@ public final class GetLaunchTemplateNetworkInterface {
         }
         @CustomType.Setter
         public Builder networkCardIndex(Integer networkCardIndex) {
-            this.networkCardIndex = Objects.requireNonNull(networkCardIndex);
+            if (networkCardIndex == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "networkCardIndex");
+            }
+            this.networkCardIndex = networkCardIndex;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+            if (networkInterfaceId == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "networkInterfaceId");
+            }
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
-            this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
+            if (privateIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "privateIpAddress");
+            }
+            this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
-            this.securityGroups = Objects.requireNonNull(securityGroups);
+            if (securityGroups == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "securityGroups");
+            }
+            this.securityGroups = securityGroups;
             return this;
         }
         public Builder securityGroups(String... securityGroups) {
@@ -252,7 +303,10 @@ public final class GetLaunchTemplateNetworkInterface {
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public GetLaunchTemplateNetworkInterface build() {

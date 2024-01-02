@@ -5,6 +5,7 @@ package com.pulumi.aws.servicecatalog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -307,9 +308,15 @@ public final class PortfolioShareArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public PortfolioShareArgs build() {
-            $.portfolioId = Objects.requireNonNull($.portfolioId, "expected parameter 'portfolioId' to be non-null");
-            $.principalId = Objects.requireNonNull($.principalId, "expected parameter 'principalId' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.portfolioId == null) {
+                throw new MissingRequiredPropertyException("PortfolioShareArgs", "portfolioId");
+            }
+            if ($.principalId == null) {
+                throw new MissingRequiredPropertyException("PortfolioShareArgs", "principalId");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("PortfolioShareArgs", "type");
+            }
             return $;
         }
     }

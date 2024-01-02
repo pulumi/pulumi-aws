@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository 
 
         @CustomType.Setter
         public Builder repositoryUrl(String repositoryUrl) {
-            this.repositoryUrl = Objects.requireNonNull(repositoryUrl);
+            if (repositoryUrl == null) {
+              throw new MissingRequiredPropertyException("DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository", "repositoryUrl");
+            }
+            this.repositoryUrl = repositoryUrl;
             return this;
         }
         public DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository build() {

@@ -72,16 +72,19 @@ public final class QueueOutboundCallerConfig {
 
         @CustomType.Setter
         public Builder outboundCallerIdName(@Nullable String outboundCallerIdName) {
+
             this.outboundCallerIdName = outboundCallerIdName;
             return this;
         }
         @CustomType.Setter
         public Builder outboundCallerIdNumberId(@Nullable String outboundCallerIdNumberId) {
+
             this.outboundCallerIdNumberId = outboundCallerIdNumberId;
             return this;
         }
         @CustomType.Setter
         public Builder outboundFlowId(@Nullable String outboundFlowId) {
+
             this.outboundFlowId = outboundFlowId;
             return this;
         }

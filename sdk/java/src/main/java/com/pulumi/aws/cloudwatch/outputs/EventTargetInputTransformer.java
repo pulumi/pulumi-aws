@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -64,12 +65,16 @@ public final class EventTargetInputTransformer {
 
         @CustomType.Setter
         public Builder inputPaths(@Nullable Map<String,String> inputPaths) {
+
             this.inputPaths = inputPaths;
             return this;
         }
         @CustomType.Setter
         public Builder inputTemplate(String inputTemplate) {
-            this.inputTemplate = Objects.requireNonNull(inputTemplate);
+            if (inputTemplate == null) {
+              throw new MissingRequiredPropertyException("EventTargetInputTransformer", "inputTemplate");
+            }
+            this.inputTemplate = inputTemplate;
             return this;
         }
         public EventTargetInputTransformer build() {

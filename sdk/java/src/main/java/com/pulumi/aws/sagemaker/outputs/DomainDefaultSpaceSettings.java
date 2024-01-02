@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultSpaceSettingsJupyterServerAppSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultSpaceSettingsKernelGatewayAppSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -89,21 +90,27 @@ public final class DomainDefaultSpaceSettings {
 
         @CustomType.Setter
         public Builder executionRole(String executionRole) {
-            this.executionRole = Objects.requireNonNull(executionRole);
+            if (executionRole == null) {
+              throw new MissingRequiredPropertyException("DomainDefaultSpaceSettings", "executionRole");
+            }
+            this.executionRole = executionRole;
             return this;
         }
         @CustomType.Setter
         public Builder jupyterServerAppSettings(@Nullable DomainDefaultSpaceSettingsJupyterServerAppSettings jupyterServerAppSettings) {
+
             this.jupyterServerAppSettings = jupyterServerAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder kernelGatewayAppSettings(@Nullable DomainDefaultSpaceSettingsKernelGatewayAppSettings kernelGatewayAppSettings) {
+
             this.kernelGatewayAppSettings = kernelGatewayAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
+
             this.securityGroups = securityGroups;
             return this;
         }

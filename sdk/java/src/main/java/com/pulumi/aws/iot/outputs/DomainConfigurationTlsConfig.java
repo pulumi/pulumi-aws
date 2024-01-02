@@ -44,6 +44,7 @@ public final class DomainConfigurationTlsConfig {
 
         @CustomType.Setter
         public Builder securityPolicy(@Nullable String securityPolicy) {
+
             this.securityPolicy = securityPolicy;
             return this;
         }

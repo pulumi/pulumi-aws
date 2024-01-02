@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.inputs;
 import com.pulumi.aws.appflow.inputs.FlowTriggerConfigTriggerPropertiesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class FlowTriggerConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         public FlowTriggerConfigArgs build() {
-            $.triggerType = Objects.requireNonNull($.triggerType, "expected parameter 'triggerType' to be non-null");
+            if ($.triggerType == null) {
+                throw new MissingRequiredPropertyException("FlowTriggerConfigArgs", "triggerType");
+            }
             return $;
         }
     }

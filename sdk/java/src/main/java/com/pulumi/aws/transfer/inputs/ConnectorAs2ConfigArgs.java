@@ -5,6 +5,7 @@ package com.pulumi.aws.transfer.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -335,12 +336,24 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         public ConnectorAs2ConfigArgs build() {
-            $.compression = Objects.requireNonNull($.compression, "expected parameter 'compression' to be non-null");
-            $.encryptionAlgorithm = Objects.requireNonNull($.encryptionAlgorithm, "expected parameter 'encryptionAlgorithm' to be non-null");
-            $.localProfileId = Objects.requireNonNull($.localProfileId, "expected parameter 'localProfileId' to be non-null");
-            $.mdnResponse = Objects.requireNonNull($.mdnResponse, "expected parameter 'mdnResponse' to be non-null");
-            $.partnerProfileId = Objects.requireNonNull($.partnerProfileId, "expected parameter 'partnerProfileId' to be non-null");
-            $.signingAlgorithm = Objects.requireNonNull($.signingAlgorithm, "expected parameter 'signingAlgorithm' to be non-null");
+            if ($.compression == null) {
+                throw new MissingRequiredPropertyException("ConnectorAs2ConfigArgs", "compression");
+            }
+            if ($.encryptionAlgorithm == null) {
+                throw new MissingRequiredPropertyException("ConnectorAs2ConfigArgs", "encryptionAlgorithm");
+            }
+            if ($.localProfileId == null) {
+                throw new MissingRequiredPropertyException("ConnectorAs2ConfigArgs", "localProfileId");
+            }
+            if ($.mdnResponse == null) {
+                throw new MissingRequiredPropertyException("ConnectorAs2ConfigArgs", "mdnResponse");
+            }
+            if ($.partnerProfileId == null) {
+                throw new MissingRequiredPropertyException("ConnectorAs2ConfigArgs", "partnerProfileId");
+            }
+            if ($.signingAlgorithm == null) {
+                throw new MissingRequiredPropertyException("ConnectorAs2ConfigArgs", "signingAlgorithm");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace.outputs;
 
 import com.pulumi.aws.finspace.outputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,6 +74,7 @@ public final class KxEnvironmentTransitGatewayConfiguration {
 
         @CustomType.Setter
         public Builder attachmentNetworkAclConfigurations(@Nullable List<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration> attachmentNetworkAclConfigurations) {
+
             this.attachmentNetworkAclConfigurations = attachmentNetworkAclConfigurations;
             return this;
         }
@@ -81,12 +83,18 @@ public final class KxEnvironmentTransitGatewayConfiguration {
         }
         @CustomType.Setter
         public Builder routableCidrSpace(String routableCidrSpace) {
-            this.routableCidrSpace = Objects.requireNonNull(routableCidrSpace);
+            if (routableCidrSpace == null) {
+              throw new MissingRequiredPropertyException("KxEnvironmentTransitGatewayConfiguration", "routableCidrSpace");
+            }
+            this.routableCidrSpace = routableCidrSpace;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+            if (transitGatewayId == null) {
+              throw new MissingRequiredPropertyException("KxEnvironmentTransitGatewayConfiguration", "transitGatewayId");
+            }
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         public KxEnvironmentTransitGatewayConfiguration build() {

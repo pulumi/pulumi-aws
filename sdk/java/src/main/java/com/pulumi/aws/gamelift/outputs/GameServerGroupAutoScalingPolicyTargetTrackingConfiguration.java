@@ -4,6 +4,7 @@
 package com.pulumi.aws.gamelift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GameServerGroupAutoScalingPolicyTargetTrackingConfiguration {
 
         @CustomType.Setter
         public Builder targetValue(Double targetValue) {
-            this.targetValue = Objects.requireNonNull(targetValue);
+            if (targetValue == null) {
+              throw new MissingRequiredPropertyException("GameServerGroupAutoScalingPolicyTargetTrackingConfiguration", "targetValue");
+            }
+            this.targetValue = targetValue;
             return this;
         }
         public GameServerGroupAutoScalingPolicyTargetTrackingConfiguration build() {

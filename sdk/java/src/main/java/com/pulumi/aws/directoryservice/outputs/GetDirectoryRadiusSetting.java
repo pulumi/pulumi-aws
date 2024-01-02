@@ -4,6 +4,7 @@
 package com.pulumi.aws.directoryservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -129,27 +130,42 @@ public final class GetDirectoryRadiusSetting {
 
         @CustomType.Setter
         public Builder authenticationProtocol(String authenticationProtocol) {
-            this.authenticationProtocol = Objects.requireNonNull(authenticationProtocol);
+            if (authenticationProtocol == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryRadiusSetting", "authenticationProtocol");
+            }
+            this.authenticationProtocol = authenticationProtocol;
             return this;
         }
         @CustomType.Setter
         public Builder displayLabel(String displayLabel) {
-            this.displayLabel = Objects.requireNonNull(displayLabel);
+            if (displayLabel == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryRadiusSetting", "displayLabel");
+            }
+            this.displayLabel = displayLabel;
             return this;
         }
         @CustomType.Setter
         public Builder radiusPort(Integer radiusPort) {
-            this.radiusPort = Objects.requireNonNull(radiusPort);
+            if (radiusPort == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryRadiusSetting", "radiusPort");
+            }
+            this.radiusPort = radiusPort;
             return this;
         }
         @CustomType.Setter
         public Builder radiusRetries(Integer radiusRetries) {
-            this.radiusRetries = Objects.requireNonNull(radiusRetries);
+            if (radiusRetries == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryRadiusSetting", "radiusRetries");
+            }
+            this.radiusRetries = radiusRetries;
             return this;
         }
         @CustomType.Setter
         public Builder radiusServers(List<String> radiusServers) {
-            this.radiusServers = Objects.requireNonNull(radiusServers);
+            if (radiusServers == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryRadiusSetting", "radiusServers");
+            }
+            this.radiusServers = radiusServers;
             return this;
         }
         public Builder radiusServers(String... radiusServers) {
@@ -157,12 +173,18 @@ public final class GetDirectoryRadiusSetting {
         }
         @CustomType.Setter
         public Builder radiusTimeout(Integer radiusTimeout) {
-            this.radiusTimeout = Objects.requireNonNull(radiusTimeout);
+            if (radiusTimeout == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryRadiusSetting", "radiusTimeout");
+            }
+            this.radiusTimeout = radiusTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder useSameUsername(Boolean useSameUsername) {
-            this.useSameUsername = Objects.requireNonNull(useSameUsername);
+            if (useSameUsername == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryRadiusSetting", "useSameUsername");
+            }
+            this.useSameUsername = useSameUsername;
             return this;
         }
         public GetDirectoryRadiusSetting build() {

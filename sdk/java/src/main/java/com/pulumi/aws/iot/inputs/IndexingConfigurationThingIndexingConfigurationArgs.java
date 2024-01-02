@@ -8,6 +8,7 @@ import com.pulumi.aws.iot.inputs.IndexingConfigurationThingIndexingConfiguration
 import com.pulumi.aws.iot.inputs.IndexingConfigurationThingIndexingConfigurationManagedFieldArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -322,7 +323,9 @@ public final class IndexingConfigurationThingIndexingConfigurationArgs extends c
         }
 
         public IndexingConfigurationThingIndexingConfigurationArgs build() {
-            $.thingIndexingMode = Objects.requireNonNull($.thingIndexingMode, "expected parameter 'thingIndexingMode' to be non-null");
+            if ($.thingIndexingMode == null) {
+                throw new MissingRequiredPropertyException("IndexingConfigurationThingIndexingConfigurationArgs", "thingIndexingMode");
+            }
             return $;
         }
     }

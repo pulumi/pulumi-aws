@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -130,36 +131,51 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
         @CustomType.Setter
         public Builder applicationHostUrl(String applicationHostUrl) {
-            this.applicationHostUrl = Objects.requireNonNull(applicationHostUrl);
+            if (applicationHostUrl == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData", "applicationHostUrl");
+            }
+            this.applicationHostUrl = applicationHostUrl;
             return this;
         }
         @CustomType.Setter
         public Builder applicationServicePath(String applicationServicePath) {
-            this.applicationServicePath = Objects.requireNonNull(applicationServicePath);
+            if (applicationServicePath == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData", "applicationServicePath");
+            }
+            this.applicationServicePath = applicationServicePath;
             return this;
         }
         @CustomType.Setter
         public Builder clientNumber(String clientNumber) {
-            this.clientNumber = Objects.requireNonNull(clientNumber);
+            if (clientNumber == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData", "clientNumber");
+            }
+            this.clientNumber = clientNumber;
             return this;
         }
         @CustomType.Setter
         public Builder logonLanguage(@Nullable String logonLanguage) {
+
             this.logonLanguage = logonLanguage;
             return this;
         }
         @CustomType.Setter
         public Builder oauthProperties(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties oauthProperties) {
+
             this.oauthProperties = oauthProperties;
             return this;
         }
         @CustomType.Setter
         public Builder portNumber(Integer portNumber) {
-            this.portNumber = Objects.requireNonNull(portNumber);
+            if (portNumber == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData", "portNumber");
+            }
+            this.portNumber = portNumber;
             return this;
         }
         @CustomType.Setter
         public Builder privateLinkServiceName(@Nullable String privateLinkServiceName) {
+
             this.privateLinkServiceName = privateLinkServiceName;
             return this;
         }

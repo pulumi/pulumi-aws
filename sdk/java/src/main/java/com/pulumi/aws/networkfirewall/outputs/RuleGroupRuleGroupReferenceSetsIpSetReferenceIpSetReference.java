@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference {
 
         @CustomType.Setter
         public Builder referenceArn(String referenceArn) {
-            this.referenceArn = Objects.requireNonNull(referenceArn);
+            if (referenceArn == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference", "referenceArn");
+            }
+            this.referenceArn = referenceArn;
             return this;
         }
         public RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference build() {

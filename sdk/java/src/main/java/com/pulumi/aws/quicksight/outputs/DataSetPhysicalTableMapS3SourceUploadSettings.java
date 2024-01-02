@@ -102,26 +102,31 @@ public final class DataSetPhysicalTableMapS3SourceUploadSettings {
 
         @CustomType.Setter
         public Builder containsHeader(@Nullable Boolean containsHeader) {
+
             this.containsHeader = containsHeader;
             return this;
         }
         @CustomType.Setter
         public Builder delimiter(@Nullable String delimiter) {
+
             this.delimiter = delimiter;
             return this;
         }
         @CustomType.Setter
         public Builder format(@Nullable String format) {
+
             this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder startFromRow(@Nullable Integer startFromRow) {
+
             this.startFromRow = startFromRow;
             return this;
         }
         @CustomType.Setter
         public Builder textQualifier(@Nullable String textQualifier) {
+
             this.textQualifier = textQualifier;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.pipes.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class PipeTargetParametersKinesisStreamParametersArgs extends com.p
         }
 
         public PipeTargetParametersKinesisStreamParametersArgs build() {
-            $.partitionKey = Objects.requireNonNull($.partitionKey, "expected parameter 'partitionKey' to be non-null");
+            if ($.partitionKey == null) {
+                throw new MissingRequiredPropertyException("PipeTargetParametersKinesisStreamParametersArgs", "partitionKey");
+            }
             return $;
         }
     }

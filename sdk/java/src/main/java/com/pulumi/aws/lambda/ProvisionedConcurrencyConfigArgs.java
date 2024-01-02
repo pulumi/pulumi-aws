@@ -5,6 +5,7 @@ package com.pulumi.aws.lambda;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -197,9 +198,15 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
         }
 
         public ProvisionedConcurrencyConfigArgs build() {
-            $.functionName = Objects.requireNonNull($.functionName, "expected parameter 'functionName' to be non-null");
-            $.provisionedConcurrentExecutions = Objects.requireNonNull($.provisionedConcurrentExecutions, "expected parameter 'provisionedConcurrentExecutions' to be non-null");
-            $.qualifier = Objects.requireNonNull($.qualifier, "expected parameter 'qualifier' to be non-null");
+            if ($.functionName == null) {
+                throw new MissingRequiredPropertyException("ProvisionedConcurrencyConfigArgs", "functionName");
+            }
+            if ($.provisionedConcurrentExecutions == null) {
+                throw new MissingRequiredPropertyException("ProvisionedConcurrencyConfigArgs", "provisionedConcurrentExecutions");
+            }
+            if ($.qualifier == null) {
+                throw new MissingRequiredPropertyException("ProvisionedConcurrencyConfigArgs", "qualifier");
+            }
             return $;
         }
     }

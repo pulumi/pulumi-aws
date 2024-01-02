@@ -5,6 +5,7 @@ package com.pulumi.aws.lb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -262,8 +263,12 @@ public final class TrustStoreArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TrustStoreArgs build() {
-            $.caCertificatesBundleS3Bucket = Objects.requireNonNull($.caCertificatesBundleS3Bucket, "expected parameter 'caCertificatesBundleS3Bucket' to be non-null");
-            $.caCertificatesBundleS3Key = Objects.requireNonNull($.caCertificatesBundleS3Key, "expected parameter 'caCertificatesBundleS3Key' to be non-null");
+            if ($.caCertificatesBundleS3Bucket == null) {
+                throw new MissingRequiredPropertyException("TrustStoreArgs", "caCertificatesBundleS3Bucket");
+            }
+            if ($.caCertificatesBundleS3Key == null) {
+                throw new MissingRequiredPropertyException("TrustStoreArgs", "caCertificatesBundleS3Key");
+            }
             return $;
         }
     }

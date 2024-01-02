@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -259,12 +260,24 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs extends c
         }
 
         public RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
-            $.destinationPort = Objects.requireNonNull($.destinationPort, "expected parameter 'destinationPort' to be non-null");
-            $.direction = Objects.requireNonNull($.direction, "expected parameter 'direction' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
-            $.sourcePort = Objects.requireNonNull($.sourcePort, "expected parameter 'sourcePort' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs", "destination");
+            }
+            if ($.destinationPort == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs", "destinationPort");
+            }
+            if ($.direction == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs", "direction");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs", "protocol");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs", "source");
+            }
+            if ($.sourcePort == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs", "sourcePort");
+            }
             return $;
         }
     }

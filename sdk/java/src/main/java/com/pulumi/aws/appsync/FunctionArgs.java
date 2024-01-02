@@ -7,6 +7,7 @@ import com.pulumi.aws.appsync.inputs.FunctionRuntimeArgs;
 import com.pulumi.aws.appsync.inputs.FunctionSyncConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -449,8 +450,12 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FunctionArgs build() {
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
-            $.dataSource = Objects.requireNonNull($.dataSource, "expected parameter 'dataSource' to be non-null");
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("FunctionArgs", "apiId");
+            }
+            if ($.dataSource == null) {
+                throw new MissingRequiredPropertyException("FunctionArgs", "dataSource");
+            }
             return $;
         }
     }

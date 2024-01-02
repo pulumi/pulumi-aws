@@ -5,6 +5,7 @@ package com.pulumi.aws.appsync;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class TypeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TypeArgs build() {
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
-            $.definition = Objects.requireNonNull($.definition, "expected parameter 'definition' to be non-null");
-            $.format = Objects.requireNonNull($.format, "expected parameter 'format' to be non-null");
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("TypeArgs", "apiId");
+            }
+            if ($.definition == null) {
+                throw new MissingRequiredPropertyException("TypeArgs", "definition");
+            }
+            if ($.format == null) {
+                throw new MissingRequiredPropertyException("TypeArgs", "format");
+            }
             return $;
         }
     }

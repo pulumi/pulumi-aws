@@ -119,31 +119,37 @@ public final class ResponseHeadersPolicySecurityHeadersConfig {
 
         @CustomType.Setter
         public Builder contentSecurityPolicy(@Nullable ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy contentSecurityPolicy) {
+
             this.contentSecurityPolicy = contentSecurityPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder contentTypeOptions(@Nullable ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions contentTypeOptions) {
+
             this.contentTypeOptions = contentTypeOptions;
             return this;
         }
         @CustomType.Setter
         public Builder frameOptions(@Nullable ResponseHeadersPolicySecurityHeadersConfigFrameOptions frameOptions) {
+
             this.frameOptions = frameOptions;
             return this;
         }
         @CustomType.Setter
         public Builder referrerPolicy(@Nullable ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy referrerPolicy) {
+
             this.referrerPolicy = referrerPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder strictTransportSecurity(@Nullable ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity strictTransportSecurity) {
+
             this.strictTransportSecurity = strictTransportSecurity;
             return this;
         }
         @CustomType.Setter
         public Builder xssProtection(@Nullable ResponseHeadersPolicySecurityHeadersConfigXssProtection xssProtection) {
+
             this.xssProtection = xssProtection;
             return this;
         }

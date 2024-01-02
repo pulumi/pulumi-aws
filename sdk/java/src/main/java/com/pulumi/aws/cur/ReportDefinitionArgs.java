@@ -5,6 +5,7 @@ package com.pulumi.aws.cur;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -468,13 +469,27 @@ public final class ReportDefinitionArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ReportDefinitionArgs build() {
-            $.additionalSchemaElements = Objects.requireNonNull($.additionalSchemaElements, "expected parameter 'additionalSchemaElements' to be non-null");
-            $.compression = Objects.requireNonNull($.compression, "expected parameter 'compression' to be non-null");
-            $.format = Objects.requireNonNull($.format, "expected parameter 'format' to be non-null");
-            $.reportName = Objects.requireNonNull($.reportName, "expected parameter 'reportName' to be non-null");
-            $.s3Bucket = Objects.requireNonNull($.s3Bucket, "expected parameter 's3Bucket' to be non-null");
-            $.s3Region = Objects.requireNonNull($.s3Region, "expected parameter 's3Region' to be non-null");
-            $.timeUnit = Objects.requireNonNull($.timeUnit, "expected parameter 'timeUnit' to be non-null");
+            if ($.additionalSchemaElements == null) {
+                throw new MissingRequiredPropertyException("ReportDefinitionArgs", "additionalSchemaElements");
+            }
+            if ($.compression == null) {
+                throw new MissingRequiredPropertyException("ReportDefinitionArgs", "compression");
+            }
+            if ($.format == null) {
+                throw new MissingRequiredPropertyException("ReportDefinitionArgs", "format");
+            }
+            if ($.reportName == null) {
+                throw new MissingRequiredPropertyException("ReportDefinitionArgs", "reportName");
+            }
+            if ($.s3Bucket == null) {
+                throw new MissingRequiredPropertyException("ReportDefinitionArgs", "s3Bucket");
+            }
+            if ($.s3Region == null) {
+                throw new MissingRequiredPropertyException("ReportDefinitionArgs", "s3Region");
+            }
+            if ($.timeUnit == null) {
+                throw new MissingRequiredPropertyException("ReportDefinitionArgs", "timeUnit");
+            }
             return $;
         }
     }

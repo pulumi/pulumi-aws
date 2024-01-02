@@ -50,6 +50,7 @@ public final class IamPolicyAssignmentIdentities {
 
         @CustomType.Setter
         public Builder groups(@Nullable List<String> groups) {
+
             this.groups = groups;
             return this;
         }
@@ -58,6 +59,7 @@ public final class IamPolicyAssignmentIdentities {
         }
         @CustomType.Setter
         public Builder users(@Nullable List<String> users) {
+
             this.users = users;
             return this;
         }

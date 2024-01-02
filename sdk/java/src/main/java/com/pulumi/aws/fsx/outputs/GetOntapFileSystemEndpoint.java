@@ -6,6 +6,7 @@ package com.pulumi.aws.fsx.outputs;
 import com.pulumi.aws.fsx.outputs.GetOntapFileSystemEndpointIntercluster;
 import com.pulumi.aws.fsx.outputs.GetOntapFileSystemEndpointManagement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetOntapFileSystemEndpoint {
 
         @CustomType.Setter
         public Builder interclusters(List<GetOntapFileSystemEndpointIntercluster> interclusters) {
-            this.interclusters = Objects.requireNonNull(interclusters);
+            if (interclusters == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemEndpoint", "interclusters");
+            }
+            this.interclusters = interclusters;
             return this;
         }
         public Builder interclusters(GetOntapFileSystemEndpointIntercluster... interclusters) {
@@ -66,7 +70,10 @@ public final class GetOntapFileSystemEndpoint {
         }
         @CustomType.Setter
         public Builder managements(List<GetOntapFileSystemEndpointManagement> managements) {
-            this.managements = Objects.requireNonNull(managements);
+            if (managements == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemEndpoint", "managements");
+            }
+            this.managements = managements;
             return this;
         }
         public Builder managements(GetOntapFileSystemEndpointManagement... managements) {

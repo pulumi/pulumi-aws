@@ -59,11 +59,13 @@ public final class IndexUserTokenConfigurations {
 
         @CustomType.Setter
         public Builder jsonTokenTypeConfiguration(@Nullable IndexUserTokenConfigurationsJsonTokenTypeConfiguration jsonTokenTypeConfiguration) {
+
             this.jsonTokenTypeConfiguration = jsonTokenTypeConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder jwtTokenTypeConfiguration(@Nullable IndexUserTokenConfigurationsJwtTokenTypeConfiguration jwtTokenTypeConfiguration) {
+
             this.jwtTokenTypeConfiguration = jwtTokenTypeConfiguration;
             return this;
         }

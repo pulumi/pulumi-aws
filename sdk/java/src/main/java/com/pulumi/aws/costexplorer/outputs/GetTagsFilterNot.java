@@ -74,16 +74,19 @@ public final class GetTagsFilterNot {
 
         @CustomType.Setter
         public Builder costCategory(@Nullable GetTagsFilterNotCostCategory costCategory) {
+
             this.costCategory = costCategory;
             return this;
         }
         @CustomType.Setter
         public Builder dimension(@Nullable GetTagsFilterNotDimension dimension) {
+
             this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable GetTagsFilterNotTags tags) {
+
             this.tags = tags;
             return this;
         }

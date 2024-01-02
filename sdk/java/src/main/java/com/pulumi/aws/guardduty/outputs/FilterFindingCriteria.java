@@ -5,6 +5,7 @@ package com.pulumi.aws.guardduty.outputs;
 
 import com.pulumi.aws.guardduty.outputs.FilterFindingCriteriaCriterion;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,7 +36,10 @@ public final class FilterFindingCriteria {
 
         @CustomType.Setter
         public Builder criterions(List<FilterFindingCriteriaCriterion> criterions) {
-            this.criterions = Objects.requireNonNull(criterions);
+            if (criterions == null) {
+              throw new MissingRequiredPropertyException("FilterFindingCriteria", "criterions");
+            }
+            this.criterions = criterions;
             return this;
         }
         public Builder criterions(FilterFindingCriteriaCriterion... criterions) {

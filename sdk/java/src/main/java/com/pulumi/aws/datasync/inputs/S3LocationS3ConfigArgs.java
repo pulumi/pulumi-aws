@@ -5,6 +5,7 @@ package com.pulumi.aws.datasync.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class S3LocationS3ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         public S3LocationS3ConfigArgs build() {
-            $.bucketAccessRoleArn = Objects.requireNonNull($.bucketAccessRoleArn, "expected parameter 'bucketAccessRoleArn' to be non-null");
+            if ($.bucketAccessRoleArn == null) {
+                throw new MissingRequiredPropertyException("S3LocationS3ConfigArgs", "bucketAccessRoleArn");
+            }
             return $;
         }
     }

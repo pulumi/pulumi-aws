@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class DataSourceParametersTwitter {
 
         @CustomType.Setter
         public Builder maxRows(Integer maxRows) {
-            this.maxRows = Objects.requireNonNull(maxRows);
+            if (maxRows == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersTwitter", "maxRows");
+            }
+            this.maxRows = maxRows;
             return this;
         }
         @CustomType.Setter
         public Builder query(String query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersTwitter", "query");
+            }
+            this.query = query;
             return this;
         }
         public DataSourceParametersTwitter build() {

@@ -146,41 +146,49 @@ public final class DistributionCacheBehaviorSettings {
 
         @CustomType.Setter
         public Builder allowedHttpMethods(@Nullable String allowedHttpMethods) {
+
             this.allowedHttpMethods = allowedHttpMethods;
             return this;
         }
         @CustomType.Setter
         public Builder cachedHttpMethods(@Nullable String cachedHttpMethods) {
+
             this.cachedHttpMethods = cachedHttpMethods;
             return this;
         }
         @CustomType.Setter
         public Builder defaultTtl(@Nullable Integer defaultTtl) {
+
             this.defaultTtl = defaultTtl;
             return this;
         }
         @CustomType.Setter
         public Builder forwardedCookies(@Nullable DistributionCacheBehaviorSettingsForwardedCookies forwardedCookies) {
+
             this.forwardedCookies = forwardedCookies;
             return this;
         }
         @CustomType.Setter
         public Builder forwardedHeaders(@Nullable DistributionCacheBehaviorSettingsForwardedHeaders forwardedHeaders) {
+
             this.forwardedHeaders = forwardedHeaders;
             return this;
         }
         @CustomType.Setter
         public Builder forwardedQueryStrings(@Nullable DistributionCacheBehaviorSettingsForwardedQueryStrings forwardedQueryStrings) {
+
             this.forwardedQueryStrings = forwardedQueryStrings;
             return this;
         }
         @CustomType.Setter
         public Builder maximumTtl(@Nullable Integer maximumTtl) {
+
             this.maximumTtl = maximumTtl;
             return this;
         }
         @CustomType.Setter
         public Builder minimumTtl(@Nullable Integer minimumTtl) {
+
             this.minimumTtl = minimumTtl;
             return this;
         }

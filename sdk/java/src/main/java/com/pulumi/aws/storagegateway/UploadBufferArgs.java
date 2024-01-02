@@ -5,6 +5,7 @@ package com.pulumi.aws.storagegateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class UploadBufferArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UploadBufferArgs build() {
-            $.gatewayArn = Objects.requireNonNull($.gatewayArn, "expected parameter 'gatewayArn' to be non-null");
+            if ($.gatewayArn == null) {
+                throw new MissingRequiredPropertyException("UploadBufferArgs", "gatewayArn");
+            }
             return $;
         }
     }

@@ -74,16 +74,19 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
 
         @CustomType.Setter
         public Builder acm(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm acm) {
+
             this.acm = acm;
             return this;
         }
         @CustomType.Setter
         public Builder file(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile file) {
+
             this.file = file;
             return this;
         }
         @CustomType.Setter
         public Builder sds(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds sds) {
+
             this.sds = sds;
             return this;
         }

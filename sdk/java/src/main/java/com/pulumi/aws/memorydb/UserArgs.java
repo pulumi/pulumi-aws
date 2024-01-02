@@ -6,6 +6,7 @@ package com.pulumi.aws.memorydb;
 import com.pulumi.aws.memorydb.inputs.UserAuthenticationModeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -197,9 +198,15 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserArgs build() {
-            $.accessString = Objects.requireNonNull($.accessString, "expected parameter 'accessString' to be non-null");
-            $.authenticationMode = Objects.requireNonNull($.authenticationMode, "expected parameter 'authenticationMode' to be non-null");
-            $.userName = Objects.requireNonNull($.userName, "expected parameter 'userName' to be non-null");
+            if ($.accessString == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "accessString");
+            }
+            if ($.authenticationMode == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "authenticationMode");
+            }
+            if ($.userName == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "userName");
+            }
             return $;
         }
     }

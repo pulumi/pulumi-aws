@@ -36,6 +36,7 @@ public final class FirewallPolicyFirewallPolicyPolicyVariables {
 
         @CustomType.Setter
         public Builder ruleVariables(@Nullable List<FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable> ruleVariables) {
+
             this.ruleVariables = ruleVariables;
             return this;
         }

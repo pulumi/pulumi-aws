@@ -44,6 +44,7 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphi
 
         @CustomType.Setter
         public Builder htmlMotionGraphicsSettings(@Nullable ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings htmlMotionGraphicsSettings) {
+
             this.htmlMotionGraphicsSettings = htmlMotionGraphicsSettings;
             return this;
         }

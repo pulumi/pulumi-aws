@@ -5,6 +5,7 @@ package com.pulumi.aws.auditmanager.outputs;
 
 import com.pulumi.aws.auditmanager.outputs.GetControlControlMappingSource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -92,21 +93,31 @@ public final class GetControlResult {
 
         @CustomType.Setter
         public Builder actionPlanInstructions(String actionPlanInstructions) {
-            this.actionPlanInstructions = Objects.requireNonNull(actionPlanInstructions);
+            if (actionPlanInstructions == null) {
+              throw new MissingRequiredPropertyException("GetControlResult", "actionPlanInstructions");
+            }
+            this.actionPlanInstructions = actionPlanInstructions;
             return this;
         }
         @CustomType.Setter
         public Builder actionPlanTitle(String actionPlanTitle) {
-            this.actionPlanTitle = Objects.requireNonNull(actionPlanTitle);
+            if (actionPlanTitle == null) {
+              throw new MissingRequiredPropertyException("GetControlResult", "actionPlanTitle");
+            }
+            this.actionPlanTitle = actionPlanTitle;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetControlResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder controlMappingSources(@Nullable List<GetControlControlMappingSource> controlMappingSources) {
+
             this.controlMappingSources = controlMappingSources;
             return this;
         }
@@ -115,32 +126,50 @@ public final class GetControlResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetControlResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetControlResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetControlResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetControlResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder testingInformation(String testingInformation) {
-            this.testingInformation = Objects.requireNonNull(testingInformation);
+            if (testingInformation == null) {
+              throw new MissingRequiredPropertyException("GetControlResult", "testingInformation");
+            }
+            this.testingInformation = testingInformation;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetControlResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetControlResult build() {

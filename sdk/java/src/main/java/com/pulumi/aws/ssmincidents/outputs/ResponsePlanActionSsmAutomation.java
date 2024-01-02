@@ -5,6 +5,7 @@ package com.pulumi.aws.ssmincidents.outputs;
 
 import com.pulumi.aws.ssmincidents.outputs.ResponsePlanActionSsmAutomationParameter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -117,21 +118,27 @@ public final class ResponsePlanActionSsmAutomation {
 
         @CustomType.Setter
         public Builder documentName(String documentName) {
-            this.documentName = Objects.requireNonNull(documentName);
+            if (documentName == null) {
+              throw new MissingRequiredPropertyException("ResponsePlanActionSsmAutomation", "documentName");
+            }
+            this.documentName = documentName;
             return this;
         }
         @CustomType.Setter
         public Builder documentVersion(@Nullable String documentVersion) {
+
             this.documentVersion = documentVersion;
             return this;
         }
         @CustomType.Setter
         public Builder dynamicParameters(@Nullable Map<String,String> dynamicParameters) {
+
             this.dynamicParameters = dynamicParameters;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable List<ResponsePlanActionSsmAutomationParameter> parameters) {
+
             this.parameters = parameters;
             return this;
         }
@@ -140,11 +147,15 @@ public final class ResponsePlanActionSsmAutomation {
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("ResponsePlanActionSsmAutomation", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder targetAccount(@Nullable String targetAccount) {
+
             this.targetAccount = targetAccount;
             return this;
         }

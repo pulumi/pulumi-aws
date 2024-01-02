@@ -4,6 +4,7 @@
 package com.pulumi.aws.comprehend.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -119,12 +120,16 @@ public final class DocumentClassifierInputDataConfigAugmentedManifest {
 
         @CustomType.Setter
         public Builder annotationDataS3Uri(@Nullable String annotationDataS3Uri) {
+
             this.annotationDataS3Uri = annotationDataS3Uri;
             return this;
         }
         @CustomType.Setter
         public Builder attributeNames(List<String> attributeNames) {
-            this.attributeNames = Objects.requireNonNull(attributeNames);
+            if (attributeNames == null) {
+              throw new MissingRequiredPropertyException("DocumentClassifierInputDataConfigAugmentedManifest", "attributeNames");
+            }
+            this.attributeNames = attributeNames;
             return this;
         }
         public Builder attributeNames(String... attributeNames) {
@@ -132,21 +137,27 @@ public final class DocumentClassifierInputDataConfigAugmentedManifest {
         }
         @CustomType.Setter
         public Builder documentType(@Nullable String documentType) {
+
             this.documentType = documentType;
             return this;
         }
         @CustomType.Setter
         public Builder s3Uri(String s3Uri) {
-            this.s3Uri = Objects.requireNonNull(s3Uri);
+            if (s3Uri == null) {
+              throw new MissingRequiredPropertyException("DocumentClassifierInputDataConfigAugmentedManifest", "s3Uri");
+            }
+            this.s3Uri = s3Uri;
             return this;
         }
         @CustomType.Setter
         public Builder sourceDocumentsS3Uri(@Nullable String sourceDocumentsS3Uri) {
+
             this.sourceDocumentsS3Uri = sourceDocumentsS3Uri;
             return this;
         }
         @CustomType.Setter
         public Builder split(@Nullable String split) {
+
             this.split = split;
             return this;
         }

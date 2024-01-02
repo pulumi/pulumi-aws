@@ -8,6 +8,7 @@ import com.pulumi.aws.glue.outputs.GetCatalogTablePartitionKey;
 import com.pulumi.aws.glue.outputs.GetCatalogTableStorageDescriptor;
 import com.pulumi.aws.glue.outputs.GetCatalogTableTargetTable;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -273,47 +274,74 @@ public final class GetCatalogTableResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder catalogId(String catalogId) {
-            this.catalogId = Objects.requireNonNull(catalogId);
+            if (catalogId == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "catalogId");
+            }
+            this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(Map<String,String> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "parameters");
+            }
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder partitionIndices(List<GetCatalogTablePartitionIndex> partitionIndices) {
-            this.partitionIndices = Objects.requireNonNull(partitionIndices);
+            if (partitionIndices == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "partitionIndices");
+            }
+            this.partitionIndices = partitionIndices;
             return this;
         }
         public Builder partitionIndices(GetCatalogTablePartitionIndex... partitionIndices) {
@@ -321,7 +349,10 @@ public final class GetCatalogTableResult {
         }
         @CustomType.Setter
         public Builder partitionKeys(List<GetCatalogTablePartitionKey> partitionKeys) {
-            this.partitionKeys = Objects.requireNonNull(partitionKeys);
+            if (partitionKeys == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "partitionKeys");
+            }
+            this.partitionKeys = partitionKeys;
             return this;
         }
         public Builder partitionKeys(GetCatalogTablePartitionKey... partitionKeys) {
@@ -329,17 +360,24 @@ public final class GetCatalogTableResult {
         }
         @CustomType.Setter
         public Builder queryAsOfTime(@Nullable String queryAsOfTime) {
+
             this.queryAsOfTime = queryAsOfTime;
             return this;
         }
         @CustomType.Setter
         public Builder retention(Integer retention) {
-            this.retention = Objects.requireNonNull(retention);
+            if (retention == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "retention");
+            }
+            this.retention = retention;
             return this;
         }
         @CustomType.Setter
         public Builder storageDescriptors(List<GetCatalogTableStorageDescriptor> storageDescriptors) {
-            this.storageDescriptors = Objects.requireNonNull(storageDescriptors);
+            if (storageDescriptors == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "storageDescriptors");
+            }
+            this.storageDescriptors = storageDescriptors;
             return this;
         }
         public Builder storageDescriptors(GetCatalogTableStorageDescriptor... storageDescriptors) {
@@ -347,12 +385,18 @@ public final class GetCatalogTableResult {
         }
         @CustomType.Setter
         public Builder tableType(String tableType) {
-            this.tableType = Objects.requireNonNull(tableType);
+            if (tableType == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "tableType");
+            }
+            this.tableType = tableType;
             return this;
         }
         @CustomType.Setter
         public Builder targetTables(List<GetCatalogTableTargetTable> targetTables) {
-            this.targetTables = Objects.requireNonNull(targetTables);
+            if (targetTables == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "targetTables");
+            }
+            this.targetTables = targetTables;
             return this;
         }
         public Builder targetTables(GetCatalogTableTargetTable... targetTables) {
@@ -360,17 +404,24 @@ public final class GetCatalogTableResult {
         }
         @CustomType.Setter
         public Builder transactionId(@Nullable Integer transactionId) {
+
             this.transactionId = transactionId;
             return this;
         }
         @CustomType.Setter
         public Builder viewExpandedText(String viewExpandedText) {
-            this.viewExpandedText = Objects.requireNonNull(viewExpandedText);
+            if (viewExpandedText == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "viewExpandedText");
+            }
+            this.viewExpandedText = viewExpandedText;
             return this;
         }
         @CustomType.Setter
         public Builder viewOriginalText(String viewOriginalText) {
-            this.viewOriginalText = Objects.requireNonNull(viewOriginalText);
+            if (viewOriginalText == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableResult", "viewOriginalText");
+            }
+            this.viewOriginalText = viewOriginalText;
             return this;
         }
         public GetCatalogTableResult build() {

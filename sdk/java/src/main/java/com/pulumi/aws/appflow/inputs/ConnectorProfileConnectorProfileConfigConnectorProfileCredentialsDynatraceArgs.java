@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs build() {
-            $.apiToken = Objects.requireNonNull($.apiToken, "expected parameter 'apiToken' to be non-null");
+            if ($.apiToken == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs", "apiToken");
+            }
             return $;
         }
     }

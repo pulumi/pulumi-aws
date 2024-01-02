@@ -5,6 +5,7 @@ package com.pulumi.aws.evidently;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class SegmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SegmentArgs build() {
-            $.pattern = Objects.requireNonNull($.pattern, "expected parameter 'pattern' to be non-null");
+            if ($.pattern == null) {
+                throw new MissingRequiredPropertyException("SegmentArgs", "pattern");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class MulticastGroupMemberArgs extends com.pulumi.resources.Resourc
         }
 
         public MulticastGroupMemberArgs build() {
-            $.groupIpAddress = Objects.requireNonNull($.groupIpAddress, "expected parameter 'groupIpAddress' to be non-null");
-            $.networkInterfaceId = Objects.requireNonNull($.networkInterfaceId, "expected parameter 'networkInterfaceId' to be non-null");
-            $.transitGatewayMulticastDomainId = Objects.requireNonNull($.transitGatewayMulticastDomainId, "expected parameter 'transitGatewayMulticastDomainId' to be non-null");
+            if ($.groupIpAddress == null) {
+                throw new MissingRequiredPropertyException("MulticastGroupMemberArgs", "groupIpAddress");
+            }
+            if ($.networkInterfaceId == null) {
+                throw new MissingRequiredPropertyException("MulticastGroupMemberArgs", "networkInterfaceId");
+            }
+            if ($.transitGatewayMulticastDomainId == null) {
+                throw new MissingRequiredPropertyException("MulticastGroupMemberArgs", "transitGatewayMulticastDomainId");
+            }
             return $;
         }
     }

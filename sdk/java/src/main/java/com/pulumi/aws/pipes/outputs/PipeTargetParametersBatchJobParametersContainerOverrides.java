@@ -89,6 +89,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverrides {
 
         @CustomType.Setter
         public Builder commands(@Nullable List<String> commands) {
+
             this.commands = commands;
             return this;
         }
@@ -97,6 +98,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverrides {
         }
         @CustomType.Setter
         public Builder environments(@Nullable List<PipeTargetParametersBatchJobParametersContainerOverridesEnvironment> environments) {
+
             this.environments = environments;
             return this;
         }
@@ -105,11 +107,13 @@ public final class PipeTargetParametersBatchJobParametersContainerOverrides {
         }
         @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
+
             this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceRequirements(@Nullable List<PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement> resourceRequirements) {
+
             this.resourceRequirements = resourceRequirements;
             return this;
         }

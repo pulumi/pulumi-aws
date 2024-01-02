@@ -60,11 +60,13 @@ public final class FleetLaunchTemplateConfig {
 
         @CustomType.Setter
         public Builder launchTemplateSpecification(@Nullable FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification) {
+
             this.launchTemplateSpecification = launchTemplateSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder overrides(@Nullable List<FleetLaunchTemplateConfigOverride> overrides) {
+
             this.overrides = overrides;
             return this;
         }

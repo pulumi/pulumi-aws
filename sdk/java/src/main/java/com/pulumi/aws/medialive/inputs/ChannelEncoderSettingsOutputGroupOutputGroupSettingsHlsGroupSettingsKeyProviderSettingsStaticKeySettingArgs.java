@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive.inputs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -74,7 +75,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs build() {
-            $.staticKeyValue = Objects.requireNonNull($.staticKeyValue, "expected parameter 'staticKeyValue' to be non-null");
+            if ($.staticKeyValue == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs", "staticKeyValue");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.athena.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class WorkgroupConfigurationResultConfigurationAclConfigurationArgs
         }
 
         public WorkgroupConfigurationResultConfigurationAclConfigurationArgs build() {
-            $.s3AclOption = Objects.requireNonNull($.s3AclOption, "expected parameter 's3AclOption' to be non-null");
+            if ($.s3AclOption == null) {
+                throw new MissingRequiredPropertyException("WorkgroupConfigurationResultConfigurationAclConfigurationArgs", "s3AclOption");
+            }
             return $;
         }
     }

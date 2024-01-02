@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight;
 import com.pulumi.aws.quicksight.inputs.FolderPermissionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -319,7 +320,9 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FolderArgs build() {
-            $.folderId = Objects.requireNonNull($.folderId, "expected parameter 'folderId' to be non-null");
+            if ($.folderId == null) {
+                throw new MissingRequiredPropertyException("FolderArgs", "folderId");
+            }
             return $;
         }
     }

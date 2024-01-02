@@ -4,6 +4,7 @@
 package com.pulumi.aws.cfg.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class OrganizationConformancePackInputParameter {
 
         @CustomType.Setter
         public Builder parameterName(String parameterName) {
-            this.parameterName = Objects.requireNonNull(parameterName);
+            if (parameterName == null) {
+              throw new MissingRequiredPropertyException("OrganizationConformancePackInputParameter", "parameterName");
+            }
+            this.parameterName = parameterName;
             return this;
         }
         @CustomType.Setter
         public Builder parameterValue(String parameterValue) {
-            this.parameterValue = Objects.requireNonNull(parameterValue);
+            if (parameterValue == null) {
+              throw new MissingRequiredPropertyException("OrganizationConformancePackInputParameter", "parameterValue");
+            }
+            this.parameterValue = parameterValue;
             return this;
         }
         public OrganizationConformancePackInputParameter build() {

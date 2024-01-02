@@ -7,6 +7,7 @@ import com.pulumi.aws.signer.outputs.GetSigningJobRevocationRecord;
 import com.pulumi.aws.signer.outputs.GetSigningJobSignedObject;
 import com.pulumi.aws.signer.outputs.GetSigningJobSource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -262,62 +263,98 @@ public final class GetSigningJobResult {
 
         @CustomType.Setter
         public Builder completedAt(String completedAt) {
-            this.completedAt = Objects.requireNonNull(completedAt);
+            if (completedAt == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "completedAt");
+            }
+            this.completedAt = completedAt;
             return this;
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "createdAt");
+            }
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder jobId(String jobId) {
-            this.jobId = Objects.requireNonNull(jobId);
+            if (jobId == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "jobId");
+            }
+            this.jobId = jobId;
             return this;
         }
         @CustomType.Setter
         public Builder jobInvoker(String jobInvoker) {
-            this.jobInvoker = Objects.requireNonNull(jobInvoker);
+            if (jobInvoker == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "jobInvoker");
+            }
+            this.jobInvoker = jobInvoker;
             return this;
         }
         @CustomType.Setter
         public Builder jobOwner(String jobOwner) {
-            this.jobOwner = Objects.requireNonNull(jobOwner);
+            if (jobOwner == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "jobOwner");
+            }
+            this.jobOwner = jobOwner;
             return this;
         }
         @CustomType.Setter
         public Builder platformDisplayName(String platformDisplayName) {
-            this.platformDisplayName = Objects.requireNonNull(platformDisplayName);
+            if (platformDisplayName == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "platformDisplayName");
+            }
+            this.platformDisplayName = platformDisplayName;
             return this;
         }
         @CustomType.Setter
         public Builder platformId(String platformId) {
-            this.platformId = Objects.requireNonNull(platformId);
+            if (platformId == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "platformId");
+            }
+            this.platformId = platformId;
             return this;
         }
         @CustomType.Setter
         public Builder profileName(String profileName) {
-            this.profileName = Objects.requireNonNull(profileName);
+            if (profileName == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "profileName");
+            }
+            this.profileName = profileName;
             return this;
         }
         @CustomType.Setter
         public Builder profileVersion(String profileVersion) {
-            this.profileVersion = Objects.requireNonNull(profileVersion);
+            if (profileVersion == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "profileVersion");
+            }
+            this.profileVersion = profileVersion;
             return this;
         }
         @CustomType.Setter
         public Builder requestedBy(String requestedBy) {
-            this.requestedBy = Objects.requireNonNull(requestedBy);
+            if (requestedBy == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "requestedBy");
+            }
+            this.requestedBy = requestedBy;
             return this;
         }
         @CustomType.Setter
         public Builder revocationRecords(List<GetSigningJobRevocationRecord> revocationRecords) {
-            this.revocationRecords = Objects.requireNonNull(revocationRecords);
+            if (revocationRecords == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "revocationRecords");
+            }
+            this.revocationRecords = revocationRecords;
             return this;
         }
         public Builder revocationRecords(GetSigningJobRevocationRecord... revocationRecords) {
@@ -325,12 +362,18 @@ public final class GetSigningJobResult {
         }
         @CustomType.Setter
         public Builder signatureExpiresAt(String signatureExpiresAt) {
-            this.signatureExpiresAt = Objects.requireNonNull(signatureExpiresAt);
+            if (signatureExpiresAt == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "signatureExpiresAt");
+            }
+            this.signatureExpiresAt = signatureExpiresAt;
             return this;
         }
         @CustomType.Setter
         public Builder signedObjects(List<GetSigningJobSignedObject> signedObjects) {
-            this.signedObjects = Objects.requireNonNull(signedObjects);
+            if (signedObjects == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "signedObjects");
+            }
+            this.signedObjects = signedObjects;
             return this;
         }
         public Builder signedObjects(GetSigningJobSignedObject... signedObjects) {
@@ -338,7 +381,10 @@ public final class GetSigningJobResult {
         }
         @CustomType.Setter
         public Builder sources(List<GetSigningJobSource> sources) {
-            this.sources = Objects.requireNonNull(sources);
+            if (sources == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "sources");
+            }
+            this.sources = sources;
             return this;
         }
         public Builder sources(GetSigningJobSource... sources) {
@@ -346,12 +392,18 @@ public final class GetSigningJobResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statusReason(String statusReason) {
-            this.statusReason = Objects.requireNonNull(statusReason);
+            if (statusReason == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "statusReason");
+            }
+            this.statusReason = statusReason;
             return this;
         }
         public GetSigningJobResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.aws.connect.outputs.GetHoursOfOperationConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -157,12 +158,18 @@ public final class GetHoursOfOperationResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetHoursOfOperationResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder configs(List<GetHoursOfOperationConfig> configs) {
-            this.configs = Objects.requireNonNull(configs);
+            if (configs == null) {
+              throw new MissingRequiredPropertyException("GetHoursOfOperationResult", "configs");
+            }
+            this.configs = configs;
             return this;
         }
         public Builder configs(GetHoursOfOperationConfig... configs) {
@@ -170,37 +177,58 @@ public final class GetHoursOfOperationResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetHoursOfOperationResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder hoursOfOperationId(String hoursOfOperationId) {
-            this.hoursOfOperationId = Objects.requireNonNull(hoursOfOperationId);
+            if (hoursOfOperationId == null) {
+              throw new MissingRequiredPropertyException("GetHoursOfOperationResult", "hoursOfOperationId");
+            }
+            this.hoursOfOperationId = hoursOfOperationId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetHoursOfOperationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetHoursOfOperationResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetHoursOfOperationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetHoursOfOperationResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder timeZone(String timeZone) {
-            this.timeZone = Objects.requireNonNull(timeZone);
+            if (timeZone == null) {
+              throw new MissingRequiredPropertyException("GetHoursOfOperationResult", "timeZone");
+            }
+            this.timeZone = timeZone;
             return this;
         }
         public GetHoursOfOperationResult build() {

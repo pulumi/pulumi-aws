@@ -5,6 +5,7 @@ package com.pulumi.aws.ssmcontacts.outputs;
 
 import com.pulumi.aws.ssmcontacts.outputs.GetPlanStageTarget;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -42,12 +43,18 @@ public final class GetPlanStage {
 
         @CustomType.Setter
         public Builder durationInMinutes(Integer durationInMinutes) {
-            this.durationInMinutes = Objects.requireNonNull(durationInMinutes);
+            if (durationInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetPlanStage", "durationInMinutes");
+            }
+            this.durationInMinutes = durationInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder targets(List<GetPlanStageTarget> targets) {
-            this.targets = Objects.requireNonNull(targets);
+            if (targets == null) {
+              throw new MissingRequiredPropertyException("GetPlanStage", "targets");
+            }
+            this.targets = targets;
             return this;
         }
         public Builder targets(GetPlanStageTarget... targets) {

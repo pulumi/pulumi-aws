@@ -5,6 +5,7 @@ package com.pulumi.aws.dynamodb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -115,8 +116,12 @@ public final class KinesisStreamingDestinationArgs extends com.pulumi.resources.
         }
 
         public KinesisStreamingDestinationArgs build() {
-            $.streamArn = Objects.requireNonNull($.streamArn, "expected parameter 'streamArn' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.streamArn == null) {
+                throw new MissingRequiredPropertyException("KinesisStreamingDestinationArgs", "streamArn");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("KinesisStreamingDestinationArgs", "tableName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.customerprofiles.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class DomainMatchingAutoMergingConsolidationArgs extends com.pulumi
         }
 
         public DomainMatchingAutoMergingConsolidationArgs build() {
-            $.matchingAttributesLists = Objects.requireNonNull($.matchingAttributesLists, "expected parameter 'matchingAttributesLists' to be non-null");
+            if ($.matchingAttributesLists == null) {
+                throw new MissingRequiredPropertyException("DomainMatchingAutoMergingConsolidationArgs", "matchingAttributesLists");
+            }
             return $;
         }
     }

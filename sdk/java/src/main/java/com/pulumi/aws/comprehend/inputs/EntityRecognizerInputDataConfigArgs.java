@@ -10,6 +10,7 @@ import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigEntityLis
 import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigEntityTypeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -335,7 +336,9 @@ public final class EntityRecognizerInputDataConfigArgs extends com.pulumi.resour
         }
 
         public EntityRecognizerInputDataConfigArgs build() {
-            $.entityTypes = Objects.requireNonNull($.entityTypes, "expected parameter 'entityTypes' to be non-null");
+            if ($.entityTypes == null) {
+                throw new MissingRequiredPropertyException("EntityRecognizerInputDataConfigArgs", "entityTypes");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.storagegateway;
 import com.pulumi.aws.storagegateway.inputs.FileSystemAssociationCacheAttributesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -300,10 +301,18 @@ public final class FileSystemAssociationArgs extends com.pulumi.resources.Resour
         }
 
         public FileSystemAssociationArgs build() {
-            $.gatewayArn = Objects.requireNonNull($.gatewayArn, "expected parameter 'gatewayArn' to be non-null");
-            $.locationArn = Objects.requireNonNull($.locationArn, "expected parameter 'locationArn' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.gatewayArn == null) {
+                throw new MissingRequiredPropertyException("FileSystemAssociationArgs", "gatewayArn");
+            }
+            if ($.locationArn == null) {
+                throw new MissingRequiredPropertyException("FileSystemAssociationArgs", "locationArn");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("FileSystemAssociationArgs", "password");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("FileSystemAssociationArgs", "username");
+            }
             return $;
         }
     }

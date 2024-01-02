@@ -5,6 +5,7 @@ package com.pulumi.aws.chimesdkmediapipelines.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProces
         }
 
         public MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs build() {
-            $.speakerSearchStatus = Objects.requireNonNull($.speakerSearchStatus, "expected parameter 'speakerSearchStatus' to be non-null");
-            $.voiceToneAnalysisStatus = Objects.requireNonNull($.voiceToneAnalysisStatus, "expected parameter 'voiceToneAnalysisStatus' to be non-null");
+            if ($.speakerSearchStatus == null) {
+                throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs", "speakerSearchStatus");
+            }
+            if ($.voiceToneAnalysisStatus == null) {
+                throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs", "voiceToneAnalysisStatus");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.aws.transfer.inputs.UserHomeDirectoryMappingArgs;
 import com.pulumi.aws.transfer.inputs.UserPosixProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -386,9 +387,15 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserArgs build() {
-            $.role = Objects.requireNonNull($.role, "expected parameter 'role' to be non-null");
-            $.serverId = Objects.requireNonNull($.serverId, "expected parameter 'serverId' to be non-null");
-            $.userName = Objects.requireNonNull($.userName, "expected parameter 'userName' to be non-null");
+            if ($.role == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "role");
+            }
+            if ($.serverId == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "serverId");
+            }
+            if ($.userName == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "userName");
+            }
             return $;
         }
     }

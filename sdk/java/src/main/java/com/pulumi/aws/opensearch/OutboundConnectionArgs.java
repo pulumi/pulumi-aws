@@ -8,6 +8,7 @@ import com.pulumi.aws.opensearch.inputs.OutboundConnectionLocalDomainInfoArgs;
 import com.pulumi.aws.opensearch.inputs.OutboundConnectionRemoteDomainInfoArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -265,9 +266,15 @@ public final class OutboundConnectionArgs extends com.pulumi.resources.ResourceA
         }
 
         public OutboundConnectionArgs build() {
-            $.connectionAlias = Objects.requireNonNull($.connectionAlias, "expected parameter 'connectionAlias' to be non-null");
-            $.localDomainInfo = Objects.requireNonNull($.localDomainInfo, "expected parameter 'localDomainInfo' to be non-null");
-            $.remoteDomainInfo = Objects.requireNonNull($.remoteDomainInfo, "expected parameter 'remoteDomainInfo' to be non-null");
+            if ($.connectionAlias == null) {
+                throw new MissingRequiredPropertyException("OutboundConnectionArgs", "connectionAlias");
+            }
+            if ($.localDomainInfo == null) {
+                throw new MissingRequiredPropertyException("OutboundConnectionArgs", "localDomainInfo");
+            }
+            if ($.remoteDomainInfo == null) {
+                throw new MissingRequiredPropertyException("OutboundConnectionArgs", "remoteDomainInfo");
+            }
             return $;
         }
     }

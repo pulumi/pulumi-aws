@@ -59,11 +59,13 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTag {
 
         @CustomType.Setter
         public Builder columnDescription(@Nullable DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription columnDescription) {
+
             this.columnDescription = columnDescription;
             return this;
         }
         @CustomType.Setter
         public Builder columnGeographicRole(@Nullable String columnGeographicRole) {
+
             this.columnGeographicRole = columnGeographicRole;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class VpnConnectionRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         public VpnConnectionRouteArgs build() {
-            $.destinationCidrBlock = Objects.requireNonNull($.destinationCidrBlock, "expected parameter 'destinationCidrBlock' to be non-null");
-            $.vpnConnectionId = Objects.requireNonNull($.vpnConnectionId, "expected parameter 'vpnConnectionId' to be non-null");
+            if ($.destinationCidrBlock == null) {
+                throw new MissingRequiredPropertyException("VpnConnectionRouteArgs", "destinationCidrBlock");
+            }
+            if ($.vpnConnectionId == null) {
+                throw new MissingRequiredPropertyException("VpnConnectionRouteArgs", "vpnConnectionId");
+            }
             return $;
         }
     }

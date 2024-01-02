@@ -5,6 +5,7 @@ package com.pulumi.aws.athena;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class PreparedStatementArgs extends com.pulumi.resources.ResourceAr
         }
 
         public PreparedStatementArgs build() {
-            $.queryStatement = Objects.requireNonNull($.queryStatement, "expected parameter 'queryStatement' to be non-null");
-            $.workgroup = Objects.requireNonNull($.workgroup, "expected parameter 'workgroup' to be non-null");
+            if ($.queryStatement == null) {
+                throw new MissingRequiredPropertyException("PreparedStatementArgs", "queryStatement");
+            }
+            if ($.workgroup == null) {
+                throw new MissingRequiredPropertyException("PreparedStatementArgs", "workgroup");
+            }
             return $;
         }
     }

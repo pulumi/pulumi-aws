@@ -8,6 +8,7 @@ import com.pulumi.aws.appmesh.inputs.RouteSpecTcpRouteMatchArgs;
 import com.pulumi.aws.appmesh.inputs.RouteSpecTcpRouteTimeoutArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -152,7 +153,9 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
         }
 
         public RouteSpecTcpRouteArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("RouteSpecTcpRouteArgs", "action");
+            }
             return $;
         }
     }

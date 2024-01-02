@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -273,10 +274,18 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         }
 
         public DistributionOriginCustomOriginConfigArgs build() {
-            $.httpPort = Objects.requireNonNull($.httpPort, "expected parameter 'httpPort' to be non-null");
-            $.httpsPort = Objects.requireNonNull($.httpsPort, "expected parameter 'httpsPort' to be non-null");
-            $.originProtocolPolicy = Objects.requireNonNull($.originProtocolPolicy, "expected parameter 'originProtocolPolicy' to be non-null");
-            $.originSslProtocols = Objects.requireNonNull($.originSslProtocols, "expected parameter 'originSslProtocols' to be non-null");
+            if ($.httpPort == null) {
+                throw new MissingRequiredPropertyException("DistributionOriginCustomOriginConfigArgs", "httpPort");
+            }
+            if ($.httpsPort == null) {
+                throw new MissingRequiredPropertyException("DistributionOriginCustomOriginConfigArgs", "httpsPort");
+            }
+            if ($.originProtocolPolicy == null) {
+                throw new MissingRequiredPropertyException("DistributionOriginCustomOriginConfigArgs", "originProtocolPolicy");
+            }
+            if ($.originSslProtocols == null) {
+                throw new MissingRequiredPropertyException("DistributionOriginCustomOriginConfigArgs", "originSslProtocols");
+            }
             return $;
         }
     }

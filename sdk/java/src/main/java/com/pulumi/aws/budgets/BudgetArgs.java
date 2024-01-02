@@ -10,6 +10,7 @@ import com.pulumi.aws.budgets.inputs.BudgetNotificationArgs;
 import com.pulumi.aws.budgets.inputs.BudgetPlannedLimitArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -593,8 +594,12 @@ public final class BudgetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BudgetArgs build() {
-            $.budgetType = Objects.requireNonNull($.budgetType, "expected parameter 'budgetType' to be non-null");
-            $.timeUnit = Objects.requireNonNull($.timeUnit, "expected parameter 'timeUnit' to be non-null");
+            if ($.budgetType == null) {
+                throw new MissingRequiredPropertyException("BudgetArgs", "budgetType");
+            }
+            if ($.timeUnit == null) {
+                throw new MissingRequiredPropertyException("BudgetArgs", "timeUnit");
+            }
             return $;
         }
     }

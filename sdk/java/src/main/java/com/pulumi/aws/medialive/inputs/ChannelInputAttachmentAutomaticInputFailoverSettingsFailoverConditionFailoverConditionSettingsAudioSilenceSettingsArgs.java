@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         public ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs build() {
-            $.audioSelectorName = Objects.requireNonNull($.audioSelectorName, "expected parameter 'audioSelectorName' to be non-null");
+            if ($.audioSelectorName == null) {
+                throw new MissingRequiredPropertyException("ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs", "audioSelectorName");
+            }
             return $;
         }
     }

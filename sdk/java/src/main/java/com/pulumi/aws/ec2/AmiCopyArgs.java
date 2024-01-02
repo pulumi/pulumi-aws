@@ -7,6 +7,7 @@ import com.pulumi.aws.ec2.inputs.AmiCopyEbsBlockDeviceArgs;
 import com.pulumi.aws.ec2.inputs.AmiCopyEphemeralBlockDeviceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -493,8 +494,12 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AmiCopyArgs build() {
-            $.sourceAmiId = Objects.requireNonNull($.sourceAmiId, "expected parameter 'sourceAmiId' to be non-null");
-            $.sourceAmiRegion = Objects.requireNonNull($.sourceAmiRegion, "expected parameter 'sourceAmiRegion' to be non-null");
+            if ($.sourceAmiId == null) {
+                throw new MissingRequiredPropertyException("AmiCopyArgs", "sourceAmiId");
+            }
+            if ($.sourceAmiRegion == null) {
+                throw new MissingRequiredPropertyException("AmiCopyArgs", "sourceAmiRegion");
+            }
             return $;
         }
     }

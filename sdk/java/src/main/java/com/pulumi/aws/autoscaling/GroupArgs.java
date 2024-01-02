@@ -15,6 +15,7 @@ import com.pulumi.aws.autoscaling.inputs.GroupWarmPoolArgs;
 import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1759,8 +1760,12 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GroupArgs build() {
-            $.maxSize = Objects.requireNonNull($.maxSize, "expected parameter 'maxSize' to be non-null");
-            $.minSize = Objects.requireNonNull($.minSize, "expected parameter 'minSize' to be non-null");
+            if ($.maxSize == null) {
+                throw new MissingRequiredPropertyException("GroupArgs", "maxSize");
+            }
+            if ($.minSize == null) {
+                throw new MissingRequiredPropertyException("GroupArgs", "minSize");
+            }
             return $;
         }
     }

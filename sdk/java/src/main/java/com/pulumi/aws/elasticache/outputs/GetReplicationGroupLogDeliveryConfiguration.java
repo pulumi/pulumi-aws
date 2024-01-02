@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticache.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -52,22 +53,34 @@ public final class GetReplicationGroupLogDeliveryConfiguration {
 
         @CustomType.Setter
         public Builder destination(String destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupLogDeliveryConfiguration", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder destinationType(String destinationType) {
-            this.destinationType = Objects.requireNonNull(destinationType);
+            if (destinationType == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupLogDeliveryConfiguration", "destinationType");
+            }
+            this.destinationType = destinationType;
             return this;
         }
         @CustomType.Setter
         public Builder logFormat(String logFormat) {
-            this.logFormat = Objects.requireNonNull(logFormat);
+            if (logFormat == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupLogDeliveryConfiguration", "logFormat");
+            }
+            this.logFormat = logFormat;
             return this;
         }
         @CustomType.Setter
         public Builder logType(String logType) {
-            this.logType = Objects.requireNonNull(logType);
+            if (logType == null) {
+              throw new MissingRequiredPropertyException("GetReplicationGroupLogDeliveryConfiguration", "logType");
+            }
+            this.logType = logType;
             return this;
         }
         public GetReplicationGroupLogDeliveryConfiguration build() {

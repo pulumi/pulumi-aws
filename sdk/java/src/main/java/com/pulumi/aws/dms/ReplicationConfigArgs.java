@@ -6,6 +6,7 @@ package com.pulumi.aws.dms;
 import com.pulumi.aws.dms.inputs.ReplicationConfigComputeConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -449,12 +450,24 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ReplicationConfigArgs build() {
-            $.computeConfig = Objects.requireNonNull($.computeConfig, "expected parameter 'computeConfig' to be non-null");
-            $.replicationConfigIdentifier = Objects.requireNonNull($.replicationConfigIdentifier, "expected parameter 'replicationConfigIdentifier' to be non-null");
-            $.replicationType = Objects.requireNonNull($.replicationType, "expected parameter 'replicationType' to be non-null");
-            $.sourceEndpointArn = Objects.requireNonNull($.sourceEndpointArn, "expected parameter 'sourceEndpointArn' to be non-null");
-            $.tableMappings = Objects.requireNonNull($.tableMappings, "expected parameter 'tableMappings' to be non-null");
-            $.targetEndpointArn = Objects.requireNonNull($.targetEndpointArn, "expected parameter 'targetEndpointArn' to be non-null");
+            if ($.computeConfig == null) {
+                throw new MissingRequiredPropertyException("ReplicationConfigArgs", "computeConfig");
+            }
+            if ($.replicationConfigIdentifier == null) {
+                throw new MissingRequiredPropertyException("ReplicationConfigArgs", "replicationConfigIdentifier");
+            }
+            if ($.replicationType == null) {
+                throw new MissingRequiredPropertyException("ReplicationConfigArgs", "replicationType");
+            }
+            if ($.sourceEndpointArn == null) {
+                throw new MissingRequiredPropertyException("ReplicationConfigArgs", "sourceEndpointArn");
+            }
+            if ($.tableMappings == null) {
+                throw new MissingRequiredPropertyException("ReplicationConfigArgs", "tableMappings");
+            }
+            if ($.targetEndpointArn == null) {
+                throw new MissingRequiredPropertyException("ReplicationConfigArgs", "targetEndpointArn");
+            }
             return $;
         }
     }

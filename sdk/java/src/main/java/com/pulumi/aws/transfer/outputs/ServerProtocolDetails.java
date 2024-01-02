@@ -87,6 +87,7 @@ public final class ServerProtocolDetails {
 
         @CustomType.Setter
         public Builder as2Transports(@Nullable List<String> as2Transports) {
+
             this.as2Transports = as2Transports;
             return this;
         }
@@ -95,16 +96,19 @@ public final class ServerProtocolDetails {
         }
         @CustomType.Setter
         public Builder passiveIp(@Nullable String passiveIp) {
+
             this.passiveIp = passiveIp;
             return this;
         }
         @CustomType.Setter
         public Builder setStatOption(@Nullable String setStatOption) {
+
             this.setStatOption = setStatOption;
             return this;
         }
         @CustomType.Setter
         public Builder tlsSessionResumptionMode(@Nullable String tlsSessionResumptionMode) {
+
             this.tlsSessionResumptionMode = tlsSessionResumptionMode;
             return this;
         }

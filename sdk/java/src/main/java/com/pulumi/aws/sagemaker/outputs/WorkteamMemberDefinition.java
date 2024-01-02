@@ -59,11 +59,13 @@ public final class WorkteamMemberDefinition {
 
         @CustomType.Setter
         public Builder cognitoMemberDefinition(@Nullable WorkteamMemberDefinitionCognitoMemberDefinition cognitoMemberDefinition) {
+
             this.cognitoMemberDefinition = cognitoMemberDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder oidcMemberDefinition(@Nullable WorkteamMemberDefinitionOidcMemberDefinition oidcMemberDefinition) {
+
             this.oidcMemberDefinition = oidcMemberDefinition;
             return this;
         }

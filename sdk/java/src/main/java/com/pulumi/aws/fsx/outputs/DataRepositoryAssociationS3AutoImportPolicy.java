@@ -44,6 +44,7 @@ public final class DataRepositoryAssociationS3AutoImportPolicy {
 
         @CustomType.Setter
         public Builder events(@Nullable List<String> events) {
+
             this.events = events;
             return this;
         }

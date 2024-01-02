@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.sagemaker.inputs.AppResourceSpecArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -300,9 +301,15 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AppArgs build() {
-            $.appName = Objects.requireNonNull($.appName, "expected parameter 'appName' to be non-null");
-            $.appType = Objects.requireNonNull($.appType, "expected parameter 'appType' to be non-null");
-            $.domainId = Objects.requireNonNull($.domainId, "expected parameter 'domainId' to be non-null");
+            if ($.appName == null) {
+                throw new MissingRequiredPropertyException("AppArgs", "appName");
+            }
+            if ($.appType == null) {
+                throw new MissingRequiredPropertyException("AppArgs", "appType");
+            }
+            if ($.domainId == null) {
+                throw new MissingRequiredPropertyException("AppArgs", "domainId");
+            }
             return $;
         }
     }

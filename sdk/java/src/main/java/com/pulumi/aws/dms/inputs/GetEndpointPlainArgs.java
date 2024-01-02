@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -79,7 +80,9 @@ public final class GetEndpointPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetEndpointPlainArgs build() {
-            $.endpointId = Objects.requireNonNull($.endpointId, "expected parameter 'endpointId' to be non-null");
+            if ($.endpointId == null) {
+                throw new MissingRequiredPropertyException("GetEndpointPlainArgs", "endpointId");
+            }
             return $;
         }
     }

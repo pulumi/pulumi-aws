@@ -5,6 +5,7 @@ package com.pulumi.aws.cfg;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -571,9 +572,15 @@ public final class OrganizationCustomPolicyRuleArgs extends com.pulumi.resources
         }
 
         public OrganizationCustomPolicyRuleArgs build() {
-            $.policyRuntime = Objects.requireNonNull($.policyRuntime, "expected parameter 'policyRuntime' to be non-null");
-            $.policyText = Objects.requireNonNull($.policyText, "expected parameter 'policyText' to be non-null");
-            $.triggerTypes = Objects.requireNonNull($.triggerTypes, "expected parameter 'triggerTypes' to be non-null");
+            if ($.policyRuntime == null) {
+                throw new MissingRequiredPropertyException("OrganizationCustomPolicyRuleArgs", "policyRuntime");
+            }
+            if ($.policyText == null) {
+                throw new MissingRequiredPropertyException("OrganizationCustomPolicyRuleArgs", "policyText");
+            }
+            if ($.triggerTypes == null) {
+                throw new MissingRequiredPropertyException("OrganizationCustomPolicyRuleArgs", "triggerTypes");
+            }
             return $;
         }
     }

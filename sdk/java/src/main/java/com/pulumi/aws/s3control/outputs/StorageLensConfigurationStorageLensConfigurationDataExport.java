@@ -59,11 +59,13 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExport {
 
         @CustomType.Setter
         public Builder cloudWatchMetrics(@Nullable StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics cloudWatchMetrics) {
+
             this.cloudWatchMetrics = cloudWatchMetrics;
             return this;
         }
         @CustomType.Setter
         public Builder s3BucketDestination(@Nullable StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination s3BucketDestination) {
+
             this.s3BucketDestination = s3BucketDestination;
             return this;
         }

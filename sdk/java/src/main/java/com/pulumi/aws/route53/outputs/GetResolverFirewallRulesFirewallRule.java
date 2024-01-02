@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -197,62 +198,98 @@ public final class GetResolverFirewallRulesFirewallRule {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder blockOverrideDnsType(String blockOverrideDnsType) {
-            this.blockOverrideDnsType = Objects.requireNonNull(blockOverrideDnsType);
+            if (blockOverrideDnsType == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "blockOverrideDnsType");
+            }
+            this.blockOverrideDnsType = blockOverrideDnsType;
             return this;
         }
         @CustomType.Setter
         public Builder blockOverrideDomain(String blockOverrideDomain) {
-            this.blockOverrideDomain = Objects.requireNonNull(blockOverrideDomain);
+            if (blockOverrideDomain == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "blockOverrideDomain");
+            }
+            this.blockOverrideDomain = blockOverrideDomain;
             return this;
         }
         @CustomType.Setter
         public Builder blockOverrideTtl(Integer blockOverrideTtl) {
-            this.blockOverrideTtl = Objects.requireNonNull(blockOverrideTtl);
+            if (blockOverrideTtl == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "blockOverrideTtl");
+            }
+            this.blockOverrideTtl = blockOverrideTtl;
             return this;
         }
         @CustomType.Setter
         public Builder blockResponse(String blockResponse) {
-            this.blockResponse = Objects.requireNonNull(blockResponse);
+            if (blockResponse == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "blockResponse");
+            }
+            this.blockResponse = blockResponse;
             return this;
         }
         @CustomType.Setter
         public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+            if (creationTime == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "creationTime");
+            }
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
         public Builder creatorRequestId(String creatorRequestId) {
-            this.creatorRequestId = Objects.requireNonNull(creatorRequestId);
+            if (creatorRequestId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "creatorRequestId");
+            }
+            this.creatorRequestId = creatorRequestId;
             return this;
         }
         @CustomType.Setter
         public Builder firewallDomainListId(String firewallDomainListId) {
-            this.firewallDomainListId = Objects.requireNonNull(firewallDomainListId);
+            if (firewallDomainListId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "firewallDomainListId");
+            }
+            this.firewallDomainListId = firewallDomainListId;
             return this;
         }
         @CustomType.Setter
         public Builder firewallRuleGroupId(String firewallRuleGroupId) {
-            this.firewallRuleGroupId = Objects.requireNonNull(firewallRuleGroupId);
+            if (firewallRuleGroupId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "firewallRuleGroupId");
+            }
+            this.firewallRuleGroupId = firewallRuleGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder modificationTime(String modificationTime) {
-            this.modificationTime = Objects.requireNonNull(modificationTime);
+            if (modificationTime == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "modificationTime");
+            }
+            this.modificationTime = modificationTime;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesFirewallRule", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         public GetResolverFirewallRulesFirewallRule build() {

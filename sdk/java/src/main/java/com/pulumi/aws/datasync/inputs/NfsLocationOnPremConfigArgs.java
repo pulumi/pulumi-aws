@@ -5,6 +5,7 @@ package com.pulumi.aws.datasync.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class NfsLocationOnPremConfigArgs extends com.pulumi.resources.Reso
         }
 
         public NfsLocationOnPremConfigArgs build() {
-            $.agentArns = Objects.requireNonNull($.agentArns, "expected parameter 'agentArns' to be non-null");
+            if ($.agentArns == null) {
+                throw new MissingRequiredPropertyException("NfsLocationOnPremConfigArgs", "agentArns");
+            }
             return $;
         }
     }

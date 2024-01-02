@@ -5,6 +5,7 @@ package com.pulumi.aws.ssm;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ServiceSettingArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ServiceSettingArgs build() {
-            $.settingId = Objects.requireNonNull($.settingId, "expected parameter 'settingId' to be non-null");
-            $.settingValue = Objects.requireNonNull($.settingValue, "expected parameter 'settingValue' to be non-null");
+            if ($.settingId == null) {
+                throw new MissingRequiredPropertyException("ServiceSettingArgs", "settingId");
+            }
+            if ($.settingValue == null) {
+                throw new MissingRequiredPropertyException("ServiceSettingArgs", "settingValue");
+            }
             return $;
         }
     }

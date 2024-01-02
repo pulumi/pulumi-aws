@@ -72,16 +72,19 @@ public final class DeviceLocation {
 
         @CustomType.Setter
         public Builder address(@Nullable String address) {
+
             this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder latitude(@Nullable String latitude) {
+
             this.latitude = latitude;
             return this;
         }
         @CustomType.Setter
         public Builder longitude(@Nullable String longitude) {
+
             this.longitude = longitude;
             return this;
         }

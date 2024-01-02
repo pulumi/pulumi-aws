@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class GetCatalogTableStorageDescriptorSortColumn {
 
         @CustomType.Setter
         public Builder column(String column) {
-            this.column = Objects.requireNonNull(column);
+            if (column == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptorSortColumn", "column");
+            }
+            this.column = column;
             return this;
         }
         @CustomType.Setter
         public Builder sortOrder(Integer sortOrder) {
-            this.sortOrder = Objects.requireNonNull(sortOrder);
+            if (sortOrder == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptorSortColumn", "sortOrder");
+            }
+            this.sortOrder = sortOrder;
             return this;
         }
         public GetCatalogTableStorageDescriptorSortColumn build() {

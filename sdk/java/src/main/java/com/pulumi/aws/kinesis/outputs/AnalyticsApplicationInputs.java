@@ -10,6 +10,7 @@ import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationInputsProcessingConfig
 import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationInputsSchema;
 import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationInputsStartingPositionConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -165,41 +166,53 @@ public final class AnalyticsApplicationInputs {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kinesisFirehose(@Nullable AnalyticsApplicationInputsKinesisFirehose kinesisFirehose) {
+
             this.kinesisFirehose = kinesisFirehose;
             return this;
         }
         @CustomType.Setter
         public Builder kinesisStream(@Nullable AnalyticsApplicationInputsKinesisStream kinesisStream) {
+
             this.kinesisStream = kinesisStream;
             return this;
         }
         @CustomType.Setter
         public Builder namePrefix(String namePrefix) {
-            this.namePrefix = Objects.requireNonNull(namePrefix);
+            if (namePrefix == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationInputs", "namePrefix");
+            }
+            this.namePrefix = namePrefix;
             return this;
         }
         @CustomType.Setter
         public Builder parallelism(@Nullable AnalyticsApplicationInputsParallelism parallelism) {
+
             this.parallelism = parallelism;
             return this;
         }
         @CustomType.Setter
         public Builder processingConfiguration(@Nullable AnalyticsApplicationInputsProcessingConfiguration processingConfiguration) {
+
             this.processingConfiguration = processingConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder schema(AnalyticsApplicationInputsSchema schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationInputs", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         @CustomType.Setter
         public Builder startingPositionConfigurations(@Nullable List<AnalyticsApplicationInputsStartingPositionConfiguration> startingPositionConfigurations) {
+
             this.startingPositionConfigurations = startingPositionConfigurations;
             return this;
         }
@@ -208,6 +221,7 @@ public final class AnalyticsApplicationInputs {
         }
         @CustomType.Setter
         public Builder streamNames(@Nullable List<String> streamNames) {
+
             this.streamNames = streamNames;
             return this;
         }

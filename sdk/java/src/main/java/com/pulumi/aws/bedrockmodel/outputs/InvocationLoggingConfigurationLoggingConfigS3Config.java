@@ -62,11 +62,13 @@ public final class InvocationLoggingConfigurationLoggingConfigS3Config {
 
         @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
+
             this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder keyPrefix(@Nullable String keyPrefix) {
+
             this.keyPrefix = keyPrefix;
             return this;
         }

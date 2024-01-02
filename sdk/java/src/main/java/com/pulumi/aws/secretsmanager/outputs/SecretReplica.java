@@ -4,6 +4,7 @@
 package com.pulumi.aws.secretsmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,26 +101,33 @@ public final class SecretReplica {
 
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder lastAccessedDate(@Nullable String lastAccessedDate) {
+
             this.lastAccessedDate = lastAccessedDate;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("SecretReplica", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statusMessage(@Nullable String statusMessage) {
+
             this.statusMessage = statusMessage;
             return this;
         }

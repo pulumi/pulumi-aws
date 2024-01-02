@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class DataSetLogicalTableMapDataTransformRenameColumnOperation {
 
         @CustomType.Setter
         public Builder columnName(String columnName) {
-            this.columnName = Objects.requireNonNull(columnName);
+            if (columnName == null) {
+              throw new MissingRequiredPropertyException("DataSetLogicalTableMapDataTransformRenameColumnOperation", "columnName");
+            }
+            this.columnName = columnName;
             return this;
         }
         @CustomType.Setter
         public Builder newColumnName(String newColumnName) {
-            this.newColumnName = Objects.requireNonNull(newColumnName);
+            if (newColumnName == null) {
+              throw new MissingRequiredPropertyException("DataSetLogicalTableMapDataTransformRenameColumnOperation", "newColumnName");
+            }
+            this.newColumnName = newColumnName;
             return this;
         }
         public DataSetLogicalTableMapDataTransformRenameColumnOperation build() {

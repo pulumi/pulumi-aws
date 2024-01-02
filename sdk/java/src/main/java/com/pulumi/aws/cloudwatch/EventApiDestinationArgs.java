@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -262,9 +263,15 @@ public final class EventApiDestinationArgs extends com.pulumi.resources.Resource
         }
 
         public EventApiDestinationArgs build() {
-            $.connectionArn = Objects.requireNonNull($.connectionArn, "expected parameter 'connectionArn' to be non-null");
-            $.httpMethod = Objects.requireNonNull($.httpMethod, "expected parameter 'httpMethod' to be non-null");
-            $.invocationEndpoint = Objects.requireNonNull($.invocationEndpoint, "expected parameter 'invocationEndpoint' to be non-null");
+            if ($.connectionArn == null) {
+                throw new MissingRequiredPropertyException("EventApiDestinationArgs", "connectionArn");
+            }
+            if ($.httpMethod == null) {
+                throw new MissingRequiredPropertyException("EventApiDestinationArgs", "httpMethod");
+            }
+            if ($.invocationEndpoint == null) {
+                throw new MissingRequiredPropertyException("EventApiDestinationArgs", "invocationEndpoint");
+            }
             return $;
         }
     }

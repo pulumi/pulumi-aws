@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class BucketResourceAccessArgs extends com.pulumi.resources.Resourc
         }
 
         public BucketResourceAccessArgs build() {
-            $.bucketName = Objects.requireNonNull($.bucketName, "expected parameter 'bucketName' to be non-null");
-            $.resourceName = Objects.requireNonNull($.resourceName, "expected parameter 'resourceName' to be non-null");
+            if ($.bucketName == null) {
+                throw new MissingRequiredPropertyException("BucketResourceAccessArgs", "bucketName");
+            }
+            if ($.resourceName == null) {
+                throw new MissingRequiredPropertyException("BucketResourceAccessArgs", "resourceName");
+            }
             return $;
         }
     }

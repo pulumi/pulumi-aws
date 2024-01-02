@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,17 +74,24 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
 
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
+
             this.bucketPrefix = bucketPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder s3OutputFormatConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig s3OutputFormatConfig) {
-            this.s3OutputFormatConfig = Objects.requireNonNull(s3OutputFormatConfig);
+            if (s3OutputFormatConfig == null) {
+              throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver", "s3OutputFormatConfig");
+            }
+            this.s3OutputFormatConfig = s3OutputFormatConfig;
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver build() {

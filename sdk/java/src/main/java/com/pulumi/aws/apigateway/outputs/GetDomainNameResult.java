@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.aws.apigateway.outputs.GetDomainNameEndpointConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -234,42 +235,66 @@ public final class GetDomainNameResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder certificateArn(String certificateArn) {
-            this.certificateArn = Objects.requireNonNull(certificateArn);
+            if (certificateArn == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "certificateArn");
+            }
+            this.certificateArn = certificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder certificateName(String certificateName) {
-            this.certificateName = Objects.requireNonNull(certificateName);
+            if (certificateName == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "certificateName");
+            }
+            this.certificateName = certificateName;
             return this;
         }
         @CustomType.Setter
         public Builder certificateUploadDate(String certificateUploadDate) {
-            this.certificateUploadDate = Objects.requireNonNull(certificateUploadDate);
+            if (certificateUploadDate == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "certificateUploadDate");
+            }
+            this.certificateUploadDate = certificateUploadDate;
             return this;
         }
         @CustomType.Setter
         public Builder cloudfrontDomainName(String cloudfrontDomainName) {
-            this.cloudfrontDomainName = Objects.requireNonNull(cloudfrontDomainName);
+            if (cloudfrontDomainName == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "cloudfrontDomainName");
+            }
+            this.cloudfrontDomainName = cloudfrontDomainName;
             return this;
         }
         @CustomType.Setter
         public Builder cloudfrontZoneId(String cloudfrontZoneId) {
-            this.cloudfrontZoneId = Objects.requireNonNull(cloudfrontZoneId);
+            if (cloudfrontZoneId == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "cloudfrontZoneId");
+            }
+            this.cloudfrontZoneId = cloudfrontZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder endpointConfigurations(List<GetDomainNameEndpointConfiguration> endpointConfigurations) {
-            this.endpointConfigurations = Objects.requireNonNull(endpointConfigurations);
+            if (endpointConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "endpointConfigurations");
+            }
+            this.endpointConfigurations = endpointConfigurations;
             return this;
         }
         public Builder endpointConfigurations(GetDomainNameEndpointConfiguration... endpointConfigurations) {
@@ -277,36 +302,55 @@ public final class GetDomainNameResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder regionalCertificateArn(String regionalCertificateArn) {
-            this.regionalCertificateArn = Objects.requireNonNull(regionalCertificateArn);
+            if (regionalCertificateArn == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "regionalCertificateArn");
+            }
+            this.regionalCertificateArn = regionalCertificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder regionalCertificateName(String regionalCertificateName) {
-            this.regionalCertificateName = Objects.requireNonNull(regionalCertificateName);
+            if (regionalCertificateName == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "regionalCertificateName");
+            }
+            this.regionalCertificateName = regionalCertificateName;
             return this;
         }
         @CustomType.Setter
         public Builder regionalDomainName(String regionalDomainName) {
-            this.regionalDomainName = Objects.requireNonNull(regionalDomainName);
+            if (regionalDomainName == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "regionalDomainName");
+            }
+            this.regionalDomainName = regionalDomainName;
             return this;
         }
         @CustomType.Setter
         public Builder regionalZoneId(String regionalZoneId) {
-            this.regionalZoneId = Objects.requireNonNull(regionalZoneId);
+            if (regionalZoneId == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "regionalZoneId");
+            }
+            this.regionalZoneId = regionalZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder securityPolicy(String securityPolicy) {
-            this.securityPolicy = Objects.requireNonNull(securityPolicy);
+            if (securityPolicy == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "securityPolicy");
+            }
+            this.securityPolicy = securityPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }

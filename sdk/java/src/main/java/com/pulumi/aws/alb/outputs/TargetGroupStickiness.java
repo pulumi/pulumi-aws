@@ -4,6 +4,7 @@
 package com.pulumi.aws.alb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -88,22 +89,28 @@ public final class TargetGroupStickiness {
 
         @CustomType.Setter
         public Builder cookieDuration(@Nullable Integer cookieDuration) {
+
             this.cookieDuration = cookieDuration;
             return this;
         }
         @CustomType.Setter
         public Builder cookieName(@Nullable String cookieName) {
+
             this.cookieName = cookieName;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("TargetGroupStickiness", "type");
+            }
+            this.type = type;
             return this;
         }
         public TargetGroupStickiness build() {

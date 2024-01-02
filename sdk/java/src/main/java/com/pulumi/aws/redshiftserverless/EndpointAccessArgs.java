@@ -5,6 +5,7 @@ package com.pulumi.aws.redshiftserverless;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -208,9 +209,15 @@ public final class EndpointAccessArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public EndpointAccessArgs build() {
-            $.endpointName = Objects.requireNonNull($.endpointName, "expected parameter 'endpointName' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.workgroupName = Objects.requireNonNull($.workgroupName, "expected parameter 'workgroupName' to be non-null");
+            if ($.endpointName == null) {
+                throw new MissingRequiredPropertyException("EndpointAccessArgs", "endpointName");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("EndpointAccessArgs", "subnetIds");
+            }
+            if ($.workgroupName == null) {
+                throw new MissingRequiredPropertyException("EndpointAccessArgs", "workgroupName");
+            }
             return $;
         }
     }

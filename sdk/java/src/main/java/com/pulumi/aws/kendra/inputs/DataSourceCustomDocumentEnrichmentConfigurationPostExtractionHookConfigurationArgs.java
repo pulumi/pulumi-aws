@@ -6,6 +6,7 @@ package com.pulumi.aws.kendra.inputs;
 import com.pulumi.aws.kendra.inputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -151,8 +152,12 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
         }
 
         public DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs build() {
-            $.lambdaArn = Objects.requireNonNull($.lambdaArn, "expected parameter 'lambdaArn' to be non-null");
-            $.s3Bucket = Objects.requireNonNull($.s3Bucket, "expected parameter 's3Bucket' to be non-null");
+            if ($.lambdaArn == null) {
+                throw new MissingRequiredPropertyException("DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs", "lambdaArn");
+            }
+            if ($.s3Bucket == null) {
+                throw new MissingRequiredPropertyException("DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs", "s3Bucket");
+            }
             return $;
         }
     }

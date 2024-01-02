@@ -7,6 +7,7 @@ import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyEncryptionConfigurati
 import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -227,7 +228,9 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public FirewallPolicyArgs build() {
-            $.firewallPolicy = Objects.requireNonNull($.firewallPolicy, "expected parameter 'firewallPolicy' to be non-null");
+            if ($.firewallPolicy == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyArgs", "firewallPolicy");
+            }
             return $;
         }
     }

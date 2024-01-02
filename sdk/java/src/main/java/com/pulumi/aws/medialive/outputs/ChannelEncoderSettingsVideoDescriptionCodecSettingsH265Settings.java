@@ -7,6 +7,7 @@ import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCo
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -439,151 +440,187 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
 
         @CustomType.Setter
         public Builder adaptiveQuantization(@Nullable String adaptiveQuantization) {
+
             this.adaptiveQuantization = adaptiveQuantization;
             return this;
         }
         @CustomType.Setter
         public Builder afdSignaling(@Nullable String afdSignaling) {
+
             this.afdSignaling = afdSignaling;
             return this;
         }
         @CustomType.Setter
         public Builder alternativeTransferFunction(@Nullable String alternativeTransferFunction) {
+
             this.alternativeTransferFunction = alternativeTransferFunction;
             return this;
         }
         @CustomType.Setter
         public Builder bitrate(Integer bitrate) {
-            this.bitrate = Objects.requireNonNull(bitrate);
+            if (bitrate == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings", "bitrate");
+            }
+            this.bitrate = bitrate;
             return this;
         }
         @CustomType.Setter
         public Builder bufSize(@Nullable Integer bufSize) {
+
             this.bufSize = bufSize;
             return this;
         }
         @CustomType.Setter
         public Builder colorMetadata(@Nullable String colorMetadata) {
+
             this.colorMetadata = colorMetadata;
             return this;
         }
         @CustomType.Setter
         public Builder colorSpaceSettings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings colorSpaceSettings) {
+
             this.colorSpaceSettings = colorSpaceSettings;
             return this;
         }
         @CustomType.Setter
         public Builder filterSettings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings filterSettings) {
+
             this.filterSettings = filterSettings;
             return this;
         }
         @CustomType.Setter
         public Builder fixedAfd(@Nullable String fixedAfd) {
+
             this.fixedAfd = fixedAfd;
             return this;
         }
         @CustomType.Setter
         public Builder flickerAq(@Nullable String flickerAq) {
+
             this.flickerAq = flickerAq;
             return this;
         }
         @CustomType.Setter
         public Builder framerateDenominator(Integer framerateDenominator) {
-            this.framerateDenominator = Objects.requireNonNull(framerateDenominator);
+            if (framerateDenominator == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings", "framerateDenominator");
+            }
+            this.framerateDenominator = framerateDenominator;
             return this;
         }
         @CustomType.Setter
         public Builder framerateNumerator(Integer framerateNumerator) {
-            this.framerateNumerator = Objects.requireNonNull(framerateNumerator);
+            if (framerateNumerator == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings", "framerateNumerator");
+            }
+            this.framerateNumerator = framerateNumerator;
             return this;
         }
         @CustomType.Setter
         public Builder gopClosedCadence(@Nullable Integer gopClosedCadence) {
+
             this.gopClosedCadence = gopClosedCadence;
             return this;
         }
         @CustomType.Setter
         public Builder gopSize(@Nullable Double gopSize) {
+
             this.gopSize = gopSize;
             return this;
         }
         @CustomType.Setter
         public Builder gopSizeUnits(@Nullable String gopSizeUnits) {
+
             this.gopSizeUnits = gopSizeUnits;
             return this;
         }
         @CustomType.Setter
         public Builder level(@Nullable String level) {
+
             this.level = level;
             return this;
         }
         @CustomType.Setter
         public Builder lookAheadRateControl(@Nullable String lookAheadRateControl) {
+
             this.lookAheadRateControl = lookAheadRateControl;
             return this;
         }
         @CustomType.Setter
         public Builder maxBitrate(@Nullable Integer maxBitrate) {
+
             this.maxBitrate = maxBitrate;
             return this;
         }
         @CustomType.Setter
         public Builder minIInterval(@Nullable Integer minIInterval) {
+
             this.minIInterval = minIInterval;
             return this;
         }
         @CustomType.Setter
         public Builder parDenominator(@Nullable Integer parDenominator) {
+
             this.parDenominator = parDenominator;
             return this;
         }
         @CustomType.Setter
         public Builder parNumerator(@Nullable Integer parNumerator) {
+
             this.parNumerator = parNumerator;
             return this;
         }
         @CustomType.Setter
         public Builder profile(@Nullable String profile) {
+
             this.profile = profile;
             return this;
         }
         @CustomType.Setter
         public Builder qvbrQualityLevel(@Nullable Integer qvbrQualityLevel) {
+
             this.qvbrQualityLevel = qvbrQualityLevel;
             return this;
         }
         @CustomType.Setter
         public Builder rateControlMode(@Nullable String rateControlMode) {
+
             this.rateControlMode = rateControlMode;
             return this;
         }
         @CustomType.Setter
         public Builder scanType(@Nullable String scanType) {
+
             this.scanType = scanType;
             return this;
         }
         @CustomType.Setter
         public Builder sceneChangeDetect(@Nullable String sceneChangeDetect) {
+
             this.sceneChangeDetect = sceneChangeDetect;
             return this;
         }
         @CustomType.Setter
         public Builder slices(@Nullable Integer slices) {
+
             this.slices = slices;
             return this;
         }
         @CustomType.Setter
         public Builder tier(@Nullable String tier) {
+
             this.tier = tier;
             return this;
         }
         @CustomType.Setter
         public Builder timecodeBurninSettings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings timecodeBurninSettings) {
+
             this.timecodeBurninSettings = timecodeBurninSettings;
             return this;
         }
         @CustomType.Setter
         public Builder timecodeInsertion(@Nullable String timecodeInsertion) {
+
             this.timecodeInsertion = timecodeInsertion;
             return this;
         }

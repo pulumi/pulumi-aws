@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.inputs.EndpointDeploymentConfigRollingUpdatePoli
 import com.pulumi.aws.sagemaker.inputs.EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -189,8 +190,12 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyArgs extends com.p
         }
 
         public EndpointDeploymentConfigRollingUpdatePolicyArgs build() {
-            $.maximumBatchSize = Objects.requireNonNull($.maximumBatchSize, "expected parameter 'maximumBatchSize' to be non-null");
-            $.waitIntervalInSeconds = Objects.requireNonNull($.waitIntervalInSeconds, "expected parameter 'waitIntervalInSeconds' to be non-null");
+            if ($.maximumBatchSize == null) {
+                throw new MissingRequiredPropertyException("EndpointDeploymentConfigRollingUpdatePolicyArgs", "maximumBatchSize");
+            }
+            if ($.waitIntervalInSeconds == null) {
+                throw new MissingRequiredPropertyException("EndpointDeploymentConfigRollingUpdatePolicyArgs", "waitIntervalInSeconds");
+            }
             return $;
         }
     }

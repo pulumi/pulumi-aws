@@ -10,6 +10,7 @@ import com.pulumi.aws.sesv2.outputs.GetConfigurationSetSuppressionOption;
 import com.pulumi.aws.sesv2.outputs.GetConfigurationSetTrackingOption;
 import com.pulumi.aws.sesv2.outputs.GetConfigurationSetVdmOption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -160,17 +161,26 @@ public final class GetConfigurationSetResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder configurationSetName(String configurationSetName) {
-            this.configurationSetName = Objects.requireNonNull(configurationSetName);
+            if (configurationSetName == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetResult", "configurationSetName");
+            }
+            this.configurationSetName = configurationSetName;
             return this;
         }
         @CustomType.Setter
         public Builder deliveryOptions(List<GetConfigurationSetDeliveryOption> deliveryOptions) {
-            this.deliveryOptions = Objects.requireNonNull(deliveryOptions);
+            if (deliveryOptions == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetResult", "deliveryOptions");
+            }
+            this.deliveryOptions = deliveryOptions;
             return this;
         }
         public Builder deliveryOptions(GetConfigurationSetDeliveryOption... deliveryOptions) {
@@ -178,12 +188,18 @@ public final class GetConfigurationSetResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder reputationOptions(List<GetConfigurationSetReputationOption> reputationOptions) {
-            this.reputationOptions = Objects.requireNonNull(reputationOptions);
+            if (reputationOptions == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetResult", "reputationOptions");
+            }
+            this.reputationOptions = reputationOptions;
             return this;
         }
         public Builder reputationOptions(GetConfigurationSetReputationOption... reputationOptions) {
@@ -191,7 +207,10 @@ public final class GetConfigurationSetResult {
         }
         @CustomType.Setter
         public Builder sendingOptions(List<GetConfigurationSetSendingOption> sendingOptions) {
-            this.sendingOptions = Objects.requireNonNull(sendingOptions);
+            if (sendingOptions == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetResult", "sendingOptions");
+            }
+            this.sendingOptions = sendingOptions;
             return this;
         }
         public Builder sendingOptions(GetConfigurationSetSendingOption... sendingOptions) {
@@ -199,7 +218,10 @@ public final class GetConfigurationSetResult {
         }
         @CustomType.Setter
         public Builder suppressionOptions(List<GetConfigurationSetSuppressionOption> suppressionOptions) {
-            this.suppressionOptions = Objects.requireNonNull(suppressionOptions);
+            if (suppressionOptions == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetResult", "suppressionOptions");
+            }
+            this.suppressionOptions = suppressionOptions;
             return this;
         }
         public Builder suppressionOptions(GetConfigurationSetSuppressionOption... suppressionOptions) {
@@ -207,12 +229,18 @@ public final class GetConfigurationSetResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder trackingOptions(List<GetConfigurationSetTrackingOption> trackingOptions) {
-            this.trackingOptions = Objects.requireNonNull(trackingOptions);
+            if (trackingOptions == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetResult", "trackingOptions");
+            }
+            this.trackingOptions = trackingOptions;
             return this;
         }
         public Builder trackingOptions(GetConfigurationSetTrackingOption... trackingOptions) {
@@ -220,7 +248,10 @@ public final class GetConfigurationSetResult {
         }
         @CustomType.Setter
         public Builder vdmOptions(List<GetConfigurationSetVdmOption> vdmOptions) {
-            this.vdmOptions = Objects.requireNonNull(vdmOptions);
+            if (vdmOptions == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetResult", "vdmOptions");
+            }
+            this.vdmOptions = vdmOptions;
             return this;
         }
         public Builder vdmOptions(GetConfigurationSetVdmOption... vdmOptions) {

@@ -11,6 +11,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -353,10 +354,18 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WebAclRuleArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.statement = Objects.requireNonNull($.statement, "expected parameter 'statement' to be non-null");
-            $.visibilityConfig = Objects.requireNonNull($.visibilityConfig, "expected parameter 'visibilityConfig' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleArgs", "name");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleArgs", "priority");
+            }
+            if ($.statement == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleArgs", "statement");
+            }
+            if ($.visibilityConfig == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleArgs", "visibilityConfig");
+            }
             return $;
         }
     }

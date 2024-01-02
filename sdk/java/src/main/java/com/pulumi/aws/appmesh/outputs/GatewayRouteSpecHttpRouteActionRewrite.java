@@ -74,16 +74,19 @@ public final class GatewayRouteSpecHttpRouteActionRewrite {
 
         @CustomType.Setter
         public Builder hostname(@Nullable GatewayRouteSpecHttpRouteActionRewriteHostname hostname) {
+
             this.hostname = hostname;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable GatewayRouteSpecHttpRouteActionRewritePath path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable GatewayRouteSpecHttpRouteActionRewritePrefix prefix) {
+
             this.prefix = prefix;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.efs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetFileSystemLifecyclePolicy {
 
         @CustomType.Setter
         public Builder transitionToIa(String transitionToIa) {
-            this.transitionToIa = Objects.requireNonNull(transitionToIa);
+            if (transitionToIa == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemLifecyclePolicy", "transitionToIa");
+            }
+            this.transitionToIa = transitionToIa;
             return this;
         }
         @CustomType.Setter
         public Builder transitionToPrimaryStorageClass(String transitionToPrimaryStorageClass) {
-            this.transitionToPrimaryStorageClass = Objects.requireNonNull(transitionToPrimaryStorageClass);
+            if (transitionToPrimaryStorageClass == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemLifecyclePolicy", "transitionToPrimaryStorageClass");
+            }
+            this.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
             return this;
         }
         public GetFileSystemLifecyclePolicy build() {

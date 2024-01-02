@@ -5,6 +5,7 @@ package com.pulumi.aws.ssm.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,8 +225,12 @@ public final class ResourceDataSyncS3DestinationArgs extends com.pulumi.resource
         }
 
         public ResourceDataSyncS3DestinationArgs build() {
-            $.bucketName = Objects.requireNonNull($.bucketName, "expected parameter 'bucketName' to be non-null");
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
+            if ($.bucketName == null) {
+                throw new MissingRequiredPropertyException("ResourceDataSyncS3DestinationArgs", "bucketName");
+            }
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("ResourceDataSyncS3DestinationArgs", "region");
+            }
             return $;
         }
     }

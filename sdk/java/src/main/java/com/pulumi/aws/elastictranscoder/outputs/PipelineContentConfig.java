@@ -58,11 +58,13 @@ public final class PipelineContentConfig {
 
         @CustomType.Setter
         public Builder bucket(@Nullable String bucket) {
+
             this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder storageClass(@Nullable String storageClass) {
+
             this.storageClass = storageClass;
             return this;
         }

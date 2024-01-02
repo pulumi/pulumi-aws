@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
 
         public FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs", "domainName");
+            }
             return $;
         }
     }

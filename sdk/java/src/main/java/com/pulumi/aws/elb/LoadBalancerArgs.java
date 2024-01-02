@@ -8,6 +8,7 @@ import com.pulumi.aws.elb.inputs.LoadBalancerHealthCheckArgs;
 import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -754,7 +755,9 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LoadBalancerArgs build() {
-            $.listeners = Objects.requireNonNull($.listeners, "expected parameter 'listeners' to be non-null");
+            if ($.listeners == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerArgs", "listeners");
+            }
             return $;
         }
     }

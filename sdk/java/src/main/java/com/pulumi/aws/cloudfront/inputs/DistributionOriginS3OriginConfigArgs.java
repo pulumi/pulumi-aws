@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class DistributionOriginS3OriginConfigArgs extends com.pulumi.resou
         }
 
         public DistributionOriginS3OriginConfigArgs build() {
-            $.originAccessIdentity = Objects.requireNonNull($.originAccessIdentity, "expected parameter 'originAccessIdentity' to be non-null");
+            if ($.originAccessIdentity == null) {
+                throw new MissingRequiredPropertyException("DistributionOriginS3OriginConfigArgs", "originAccessIdentity");
+            }
             return $;
         }
     }

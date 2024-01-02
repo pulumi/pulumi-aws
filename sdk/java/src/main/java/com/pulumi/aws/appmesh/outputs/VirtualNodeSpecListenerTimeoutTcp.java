@@ -44,6 +44,7 @@ public final class VirtualNodeSpecListenerTimeoutTcp {
 
         @CustomType.Setter
         public Builder idle(@Nullable VirtualNodeSpecListenerTimeoutTcpIdle idle) {
+
             this.idle = idle;
             return this;
         }

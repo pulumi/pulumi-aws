@@ -4,6 +4,7 @@
 package com.pulumi.aws.oam.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -140,37 +141,58 @@ public final class GetLinkResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder label(String label) {
-            this.label = Objects.requireNonNull(label);
+            if (label == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "label");
+            }
+            this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder labelTemplate(String labelTemplate) {
-            this.labelTemplate = Objects.requireNonNull(labelTemplate);
+            if (labelTemplate == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "labelTemplate");
+            }
+            this.labelTemplate = labelTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder linkId(String linkId) {
-            this.linkId = Objects.requireNonNull(linkId);
+            if (linkId == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "linkId");
+            }
+            this.linkId = linkId;
             return this;
         }
         @CustomType.Setter
         public Builder linkIdentifier(String linkIdentifier) {
-            this.linkIdentifier = Objects.requireNonNull(linkIdentifier);
+            if (linkIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "linkIdentifier");
+            }
+            this.linkIdentifier = linkIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder resourceTypes(List<String> resourceTypes) {
-            this.resourceTypes = Objects.requireNonNull(resourceTypes);
+            if (resourceTypes == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "resourceTypes");
+            }
+            this.resourceTypes = resourceTypes;
             return this;
         }
         public Builder resourceTypes(String... resourceTypes) {
@@ -178,12 +200,18 @@ public final class GetLinkResult {
         }
         @CustomType.Setter
         public Builder sinkArn(String sinkArn) {
-            this.sinkArn = Objects.requireNonNull(sinkArn);
+            if (sinkArn == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "sinkArn");
+            }
+            this.sinkArn = sinkArn;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetLinkResult build() {

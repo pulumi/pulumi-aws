@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -185,10 +186,18 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
         }
 
         public KxClusterVpcConfigurationArgs build() {
-            $.ipAddressType = Objects.requireNonNull($.ipAddressType, "expected parameter 'ipAddressType' to be non-null");
-            $.securityGroupIds = Objects.requireNonNull($.securityGroupIds, "expected parameter 'securityGroupIds' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.ipAddressType == null) {
+                throw new MissingRequiredPropertyException("KxClusterVpcConfigurationArgs", "ipAddressType");
+            }
+            if ($.securityGroupIds == null) {
+                throw new MissingRequiredPropertyException("KxClusterVpcConfigurationArgs", "securityGroupIds");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("KxClusterVpcConfigurationArgs", "subnetIds");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("KxClusterVpcConfigurationArgs", "vpcId");
+            }
             return $;
         }
     }

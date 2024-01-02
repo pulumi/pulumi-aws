@@ -7,6 +7,7 @@ import com.pulumi.aws.codebuild.inputs.ProjectSecondarySourceBuildStatusConfigAr
 import com.pulumi.aws.codebuild.inputs.ProjectSecondarySourceGitSubmodulesConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -376,8 +377,12 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         public ProjectSecondarySourceArgs build() {
-            $.sourceIdentifier = Objects.requireNonNull($.sourceIdentifier, "expected parameter 'sourceIdentifier' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.sourceIdentifier == null) {
+                throw new MissingRequiredPropertyException("ProjectSecondarySourceArgs", "sourceIdentifier");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ProjectSecondarySourceArgs", "type");
+            }
             return $;
         }
     }

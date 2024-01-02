@@ -5,6 +5,7 @@ package com.pulumi.aws.budgets.outputs;
 
 import com.pulumi.aws.budgets.outputs.GetBudgetAutoAdjustDataHistoricalOption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,12 +73,18 @@ public final class GetBudgetAutoAdjustData {
 
         @CustomType.Setter
         public Builder autoAdjustType(String autoAdjustType) {
-            this.autoAdjustType = Objects.requireNonNull(autoAdjustType);
+            if (autoAdjustType == null) {
+              throw new MissingRequiredPropertyException("GetBudgetAutoAdjustData", "autoAdjustType");
+            }
+            this.autoAdjustType = autoAdjustType;
             return this;
         }
         @CustomType.Setter
         public Builder historicalOptions(List<GetBudgetAutoAdjustDataHistoricalOption> historicalOptions) {
-            this.historicalOptions = Objects.requireNonNull(historicalOptions);
+            if (historicalOptions == null) {
+              throw new MissingRequiredPropertyException("GetBudgetAutoAdjustData", "historicalOptions");
+            }
+            this.historicalOptions = historicalOptions;
             return this;
         }
         public Builder historicalOptions(GetBudgetAutoAdjustDataHistoricalOption... historicalOptions) {
@@ -85,7 +92,10 @@ public final class GetBudgetAutoAdjustData {
         }
         @CustomType.Setter
         public Builder lastAutoAdjustTime(String lastAutoAdjustTime) {
-            this.lastAutoAdjustTime = Objects.requireNonNull(lastAutoAdjustTime);
+            if (lastAutoAdjustTime == null) {
+              throw new MissingRequiredPropertyException("GetBudgetAutoAdjustData", "lastAutoAdjustTime");
+            }
+            this.lastAutoAdjustTime = lastAutoAdjustTime;
             return this;
         }
         public GetBudgetAutoAdjustData build() {

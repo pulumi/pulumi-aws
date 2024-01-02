@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive.outputs;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -51,11 +52,15 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
 
         @CustomType.Setter
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder frameCaptureCdnSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings frameCaptureCdnSettings) {
+
             this.frameCaptureCdnSettings = frameCaptureCdnSettings;
             return this;
         }

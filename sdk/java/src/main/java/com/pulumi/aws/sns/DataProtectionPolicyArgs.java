@@ -5,6 +5,7 @@ package com.pulumi.aws.sns;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DataProtectionPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         public DataProtectionPolicyArgs build() {
-            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
-            $.policy = Objects.requireNonNull($.policy, "expected parameter 'policy' to be non-null");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("DataProtectionPolicyArgs", "arn");
+            }
+            if ($.policy == null) {
+                throw new MissingRequiredPropertyException("DataProtectionPolicyArgs", "policy");
+            }
             return $;
         }
     }

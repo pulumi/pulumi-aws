@@ -6,6 +6,7 @@ package com.pulumi.aws.auditmanager.inputs;
 import com.pulumi.aws.auditmanager.inputs.ControlControlMappingSourceSourceKeywordArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -324,9 +325,15 @@ public final class ControlControlMappingSourceArgs extends com.pulumi.resources.
         }
 
         public ControlControlMappingSourceArgs build() {
-            $.sourceName = Objects.requireNonNull($.sourceName, "expected parameter 'sourceName' to be non-null");
-            $.sourceSetUpOption = Objects.requireNonNull($.sourceSetUpOption, "expected parameter 'sourceSetUpOption' to be non-null");
-            $.sourceType = Objects.requireNonNull($.sourceType, "expected parameter 'sourceType' to be non-null");
+            if ($.sourceName == null) {
+                throw new MissingRequiredPropertyException("ControlControlMappingSourceArgs", "sourceName");
+            }
+            if ($.sourceSetUpOption == null) {
+                throw new MissingRequiredPropertyException("ControlControlMappingSourceArgs", "sourceSetUpOption");
+            }
+            if ($.sourceType == null) {
+                throw new MissingRequiredPropertyException("ControlControlMappingSourceArgs", "sourceType");
+            }
             return $;
         }
     }

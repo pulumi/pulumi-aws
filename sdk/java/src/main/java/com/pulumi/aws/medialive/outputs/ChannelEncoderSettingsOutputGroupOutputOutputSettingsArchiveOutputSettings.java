@@ -73,16 +73,19 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
 
         @CustomType.Setter
         public Builder containerSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings containerSettings) {
+
             this.containerSettings = containerSettings;
             return this;
         }
         @CustomType.Setter
         public Builder extension(@Nullable String extension) {
+
             this.extension = extension;
             return this;
         }
         @CustomType.Setter
         public Builder nameModifier(@Nullable String nameModifier) {
+
             this.nameModifier = nameModifier;
             return this;
         }

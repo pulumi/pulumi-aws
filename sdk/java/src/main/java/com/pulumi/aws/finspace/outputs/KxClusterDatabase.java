@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace.outputs;
 
 import com.pulumi.aws.finspace.outputs.KxClusterDatabaseCacheConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -88,6 +89,7 @@ public final class KxClusterDatabase {
 
         @CustomType.Setter
         public Builder cacheConfigurations(@Nullable List<KxClusterDatabaseCacheConfiguration> cacheConfigurations) {
+
             this.cacheConfigurations = cacheConfigurations;
             return this;
         }
@@ -96,16 +98,21 @@ public final class KxClusterDatabase {
         }
         @CustomType.Setter
         public Builder changesetId(@Nullable String changesetId) {
+
             this.changesetId = changesetId;
             return this;
         }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("KxClusterDatabase", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder dataviewName(@Nullable String dataviewName) {
+
             this.dataviewName = dataviewName;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class BucketV2Logging {
 
         @CustomType.Setter
         public Builder targetBucket(String targetBucket) {
-            this.targetBucket = Objects.requireNonNull(targetBucket);
+            if (targetBucket == null) {
+              throw new MissingRequiredPropertyException("BucketV2Logging", "targetBucket");
+            }
+            this.targetBucket = targetBucket;
             return this;
         }
         @CustomType.Setter
         public Builder targetPrefix(@Nullable String targetPrefix) {
+
             this.targetPrefix = targetPrefix;
             return this;
         }

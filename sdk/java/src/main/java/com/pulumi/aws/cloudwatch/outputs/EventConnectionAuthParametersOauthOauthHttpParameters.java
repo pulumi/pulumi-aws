@@ -74,6 +74,7 @@ public final class EventConnectionAuthParametersOauthOauthHttpParameters {
 
         @CustomType.Setter
         public Builder bodies(@Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersBody> bodies) {
+
             this.bodies = bodies;
             return this;
         }
@@ -82,6 +83,7 @@ public final class EventConnectionAuthParametersOauthOauthHttpParameters {
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -90,6 +92,7 @@ public final class EventConnectionAuthParametersOauthOauthHttpParameters {
         }
         @CustomType.Setter
         public Builder queryStrings(@Nullable List<EventConnectionAuthParametersOauthOauthHttpParametersQueryString> queryStrings) {
+
             this.queryStrings = queryStrings;
             return this;
         }

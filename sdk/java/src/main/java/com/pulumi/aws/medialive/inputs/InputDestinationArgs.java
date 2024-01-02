@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class InputDestinationArgs extends com.pulumi.resources.ResourceArg
         }
 
         public InputDestinationArgs build() {
-            $.streamName = Objects.requireNonNull($.streamName, "expected parameter 'streamName' to be non-null");
+            if ($.streamName == null) {
+                throw new MissingRequiredPropertyException("InputDestinationArgs", "streamName");
+            }
             return $;
         }
     }

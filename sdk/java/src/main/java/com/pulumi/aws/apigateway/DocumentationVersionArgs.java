@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class DocumentationVersionArgs extends com.pulumi.resources.Resourc
         }
 
         public DocumentationVersionArgs build() {
-            $.restApiId = Objects.requireNonNull($.restApiId, "expected parameter 'restApiId' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.restApiId == null) {
+                throw new MissingRequiredPropertyException("DocumentationVersionArgs", "restApiId");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("DocumentationVersionArgs", "version");
+            }
             return $;
         }
     }

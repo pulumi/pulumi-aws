@@ -6,6 +6,7 @@ package com.pulumi.aws.lex.inputs;
 import com.pulumi.aws.lex.inputs.IntentSlotValueElicitationPromptArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -423,9 +424,15 @@ public final class IntentSlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IntentSlotArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.slotConstraint = Objects.requireNonNull($.slotConstraint, "expected parameter 'slotConstraint' to be non-null");
-            $.slotType = Objects.requireNonNull($.slotType, "expected parameter 'slotType' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("IntentSlotArgs", "name");
+            }
+            if ($.slotConstraint == null) {
+                throw new MissingRequiredPropertyException("IntentSlotArgs", "slotConstraint");
+            }
+            if ($.slotType == null) {
+                throw new MissingRequiredPropertyException("IntentSlotArgs", "slotType");
+            }
             return $;
         }
     }

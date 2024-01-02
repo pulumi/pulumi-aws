@@ -86,21 +86,25 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
 
         @CustomType.Setter
         public Builder copyrightHolder(@Nullable String copyrightHolder) {
+
             this.copyrightHolder = copyrightHolder;
             return this;
         }
         @CustomType.Setter
         public Builder fillLineGap(@Nullable String fillLineGap) {
+
             this.fillLineGap = fillLineGap;
             return this;
         }
         @CustomType.Setter
         public Builder fontFamily(@Nullable String fontFamily) {
+
             this.fontFamily = fontFamily;
             return this;
         }
         @CustomType.Setter
         public Builder styleControl(@Nullable String styleControl) {
+
             this.styleControl = styleControl;
             return this;
         }

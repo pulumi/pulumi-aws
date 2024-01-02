@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantCor
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantServerlessConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -488,7 +489,9 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         public EndpointConfigurationProductionVariantArgs build() {
-            $.modelName = Objects.requireNonNull($.modelName, "expected parameter 'modelName' to be non-null");
+            if ($.modelName == null) {
+                throw new MissingRequiredPropertyException("EndpointConfigurationProductionVariantArgs", "modelName");
+            }
             return $;
         }
     }

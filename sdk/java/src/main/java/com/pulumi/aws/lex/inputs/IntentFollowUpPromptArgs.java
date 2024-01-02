@@ -7,6 +7,7 @@ import com.pulumi.aws.lex.inputs.IntentFollowUpPromptPromptArgs;
 import com.pulumi.aws.lex.inputs.IntentFollowUpPromptRejectionStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -120,8 +121,12 @@ public final class IntentFollowUpPromptArgs extends com.pulumi.resources.Resourc
         }
 
         public IntentFollowUpPromptArgs build() {
-            $.prompt = Objects.requireNonNull($.prompt, "expected parameter 'prompt' to be non-null");
-            $.rejectionStatement = Objects.requireNonNull($.rejectionStatement, "expected parameter 'rejectionStatement' to be non-null");
+            if ($.prompt == null) {
+                throw new MissingRequiredPropertyException("IntentFollowUpPromptArgs", "prompt");
+            }
+            if ($.rejectionStatement == null) {
+                throw new MissingRequiredPropertyException("IntentFollowUpPromptArgs", "rejectionStatement");
+            }
             return $;
         }
     }

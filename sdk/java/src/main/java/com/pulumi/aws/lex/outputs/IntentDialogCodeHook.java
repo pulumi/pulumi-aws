@@ -4,6 +4,7 @@
 package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -60,12 +61,18 @@ public final class IntentDialogCodeHook {
 
         @CustomType.Setter
         public Builder messageVersion(String messageVersion) {
-            this.messageVersion = Objects.requireNonNull(messageVersion);
+            if (messageVersion == null) {
+              throw new MissingRequiredPropertyException("IntentDialogCodeHook", "messageVersion");
+            }
+            this.messageVersion = messageVersion;
             return this;
         }
         @CustomType.Setter
         public Builder uri(String uri) {
-            this.uri = Objects.requireNonNull(uri);
+            if (uri == null) {
+              throw new MissingRequiredPropertyException("IntentDialogCodeHook", "uri");
+            }
+            this.uri = uri;
             return this;
         }
         public IntentDialogCodeHook build() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.dynamodb.outputs;
 import com.pulumi.aws.dynamodb.outputs.TableImportTableInputFormatOptions;
 import com.pulumi.aws.dynamodb.outputs.TableImportTableS3BucketSource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -98,22 +99,30 @@ public final class TableImportTable {
 
         @CustomType.Setter
         public Builder inputCompressionType(@Nullable String inputCompressionType) {
+
             this.inputCompressionType = inputCompressionType;
             return this;
         }
         @CustomType.Setter
         public Builder inputFormat(String inputFormat) {
-            this.inputFormat = Objects.requireNonNull(inputFormat);
+            if (inputFormat == null) {
+              throw new MissingRequiredPropertyException("TableImportTable", "inputFormat");
+            }
+            this.inputFormat = inputFormat;
             return this;
         }
         @CustomType.Setter
         public Builder inputFormatOptions(@Nullable TableImportTableInputFormatOptions inputFormatOptions) {
+
             this.inputFormatOptions = inputFormatOptions;
             return this;
         }
         @CustomType.Setter
         public Builder s3BucketSource(TableImportTableS3BucketSource s3BucketSource) {
-            this.s3BucketSource = Objects.requireNonNull(s3BucketSource);
+            if (s3BucketSource == null) {
+              throw new MissingRequiredPropertyException("TableImportTable", "s3BucketSource");
+            }
+            this.s3BucketSource = s3BucketSource;
             return this;
         }
         public TableImportTable build() {

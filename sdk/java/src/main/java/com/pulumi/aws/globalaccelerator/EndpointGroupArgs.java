@@ -7,6 +7,7 @@ import com.pulumi.aws.globalaccelerator.inputs.EndpointGroupEndpointConfiguratio
 import com.pulumi.aws.globalaccelerator.inputs.EndpointGroupPortOverrideArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -438,7 +439,9 @@ public final class EndpointGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EndpointGroupArgs build() {
-            $.listenerArn = Objects.requireNonNull($.listenerArn, "expected parameter 'listenerArn' to be non-null");
+            if ($.listenerArn == null) {
+                throw new MissingRequiredPropertyException("EndpointGroupArgs", "listenerArn");
+            }
             return $;
         }
     }

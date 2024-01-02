@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.sagemaker.inputs.ProjectServiceCatalogProvisioningDetailsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -189,8 +190,12 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProjectArgs build() {
-            $.projectName = Objects.requireNonNull($.projectName, "expected parameter 'projectName' to be non-null");
-            $.serviceCatalogProvisioningDetails = Objects.requireNonNull($.serviceCatalogProvisioningDetails, "expected parameter 'serviceCatalogProvisioningDetails' to be non-null");
+            if ($.projectName == null) {
+                throw new MissingRequiredPropertyException("ProjectArgs", "projectName");
+            }
+            if ($.serviceCatalogProvisioningDetails == null) {
+                throw new MissingRequiredPropertyException("ProjectArgs", "serviceCatalogProvisioningDetails");
+            }
             return $;
         }
     }

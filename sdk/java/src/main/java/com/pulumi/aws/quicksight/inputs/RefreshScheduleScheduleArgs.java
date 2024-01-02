@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.inputs;
 import com.pulumi.aws.quicksight.inputs.RefreshScheduleScheduleScheduleFrequencyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -151,7 +152,9 @@ public final class RefreshScheduleScheduleArgs extends com.pulumi.resources.Reso
         }
 
         public RefreshScheduleScheduleArgs build() {
-            $.refreshType = Objects.requireNonNull($.refreshType, "expected parameter 'refreshType' to be non-null");
+            if ($.refreshType == null) {
+                throw new MissingRequiredPropertyException("RefreshScheduleScheduleArgs", "refreshType");
+            }
             return $;
         }
     }

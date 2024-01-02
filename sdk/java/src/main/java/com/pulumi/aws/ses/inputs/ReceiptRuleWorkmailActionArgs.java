@@ -5,6 +5,7 @@ package com.pulumi.aws.ses.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class ReceiptRuleWorkmailActionArgs extends com.pulumi.resources.Re
         }
 
         public ReceiptRuleWorkmailActionArgs build() {
-            $.organizationArn = Objects.requireNonNull($.organizationArn, "expected parameter 'organizationArn' to be non-null");
-            $.position = Objects.requireNonNull($.position, "expected parameter 'position' to be non-null");
+            if ($.organizationArn == null) {
+                throw new MissingRequiredPropertyException("ReceiptRuleWorkmailActionArgs", "organizationArn");
+            }
+            if ($.position == null) {
+                throw new MissingRequiredPropertyException("ReceiptRuleWorkmailActionArgs", "position");
+            }
             return $;
         }
     }

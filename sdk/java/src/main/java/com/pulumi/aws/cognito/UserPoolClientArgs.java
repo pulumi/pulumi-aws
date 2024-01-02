@@ -7,6 +7,7 @@ import com.pulumi.aws.cognito.inputs.UserPoolClientAnalyticsConfigurationArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolClientTokenValidityUnitsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -970,7 +971,9 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public UserPoolClientArgs build() {
-            $.userPoolId = Objects.requireNonNull($.userPoolId, "expected parameter 'userPoolId' to be non-null");
+            if ($.userPoolId == null) {
+                throw new MissingRequiredPropertyException("UserPoolClientArgs", "userPoolId");
+            }
             return $;
         }
     }

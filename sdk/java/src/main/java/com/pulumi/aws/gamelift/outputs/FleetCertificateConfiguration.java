@@ -44,6 +44,7 @@ public final class FleetCertificateConfiguration {
 
         @CustomType.Setter
         public Builder certificateType(@Nullable String certificateType) {
+
             this.certificateType = certificateType;
             return this;
         }

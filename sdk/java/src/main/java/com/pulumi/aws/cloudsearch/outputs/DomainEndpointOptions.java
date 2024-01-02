@@ -59,11 +59,13 @@ public final class DomainEndpointOptions {
 
         @CustomType.Setter
         public Builder enforceHttps(@Nullable Boolean enforceHttps) {
+
             this.enforceHttps = enforceHttps;
             return this;
         }
         @CustomType.Setter
         public Builder tlsSecurityPolicy(@Nullable String tlsSecurityPolicy) {
+
             this.tlsSecurityPolicy = tlsSecurityPolicy;
             return this;
         }

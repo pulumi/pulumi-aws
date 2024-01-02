@@ -5,6 +5,7 @@ package com.pulumi.aws.codepipeline.outputs;
 
 import com.pulumi.aws.codepipeline.outputs.PipelineArtifactStoreEncryptionKey;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -87,22 +88,30 @@ public final class PipelineArtifactStore {
 
         @CustomType.Setter
         public Builder encryptionKey(@Nullable PipelineArtifactStoreEncryptionKey encryptionKey) {
+
             this.encryptionKey = encryptionKey;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("PipelineArtifactStore", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("PipelineArtifactStore", "type");
+            }
+            this.type = type;
             return this;
         }
         public PipelineArtifactStore build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.route53.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class RecordAliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RecordAliasArgs build() {
-            $.evaluateTargetHealth = Objects.requireNonNull($.evaluateTargetHealth, "expected parameter 'evaluateTargetHealth' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.zoneId = Objects.requireNonNull($.zoneId, "expected parameter 'zoneId' to be non-null");
+            if ($.evaluateTargetHealth == null) {
+                throw new MissingRequiredPropertyException("RecordAliasArgs", "evaluateTargetHealth");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("RecordAliasArgs", "name");
+            }
+            if ($.zoneId == null) {
+                throw new MissingRequiredPropertyException("RecordAliasArgs", "zoneId");
+            }
             return $;
         }
     }

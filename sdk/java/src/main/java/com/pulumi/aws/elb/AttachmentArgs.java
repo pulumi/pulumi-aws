@@ -5,6 +5,7 @@ package com.pulumi.aws.elb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AttachmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AttachmentArgs build() {
-            $.elb = Objects.requireNonNull($.elb, "expected parameter 'elb' to be non-null");
-            $.instance = Objects.requireNonNull($.instance, "expected parameter 'instance' to be non-null");
+            if ($.elb == null) {
+                throw new MissingRequiredPropertyException("AttachmentArgs", "elb");
+            }
+            if ($.instance == null) {
+                throw new MissingRequiredPropertyException("AttachmentArgs", "instance");
+            }
             return $;
         }
     }

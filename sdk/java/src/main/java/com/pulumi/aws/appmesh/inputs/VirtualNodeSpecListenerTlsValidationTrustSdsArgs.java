@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class VirtualNodeSpecListenerTlsValidationTrustSdsArgs extends com.
         }
 
         public VirtualNodeSpecListenerTlsValidationTrustSdsArgs build() {
-            $.secretName = Objects.requireNonNull($.secretName, "expected parameter 'secretName' to be non-null");
+            if ($.secretName == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecListenerTlsValidationTrustSdsArgs", "secretName");
+            }
             return $;
         }
     }

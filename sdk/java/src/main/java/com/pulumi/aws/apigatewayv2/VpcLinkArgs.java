@@ -5,6 +5,7 @@ package com.pulumi.aws.apigatewayv2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -209,8 +210,12 @@ public final class VpcLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VpcLinkArgs build() {
-            $.securityGroupIds = Objects.requireNonNull($.securityGroupIds, "expected parameter 'securityGroupIds' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
+            if ($.securityGroupIds == null) {
+                throw new MissingRequiredPropertyException("VpcLinkArgs", "securityGroupIds");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("VpcLinkArgs", "subnetIds");
+            }
             return $;
         }
     }

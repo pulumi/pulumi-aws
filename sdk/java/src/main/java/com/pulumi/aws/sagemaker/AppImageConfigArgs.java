@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.inputs.AppImageConfigJupyterLabImageConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -170,7 +171,9 @@ public final class AppImageConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public AppImageConfigArgs build() {
-            $.appImageConfigName = Objects.requireNonNull($.appImageConfigName, "expected parameter 'appImageConfigName' to be non-null");
+            if ($.appImageConfigName == null) {
+                throw new MissingRequiredPropertyException("AppImageConfigArgs", "appImageConfigName");
+            }
             return $;
         }
     }

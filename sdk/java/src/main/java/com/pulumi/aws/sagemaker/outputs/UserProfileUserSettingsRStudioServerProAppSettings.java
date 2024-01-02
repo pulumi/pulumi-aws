@@ -58,11 +58,13 @@ public final class UserProfileUserSettingsRStudioServerProAppSettings {
 
         @CustomType.Setter
         public Builder accessStatus(@Nullable String accessStatus) {
+
             this.accessStatus = accessStatus;
             return this;
         }
         @CustomType.Setter
         public Builder userGroup(@Nullable String userGroup) {
+
             this.userGroup = userGroup;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.aws.autoscaling.outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -102,26 +103,33 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
 
         @CustomType.Setter
         public Builder expression(@Nullable String expression) {
+
             this.expression = expression;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder metricStat(@Nullable PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat metricStat) {
+
             this.metricStat = metricStat;
             return this;
         }
         @CustomType.Setter
         public Builder returnData(@Nullable Boolean returnData) {
+
             this.returnData = returnData;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.networkmanager;
 import com.pulumi.aws.networkmanager.inputs.ConnectPeerBgpOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -319,8 +320,12 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConnectPeerArgs build() {
-            $.connectAttachmentId = Objects.requireNonNull($.connectAttachmentId, "expected parameter 'connectAttachmentId' to be non-null");
-            $.peerAddress = Objects.requireNonNull($.peerAddress, "expected parameter 'peerAddress' to be non-null");
+            if ($.connectAttachmentId == null) {
+                throw new MissingRequiredPropertyException("ConnectPeerArgs", "connectAttachmentId");
+            }
+            if ($.peerAddress == null) {
+                throw new MissingRequiredPropertyException("ConnectPeerArgs", "peerAddress");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.evidently.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,22 +87,32 @@ public final class LaunchGroup {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder feature(String feature) {
-            this.feature = Objects.requireNonNull(feature);
+            if (feature == null) {
+              throw new MissingRequiredPropertyException("LaunchGroup", "feature");
+            }
+            this.feature = feature;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("LaunchGroup", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder variation(String variation) {
-            this.variation = Objects.requireNonNull(variation);
+            if (variation == null) {
+              throw new MissingRequiredPropertyException("LaunchGroup", "variation");
+            }
+            this.variation = variation;
             return this;
         }
         public LaunchGroup build() {

@@ -74,16 +74,19 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
 
         @CustomType.Setter
         public Builder audioSilenceSettings(@Nullable ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings audioSilenceSettings) {
+
             this.audioSilenceSettings = audioSilenceSettings;
             return this;
         }
         @CustomType.Setter
         public Builder inputLossSettings(@Nullable ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings inputLossSettings) {
+
             this.inputLossSettings = inputLossSettings;
             return this;
         }
         @CustomType.Setter
         public Builder videoBlackSettings(@Nullable ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings videoBlackSettings) {
+
             this.videoBlackSettings = videoBlackSettings;
             return this;
         }

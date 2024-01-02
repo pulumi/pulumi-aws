@@ -5,6 +5,7 @@ package com.pulumi.aws.datasync.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class LocationHdfsNameNodeArgs extends com.pulumi.resources.Resourc
         }
 
         public LocationHdfsNameNodeArgs build() {
-            $.hostname = Objects.requireNonNull($.hostname, "expected parameter 'hostname' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
+            if ($.hostname == null) {
+                throw new MissingRequiredPropertyException("LocationHdfsNameNodeArgs", "hostname");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("LocationHdfsNameNodeArgs", "port");
+            }
             return $;
         }
     }

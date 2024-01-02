@@ -6,6 +6,7 @@ package com.pulumi.aws.wafregional.inputs;
 import com.pulumi.aws.wafregional.inputs.XssMatchSetXssMatchTupleFieldToMatchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class XssMatchSetXssMatchTupleArgs extends com.pulumi.resources.Res
         }
 
         public XssMatchSetXssMatchTupleArgs build() {
-            $.fieldToMatch = Objects.requireNonNull($.fieldToMatch, "expected parameter 'fieldToMatch' to be non-null");
-            $.textTransformation = Objects.requireNonNull($.textTransformation, "expected parameter 'textTransformation' to be non-null");
+            if ($.fieldToMatch == null) {
+                throw new MissingRequiredPropertyException("XssMatchSetXssMatchTupleArgs", "fieldToMatch");
+            }
+            if ($.textTransformation == null) {
+                throw new MissingRequiredPropertyException("XssMatchSetXssMatchTupleArgs", "textTransformation");
+            }
             return $;
         }
     }

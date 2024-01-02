@@ -58,11 +58,13 @@ public final class UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings {
 
         @CustomType.Setter
         public Builder s3ArtifactPath(@Nullable String s3ArtifactPath) {
+
             this.s3ArtifactPath = s3ArtifactPath;
             return this;
         }
         @CustomType.Setter
         public Builder s3KmsKeyId(@Nullable String s3KmsKeyId) {
+
             this.s3KmsKeyId = s3KmsKeyId;
             return this;
         }

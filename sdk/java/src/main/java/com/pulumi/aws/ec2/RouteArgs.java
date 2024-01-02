@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -581,7 +582,9 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RouteArgs build() {
-            $.routeTableId = Objects.requireNonNull($.routeTableId, "expected parameter 'routeTableId' to be non-null");
+            if ($.routeTableId == null) {
+                throw new MissingRequiredPropertyException("RouteArgs", "routeTableId");
+            }
             return $;
         }
     }

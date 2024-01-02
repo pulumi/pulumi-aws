@@ -5,6 +5,7 @@ package com.pulumi.aws.signer.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class SigningJobSourceS3Args extends com.pulumi.resources.ResourceA
         }
 
         public SigningJobSourceS3Args build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("SigningJobSourceS3Args", "bucket");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("SigningJobSourceS3Args", "key");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("SigningJobSourceS3Args", "version");
+            }
             return $;
         }
     }

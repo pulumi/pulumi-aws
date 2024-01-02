@@ -147,41 +147,49 @@ public final class ModelContainer {
 
         @CustomType.Setter
         public Builder containerHostname(@Nullable String containerHostname) {
+
             this.containerHostname = containerHostname;
             return this;
         }
         @CustomType.Setter
         public Builder environment(@Nullable Map<String,String> environment) {
+
             this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder image(@Nullable String image) {
+
             this.image = image;
             return this;
         }
         @CustomType.Setter
         public Builder imageConfig(@Nullable ModelContainerImageConfig imageConfig) {
+
             this.imageConfig = imageConfig;
             return this;
         }
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder modelDataSource(@Nullable ModelContainerModelDataSource modelDataSource) {
+
             this.modelDataSource = modelDataSource;
             return this;
         }
         @CustomType.Setter
         public Builder modelDataUrl(@Nullable String modelDataUrl) {
+
             this.modelDataUrl = modelDataUrl;
             return this;
         }
         @CustomType.Setter
         public Builder modelPackageName(@Nullable String modelPackageName) {
+
             this.modelPackageName = modelPackageName;
             return this;
         }

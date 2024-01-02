@@ -59,11 +59,13 @@ public final class DataQualityJobDefinitionDataQualityJobInput {
 
         @CustomType.Setter
         public Builder batchTransformInput(@Nullable DataQualityJobDefinitionDataQualityJobInputBatchTransformInput batchTransformInput) {
+
             this.batchTransformInput = batchTransformInput;
             return this;
         }
         @CustomType.Setter
         public Builder endpointInput(@Nullable DataQualityJobDefinitionDataQualityJobInputEndpointInput endpointInput) {
+
             this.endpointInput = endpointInput;
             return this;
         }

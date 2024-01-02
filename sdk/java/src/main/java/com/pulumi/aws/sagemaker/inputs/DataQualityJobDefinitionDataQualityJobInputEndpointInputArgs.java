@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs 
         }
 
         public DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs build() {
-            $.endpointName = Objects.requireNonNull($.endpointName, "expected parameter 'endpointName' to be non-null");
+            if ($.endpointName == null) {
+                throw new MissingRequiredPropertyException("DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs", "endpointName");
+            }
             return $;
         }
     }

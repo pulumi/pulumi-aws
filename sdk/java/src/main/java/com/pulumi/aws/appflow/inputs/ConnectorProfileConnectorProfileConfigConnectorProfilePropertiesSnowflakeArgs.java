@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -298,9 +299,15 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs build() {
-            $.bucketName = Objects.requireNonNull($.bucketName, "expected parameter 'bucketName' to be non-null");
-            $.stage = Objects.requireNonNull($.stage, "expected parameter 'stage' to be non-null");
-            $.warehouse = Objects.requireNonNull($.warehouse, "expected parameter 'warehouse' to be non-null");
+            if ($.bucketName == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs", "bucketName");
+            }
+            if ($.stage == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs", "stage");
+            }
+            if ($.warehouse == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs", "warehouse");
+            }
             return $;
         }
     }

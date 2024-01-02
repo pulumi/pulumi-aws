@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticbeanstalk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -71,22 +72,32 @@ public final class GetSolutionStackResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSolutionStackResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
+
             this.mostRecent = mostRecent;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSolutionStackResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nameRegex(String nameRegex) {
-            this.nameRegex = Objects.requireNonNull(nameRegex);
+            if (nameRegex == null) {
+              throw new MissingRequiredPropertyException("GetSolutionStackResult", "nameRegex");
+            }
+            this.nameRegex = nameRegex;
             return this;
         }
         public GetSolutionStackResult build() {

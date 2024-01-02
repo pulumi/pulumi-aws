@@ -5,6 +5,7 @@ package com.pulumi.aws.gamelift.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -186,10 +187,18 @@ public final class FleetEc2InboundPermissionArgs extends com.pulumi.resources.Re
         }
 
         public FleetEc2InboundPermissionArgs build() {
-            $.fromPort = Objects.requireNonNull($.fromPort, "expected parameter 'fromPort' to be non-null");
-            $.ipRange = Objects.requireNonNull($.ipRange, "expected parameter 'ipRange' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.toPort = Objects.requireNonNull($.toPort, "expected parameter 'toPort' to be non-null");
+            if ($.fromPort == null) {
+                throw new MissingRequiredPropertyException("FleetEc2InboundPermissionArgs", "fromPort");
+            }
+            if ($.ipRange == null) {
+                throw new MissingRequiredPropertyException("FleetEc2InboundPermissionArgs", "ipRange");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("FleetEc2InboundPermissionArgs", "protocol");
+            }
+            if ($.toPort == null) {
+                throw new MissingRequiredPropertyException("FleetEc2InboundPermissionArgs", "toPort");
+            }
             return $;
         }
     }

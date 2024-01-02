@@ -59,11 +59,13 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClie
 
         @CustomType.Setter
         public Builder sasl(@Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl sasl) {
+
             this.sasl = sasl;
             return this;
         }
         @CustomType.Setter
         public Builder tls(@Nullable Boolean tls) {
+
             this.tls = tls;
             return this;
         }

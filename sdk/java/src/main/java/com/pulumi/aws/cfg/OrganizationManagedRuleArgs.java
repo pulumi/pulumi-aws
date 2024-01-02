@@ -5,6 +5,7 @@ package com.pulumi.aws.cfg;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -430,7 +431,9 @@ public final class OrganizationManagedRuleArgs extends com.pulumi.resources.Reso
         }
 
         public OrganizationManagedRuleArgs build() {
-            $.ruleIdentifier = Objects.requireNonNull($.ruleIdentifier, "expected parameter 'ruleIdentifier' to be non-null");
+            if ($.ruleIdentifier == null) {
+                throw new MissingRequiredPropertyException("OrganizationManagedRuleArgs", "ruleIdentifier");
+            }
             return $;
         }
     }

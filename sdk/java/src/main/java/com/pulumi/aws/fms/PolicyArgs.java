@@ -8,6 +8,7 @@ import com.pulumi.aws.fms.inputs.PolicyIncludeMapArgs;
 import com.pulumi.aws.fms.inputs.PolicySecurityServicePolicyDataArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -536,8 +537,12 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PolicyArgs build() {
-            $.excludeResourceTags = Objects.requireNonNull($.excludeResourceTags, "expected parameter 'excludeResourceTags' to be non-null");
-            $.securityServicePolicyData = Objects.requireNonNull($.securityServicePolicyData, "expected parameter 'securityServicePolicyData' to be non-null");
+            if ($.excludeResourceTags == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "excludeResourceTags");
+            }
+            if ($.securityServicePolicyData == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "securityServicePolicyData");
+            }
             return $;
         }
     }

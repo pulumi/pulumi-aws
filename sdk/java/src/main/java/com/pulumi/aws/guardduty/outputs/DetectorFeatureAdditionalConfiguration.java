@@ -4,6 +4,7 @@
 package com.pulumi.aws.guardduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class DetectorFeatureAdditionalConfiguration {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DetectorFeatureAdditionalConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("DetectorFeatureAdditionalConfiguration", "status");
+            }
+            this.status = status;
             return this;
         }
         public DetectorFeatureAdditionalConfiguration build() {

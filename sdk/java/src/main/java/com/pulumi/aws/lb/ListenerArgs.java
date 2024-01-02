@@ -7,6 +7,7 @@ import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
 import com.pulumi.aws.lb.inputs.ListenerMutualAuthenticationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -403,8 +404,12 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ListenerArgs build() {
-            $.defaultActions = Objects.requireNonNull($.defaultActions, "expected parameter 'defaultActions' to be non-null");
-            $.loadBalancerArn = Objects.requireNonNull($.loadBalancerArn, "expected parameter 'loadBalancerArn' to be non-null");
+            if ($.defaultActions == null) {
+                throw new MissingRequiredPropertyException("ListenerArgs", "defaultActions");
+            }
+            if ($.loadBalancerArn == null) {
+                throw new MissingRequiredPropertyException("ListenerArgs", "loadBalancerArn");
+            }
             return $;
         }
     }

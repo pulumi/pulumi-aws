@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTimeoutHttp2Idle;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTimeoutHttp2PerRequest;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetVirtualNodeSpecListenerTimeoutHttp2 {
 
         @CustomType.Setter
         public Builder idles(List<GetVirtualNodeSpecListenerTimeoutHttp2Idle> idles) {
-            this.idles = Objects.requireNonNull(idles);
+            if (idles == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTimeoutHttp2", "idles");
+            }
+            this.idles = idles;
             return this;
         }
         public Builder idles(GetVirtualNodeSpecListenerTimeoutHttp2Idle... idles) {
@@ -50,7 +54,10 @@ public final class GetVirtualNodeSpecListenerTimeoutHttp2 {
         }
         @CustomType.Setter
         public Builder perRequests(List<GetVirtualNodeSpecListenerTimeoutHttp2PerRequest> perRequests) {
-            this.perRequests = Objects.requireNonNull(perRequests);
+            if (perRequests == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTimeoutHttp2", "perRequests");
+            }
+            this.perRequests = perRequests;
             return this;
         }
         public Builder perRequests(GetVirtualNodeSpecListenerTimeoutHttp2PerRequest... perRequests) {

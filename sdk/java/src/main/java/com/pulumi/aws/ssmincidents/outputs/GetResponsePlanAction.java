@@ -5,6 +5,7 @@ package com.pulumi.aws.ssmincidents.outputs;
 
 import com.pulumi.aws.ssmincidents.outputs.GetResponsePlanActionSsmAutomation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class GetResponsePlanAction {
 
         @CustomType.Setter
         public Builder ssmAutomations(List<GetResponsePlanActionSsmAutomation> ssmAutomations) {
-            this.ssmAutomations = Objects.requireNonNull(ssmAutomations);
+            if (ssmAutomations == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanAction", "ssmAutomations");
+            }
+            this.ssmAutomations = ssmAutomations;
             return this;
         }
         public Builder ssmAutomations(GetResponsePlanActionSsmAutomation... ssmAutomations) {

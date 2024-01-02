@@ -5,6 +5,7 @@ package com.pulumi.aws.ssm.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,7 +159,9 @@ public final class AssociationOutputLocationArgs extends com.pulumi.resources.Re
         }
 
         public AssociationOutputLocationArgs build() {
-            $.s3BucketName = Objects.requireNonNull($.s3BucketName, "expected parameter 's3BucketName' to be non-null");
+            if ($.s3BucketName == null) {
+                throw new MissingRequiredPropertyException("AssociationOutputLocationArgs", "s3BucketName");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -101,27 +102,34 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
 
         @CustomType.Setter
         public Builder documentType(@Nullable String documentType) {
+
             this.documentType = documentType;
             return this;
         }
         @CustomType.Setter
         public Builder includeAllVersions(@Nullable Boolean includeAllVersions) {
+
             this.includeAllVersions = includeAllVersions;
             return this;
         }
         @CustomType.Setter
         public Builder includeRenditions(@Nullable Boolean includeRenditions) {
+
             this.includeRenditions = includeRenditions;
             return this;
         }
         @CustomType.Setter
         public Builder includeSourceFiles(@Nullable Boolean includeSourceFiles) {
+
             this.includeSourceFiles = includeSourceFiles;
             return this;
         }
         @CustomType.Setter
         public Builder object(String object) {
-            this.object = Objects.requireNonNull(object);
+            if (object == null) {
+              throw new MissingRequiredPropertyException("FlowSourceFlowConfigSourceConnectorPropertiesVeeva", "object");
+            }
+            this.object = object;
             return this;
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesVeeva build() {

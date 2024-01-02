@@ -58,11 +58,13 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
 
         @CustomType.Setter
         public Builder max(@Nullable Double max) {
+
             this.max = max;
             return this;
         }
         @CustomType.Setter
         public Builder min(@Nullable Double min) {
+
             this.min = min;
             return this;
         }

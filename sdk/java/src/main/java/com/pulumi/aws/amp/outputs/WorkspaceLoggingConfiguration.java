@@ -4,6 +4,7 @@
 package com.pulumi.aws.amp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class WorkspaceLoggingConfiguration {
 
         @CustomType.Setter
         public Builder logGroupArn(String logGroupArn) {
-            this.logGroupArn = Objects.requireNonNull(logGroupArn);
+            if (logGroupArn == null) {
+              throw new MissingRequiredPropertyException("WorkspaceLoggingConfiguration", "logGroupArn");
+            }
+            this.logGroupArn = logGroupArn;
             return this;
         }
         public WorkspaceLoggingConfiguration build() {

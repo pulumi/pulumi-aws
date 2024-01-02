@@ -5,6 +5,7 @@ package com.pulumi.aws.iam;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -209,9 +210,15 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Resour
         }
 
         public OpenIdConnectProviderArgs build() {
-            $.clientIdLists = Objects.requireNonNull($.clientIdLists, "expected parameter 'clientIdLists' to be non-null");
-            $.thumbprintLists = Objects.requireNonNull($.thumbprintLists, "expected parameter 'thumbprintLists' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.clientIdLists == null) {
+                throw new MissingRequiredPropertyException("OpenIdConnectProviderArgs", "clientIdLists");
+            }
+            if ($.thumbprintLists == null) {
+                throw new MissingRequiredPropertyException("OpenIdConnectProviderArgs", "thumbprintLists");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("OpenIdConnectProviderArgs", "url");
+            }
             return $;
         }
     }

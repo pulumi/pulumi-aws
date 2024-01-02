@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetVirtualServiceSpec;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -147,47 +148,74 @@ public final class GetVirtualServiceResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetVirtualServiceResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+            if (createdDate == null) {
+              throw new MissingRequiredPropertyException("GetVirtualServiceResult", "createdDate");
+            }
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVirtualServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastUpdatedDate(String lastUpdatedDate) {
-            this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
+            if (lastUpdatedDate == null) {
+              throw new MissingRequiredPropertyException("GetVirtualServiceResult", "lastUpdatedDate");
+            }
+            this.lastUpdatedDate = lastUpdatedDate;
             return this;
         }
         @CustomType.Setter
         public Builder meshName(String meshName) {
-            this.meshName = Objects.requireNonNull(meshName);
+            if (meshName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualServiceResult", "meshName");
+            }
+            this.meshName = meshName;
             return this;
         }
         @CustomType.Setter
         public Builder meshOwner(String meshOwner) {
-            this.meshOwner = Objects.requireNonNull(meshOwner);
+            if (meshOwner == null) {
+              throw new MissingRequiredPropertyException("GetVirtualServiceResult", "meshOwner");
+            }
+            this.meshOwner = meshOwner;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceOwner(String resourceOwner) {
-            this.resourceOwner = Objects.requireNonNull(resourceOwner);
+            if (resourceOwner == null) {
+              throw new MissingRequiredPropertyException("GetVirtualServiceResult", "resourceOwner");
+            }
+            this.resourceOwner = resourceOwner;
             return this;
         }
         @CustomType.Setter
         public Builder specs(List<GetVirtualServiceSpec> specs) {
-            this.specs = Objects.requireNonNull(specs);
+            if (specs == null) {
+              throw new MissingRequiredPropertyException("GetVirtualServiceResult", "specs");
+            }
+            this.specs = specs;
             return this;
         }
         public Builder specs(GetVirtualServiceSpec... specs) {
@@ -195,7 +223,10 @@ public final class GetVirtualServiceResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVirtualServiceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetVirtualServiceResult build() {

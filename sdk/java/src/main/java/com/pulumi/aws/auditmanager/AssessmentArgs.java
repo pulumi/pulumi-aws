@@ -8,6 +8,7 @@ import com.pulumi.aws.auditmanager.inputs.AssessmentRoleArgs;
 import com.pulumi.aws.auditmanager.inputs.AssessmentScopeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -321,8 +322,12 @@ public final class AssessmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AssessmentArgs build() {
-            $.frameworkId = Objects.requireNonNull($.frameworkId, "expected parameter 'frameworkId' to be non-null");
-            $.roles = Objects.requireNonNull($.roles, "expected parameter 'roles' to be non-null");
+            if ($.frameworkId == null) {
+                throw new MissingRequiredPropertyException("AssessmentArgs", "frameworkId");
+            }
+            if ($.roles == null) {
+                throw new MissingRequiredPropertyException("AssessmentArgs", "roles");
+            }
             return $;
         }
     }

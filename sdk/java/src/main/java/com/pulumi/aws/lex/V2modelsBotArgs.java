@@ -8,6 +8,7 @@ import com.pulumi.aws.lex.inputs.V2modelsBotMemberArgs;
 import com.pulumi.aws.lex.inputs.V2modelsBotTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -423,8 +424,12 @@ public final class V2modelsBotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public V2modelsBotArgs build() {
-            $.idleSessionTtlInSeconds = Objects.requireNonNull($.idleSessionTtlInSeconds, "expected parameter 'idleSessionTtlInSeconds' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.idleSessionTtlInSeconds == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotArgs", "idleSessionTtlInSeconds");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotArgs", "roleArn");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.ses.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class EventDestinationSnsDestinationArgs extends com.pulumi.resourc
         }
 
         public EventDestinationSnsDestinationArgs build() {
-            $.topicArn = Objects.requireNonNull($.topicArn, "expected parameter 'topicArn' to be non-null");
+            if ($.topicArn == null) {
+                throw new MissingRequiredPropertyException("EventDestinationSnsDestinationArgs", "topicArn");
+            }
             return $;
         }
     }

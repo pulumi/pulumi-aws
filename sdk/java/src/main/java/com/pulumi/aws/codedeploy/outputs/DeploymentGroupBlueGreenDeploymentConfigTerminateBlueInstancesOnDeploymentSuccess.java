@@ -59,11 +59,13 @@ public final class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstance
 
         @CustomType.Setter
         public Builder action(@Nullable String action) {
+
             this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder terminationWaitTimeInMinutes(@Nullable Integer terminationWaitTimeInMinutes) {
+
             this.terminationWaitTimeInMinutes = terminationWaitTimeInMinutes;
             return this;
         }

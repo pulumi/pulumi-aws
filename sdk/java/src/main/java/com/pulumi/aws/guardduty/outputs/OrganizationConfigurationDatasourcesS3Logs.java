@@ -4,6 +4,7 @@
 package com.pulumi.aws.guardduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class OrganizationConfigurationDatasourcesS3Logs {
 
         @CustomType.Setter
         public Builder autoEnable(Boolean autoEnable) {
-            this.autoEnable = Objects.requireNonNull(autoEnable);
+            if (autoEnable == null) {
+              throw new MissingRequiredPropertyException("OrganizationConfigurationDatasourcesS3Logs", "autoEnable");
+            }
+            this.autoEnable = autoEnable;
             return this;
         }
         public OrganizationConfigurationDatasourcesS3Logs build() {

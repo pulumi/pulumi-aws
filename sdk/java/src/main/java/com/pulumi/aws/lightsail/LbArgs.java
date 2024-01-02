@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -206,7 +207,9 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LbArgs build() {
-            $.instancePort = Objects.requireNonNull($.instancePort, "expected parameter 'instancePort' to be non-null");
+            if ($.instancePort == null) {
+                throw new MissingRequiredPropertyException("LbArgs", "instancePort");
+            }
             return $;
         }
     }

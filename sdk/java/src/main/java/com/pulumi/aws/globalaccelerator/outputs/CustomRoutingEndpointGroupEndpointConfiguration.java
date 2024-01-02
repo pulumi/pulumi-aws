@@ -44,6 +44,7 @@ public final class CustomRoutingEndpointGroupEndpointConfiguration {
 
         @CustomType.Setter
         public Builder endpointId(@Nullable String endpointId) {
+
             this.endpointId = endpointId;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -262,7 +263,9 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DeploymentArgs build() {
-            $.restApi = Objects.requireNonNull($.restApi, "expected parameter 'restApi' to be non-null");
+            if ($.restApi == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "restApi");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class RuleGroupRuleGroupReferenceSetsIpSetReference {
 
         @CustomType.Setter
         public Builder ipSetReferences(List<RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference> ipSetReferences) {
-            this.ipSetReferences = Objects.requireNonNull(ipSetReferences);
+            if (ipSetReferences == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupReferenceSetsIpSetReference", "ipSetReferences");
+            }
+            this.ipSetReferences = ipSetReferences;
             return this;
         }
         public Builder ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference... ipSetReferences) {
@@ -66,7 +70,10 @@ public final class RuleGroupRuleGroupReferenceSetsIpSetReference {
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupReferenceSetsIpSetReference", "key");
+            }
+            this.key = key;
             return this;
         }
         public RuleGroupRuleGroupReferenceSetsIpSetReference build() {

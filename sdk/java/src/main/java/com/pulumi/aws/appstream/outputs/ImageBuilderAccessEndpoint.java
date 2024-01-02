@@ -4,6 +4,7 @@
 package com.pulumi.aws.appstream.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class ImageBuilderAccessEndpoint {
 
         @CustomType.Setter
         public Builder endpointType(String endpointType) {
-            this.endpointType = Objects.requireNonNull(endpointType);
+            if (endpointType == null) {
+              throw new MissingRequiredPropertyException("ImageBuilderAccessEndpoint", "endpointType");
+            }
+            this.endpointType = endpointType;
             return this;
         }
         @CustomType.Setter
         public Builder vpceId(@Nullable String vpceId) {
+
             this.vpceId = vpceId;
             return this;
         }

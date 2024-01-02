@@ -6,6 +6,7 @@ package com.pulumi.aws.ssm.inputs;
 import com.pulumi.aws.ssm.inputs.PatchBaselineApprovalRulePatchFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -289,7 +290,9 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
         }
 
         public PatchBaselineApprovalRuleArgs build() {
-            $.patchFilters = Objects.requireNonNull($.patchFilters, "expected parameter 'patchFilters' to be non-null");
+            if ($.patchFilters == null) {
+                throw new MissingRequiredPropertyException("PatchBaselineApprovalRuleArgs", "patchFilters");
+            }
             return $;
         }
     }

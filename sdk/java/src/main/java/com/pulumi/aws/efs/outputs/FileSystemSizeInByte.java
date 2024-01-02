@@ -72,16 +72,19 @@ public final class FileSystemSizeInByte {
 
         @CustomType.Setter
         public Builder value(@Nullable Integer value) {
+
             this.value = value;
             return this;
         }
         @CustomType.Setter
         public Builder valueInIa(@Nullable Integer valueInIa) {
+
             this.valueInIa = valueInIa;
             return this;
         }
         @CustomType.Setter
         public Builder valueInStandard(@Nullable Integer valueInStandard) {
+
             this.valueInStandard = valueInStandard;
             return this;
         }

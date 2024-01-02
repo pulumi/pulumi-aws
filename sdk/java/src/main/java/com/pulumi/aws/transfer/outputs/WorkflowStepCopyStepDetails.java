@@ -87,21 +87,25 @@ public final class WorkflowStepCopyStepDetails {
 
         @CustomType.Setter
         public Builder destinationFileLocation(@Nullable WorkflowStepCopyStepDetailsDestinationFileLocation destinationFileLocation) {
+
             this.destinationFileLocation = destinationFileLocation;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder overwriteExisting(@Nullable String overwriteExisting) {
+
             this.overwriteExisting = overwriteExisting;
             return this;
         }
         @CustomType.Setter
         public Builder sourceFileLocation(@Nullable String sourceFileLocation) {
+
             this.sourceFileLocation = sourceFileLocation;
             return this;
         }

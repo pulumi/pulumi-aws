@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3control.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class StorageLensConfigurationStorageLensConfigurationAwsOrg {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("StorageLensConfigurationStorageLensConfigurationAwsOrg", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         public StorageLensConfigurationStorageLensConfigurationAwsOrg build() {

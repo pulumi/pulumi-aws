@@ -104,11 +104,13 @@ public final class RecorderRecordingGroup {
 
         @CustomType.Setter
         public Builder allSupported(@Nullable Boolean allSupported) {
+
             this.allSupported = allSupported;
             return this;
         }
         @CustomType.Setter
         public Builder exclusionByResourceTypes(@Nullable List<RecorderRecordingGroupExclusionByResourceType> exclusionByResourceTypes) {
+
             this.exclusionByResourceTypes = exclusionByResourceTypes;
             return this;
         }
@@ -117,11 +119,13 @@ public final class RecorderRecordingGroup {
         }
         @CustomType.Setter
         public Builder includeGlobalResourceTypes(@Nullable Boolean includeGlobalResourceTypes) {
+
             this.includeGlobalResourceTypes = includeGlobalResourceTypes;
             return this;
         }
         @CustomType.Setter
         public Builder recordingStrategies(@Nullable List<RecorderRecordingGroupRecordingStrategy> recordingStrategies) {
+
             this.recordingStrategies = recordingStrategies;
             return this;
         }
@@ -130,6 +134,7 @@ public final class RecorderRecordingGroup {
         }
         @CustomType.Setter
         public Builder resourceTypes(@Nullable List<String> resourceTypes) {
+
             this.resourceTypes = resourceTypes;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.sfn.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class AliasRoutingConfigurationArgs extends com.pulumi.resources.Re
         }
 
         public AliasRoutingConfigurationArgs build() {
-            $.stateMachineVersionArn = Objects.requireNonNull($.stateMachineVersionArn, "expected parameter 'stateMachineVersionArn' to be non-null");
-            $.weight = Objects.requireNonNull($.weight, "expected parameter 'weight' to be non-null");
+            if ($.stateMachineVersionArn == null) {
+                throw new MissingRequiredPropertyException("AliasRoutingConfigurationArgs", "stateMachineVersionArn");
+            }
+            if ($.weight == null) {
+                throw new MissingRequiredPropertyException("AliasRoutingConfigurationArgs", "weight");
+            }
             return $;
         }
     }

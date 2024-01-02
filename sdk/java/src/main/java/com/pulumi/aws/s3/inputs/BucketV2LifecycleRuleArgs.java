@@ -9,6 +9,7 @@ import com.pulumi.aws.s3.inputs.BucketV2LifecycleRuleNoncurrentVersionTransition
 import com.pulumi.aws.s3.inputs.BucketV2LifecycleRuleTransitionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -420,7 +421,9 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         public BucketV2LifecycleRuleArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("BucketV2LifecycleRuleArgs", "enabled");
+            }
             return $;
         }
     }

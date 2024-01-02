@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -151,12 +152,18 @@ public final class GetObjectsResult {
 
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("GetObjectsResult", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder commonPrefixes(List<String> commonPrefixes) {
-            this.commonPrefixes = Objects.requireNonNull(commonPrefixes);
+            if (commonPrefixes == null) {
+              throw new MissingRequiredPropertyException("GetObjectsResult", "commonPrefixes");
+            }
+            this.commonPrefixes = commonPrefixes;
             return this;
         }
         public Builder commonPrefixes(String... commonPrefixes) {
@@ -164,27 +171,36 @@ public final class GetObjectsResult {
         }
         @CustomType.Setter
         public Builder delimiter(@Nullable String delimiter) {
+
             this.delimiter = delimiter;
             return this;
         }
         @CustomType.Setter
         public Builder encodingType(@Nullable String encodingType) {
+
             this.encodingType = encodingType;
             return this;
         }
         @CustomType.Setter
         public Builder fetchOwner(@Nullable Boolean fetchOwner) {
+
             this.fetchOwner = fetchOwner;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetObjectsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keys(List<String> keys) {
-            this.keys = Objects.requireNonNull(keys);
+            if (keys == null) {
+              throw new MissingRequiredPropertyException("GetObjectsResult", "keys");
+            }
+            this.keys = keys;
             return this;
         }
         public Builder keys(String... keys) {
@@ -192,12 +208,16 @@ public final class GetObjectsResult {
         }
         @CustomType.Setter
         public Builder maxKeys(@Nullable Integer maxKeys) {
+
             this.maxKeys = maxKeys;
             return this;
         }
         @CustomType.Setter
         public Builder owners(List<String> owners) {
-            this.owners = Objects.requireNonNull(owners);
+            if (owners == null) {
+              throw new MissingRequiredPropertyException("GetObjectsResult", "owners");
+            }
+            this.owners = owners;
             return this;
         }
         public Builder owners(String... owners) {
@@ -205,21 +225,27 @@ public final class GetObjectsResult {
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder requestCharged(String requestCharged) {
-            this.requestCharged = Objects.requireNonNull(requestCharged);
+            if (requestCharged == null) {
+              throw new MissingRequiredPropertyException("GetObjectsResult", "requestCharged");
+            }
+            this.requestCharged = requestCharged;
             return this;
         }
         @CustomType.Setter
         public Builder requestPayer(@Nullable String requestPayer) {
+
             this.requestPayer = requestPayer;
             return this;
         }
         @CustomType.Setter
         public Builder startAfter(@Nullable String startAfter) {
+
             this.startAfter = startAfter;
             return this;
         }

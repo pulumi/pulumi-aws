@@ -6,6 +6,7 @@ package com.pulumi.aws.workspaces;
 import com.pulumi.aws.workspaces.inputs.WorkspaceWorkspacePropertiesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -338,9 +339,15 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkspaceArgs build() {
-            $.bundleId = Objects.requireNonNull($.bundleId, "expected parameter 'bundleId' to be non-null");
-            $.directoryId = Objects.requireNonNull($.directoryId, "expected parameter 'directoryId' to be non-null");
-            $.userName = Objects.requireNonNull($.userName, "expected parameter 'userName' to be non-null");
+            if ($.bundleId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "bundleId");
+            }
+            if ($.directoryId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "directoryId");
+            }
+            if ($.userName == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "userName");
+            }
             return $;
         }
     }

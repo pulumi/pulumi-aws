@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.aws.ecs.outputs.CapacityProviderAutoScalingGroupProviderManagedScaling;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,16 +74,21 @@ public final class CapacityProviderAutoScalingGroupProvider {
 
         @CustomType.Setter
         public Builder autoScalingGroupArn(String autoScalingGroupArn) {
-            this.autoScalingGroupArn = Objects.requireNonNull(autoScalingGroupArn);
+            if (autoScalingGroupArn == null) {
+              throw new MissingRequiredPropertyException("CapacityProviderAutoScalingGroupProvider", "autoScalingGroupArn");
+            }
+            this.autoScalingGroupArn = autoScalingGroupArn;
             return this;
         }
         @CustomType.Setter
         public Builder managedScaling(@Nullable CapacityProviderAutoScalingGroupProviderManagedScaling managedScaling) {
+
             this.managedScaling = managedScaling;
             return this;
         }
         @CustomType.Setter
         public Builder managedTerminationProtection(@Nullable String managedTerminationProtection) {
+
             this.managedTerminationProtection = managedTerminationProtection;
             return this;
         }

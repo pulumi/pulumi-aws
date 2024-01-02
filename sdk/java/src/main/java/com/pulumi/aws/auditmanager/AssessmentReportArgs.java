@@ -5,6 +5,7 @@ package com.pulumi.aws.auditmanager;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,7 +159,9 @@ public final class AssessmentReportArgs extends com.pulumi.resources.ResourceArg
         }
 
         public AssessmentReportArgs build() {
-            $.assessmentId = Objects.requireNonNull($.assessmentId, "expected parameter 'assessmentId' to be non-null");
+            if ($.assessmentId == null) {
+                throw new MissingRequiredPropertyException("AssessmentReportArgs", "assessmentId");
+            }
             return $;
         }
     }

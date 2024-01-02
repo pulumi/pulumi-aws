@@ -6,6 +6,7 @@ package com.pulumi.aws.autoscaling.inputs;
 import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,7 +86,9 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
         }
 
         public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs build() {
-            $.metricDataQueries = Objects.requireNonNull($.metricDataQueries, "expected parameter 'metricDataQueries' to be non-null");
+            if ($.metricDataQueries == null) {
+                throw new MissingRequiredPropertyException("PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs", "metricDataQueries");
+            }
             return $;
         }
     }

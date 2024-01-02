@@ -60,11 +60,13 @@ public final class UserProfileUserSettingsCodeEditorAppSettings {
 
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec) {
+
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleConfigArns(@Nullable List<String> lifecycleConfigArns) {
+
             this.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }

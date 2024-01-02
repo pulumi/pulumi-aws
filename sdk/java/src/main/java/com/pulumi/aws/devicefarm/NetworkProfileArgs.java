@@ -5,6 +5,7 @@ package com.pulumi.aws.devicefarm;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -522,7 +523,9 @@ public final class NetworkProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public NetworkProfileArgs build() {
-            $.projectArn = Objects.requireNonNull($.projectArn, "expected parameter 'projectArn' to be non-null");
+            if ($.projectArn == null) {
+                throw new MissingRequiredPropertyException("NetworkProfileArgs", "projectArn");
+            }
             return $;
         }
     }

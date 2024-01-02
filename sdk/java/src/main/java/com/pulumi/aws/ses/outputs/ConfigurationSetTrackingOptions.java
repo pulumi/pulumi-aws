@@ -44,6 +44,7 @@ public final class ConfigurationSetTrackingOptions {
 
         @CustomType.Setter
         public Builder customRedirectDomain(@Nullable String customRedirectDomain) {
+
             this.customRedirectDomain = customRedirectDomain;
             return this;
         }

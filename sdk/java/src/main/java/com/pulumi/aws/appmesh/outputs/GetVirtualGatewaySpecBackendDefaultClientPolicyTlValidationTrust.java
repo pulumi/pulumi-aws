@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecBackendDefaultClientP
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,7 +50,10 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTr
 
         @CustomType.Setter
         public Builder acms(List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm> acms) {
-            this.acms = Objects.requireNonNull(acms);
+            if (acms == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust", "acms");
+            }
+            this.acms = acms;
             return this;
         }
         public Builder acms(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcm... acms) {
@@ -57,7 +61,10 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTr
         }
         @CustomType.Setter
         public Builder files(List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile> files) {
-            this.files = Objects.requireNonNull(files);
+            if (files == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust", "files");
+            }
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFile... files) {
@@ -65,7 +72,10 @@ public final class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTr
         }
         @CustomType.Setter
         public Builder sds(List<GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+            if (sds == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrust", "sds");
+            }
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSd... sds) {

@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,9 @@ public final class RestApiEndpointConfigurationArgs extends com.pulumi.resources
         }
 
         public RestApiEndpointConfigurationArgs build() {
-            $.types = Objects.requireNonNull($.types, "expected parameter 'types' to be non-null");
+            if ($.types == null) {
+                throw new MissingRequiredPropertyException("RestApiEndpointConfigurationArgs", "types");
+            }
             return $;
         }
     }

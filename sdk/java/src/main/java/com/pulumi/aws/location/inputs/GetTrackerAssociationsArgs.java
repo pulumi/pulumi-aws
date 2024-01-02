@@ -5,6 +5,7 @@ package com.pulumi.aws.location.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetTrackerAssociationsArgs extends com.pulumi.resources.Invok
         }
 
         public GetTrackerAssociationsArgs build() {
-            $.trackerName = Objects.requireNonNull($.trackerName, "expected parameter 'trackerName' to be non-null");
+            if ($.trackerName == null) {
+                throw new MissingRequiredPropertyException("GetTrackerAssociationsArgs", "trackerName");
+            }
             return $;
         }
     }

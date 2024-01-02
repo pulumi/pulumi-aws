@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -229,8 +230,12 @@ public final class FleetTargetCapacitySpecificationArgs extends com.pulumi.resou
         }
 
         public FleetTargetCapacitySpecificationArgs build() {
-            $.defaultTargetCapacityType = Objects.requireNonNull($.defaultTargetCapacityType, "expected parameter 'defaultTargetCapacityType' to be non-null");
-            $.totalTargetCapacity = Objects.requireNonNull($.totalTargetCapacity, "expected parameter 'totalTargetCapacity' to be non-null");
+            if ($.defaultTargetCapacityType == null) {
+                throw new MissingRequiredPropertyException("FleetTargetCapacitySpecificationArgs", "defaultTargetCapacityType");
+            }
+            if ($.totalTargetCapacity == null) {
+                throw new MissingRequiredPropertyException("FleetTargetCapacitySpecificationArgs", "totalTargetCapacity");
+            }
             return $;
         }
     }

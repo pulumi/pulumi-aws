@@ -5,6 +5,7 @@ package com.pulumi.aws.fsx.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class FileCacheLustreConfigurationMetadataConfigurationArgs extends
         }
 
         public FileCacheLustreConfigurationMetadataConfigurationArgs build() {
-            $.storageCapacity = Objects.requireNonNull($.storageCapacity, "expected parameter 'storageCapacity' to be non-null");
+            if ($.storageCapacity == null) {
+                throw new MissingRequiredPropertyException("FileCacheLustreConfigurationMetadataConfigurationArgs", "storageCapacity");
+            }
             return $;
         }
     }

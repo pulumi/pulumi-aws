@@ -11,6 +11,7 @@ import com.pulumi.aws.budgets.outputs.GetBudgetCostType;
 import com.pulumi.aws.budgets.outputs.GetBudgetNotification;
 import com.pulumi.aws.budgets.outputs.GetBudgetPlannedLimit;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -245,17 +246,26 @@ public final class GetBudgetResult {
 
         @CustomType.Setter
         public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder autoAdjustDatas(List<GetBudgetAutoAdjustData> autoAdjustDatas) {
-            this.autoAdjustDatas = Objects.requireNonNull(autoAdjustDatas);
+            if (autoAdjustDatas == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "autoAdjustDatas");
+            }
+            this.autoAdjustDatas = autoAdjustDatas;
             return this;
         }
         public Builder autoAdjustDatas(GetBudgetAutoAdjustData... autoAdjustDatas) {
@@ -263,12 +273,18 @@ public final class GetBudgetResult {
         }
         @CustomType.Setter
         public Builder budgetExceeded(Boolean budgetExceeded) {
-            this.budgetExceeded = Objects.requireNonNull(budgetExceeded);
+            if (budgetExceeded == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "budgetExceeded");
+            }
+            this.budgetExceeded = budgetExceeded;
             return this;
         }
         @CustomType.Setter
         public Builder budgetLimits(List<GetBudgetBudgetLimit> budgetLimits) {
-            this.budgetLimits = Objects.requireNonNull(budgetLimits);
+            if (budgetLimits == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "budgetLimits");
+            }
+            this.budgetLimits = budgetLimits;
             return this;
         }
         public Builder budgetLimits(GetBudgetBudgetLimit... budgetLimits) {
@@ -276,12 +292,18 @@ public final class GetBudgetResult {
         }
         @CustomType.Setter
         public Builder budgetType(String budgetType) {
-            this.budgetType = Objects.requireNonNull(budgetType);
+            if (budgetType == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "budgetType");
+            }
+            this.budgetType = budgetType;
             return this;
         }
         @CustomType.Setter
         public Builder calculatedSpends(List<GetBudgetCalculatedSpend> calculatedSpends) {
-            this.calculatedSpends = Objects.requireNonNull(calculatedSpends);
+            if (calculatedSpends == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "calculatedSpends");
+            }
+            this.calculatedSpends = calculatedSpends;
             return this;
         }
         public Builder calculatedSpends(GetBudgetCalculatedSpend... calculatedSpends) {
@@ -289,7 +311,10 @@ public final class GetBudgetResult {
         }
         @CustomType.Setter
         public Builder costFilters(List<GetBudgetCostFilter> costFilters) {
-            this.costFilters = Objects.requireNonNull(costFilters);
+            if (costFilters == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "costFilters");
+            }
+            this.costFilters = costFilters;
             return this;
         }
         public Builder costFilters(GetBudgetCostFilter... costFilters) {
@@ -297,7 +322,10 @@ public final class GetBudgetResult {
         }
         @CustomType.Setter
         public Builder costTypes(List<GetBudgetCostType> costTypes) {
-            this.costTypes = Objects.requireNonNull(costTypes);
+            if (costTypes == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "costTypes");
+            }
+            this.costTypes = costTypes;
             return this;
         }
         public Builder costTypes(GetBudgetCostType... costTypes) {
@@ -305,22 +333,32 @@ public final class GetBudgetResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namePrefix(@Nullable String namePrefix) {
+
             this.namePrefix = namePrefix;
             return this;
         }
         @CustomType.Setter
         public Builder notifications(List<GetBudgetNotification> notifications) {
-            this.notifications = Objects.requireNonNull(notifications);
+            if (notifications == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "notifications");
+            }
+            this.notifications = notifications;
             return this;
         }
         public Builder notifications(GetBudgetNotification... notifications) {
@@ -328,7 +366,10 @@ public final class GetBudgetResult {
         }
         @CustomType.Setter
         public Builder plannedLimits(List<GetBudgetPlannedLimit> plannedLimits) {
-            this.plannedLimits = Objects.requireNonNull(plannedLimits);
+            if (plannedLimits == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "plannedLimits");
+            }
+            this.plannedLimits = plannedLimits;
             return this;
         }
         public Builder plannedLimits(GetBudgetPlannedLimit... plannedLimits) {
@@ -336,17 +377,26 @@ public final class GetBudgetResult {
         }
         @CustomType.Setter
         public Builder timePeriodEnd(String timePeriodEnd) {
-            this.timePeriodEnd = Objects.requireNonNull(timePeriodEnd);
+            if (timePeriodEnd == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "timePeriodEnd");
+            }
+            this.timePeriodEnd = timePeriodEnd;
             return this;
         }
         @CustomType.Setter
         public Builder timePeriodStart(String timePeriodStart) {
-            this.timePeriodStart = Objects.requireNonNull(timePeriodStart);
+            if (timePeriodStart == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "timePeriodStart");
+            }
+            this.timePeriodStart = timePeriodStart;
             return this;
         }
         @CustomType.Setter
         public Builder timeUnit(String timeUnit) {
-            this.timeUnit = Objects.requireNonNull(timeUnit);
+            if (timeUnit == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "timeUnit");
+            }
+            this.timeUnit = timeUnit;
             return this;
         }
         public GetBudgetResult build() {

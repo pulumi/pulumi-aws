@@ -4,6 +4,7 @@
 package com.pulumi.aws.elb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -101,27 +102,42 @@ public final class LoadBalancerHealthCheck {
 
         @CustomType.Setter
         public Builder healthyThreshold(Integer healthyThreshold) {
-            this.healthyThreshold = Objects.requireNonNull(healthyThreshold);
+            if (healthyThreshold == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerHealthCheck", "healthyThreshold");
+            }
+            this.healthyThreshold = healthyThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder interval(Integer interval) {
-            this.interval = Objects.requireNonNull(interval);
+            if (interval == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerHealthCheck", "interval");
+            }
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder target(String target) {
-            this.target = Objects.requireNonNull(target);
+            if (target == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerHealthCheck", "target");
+            }
+            this.target = target;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(Integer timeout) {
-            this.timeout = Objects.requireNonNull(timeout);
+            if (timeout == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerHealthCheck", "timeout");
+            }
+            this.timeout = timeout;
             return this;
         }
         @CustomType.Setter
         public Builder unhealthyThreshold(Integer unhealthyThreshold) {
-            this.unhealthyThreshold = Objects.requireNonNull(unhealthyThreshold);
+            if (unhealthyThreshold == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerHealthCheck", "unhealthyThreshold");
+            }
+            this.unhealthyThreshold = unhealthyThreshold;
             return this;
         }
         public LoadBalancerHealthCheck build() {

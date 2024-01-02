@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -226,9 +227,15 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
         }
 
         public KxClusterScalingGroupConfigurationArgs build() {
-            $.memoryReservation = Objects.requireNonNull($.memoryReservation, "expected parameter 'memoryReservation' to be non-null");
-            $.nodeCount = Objects.requireNonNull($.nodeCount, "expected parameter 'nodeCount' to be non-null");
-            $.scalingGroupName = Objects.requireNonNull($.scalingGroupName, "expected parameter 'scalingGroupName' to be non-null");
+            if ($.memoryReservation == null) {
+                throw new MissingRequiredPropertyException("KxClusterScalingGroupConfigurationArgs", "memoryReservation");
+            }
+            if ($.nodeCount == null) {
+                throw new MissingRequiredPropertyException("KxClusterScalingGroupConfigurationArgs", "nodeCount");
+            }
+            if ($.scalingGroupName == null) {
+                throw new MissingRequiredPropertyException("KxClusterScalingGroupConfigurationArgs", "scalingGroupName");
+            }
             return $;
         }
     }

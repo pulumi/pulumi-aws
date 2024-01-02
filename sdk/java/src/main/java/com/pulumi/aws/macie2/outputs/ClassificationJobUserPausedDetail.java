@@ -48,16 +48,19 @@ public final class ClassificationJobUserPausedDetail {
 
         @CustomType.Setter
         public Builder jobExpiresAt(@Nullable String jobExpiresAt) {
+
             this.jobExpiresAt = jobExpiresAt;
             return this;
         }
         @CustomType.Setter
         public Builder jobImminentExpirationHealthEventArn(@Nullable String jobImminentExpirationHealthEventArn) {
+
             this.jobImminentExpirationHealthEventArn = jobImminentExpirationHealthEventArn;
             return this;
         }
         @CustomType.Setter
         public Builder jobPausedAt(@Nullable String jobPausedAt) {
+
             this.jobPausedAt = jobPausedAt;
             return this;
         }

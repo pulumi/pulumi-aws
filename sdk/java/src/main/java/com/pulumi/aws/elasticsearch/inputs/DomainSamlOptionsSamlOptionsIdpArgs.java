@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticsearch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DomainSamlOptionsSamlOptionsIdpArgs extends com.pulumi.resour
         }
 
         public DomainSamlOptionsSamlOptionsIdpArgs build() {
-            $.entityId = Objects.requireNonNull($.entityId, "expected parameter 'entityId' to be non-null");
-            $.metadataContent = Objects.requireNonNull($.metadataContent, "expected parameter 'metadataContent' to be non-null");
+            if ($.entityId == null) {
+                throw new MissingRequiredPropertyException("DomainSamlOptionsSamlOptionsIdpArgs", "entityId");
+            }
+            if ($.metadataContent == null) {
+                throw new MissingRequiredPropertyException("DomainSamlOptionsSamlOptionsIdpArgs", "metadataContent");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.codepipeline.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class PipelineArtifactStoreEncryptionKey {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("PipelineArtifactStoreEncryptionKey", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("PipelineArtifactStoreEncryptionKey", "type");
+            }
+            this.type = type;
             return this;
         }
         public PipelineArtifactStoreEncryptionKey build() {

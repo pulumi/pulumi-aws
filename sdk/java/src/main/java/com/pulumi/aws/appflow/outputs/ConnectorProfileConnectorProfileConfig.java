@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.outputs;
 import com.pulumi.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentials;
 import com.pulumi.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileProperties;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -57,12 +58,18 @@ public final class ConnectorProfileConnectorProfileConfig {
 
         @CustomType.Setter
         public Builder connectorProfileCredentials(ConnectorProfileConnectorProfileConfigConnectorProfileCredentials connectorProfileCredentials) {
-            this.connectorProfileCredentials = Objects.requireNonNull(connectorProfileCredentials);
+            if (connectorProfileCredentials == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfig", "connectorProfileCredentials");
+            }
+            this.connectorProfileCredentials = connectorProfileCredentials;
             return this;
         }
         @CustomType.Setter
         public Builder connectorProfileProperties(ConnectorProfileConnectorProfileConfigConnectorProfileProperties connectorProfileProperties) {
-            this.connectorProfileProperties = Objects.requireNonNull(connectorProfileProperties);
+            if (connectorProfileProperties == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfig", "connectorProfileProperties");
+            }
+            this.connectorProfileProperties = connectorProfileProperties;
             return this;
         }
         public ConnectorProfileConnectorProfileConfig build() {

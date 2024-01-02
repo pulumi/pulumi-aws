@@ -4,6 +4,7 @@
 package com.pulumi.aws.mq.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -106,11 +107,13 @@ public final class BrokerUser {
 
         @CustomType.Setter
         public Builder consoleAccess(@Nullable Boolean consoleAccess) {
+
             this.consoleAccess = consoleAccess;
             return this;
         }
         @CustomType.Setter
         public Builder groups(@Nullable List<String> groups) {
+
             this.groups = groups;
             return this;
         }
@@ -119,17 +122,24 @@ public final class BrokerUser {
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("BrokerUser", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder replicationUser(@Nullable Boolean replicationUser) {
+
             this.replicationUser = replicationUser;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("BrokerUser", "username");
+            }
+            this.username = username;
             return this;
         }
         public BrokerUser build() {

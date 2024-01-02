@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class InputInputDeviceArgs extends com.pulumi.resources.ResourceArg
         }
 
         public InputInputDeviceArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("InputInputDeviceArgs", "id");
+            }
             return $;
         }
     }

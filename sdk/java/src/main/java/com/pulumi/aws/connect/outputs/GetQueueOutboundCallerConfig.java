@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetQueueOutboundCallerConfig {
 
         @CustomType.Setter
         public Builder outboundCallerIdName(String outboundCallerIdName) {
-            this.outboundCallerIdName = Objects.requireNonNull(outboundCallerIdName);
+            if (outboundCallerIdName == null) {
+              throw new MissingRequiredPropertyException("GetQueueOutboundCallerConfig", "outboundCallerIdName");
+            }
+            this.outboundCallerIdName = outboundCallerIdName;
             return this;
         }
         @CustomType.Setter
         public Builder outboundCallerIdNumberId(String outboundCallerIdNumberId) {
-            this.outboundCallerIdNumberId = Objects.requireNonNull(outboundCallerIdNumberId);
+            if (outboundCallerIdNumberId == null) {
+              throw new MissingRequiredPropertyException("GetQueueOutboundCallerConfig", "outboundCallerIdNumberId");
+            }
+            this.outboundCallerIdNumberId = outboundCallerIdNumberId;
             return this;
         }
         @CustomType.Setter
         public Builder outboundFlowId(String outboundFlowId) {
-            this.outboundFlowId = Objects.requireNonNull(outboundFlowId);
+            if (outboundFlowId == null) {
+              throw new MissingRequiredPropertyException("GetQueueOutboundCallerConfig", "outboundFlowId");
+            }
+            this.outboundFlowId = outboundFlowId;
             return this;
         }
         public GetQueueOutboundCallerConfig build() {

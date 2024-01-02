@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetFunctionPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetFunctionPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.stage = Objects.requireNonNull($.stage, "expected parameter 'stage' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetFunctionPlainArgs", "name");
+            }
+            if ($.stage == null) {
+                throw new MissingRequiredPropertyException("GetFunctionPlainArgs", "stage");
+            }
             return $;
         }
     }

@@ -10,6 +10,7 @@ import com.pulumi.aws.appsync.inputs.GraphQLApiOpenidConnectConfigArgs;
 import com.pulumi.aws.appsync.inputs.GraphQLApiUserPoolConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -464,7 +465,9 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GraphQLApiArgs build() {
-            $.authenticationType = Objects.requireNonNull($.authenticationType, "expected parameter 'authenticationType' to be non-null");
+            if ($.authenticationType == null) {
+                throw new MissingRequiredPropertyException("GraphQLApiArgs", "authenticationType");
+            }
             return $;
         }
     }

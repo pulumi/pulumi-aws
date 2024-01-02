@@ -115,31 +115,37 @@ public final class GroupMixedInstancesPolicyInstancesDistribution {
 
         @CustomType.Setter
         public Builder onDemandAllocationStrategy(@Nullable String onDemandAllocationStrategy) {
+
             this.onDemandAllocationStrategy = onDemandAllocationStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder onDemandBaseCapacity(@Nullable Integer onDemandBaseCapacity) {
+
             this.onDemandBaseCapacity = onDemandBaseCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder onDemandPercentageAboveBaseCapacity(@Nullable Integer onDemandPercentageAboveBaseCapacity) {
+
             this.onDemandPercentageAboveBaseCapacity = onDemandPercentageAboveBaseCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder spotAllocationStrategy(@Nullable String spotAllocationStrategy) {
+
             this.spotAllocationStrategy = spotAllocationStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder spotInstancePools(@Nullable Integer spotInstancePools) {
+
             this.spotInstancePools = spotInstancePools;
             return this;
         }
         @CustomType.Setter
         public Builder spotMaxPrice(@Nullable String spotMaxPrice) {
+
             this.spotMaxPrice = spotMaxPrice;
             return this;
         }

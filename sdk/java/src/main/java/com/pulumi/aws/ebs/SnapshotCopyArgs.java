@@ -5,6 +5,7 @@ package com.pulumi.aws.ebs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -375,8 +376,12 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SnapshotCopyArgs build() {
-            $.sourceRegion = Objects.requireNonNull($.sourceRegion, "expected parameter 'sourceRegion' to be non-null");
-            $.sourceSnapshotId = Objects.requireNonNull($.sourceSnapshotId, "expected parameter 'sourceSnapshotId' to be non-null");
+            if ($.sourceRegion == null) {
+                throw new MissingRequiredPropertyException("SnapshotCopyArgs", "sourceRegion");
+            }
+            if ($.sourceSnapshotId == null) {
+                throw new MissingRequiredPropertyException("SnapshotCopyArgs", "sourceSnapshotId");
+            }
             return $;
         }
     }

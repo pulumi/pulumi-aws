@@ -5,6 +5,7 @@ package com.pulumi.aws.kendra.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs ex
         }
 
         public IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs build() {
-            $.groupAttributeField = Objects.requireNonNull($.groupAttributeField, "expected parameter 'groupAttributeField' to be non-null");
-            $.userNameAttributeField = Objects.requireNonNull($.userNameAttributeField, "expected parameter 'userNameAttributeField' to be non-null");
+            if ($.groupAttributeField == null) {
+                throw new MissingRequiredPropertyException("IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs", "groupAttributeField");
+            }
+            if ($.userNameAttributeField == null) {
+                throw new MissingRequiredPropertyException("IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs", "userNameAttributeField");
+            }
             return $;
         }
     }

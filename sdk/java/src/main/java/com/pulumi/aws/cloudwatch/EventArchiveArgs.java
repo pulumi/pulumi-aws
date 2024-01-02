@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,7 +226,9 @@ public final class EventArchiveArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EventArchiveArgs build() {
-            $.eventSourceArn = Objects.requireNonNull($.eventSourceArn, "expected parameter 'eventSourceArn' to be non-null");
+            if ($.eventSourceArn == null) {
+                throw new MissingRequiredPropertyException("EventArchiveArgs", "eventSourceArn");
+            }
             return $;
         }
     }

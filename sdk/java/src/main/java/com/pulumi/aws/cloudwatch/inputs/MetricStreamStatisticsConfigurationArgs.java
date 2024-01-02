@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 import com.pulumi.aws.cloudwatch.inputs.MetricStreamStatisticsConfigurationIncludeMetricArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -133,8 +134,12 @@ public final class MetricStreamStatisticsConfigurationArgs extends com.pulumi.re
         }
 
         public MetricStreamStatisticsConfigurationArgs build() {
-            $.additionalStatistics = Objects.requireNonNull($.additionalStatistics, "expected parameter 'additionalStatistics' to be non-null");
-            $.includeMetrics = Objects.requireNonNull($.includeMetrics, "expected parameter 'includeMetrics' to be non-null");
+            if ($.additionalStatistics == null) {
+                throw new MissingRequiredPropertyException("MetricStreamStatisticsConfigurationArgs", "additionalStatistics");
+            }
+            if ($.includeMetrics == null) {
+                throw new MissingRequiredPropertyException("MetricStreamStatisticsConfigurationArgs", "includeMetrics");
+            }
             return $;
         }
     }
