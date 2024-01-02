@@ -50,7 +50,7 @@ func main() {
 			Filters: []ec2.GetAmiFilter{
 				{
 					Name:   "name",
-					Values: []string{"amzn-ami-hvm-*-x86_64-ebs"},
+					Values: []string{"amzn2-ami-hvm-*-x86_64-ebs"},
 				},
 			},
 			Owners:     []string{"137112412989"},
