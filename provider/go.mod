@@ -9,10 +9,10 @@ require (
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/providertest v0.0.3
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.22.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.69.0
-	github.com/pulumi/pulumi/pkg/v3 v3.98.0
-	github.com/pulumi/pulumi/sdk/v3 v3.98.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.23.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.70.0
+	github.com/pulumi/pulumi/pkg/v3 v3.99.0
+	github.com/pulumi/pulumi/sdk/v3 v3.99.0
 	github.com/stretchr/testify v1.8.4
 	pgregory.net/rapid v0.6.1
 )
@@ -312,10 +312,10 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.6.1 // indirect
+	github.com/pulumi/esc v0.6.2 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.9.8 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20231130182140-6385710fcbc4 // indirect
-	github.com/pulumi/pulumi-yaml v1.4.3 // indirect
+	github.com/pulumi/pulumi-yaml v1.4.4 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
