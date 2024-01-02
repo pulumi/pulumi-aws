@@ -4,6 +4,7 @@
 package com.pulumi.aws.dynamodb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -129,36 +130,45 @@ public final class TableReplica {
 
         @CustomType.Setter
         public Builder arn(@Nullable String arn) {
+
             this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder pointInTimeRecovery(@Nullable Boolean pointInTimeRecovery) {
+
             this.pointInTimeRecovery = pointInTimeRecovery;
             return this;
         }
         @CustomType.Setter
         public Builder propagateTags(@Nullable Boolean propagateTags) {
+
             this.propagateTags = propagateTags;
             return this;
         }
         @CustomType.Setter
         public Builder regionName(String regionName) {
-            this.regionName = Objects.requireNonNull(regionName);
+            if (regionName == null) {
+              throw new MissingRequiredPropertyException("TableReplica", "regionName");
+            }
+            this.regionName = regionName;
             return this;
         }
         @CustomType.Setter
         public Builder streamArn(@Nullable String streamArn) {
+
             this.streamArn = streamArn;
             return this;
         }
         @CustomType.Setter
         public Builder streamLabel(@Nullable String streamLabel) {
+
             this.streamLabel = streamLabel;
             return this;
         }

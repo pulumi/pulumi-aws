@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class PolicyTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PolicyTableArgs build() {
-            $.transitGatewayId = Objects.requireNonNull($.transitGatewayId, "expected parameter 'transitGatewayId' to be non-null");
+            if ($.transitGatewayId == null) {
+                throw new MissingRequiredPropertyException("PolicyTableArgs", "transitGatewayId");
+            }
             return $;
         }
     }

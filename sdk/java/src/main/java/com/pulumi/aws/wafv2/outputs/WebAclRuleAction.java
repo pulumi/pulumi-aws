@@ -104,26 +104,31 @@ public final class WebAclRuleAction {
 
         @CustomType.Setter
         public Builder allow(@Nullable WebAclRuleActionAllow allow) {
+
             this.allow = allow;
             return this;
         }
         @CustomType.Setter
         public Builder block(@Nullable WebAclRuleActionBlock block) {
+
             this.block = block;
             return this;
         }
         @CustomType.Setter
         public Builder captcha(@Nullable WebAclRuleActionCaptcha captcha) {
+
             this.captcha = captcha;
             return this;
         }
         @CustomType.Setter
         public Builder challenge(@Nullable WebAclRuleActionChallenge challenge) {
+
             this.challenge = challenge;
             return this;
         }
         @CustomType.Setter
         public Builder count(@Nullable WebAclRuleActionCount count) {
+
             this.count = count;
             return this;
         }

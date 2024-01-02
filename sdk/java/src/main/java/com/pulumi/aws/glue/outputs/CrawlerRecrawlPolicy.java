@@ -44,6 +44,7 @@ public final class CrawlerRecrawlPolicy {
 
         @CustomType.Setter
         public Builder recrawlBehavior(@Nullable String recrawlBehavior) {
+
             this.recrawlBehavior = recrawlBehavior;
             return this;
         }

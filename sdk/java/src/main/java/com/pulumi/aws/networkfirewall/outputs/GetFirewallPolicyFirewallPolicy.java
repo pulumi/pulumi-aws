@@ -8,6 +8,7 @@ import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicySta
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyStatelessCustomAction;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -75,7 +76,10 @@ public final class GetFirewallPolicyFirewallPolicy {
 
         @CustomType.Setter
         public Builder statefulDefaultActions(List<String> statefulDefaultActions) {
-            this.statefulDefaultActions = Objects.requireNonNull(statefulDefaultActions);
+            if (statefulDefaultActions == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicy", "statefulDefaultActions");
+            }
+            this.statefulDefaultActions = statefulDefaultActions;
             return this;
         }
         public Builder statefulDefaultActions(String... statefulDefaultActions) {
@@ -83,7 +87,10 @@ public final class GetFirewallPolicyFirewallPolicy {
         }
         @CustomType.Setter
         public Builder statefulEngineOptions(List<GetFirewallPolicyFirewallPolicyStatefulEngineOption> statefulEngineOptions) {
-            this.statefulEngineOptions = Objects.requireNonNull(statefulEngineOptions);
+            if (statefulEngineOptions == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicy", "statefulEngineOptions");
+            }
+            this.statefulEngineOptions = statefulEngineOptions;
             return this;
         }
         public Builder statefulEngineOptions(GetFirewallPolicyFirewallPolicyStatefulEngineOption... statefulEngineOptions) {
@@ -91,7 +98,10 @@ public final class GetFirewallPolicyFirewallPolicy {
         }
         @CustomType.Setter
         public Builder statefulRuleGroupReferences(List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference> statefulRuleGroupReferences) {
-            this.statefulRuleGroupReferences = Objects.requireNonNull(statefulRuleGroupReferences);
+            if (statefulRuleGroupReferences == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicy", "statefulRuleGroupReferences");
+            }
+            this.statefulRuleGroupReferences = statefulRuleGroupReferences;
             return this;
         }
         public Builder statefulRuleGroupReferences(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference... statefulRuleGroupReferences) {
@@ -99,7 +109,10 @@ public final class GetFirewallPolicyFirewallPolicy {
         }
         @CustomType.Setter
         public Builder statelessCustomActions(List<GetFirewallPolicyFirewallPolicyStatelessCustomAction> statelessCustomActions) {
-            this.statelessCustomActions = Objects.requireNonNull(statelessCustomActions);
+            if (statelessCustomActions == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicy", "statelessCustomActions");
+            }
+            this.statelessCustomActions = statelessCustomActions;
             return this;
         }
         public Builder statelessCustomActions(GetFirewallPolicyFirewallPolicyStatelessCustomAction... statelessCustomActions) {
@@ -107,7 +120,10 @@ public final class GetFirewallPolicyFirewallPolicy {
         }
         @CustomType.Setter
         public Builder statelessDefaultActions(List<String> statelessDefaultActions) {
-            this.statelessDefaultActions = Objects.requireNonNull(statelessDefaultActions);
+            if (statelessDefaultActions == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicy", "statelessDefaultActions");
+            }
+            this.statelessDefaultActions = statelessDefaultActions;
             return this;
         }
         public Builder statelessDefaultActions(String... statelessDefaultActions) {
@@ -115,7 +131,10 @@ public final class GetFirewallPolicyFirewallPolicy {
         }
         @CustomType.Setter
         public Builder statelessFragmentDefaultActions(List<String> statelessFragmentDefaultActions) {
-            this.statelessFragmentDefaultActions = Objects.requireNonNull(statelessFragmentDefaultActions);
+            if (statelessFragmentDefaultActions == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicy", "statelessFragmentDefaultActions");
+            }
+            this.statelessFragmentDefaultActions = statelessFragmentDefaultActions;
             return this;
         }
         public Builder statelessFragmentDefaultActions(String... statelessFragmentDefaultActions) {
@@ -123,7 +142,10 @@ public final class GetFirewallPolicyFirewallPolicy {
         }
         @CustomType.Setter
         public Builder statelessRuleGroupReferences(List<GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences) {
-            this.statelessRuleGroupReferences = Objects.requireNonNull(statelessRuleGroupReferences);
+            if (statelessRuleGroupReferences == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicy", "statelessRuleGroupReferences");
+            }
+            this.statelessRuleGroupReferences = statelessRuleGroupReferences;
             return this;
         }
         public Builder statelessRuleGroupReferences(GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference... statelessRuleGroupReferences) {

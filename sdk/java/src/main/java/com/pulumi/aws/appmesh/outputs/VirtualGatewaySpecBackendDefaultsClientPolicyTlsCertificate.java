@@ -59,11 +59,13 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
 
         @CustomType.Setter
         public Builder file(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile file) {
+
             this.file = file;
             return this;
         }
         @CustomType.Setter
         public Builder sds(@Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds sds) {
+
             this.sds = sds;
             return this;
         }

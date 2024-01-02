@@ -5,6 +5,7 @@ package com.pulumi.aws.elb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -204,8 +205,12 @@ public final class LoadBalancerCookieStickinessPolicyArgs extends com.pulumi.res
         }
 
         public LoadBalancerCookieStickinessPolicyArgs build() {
-            $.lbPort = Objects.requireNonNull($.lbPort, "expected parameter 'lbPort' to be non-null");
-            $.loadBalancer = Objects.requireNonNull($.loadBalancer, "expected parameter 'loadBalancer' to be non-null");
+            if ($.lbPort == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerCookieStickinessPolicyArgs", "lbPort");
+            }
+            if ($.loadBalancer == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerCookieStickinessPolicyArgs", "loadBalancer");
+            }
             return $;
         }
     }

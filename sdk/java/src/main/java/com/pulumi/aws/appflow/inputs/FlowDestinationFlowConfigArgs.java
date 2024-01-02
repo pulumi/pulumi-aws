@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.inputs;
 import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,8 +189,12 @@ public final class FlowDestinationFlowConfigArgs extends com.pulumi.resources.Re
         }
 
         public FlowDestinationFlowConfigArgs build() {
-            $.connectorType = Objects.requireNonNull($.connectorType, "expected parameter 'connectorType' to be non-null");
-            $.destinationConnectorProperties = Objects.requireNonNull($.destinationConnectorProperties, "expected parameter 'destinationConnectorProperties' to be non-null");
+            if ($.connectorType == null) {
+                throw new MissingRequiredPropertyException("FlowDestinationFlowConfigArgs", "connectorType");
+            }
+            if ($.destinationConnectorProperties == null) {
+                throw new MissingRequiredPropertyException("FlowDestinationFlowConfigArgs", "destinationConnectorProperties");
+            }
             return $;
         }
     }

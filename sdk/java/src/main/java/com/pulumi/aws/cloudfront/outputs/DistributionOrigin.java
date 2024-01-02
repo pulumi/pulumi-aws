@@ -8,6 +8,7 @@ import com.pulumi.aws.cloudfront.outputs.DistributionOriginCustomOriginConfig;
 import com.pulumi.aws.cloudfront.outputs.DistributionOriginOriginShield;
 import com.pulumi.aws.cloudfront.outputs.DistributionOriginS3OriginConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -176,16 +177,19 @@ public final class DistributionOrigin {
 
         @CustomType.Setter
         public Builder connectionAttempts(@Nullable Integer connectionAttempts) {
+
             this.connectionAttempts = connectionAttempts;
             return this;
         }
         @CustomType.Setter
         public Builder connectionTimeout(@Nullable Integer connectionTimeout) {
+
             this.connectionTimeout = connectionTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder customHeaders(@Nullable List<DistributionOriginCustomHeader> customHeaders) {
+
             this.customHeaders = customHeaders;
             return this;
         }
@@ -194,36 +198,47 @@ public final class DistributionOrigin {
         }
         @CustomType.Setter
         public Builder customOriginConfig(@Nullable DistributionOriginCustomOriginConfig customOriginConfig) {
+
             this.customOriginConfig = customOriginConfig;
             return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("DistributionOrigin", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder originAccessControlId(@Nullable String originAccessControlId) {
+
             this.originAccessControlId = originAccessControlId;
             return this;
         }
         @CustomType.Setter
         public Builder originId(String originId) {
-            this.originId = Objects.requireNonNull(originId);
+            if (originId == null) {
+              throw new MissingRequiredPropertyException("DistributionOrigin", "originId");
+            }
+            this.originId = originId;
             return this;
         }
         @CustomType.Setter
         public Builder originPath(@Nullable String originPath) {
+
             this.originPath = originPath;
             return this;
         }
         @CustomType.Setter
         public Builder originShield(@Nullable DistributionOriginOriginShield originShield) {
+
             this.originShield = originShield;
             return this;
         }
         @CustomType.Setter
         public Builder s3OriginConfig(@Nullable DistributionOriginS3OriginConfig s3OriginConfig) {
+
             this.s3OriginConfig = s3OriginConfig;
             return this;
         }

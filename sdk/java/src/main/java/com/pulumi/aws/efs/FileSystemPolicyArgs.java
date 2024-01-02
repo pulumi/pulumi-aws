@@ -5,6 +5,7 @@ package com.pulumi.aws.efs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -159,8 +160,12 @@ public final class FileSystemPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         public FileSystemPolicyArgs build() {
-            $.fileSystemId = Objects.requireNonNull($.fileSystemId, "expected parameter 'fileSystemId' to be non-null");
-            $.policy = Objects.requireNonNull($.policy, "expected parameter 'policy' to be non-null");
+            if ($.fileSystemId == null) {
+                throw new MissingRequiredPropertyException("FileSystemPolicyArgs", "fileSystemId");
+            }
+            if ($.policy == null) {
+                throw new MissingRequiredPropertyException("FileSystemPolicyArgs", "policy");
+            }
             return $;
         }
     }

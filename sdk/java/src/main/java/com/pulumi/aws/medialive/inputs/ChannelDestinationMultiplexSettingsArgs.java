@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ChannelDestinationMultiplexSettingsArgs extends com.pulumi.re
         }
 
         public ChannelDestinationMultiplexSettingsArgs build() {
-            $.multiplexId = Objects.requireNonNull($.multiplexId, "expected parameter 'multiplexId' to be non-null");
-            $.programName = Objects.requireNonNull($.programName, "expected parameter 'programName' to be non-null");
+            if ($.multiplexId == null) {
+                throw new MissingRequiredPropertyException("ChannelDestinationMultiplexSettingsArgs", "multiplexId");
+            }
+            if ($.programName == null) {
+                throw new MissingRequiredPropertyException("ChannelDestinationMultiplexSettingsArgs", "programName");
+            }
             return $;
         }
     }

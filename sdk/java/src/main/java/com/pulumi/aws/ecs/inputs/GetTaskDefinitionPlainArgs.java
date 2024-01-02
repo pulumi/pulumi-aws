@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetTaskDefinitionPlainArgs extends com.pulumi.resources.Invok
         }
 
         public GetTaskDefinitionPlainArgs build() {
-            $.taskDefinition = Objects.requireNonNull($.taskDefinition, "expected parameter 'taskDefinition' to be non-null");
+            if ($.taskDefinition == null) {
+                throw new MissingRequiredPropertyException("GetTaskDefinitionPlainArgs", "taskDefinition");
+            }
             return $;
         }
     }

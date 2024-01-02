@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -125,7 +126,9 @@ public final class ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs ext
         }
 
         public ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs build() {
-            $.quantity = Objects.requireNonNull($.quantity, "expected parameter 'quantity' to be non-null");
+            if ($.quantity == null) {
+                throw new MissingRequiredPropertyException("ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs", "quantity");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecBackendVirtualServiceClientPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,12 +60,16 @@ public final class VirtualNodeSpecBackendVirtualService {
 
         @CustomType.Setter
         public Builder clientPolicy(@Nullable VirtualNodeSpecBackendVirtualServiceClientPolicy clientPolicy) {
+
             this.clientPolicy = clientPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder virtualServiceName(String virtualServiceName) {
-            this.virtualServiceName = Objects.requireNonNull(virtualServiceName);
+            if (virtualServiceName == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecBackendVirtualService", "virtualServiceName");
+            }
+            this.virtualServiceName = virtualServiceName;
             return this;
         }
         public VirtualNodeSpecBackendVirtualService build() {

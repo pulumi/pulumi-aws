@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -89,11 +90,13 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettings {
 
         @CustomType.Setter
         public Builder errorClearTimeMsec(@Nullable Integer errorClearTimeMsec) {
+
             this.errorClearTimeMsec = errorClearTimeMsec;
             return this;
         }
         @CustomType.Setter
         public Builder failoverConditions(@Nullable List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition> failoverConditions) {
+
             this.failoverConditions = failoverConditions;
             return this;
         }
@@ -102,12 +105,16 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettings {
         }
         @CustomType.Setter
         public Builder inputPreference(@Nullable String inputPreference) {
+
             this.inputPreference = inputPreference;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryInputId(String secondaryInputId) {
-            this.secondaryInputId = Objects.requireNonNull(secondaryInputId);
+            if (secondaryInputId == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachmentAutomaticInputFailoverSettings", "secondaryInputId");
+            }
+            this.secondaryInputId = secondaryInputId;
             return this;
         }
         public ChannelInputAttachmentAutomaticInputFailoverSettings build() {

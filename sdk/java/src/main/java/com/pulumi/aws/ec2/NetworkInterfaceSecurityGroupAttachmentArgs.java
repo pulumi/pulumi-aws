@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class NetworkInterfaceSecurityGroupAttachmentArgs extends com.pulum
         }
 
         public NetworkInterfaceSecurityGroupAttachmentArgs build() {
-            $.networkInterfaceId = Objects.requireNonNull($.networkInterfaceId, "expected parameter 'networkInterfaceId' to be non-null");
-            $.securityGroupId = Objects.requireNonNull($.securityGroupId, "expected parameter 'securityGroupId' to be non-null");
+            if ($.networkInterfaceId == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceSecurityGroupAttachmentArgs", "networkInterfaceId");
+            }
+            if ($.securityGroupId == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceSecurityGroupAttachmentArgs", "securityGroupId");
+            }
             return $;
         }
     }

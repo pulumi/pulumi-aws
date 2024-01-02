@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetGatewayRouteSpecHttpRouteActionRewritePrefix {
 
         @CustomType.Setter
         public Builder defaultPrefix(String defaultPrefix) {
-            this.defaultPrefix = Objects.requireNonNull(defaultPrefix);
+            if (defaultPrefix == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttpRouteActionRewritePrefix", "defaultPrefix");
+            }
+            this.defaultPrefix = defaultPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttpRouteActionRewritePrefix", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetGatewayRouteSpecHttpRouteActionRewritePrefix build() {

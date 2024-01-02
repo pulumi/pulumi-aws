@@ -7,6 +7,7 @@ import com.pulumi.aws.cleanrooms.inputs.CollaborationDataEncryptionMetadataArgs;
 import com.pulumi.aws.cleanrooms.inputs.CollaborationMemberArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -410,10 +411,18 @@ public final class CollaborationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CollaborationArgs build() {
-            $.creatorDisplayName = Objects.requireNonNull($.creatorDisplayName, "expected parameter 'creatorDisplayName' to be non-null");
-            $.creatorMemberAbilities = Objects.requireNonNull($.creatorMemberAbilities, "expected parameter 'creatorMemberAbilities' to be non-null");
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.queryLogStatus = Objects.requireNonNull($.queryLogStatus, "expected parameter 'queryLogStatus' to be non-null");
+            if ($.creatorDisplayName == null) {
+                throw new MissingRequiredPropertyException("CollaborationArgs", "creatorDisplayName");
+            }
+            if ($.creatorMemberAbilities == null) {
+                throw new MissingRequiredPropertyException("CollaborationArgs", "creatorMemberAbilities");
+            }
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("CollaborationArgs", "description");
+            }
+            if ($.queryLogStatus == null) {
+                throw new MissingRequiredPropertyException("CollaborationArgs", "queryLogStatus");
+            }
             return $;
         }
     }

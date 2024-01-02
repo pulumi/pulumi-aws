@@ -167,51 +167,61 @@ public final class TargetGroupConfigHealthCheck {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckIntervalSeconds(@Nullable Integer healthCheckIntervalSeconds) {
+
             this.healthCheckIntervalSeconds = healthCheckIntervalSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckTimeoutSeconds(@Nullable Integer healthCheckTimeoutSeconds) {
+
             this.healthCheckTimeoutSeconds = healthCheckTimeoutSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder healthyThresholdCount(@Nullable Integer healthyThresholdCount) {
+
             this.healthyThresholdCount = healthyThresholdCount;
             return this;
         }
         @CustomType.Setter
         public Builder matcher(@Nullable TargetGroupConfigHealthCheckMatcher matcher) {
+
             this.matcher = matcher;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder protocolVersion(@Nullable String protocolVersion) {
+
             this.protocolVersion = protocolVersion;
             return this;
         }
         @CustomType.Setter
         public Builder unhealthyThresholdCount(@Nullable Integer unhealthyThresholdCount) {
+
             this.unhealthyThresholdCount = unhealthyThresholdCount;
             return this;
         }

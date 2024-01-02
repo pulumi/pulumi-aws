@@ -6,6 +6,7 @@ package com.pulumi.aws.codestarnotifications;
 import com.pulumi.aws.codestarnotifications.inputs.NotificationRuleTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -326,9 +327,15 @@ public final class NotificationRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         public NotificationRuleArgs build() {
-            $.detailType = Objects.requireNonNull($.detailType, "expected parameter 'detailType' to be non-null");
-            $.eventTypeIds = Objects.requireNonNull($.eventTypeIds, "expected parameter 'eventTypeIds' to be non-null");
-            $.resource = Objects.requireNonNull($.resource, "expected parameter 'resource' to be non-null");
+            if ($.detailType == null) {
+                throw new MissingRequiredPropertyException("NotificationRuleArgs", "detailType");
+            }
+            if ($.eventTypeIds == null) {
+                throw new MissingRequiredPropertyException("NotificationRuleArgs", "eventTypeIds");
+            }
+            if ($.resource == null) {
+                throw new MissingRequiredPropertyException("NotificationRuleArgs", "resource");
+            }
             return $;
         }
     }

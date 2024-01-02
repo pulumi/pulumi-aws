@@ -100,26 +100,31 @@ public final class DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultReso
 
         @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
+
             this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleConfigArn(@Nullable String lifecycleConfigArn) {
+
             this.lifecycleConfigArn = lifecycleConfigArn;
             return this;
         }
         @CustomType.Setter
         public Builder sagemakerImageArn(@Nullable String sagemakerImageArn) {
+
             this.sagemakerImageArn = sagemakerImageArn;
             return this;
         }
         @CustomType.Setter
         public Builder sagemakerImageVersionAlias(@Nullable String sagemakerImageVersionAlias) {
+
             this.sagemakerImageVersionAlias = sagemakerImageVersionAlias;
             return this;
         }
         @CustomType.Setter
         public Builder sagemakerImageVersionArn(@Nullable String sagemakerImageVersionArn) {
+
             this.sagemakerImageVersionArn = sagemakerImageVersionArn;
             return this;
         }

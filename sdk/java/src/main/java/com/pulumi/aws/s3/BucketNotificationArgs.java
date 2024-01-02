@@ -8,6 +8,7 @@ import com.pulumi.aws.s3.inputs.BucketNotificationQueueArgs;
 import com.pulumi.aws.s3.inputs.BucketNotificationTopicArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -267,7 +268,9 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         public BucketNotificationArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("BucketNotificationArgs", "bucket");
+            }
             return $;
         }
     }

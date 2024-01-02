@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class LogDestinationPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         public LogDestinationPolicyArgs build() {
-            $.accessPolicy = Objects.requireNonNull($.accessPolicy, "expected parameter 'accessPolicy' to be non-null");
-            $.destinationName = Objects.requireNonNull($.destinationName, "expected parameter 'destinationName' to be non-null");
+            if ($.accessPolicy == null) {
+                throw new MissingRequiredPropertyException("LogDestinationPolicyArgs", "accessPolicy");
+            }
+            if ($.destinationName == null) {
+                throw new MissingRequiredPropertyException("LogDestinationPolicyArgs", "destinationName");
+            }
             return $;
         }
     }

@@ -88,21 +88,25 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverride {
 
         @CustomType.Setter
         public Builder instanceRequirements(@Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements instanceRequirements) {
+
             this.instanceRequirements = instanceRequirements;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
+
             this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder launchTemplateSpecification(@Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification launchTemplateSpecification) {
+
             this.launchTemplateSpecification = launchTemplateSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder weightedCapacity(@Nullable String weightedCapacity) {
+
             this.weightedCapacity = weightedCapacity;
             return this;
         }

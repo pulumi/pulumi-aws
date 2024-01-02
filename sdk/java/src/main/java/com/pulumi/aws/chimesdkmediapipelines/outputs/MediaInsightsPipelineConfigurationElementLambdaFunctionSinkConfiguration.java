@@ -4,6 +4,7 @@
 package com.pulumi.aws.chimesdkmediapipelines.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkCo
 
         @CustomType.Setter
         public Builder insightsTarget(String insightsTarget) {
-            this.insightsTarget = Objects.requireNonNull(insightsTarget);
+            if (insightsTarget == null) {
+              throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration", "insightsTarget");
+            }
+            this.insightsTarget = insightsTarget;
             return this;
         }
         public MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration build() {

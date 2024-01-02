@@ -5,6 +5,7 @@ package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.aws.lex.outputs.BotAbortStatementMessage;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -68,7 +69,10 @@ public final class BotAbortStatement {
 
         @CustomType.Setter
         public Builder messages(List<BotAbortStatementMessage> messages) {
-            this.messages = Objects.requireNonNull(messages);
+            if (messages == null) {
+              throw new MissingRequiredPropertyException("BotAbortStatement", "messages");
+            }
+            this.messages = messages;
             return this;
         }
         public Builder messages(BotAbortStatementMessage... messages) {
@@ -76,6 +80,7 @@ public final class BotAbortStatement {
         }
         @CustomType.Setter
         public Builder responseCard(@Nullable String responseCard) {
+
             this.responseCard = responseCard;
             return this;
         }

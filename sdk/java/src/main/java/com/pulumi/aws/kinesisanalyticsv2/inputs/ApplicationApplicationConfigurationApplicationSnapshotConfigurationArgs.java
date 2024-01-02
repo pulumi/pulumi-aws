@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesisanalyticsv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ApplicationApplicationConfigurationApplicationSnapshotConfigu
         }
 
         public ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs build() {
-            $.snapshotsEnabled = Objects.requireNonNull($.snapshotsEnabled, "expected parameter 'snapshotsEnabled' to be non-null");
+            if ($.snapshotsEnabled == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs", "snapshotsEnabled");
+            }
             return $;
         }
     }

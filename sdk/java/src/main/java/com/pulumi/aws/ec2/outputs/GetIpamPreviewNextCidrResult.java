@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -78,11 +79,15 @@ public final class GetIpamPreviewNextCidrResult {
 
         @CustomType.Setter
         public Builder cidr(String cidr) {
-            this.cidr = Objects.requireNonNull(cidr);
+            if (cidr == null) {
+              throw new MissingRequiredPropertyException("GetIpamPreviewNextCidrResult", "cidr");
+            }
+            this.cidr = cidr;
             return this;
         }
         @CustomType.Setter
         public Builder disallowedCidrs(@Nullable List<String> disallowedCidrs) {
+
             this.disallowedCidrs = disallowedCidrs;
             return this;
         }
@@ -91,16 +96,23 @@ public final class GetIpamPreviewNextCidrResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetIpamPreviewNextCidrResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipamPoolId(String ipamPoolId) {
-            this.ipamPoolId = Objects.requireNonNull(ipamPoolId);
+            if (ipamPoolId == null) {
+              throw new MissingRequiredPropertyException("GetIpamPreviewNextCidrResult", "ipamPoolId");
+            }
+            this.ipamPoolId = ipamPoolId;
             return this;
         }
         @CustomType.Setter
         public Builder netmaskLength(@Nullable Integer netmaskLength) {
+
             this.netmaskLength = netmaskLength;
             return this;
         }

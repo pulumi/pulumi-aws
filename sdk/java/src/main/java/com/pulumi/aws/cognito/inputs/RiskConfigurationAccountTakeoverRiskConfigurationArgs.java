@@ -7,6 +7,7 @@ import com.pulumi.aws.cognito.inputs.RiskConfigurationAccountTakeoverRiskConfigu
 import com.pulumi.aws.cognito.inputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -112,8 +113,12 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationArgs extends
         }
 
         public RiskConfigurationAccountTakeoverRiskConfigurationArgs build() {
-            $.actions = Objects.requireNonNull($.actions, "expected parameter 'actions' to be non-null");
-            $.notifyConfiguration = Objects.requireNonNull($.notifyConfiguration, "expected parameter 'notifyConfiguration' to be non-null");
+            if ($.actions == null) {
+                throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfigurationArgs", "actions");
+            }
+            if ($.notifyConfiguration == null) {
+                throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfigurationArgs", "notifyConfiguration");
+            }
             return $;
         }
     }

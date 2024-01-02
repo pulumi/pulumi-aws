@@ -44,6 +44,7 @@ public final class ThemeConfigurationTypography {
 
         @CustomType.Setter
         public Builder fontFamilies(@Nullable List<ThemeConfigurationTypographyFontFamily> fontFamilies) {
+
             this.fontFamilies = fontFamilies;
             return this;
         }

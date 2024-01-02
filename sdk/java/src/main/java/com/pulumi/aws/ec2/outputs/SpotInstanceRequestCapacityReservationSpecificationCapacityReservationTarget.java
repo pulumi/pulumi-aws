@@ -58,11 +58,13 @@ public final class SpotInstanceRequestCapacityReservationSpecificationCapacityRe
 
         @CustomType.Setter
         public Builder capacityReservationId(@Nullable String capacityReservationId) {
+
             this.capacityReservationId = capacityReservationId;
             return this;
         }
         @CustomType.Setter
         public Builder capacityReservationResourceGroupArn(@Nullable String capacityReservationResourceGroupArn) {
+
             this.capacityReservationResourceGroupArn = capacityReservationResourceGroupArn;
             return this;
         }

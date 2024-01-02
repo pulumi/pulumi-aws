@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticache.outputs;
 
 import com.pulumi.aws.elasticache.outputs.GetUserAuthenticationMode;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -113,11 +114,13 @@ public final class GetUserResult {
 
         @CustomType.Setter
         public Builder accessString(@Nullable String accessString) {
+
             this.accessString = accessString;
             return this;
         }
         @CustomType.Setter
         public Builder authenticationModes(@Nullable List<GetUserAuthenticationMode> authenticationModes) {
+
             this.authenticationModes = authenticationModes;
             return this;
         }
@@ -126,21 +129,27 @@ public final class GetUserResult {
         }
         @CustomType.Setter
         public Builder engine(@Nullable String engine) {
+
             this.engine = engine;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder noPasswordRequired(@Nullable Boolean noPasswordRequired) {
+
             this.noPasswordRequired = noPasswordRequired;
             return this;
         }
         @CustomType.Setter
         public Builder passwords(@Nullable List<String> passwords) {
+
             this.passwords = passwords;
             return this;
         }
@@ -149,11 +158,15 @@ public final class GetUserResult {
         }
         @CustomType.Setter
         public Builder userId(String userId) {
-            this.userId = Objects.requireNonNull(userId);
+            if (userId == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "userId");
+            }
+            this.userId = userId;
             return this;
         }
         @CustomType.Setter
         public Builder userName(@Nullable String userName) {
+
             this.userName = userName;
             return this;
         }

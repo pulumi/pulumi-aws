@@ -4,6 +4,7 @@
 package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -81,17 +82,26 @@ public final class GroupTag {
 
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GroupTag", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder propagateAtLaunch(Boolean propagateAtLaunch) {
-            this.propagateAtLaunch = Objects.requireNonNull(propagateAtLaunch);
+            if (propagateAtLaunch == null) {
+              throw new MissingRequiredPropertyException("GroupTag", "propagateAtLaunch");
+            }
+            this.propagateAtLaunch = propagateAtLaunch;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GroupTag", "value");
+            }
+            this.value = value;
             return this;
         }
         public GroupTag build() {

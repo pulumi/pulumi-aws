@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudfront.outputs.GetCachePolicyParametersInCacheKeyAndFo
 import com.pulumi.aws.cloudfront.outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig;
 import com.pulumi.aws.cloudfront.outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -102,7 +103,10 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOrigin {
 
         @CustomType.Setter
         public Builder cookiesConfigs(List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig> cookiesConfigs) {
-            this.cookiesConfigs = Objects.requireNonNull(cookiesConfigs);
+            if (cookiesConfigs == null) {
+              throw new MissingRequiredPropertyException("GetCachePolicyParametersInCacheKeyAndForwardedToOrigin", "cookiesConfigs");
+            }
+            this.cookiesConfigs = cookiesConfigs;
             return this;
         }
         public Builder cookiesConfigs(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig... cookiesConfigs) {
@@ -110,17 +114,26 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOrigin {
         }
         @CustomType.Setter
         public Builder enableAcceptEncodingBrotli(Boolean enableAcceptEncodingBrotli) {
-            this.enableAcceptEncodingBrotli = Objects.requireNonNull(enableAcceptEncodingBrotli);
+            if (enableAcceptEncodingBrotli == null) {
+              throw new MissingRequiredPropertyException("GetCachePolicyParametersInCacheKeyAndForwardedToOrigin", "enableAcceptEncodingBrotli");
+            }
+            this.enableAcceptEncodingBrotli = enableAcceptEncodingBrotli;
             return this;
         }
         @CustomType.Setter
         public Builder enableAcceptEncodingGzip(Boolean enableAcceptEncodingGzip) {
-            this.enableAcceptEncodingGzip = Objects.requireNonNull(enableAcceptEncodingGzip);
+            if (enableAcceptEncodingGzip == null) {
+              throw new MissingRequiredPropertyException("GetCachePolicyParametersInCacheKeyAndForwardedToOrigin", "enableAcceptEncodingGzip");
+            }
+            this.enableAcceptEncodingGzip = enableAcceptEncodingGzip;
             return this;
         }
         @CustomType.Setter
         public Builder headersConfigs(List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig> headersConfigs) {
-            this.headersConfigs = Objects.requireNonNull(headersConfigs);
+            if (headersConfigs == null) {
+              throw new MissingRequiredPropertyException("GetCachePolicyParametersInCacheKeyAndForwardedToOrigin", "headersConfigs");
+            }
+            this.headersConfigs = headersConfigs;
             return this;
         }
         public Builder headersConfigs(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig... headersConfigs) {
@@ -128,7 +141,10 @@ public final class GetCachePolicyParametersInCacheKeyAndForwardedToOrigin {
         }
         @CustomType.Setter
         public Builder queryStringsConfigs(List<GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig> queryStringsConfigs) {
-            this.queryStringsConfigs = Objects.requireNonNull(queryStringsConfigs);
+            if (queryStringsConfigs == null) {
+              throw new MissingRequiredPropertyException("GetCachePolicyParametersInCacheKeyAndForwardedToOrigin", "queryStringsConfigs");
+            }
+            this.queryStringsConfigs = queryStringsConfigs;
             return this;
         }
         public Builder queryStringsConfigs(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig... queryStringsConfigs) {

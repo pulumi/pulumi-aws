@@ -4,6 +4,7 @@
 package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -81,36 +82,47 @@ public final class GroupInitialLifecycleHook {
 
         @CustomType.Setter
         public Builder defaultResult(@Nullable String defaultResult) {
+
             this.defaultResult = defaultResult;
             return this;
         }
         @CustomType.Setter
         public Builder heartbeatTimeout(@Nullable Integer heartbeatTimeout) {
+
             this.heartbeatTimeout = heartbeatTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleTransition(String lifecycleTransition) {
-            this.lifecycleTransition = Objects.requireNonNull(lifecycleTransition);
+            if (lifecycleTransition == null) {
+              throw new MissingRequiredPropertyException("GroupInitialLifecycleHook", "lifecycleTransition");
+            }
+            this.lifecycleTransition = lifecycleTransition;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GroupInitialLifecycleHook", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder notificationMetadata(@Nullable String notificationMetadata) {
+
             this.notificationMetadata = notificationMetadata;
             return this;
         }
         @CustomType.Setter
         public Builder notificationTargetArn(@Nullable String notificationTargetArn) {
+
             this.notificationTargetArn = notificationTargetArn;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
+
             this.roleArn = roleArn;
             return this;
         }

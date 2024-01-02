@@ -6,6 +6,7 @@ package com.pulumi.aws.connect.outputs;
 import com.pulumi.aws.connect.outputs.GetRoutingProfileMediaConcurrency;
 import com.pulumi.aws.connect.outputs.GetRoutingProfileQueueConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -148,32 +149,50 @@ public final class GetRoutingProfileResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetRoutingProfileResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder defaultOutboundQueueId(String defaultOutboundQueueId) {
-            this.defaultOutboundQueueId = Objects.requireNonNull(defaultOutboundQueueId);
+            if (defaultOutboundQueueId == null) {
+              throw new MissingRequiredPropertyException("GetRoutingProfileResult", "defaultOutboundQueueId");
+            }
+            this.defaultOutboundQueueId = defaultOutboundQueueId;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetRoutingProfileResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRoutingProfileResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetRoutingProfileResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder mediaConcurrencies(List<GetRoutingProfileMediaConcurrency> mediaConcurrencies) {
-            this.mediaConcurrencies = Objects.requireNonNull(mediaConcurrencies);
+            if (mediaConcurrencies == null) {
+              throw new MissingRequiredPropertyException("GetRoutingProfileResult", "mediaConcurrencies");
+            }
+            this.mediaConcurrencies = mediaConcurrencies;
             return this;
         }
         public Builder mediaConcurrencies(GetRoutingProfileMediaConcurrency... mediaConcurrencies) {
@@ -181,12 +200,18 @@ public final class GetRoutingProfileResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRoutingProfileResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder queueConfigs(List<GetRoutingProfileQueueConfig> queueConfigs) {
-            this.queueConfigs = Objects.requireNonNull(queueConfigs);
+            if (queueConfigs == null) {
+              throw new MissingRequiredPropertyException("GetRoutingProfileResult", "queueConfigs");
+            }
+            this.queueConfigs = queueConfigs;
             return this;
         }
         public Builder queueConfigs(GetRoutingProfileQueueConfig... queueConfigs) {
@@ -194,12 +219,18 @@ public final class GetRoutingProfileResult {
         }
         @CustomType.Setter
         public Builder routingProfileId(String routingProfileId) {
-            this.routingProfileId = Objects.requireNonNull(routingProfileId);
+            if (routingProfileId == null) {
+              throw new MissingRequiredPropertyException("GetRoutingProfileResult", "routingProfileId");
+            }
+            this.routingProfileId = routingProfileId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetRoutingProfileResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetRoutingProfileResult build() {

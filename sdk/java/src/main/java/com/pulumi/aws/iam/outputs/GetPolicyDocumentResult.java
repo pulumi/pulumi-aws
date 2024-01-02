@@ -5,6 +5,7 @@ package com.pulumi.aws.iam.outputs;
 
 import com.pulumi.aws.iam.outputs.GetPolicyDocumentStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -90,16 +91,23 @@ public final class GetPolicyDocumentResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDocumentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder json(String json) {
-            this.json = Objects.requireNonNull(json);
+            if (json == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDocumentResult", "json");
+            }
+            this.json = json;
             return this;
         }
         @CustomType.Setter
         public Builder overridePolicyDocuments(@Nullable List<String> overridePolicyDocuments) {
+
             this.overridePolicyDocuments = overridePolicyDocuments;
             return this;
         }
@@ -108,11 +116,13 @@ public final class GetPolicyDocumentResult {
         }
         @CustomType.Setter
         public Builder policyId(@Nullable String policyId) {
+
             this.policyId = policyId;
             return this;
         }
         @CustomType.Setter
         public Builder sourcePolicyDocuments(@Nullable List<String> sourcePolicyDocuments) {
+
             this.sourcePolicyDocuments = sourcePolicyDocuments;
             return this;
         }
@@ -121,6 +131,7 @@ public final class GetPolicyDocumentResult {
         }
         @CustomType.Setter
         public Builder statements(@Nullable List<GetPolicyDocumentStatement> statements) {
+
             this.statements = statements;
             return this;
         }
@@ -129,6 +140,7 @@ public final class GetPolicyDocumentResult {
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }

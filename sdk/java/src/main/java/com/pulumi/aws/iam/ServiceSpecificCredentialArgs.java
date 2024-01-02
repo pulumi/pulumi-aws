@@ -5,6 +5,7 @@ package com.pulumi.aws.iam;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class ServiceSpecificCredentialArgs extends com.pulumi.resources.Re
         }
 
         public ServiceSpecificCredentialArgs build() {
-            $.serviceName = Objects.requireNonNull($.serviceName, "expected parameter 'serviceName' to be non-null");
-            $.userName = Objects.requireNonNull($.userName, "expected parameter 'userName' to be non-null");
+            if ($.serviceName == null) {
+                throw new MissingRequiredPropertyException("ServiceSpecificCredentialArgs", "serviceName");
+            }
+            if ($.userName == null) {
+                throw new MissingRequiredPropertyException("ServiceSpecificCredentialArgs", "userName");
+            }
             return $;
         }
     }

@@ -44,6 +44,7 @@ public final class ThingGroupPropertiesAttributePayload {
 
         @CustomType.Setter
         public Builder attributes(@Nullable Map<String,String> attributes) {
+
             this.attributes = attributes;
             return this;
         }

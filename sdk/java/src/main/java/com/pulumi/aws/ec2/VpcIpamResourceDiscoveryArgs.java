@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2;
 import com.pulumi.aws.ec2.inputs.VpcIpamResourceDiscoveryOperatingRegionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -163,7 +164,9 @@ public final class VpcIpamResourceDiscoveryArgs extends com.pulumi.resources.Res
         }
 
         public VpcIpamResourceDiscoveryArgs build() {
-            $.operatingRegions = Objects.requireNonNull($.operatingRegions, "expected parameter 'operatingRegions' to be non-null");
+            if ($.operatingRegions == null) {
+                throw new MissingRequiredPropertyException("VpcIpamResourceDiscoveryArgs", "operatingRegions");
+            }
             return $;
         }
     }

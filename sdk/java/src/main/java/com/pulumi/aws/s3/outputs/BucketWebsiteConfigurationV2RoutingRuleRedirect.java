@@ -100,26 +100,31 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirect {
 
         @CustomType.Setter
         public Builder hostName(@Nullable String hostName) {
+
             this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
         public Builder httpRedirectCode(@Nullable String httpRedirectCode) {
+
             this.httpRedirectCode = httpRedirectCode;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder replaceKeyPrefixWith(@Nullable String replaceKeyPrefixWith) {
+
             this.replaceKeyPrefixWith = replaceKeyPrefixWith;
             return this;
         }
         @CustomType.Setter
         public Builder replaceKeyWith(@Nullable String replaceKeyWith) {
+
             this.replaceKeyWith = replaceKeyWith;
             return this;
         }

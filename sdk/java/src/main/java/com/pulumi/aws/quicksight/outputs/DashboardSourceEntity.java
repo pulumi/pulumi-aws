@@ -44,6 +44,7 @@ public final class DashboardSourceEntity {
 
         @CustomType.Setter
         public Builder sourceTemplate(@Nullable DashboardSourceEntitySourceTemplate sourceTemplate) {
+
             this.sourceTemplate = sourceTemplate;
             return this;
         }

@@ -8,6 +8,7 @@ import com.pulumi.aws.cloudwatch.inputs.EventEndpointReplicationConfigArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -275,8 +276,12 @@ public final class EventEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EventEndpointArgs build() {
-            $.eventBuses = Objects.requireNonNull($.eventBuses, "expected parameter 'eventBuses' to be non-null");
-            $.routingConfig = Objects.requireNonNull($.routingConfig, "expected parameter 'routingConfig' to be non-null");
+            if ($.eventBuses == null) {
+                throw new MissingRequiredPropertyException("EventEndpointArgs", "eventBuses");
+            }
+            if ($.routingConfig == null) {
+                throw new MissingRequiredPropertyException("EventEndpointArgs", "routingConfig");
+            }
             return $;
         }
     }

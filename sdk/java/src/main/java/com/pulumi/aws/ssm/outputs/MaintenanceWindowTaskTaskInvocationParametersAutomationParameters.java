@@ -60,11 +60,13 @@ public final class MaintenanceWindowTaskTaskInvocationParametersAutomationParame
 
         @CustomType.Setter
         public Builder documentVersion(@Nullable String documentVersion) {
+
             this.documentVersion = documentVersion;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable List<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter> parameters) {
+
             this.parameters = parameters;
             return this;
         }

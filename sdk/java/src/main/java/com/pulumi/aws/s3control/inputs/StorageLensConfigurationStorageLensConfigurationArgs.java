@@ -10,6 +10,7 @@ import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfig
 import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationIncludeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -266,8 +267,12 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         }
 
         public StorageLensConfigurationStorageLensConfigurationArgs build() {
-            $.accountLevel = Objects.requireNonNull($.accountLevel, "expected parameter 'accountLevel' to be non-null");
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
+            if ($.accountLevel == null) {
+                throw new MissingRequiredPropertyException("StorageLensConfigurationStorageLensConfigurationArgs", "accountLevel");
+            }
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("StorageLensConfigurationStorageLensConfigurationArgs", "enabled");
+            }
             return $;
         }
     }

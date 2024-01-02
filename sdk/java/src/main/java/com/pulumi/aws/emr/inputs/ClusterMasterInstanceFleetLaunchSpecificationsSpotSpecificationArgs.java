@@ -5,6 +5,7 @@ package com.pulumi.aws.emr.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificati
         }
 
         public ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs build() {
-            $.allocationStrategy = Objects.requireNonNull($.allocationStrategy, "expected parameter 'allocationStrategy' to be non-null");
-            $.timeoutAction = Objects.requireNonNull($.timeoutAction, "expected parameter 'timeoutAction' to be non-null");
-            $.timeoutDurationMinutes = Objects.requireNonNull($.timeoutDurationMinutes, "expected parameter 'timeoutDurationMinutes' to be non-null");
+            if ($.allocationStrategy == null) {
+                throw new MissingRequiredPropertyException("ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs", "allocationStrategy");
+            }
+            if ($.timeoutAction == null) {
+                throw new MissingRequiredPropertyException("ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs", "timeoutAction");
+            }
+            if ($.timeoutDurationMinutes == null) {
+                throw new MissingRequiredPropertyException("ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs", "timeoutDurationMinutes");
+            }
             return $;
         }
     }

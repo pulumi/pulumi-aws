@@ -63,11 +63,13 @@ public final class InstanceCapacityReservationSpecification {
 
         @CustomType.Setter
         public Builder capacityReservationPreference(@Nullable String capacityReservationPreference) {
+
             this.capacityReservationPreference = capacityReservationPreference;
             return this;
         }
         @CustomType.Setter
         public Builder capacityReservationTarget(@Nullable InstanceCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget) {
+
             this.capacityReservationTarget = capacityReservationTarget;
             return this;
         }

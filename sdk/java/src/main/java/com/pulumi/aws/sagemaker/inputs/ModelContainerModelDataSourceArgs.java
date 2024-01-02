@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.inputs;
 import com.pulumi.aws.sagemaker.inputs.ModelContainerModelDataSourceS3DataSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,7 +86,9 @@ public final class ModelContainerModelDataSourceArgs extends com.pulumi.resource
         }
 
         public ModelContainerModelDataSourceArgs build() {
-            $.s3DataSources = Objects.requireNonNull($.s3DataSources, "expected parameter 's3DataSources' to be non-null");
+            if ($.s3DataSources == null) {
+                throw new MissingRequiredPropertyException("ModelContainerModelDataSourceArgs", "s3DataSources");
+            }
             return $;
         }
     }

@@ -75,11 +75,13 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         @CustomType.Setter
         public Builder input(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInput input) {
+
             this.input = input;
             return this;
         }
         @CustomType.Setter
         public Builder outputs(@Nullable List<ApplicationApplicationConfigurationSqlApplicationConfigurationOutput> outputs) {
+
             this.outputs = outputs;
             return this;
         }
@@ -88,6 +90,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
         @CustomType.Setter
         public Builder referenceDataSource(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource referenceDataSource) {
+
             this.referenceDataSource = referenceDataSource;
             return this;
         }

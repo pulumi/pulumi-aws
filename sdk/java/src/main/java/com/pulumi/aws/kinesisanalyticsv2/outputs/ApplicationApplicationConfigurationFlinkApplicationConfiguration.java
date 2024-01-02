@@ -74,16 +74,19 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
 
         @CustomType.Setter
         public Builder checkpointConfiguration(@Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration checkpointConfiguration) {
+
             this.checkpointConfiguration = checkpointConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder monitoringConfiguration(@Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration monitoringConfiguration) {
+
             this.monitoringConfiguration = monitoringConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder parallelismConfiguration(@Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration parallelismConfiguration) {
+
             this.parallelismConfiguration = parallelismConfiguration;
             return this;
         }

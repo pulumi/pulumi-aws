@@ -86,21 +86,25 @@ public final class AppLimits {
 
         @CustomType.Setter
         public Builder daily(@Nullable Integer daily) {
+
             this.daily = daily;
             return this;
         }
         @CustomType.Setter
         public Builder maximumDuration(@Nullable Integer maximumDuration) {
+
             this.maximumDuration = maximumDuration;
             return this;
         }
         @CustomType.Setter
         public Builder messagesPerSecond(@Nullable Integer messagesPerSecond) {
+
             this.messagesPerSecond = messagesPerSecond;
             return this;
         }
         @CustomType.Setter
         public Builder total(@Nullable Integer total) {
+
             this.total = total;
             return this;
         }

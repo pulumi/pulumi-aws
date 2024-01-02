@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -93,7 +94,9 @@ public final class GetDedicatedIpPoolPlainArgs extends com.pulumi.resources.Invo
         }
 
         public GetDedicatedIpPoolPlainArgs build() {
-            $.poolName = Objects.requireNonNull($.poolName, "expected parameter 'poolName' to be non-null");
+            if ($.poolName == null) {
+                throw new MissingRequiredPropertyException("GetDedicatedIpPoolPlainArgs", "poolName");
+            }
             return $;
         }
     }

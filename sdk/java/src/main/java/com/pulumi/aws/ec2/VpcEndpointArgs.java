@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2;
 import com.pulumi.aws.ec2.inputs.VpcEndpointDnsOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -526,8 +527,12 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VpcEndpointArgs build() {
-            $.serviceName = Objects.requireNonNull($.serviceName, "expected parameter 'serviceName' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.serviceName == null) {
+                throw new MissingRequiredPropertyException("VpcEndpointArgs", "serviceName");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("VpcEndpointArgs", "vpcId");
+            }
             return $;
         }
     }

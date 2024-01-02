@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetInstanceTypeOfferingsFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -100,6 +101,7 @@ public final class GetInstanceTypeOfferingsResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetInstanceTypeOfferingsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -108,12 +110,18 @@ public final class GetInstanceTypeOfferingsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceTypes(List<String> instanceTypes) {
-            this.instanceTypes = Objects.requireNonNull(instanceTypes);
+            if (instanceTypes == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingsResult", "instanceTypes");
+            }
+            this.instanceTypes = instanceTypes;
             return this;
         }
         public Builder instanceTypes(String... instanceTypes) {
@@ -121,12 +129,16 @@ public final class GetInstanceTypeOfferingsResult {
         }
         @CustomType.Setter
         public Builder locationType(@Nullable String locationType) {
+
             this.locationType = locationType;
             return this;
         }
         @CustomType.Setter
         public Builder locationTypes(List<String> locationTypes) {
-            this.locationTypes = Objects.requireNonNull(locationTypes);
+            if (locationTypes == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingsResult", "locationTypes");
+            }
+            this.locationTypes = locationTypes;
             return this;
         }
         public Builder locationTypes(String... locationTypes) {
@@ -134,7 +146,10 @@ public final class GetInstanceTypeOfferingsResult {
         }
         @CustomType.Setter
         public Builder locations(List<String> locations) {
-            this.locations = Objects.requireNonNull(locations);
+            if (locations == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingsResult", "locations");
+            }
+            this.locations = locations;
             return this;
         }
         public Builder locations(String... locations) {

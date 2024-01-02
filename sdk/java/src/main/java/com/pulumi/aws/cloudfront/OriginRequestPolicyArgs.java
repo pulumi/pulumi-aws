@@ -8,6 +8,7 @@ import com.pulumi.aws.cloudfront.inputs.OriginRequestPolicyHeadersConfigArgs;
 import com.pulumi.aws.cloudfront.inputs.OriginRequestPolicyQueryStringsConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -227,9 +228,15 @@ public final class OriginRequestPolicyArgs extends com.pulumi.resources.Resource
         }
 
         public OriginRequestPolicyArgs build() {
-            $.cookiesConfig = Objects.requireNonNull($.cookiesConfig, "expected parameter 'cookiesConfig' to be non-null");
-            $.headersConfig = Objects.requireNonNull($.headersConfig, "expected parameter 'headersConfig' to be non-null");
-            $.queryStringsConfig = Objects.requireNonNull($.queryStringsConfig, "expected parameter 'queryStringsConfig' to be non-null");
+            if ($.cookiesConfig == null) {
+                throw new MissingRequiredPropertyException("OriginRequestPolicyArgs", "cookiesConfig");
+            }
+            if ($.headersConfig == null) {
+                throw new MissingRequiredPropertyException("OriginRequestPolicyArgs", "headersConfig");
+            }
+            if ($.queryStringsConfig == null) {
+                throw new MissingRequiredPropertyException("OriginRequestPolicyArgs", "queryStringsConfig");
+            }
             return $;
         }
     }

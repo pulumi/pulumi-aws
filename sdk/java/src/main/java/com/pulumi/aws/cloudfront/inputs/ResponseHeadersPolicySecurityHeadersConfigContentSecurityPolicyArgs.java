@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPoli
         }
 
         public ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs build() {
-            $.contentSecurityPolicy = Objects.requireNonNull($.contentSecurityPolicy, "expected parameter 'contentSecurityPolicy' to be non-null");
-            $.override = Objects.requireNonNull($.override, "expected parameter 'override' to be non-null");
+            if ($.contentSecurityPolicy == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs", "contentSecurityPolicy");
+            }
+            if ($.override == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs", "override");
+            }
             return $;
         }
     }

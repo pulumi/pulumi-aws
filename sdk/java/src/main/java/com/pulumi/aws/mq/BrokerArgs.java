@@ -11,6 +11,7 @@ import com.pulumi.aws.mq.inputs.BrokerMaintenanceWindowStartTimeArgs;
 import com.pulumi.aws.mq.inputs.BrokerUserArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -791,10 +792,18 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BrokerArgs build() {
-            $.engineType = Objects.requireNonNull($.engineType, "expected parameter 'engineType' to be non-null");
-            $.engineVersion = Objects.requireNonNull($.engineVersion, "expected parameter 'engineVersion' to be non-null");
-            $.hostInstanceType = Objects.requireNonNull($.hostInstanceType, "expected parameter 'hostInstanceType' to be non-null");
-            $.users = Objects.requireNonNull($.users, "expected parameter 'users' to be non-null");
+            if ($.engineType == null) {
+                throw new MissingRequiredPropertyException("BrokerArgs", "engineType");
+            }
+            if ($.engineVersion == null) {
+                throw new MissingRequiredPropertyException("BrokerArgs", "engineVersion");
+            }
+            if ($.hostInstanceType == null) {
+                throw new MissingRequiredPropertyException("BrokerArgs", "hostInstanceType");
+            }
+            if ($.users == null) {
+                throw new MissingRequiredPropertyException("BrokerArgs", "users");
+            }
             return $;
         }
     }

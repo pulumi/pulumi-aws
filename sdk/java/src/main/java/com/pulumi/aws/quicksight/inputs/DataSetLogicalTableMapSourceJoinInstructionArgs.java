@@ -7,6 +7,7 @@ import com.pulumi.aws.quicksight.inputs.DataSetLogicalTableMapSourceJoinInstruct
 import com.pulumi.aws.quicksight.inputs.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -263,10 +264,18 @@ public final class DataSetLogicalTableMapSourceJoinInstructionArgs extends com.p
         }
 
         public DataSetLogicalTableMapSourceJoinInstructionArgs build() {
-            $.leftOperand = Objects.requireNonNull($.leftOperand, "expected parameter 'leftOperand' to be non-null");
-            $.onClause = Objects.requireNonNull($.onClause, "expected parameter 'onClause' to be non-null");
-            $.rightOperand = Objects.requireNonNull($.rightOperand, "expected parameter 'rightOperand' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.leftOperand == null) {
+                throw new MissingRequiredPropertyException("DataSetLogicalTableMapSourceJoinInstructionArgs", "leftOperand");
+            }
+            if ($.onClause == null) {
+                throw new MissingRequiredPropertyException("DataSetLogicalTableMapSourceJoinInstructionArgs", "onClause");
+            }
+            if ($.rightOperand == null) {
+                throw new MissingRequiredPropertyException("DataSetLogicalTableMapSourceJoinInstructionArgs", "rightOperand");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("DataSetLogicalTableMapSourceJoinInstructionArgs", "type");
+            }
             return $;
         }
     }

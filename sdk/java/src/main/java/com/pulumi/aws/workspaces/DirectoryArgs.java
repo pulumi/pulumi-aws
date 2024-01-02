@@ -8,6 +8,7 @@ import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesArgs;
 import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceCreationPropertiesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -323,7 +324,9 @@ public final class DirectoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DirectoryArgs build() {
-            $.directoryId = Objects.requireNonNull($.directoryId, "expected parameter 'directoryId' to be non-null");
+            if ($.directoryId == null) {
+                throw new MissingRequiredPropertyException("DirectoryArgs", "directoryId");
+            }
             return $;
         }
     }

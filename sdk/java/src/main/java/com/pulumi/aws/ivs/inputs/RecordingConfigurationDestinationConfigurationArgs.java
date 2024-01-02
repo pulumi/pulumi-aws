@@ -6,6 +6,7 @@ package com.pulumi.aws.ivs.inputs;
 import com.pulumi.aws.ivs.inputs.RecordingConfigurationDestinationConfigurationS3Args;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class RecordingConfigurationDestinationConfigurationArgs extends co
         }
 
         public RecordingConfigurationDestinationConfigurationArgs build() {
-            $.s3 = Objects.requireNonNull($.s3, "expected parameter 's3' to be non-null");
+            if ($.s3 == null) {
+                throw new MissingRequiredPropertyException("RecordingConfigurationDestinationConfigurationArgs", "s3");
+            }
             return $;
         }
     }

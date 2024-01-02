@@ -59,11 +59,13 @@ public final class WorkflowStepDecryptStepDetailsDestinationFileLocation {
 
         @CustomType.Setter
         public Builder efsFileLocation(@Nullable WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation efsFileLocation) {
+
             this.efsFileLocation = efsFileLocation;
             return this;
         }
         @CustomType.Setter
         public Builder s3FileLocation(@Nullable WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation s3FileLocation) {
+
             this.s3FileLocation = s3FileLocation;
             return this;
         }

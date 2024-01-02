@@ -60,6 +60,7 @@ public final class EventDataStoreAdvancedEventSelector {
 
         @CustomType.Setter
         public Builder fieldSelectors(@Nullable List<EventDataStoreAdvancedEventSelectorFieldSelector> fieldSelectors) {
+
             this.fieldSelectors = fieldSelectors;
             return this;
         }
@@ -68,6 +69,7 @@ public final class EventDataStoreAdvancedEventSelector {
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

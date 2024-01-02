@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3control.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class AccessGrantGrantee {
 
         @CustomType.Setter
         public Builder granteeIdentifier(String granteeIdentifier) {
-            this.granteeIdentifier = Objects.requireNonNull(granteeIdentifier);
+            if (granteeIdentifier == null) {
+              throw new MissingRequiredPropertyException("AccessGrantGrantee", "granteeIdentifier");
+            }
+            this.granteeIdentifier = granteeIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder granteeType(String granteeType) {
-            this.granteeType = Objects.requireNonNull(granteeType);
+            if (granteeType == null) {
+              throw new MissingRequiredPropertyException("AccessGrantGrantee", "granteeType");
+            }
+            this.granteeType = granteeType;
             return this;
         }
         public AccessGrantGrantee build() {

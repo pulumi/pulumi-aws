@@ -5,6 +5,7 @@ package com.pulumi.aws.appsync.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class GraphQLApiUserPoolConfigArgs extends com.pulumi.resources.Res
         }
 
         public GraphQLApiUserPoolConfigArgs build() {
-            $.defaultAction = Objects.requireNonNull($.defaultAction, "expected parameter 'defaultAction' to be non-null");
-            $.userPoolId = Objects.requireNonNull($.userPoolId, "expected parameter 'userPoolId' to be non-null");
+            if ($.defaultAction == null) {
+                throw new MissingRequiredPropertyException("GraphQLApiUserPoolConfigArgs", "defaultAction");
+            }
+            if ($.userPoolId == null) {
+                throw new MissingRequiredPropertyException("GraphQLApiUserPoolConfigArgs", "userPoolId");
+            }
             return $;
         }
     }

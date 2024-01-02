@@ -6,6 +6,7 @@ package com.pulumi.aws.dlm;
 import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -226,9 +227,15 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public LifecyclePolicyArgs build() {
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.executionRoleArn = Objects.requireNonNull($.executionRoleArn, "expected parameter 'executionRoleArn' to be non-null");
-            $.policyDetails = Objects.requireNonNull($.policyDetails, "expected parameter 'policyDetails' to be non-null");
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyArgs", "description");
+            }
+            if ($.executionRoleArn == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyArgs", "executionRoleArn");
+            }
+            if ($.policyDetails == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyArgs", "policyDetails");
+            }
             return $;
         }
     }

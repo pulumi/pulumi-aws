@@ -5,6 +5,7 @@ package com.pulumi.aws.directoryservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class LogServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LogServiceArgs build() {
-            $.directoryId = Objects.requireNonNull($.directoryId, "expected parameter 'directoryId' to be non-null");
-            $.logGroupName = Objects.requireNonNull($.logGroupName, "expected parameter 'logGroupName' to be non-null");
+            if ($.directoryId == null) {
+                throw new MissingRequiredPropertyException("LogServiceArgs", "directoryId");
+            }
+            if ($.logGroupName == null) {
+                throw new MissingRequiredPropertyException("LogServiceArgs", "logGroupName");
+            }
             return $;
         }
     }

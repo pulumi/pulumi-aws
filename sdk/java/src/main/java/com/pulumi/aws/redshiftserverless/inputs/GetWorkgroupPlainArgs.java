@@ -4,6 +4,7 @@
 package com.pulumi.aws.redshiftserverless.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetWorkgroupPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         public GetWorkgroupPlainArgs build() {
-            $.workgroupName = Objects.requireNonNull($.workgroupName, "expected parameter 'workgroupName' to be non-null");
+            if ($.workgroupName == null) {
+                throw new MissingRequiredPropertyException("GetWorkgroupPlainArgs", "workgroupName");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.vpclattice.inputs;
 import com.pulumi.aws.vpclattice.inputs.ListenerRuleActionForwardTargetGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -95,7 +96,9 @@ public final class ListenerRuleActionForwardArgs extends com.pulumi.resources.Re
         }
 
         public ListenerRuleActionForwardArgs build() {
-            $.targetGroups = Objects.requireNonNull($.targetGroups, "expected parameter 'targetGroups' to be non-null");
+            if ($.targetGroups == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleActionForwardArgs", "targetGroups");
+            }
             return $;
         }
     }

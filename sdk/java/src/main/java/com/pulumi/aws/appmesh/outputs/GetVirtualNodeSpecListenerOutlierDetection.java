@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerOutlierDetectionInterval;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -55,7 +56,10 @@ public final class GetVirtualNodeSpecListenerOutlierDetection {
 
         @CustomType.Setter
         public Builder baseEjectionDurations(List<GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration> baseEjectionDurations) {
-            this.baseEjectionDurations = Objects.requireNonNull(baseEjectionDurations);
+            if (baseEjectionDurations == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerOutlierDetection", "baseEjectionDurations");
+            }
+            this.baseEjectionDurations = baseEjectionDurations;
             return this;
         }
         public Builder baseEjectionDurations(GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration... baseEjectionDurations) {
@@ -63,7 +67,10 @@ public final class GetVirtualNodeSpecListenerOutlierDetection {
         }
         @CustomType.Setter
         public Builder intervals(List<GetVirtualNodeSpecListenerOutlierDetectionInterval> intervals) {
-            this.intervals = Objects.requireNonNull(intervals);
+            if (intervals == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerOutlierDetection", "intervals");
+            }
+            this.intervals = intervals;
             return this;
         }
         public Builder intervals(GetVirtualNodeSpecListenerOutlierDetectionInterval... intervals) {
@@ -71,12 +78,18 @@ public final class GetVirtualNodeSpecListenerOutlierDetection {
         }
         @CustomType.Setter
         public Builder maxEjectionPercent(Integer maxEjectionPercent) {
-            this.maxEjectionPercent = Objects.requireNonNull(maxEjectionPercent);
+            if (maxEjectionPercent == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerOutlierDetection", "maxEjectionPercent");
+            }
+            this.maxEjectionPercent = maxEjectionPercent;
             return this;
         }
         @CustomType.Setter
         public Builder maxServerErrors(Integer maxServerErrors) {
-            this.maxServerErrors = Objects.requireNonNull(maxServerErrors);
+            if (maxServerErrors == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerOutlierDetection", "maxServerErrors");
+            }
+            this.maxServerErrors = maxServerErrors;
             return this;
         }
         public GetVirtualNodeSpecListenerOutlierDetection build() {

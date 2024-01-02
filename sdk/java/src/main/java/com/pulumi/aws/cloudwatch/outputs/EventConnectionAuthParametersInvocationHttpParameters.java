@@ -74,6 +74,7 @@ public final class EventConnectionAuthParametersInvocationHttpParameters {
 
         @CustomType.Setter
         public Builder bodies(@Nullable List<EventConnectionAuthParametersInvocationHttpParametersBody> bodies) {
+
             this.bodies = bodies;
             return this;
         }
@@ -82,6 +83,7 @@ public final class EventConnectionAuthParametersInvocationHttpParameters {
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<EventConnectionAuthParametersInvocationHttpParametersHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -90,6 +92,7 @@ public final class EventConnectionAuthParametersInvocationHttpParameters {
         }
         @CustomType.Setter
         public Builder queryStrings(@Nullable List<EventConnectionAuthParametersInvocationHttpParametersQueryString> queryStrings) {
+
             this.queryStrings = queryStrings;
             return this;
         }

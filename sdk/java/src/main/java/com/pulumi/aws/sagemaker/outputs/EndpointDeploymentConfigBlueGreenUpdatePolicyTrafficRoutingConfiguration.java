@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize;
 import com.pulumi.aws.sagemaker.outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -89,22 +90,30 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
 
         @CustomType.Setter
         public Builder canarySize(@Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize canarySize) {
+
             this.canarySize = canarySize;
             return this;
         }
         @CustomType.Setter
         public Builder linearStepSize(@Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize linearStepSize) {
+
             this.linearStepSize = linearStepSize;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder waitIntervalInSeconds(Integer waitIntervalInSeconds) {
-            this.waitIntervalInSeconds = Objects.requireNonNull(waitIntervalInSeconds);
+            if (waitIntervalInSeconds == null) {
+              throw new MissingRequiredPropertyException("EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration", "waitIntervalInSeconds");
+            }
+            this.waitIntervalInSeconds = waitIntervalInSeconds;
             return this;
         }
         public EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration build() {

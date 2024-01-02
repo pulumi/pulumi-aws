@@ -59,11 +59,13 @@ public final class TableMagneticStoreWriteProperties {
 
         @CustomType.Setter
         public Builder enableMagneticStoreWrites(@Nullable Boolean enableMagneticStoreWrites) {
+
             this.enableMagneticStoreWrites = enableMagneticStoreWrites;
             return this;
         }
         @CustomType.Setter
         public Builder magneticStoreRejectedDataLocation(@Nullable TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation magneticStoreRejectedDataLocation) {
+
             this.magneticStoreRejectedDataLocation = magneticStoreRejectedDataLocation;
             return this;
         }

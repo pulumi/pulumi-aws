@@ -6,6 +6,7 @@ package com.pulumi.aws.emrcontainers;
 import com.pulumi.aws.emrcontainers.inputs.VirtualClusterContainerProviderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -152,7 +153,9 @@ public final class VirtualClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public VirtualClusterArgs build() {
-            $.containerProvider = Objects.requireNonNull($.containerProvider, "expected parameter 'containerProvider' to be non-null");
+            if ($.containerProvider == null) {
+                throw new MissingRequiredPropertyException("VirtualClusterArgs", "containerProvider");
+            }
             return $;
         }
     }

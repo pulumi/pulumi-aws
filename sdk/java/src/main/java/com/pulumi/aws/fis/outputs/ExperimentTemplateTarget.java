@@ -6,6 +6,7 @@ package com.pulumi.aws.fis.outputs;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateTargetFilter;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateTargetResourceTag;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -135,6 +136,7 @@ public final class ExperimentTemplateTarget {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<ExperimentTemplateTargetFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -143,16 +145,21 @@ public final class ExperimentTemplateTarget {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ExperimentTemplateTarget", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
+
             this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder resourceArns(@Nullable List<String> resourceArns) {
+
             this.resourceArns = resourceArns;
             return this;
         }
@@ -161,6 +168,7 @@ public final class ExperimentTemplateTarget {
         }
         @CustomType.Setter
         public Builder resourceTags(@Nullable List<ExperimentTemplateTargetResourceTag> resourceTags) {
+
             this.resourceTags = resourceTags;
             return this;
         }
@@ -169,12 +177,18 @@ public final class ExperimentTemplateTarget {
         }
         @CustomType.Setter
         public Builder resourceType(String resourceType) {
-            this.resourceType = Objects.requireNonNull(resourceType);
+            if (resourceType == null) {
+              throw new MissingRequiredPropertyException("ExperimentTemplateTarget", "resourceType");
+            }
+            this.resourceType = resourceType;
             return this;
         }
         @CustomType.Setter
         public Builder selectionMode(String selectionMode) {
-            this.selectionMode = Objects.requireNonNull(selectionMode);
+            if (selectionMode == null) {
+              throw new MissingRequiredPropertyException("ExperimentTemplateTarget", "selectionMode");
+            }
+            this.selectionMode = selectionMode;
             return this;
         }
         public ExperimentTemplateTarget build() {

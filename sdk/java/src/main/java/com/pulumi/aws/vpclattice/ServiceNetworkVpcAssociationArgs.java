@@ -5,6 +5,7 @@ package com.pulumi.aws.vpclattice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -203,8 +204,12 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
         }
 
         public ServiceNetworkVpcAssociationArgs build() {
-            $.serviceNetworkIdentifier = Objects.requireNonNull($.serviceNetworkIdentifier, "expected parameter 'serviceNetworkIdentifier' to be non-null");
-            $.vpcIdentifier = Objects.requireNonNull($.vpcIdentifier, "expected parameter 'vpcIdentifier' to be non-null");
+            if ($.serviceNetworkIdentifier == null) {
+                throw new MissingRequiredPropertyException("ServiceNetworkVpcAssociationArgs", "serviceNetworkIdentifier");
+            }
+            if ($.vpcIdentifier == null) {
+                throw new MissingRequiredPropertyException("ServiceNetworkVpcAssociationArgs", "vpcIdentifier");
+            }
             return $;
         }
     }

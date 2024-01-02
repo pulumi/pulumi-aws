@@ -72,16 +72,19 @@ public final class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountIn
 
         @CustomType.Setter
         public Builder cents(@Nullable Integer cents) {
+
             this.cents = cents;
             return this;
         }
         @CustomType.Setter
         public Builder dollars(@Nullable Integer dollars) {
+
             this.dollars = dollars;
             return this;
         }
         @CustomType.Setter
         public Builder tenthFractionsOfACent(@Nullable Integer tenthFractionsOfACent) {
+
             this.tenthFractionsOfACent = tenthFractionsOfACent;
             return this;
         }

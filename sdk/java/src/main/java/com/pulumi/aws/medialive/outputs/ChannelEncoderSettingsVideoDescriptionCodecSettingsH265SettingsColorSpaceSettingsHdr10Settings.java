@@ -58,11 +58,13 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
 
         @CustomType.Setter
         public Builder maxCll(@Nullable Integer maxCll) {
+
             this.maxCll = maxCll;
             return this;
         }
         @CustomType.Setter
         public Builder maxFall(@Nullable Integer maxFall) {
+
             this.maxFall = maxFall;
             return this;
         }

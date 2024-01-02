@@ -5,6 +5,7 @@ package com.pulumi.aws.backup.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class PlanAdvancedBackupSettingArgs extends com.pulumi.resources.Re
         }
 
         public PlanAdvancedBackupSettingArgs build() {
-            $.backupOptions = Objects.requireNonNull($.backupOptions, "expected parameter 'backupOptions' to be non-null");
-            $.resourceType = Objects.requireNonNull($.resourceType, "expected parameter 'resourceType' to be non-null");
+            if ($.backupOptions == null) {
+                throw new MissingRequiredPropertyException("PlanAdvancedBackupSettingArgs", "backupOptions");
+            }
+            if ($.resourceType == null) {
+                throw new MissingRequiredPropertyException("PlanAdvancedBackupSettingArgs", "resourceType");
+            }
             return $;
         }
     }

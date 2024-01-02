@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -59,7 +60,9 @@ public final class KxClusterTickerplantLogConfigurationArgs extends com.pulumi.r
         }
 
         public KxClusterTickerplantLogConfigurationArgs build() {
-            $.tickerplantLogVolumes = Objects.requireNonNull($.tickerplantLogVolumes, "expected parameter 'tickerplantLogVolumes' to be non-null");
+            if ($.tickerplantLogVolumes == null) {
+                throw new MissingRequiredPropertyException("KxClusterTickerplantLogConfigurationArgs", "tickerplantLogVolumes");
+            }
             return $;
         }
     }

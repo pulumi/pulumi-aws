@@ -44,6 +44,7 @@ public final class ConnectorKafkaClusterClientAuthentication {
 
         @CustomType.Setter
         public Builder authenticationType(@Nullable String authenticationType) {
+
             this.authenticationType = authenticationType;
             return this;
         }

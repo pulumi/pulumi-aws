@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -35,7 +36,10 @@ public final class GetFunctionEnvironment {
 
         @CustomType.Setter
         public Builder variables(Map<String,String> variables) {
-            this.variables = Objects.requireNonNull(variables);
+            if (variables == null) {
+              throw new MissingRequiredPropertyException("GetFunctionEnvironment", "variables");
+            }
+            this.variables = variables;
             return this;
         }
         public GetFunctionEnvironment build() {

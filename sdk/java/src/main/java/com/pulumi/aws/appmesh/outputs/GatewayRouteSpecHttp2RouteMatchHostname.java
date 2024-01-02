@@ -58,11 +58,13 @@ public final class GatewayRouteSpecHttp2RouteMatchHostname {
 
         @CustomType.Setter
         public Builder exact(@Nullable String exact) {
+
             this.exact = exact;
             return this;
         }
         @CustomType.Setter
         public Builder suffix(@Nullable String suffix) {
+
             this.suffix = suffix;
             return this;
         }

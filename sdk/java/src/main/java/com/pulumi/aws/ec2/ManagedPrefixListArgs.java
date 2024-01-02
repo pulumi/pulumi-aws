@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2;
 import com.pulumi.aws.ec2.inputs.ManagedPrefixListEntryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -238,8 +239,12 @@ public final class ManagedPrefixListArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ManagedPrefixListArgs build() {
-            $.addressFamily = Objects.requireNonNull($.addressFamily, "expected parameter 'addressFamily' to be non-null");
-            $.maxEntries = Objects.requireNonNull($.maxEntries, "expected parameter 'maxEntries' to be non-null");
+            if ($.addressFamily == null) {
+                throw new MissingRequiredPropertyException("ManagedPrefixListArgs", "addressFamily");
+            }
+            if ($.maxEntries == null) {
+                throw new MissingRequiredPropertyException("ManagedPrefixListArgs", "maxEntries");
+            }
             return $;
         }
     }

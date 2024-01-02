@@ -74,16 +74,19 @@ public final class BucketLifecycleRuleExpiration {
 
         @CustomType.Setter
         public Builder date(@Nullable String date) {
+
             this.date = date;
             return this;
         }
         @CustomType.Setter
         public Builder days(@Nullable Integer days) {
+
             this.days = days;
             return this;
         }
         @CustomType.Setter
         public Builder expiredObjectDeleteMarker(@Nullable Boolean expiredObjectDeleteMarker) {
+
             this.expiredObjectDeleteMarker = expiredObjectDeleteMarker;
             return this;
         }

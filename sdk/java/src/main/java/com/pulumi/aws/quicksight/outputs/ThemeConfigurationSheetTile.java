@@ -44,6 +44,7 @@ public final class ThemeConfigurationSheetTile {
 
         @CustomType.Setter
         public Builder border(@Nullable ThemeConfigurationSheetTileBorder border) {
+
             this.border = border;
             return this;
         }

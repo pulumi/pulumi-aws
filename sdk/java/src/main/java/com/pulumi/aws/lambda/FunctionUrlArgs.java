@@ -6,6 +6,7 @@ package com.pulumi.aws.lambda;
 import com.pulumi.aws.lambda.inputs.FunctionUrlCorsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -225,8 +226,12 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FunctionUrlArgs build() {
-            $.authorizationType = Objects.requireNonNull($.authorizationType, "expected parameter 'authorizationType' to be non-null");
-            $.functionName = Objects.requireNonNull($.functionName, "expected parameter 'functionName' to be non-null");
+            if ($.authorizationType == null) {
+                throw new MissingRequiredPropertyException("FunctionUrlArgs", "authorizationType");
+            }
+            if ($.functionName == null) {
+                throw new MissingRequiredPropertyException("FunctionUrlArgs", "functionName");
+            }
             return $;
         }
     }

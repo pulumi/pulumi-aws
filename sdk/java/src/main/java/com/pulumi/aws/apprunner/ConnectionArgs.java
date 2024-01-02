@@ -5,6 +5,7 @@ package com.pulumi.aws.apprunner;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConnectionArgs build() {
-            $.connectionName = Objects.requireNonNull($.connectionName, "expected parameter 'connectionName' to be non-null");
-            $.providerType = Objects.requireNonNull($.providerType, "expected parameter 'providerType' to be non-null");
+            if ($.connectionName == null) {
+                throw new MissingRequiredPropertyException("ConnectionArgs", "connectionName");
+            }
+            if ($.providerType == null) {
+                throw new MissingRequiredPropertyException("ConnectionArgs", "providerType");
+            }
             return $;
         }
     }

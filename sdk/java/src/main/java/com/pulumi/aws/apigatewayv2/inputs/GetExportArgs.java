@@ -5,6 +5,7 @@ package com.pulumi.aws.apigatewayv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -262,9 +263,15 @@ public final class GetExportArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetExportArgs build() {
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
-            $.outputType = Objects.requireNonNull($.outputType, "expected parameter 'outputType' to be non-null");
-            $.specification = Objects.requireNonNull($.specification, "expected parameter 'specification' to be non-null");
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("GetExportArgs", "apiId");
+            }
+            if ($.outputType == null) {
+                throw new MissingRequiredPropertyException("GetExportArgs", "outputType");
+            }
+            if ($.specification == null) {
+                throw new MissingRequiredPropertyException("GetExportArgs", "specification");
+            }
             return $;
         }
     }

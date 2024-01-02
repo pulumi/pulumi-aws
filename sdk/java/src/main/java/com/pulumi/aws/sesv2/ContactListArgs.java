@@ -6,6 +6,7 @@ package com.pulumi.aws.sesv2;
 import com.pulumi.aws.sesv2.inputs.ContactListTopicArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -208,7 +209,9 @@ public final class ContactListArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ContactListArgs build() {
-            $.contactListName = Objects.requireNonNull($.contactListName, "expected parameter 'contactListName' to be non-null");
+            if ($.contactListName == null) {
+                throw new MissingRequiredPropertyException("ContactListArgs", "contactListName");
+            }
             return $;
         }
     }

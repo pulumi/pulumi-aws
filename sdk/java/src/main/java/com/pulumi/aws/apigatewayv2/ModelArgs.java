@@ -5,6 +5,7 @@ package com.pulumi.aws.apigatewayv2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ModelArgs build() {
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
-            $.contentType = Objects.requireNonNull($.contentType, "expected parameter 'contentType' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("ModelArgs", "apiId");
+            }
+            if ($.contentType == null) {
+                throw new MissingRequiredPropertyException("ModelArgs", "contentType");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("ModelArgs", "schema");
+            }
             return $;
         }
     }

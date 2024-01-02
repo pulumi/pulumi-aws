@@ -6,6 +6,7 @@ package com.pulumi.aws.elasticache;
 import com.pulumi.aws.elasticache.inputs.UserAuthenticationModeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -357,10 +358,18 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserArgs build() {
-            $.accessString = Objects.requireNonNull($.accessString, "expected parameter 'accessString' to be non-null");
-            $.engine = Objects.requireNonNull($.engine, "expected parameter 'engine' to be non-null");
-            $.userId = Objects.requireNonNull($.userId, "expected parameter 'userId' to be non-null");
-            $.userName = Objects.requireNonNull($.userName, "expected parameter 'userName' to be non-null");
+            if ($.accessString == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "accessString");
+            }
+            if ($.engine == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "engine");
+            }
+            if ($.userId == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "userId");
+            }
+            if ($.userName == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "userName");
+            }
             return $;
         }
     }

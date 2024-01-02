@@ -5,6 +5,7 @@ package com.pulumi.aws.pipes.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -273,8 +274,12 @@ public final class PipeTargetParametersRedshiftDataParametersArgs extends com.pu
         }
 
         public PipeTargetParametersRedshiftDataParametersArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.sqls = Objects.requireNonNull($.sqls, "expected parameter 'sqls' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("PipeTargetParametersRedshiftDataParametersArgs", "database");
+            }
+            if ($.sqls == null) {
+                throw new MissingRequiredPropertyException("PipeTargetParametersRedshiftDataParametersArgs", "sqls");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.GetDataSetColumnGroupGeoSpatialColumnGroup;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,7 +36,10 @@ public final class GetDataSetColumnGroup {
 
         @CustomType.Setter
         public Builder geoSpatialColumnGroups(List<GetDataSetColumnGroupGeoSpatialColumnGroup> geoSpatialColumnGroups) {
-            this.geoSpatialColumnGroups = Objects.requireNonNull(geoSpatialColumnGroups);
+            if (geoSpatialColumnGroups == null) {
+              throw new MissingRequiredPropertyException("GetDataSetColumnGroup", "geoSpatialColumnGroups");
+            }
+            this.geoSpatialColumnGroups = geoSpatialColumnGroups;
             return this;
         }
         public Builder geoSpatialColumnGroups(GetDataSetColumnGroupGeoSpatialColumnGroup... geoSpatialColumnGroups) {

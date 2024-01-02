@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -162,7 +163,9 @@ public final class VpcIpamPreviewNextCidrArgs extends com.pulumi.resources.Resou
         }
 
         public VpcIpamPreviewNextCidrArgs build() {
-            $.ipamPoolId = Objects.requireNonNull($.ipamPoolId, "expected parameter 'ipamPoolId' to be non-null");
+            if ($.ipamPoolId == null) {
+                throw new MissingRequiredPropertyException("VpcIpamPreviewNextCidrArgs", "ipamPoolId");
+            }
             return $;
         }
     }

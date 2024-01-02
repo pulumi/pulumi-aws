@@ -5,6 +5,7 @@ package com.pulumi.aws.s3control.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AccessGrantGranteeArgs extends com.pulumi.resources.ResourceA
         }
 
         public AccessGrantGranteeArgs build() {
-            $.granteeIdentifier = Objects.requireNonNull($.granteeIdentifier, "expected parameter 'granteeIdentifier' to be non-null");
-            $.granteeType = Objects.requireNonNull($.granteeType, "expected parameter 'granteeType' to be non-null");
+            if ($.granteeIdentifier == null) {
+                throw new MissingRequiredPropertyException("AccessGrantGranteeArgs", "granteeIdentifier");
+            }
+            if ($.granteeType == null) {
+                throw new MissingRequiredPropertyException("AccessGrantGranteeArgs", "granteeType");
+            }
             return $;
         }
     }

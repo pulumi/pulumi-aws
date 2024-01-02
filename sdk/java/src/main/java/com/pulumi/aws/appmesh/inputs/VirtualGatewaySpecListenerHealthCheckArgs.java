@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -299,11 +300,21 @@ public final class VirtualGatewaySpecListenerHealthCheckArgs extends com.pulumi.
         }
 
         public VirtualGatewaySpecListenerHealthCheckArgs build() {
-            $.healthyThreshold = Objects.requireNonNull($.healthyThreshold, "expected parameter 'healthyThreshold' to be non-null");
-            $.intervalMillis = Objects.requireNonNull($.intervalMillis, "expected parameter 'intervalMillis' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.timeoutMillis = Objects.requireNonNull($.timeoutMillis, "expected parameter 'timeoutMillis' to be non-null");
-            $.unhealthyThreshold = Objects.requireNonNull($.unhealthyThreshold, "expected parameter 'unhealthyThreshold' to be non-null");
+            if ($.healthyThreshold == null) {
+                throw new MissingRequiredPropertyException("VirtualGatewaySpecListenerHealthCheckArgs", "healthyThreshold");
+            }
+            if ($.intervalMillis == null) {
+                throw new MissingRequiredPropertyException("VirtualGatewaySpecListenerHealthCheckArgs", "intervalMillis");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("VirtualGatewaySpecListenerHealthCheckArgs", "protocol");
+            }
+            if ($.timeoutMillis == null) {
+                throw new MissingRequiredPropertyException("VirtualGatewaySpecListenerHealthCheckArgs", "timeoutMillis");
+            }
+            if ($.unhealthyThreshold == null) {
+                throw new MissingRequiredPropertyException("VirtualGatewaySpecListenerHealthCheckArgs", "unhealthyThreshold");
+            }
             return $;
         }
     }

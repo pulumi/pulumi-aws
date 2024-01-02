@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -63,7 +64,10 @@ public final class GetDirectoryBucketsResult {
 
         @CustomType.Setter
         public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+            if (arns == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryBucketsResult", "arns");
+            }
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -71,7 +75,10 @@ public final class GetDirectoryBucketsResult {
         }
         @CustomType.Setter
         public Builder buckets(List<String> buckets) {
-            this.buckets = Objects.requireNonNull(buckets);
+            if (buckets == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryBucketsResult", "buckets");
+            }
+            this.buckets = buckets;
             return this;
         }
         public Builder buckets(String... buckets) {
@@ -79,7 +86,10 @@ public final class GetDirectoryBucketsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryBucketsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetDirectoryBucketsResult build() {

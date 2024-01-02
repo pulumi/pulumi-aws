@@ -5,6 +5,7 @@ package com.pulumi.aws.dlm.outputs;
 
 import com.pulumi.aws.dlm.outputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class LifecyclePolicyPolicyDetailsAction {
 
         @CustomType.Setter
         public Builder crossRegionCopies(List<LifecyclePolicyPolicyDetailsActionCrossRegionCopy> crossRegionCopies) {
-            this.crossRegionCopies = Objects.requireNonNull(crossRegionCopies);
+            if (crossRegionCopies == null) {
+              throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsAction", "crossRegionCopies");
+            }
+            this.crossRegionCopies = crossRegionCopies;
             return this;
         }
         public Builder crossRegionCopies(LifecyclePolicyPolicyDetailsActionCrossRegionCopy... crossRegionCopies) {
@@ -66,7 +70,10 @@ public final class LifecyclePolicyPolicyDetailsAction {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsAction", "name");
+            }
+            this.name = name;
             return this;
         }
         public LifecyclePolicyPolicyDetailsAction build() {

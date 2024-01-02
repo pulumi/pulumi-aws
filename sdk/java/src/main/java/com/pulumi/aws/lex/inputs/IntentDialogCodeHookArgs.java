@@ -5,6 +5,7 @@ package com.pulumi.aws.lex.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -119,8 +120,12 @@ public final class IntentDialogCodeHookArgs extends com.pulumi.resources.Resourc
         }
 
         public IntentDialogCodeHookArgs build() {
-            $.messageVersion = Objects.requireNonNull($.messageVersion, "expected parameter 'messageVersion' to be non-null");
-            $.uri = Objects.requireNonNull($.uri, "expected parameter 'uri' to be non-null");
+            if ($.messageVersion == null) {
+                throw new MissingRequiredPropertyException("IntentDialogCodeHookArgs", "messageVersion");
+            }
+            if ($.uri == null) {
+                throw new MissingRequiredPropertyException("IntentDialogCodeHookArgs", "uri");
+            }
             return $;
         }
     }

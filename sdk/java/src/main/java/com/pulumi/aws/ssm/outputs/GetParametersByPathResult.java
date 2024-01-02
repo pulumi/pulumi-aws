@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -120,7 +121,10 @@ public final class GetParametersByPathResult {
 
         @CustomType.Setter
         public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+            if (arns == null) {
+              throw new MissingRequiredPropertyException("GetParametersByPathResult", "arns");
+            }
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -128,12 +132,18 @@ public final class GetParametersByPathResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetParametersByPathResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+            if (names == null) {
+              throw new MissingRequiredPropertyException("GetParametersByPathResult", "names");
+            }
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {
@@ -141,17 +151,24 @@ public final class GetParametersByPathResult {
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetParametersByPathResult", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder recursive(@Nullable Boolean recursive) {
+
             this.recursive = recursive;
             return this;
         }
         @CustomType.Setter
         public Builder types(List<String> types) {
-            this.types = Objects.requireNonNull(types);
+            if (types == null) {
+              throw new MissingRequiredPropertyException("GetParametersByPathResult", "types");
+            }
+            this.types = types;
             return this;
         }
         public Builder types(String... types) {
@@ -159,7 +176,10 @@ public final class GetParametersByPathResult {
         }
         @CustomType.Setter
         public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+            if (values == null) {
+              throw new MissingRequiredPropertyException("GetParametersByPathResult", "values");
+            }
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {
@@ -167,6 +187,7 @@ public final class GetParametersByPathResult {
         }
         @CustomType.Setter
         public Builder withDecryption(@Nullable Boolean withDecryption) {
+
             this.withDecryption = withDecryption;
             return this;
         }

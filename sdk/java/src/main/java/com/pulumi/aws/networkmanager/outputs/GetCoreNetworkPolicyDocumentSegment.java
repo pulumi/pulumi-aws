@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -130,6 +131,7 @@ public final class GetCoreNetworkPolicyDocumentSegment {
 
         @CustomType.Setter
         public Builder allowFilters(@Nullable List<String> allowFilters) {
+
             this.allowFilters = allowFilters;
             return this;
         }
@@ -138,6 +140,7 @@ public final class GetCoreNetworkPolicyDocumentSegment {
         }
         @CustomType.Setter
         public Builder denyFilters(@Nullable List<String> denyFilters) {
+
             this.denyFilters = denyFilters;
             return this;
         }
@@ -146,11 +149,13 @@ public final class GetCoreNetworkPolicyDocumentSegment {
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder edgeLocations(@Nullable List<String> edgeLocations) {
+
             this.edgeLocations = edgeLocations;
             return this;
         }
@@ -159,16 +164,21 @@ public final class GetCoreNetworkPolicyDocumentSegment {
         }
         @CustomType.Setter
         public Builder isolateAttachments(@Nullable Boolean isolateAttachments) {
+
             this.isolateAttachments = isolateAttachments;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentSegment", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder requireAttachmentAcceptance(@Nullable Boolean requireAttachmentAcceptance) {
+
             this.requireAttachmentAcceptance = requireAttachmentAcceptance;
             return this;
         }

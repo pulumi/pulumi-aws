@@ -4,6 +4,7 @@
 package com.pulumi.aws.emrcontainers.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,11 +74,15 @@ public final class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver {
 
         @CustomType.Setter
         public Builder entryPoint(String entryPoint) {
-            this.entryPoint = Objects.requireNonNull(entryPoint);
+            if (entryPoint == null) {
+              throw new MissingRequiredPropertyException("JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver", "entryPoint");
+            }
+            this.entryPoint = entryPoint;
             return this;
         }
         @CustomType.Setter
         public Builder entryPointArguments(@Nullable List<String> entryPointArguments) {
+
             this.entryPointArguments = entryPointArguments;
             return this;
         }
@@ -86,6 +91,7 @@ public final class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver {
         }
         @CustomType.Setter
         public Builder sparkSubmitParameters(@Nullable String sparkSubmitParameters) {
+
             this.sparkSubmitParameters = sparkSubmitParameters;
             return this;
         }

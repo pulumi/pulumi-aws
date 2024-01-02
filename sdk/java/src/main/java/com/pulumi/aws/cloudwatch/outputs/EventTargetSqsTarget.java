@@ -44,6 +44,7 @@ public final class EventTargetSqsTarget {
 
         @CustomType.Setter
         public Builder messageGroupId(@Nullable String messageGroupId) {
+
             this.messageGroupId = messageGroupId;
             return this;
         }

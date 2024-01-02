@@ -74,16 +74,19 @@ public final class ScheduledActionTargetAction {
 
         @CustomType.Setter
         public Builder pauseCluster(@Nullable ScheduledActionTargetActionPauseCluster pauseCluster) {
+
             this.pauseCluster = pauseCluster;
             return this;
         }
         @CustomType.Setter
         public Builder resizeCluster(@Nullable ScheduledActionTargetActionResizeCluster resizeCluster) {
+
             this.resizeCluster = resizeCluster;
             return this;
         }
         @CustomType.Setter
         public Builder resumeCluster(@Nullable ScheduledActionTargetActionResumeCluster resumeCluster) {
+
             this.resumeCluster = resumeCluster;
             return this;
         }

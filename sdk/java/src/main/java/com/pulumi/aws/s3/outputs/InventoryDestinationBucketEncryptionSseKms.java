@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class InventoryDestinationBucketEncryptionSseKms {
 
         @CustomType.Setter
         public Builder keyId(String keyId) {
-            this.keyId = Objects.requireNonNull(keyId);
+            if (keyId == null) {
+              throw new MissingRequiredPropertyException("InventoryDestinationBucketEncryptionSseKms", "keyId");
+            }
+            this.keyId = keyId;
             return this;
         }
         public InventoryDestinationBucketEncryptionSseKms build() {

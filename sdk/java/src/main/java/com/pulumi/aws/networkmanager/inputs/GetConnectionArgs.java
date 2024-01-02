@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class GetConnectionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetConnectionArgs build() {
-            $.connectionId = Objects.requireNonNull($.connectionId, "expected parameter 'connectionId' to be non-null");
-            $.globalNetworkId = Objects.requireNonNull($.globalNetworkId, "expected parameter 'globalNetworkId' to be non-null");
+            if ($.connectionId == null) {
+                throw new MissingRequiredPropertyException("GetConnectionArgs", "connectionId");
+            }
+            if ($.globalNetworkId == null) {
+                throw new MissingRequiredPropertyException("GetConnectionArgs", "globalNetworkId");
+            }
             return $;
         }
     }

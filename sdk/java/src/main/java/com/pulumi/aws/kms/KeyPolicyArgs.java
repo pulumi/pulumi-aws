@@ -5,6 +5,7 @@ package com.pulumi.aws.kms;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -167,8 +168,12 @@ public final class KeyPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KeyPolicyArgs build() {
-            $.keyId = Objects.requireNonNull($.keyId, "expected parameter 'keyId' to be non-null");
-            $.policy = Objects.requireNonNull($.policy, "expected parameter 'policy' to be non-null");
+            if ($.keyId == null) {
+                throw new MissingRequiredPropertyException("KeyPolicyArgs", "keyId");
+            }
+            if ($.policy == null) {
+                throw new MissingRequiredPropertyException("KeyPolicyArgs", "policy");
+            }
             return $;
         }
     }

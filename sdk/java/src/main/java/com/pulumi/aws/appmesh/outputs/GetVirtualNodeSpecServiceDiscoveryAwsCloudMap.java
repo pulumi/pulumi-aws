@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -47,17 +48,26 @@ public final class GetVirtualNodeSpecServiceDiscoveryAwsCloudMap {
 
         @CustomType.Setter
         public Builder attributes(Map<String,String> attributes) {
-            this.attributes = Objects.requireNonNull(attributes);
+            if (attributes == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecServiceDiscoveryAwsCloudMap", "attributes");
+            }
+            this.attributes = attributes;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceName(String namespaceName) {
-            this.namespaceName = Objects.requireNonNull(namespaceName);
+            if (namespaceName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecServiceDiscoveryAwsCloudMap", "namespaceName");
+            }
+            this.namespaceName = namespaceName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecServiceDiscoveryAwsCloudMap", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         public GetVirtualNodeSpecServiceDiscoveryAwsCloudMap build() {

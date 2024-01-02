@@ -6,6 +6,7 @@ package com.pulumi.aws.ssoadmin;
 import com.pulumi.aws.ssoadmin.inputs.ApplicationPortalOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -345,8 +346,12 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApplicationArgs build() {
-            $.applicationProviderArn = Objects.requireNonNull($.applicationProviderArn, "expected parameter 'applicationProviderArn' to be non-null");
-            $.instanceArn = Objects.requireNonNull($.instanceArn, "expected parameter 'instanceArn' to be non-null");
+            if ($.applicationProviderArn == null) {
+                throw new MissingRequiredPropertyException("ApplicationArgs", "applicationProviderArn");
+            }
+            if ($.instanceArn == null) {
+                throw new MissingRequiredPropertyException("ApplicationArgs", "instanceArn");
+            }
             return $;
         }
     }

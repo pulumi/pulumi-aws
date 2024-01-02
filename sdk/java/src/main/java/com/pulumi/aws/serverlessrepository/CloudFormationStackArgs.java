@@ -5,6 +5,7 @@ package com.pulumi.aws.serverlessrepository;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -273,8 +274,12 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
         }
 
         public CloudFormationStackArgs build() {
-            $.applicationId = Objects.requireNonNull($.applicationId, "expected parameter 'applicationId' to be non-null");
-            $.capabilities = Objects.requireNonNull($.capabilities, "expected parameter 'capabilities' to be non-null");
+            if ($.applicationId == null) {
+                throw new MissingRequiredPropertyException("CloudFormationStackArgs", "applicationId");
+            }
+            if ($.capabilities == null) {
+                throw new MissingRequiredPropertyException("CloudFormationStackArgs", "capabilities");
+            }
             return $;
         }
     }

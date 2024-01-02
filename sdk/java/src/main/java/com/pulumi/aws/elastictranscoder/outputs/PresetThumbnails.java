@@ -142,41 +142,49 @@ public final class PresetThumbnails {
 
         @CustomType.Setter
         public Builder aspectRatio(@Nullable String aspectRatio) {
+
             this.aspectRatio = aspectRatio;
             return this;
         }
         @CustomType.Setter
         public Builder format(@Nullable String format) {
+
             this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder interval(@Nullable String interval) {
+
             this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder maxHeight(@Nullable String maxHeight) {
+
             this.maxHeight = maxHeight;
             return this;
         }
         @CustomType.Setter
         public Builder maxWidth(@Nullable String maxWidth) {
+
             this.maxWidth = maxWidth;
             return this;
         }
         @CustomType.Setter
         public Builder paddingPolicy(@Nullable String paddingPolicy) {
+
             this.paddingPolicy = paddingPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder resolution(@Nullable String resolution) {
+
             this.resolution = resolution;
             return this;
         }
         @CustomType.Setter
         public Builder sizingPolicy(@Nullable String sizingPolicy) {
+
             this.sizingPolicy = sizingPolicy;
             return this;
         }

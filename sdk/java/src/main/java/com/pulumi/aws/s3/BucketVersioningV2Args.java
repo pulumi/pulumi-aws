@@ -6,6 +6,7 @@ package com.pulumi.aws.s3;
 import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,8 +189,12 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
         }
 
         public BucketVersioningV2Args build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.versioningConfiguration = Objects.requireNonNull($.versioningConfiguration, "expected parameter 'versioningConfiguration' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("BucketVersioningV2Args", "bucket");
+            }
+            if ($.versioningConfiguration == null) {
+                throw new MissingRequiredPropertyException("BucketVersioningV2Args", "versioningConfiguration");
+            }
             return $;
         }
     }

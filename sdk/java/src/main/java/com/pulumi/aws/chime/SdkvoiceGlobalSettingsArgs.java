@@ -6,6 +6,7 @@ package com.pulumi.aws.chime;
 import com.pulumi.aws.chime.inputs.SdkvoiceGlobalSettingsVoiceConnectorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class SdkvoiceGlobalSettingsArgs extends com.pulumi.resources.Resou
         }
 
         public SdkvoiceGlobalSettingsArgs build() {
-            $.voiceConnector = Objects.requireNonNull($.voiceConnector, "expected parameter 'voiceConnector' to be non-null");
+            if ($.voiceConnector == null) {
+                throw new MissingRequiredPropertyException("SdkvoiceGlobalSettingsArgs", "voiceConnector");
+            }
             return $;
         }
     }

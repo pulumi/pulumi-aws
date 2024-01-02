@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetElasticIpFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -248,31 +249,47 @@ public final class GetElasticIpResult {
 
         @CustomType.Setter
         public Builder associationId(String associationId) {
-            this.associationId = Objects.requireNonNull(associationId);
+            if (associationId == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "associationId");
+            }
+            this.associationId = associationId;
             return this;
         }
         @CustomType.Setter
         public Builder carrierIp(String carrierIp) {
-            this.carrierIp = Objects.requireNonNull(carrierIp);
+            if (carrierIp == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "carrierIp");
+            }
+            this.carrierIp = carrierIp;
             return this;
         }
         @CustomType.Setter
         public Builder customerOwnedIp(String customerOwnedIp) {
-            this.customerOwnedIp = Objects.requireNonNull(customerOwnedIp);
+            if (customerOwnedIp == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "customerOwnedIp");
+            }
+            this.customerOwnedIp = customerOwnedIp;
             return this;
         }
         @CustomType.Setter
         public Builder customerOwnedIpv4Pool(String customerOwnedIpv4Pool) {
-            this.customerOwnedIpv4Pool = Objects.requireNonNull(customerOwnedIpv4Pool);
+            if (customerOwnedIpv4Pool == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "customerOwnedIpv4Pool");
+            }
+            this.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
             return this;
         }
         @CustomType.Setter
         public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "domain");
+            }
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetElasticIpFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -281,52 +298,82 @@ public final class GetElasticIpResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+            if (networkInterfaceId == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "networkInterfaceId");
+            }
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceOwnerId(String networkInterfaceOwnerId) {
-            this.networkInterfaceOwnerId = Objects.requireNonNull(networkInterfaceOwnerId);
+            if (networkInterfaceOwnerId == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "networkInterfaceOwnerId");
+            }
+            this.networkInterfaceOwnerId = networkInterfaceOwnerId;
             return this;
         }
         @CustomType.Setter
         public Builder privateDns(String privateDns) {
-            this.privateDns = Objects.requireNonNull(privateDns);
+            if (privateDns == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "privateDns");
+            }
+            this.privateDns = privateDns;
             return this;
         }
         @CustomType.Setter
         public Builder privateIp(String privateIp) {
-            this.privateIp = Objects.requireNonNull(privateIp);
+            if (privateIp == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "privateIp");
+            }
+            this.privateIp = privateIp;
             return this;
         }
         @CustomType.Setter
         public Builder publicDns(String publicDns) {
-            this.publicDns = Objects.requireNonNull(publicDns);
+            if (publicDns == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "publicDns");
+            }
+            this.publicDns = publicDns;
             return this;
         }
         @CustomType.Setter
         public Builder publicIp(String publicIp) {
-            this.publicIp = Objects.requireNonNull(publicIp);
+            if (publicIp == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "publicIp");
+            }
+            this.publicIp = publicIp;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpv4Pool(String publicIpv4Pool) {
-            this.publicIpv4Pool = Objects.requireNonNull(publicIpv4Pool);
+            if (publicIpv4Pool == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "publicIpv4Pool");
+            }
+            this.publicIpv4Pool = publicIpv4Pool;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetElasticIpResult build() {

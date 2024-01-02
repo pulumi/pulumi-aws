@@ -59,6 +59,7 @@ public final class OntapFileSystemEndpoint {
 
         @CustomType.Setter
         public Builder interclusters(@Nullable List<OntapFileSystemEndpointIntercluster> interclusters) {
+
             this.interclusters = interclusters;
             return this;
         }
@@ -67,6 +68,7 @@ public final class OntapFileSystemEndpoint {
         }
         @CustomType.Setter
         public Builder managements(@Nullable List<OntapFileSystemEndpointManagement> managements) {
+
             this.managements = managements;
             return this;
         }

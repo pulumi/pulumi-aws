@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -76,22 +77,34 @@ public final class GetPullThroughCacheRuleResult {
 
         @CustomType.Setter
         public Builder ecrRepositoryPrefix(String ecrRepositoryPrefix) {
-            this.ecrRepositoryPrefix = Objects.requireNonNull(ecrRepositoryPrefix);
+            if (ecrRepositoryPrefix == null) {
+              throw new MissingRequiredPropertyException("GetPullThroughCacheRuleResult", "ecrRepositoryPrefix");
+            }
+            this.ecrRepositoryPrefix = ecrRepositoryPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPullThroughCacheRuleResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder registryId(String registryId) {
-            this.registryId = Objects.requireNonNull(registryId);
+            if (registryId == null) {
+              throw new MissingRequiredPropertyException("GetPullThroughCacheRuleResult", "registryId");
+            }
+            this.registryId = registryId;
             return this;
         }
         @CustomType.Setter
         public Builder upstreamRegistryUrl(String upstreamRegistryUrl) {
-            this.upstreamRegistryUrl = Objects.requireNonNull(upstreamRegistryUrl);
+            if (upstreamRegistryUrl == null) {
+              throw new MissingRequiredPropertyException("GetPullThroughCacheRuleResult", "upstreamRegistryUrl");
+            }
+            this.upstreamRegistryUrl = upstreamRegistryUrl;
             return this;
         }
         public GetPullThroughCacheRuleResult build() {

@@ -76,16 +76,19 @@ public final class ClusterKubernetesNetworkConfig {
 
         @CustomType.Setter
         public Builder ipFamily(@Nullable String ipFamily) {
+
             this.ipFamily = ipFamily;
             return this;
         }
         @CustomType.Setter
         public Builder serviceIpv4Cidr(@Nullable String serviceIpv4Cidr) {
+
             this.serviceIpv4Cidr = serviceIpv4Cidr;
             return this;
         }
         @CustomType.Setter
         public Builder serviceIpv6Cidr(@Nullable String serviceIpv6Cidr) {
+
             this.serviceIpv6Cidr = serviceIpv6Cidr;
             return this;
         }

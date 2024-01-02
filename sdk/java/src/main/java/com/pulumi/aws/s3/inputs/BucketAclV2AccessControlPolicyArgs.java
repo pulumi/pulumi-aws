@@ -7,6 +7,7 @@ import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyGrantArgs;
 import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -125,7 +126,9 @@ public final class BucketAclV2AccessControlPolicyArgs extends com.pulumi.resourc
         }
 
         public BucketAclV2AccessControlPolicyArgs build() {
-            $.owner = Objects.requireNonNull($.owner, "expected parameter 'owner' to be non-null");
+            if ($.owner == null) {
+                throw new MissingRequiredPropertyException("BucketAclV2AccessControlPolicyArgs", "owner");
+            }
             return $;
         }
     }

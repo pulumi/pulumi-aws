@@ -88,16 +88,19 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
 
         @CustomType.Setter
         public Builder comparator(@Nullable String comparator) {
+
             this.comparator = comparator;
             return this;
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder tagValues(@Nullable List<ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue> tagValues) {
+
             this.tagValues = tagValues;
             return this;
         }
@@ -106,6 +109,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTer
         }
         @CustomType.Setter
         public Builder target(@Nullable String target) {
+
             this.target = target;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh;
 import com.pulumi.aws.appmesh.inputs.VirtualRouterSpecArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -226,8 +227,12 @@ public final class VirtualRouterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VirtualRouterArgs build() {
-            $.meshName = Objects.requireNonNull($.meshName, "expected parameter 'meshName' to be non-null");
-            $.spec = Objects.requireNonNull($.spec, "expected parameter 'spec' to be non-null");
+            if ($.meshName == null) {
+                throw new MissingRequiredPropertyException("VirtualRouterArgs", "meshName");
+            }
+            if ($.spec == null) {
+                throw new MissingRequiredPropertyException("VirtualRouterArgs", "spec");
+            }
             return $;
         }
     }

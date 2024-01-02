@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2.outputs;
 import com.pulumi.aws.ec2.outputs.GetVpcIamPoolsFilter;
 import com.pulumi.aws.ec2.outputs.GetVpcIamPoolsIpamPool;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -66,6 +67,7 @@ public final class GetVpcIamPoolsResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcIamPoolsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -74,12 +76,18 @@ public final class GetVpcIamPoolsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipamPools(List<GetVpcIamPoolsIpamPool> ipamPools) {
-            this.ipamPools = Objects.requireNonNull(ipamPools);
+            if (ipamPools == null) {
+              throw new MissingRequiredPropertyException("GetVpcIamPoolsResult", "ipamPools");
+            }
+            this.ipamPools = ipamPools;
             return this;
         }
         public Builder ipamPools(GetVpcIamPoolsIpamPool... ipamPools) {

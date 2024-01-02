@@ -100,26 +100,31 @@ public final class EndpointRedshiftSettings {
 
         @CustomType.Setter
         public Builder bucketFolder(@Nullable String bucketFolder) {
+
             this.bucketFolder = bucketFolder;
             return this;
         }
         @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
+
             this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionMode(@Nullable String encryptionMode) {
+
             this.encryptionMode = encryptionMode;
             return this;
         }
         @CustomType.Setter
         public Builder serverSideEncryptionKmsKeyId(@Nullable String serverSideEncryptionKmsKeyId) {
+
             this.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccessRoleArn(@Nullable String serviceAccessRoleArn) {
+
             this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }

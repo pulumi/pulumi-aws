@@ -4,6 +4,7 @@
 package com.pulumi.aws.globalaccelerator.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -41,7 +42,10 @@ public final class GetCustomRoutingAcceleratorIpSet {
 
         @CustomType.Setter
         public Builder ipAddresses(List<String> ipAddresses) {
-            this.ipAddresses = Objects.requireNonNull(ipAddresses);
+            if (ipAddresses == null) {
+              throw new MissingRequiredPropertyException("GetCustomRoutingAcceleratorIpSet", "ipAddresses");
+            }
+            this.ipAddresses = ipAddresses;
             return this;
         }
         public Builder ipAddresses(String... ipAddresses) {
@@ -49,7 +53,10 @@ public final class GetCustomRoutingAcceleratorIpSet {
         }
         @CustomType.Setter
         public Builder ipFamily(String ipFamily) {
-            this.ipFamily = Objects.requireNonNull(ipFamily);
+            if (ipFamily == null) {
+              throw new MissingRequiredPropertyException("GetCustomRoutingAcceleratorIpSet", "ipFamily");
+            }
+            this.ipFamily = ipFamily;
             return this;
         }
         public GetCustomRoutingAcceleratorIpSet build() {

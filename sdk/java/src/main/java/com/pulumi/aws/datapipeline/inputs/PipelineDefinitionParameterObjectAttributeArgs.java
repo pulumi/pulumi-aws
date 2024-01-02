@@ -5,6 +5,7 @@ package com.pulumi.aws.datapipeline.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class PipelineDefinitionParameterObjectAttributeArgs extends com.pu
         }
 
         public PipelineDefinitionParameterObjectAttributeArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.stringValue = Objects.requireNonNull($.stringValue, "expected parameter 'stringValue' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("PipelineDefinitionParameterObjectAttributeArgs", "key");
+            }
+            if ($.stringValue == null) {
+                throw new MissingRequiredPropertyException("PipelineDefinitionParameterObjectAttributeArgs", "stringValue");
+            }
             return $;
         }
     }

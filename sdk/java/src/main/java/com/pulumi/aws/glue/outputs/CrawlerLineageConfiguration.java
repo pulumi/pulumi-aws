@@ -44,6 +44,7 @@ public final class CrawlerLineageConfiguration {
 
         @CustomType.Setter
         public Builder crawlerLineageSettings(@Nullable String crawlerLineageSettings) {
+
             this.crawlerLineageSettings = crawlerLineageSettings;
             return this;
         }

@@ -9,6 +9,7 @@ import com.pulumi.aws.sagemaker.inputs.WorkforceSourceIpConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.WorkforceWorkforceVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -228,7 +229,9 @@ public final class WorkforceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkforceArgs build() {
-            $.workforceName = Objects.requireNonNull($.workforceName, "expected parameter 'workforceName' to be non-null");
+            if ($.workforceName == null) {
+                throw new MissingRequiredPropertyException("WorkforceArgs", "workforceName");
+            }
             return $;
         }
     }

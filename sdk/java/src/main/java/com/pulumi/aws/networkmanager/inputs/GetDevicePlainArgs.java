@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkmanager.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -120,8 +121,12 @@ public final class GetDevicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetDevicePlainArgs build() {
-            $.deviceId = Objects.requireNonNull($.deviceId, "expected parameter 'deviceId' to be non-null");
-            $.globalNetworkId = Objects.requireNonNull($.globalNetworkId, "expected parameter 'globalNetworkId' to be non-null");
+            if ($.deviceId == null) {
+                throw new MissingRequiredPropertyException("GetDevicePlainArgs", "deviceId");
+            }
+            if ($.globalNetworkId == null) {
+                throw new MissingRequiredPropertyException("GetDevicePlainArgs", "globalNetworkId");
+            }
             return $;
         }
     }

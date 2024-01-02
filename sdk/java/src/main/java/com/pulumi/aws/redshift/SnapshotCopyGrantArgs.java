@@ -5,6 +5,7 @@ package com.pulumi.aws.redshift;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class SnapshotCopyGrantArgs extends com.pulumi.resources.ResourceAr
         }
 
         public SnapshotCopyGrantArgs build() {
-            $.snapshotCopyGrantName = Objects.requireNonNull($.snapshotCopyGrantName, "expected parameter 'snapshotCopyGrantName' to be non-null");
+            if ($.snapshotCopyGrantName == null) {
+                throw new MissingRequiredPropertyException("SnapshotCopyGrantArgs", "snapshotCopyGrantName");
+            }
             return $;
         }
     }

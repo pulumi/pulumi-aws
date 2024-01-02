@@ -6,6 +6,7 @@ package com.pulumi.aws.sesv2;
 import com.pulumi.aws.sesv2.inputs.EmailIdentityDkimSigningAttributesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -197,7 +198,9 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EmailIdentityArgs build() {
-            $.emailIdentity = Objects.requireNonNull($.emailIdentity, "expected parameter 'emailIdentity' to be non-null");
+            if ($.emailIdentity == null) {
+                throw new MissingRequiredPropertyException("EmailIdentityArgs", "emailIdentity");
+            }
             return $;
         }
     }

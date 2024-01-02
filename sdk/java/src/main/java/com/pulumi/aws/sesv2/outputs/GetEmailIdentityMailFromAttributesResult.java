@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -76,22 +77,34 @@ public final class GetEmailIdentityMailFromAttributesResult {
 
         @CustomType.Setter
         public Builder behaviorOnMxFailure(String behaviorOnMxFailure) {
-            this.behaviorOnMxFailure = Objects.requireNonNull(behaviorOnMxFailure);
+            if (behaviorOnMxFailure == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityMailFromAttributesResult", "behaviorOnMxFailure");
+            }
+            this.behaviorOnMxFailure = behaviorOnMxFailure;
             return this;
         }
         @CustomType.Setter
         public Builder emailIdentity(String emailIdentity) {
-            this.emailIdentity = Objects.requireNonNull(emailIdentity);
+            if (emailIdentity == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityMailFromAttributesResult", "emailIdentity");
+            }
+            this.emailIdentity = emailIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityMailFromAttributesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder mailFromDomain(String mailFromDomain) {
-            this.mailFromDomain = Objects.requireNonNull(mailFromDomain);
+            if (mailFromDomain == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityMailFromAttributesResult", "mailFromDomain");
+            }
+            this.mailFromDomain = mailFromDomain;
             return this;
         }
         public GetEmailIdentityMailFromAttributesResult build() {

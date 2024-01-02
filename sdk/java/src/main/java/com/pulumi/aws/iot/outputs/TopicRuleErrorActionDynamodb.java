@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -170,52 +171,70 @@ public final class TopicRuleErrorActionDynamodb {
 
         @CustomType.Setter
         public Builder hashKeyField(String hashKeyField) {
-            this.hashKeyField = Objects.requireNonNull(hashKeyField);
+            if (hashKeyField == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionDynamodb", "hashKeyField");
+            }
+            this.hashKeyField = hashKeyField;
             return this;
         }
         @CustomType.Setter
         public Builder hashKeyType(@Nullable String hashKeyType) {
+
             this.hashKeyType = hashKeyType;
             return this;
         }
         @CustomType.Setter
         public Builder hashKeyValue(String hashKeyValue) {
-            this.hashKeyValue = Objects.requireNonNull(hashKeyValue);
+            if (hashKeyValue == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionDynamodb", "hashKeyValue");
+            }
+            this.hashKeyValue = hashKeyValue;
             return this;
         }
         @CustomType.Setter
         public Builder operation(@Nullable String operation) {
+
             this.operation = operation;
             return this;
         }
         @CustomType.Setter
         public Builder payloadField(@Nullable String payloadField) {
+
             this.payloadField = payloadField;
             return this;
         }
         @CustomType.Setter
         public Builder rangeKeyField(@Nullable String rangeKeyField) {
+
             this.rangeKeyField = rangeKeyField;
             return this;
         }
         @CustomType.Setter
         public Builder rangeKeyType(@Nullable String rangeKeyType) {
+
             this.rangeKeyType = rangeKeyType;
             return this;
         }
         @CustomType.Setter
         public Builder rangeKeyValue(@Nullable String rangeKeyValue) {
+
             this.rangeKeyValue = rangeKeyValue;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionDynamodb", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder tableName(String tableName) {
-            this.tableName = Objects.requireNonNull(tableName);
+            if (tableName == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionDynamodb", "tableName");
+            }
+            this.tableName = tableName;
             return this;
         }
         public TopicRuleErrorActionDynamodb build() {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.gamelift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class GameSessionQueuePlayerLatencyPolicy {
 
         @CustomType.Setter
         public Builder maximumIndividualPlayerLatencyMilliseconds(Integer maximumIndividualPlayerLatencyMilliseconds) {
-            this.maximumIndividualPlayerLatencyMilliseconds = Objects.requireNonNull(maximumIndividualPlayerLatencyMilliseconds);
+            if (maximumIndividualPlayerLatencyMilliseconds == null) {
+              throw new MissingRequiredPropertyException("GameSessionQueuePlayerLatencyPolicy", "maximumIndividualPlayerLatencyMilliseconds");
+            }
+            this.maximumIndividualPlayerLatencyMilliseconds = maximumIndividualPlayerLatencyMilliseconds;
             return this;
         }
         @CustomType.Setter
         public Builder policyDurationSeconds(@Nullable Integer policyDurationSeconds) {
+
             this.policyDurationSeconds = policyDurationSeconds;
             return this;
         }

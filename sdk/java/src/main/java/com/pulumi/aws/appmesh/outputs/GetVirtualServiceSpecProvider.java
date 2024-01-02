@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualServiceSpecProviderVirtualNode;
 import com.pulumi.aws.appmesh.outputs.GetVirtualServiceSpecProviderVirtualRouter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetVirtualServiceSpecProvider {
 
         @CustomType.Setter
         public Builder virtualNodes(List<GetVirtualServiceSpecProviderVirtualNode> virtualNodes) {
-            this.virtualNodes = Objects.requireNonNull(virtualNodes);
+            if (virtualNodes == null) {
+              throw new MissingRequiredPropertyException("GetVirtualServiceSpecProvider", "virtualNodes");
+            }
+            this.virtualNodes = virtualNodes;
             return this;
         }
         public Builder virtualNodes(GetVirtualServiceSpecProviderVirtualNode... virtualNodes) {
@@ -50,7 +54,10 @@ public final class GetVirtualServiceSpecProvider {
         }
         @CustomType.Setter
         public Builder virtualRouters(List<GetVirtualServiceSpecProviderVirtualRouter> virtualRouters) {
-            this.virtualRouters = Objects.requireNonNull(virtualRouters);
+            if (virtualRouters == null) {
+              throw new MissingRequiredPropertyException("GetVirtualServiceSpecProvider", "virtualRouters");
+            }
+            this.virtualRouters = virtualRouters;
             return this;
         }
         public Builder virtualRouters(GetVirtualServiceSpecProviderVirtualRouter... virtualRouters) {

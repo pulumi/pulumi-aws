@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ChannelMaintenanceArgs extends com.pulumi.resources.ResourceA
         }
 
         public ChannelMaintenanceArgs build() {
-            $.maintenanceDay = Objects.requireNonNull($.maintenanceDay, "expected parameter 'maintenanceDay' to be non-null");
-            $.maintenanceStartTime = Objects.requireNonNull($.maintenanceStartTime, "expected parameter 'maintenanceStartTime' to be non-null");
+            if ($.maintenanceDay == null) {
+                throw new MissingRequiredPropertyException("ChannelMaintenanceArgs", "maintenanceDay");
+            }
+            if ($.maintenanceStartTime == null) {
+                throw new MissingRequiredPropertyException("ChannelMaintenanceArgs", "maintenanceStartTime");
+            }
             return $;
         }
     }

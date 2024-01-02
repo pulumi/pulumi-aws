@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class GetImageOutputResourceContainer {
 
         @CustomType.Setter
         public Builder imageUris(List<String> imageUris) {
-            this.imageUris = Objects.requireNonNull(imageUris);
+            if (imageUris == null) {
+              throw new MissingRequiredPropertyException("GetImageOutputResourceContainer", "imageUris");
+            }
+            this.imageUris = imageUris;
             return this;
         }
         public Builder imageUris(String... imageUris) {
@@ -65,7 +69,10 @@ public final class GetImageOutputResourceContainer {
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetImageOutputResourceContainer", "region");
+            }
+            this.region = region;
             return this;
         }
         public GetImageOutputResourceContainer build() {

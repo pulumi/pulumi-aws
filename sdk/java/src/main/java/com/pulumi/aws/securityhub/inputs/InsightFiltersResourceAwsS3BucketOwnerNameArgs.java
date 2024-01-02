@@ -5,6 +5,7 @@ package com.pulumi.aws.securityhub.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class InsightFiltersResourceAwsS3BucketOwnerNameArgs extends com.pu
         }
 
         public InsightFiltersResourceAwsS3BucketOwnerNameArgs build() {
-            $.comparison = Objects.requireNonNull($.comparison, "expected parameter 'comparison' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.comparison == null) {
+                throw new MissingRequiredPropertyException("InsightFiltersResourceAwsS3BucketOwnerNameArgs", "comparison");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("InsightFiltersResourceAwsS3BucketOwnerNameArgs", "value");
+            }
             return $;
         }
     }

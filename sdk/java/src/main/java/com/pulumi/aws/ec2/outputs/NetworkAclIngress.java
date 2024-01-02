@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -165,47 +166,66 @@ public final class NetworkAclIngress {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("NetworkAclIngress", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder cidrBlock(@Nullable String cidrBlock) {
+
             this.cidrBlock = cidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder fromPort(Integer fromPort) {
-            this.fromPort = Objects.requireNonNull(fromPort);
+            if (fromPort == null) {
+              throw new MissingRequiredPropertyException("NetworkAclIngress", "fromPort");
+            }
+            this.fromPort = fromPort;
             return this;
         }
         @CustomType.Setter
         public Builder icmpCode(@Nullable Integer icmpCode) {
+
             this.icmpCode = icmpCode;
             return this;
         }
         @CustomType.Setter
         public Builder icmpType(@Nullable Integer icmpType) {
+
             this.icmpType = icmpType;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6CidrBlock(@Nullable String ipv6CidrBlock) {
+
             this.ipv6CidrBlock = ipv6CidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("NetworkAclIngress", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder ruleNo(Integer ruleNo) {
-            this.ruleNo = Objects.requireNonNull(ruleNo);
+            if (ruleNo == null) {
+              throw new MissingRequiredPropertyException("NetworkAclIngress", "ruleNo");
+            }
+            this.ruleNo = ruleNo;
             return this;
         }
         @CustomType.Setter
         public Builder toPort(Integer toPort) {
-            this.toPort = Objects.requireNonNull(toPort);
+            if (toPort == null) {
+              throw new MissingRequiredPropertyException("NetworkAclIngress", "toPort");
+            }
+            this.toPort = toPort;
             return this;
         }
         public NetworkAclIngress build() {

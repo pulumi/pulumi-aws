@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class ManagedPolicyAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         public ManagedPolicyAttachmentArgs build() {
-            $.instanceArn = Objects.requireNonNull($.instanceArn, "expected parameter 'instanceArn' to be non-null");
-            $.managedPolicyArn = Objects.requireNonNull($.managedPolicyArn, "expected parameter 'managedPolicyArn' to be non-null");
-            $.permissionSetArn = Objects.requireNonNull($.permissionSetArn, "expected parameter 'permissionSetArn' to be non-null");
+            if ($.instanceArn == null) {
+                throw new MissingRequiredPropertyException("ManagedPolicyAttachmentArgs", "instanceArn");
+            }
+            if ($.managedPolicyArn == null) {
+                throw new MissingRequiredPropertyException("ManagedPolicyAttachmentArgs", "managedPolicyArn");
+            }
+            if ($.permissionSetArn == null) {
+                throw new MissingRequiredPropertyException("ManagedPolicyAttachmentArgs", "permissionSetArn");
+            }
             return $;
         }
     }

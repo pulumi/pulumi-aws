@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -34,7 +35,10 @@ public final class GetLaunchTemplateHibernationOption {
 
         @CustomType.Setter
         public Builder configured(Boolean configured) {
-            this.configured = Objects.requireNonNull(configured);
+            if (configured == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateHibernationOption", "configured");
+            }
+            this.configured = configured;
             return this;
         }
         public GetLaunchTemplateHibernationOption build() {

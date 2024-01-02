@@ -8,6 +8,7 @@ import com.pulumi.aws.appmesh.outputs.GetRouteSpecGrpcRouteMatch;
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecGrpcRouteRetryPolicy;
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecGrpcRouteTimeout;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -56,7 +57,10 @@ public final class GetRouteSpecGrpcRoute {
 
         @CustomType.Setter
         public Builder actions(List<GetRouteSpecGrpcRouteAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRoute", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetRouteSpecGrpcRouteAction... actions) {
@@ -64,7 +68,10 @@ public final class GetRouteSpecGrpcRoute {
         }
         @CustomType.Setter
         public Builder matches(List<GetRouteSpecGrpcRouteMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+            if (matches == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRoute", "matches");
+            }
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetRouteSpecGrpcRouteMatch... matches) {
@@ -72,7 +79,10 @@ public final class GetRouteSpecGrpcRoute {
         }
         @CustomType.Setter
         public Builder retryPolicies(List<GetRouteSpecGrpcRouteRetryPolicy> retryPolicies) {
-            this.retryPolicies = Objects.requireNonNull(retryPolicies);
+            if (retryPolicies == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRoute", "retryPolicies");
+            }
+            this.retryPolicies = retryPolicies;
             return this;
         }
         public Builder retryPolicies(GetRouteSpecGrpcRouteRetryPolicy... retryPolicies) {
@@ -80,7 +90,10 @@ public final class GetRouteSpecGrpcRoute {
         }
         @CustomType.Setter
         public Builder timeouts(List<GetRouteSpecGrpcRouteTimeout> timeouts) {
-            this.timeouts = Objects.requireNonNull(timeouts);
+            if (timeouts == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRoute", "timeouts");
+            }
+            this.timeouts = timeouts;
             return this;
         }
         public Builder timeouts(GetRouteSpecGrpcRouteTimeout... timeouts) {

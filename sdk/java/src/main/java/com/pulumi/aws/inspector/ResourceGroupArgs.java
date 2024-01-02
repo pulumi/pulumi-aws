@@ -5,6 +5,7 @@ package com.pulumi.aws.inspector;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -75,7 +76,9 @@ public final class ResourceGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ResourceGroupArgs build() {
-            $.tags = Objects.requireNonNull($.tags, "expected parameter 'tags' to be non-null");
+            if ($.tags == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupArgs", "tags");
+            }
             return $;
         }
     }

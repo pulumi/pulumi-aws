@@ -75,6 +75,7 @@ public final class UserProfileUserSettingsKernelGatewayAppSettings {
 
         @CustomType.Setter
         public Builder customImages(@Nullable List<UserProfileUserSettingsKernelGatewayAppSettingsCustomImage> customImages) {
+
             this.customImages = customImages;
             return this;
         }
@@ -83,11 +84,13 @@ public final class UserProfileUserSettingsKernelGatewayAppSettings {
         }
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec) {
+
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleConfigArns(@Nullable List<String> lifecycleConfigArns) {
+
             this.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.appconfig.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class EnvironmentMonitorArgs extends com.pulumi.resources.ResourceA
         }
 
         public EnvironmentMonitorArgs build() {
-            $.alarmArn = Objects.requireNonNull($.alarmArn, "expected parameter 'alarmArn' to be non-null");
+            if ($.alarmArn == null) {
+                throw new MissingRequiredPropertyException("EnvironmentMonitorArgs", "alarmArn");
+            }
             return $;
         }
     }

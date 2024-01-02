@@ -5,6 +5,7 @@ package com.pulumi.aws.customerprofiles.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class DomainRuleBasedMatchingConflictResolutionArgs extends com.pul
         }
 
         public DomainRuleBasedMatchingConflictResolutionArgs build() {
-            $.conflictResolvingModel = Objects.requireNonNull($.conflictResolvingModel, "expected parameter 'conflictResolvingModel' to be non-null");
+            if ($.conflictResolvingModel == null) {
+                throw new MissingRequiredPropertyException("DomainRuleBasedMatchingConflictResolutionArgs", "conflictResolvingModel");
+            }
             return $;
         }
     }

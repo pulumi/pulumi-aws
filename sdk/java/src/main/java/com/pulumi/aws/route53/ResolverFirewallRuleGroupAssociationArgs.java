@@ -5,6 +5,7 @@ package com.pulumi.aws.route53;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -263,9 +264,15 @@ public final class ResolverFirewallRuleGroupAssociationArgs extends com.pulumi.r
         }
 
         public ResolverFirewallRuleGroupAssociationArgs build() {
-            $.firewallRuleGroupId = Objects.requireNonNull($.firewallRuleGroupId, "expected parameter 'firewallRuleGroupId' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.firewallRuleGroupId == null) {
+                throw new MissingRequiredPropertyException("ResolverFirewallRuleGroupAssociationArgs", "firewallRuleGroupId");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("ResolverFirewallRuleGroupAssociationArgs", "priority");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("ResolverFirewallRuleGroupAssociationArgs", "vpcId");
+            }
             return $;
         }
     }

@@ -36,6 +36,7 @@ public final class ResponseHeadersPolicyRemoveHeadersConfig {
 
         @CustomType.Setter
         public Builder items(@Nullable List<ResponseHeadersPolicyRemoveHeadersConfigItem> items) {
+
             this.items = items;
             return this;
         }

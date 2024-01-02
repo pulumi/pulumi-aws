@@ -4,6 +4,7 @@
 package com.pulumi.aws.vpclattice.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetResourcePolicyPlainArgs extends com.pulumi.resources.Invok
         }
 
         public GetResourcePolicyPlainArgs build() {
-            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
+            if ($.resourceArn == null) {
+                throw new MissingRequiredPropertyException("GetResourcePolicyPlainArgs", "resourceArn");
+            }
             return $;
         }
     }

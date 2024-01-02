@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetDedicatedIpPoolDedicatedIp {
 
         @CustomType.Setter
         public Builder ip(String ip) {
-            this.ip = Objects.requireNonNull(ip);
+            if (ip == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedIpPoolDedicatedIp", "ip");
+            }
+            this.ip = ip;
             return this;
         }
         @CustomType.Setter
         public Builder warmupPercentage(Integer warmupPercentage) {
-            this.warmupPercentage = Objects.requireNonNull(warmupPercentage);
+            if (warmupPercentage == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedIpPoolDedicatedIp", "warmupPercentage");
+            }
+            this.warmupPercentage = warmupPercentage;
             return this;
         }
         @CustomType.Setter
         public Builder warmupStatus(String warmupStatus) {
-            this.warmupStatus = Objects.requireNonNull(warmupStatus);
+            if (warmupStatus == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedIpPoolDedicatedIp", "warmupStatus");
+            }
+            this.warmupStatus = warmupStatus;
             return this;
         }
         public GetDedicatedIpPoolDedicatedIp build() {

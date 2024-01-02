@@ -7,6 +7,7 @@ import com.pulumi.aws.ecs.outputs.TaskDefinitionVolumeDockerVolumeConfiguration;
 import com.pulumi.aws.ecs.outputs.TaskDefinitionVolumeEfsVolumeConfiguration;
 import com.pulumi.aws.ecs.outputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -105,27 +106,34 @@ public final class TaskDefinitionVolume {
 
         @CustomType.Setter
         public Builder dockerVolumeConfiguration(@Nullable TaskDefinitionVolumeDockerVolumeConfiguration dockerVolumeConfiguration) {
+
             this.dockerVolumeConfiguration = dockerVolumeConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder efsVolumeConfiguration(@Nullable TaskDefinitionVolumeEfsVolumeConfiguration efsVolumeConfiguration) {
+
             this.efsVolumeConfiguration = efsVolumeConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder fsxWindowsFileServerVolumeConfiguration(@Nullable TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration fsxWindowsFileServerVolumeConfiguration) {
+
             this.fsxWindowsFileServerVolumeConfiguration = fsxWindowsFileServerVolumeConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder hostPath(@Nullable String hostPath) {
+
             this.hostPath = hostPath;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("TaskDefinitionVolume", "name");
+            }
+            this.name = name;
             return this;
         }
         public TaskDefinitionVolume build() {

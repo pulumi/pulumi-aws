@@ -45,6 +45,7 @@ public final class AliasRoutingConfig {
 
         @CustomType.Setter
         public Builder additionalVersionWeights(@Nullable Map<String,Double> additionalVersionWeights) {
+
             this.additionalVersionWeights = additionalVersionWeights;
             return this;
         }

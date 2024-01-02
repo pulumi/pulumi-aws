@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class ModelContainerModelDataSourceS3DataSourceArgs extends com.pul
         }
 
         public ModelContainerModelDataSourceS3DataSourceArgs build() {
-            $.compressionType = Objects.requireNonNull($.compressionType, "expected parameter 'compressionType' to be non-null");
-            $.s3DataType = Objects.requireNonNull($.s3DataType, "expected parameter 's3DataType' to be non-null");
-            $.s3Uri = Objects.requireNonNull($.s3Uri, "expected parameter 's3Uri' to be non-null");
+            if ($.compressionType == null) {
+                throw new MissingRequiredPropertyException("ModelContainerModelDataSourceS3DataSourceArgs", "compressionType");
+            }
+            if ($.s3DataType == null) {
+                throw new MissingRequiredPropertyException("ModelContainerModelDataSourceS3DataSourceArgs", "s3DataType");
+            }
+            if ($.s3Uri == null) {
+                throw new MissingRequiredPropertyException("ModelContainerModelDataSourceS3DataSourceArgs", "s3Uri");
+            }
             return $;
         }
     }

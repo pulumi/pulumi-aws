@@ -6,6 +6,7 @@ package com.pulumi.aws.route53recoveryreadiness;
 import com.pulumi.aws.route53recoveryreadiness.inputs.ResourceSetResourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -210,9 +211,15 @@ public final class ResourceSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ResourceSetArgs build() {
-            $.resourceSetName = Objects.requireNonNull($.resourceSetName, "expected parameter 'resourceSetName' to be non-null");
-            $.resourceSetType = Objects.requireNonNull($.resourceSetType, "expected parameter 'resourceSetType' to be non-null");
-            $.resources = Objects.requireNonNull($.resources, "expected parameter 'resources' to be non-null");
+            if ($.resourceSetName == null) {
+                throw new MissingRequiredPropertyException("ResourceSetArgs", "resourceSetName");
+            }
+            if ($.resourceSetType == null) {
+                throw new MissingRequiredPropertyException("ResourceSetArgs", "resourceSetType");
+            }
+            if ($.resources == null) {
+                throw new MissingRequiredPropertyException("ResourceSetArgs", "resources");
+            }
             return $;
         }
     }

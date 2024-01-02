@@ -5,6 +5,7 @@ package com.pulumi.aws.lakeformation.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -169,9 +170,15 @@ public final class GetPermissionsLfTagArgs extends com.pulumi.resources.Resource
         }
 
         public GetPermissionsLfTagArgs build() {
-            $.catalogId = Objects.requireNonNull($.catalogId, "expected parameter 'catalogId' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.values = Objects.requireNonNull($.values, "expected parameter 'values' to be non-null");
+            if ($.catalogId == null) {
+                throw new MissingRequiredPropertyException("GetPermissionsLfTagArgs", "catalogId");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetPermissionsLfTagArgs", "key");
+            }
+            if ($.values == null) {
+                throw new MissingRequiredPropertyException("GetPermissionsLfTagArgs", "values");
+            }
             return $;
         }
     }

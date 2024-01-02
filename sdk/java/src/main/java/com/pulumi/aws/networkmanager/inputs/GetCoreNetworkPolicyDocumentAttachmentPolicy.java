@@ -6,6 +6,7 @@ package com.pulumi.aws.networkmanager.inputs;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyAction;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -187,9 +188,15 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicy extends com.pulu
         }
 
         public GetCoreNetworkPolicyDocumentAttachmentPolicy build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.conditions = Objects.requireNonNull($.conditions, "expected parameter 'conditions' to be non-null");
-            $.ruleNumber = Objects.requireNonNull($.ruleNumber, "expected parameter 'ruleNumber' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentAttachmentPolicy", "action");
+            }
+            if ($.conditions == null) {
+                throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentAttachmentPolicy", "conditions");
+            }
+            if ($.ruleNumber == null) {
+                throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentAttachmentPolicy", "ruleNumber");
+            }
             return $;
         }
     }

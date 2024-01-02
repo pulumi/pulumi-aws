@@ -36,6 +36,7 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
 
         @CustomType.Setter
         public Builder items(@Nullable List<FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem> items) {
+
             this.items = items;
             return this;
         }

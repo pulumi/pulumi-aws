@@ -103,26 +103,31 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevance {
 
         @CustomType.Setter
         public Builder duration(@Nullable String duration) {
+
             this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder freshness(@Nullable Boolean freshness) {
+
             this.freshness = freshness;
             return this;
         }
         @CustomType.Setter
         public Builder importance(@Nullable Integer importance) {
+
             this.importance = importance;
             return this;
         }
         @CustomType.Setter
         public Builder rankOrder(@Nullable String rankOrder) {
+
             this.rankOrder = rankOrder;
             return this;
         }
         @CustomType.Setter
         public Builder valuesImportanceMap(@Nullable Map<String,Integer> valuesImportanceMap) {
+
             this.valuesImportanceMap = valuesImportanceMap;
             return this;
         }

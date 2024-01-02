@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs build() {
-            $.pid = Objects.requireNonNull($.pid, "expected parameter 'pid' to be non-null");
+            if ($.pid == null) {
+                throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs", "pid");
+            }
             return $;
         }
     }

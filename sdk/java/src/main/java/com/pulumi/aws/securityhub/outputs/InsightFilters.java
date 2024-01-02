@@ -1349,6 +1349,7 @@ public final class InsightFilters {
 
         @CustomType.Setter
         public Builder awsAccountIds(@Nullable List<InsightFiltersAwsAccountId> awsAccountIds) {
+
             this.awsAccountIds = awsAccountIds;
             return this;
         }
@@ -1357,6 +1358,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder companyNames(@Nullable List<InsightFiltersCompanyName> companyNames) {
+
             this.companyNames = companyNames;
             return this;
         }
@@ -1365,6 +1367,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder complianceStatuses(@Nullable List<InsightFiltersComplianceStatus> complianceStatuses) {
+
             this.complianceStatuses = complianceStatuses;
             return this;
         }
@@ -1373,6 +1376,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder confidences(@Nullable List<InsightFiltersConfidence> confidences) {
+
             this.confidences = confidences;
             return this;
         }
@@ -1381,6 +1385,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder createdAts(@Nullable List<InsightFiltersCreatedAt> createdAts) {
+
             this.createdAts = createdAts;
             return this;
         }
@@ -1389,6 +1394,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder criticalities(@Nullable List<InsightFiltersCriticality> criticalities) {
+
             this.criticalities = criticalities;
             return this;
         }
@@ -1397,6 +1403,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder descriptions(@Nullable List<InsightFiltersDescription> descriptions) {
+
             this.descriptions = descriptions;
             return this;
         }
@@ -1405,6 +1412,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder findingProviderFieldsConfidences(@Nullable List<InsightFiltersFindingProviderFieldsConfidence> findingProviderFieldsConfidences) {
+
             this.findingProviderFieldsConfidences = findingProviderFieldsConfidences;
             return this;
         }
@@ -1413,6 +1421,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder findingProviderFieldsCriticalities(@Nullable List<InsightFiltersFindingProviderFieldsCriticality> findingProviderFieldsCriticalities) {
+
             this.findingProviderFieldsCriticalities = findingProviderFieldsCriticalities;
             return this;
         }
@@ -1421,6 +1430,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder findingProviderFieldsRelatedFindingsIds(@Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsId> findingProviderFieldsRelatedFindingsIds) {
+
             this.findingProviderFieldsRelatedFindingsIds = findingProviderFieldsRelatedFindingsIds;
             return this;
         }
@@ -1429,6 +1439,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder findingProviderFieldsRelatedFindingsProductArns(@Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsProductArn> findingProviderFieldsRelatedFindingsProductArns) {
+
             this.findingProviderFieldsRelatedFindingsProductArns = findingProviderFieldsRelatedFindingsProductArns;
             return this;
         }
@@ -1437,6 +1448,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder findingProviderFieldsSeverityLabels(@Nullable List<InsightFiltersFindingProviderFieldsSeverityLabel> findingProviderFieldsSeverityLabels) {
+
             this.findingProviderFieldsSeverityLabels = findingProviderFieldsSeverityLabels;
             return this;
         }
@@ -1445,6 +1457,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder findingProviderFieldsSeverityOriginals(@Nullable List<InsightFiltersFindingProviderFieldsSeverityOriginal> findingProviderFieldsSeverityOriginals) {
+
             this.findingProviderFieldsSeverityOriginals = findingProviderFieldsSeverityOriginals;
             return this;
         }
@@ -1453,6 +1466,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder findingProviderFieldsTypes(@Nullable List<InsightFiltersFindingProviderFieldsType> findingProviderFieldsTypes) {
+
             this.findingProviderFieldsTypes = findingProviderFieldsTypes;
             return this;
         }
@@ -1461,6 +1475,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder firstObservedAts(@Nullable List<InsightFiltersFirstObservedAt> firstObservedAts) {
+
             this.firstObservedAts = firstObservedAts;
             return this;
         }
@@ -1469,6 +1484,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder generatorIds(@Nullable List<InsightFiltersGeneratorId> generatorIds) {
+
             this.generatorIds = generatorIds;
             return this;
         }
@@ -1477,6 +1493,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder ids(@Nullable List<InsightFiltersId> ids) {
+
             this.ids = ids;
             return this;
         }
@@ -1485,6 +1502,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder keywords(@Nullable List<InsightFiltersKeyword> keywords) {
+
             this.keywords = keywords;
             return this;
         }
@@ -1493,6 +1511,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder lastObservedAts(@Nullable List<InsightFiltersLastObservedAt> lastObservedAts) {
+
             this.lastObservedAts = lastObservedAts;
             return this;
         }
@@ -1501,6 +1520,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder malwareNames(@Nullable List<InsightFiltersMalwareName> malwareNames) {
+
             this.malwareNames = malwareNames;
             return this;
         }
@@ -1509,6 +1529,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder malwarePaths(@Nullable List<InsightFiltersMalwarePath> malwarePaths) {
+
             this.malwarePaths = malwarePaths;
             return this;
         }
@@ -1517,6 +1538,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder malwareStates(@Nullable List<InsightFiltersMalwareState> malwareStates) {
+
             this.malwareStates = malwareStates;
             return this;
         }
@@ -1525,6 +1547,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder malwareTypes(@Nullable List<InsightFiltersMalwareType> malwareTypes) {
+
             this.malwareTypes = malwareTypes;
             return this;
         }
@@ -1533,6 +1556,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder networkDestinationDomains(@Nullable List<InsightFiltersNetworkDestinationDomain> networkDestinationDomains) {
+
             this.networkDestinationDomains = networkDestinationDomains;
             return this;
         }
@@ -1541,6 +1565,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder networkDestinationIpv4s(@Nullable List<InsightFiltersNetworkDestinationIpv4> networkDestinationIpv4s) {
+
             this.networkDestinationIpv4s = networkDestinationIpv4s;
             return this;
         }
@@ -1549,6 +1574,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder networkDestinationIpv6s(@Nullable List<InsightFiltersNetworkDestinationIpv6> networkDestinationIpv6s) {
+
             this.networkDestinationIpv6s = networkDestinationIpv6s;
             return this;
         }
@@ -1557,6 +1583,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder networkDestinationPorts(@Nullable List<InsightFiltersNetworkDestinationPort> networkDestinationPorts) {
+
             this.networkDestinationPorts = networkDestinationPorts;
             return this;
         }
@@ -1565,6 +1592,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder networkDirections(@Nullable List<InsightFiltersNetworkDirection> networkDirections) {
+
             this.networkDirections = networkDirections;
             return this;
         }
@@ -1573,6 +1601,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder networkProtocols(@Nullable List<InsightFiltersNetworkProtocol> networkProtocols) {
+
             this.networkProtocols = networkProtocols;
             return this;
         }
@@ -1581,6 +1610,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder networkSourceDomains(@Nullable List<InsightFiltersNetworkSourceDomain> networkSourceDomains) {
+
             this.networkSourceDomains = networkSourceDomains;
             return this;
         }
@@ -1589,6 +1619,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder networkSourceIpv4s(@Nullable List<InsightFiltersNetworkSourceIpv4> networkSourceIpv4s) {
+
             this.networkSourceIpv4s = networkSourceIpv4s;
             return this;
         }
@@ -1597,6 +1628,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder networkSourceIpv6s(@Nullable List<InsightFiltersNetworkSourceIpv6> networkSourceIpv6s) {
+
             this.networkSourceIpv6s = networkSourceIpv6s;
             return this;
         }
@@ -1605,6 +1637,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder networkSourceMacs(@Nullable List<InsightFiltersNetworkSourceMac> networkSourceMacs) {
+
             this.networkSourceMacs = networkSourceMacs;
             return this;
         }
@@ -1613,6 +1646,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder networkSourcePorts(@Nullable List<InsightFiltersNetworkSourcePort> networkSourcePorts) {
+
             this.networkSourcePorts = networkSourcePorts;
             return this;
         }
@@ -1621,6 +1655,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder noteTexts(@Nullable List<InsightFiltersNoteText> noteTexts) {
+
             this.noteTexts = noteTexts;
             return this;
         }
@@ -1629,6 +1664,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder noteUpdatedAts(@Nullable List<InsightFiltersNoteUpdatedAt> noteUpdatedAts) {
+
             this.noteUpdatedAts = noteUpdatedAts;
             return this;
         }
@@ -1637,6 +1673,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder noteUpdatedBies(@Nullable List<InsightFiltersNoteUpdatedBy> noteUpdatedBies) {
+
             this.noteUpdatedBies = noteUpdatedBies;
             return this;
         }
@@ -1645,6 +1682,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder processLaunchedAts(@Nullable List<InsightFiltersProcessLaunchedAt> processLaunchedAts) {
+
             this.processLaunchedAts = processLaunchedAts;
             return this;
         }
@@ -1653,6 +1691,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder processNames(@Nullable List<InsightFiltersProcessName> processNames) {
+
             this.processNames = processNames;
             return this;
         }
@@ -1661,6 +1700,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder processParentPids(@Nullable List<InsightFiltersProcessParentPid> processParentPids) {
+
             this.processParentPids = processParentPids;
             return this;
         }
@@ -1669,6 +1709,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder processPaths(@Nullable List<InsightFiltersProcessPath> processPaths) {
+
             this.processPaths = processPaths;
             return this;
         }
@@ -1677,6 +1718,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder processPids(@Nullable List<InsightFiltersProcessPid> processPids) {
+
             this.processPids = processPids;
             return this;
         }
@@ -1685,6 +1727,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder processTerminatedAts(@Nullable List<InsightFiltersProcessTerminatedAt> processTerminatedAts) {
+
             this.processTerminatedAts = processTerminatedAts;
             return this;
         }
@@ -1693,6 +1736,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder productArns(@Nullable List<InsightFiltersProductArn> productArns) {
+
             this.productArns = productArns;
             return this;
         }
@@ -1701,6 +1745,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder productFields(@Nullable List<InsightFiltersProductField> productFields) {
+
             this.productFields = productFields;
             return this;
         }
@@ -1709,6 +1754,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder productNames(@Nullable List<InsightFiltersProductName> productNames) {
+
             this.productNames = productNames;
             return this;
         }
@@ -1717,6 +1763,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder recommendationTexts(@Nullable List<InsightFiltersRecommendationText> recommendationTexts) {
+
             this.recommendationTexts = recommendationTexts;
             return this;
         }
@@ -1725,6 +1772,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder recordStates(@Nullable List<InsightFiltersRecordState> recordStates) {
+
             this.recordStates = recordStates;
             return this;
         }
@@ -1733,6 +1781,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder relatedFindingsIds(@Nullable List<InsightFiltersRelatedFindingsId> relatedFindingsIds) {
+
             this.relatedFindingsIds = relatedFindingsIds;
             return this;
         }
@@ -1741,6 +1790,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder relatedFindingsProductArns(@Nullable List<InsightFiltersRelatedFindingsProductArn> relatedFindingsProductArns) {
+
             this.relatedFindingsProductArns = relatedFindingsProductArns;
             return this;
         }
@@ -1749,6 +1799,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceAwsEc2InstanceIamInstanceProfileArns(@Nullable List<InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn> resourceAwsEc2InstanceIamInstanceProfileArns) {
+
             this.resourceAwsEc2InstanceIamInstanceProfileArns = resourceAwsEc2InstanceIamInstanceProfileArns;
             return this;
         }
@@ -1757,6 +1808,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceAwsEc2InstanceImageIds(@Nullable List<InsightFiltersResourceAwsEc2InstanceImageId> resourceAwsEc2InstanceImageIds) {
+
             this.resourceAwsEc2InstanceImageIds = resourceAwsEc2InstanceImageIds;
             return this;
         }
@@ -1765,6 +1817,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceAwsEc2InstanceIpv4Addresses(@Nullable List<InsightFiltersResourceAwsEc2InstanceIpv4Address> resourceAwsEc2InstanceIpv4Addresses) {
+
             this.resourceAwsEc2InstanceIpv4Addresses = resourceAwsEc2InstanceIpv4Addresses;
             return this;
         }
@@ -1773,6 +1826,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceAwsEc2InstanceIpv6Addresses(@Nullable List<InsightFiltersResourceAwsEc2InstanceIpv6Address> resourceAwsEc2InstanceIpv6Addresses) {
+
             this.resourceAwsEc2InstanceIpv6Addresses = resourceAwsEc2InstanceIpv6Addresses;
             return this;
         }
@@ -1781,6 +1835,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceAwsEc2InstanceKeyNames(@Nullable List<InsightFiltersResourceAwsEc2InstanceKeyName> resourceAwsEc2InstanceKeyNames) {
+
             this.resourceAwsEc2InstanceKeyNames = resourceAwsEc2InstanceKeyNames;
             return this;
         }
@@ -1789,6 +1844,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceAwsEc2InstanceLaunchedAts(@Nullable List<InsightFiltersResourceAwsEc2InstanceLaunchedAt> resourceAwsEc2InstanceLaunchedAts) {
+
             this.resourceAwsEc2InstanceLaunchedAts = resourceAwsEc2InstanceLaunchedAts;
             return this;
         }
@@ -1797,6 +1853,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceAwsEc2InstanceSubnetIds(@Nullable List<InsightFiltersResourceAwsEc2InstanceSubnetId> resourceAwsEc2InstanceSubnetIds) {
+
             this.resourceAwsEc2InstanceSubnetIds = resourceAwsEc2InstanceSubnetIds;
             return this;
         }
@@ -1805,6 +1862,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceAwsEc2InstanceTypes(@Nullable List<InsightFiltersResourceAwsEc2InstanceType> resourceAwsEc2InstanceTypes) {
+
             this.resourceAwsEc2InstanceTypes = resourceAwsEc2InstanceTypes;
             return this;
         }
@@ -1813,6 +1871,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceAwsEc2InstanceVpcIds(@Nullable List<InsightFiltersResourceAwsEc2InstanceVpcId> resourceAwsEc2InstanceVpcIds) {
+
             this.resourceAwsEc2InstanceVpcIds = resourceAwsEc2InstanceVpcIds;
             return this;
         }
@@ -1821,6 +1880,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceAwsIamAccessKeyCreatedAts(@Nullable List<InsightFiltersResourceAwsIamAccessKeyCreatedAt> resourceAwsIamAccessKeyCreatedAts) {
+
             this.resourceAwsIamAccessKeyCreatedAts = resourceAwsIamAccessKeyCreatedAts;
             return this;
         }
@@ -1829,6 +1889,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceAwsIamAccessKeyStatuses(@Nullable List<InsightFiltersResourceAwsIamAccessKeyStatus> resourceAwsIamAccessKeyStatuses) {
+
             this.resourceAwsIamAccessKeyStatuses = resourceAwsIamAccessKeyStatuses;
             return this;
         }
@@ -1837,6 +1898,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceAwsIamAccessKeyUserNames(@Nullable List<InsightFiltersResourceAwsIamAccessKeyUserName> resourceAwsIamAccessKeyUserNames) {
+
             this.resourceAwsIamAccessKeyUserNames = resourceAwsIamAccessKeyUserNames;
             return this;
         }
@@ -1845,6 +1907,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceAwsS3BucketOwnerIds(@Nullable List<InsightFiltersResourceAwsS3BucketOwnerId> resourceAwsS3BucketOwnerIds) {
+
             this.resourceAwsS3BucketOwnerIds = resourceAwsS3BucketOwnerIds;
             return this;
         }
@@ -1853,6 +1916,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceAwsS3BucketOwnerNames(@Nullable List<InsightFiltersResourceAwsS3BucketOwnerName> resourceAwsS3BucketOwnerNames) {
+
             this.resourceAwsS3BucketOwnerNames = resourceAwsS3BucketOwnerNames;
             return this;
         }
@@ -1861,6 +1925,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceContainerImageIds(@Nullable List<InsightFiltersResourceContainerImageId> resourceContainerImageIds) {
+
             this.resourceContainerImageIds = resourceContainerImageIds;
             return this;
         }
@@ -1869,6 +1934,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceContainerImageNames(@Nullable List<InsightFiltersResourceContainerImageName> resourceContainerImageNames) {
+
             this.resourceContainerImageNames = resourceContainerImageNames;
             return this;
         }
@@ -1877,6 +1943,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceContainerLaunchedAts(@Nullable List<InsightFiltersResourceContainerLaunchedAt> resourceContainerLaunchedAts) {
+
             this.resourceContainerLaunchedAts = resourceContainerLaunchedAts;
             return this;
         }
@@ -1885,6 +1952,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceContainerNames(@Nullable List<InsightFiltersResourceContainerName> resourceContainerNames) {
+
             this.resourceContainerNames = resourceContainerNames;
             return this;
         }
@@ -1893,6 +1961,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceDetailsOthers(@Nullable List<InsightFiltersResourceDetailsOther> resourceDetailsOthers) {
+
             this.resourceDetailsOthers = resourceDetailsOthers;
             return this;
         }
@@ -1901,6 +1970,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceIds(@Nullable List<InsightFiltersResourceId> resourceIds) {
+
             this.resourceIds = resourceIds;
             return this;
         }
@@ -1909,6 +1979,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourcePartitions(@Nullable List<InsightFiltersResourcePartition> resourcePartitions) {
+
             this.resourcePartitions = resourcePartitions;
             return this;
         }
@@ -1917,6 +1988,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceRegions(@Nullable List<InsightFiltersResourceRegion> resourceRegions) {
+
             this.resourceRegions = resourceRegions;
             return this;
         }
@@ -1925,6 +1997,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceTags(@Nullable List<InsightFiltersResourceTag> resourceTags) {
+
             this.resourceTags = resourceTags;
             return this;
         }
@@ -1933,6 +2006,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder resourceTypes(@Nullable List<InsightFiltersResourceType> resourceTypes) {
+
             this.resourceTypes = resourceTypes;
             return this;
         }
@@ -1941,6 +2015,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder severityLabels(@Nullable List<InsightFiltersSeverityLabel> severityLabels) {
+
             this.severityLabels = severityLabels;
             return this;
         }
@@ -1949,6 +2024,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder sourceUrls(@Nullable List<InsightFiltersSourceUrl> sourceUrls) {
+
             this.sourceUrls = sourceUrls;
             return this;
         }
@@ -1957,6 +2033,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder threatIntelIndicatorCategories(@Nullable List<InsightFiltersThreatIntelIndicatorCategory> threatIntelIndicatorCategories) {
+
             this.threatIntelIndicatorCategories = threatIntelIndicatorCategories;
             return this;
         }
@@ -1965,6 +2042,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder threatIntelIndicatorLastObservedAts(@Nullable List<InsightFiltersThreatIntelIndicatorLastObservedAt> threatIntelIndicatorLastObservedAts) {
+
             this.threatIntelIndicatorLastObservedAts = threatIntelIndicatorLastObservedAts;
             return this;
         }
@@ -1973,6 +2051,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder threatIntelIndicatorSourceUrls(@Nullable List<InsightFiltersThreatIntelIndicatorSourceUrl> threatIntelIndicatorSourceUrls) {
+
             this.threatIntelIndicatorSourceUrls = threatIntelIndicatorSourceUrls;
             return this;
         }
@@ -1981,6 +2060,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder threatIntelIndicatorSources(@Nullable List<InsightFiltersThreatIntelIndicatorSource> threatIntelIndicatorSources) {
+
             this.threatIntelIndicatorSources = threatIntelIndicatorSources;
             return this;
         }
@@ -1989,6 +2069,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder threatIntelIndicatorTypes(@Nullable List<InsightFiltersThreatIntelIndicatorType> threatIntelIndicatorTypes) {
+
             this.threatIntelIndicatorTypes = threatIntelIndicatorTypes;
             return this;
         }
@@ -1997,6 +2078,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder threatIntelIndicatorValues(@Nullable List<InsightFiltersThreatIntelIndicatorValue> threatIntelIndicatorValues) {
+
             this.threatIntelIndicatorValues = threatIntelIndicatorValues;
             return this;
         }
@@ -2005,6 +2087,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder titles(@Nullable List<InsightFiltersTitle> titles) {
+
             this.titles = titles;
             return this;
         }
@@ -2013,6 +2096,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder types(@Nullable List<InsightFiltersType> types) {
+
             this.types = types;
             return this;
         }
@@ -2021,6 +2105,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder updatedAts(@Nullable List<InsightFiltersUpdatedAt> updatedAts) {
+
             this.updatedAts = updatedAts;
             return this;
         }
@@ -2029,6 +2114,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder userDefinedValues(@Nullable List<InsightFiltersUserDefinedValue> userDefinedValues) {
+
             this.userDefinedValues = userDefinedValues;
             return this;
         }
@@ -2037,6 +2123,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder verificationStates(@Nullable List<InsightFiltersVerificationState> verificationStates) {
+
             this.verificationStates = verificationStates;
             return this;
         }
@@ -2045,6 +2132,7 @@ public final class InsightFilters {
         }
         @CustomType.Setter
         public Builder workflowStatuses(@Nullable List<InsightFiltersWorkflowStatus> workflowStatuses) {
+
             this.workflowStatuses = workflowStatuses;
             return this;
         }

@@ -9,6 +9,7 @@ import com.pulumi.aws.gamelift.inputs.FleetResourceCreationLimitPolicyArgs;
 import com.pulumi.aws.gamelift.inputs.FleetRuntimeConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -583,7 +584,9 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FleetArgs build() {
-            $.ec2InstanceType = Objects.requireNonNull($.ec2InstanceType, "expected parameter 'ec2InstanceType' to be non-null");
+            if ($.ec2InstanceType == null) {
+                throw new MissingRequiredPropertyException("FleetArgs", "ec2InstanceType");
+            }
             return $;
         }
     }

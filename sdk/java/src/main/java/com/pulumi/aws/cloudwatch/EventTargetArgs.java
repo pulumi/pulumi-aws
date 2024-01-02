@@ -16,6 +16,7 @@ import com.pulumi.aws.cloudwatch.inputs.EventTargetSagemakerPipelineTargetArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventTargetSqsTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -739,8 +740,12 @@ public final class EventTargetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EventTargetArgs build() {
-            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
-            $.rule = Objects.requireNonNull($.rule, "expected parameter 'rule' to be non-null");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("EventTargetArgs", "arn");
+            }
+            if ($.rule == null) {
+                throw new MissingRequiredPropertyException("EventTargetArgs", "rule");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.rds.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -519,7 +520,9 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
         }
 
         public GetOrderableDbInstancePlainArgs build() {
-            $.engine = Objects.requireNonNull($.engine, "expected parameter 'engine' to be non-null");
+            if ($.engine == null) {
+                throw new MissingRequiredPropertyException("GetOrderableDbInstancePlainArgs", "engine");
+            }
             return $;
         }
     }

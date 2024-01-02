@@ -74,16 +74,19 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
 
         @CustomType.Setter
         public Builder caseInsensitive(@Nullable Boolean caseInsensitive) {
+
             this.caseInsensitive = caseInsensitive;
             return this;
         }
         @CustomType.Setter
         public Builder columnToJsonKeyMappings(@Nullable Map<String,String> columnToJsonKeyMappings) {
+
             this.columnToJsonKeyMappings = columnToJsonKeyMappings;
             return this;
         }
         @CustomType.Setter
         public Builder convertDotsInJsonKeysToUnderscores(@Nullable Boolean convertDotsInJsonKeysToUnderscores) {
+
             this.convertDotsInJsonKeysToUnderscores = convertDotsInJsonKeysToUnderscores;
             return this;
         }

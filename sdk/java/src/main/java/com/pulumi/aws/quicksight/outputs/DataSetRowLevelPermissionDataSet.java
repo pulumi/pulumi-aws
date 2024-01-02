@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,26 +101,35 @@ public final class DataSetRowLevelPermissionDataSet {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("DataSetRowLevelPermissionDataSet", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder formatVersion(@Nullable String formatVersion) {
+
             this.formatVersion = formatVersion;
             return this;
         }
         @CustomType.Setter
         public Builder namespace(@Nullable String namespace) {
+
             this.namespace = namespace;
             return this;
         }
         @CustomType.Setter
         public Builder permissionPolicy(String permissionPolicy) {
-            this.permissionPolicy = Objects.requireNonNull(permissionPolicy);
+            if (permissionPolicy == null) {
+              throw new MissingRequiredPropertyException("DataSetRowLevelPermissionDataSet", "permissionPolicy");
+            }
+            this.permissionPolicy = permissionPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }

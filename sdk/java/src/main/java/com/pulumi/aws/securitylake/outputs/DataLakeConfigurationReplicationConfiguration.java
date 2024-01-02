@@ -59,6 +59,7 @@ public final class DataLakeConfigurationReplicationConfiguration {
 
         @CustomType.Setter
         public Builder regions(@Nullable List<String> regions) {
+
             this.regions = regions;
             return this;
         }
@@ -67,6 +68,7 @@ public final class DataLakeConfigurationReplicationConfiguration {
         }
         @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
+
             this.roleArn = roleArn;
             return this;
         }

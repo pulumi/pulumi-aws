@@ -10,6 +10,7 @@ import com.pulumi.aws.s3.outputs.BucketLifecycleConfigurationV2RuleNoncurrentVer
 import com.pulumi.aws.s3.outputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition;
 import com.pulumi.aws.s3.outputs.BucketLifecycleConfigurationV2RuleTransition;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -171,31 +172,39 @@ public final class BucketLifecycleConfigurationV2Rule {
 
         @CustomType.Setter
         public Builder abortIncompleteMultipartUpload(@Nullable BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload) {
+
             this.abortIncompleteMultipartUpload = abortIncompleteMultipartUpload;
             return this;
         }
         @CustomType.Setter
         public Builder expiration(@Nullable BucketLifecycleConfigurationV2RuleExpiration expiration) {
+
             this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
         public Builder filter(@Nullable BucketLifecycleConfigurationV2RuleFilter filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("BucketLifecycleConfigurationV2Rule", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder noncurrentVersionExpiration(@Nullable BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration noncurrentVersionExpiration) {
+
             this.noncurrentVersionExpiration = noncurrentVersionExpiration;
             return this;
         }
         @CustomType.Setter
         public Builder noncurrentVersionTransitions(@Nullable List<BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition> noncurrentVersionTransitions) {
+
             this.noncurrentVersionTransitions = noncurrentVersionTransitions;
             return this;
         }
@@ -204,16 +213,21 @@ public final class BucketLifecycleConfigurationV2Rule {
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("BucketLifecycleConfigurationV2Rule", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder transitions(@Nullable List<BucketLifecycleConfigurationV2RuleTransition> transitions) {
+
             this.transitions = transitions;
             return this;
         }

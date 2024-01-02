@@ -59,11 +59,13 @@ public final class OntapVolumeTieringPolicy {
 
         @CustomType.Setter
         public Builder coolingPeriod(@Nullable Integer coolingPeriod) {
+
             this.coolingPeriod = coolingPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

@@ -58,11 +58,13 @@ public final class GatewayRouteSpecHttp2RouteActionRewritePrefix {
 
         @CustomType.Setter
         public Builder defaultPrefix(@Nullable String defaultPrefix) {
+
             this.defaultPrefix = defaultPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

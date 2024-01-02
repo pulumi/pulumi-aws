@@ -5,6 +5,7 @@ package com.pulumi.aws.rds;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -283,9 +284,15 @@ public final class ProxyEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProxyEndpointArgs build() {
-            $.dbProxyEndpointName = Objects.requireNonNull($.dbProxyEndpointName, "expected parameter 'dbProxyEndpointName' to be non-null");
-            $.dbProxyName = Objects.requireNonNull($.dbProxyName, "expected parameter 'dbProxyName' to be non-null");
-            $.vpcSubnetIds = Objects.requireNonNull($.vpcSubnetIds, "expected parameter 'vpcSubnetIds' to be non-null");
+            if ($.dbProxyEndpointName == null) {
+                throw new MissingRequiredPropertyException("ProxyEndpointArgs", "dbProxyEndpointName");
+            }
+            if ($.dbProxyName == null) {
+                throw new MissingRequiredPropertyException("ProxyEndpointArgs", "dbProxyName");
+            }
+            if ($.vpcSubnetIds == null) {
+                throw new MissingRequiredPropertyException("ProxyEndpointArgs", "vpcSubnetIds");
+            }
             return $;
         }
     }

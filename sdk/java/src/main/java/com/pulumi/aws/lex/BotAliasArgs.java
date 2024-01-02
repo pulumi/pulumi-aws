@@ -6,6 +6,7 @@ package com.pulumi.aws.lex;
 import com.pulumi.aws.lex.inputs.BotAliasConversationLogsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -225,8 +226,12 @@ public final class BotAliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BotAliasArgs build() {
-            $.botName = Objects.requireNonNull($.botName, "expected parameter 'botName' to be non-null");
-            $.botVersion = Objects.requireNonNull($.botVersion, "expected parameter 'botVersion' to be non-null");
+            if ($.botName == null) {
+                throw new MissingRequiredPropertyException("BotAliasArgs", "botName");
+            }
+            if ($.botVersion == null) {
+                throw new MissingRequiredPropertyException("BotAliasArgs", "botVersion");
+            }
             return $;
         }
     }

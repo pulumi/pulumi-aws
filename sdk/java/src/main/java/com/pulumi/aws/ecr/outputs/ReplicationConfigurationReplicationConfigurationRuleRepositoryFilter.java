@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ReplicationConfigurationReplicationConfigurationRuleRepositor
 
         @CustomType.Setter
         public Builder filter(String filter) {
-            this.filter = Objects.requireNonNull(filter);
+            if (filter == null) {
+              throw new MissingRequiredPropertyException("ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter", "filter");
+            }
+            this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder filterType(String filterType) {
-            this.filterType = Objects.requireNonNull(filterType);
+            if (filterType == null) {
+              throw new MissingRequiredPropertyException("ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter", "filterType");
+            }
+            this.filterType = filterType;
             return this;
         }
         public ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter build() {

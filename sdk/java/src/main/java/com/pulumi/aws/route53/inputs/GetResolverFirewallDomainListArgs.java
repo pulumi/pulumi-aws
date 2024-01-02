@@ -5,6 +5,7 @@ package com.pulumi.aws.route53.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -82,7 +83,9 @@ public final class GetResolverFirewallDomainListArgs extends com.pulumi.resource
         }
 
         public GetResolverFirewallDomainListArgs build() {
-            $.firewallDomainListId = Objects.requireNonNull($.firewallDomainListId, "expected parameter 'firewallDomainListId' to be non-null");
+            if ($.firewallDomainListId == null) {
+                throw new MissingRequiredPropertyException("GetResolverFirewallDomainListArgs", "firewallDomainListId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,10 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
 
         @CustomType.Setter
         public Builder organizationArns(List<String> organizationArns) {
-            this.organizationArns = Objects.requireNonNull(organizationArns);
+            if (organizationArns == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission", "organizationArns");
+            }
+            this.organizationArns = organizationArns;
             return this;
         }
         public Builder organizationArns(String... organizationArns) {
@@ -93,7 +97,10 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
         }
         @CustomType.Setter
         public Builder organizationalUnitArns(List<String> organizationalUnitArns) {
-            this.organizationalUnitArns = Objects.requireNonNull(organizationalUnitArns);
+            if (organizationalUnitArns == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission", "organizationalUnitArns");
+            }
+            this.organizationalUnitArns = organizationalUnitArns;
             return this;
         }
         public Builder organizationalUnitArns(String... organizationalUnitArns) {
@@ -101,7 +108,10 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
         }
         @CustomType.Setter
         public Builder userGroups(List<String> userGroups) {
-            this.userGroups = Objects.requireNonNull(userGroups);
+            if (userGroups == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission", "userGroups");
+            }
+            this.userGroups = userGroups;
             return this;
         }
         public Builder userGroups(String... userGroups) {
@@ -109,7 +119,10 @@ public final class GetDistributionConfigurationDistributionAmiDistributionConfig
         }
         @CustomType.Setter
         public Builder userIds(List<String> userIds) {
-            this.userIds = Objects.requireNonNull(userIds);
+            if (userIds == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission", "userIds");
+            }
+            this.userIds = userIds;
             return this;
         }
         public Builder userIds(String... userIds) {

@@ -6,6 +6,7 @@ package com.pulumi.aws.glue;
 import com.pulumi.aws.glue.inputs.PartitionStorageDescriptorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -254,9 +255,15 @@ public final class PartitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PartitionArgs build() {
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.partitionValues = Objects.requireNonNull($.partitionValues, "expected parameter 'partitionValues' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("PartitionArgs", "databaseName");
+            }
+            if ($.partitionValues == null) {
+                throw new MissingRequiredPropertyException("PartitionArgs", "partitionValues");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("PartitionArgs", "tableName");
+            }
             return $;
         }
     }

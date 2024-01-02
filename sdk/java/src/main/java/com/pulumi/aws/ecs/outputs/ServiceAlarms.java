@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -72,7 +73,10 @@ public final class ServiceAlarms {
 
         @CustomType.Setter
         public Builder alarmNames(List<String> alarmNames) {
-            this.alarmNames = Objects.requireNonNull(alarmNames);
+            if (alarmNames == null) {
+              throw new MissingRequiredPropertyException("ServiceAlarms", "alarmNames");
+            }
+            this.alarmNames = alarmNames;
             return this;
         }
         public Builder alarmNames(String... alarmNames) {
@@ -80,12 +84,18 @@ public final class ServiceAlarms {
         }
         @CustomType.Setter
         public Builder enable(Boolean enable) {
-            this.enable = Objects.requireNonNull(enable);
+            if (enable == null) {
+              throw new MissingRequiredPropertyException("ServiceAlarms", "enable");
+            }
+            this.enable = enable;
             return this;
         }
         @CustomType.Setter
         public Builder rollback(Boolean rollback) {
-            this.rollback = Objects.requireNonNull(rollback);
+            if (rollback == null) {
+              throw new MissingRequiredPropertyException("ServiceAlarms", "rollback");
+            }
+            this.rollback = rollback;
             return this;
         }
         public ServiceAlarms build() {

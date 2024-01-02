@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs.inputs;
 import com.pulumi.aws.ecs.inputs.GetTaskExecutionOverridesContainerOverrideEnvironment;
 import com.pulumi.aws.ecs.inputs.GetTaskExecutionOverridesContainerOverrideResourceRequirement;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -261,7 +262,9 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
         }
 
         public GetTaskExecutionOverridesContainerOverride build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetTaskExecutionOverridesContainerOverride", "name");
+            }
             return $;
         }
     }

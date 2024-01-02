@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.aws.quicksight.outputs.GetThemeConfigurationSheetTileLayoutGutter;
 import com.pulumi.aws.quicksight.outputs.GetThemeConfigurationSheetTileLayoutMargin;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetThemeConfigurationSheetTileLayout {
 
         @CustomType.Setter
         public Builder gutters(List<GetThemeConfigurationSheetTileLayoutGutter> gutters) {
-            this.gutters = Objects.requireNonNull(gutters);
+            if (gutters == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationSheetTileLayout", "gutters");
+            }
+            this.gutters = gutters;
             return this;
         }
         public Builder gutters(GetThemeConfigurationSheetTileLayoutGutter... gutters) {
@@ -66,7 +70,10 @@ public final class GetThemeConfigurationSheetTileLayout {
         }
         @CustomType.Setter
         public Builder margins(List<GetThemeConfigurationSheetTileLayoutMargin> margins) {
-            this.margins = Objects.requireNonNull(margins);
+            if (margins == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationSheetTileLayout", "margins");
+            }
+            this.margins = margins;
             return this;
         }
         public Builder margins(GetThemeConfigurationSheetTileLayoutMargin... margins) {

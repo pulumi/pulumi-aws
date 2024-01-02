@@ -9,6 +9,7 @@ import com.pulumi.aws.pipes.inputs.PipeTargetParametersBatchJobParametersDepends
 import com.pulumi.aws.pipes.inputs.PipeTargetParametersBatchJobParametersRetryStrategyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -314,8 +315,12 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         public PipeTargetParametersBatchJobParametersArgs build() {
-            $.jobDefinition = Objects.requireNonNull($.jobDefinition, "expected parameter 'jobDefinition' to be non-null");
-            $.jobName = Objects.requireNonNull($.jobName, "expected parameter 'jobName' to be non-null");
+            if ($.jobDefinition == null) {
+                throw new MissingRequiredPropertyException("PipeTargetParametersBatchJobParametersArgs", "jobDefinition");
+            }
+            if ($.jobName == null) {
+                throw new MissingRequiredPropertyException("PipeTargetParametersBatchJobParametersArgs", "jobName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.resourceexplorer.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ViewIncludedPropertyArgs extends com.pulumi.resources.Resourc
         }
 
         public ViewIncludedPropertyArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ViewIncludedPropertyArgs", "name");
+            }
             return $;
         }
     }

@@ -58,11 +58,13 @@ public final class PlanRuleCopyActionLifecycle {
 
         @CustomType.Setter
         public Builder coldStorageAfter(@Nullable Integer coldStorageAfter) {
+
             this.coldStorageAfter = coldStorageAfter;
             return this;
         }
         @CustomType.Setter
         public Builder deleteAfter(@Nullable Integer deleteAfter) {
+
             this.deleteAfter = deleteAfter;
             return this;
         }

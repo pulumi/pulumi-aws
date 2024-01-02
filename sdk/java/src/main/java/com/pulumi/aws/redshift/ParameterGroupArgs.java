@@ -7,6 +7,7 @@ import com.pulumi.aws.redshift.inputs.ParameterGroupParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -247,7 +248,9 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
 
         public ParameterGroupArgs build() {
             $.description = Codegen.stringProp("description").output().arg($.description).def("Managed by Pulumi").getNullable();
-            $.family = Objects.requireNonNull($.family, "expected parameter 'family' to be non-null");
+            if ($.family == null) {
+                throw new MissingRequiredPropertyException("ParameterGroupArgs", "family");
+            }
             return $;
         }
     }

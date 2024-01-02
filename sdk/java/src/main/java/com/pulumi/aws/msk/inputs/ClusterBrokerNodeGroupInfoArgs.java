@@ -7,6 +7,7 @@ import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoConnectivityInfoArgs;
 import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -284,9 +285,15 @@ public final class ClusterBrokerNodeGroupInfoArgs extends com.pulumi.resources.R
         }
 
         public ClusterBrokerNodeGroupInfoArgs build() {
-            $.clientSubnets = Objects.requireNonNull($.clientSubnets, "expected parameter 'clientSubnets' to be non-null");
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
-            $.securityGroups = Objects.requireNonNull($.securityGroups, "expected parameter 'securityGroups' to be non-null");
+            if ($.clientSubnets == null) {
+                throw new MissingRequiredPropertyException("ClusterBrokerNodeGroupInfoArgs", "clientSubnets");
+            }
+            if ($.instanceType == null) {
+                throw new MissingRequiredPropertyException("ClusterBrokerNodeGroupInfoArgs", "instanceType");
+            }
+            if ($.securityGroups == null) {
+                throw new MissingRequiredPropertyException("ClusterBrokerNodeGroupInfoArgs", "securityGroups");
+            }
             return $;
         }
     }

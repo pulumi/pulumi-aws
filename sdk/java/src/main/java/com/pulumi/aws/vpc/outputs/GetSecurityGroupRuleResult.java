@@ -5,6 +5,7 @@ package com.pulumi.aws.vpc.outputs;
 
 import com.pulumi.aws.vpc.outputs.GetSecurityGroupRuleFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -220,26 +221,39 @@ public final class GetSecurityGroupRuleResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder cidrIpv4(String cidrIpv4) {
-            this.cidrIpv4 = Objects.requireNonNull(cidrIpv4);
+            if (cidrIpv4 == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "cidrIpv4");
+            }
+            this.cidrIpv4 = cidrIpv4;
             return this;
         }
         @CustomType.Setter
         public Builder cidrIpv6(String cidrIpv6) {
-            this.cidrIpv6 = Objects.requireNonNull(cidrIpv6);
+            if (cidrIpv6 == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "cidrIpv6");
+            }
+            this.cidrIpv6 = cidrIpv6;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetSecurityGroupRuleFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -248,52 +262,82 @@ public final class GetSecurityGroupRuleResult {
         }
         @CustomType.Setter
         public Builder fromPort(Integer fromPort) {
-            this.fromPort = Objects.requireNonNull(fromPort);
+            if (fromPort == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "fromPort");
+            }
+            this.fromPort = fromPort;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipProtocol(String ipProtocol) {
-            this.ipProtocol = Objects.requireNonNull(ipProtocol);
+            if (ipProtocol == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "ipProtocol");
+            }
+            this.ipProtocol = ipProtocol;
             return this;
         }
         @CustomType.Setter
         public Builder isEgress(Boolean isEgress) {
-            this.isEgress = Objects.requireNonNull(isEgress);
+            if (isEgress == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "isEgress");
+            }
+            this.isEgress = isEgress;
             return this;
         }
         @CustomType.Setter
         public Builder prefixListId(String prefixListId) {
-            this.prefixListId = Objects.requireNonNull(prefixListId);
+            if (prefixListId == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "prefixListId");
+            }
+            this.prefixListId = prefixListId;
             return this;
         }
         @CustomType.Setter
         public Builder referencedSecurityGroupId(String referencedSecurityGroupId) {
-            this.referencedSecurityGroupId = Objects.requireNonNull(referencedSecurityGroupId);
+            if (referencedSecurityGroupId == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "referencedSecurityGroupId");
+            }
+            this.referencedSecurityGroupId = referencedSecurityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupId(String securityGroupId) {
-            this.securityGroupId = Objects.requireNonNull(securityGroupId);
+            if (securityGroupId == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "securityGroupId");
+            }
+            this.securityGroupId = securityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupRuleId(String securityGroupRuleId) {
-            this.securityGroupRuleId = Objects.requireNonNull(securityGroupRuleId);
+            if (securityGroupRuleId == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "securityGroupRuleId");
+            }
+            this.securityGroupRuleId = securityGroupRuleId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder toPort(Integer toPort) {
-            this.toPort = Objects.requireNonNull(toPort);
+            if (toPort == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "toPort");
+            }
+            this.toPort = toPort;
             return this;
         }
         public GetSecurityGroupRuleResult build() {

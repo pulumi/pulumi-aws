@@ -44,6 +44,7 @@ public final class ClassificationJobS3JobDefinitionScopingIncludes {
 
         @CustomType.Setter
         public Builder ands(@Nullable List<ClassificationJobS3JobDefinitionScopingIncludesAnd> ands) {
+
             this.ands = ands;
             return this;
         }

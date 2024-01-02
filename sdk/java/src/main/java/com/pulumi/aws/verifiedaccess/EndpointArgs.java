@@ -8,6 +8,7 @@ import com.pulumi.aws.verifiedaccess.inputs.EndpointNetworkInterfaceOptionsArgs;
 import com.pulumi.aws.verifiedaccess.inputs.EndpointSseSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -506,12 +507,24 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EndpointArgs build() {
-            $.applicationDomain = Objects.requireNonNull($.applicationDomain, "expected parameter 'applicationDomain' to be non-null");
-            $.attachmentType = Objects.requireNonNull($.attachmentType, "expected parameter 'attachmentType' to be non-null");
-            $.domainCertificateArn = Objects.requireNonNull($.domainCertificateArn, "expected parameter 'domainCertificateArn' to be non-null");
-            $.endpointDomainPrefix = Objects.requireNonNull($.endpointDomainPrefix, "expected parameter 'endpointDomainPrefix' to be non-null");
-            $.endpointType = Objects.requireNonNull($.endpointType, "expected parameter 'endpointType' to be non-null");
-            $.verifiedAccessGroupId = Objects.requireNonNull($.verifiedAccessGroupId, "expected parameter 'verifiedAccessGroupId' to be non-null");
+            if ($.applicationDomain == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "applicationDomain");
+            }
+            if ($.attachmentType == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "attachmentType");
+            }
+            if ($.domainCertificateArn == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "domainCertificateArn");
+            }
+            if ($.endpointDomainPrefix == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "endpointDomainPrefix");
+            }
+            if ($.endpointType == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "endpointType");
+            }
+            if ($.verifiedAccessGroupId == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "verifiedAccessGroupId");
+            }
             return $;
         }
     }

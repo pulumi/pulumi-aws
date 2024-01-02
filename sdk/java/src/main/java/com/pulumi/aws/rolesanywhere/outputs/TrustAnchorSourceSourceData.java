@@ -50,11 +50,13 @@ public final class TrustAnchorSourceSourceData {
 
         @CustomType.Setter
         public Builder acmPcaArn(@Nullable String acmPcaArn) {
+
             this.acmPcaArn = acmPcaArn;
             return this;
         }
         @CustomType.Setter
         public Builder x509CertificateData(@Nullable String x509CertificateData) {
+
             this.x509CertificateData = x509CertificateData;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -263,8 +264,12 @@ public final class UserProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserProfileArgs build() {
-            $.domainId = Objects.requireNonNull($.domainId, "expected parameter 'domainId' to be non-null");
-            $.userProfileName = Objects.requireNonNull($.userProfileName, "expected parameter 'userProfileName' to be non-null");
+            if ($.domainId == null) {
+                throw new MissingRequiredPropertyException("UserProfileArgs", "domainId");
+            }
+            if ($.userProfileName == null) {
+                throw new MissingRequiredPropertyException("UserProfileArgs", "userProfileName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.dms;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -199,9 +200,15 @@ public final class ReplicationSubnetGroupArgs extends com.pulumi.resources.Resou
         }
 
         public ReplicationSubnetGroupArgs build() {
-            $.replicationSubnetGroupDescription = Objects.requireNonNull($.replicationSubnetGroupDescription, "expected parameter 'replicationSubnetGroupDescription' to be non-null");
-            $.replicationSubnetGroupId = Objects.requireNonNull($.replicationSubnetGroupId, "expected parameter 'replicationSubnetGroupId' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
+            if ($.replicationSubnetGroupDescription == null) {
+                throw new MissingRequiredPropertyException("ReplicationSubnetGroupArgs", "replicationSubnetGroupDescription");
+            }
+            if ($.replicationSubnetGroupId == null) {
+                throw new MissingRequiredPropertyException("ReplicationSubnetGroupArgs", "replicationSubnetGroupId");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("ReplicationSubnetGroupArgs", "subnetIds");
+            }
             return $;
         }
     }

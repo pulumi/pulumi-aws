@@ -8,6 +8,7 @@ import com.pulumi.aws.ec2.outputs.GetInstanceTypeGpus;
 import com.pulumi.aws.ec2.outputs.GetInstanceTypeInferenceAccelerator;
 import com.pulumi.aws.ec2.outputs.GetInstanceTypeInstanceDisk;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -714,107 +715,170 @@ public final class GetInstanceTypeResult {
 
         @CustomType.Setter
         public Builder autoRecoverySupported(Boolean autoRecoverySupported) {
-            this.autoRecoverySupported = Objects.requireNonNull(autoRecoverySupported);
+            if (autoRecoverySupported == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "autoRecoverySupported");
+            }
+            this.autoRecoverySupported = autoRecoverySupported;
             return this;
         }
         @CustomType.Setter
         public Builder bareMetal(Boolean bareMetal) {
-            this.bareMetal = Objects.requireNonNull(bareMetal);
+            if (bareMetal == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "bareMetal");
+            }
+            this.bareMetal = bareMetal;
             return this;
         }
         @CustomType.Setter
         public Builder burstablePerformanceSupported(Boolean burstablePerformanceSupported) {
-            this.burstablePerformanceSupported = Objects.requireNonNull(burstablePerformanceSupported);
+            if (burstablePerformanceSupported == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "burstablePerformanceSupported");
+            }
+            this.burstablePerformanceSupported = burstablePerformanceSupported;
             return this;
         }
         @CustomType.Setter
         public Builder currentGeneration(Boolean currentGeneration) {
-            this.currentGeneration = Objects.requireNonNull(currentGeneration);
+            if (currentGeneration == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "currentGeneration");
+            }
+            this.currentGeneration = currentGeneration;
             return this;
         }
         @CustomType.Setter
         public Builder dedicatedHostsSupported(Boolean dedicatedHostsSupported) {
-            this.dedicatedHostsSupported = Objects.requireNonNull(dedicatedHostsSupported);
+            if (dedicatedHostsSupported == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "dedicatedHostsSupported");
+            }
+            this.dedicatedHostsSupported = dedicatedHostsSupported;
             return this;
         }
         @CustomType.Setter
         public Builder defaultCores(Integer defaultCores) {
-            this.defaultCores = Objects.requireNonNull(defaultCores);
+            if (defaultCores == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "defaultCores");
+            }
+            this.defaultCores = defaultCores;
             return this;
         }
         @CustomType.Setter
         public Builder defaultThreadsPerCore(Integer defaultThreadsPerCore) {
-            this.defaultThreadsPerCore = Objects.requireNonNull(defaultThreadsPerCore);
+            if (defaultThreadsPerCore == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "defaultThreadsPerCore");
+            }
+            this.defaultThreadsPerCore = defaultThreadsPerCore;
             return this;
         }
         @CustomType.Setter
         public Builder defaultVcpus(Integer defaultVcpus) {
-            this.defaultVcpus = Objects.requireNonNull(defaultVcpus);
+            if (defaultVcpus == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "defaultVcpus");
+            }
+            this.defaultVcpus = defaultVcpus;
             return this;
         }
         @CustomType.Setter
         public Builder ebsEncryptionSupport(String ebsEncryptionSupport) {
-            this.ebsEncryptionSupport = Objects.requireNonNull(ebsEncryptionSupport);
+            if (ebsEncryptionSupport == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "ebsEncryptionSupport");
+            }
+            this.ebsEncryptionSupport = ebsEncryptionSupport;
             return this;
         }
         @CustomType.Setter
         public Builder ebsNvmeSupport(String ebsNvmeSupport) {
-            this.ebsNvmeSupport = Objects.requireNonNull(ebsNvmeSupport);
+            if (ebsNvmeSupport == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "ebsNvmeSupport");
+            }
+            this.ebsNvmeSupport = ebsNvmeSupport;
             return this;
         }
         @CustomType.Setter
         public Builder ebsOptimizedSupport(String ebsOptimizedSupport) {
-            this.ebsOptimizedSupport = Objects.requireNonNull(ebsOptimizedSupport);
+            if (ebsOptimizedSupport == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "ebsOptimizedSupport");
+            }
+            this.ebsOptimizedSupport = ebsOptimizedSupport;
             return this;
         }
         @CustomType.Setter
         public Builder ebsPerformanceBaselineBandwidth(Integer ebsPerformanceBaselineBandwidth) {
-            this.ebsPerformanceBaselineBandwidth = Objects.requireNonNull(ebsPerformanceBaselineBandwidth);
+            if (ebsPerformanceBaselineBandwidth == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "ebsPerformanceBaselineBandwidth");
+            }
+            this.ebsPerformanceBaselineBandwidth = ebsPerformanceBaselineBandwidth;
             return this;
         }
         @CustomType.Setter
         public Builder ebsPerformanceBaselineIops(Integer ebsPerformanceBaselineIops) {
-            this.ebsPerformanceBaselineIops = Objects.requireNonNull(ebsPerformanceBaselineIops);
+            if (ebsPerformanceBaselineIops == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "ebsPerformanceBaselineIops");
+            }
+            this.ebsPerformanceBaselineIops = ebsPerformanceBaselineIops;
             return this;
         }
         @CustomType.Setter
         public Builder ebsPerformanceBaselineThroughput(Double ebsPerformanceBaselineThroughput) {
-            this.ebsPerformanceBaselineThroughput = Objects.requireNonNull(ebsPerformanceBaselineThroughput);
+            if (ebsPerformanceBaselineThroughput == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "ebsPerformanceBaselineThroughput");
+            }
+            this.ebsPerformanceBaselineThroughput = ebsPerformanceBaselineThroughput;
             return this;
         }
         @CustomType.Setter
         public Builder ebsPerformanceMaximumBandwidth(Integer ebsPerformanceMaximumBandwidth) {
-            this.ebsPerformanceMaximumBandwidth = Objects.requireNonNull(ebsPerformanceMaximumBandwidth);
+            if (ebsPerformanceMaximumBandwidth == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "ebsPerformanceMaximumBandwidth");
+            }
+            this.ebsPerformanceMaximumBandwidth = ebsPerformanceMaximumBandwidth;
             return this;
         }
         @CustomType.Setter
         public Builder ebsPerformanceMaximumIops(Integer ebsPerformanceMaximumIops) {
-            this.ebsPerformanceMaximumIops = Objects.requireNonNull(ebsPerformanceMaximumIops);
+            if (ebsPerformanceMaximumIops == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "ebsPerformanceMaximumIops");
+            }
+            this.ebsPerformanceMaximumIops = ebsPerformanceMaximumIops;
             return this;
         }
         @CustomType.Setter
         public Builder ebsPerformanceMaximumThroughput(Double ebsPerformanceMaximumThroughput) {
-            this.ebsPerformanceMaximumThroughput = Objects.requireNonNull(ebsPerformanceMaximumThroughput);
+            if (ebsPerformanceMaximumThroughput == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "ebsPerformanceMaximumThroughput");
+            }
+            this.ebsPerformanceMaximumThroughput = ebsPerformanceMaximumThroughput;
             return this;
         }
         @CustomType.Setter
         public Builder efaSupported(Boolean efaSupported) {
-            this.efaSupported = Objects.requireNonNull(efaSupported);
+            if (efaSupported == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "efaSupported");
+            }
+            this.efaSupported = efaSupported;
             return this;
         }
         @CustomType.Setter
         public Builder enaSupport(String enaSupport) {
-            this.enaSupport = Objects.requireNonNull(enaSupport);
+            if (enaSupport == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "enaSupport");
+            }
+            this.enaSupport = enaSupport;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionInTransitSupported(Boolean encryptionInTransitSupported) {
-            this.encryptionInTransitSupported = Objects.requireNonNull(encryptionInTransitSupported);
+            if (encryptionInTransitSupported == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "encryptionInTransitSupported");
+            }
+            this.encryptionInTransitSupported = encryptionInTransitSupported;
             return this;
         }
         @CustomType.Setter
         public Builder fpgas(List<GetInstanceTypeFpga> fpgas) {
-            this.fpgas = Objects.requireNonNull(fpgas);
+            if (fpgas == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "fpgas");
+            }
+            this.fpgas = fpgas;
             return this;
         }
         public Builder fpgas(GetInstanceTypeFpga... fpgas) {
@@ -822,12 +886,18 @@ public final class GetInstanceTypeResult {
         }
         @CustomType.Setter
         public Builder freeTierEligible(Boolean freeTierEligible) {
-            this.freeTierEligible = Objects.requireNonNull(freeTierEligible);
+            if (freeTierEligible == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "freeTierEligible");
+            }
+            this.freeTierEligible = freeTierEligible;
             return this;
         }
         @CustomType.Setter
         public Builder gpuses(List<GetInstanceTypeGpus> gpuses) {
-            this.gpuses = Objects.requireNonNull(gpuses);
+            if (gpuses == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "gpuses");
+            }
+            this.gpuses = gpuses;
             return this;
         }
         public Builder gpuses(GetInstanceTypeGpus... gpuses) {
@@ -835,22 +905,34 @@ public final class GetInstanceTypeResult {
         }
         @CustomType.Setter
         public Builder hibernationSupported(Boolean hibernationSupported) {
-            this.hibernationSupported = Objects.requireNonNull(hibernationSupported);
+            if (hibernationSupported == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "hibernationSupported");
+            }
+            this.hibernationSupported = hibernationSupported;
             return this;
         }
         @CustomType.Setter
         public Builder hypervisor(String hypervisor) {
-            this.hypervisor = Objects.requireNonNull(hypervisor);
+            if (hypervisor == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "hypervisor");
+            }
+            this.hypervisor = hypervisor;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder inferenceAccelerators(List<GetInstanceTypeInferenceAccelerator> inferenceAccelerators) {
-            this.inferenceAccelerators = Objects.requireNonNull(inferenceAccelerators);
+            if (inferenceAccelerators == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "inferenceAccelerators");
+            }
+            this.inferenceAccelerators = inferenceAccelerators;
             return this;
         }
         public Builder inferenceAccelerators(GetInstanceTypeInferenceAccelerator... inferenceAccelerators) {
@@ -858,7 +940,10 @@ public final class GetInstanceTypeResult {
         }
         @CustomType.Setter
         public Builder instanceDisks(List<GetInstanceTypeInstanceDisk> instanceDisks) {
-            this.instanceDisks = Objects.requireNonNull(instanceDisks);
+            if (instanceDisks == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "instanceDisks");
+            }
+            this.instanceDisks = instanceDisks;
             return this;
         }
         public Builder instanceDisks(GetInstanceTypeInstanceDisk... instanceDisks) {
@@ -866,47 +951,74 @@ public final class GetInstanceTypeResult {
         }
         @CustomType.Setter
         public Builder instanceStorageSupported(Boolean instanceStorageSupported) {
-            this.instanceStorageSupported = Objects.requireNonNull(instanceStorageSupported);
+            if (instanceStorageSupported == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "instanceStorageSupported");
+            }
+            this.instanceStorageSupported = instanceStorageSupported;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Supported(Boolean ipv6Supported) {
-            this.ipv6Supported = Objects.requireNonNull(ipv6Supported);
+            if (ipv6Supported == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "ipv6Supported");
+            }
+            this.ipv6Supported = ipv6Supported;
             return this;
         }
         @CustomType.Setter
         public Builder maximumIpv4AddressesPerInterface(Integer maximumIpv4AddressesPerInterface) {
-            this.maximumIpv4AddressesPerInterface = Objects.requireNonNull(maximumIpv4AddressesPerInterface);
+            if (maximumIpv4AddressesPerInterface == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "maximumIpv4AddressesPerInterface");
+            }
+            this.maximumIpv4AddressesPerInterface = maximumIpv4AddressesPerInterface;
             return this;
         }
         @CustomType.Setter
         public Builder maximumIpv6AddressesPerInterface(Integer maximumIpv6AddressesPerInterface) {
-            this.maximumIpv6AddressesPerInterface = Objects.requireNonNull(maximumIpv6AddressesPerInterface);
+            if (maximumIpv6AddressesPerInterface == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "maximumIpv6AddressesPerInterface");
+            }
+            this.maximumIpv6AddressesPerInterface = maximumIpv6AddressesPerInterface;
             return this;
         }
         @CustomType.Setter
         public Builder maximumNetworkInterfaces(Integer maximumNetworkInterfaces) {
-            this.maximumNetworkInterfaces = Objects.requireNonNull(maximumNetworkInterfaces);
+            if (maximumNetworkInterfaces == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "maximumNetworkInterfaces");
+            }
+            this.maximumNetworkInterfaces = maximumNetworkInterfaces;
             return this;
         }
         @CustomType.Setter
         public Builder memorySize(Integer memorySize) {
-            this.memorySize = Objects.requireNonNull(memorySize);
+            if (memorySize == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "memorySize");
+            }
+            this.memorySize = memorySize;
             return this;
         }
         @CustomType.Setter
         public Builder networkPerformance(String networkPerformance) {
-            this.networkPerformance = Objects.requireNonNull(networkPerformance);
+            if (networkPerformance == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "networkPerformance");
+            }
+            this.networkPerformance = networkPerformance;
             return this;
         }
         @CustomType.Setter
         public Builder supportedArchitectures(List<String> supportedArchitectures) {
-            this.supportedArchitectures = Objects.requireNonNull(supportedArchitectures);
+            if (supportedArchitectures == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "supportedArchitectures");
+            }
+            this.supportedArchitectures = supportedArchitectures;
             return this;
         }
         public Builder supportedArchitectures(String... supportedArchitectures) {
@@ -914,7 +1026,10 @@ public final class GetInstanceTypeResult {
         }
         @CustomType.Setter
         public Builder supportedPlacementStrategies(List<String> supportedPlacementStrategies) {
-            this.supportedPlacementStrategies = Objects.requireNonNull(supportedPlacementStrategies);
+            if (supportedPlacementStrategies == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "supportedPlacementStrategies");
+            }
+            this.supportedPlacementStrategies = supportedPlacementStrategies;
             return this;
         }
         public Builder supportedPlacementStrategies(String... supportedPlacementStrategies) {
@@ -922,7 +1037,10 @@ public final class GetInstanceTypeResult {
         }
         @CustomType.Setter
         public Builder supportedRootDeviceTypes(List<String> supportedRootDeviceTypes) {
-            this.supportedRootDeviceTypes = Objects.requireNonNull(supportedRootDeviceTypes);
+            if (supportedRootDeviceTypes == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "supportedRootDeviceTypes");
+            }
+            this.supportedRootDeviceTypes = supportedRootDeviceTypes;
             return this;
         }
         public Builder supportedRootDeviceTypes(String... supportedRootDeviceTypes) {
@@ -930,7 +1048,10 @@ public final class GetInstanceTypeResult {
         }
         @CustomType.Setter
         public Builder supportedUsagesClasses(List<String> supportedUsagesClasses) {
-            this.supportedUsagesClasses = Objects.requireNonNull(supportedUsagesClasses);
+            if (supportedUsagesClasses == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "supportedUsagesClasses");
+            }
+            this.supportedUsagesClasses = supportedUsagesClasses;
             return this;
         }
         public Builder supportedUsagesClasses(String... supportedUsagesClasses) {
@@ -938,7 +1059,10 @@ public final class GetInstanceTypeResult {
         }
         @CustomType.Setter
         public Builder supportedVirtualizationTypes(List<String> supportedVirtualizationTypes) {
-            this.supportedVirtualizationTypes = Objects.requireNonNull(supportedVirtualizationTypes);
+            if (supportedVirtualizationTypes == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "supportedVirtualizationTypes");
+            }
+            this.supportedVirtualizationTypes = supportedVirtualizationTypes;
             return this;
         }
         public Builder supportedVirtualizationTypes(String... supportedVirtualizationTypes) {
@@ -946,27 +1070,42 @@ public final class GetInstanceTypeResult {
         }
         @CustomType.Setter
         public Builder sustainedClockSpeed(Double sustainedClockSpeed) {
-            this.sustainedClockSpeed = Objects.requireNonNull(sustainedClockSpeed);
+            if (sustainedClockSpeed == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "sustainedClockSpeed");
+            }
+            this.sustainedClockSpeed = sustainedClockSpeed;
             return this;
         }
         @CustomType.Setter
         public Builder totalFpgaMemory(Integer totalFpgaMemory) {
-            this.totalFpgaMemory = Objects.requireNonNull(totalFpgaMemory);
+            if (totalFpgaMemory == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "totalFpgaMemory");
+            }
+            this.totalFpgaMemory = totalFpgaMemory;
             return this;
         }
         @CustomType.Setter
         public Builder totalGpuMemory(Integer totalGpuMemory) {
-            this.totalGpuMemory = Objects.requireNonNull(totalGpuMemory);
+            if (totalGpuMemory == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "totalGpuMemory");
+            }
+            this.totalGpuMemory = totalGpuMemory;
             return this;
         }
         @CustomType.Setter
         public Builder totalInstanceStorage(Integer totalInstanceStorage) {
-            this.totalInstanceStorage = Objects.requireNonNull(totalInstanceStorage);
+            if (totalInstanceStorage == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "totalInstanceStorage");
+            }
+            this.totalInstanceStorage = totalInstanceStorage;
             return this;
         }
         @CustomType.Setter
         public Builder validCores(List<Integer> validCores) {
-            this.validCores = Objects.requireNonNull(validCores);
+            if (validCores == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "validCores");
+            }
+            this.validCores = validCores;
             return this;
         }
         public Builder validCores(Integer... validCores) {
@@ -974,7 +1113,10 @@ public final class GetInstanceTypeResult {
         }
         @CustomType.Setter
         public Builder validThreadsPerCores(List<Integer> validThreadsPerCores) {
-            this.validThreadsPerCores = Objects.requireNonNull(validThreadsPerCores);
+            if (validThreadsPerCores == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "validThreadsPerCores");
+            }
+            this.validThreadsPerCores = validThreadsPerCores;
             return this;
         }
         public Builder validThreadsPerCores(Integer... validThreadsPerCores) {

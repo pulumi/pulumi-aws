@@ -5,6 +5,7 @@ package com.pulumi.aws.ssm;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -263,7 +264,9 @@ public final class ActivationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ActivationArgs build() {
-            $.iamRole = Objects.requireNonNull($.iamRole, "expected parameter 'iamRole' to be non-null");
+            if ($.iamRole == null) {
+                throw new MissingRequiredPropertyException("ActivationArgs", "iamRole");
+            }
             return $;
         }
     }

@@ -59,6 +59,7 @@ public final class RuleGroupRuleGroupRuleVariables {
 
         @CustomType.Setter
         public Builder ipSets(@Nullable List<RuleGroupRuleGroupRuleVariablesIpSet> ipSets) {
+
             this.ipSets = ipSets;
             return this;
         }
@@ -67,6 +68,7 @@ public final class RuleGroupRuleGroupRuleVariables {
         }
         @CustomType.Setter
         public Builder portSets(@Nullable List<RuleGroupRuleGroupRuleVariablesPortSet> portSets) {
+
             this.portSets = portSets;
             return this;
         }

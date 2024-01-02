@@ -5,6 +5,7 @@ package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.aws.emr.outputs.GetSupportedInstanceTypesSupportedInstanceType;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,16 +58,23 @@ public final class GetSupportedInstanceTypesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSupportedInstanceTypesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder releaseLabel(String releaseLabel) {
-            this.releaseLabel = Objects.requireNonNull(releaseLabel);
+            if (releaseLabel == null) {
+              throw new MissingRequiredPropertyException("GetSupportedInstanceTypesResult", "releaseLabel");
+            }
+            this.releaseLabel = releaseLabel;
             return this;
         }
         @CustomType.Setter
         public Builder supportedInstanceTypes(@Nullable List<GetSupportedInstanceTypesSupportedInstanceType> supportedInstanceTypes) {
+
             this.supportedInstanceTypes = supportedInstanceTypes;
             return this;
         }

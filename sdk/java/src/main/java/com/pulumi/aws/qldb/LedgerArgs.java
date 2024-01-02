@@ -5,6 +5,7 @@ package com.pulumi.aws.qldb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -226,7 +227,9 @@ public final class LedgerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LedgerArgs build() {
-            $.permissionsMode = Objects.requireNonNull($.permissionsMode, "expected parameter 'permissionsMode' to be non-null");
+            if ($.permissionsMode == null) {
+                throw new MissingRequiredPropertyException("LedgerArgs", "permissionsMode");
+            }
             return $;
         }
     }

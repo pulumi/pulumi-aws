@@ -6,6 +6,7 @@ package com.pulumi.aws.backup.outputs;
 import com.pulumi.aws.backup.outputs.GetFrameworkControlInputParameter;
 import com.pulumi.aws.backup.outputs.GetFrameworkControlScope;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,7 +74,10 @@ public final class GetFrameworkControl {
 
         @CustomType.Setter
         public Builder inputParameters(List<GetFrameworkControlInputParameter> inputParameters) {
-            this.inputParameters = Objects.requireNonNull(inputParameters);
+            if (inputParameters == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkControl", "inputParameters");
+            }
+            this.inputParameters = inputParameters;
             return this;
         }
         public Builder inputParameters(GetFrameworkControlInputParameter... inputParameters) {
@@ -81,12 +85,18 @@ public final class GetFrameworkControl {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkControl", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder scopes(List<GetFrameworkControlScope> scopes) {
-            this.scopes = Objects.requireNonNull(scopes);
+            if (scopes == null) {
+              throw new MissingRequiredPropertyException("GetFrameworkControl", "scopes");
+            }
+            this.scopes = scopes;
             return this;
         }
         public Builder scopes(GetFrameworkControlScope... scopes) {

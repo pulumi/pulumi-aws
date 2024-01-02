@@ -44,6 +44,7 @@ public final class IntegrationTlsConfig {
 
         @CustomType.Setter
         public Builder serverNameToVerify(@Nullable String serverNameToVerify) {
+
             this.serverNameToVerify = serverNameToVerify;
             return this;
         }

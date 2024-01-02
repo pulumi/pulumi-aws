@@ -44,6 +44,7 @@ public final class RemediationConfigurationExecutionControls {
 
         @CustomType.Setter
         public Builder ssmControls(@Nullable RemediationConfigurationExecutionControlsSsmControls ssmControls) {
+
             this.ssmControls = ssmControls;
             return this;
         }

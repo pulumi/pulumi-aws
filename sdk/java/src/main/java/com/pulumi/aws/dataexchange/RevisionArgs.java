@@ -5,6 +5,7 @@ package com.pulumi.aws.dataexchange;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class RevisionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RevisionArgs build() {
-            $.dataSetId = Objects.requireNonNull($.dataSetId, "expected parameter 'dataSetId' to be non-null");
+            if ($.dataSetId == null) {
+                throw new MissingRequiredPropertyException("RevisionArgs", "dataSetId");
+            }
             return $;
         }
     }

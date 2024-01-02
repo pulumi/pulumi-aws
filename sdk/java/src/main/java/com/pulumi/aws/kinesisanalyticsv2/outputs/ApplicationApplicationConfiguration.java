@@ -11,6 +11,7 @@ import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigura
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfiguration;
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationVpcConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -134,36 +135,45 @@ public final class ApplicationApplicationConfiguration {
 
         @CustomType.Setter
         public Builder applicationCodeConfiguration(ApplicationApplicationConfigurationApplicationCodeConfiguration applicationCodeConfiguration) {
-            this.applicationCodeConfiguration = Objects.requireNonNull(applicationCodeConfiguration);
+            if (applicationCodeConfiguration == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfiguration", "applicationCodeConfiguration");
+            }
+            this.applicationCodeConfiguration = applicationCodeConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder applicationSnapshotConfiguration(@Nullable ApplicationApplicationConfigurationApplicationSnapshotConfiguration applicationSnapshotConfiguration) {
+
             this.applicationSnapshotConfiguration = applicationSnapshotConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder environmentProperties(@Nullable ApplicationApplicationConfigurationEnvironmentProperties environmentProperties) {
+
             this.environmentProperties = environmentProperties;
             return this;
         }
         @CustomType.Setter
         public Builder flinkApplicationConfiguration(@Nullable ApplicationApplicationConfigurationFlinkApplicationConfiguration flinkApplicationConfiguration) {
+
             this.flinkApplicationConfiguration = flinkApplicationConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder runConfiguration(@Nullable ApplicationApplicationConfigurationRunConfiguration runConfiguration) {
+
             this.runConfiguration = runConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder sqlApplicationConfiguration(@Nullable ApplicationApplicationConfigurationSqlApplicationConfiguration sqlApplicationConfiguration) {
+
             this.sqlApplicationConfiguration = sqlApplicationConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder vpcConfiguration(@Nullable ApplicationApplicationConfigurationVpcConfiguration vpcConfiguration) {
+
             this.vpcConfiguration = vpcConfiguration;
             return this;
         }

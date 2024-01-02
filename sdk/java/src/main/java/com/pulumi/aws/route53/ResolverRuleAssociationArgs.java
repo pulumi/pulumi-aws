@@ -5,6 +5,7 @@ package com.pulumi.aws.route53;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class ResolverRuleAssociationArgs extends com.pulumi.resources.Reso
         }
 
         public ResolverRuleAssociationArgs build() {
-            $.resolverRuleId = Objects.requireNonNull($.resolverRuleId, "expected parameter 'resolverRuleId' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.resolverRuleId == null) {
+                throw new MissingRequiredPropertyException("ResolverRuleAssociationArgs", "resolverRuleId");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("ResolverRuleAssociationArgs", "vpcId");
+            }
             return $;
         }
     }

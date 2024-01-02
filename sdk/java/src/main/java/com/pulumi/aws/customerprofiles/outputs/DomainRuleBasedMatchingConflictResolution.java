@@ -4,6 +4,7 @@
 package com.pulumi.aws.customerprofiles.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class DomainRuleBasedMatchingConflictResolution {
 
         @CustomType.Setter
         public Builder conflictResolvingModel(String conflictResolvingModel) {
-            this.conflictResolvingModel = Objects.requireNonNull(conflictResolvingModel);
+            if (conflictResolvingModel == null) {
+              throw new MissingRequiredPropertyException("DomainRuleBasedMatchingConflictResolution", "conflictResolvingModel");
+            }
+            this.conflictResolvingModel = conflictResolvingModel;
             return this;
         }
         @CustomType.Setter
         public Builder sourceName(@Nullable String sourceName) {
+
             this.sourceName = sourceName;
             return this;
         }

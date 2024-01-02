@@ -4,6 +4,7 @@
 package com.pulumi.aws.chimesdkmediapipelines.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
 
         @CustomType.Setter
         public Builder ruleName(String ruleName) {
-            this.ruleName = Objects.requireNonNull(ruleName);
+            if (ruleName == null) {
+              throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration", "ruleName");
+            }
+            this.ruleName = ruleName;
             return this;
         }
         @CustomType.Setter
         public Builder sentimentType(String sentimentType) {
-            this.sentimentType = Objects.requireNonNull(sentimentType);
+            if (sentimentType == null) {
+              throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration", "sentimentType");
+            }
+            this.sentimentType = sentimentType;
             return this;
         }
         @CustomType.Setter
         public Builder timePeriod(Integer timePeriod) {
-            this.timePeriod = Objects.requireNonNull(timePeriod);
+            if (timePeriod == null) {
+              throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration", "timePeriod");
+            }
+            this.timePeriod = timePeriod;
             return this;
         }
         public MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration build() {

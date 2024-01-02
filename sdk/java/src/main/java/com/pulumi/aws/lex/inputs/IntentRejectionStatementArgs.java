@@ -6,6 +6,7 @@ package com.pulumi.aws.lex.inputs;
 import com.pulumi.aws.lex.inputs.IntentRejectionStatementMessageArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -143,7 +144,9 @@ public final class IntentRejectionStatementArgs extends com.pulumi.resources.Res
         }
 
         public IntentRejectionStatementArgs build() {
-            $.messages = Objects.requireNonNull($.messages, "expected parameter 'messages' to be non-null");
+            if ($.messages == null) {
+                throw new MissingRequiredPropertyException("IntentRejectionStatementArgs", "messages");
+            }
             return $;
         }
     }

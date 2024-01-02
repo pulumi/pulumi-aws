@@ -7,6 +7,7 @@ import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTargetArgs;
 import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -497,9 +498,15 @@ public final class MaintenanceWindowTaskArgs extends com.pulumi.resources.Resour
         }
 
         public MaintenanceWindowTaskArgs build() {
-            $.taskArn = Objects.requireNonNull($.taskArn, "expected parameter 'taskArn' to be non-null");
-            $.taskType = Objects.requireNonNull($.taskType, "expected parameter 'taskType' to be non-null");
-            $.windowId = Objects.requireNonNull($.windowId, "expected parameter 'windowId' to be non-null");
+            if ($.taskArn == null) {
+                throw new MissingRequiredPropertyException("MaintenanceWindowTaskArgs", "taskArn");
+            }
+            if ($.taskType == null) {
+                throw new MissingRequiredPropertyException("MaintenanceWindowTaskArgs", "taskType");
+            }
+            if ($.windowId == null) {
+                throw new MissingRequiredPropertyException("MaintenanceWindowTaskArgs", "windowId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticache.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetReplicationGroupArgs extends com.pulumi.resources.InvokeAr
         }
 
         public GetReplicationGroupArgs build() {
-            $.replicationGroupId = Objects.requireNonNull($.replicationGroupId, "expected parameter 'replicationGroupId' to be non-null");
+            if ($.replicationGroupId == null) {
+                throw new MissingRequiredPropertyException("GetReplicationGroupArgs", "replicationGroupId");
+            }
             return $;
         }
     }

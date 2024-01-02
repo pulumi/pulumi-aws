@@ -6,6 +6,7 @@ package com.pulumi.aws.appconfig;
 import com.pulumi.aws.appconfig.inputs.ConfigurationProfileValidatorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -385,8 +386,12 @@ public final class ConfigurationProfileArgs extends com.pulumi.resources.Resourc
         }
 
         public ConfigurationProfileArgs build() {
-            $.applicationId = Objects.requireNonNull($.applicationId, "expected parameter 'applicationId' to be non-null");
-            $.locationUri = Objects.requireNonNull($.locationUri, "expected parameter 'locationUri' to be non-null");
+            if ($.applicationId == null) {
+                throw new MissingRequiredPropertyException("ConfigurationProfileArgs", "applicationId");
+            }
+            if ($.locationUri == null) {
+                throw new MissingRequiredPropertyException("ConfigurationProfileArgs", "locationUri");
+            }
             return $;
         }
     }

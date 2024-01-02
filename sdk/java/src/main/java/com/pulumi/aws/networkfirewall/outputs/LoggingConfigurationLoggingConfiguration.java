@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.LoggingConfigurationLoggingConfigurationLogDestinationConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class LoggingConfigurationLoggingConfiguration {
 
         @CustomType.Setter
         public Builder logDestinationConfigs(List<LoggingConfigurationLoggingConfigurationLogDestinationConfig> logDestinationConfigs) {
-            this.logDestinationConfigs = Objects.requireNonNull(logDestinationConfigs);
+            if (logDestinationConfigs == null) {
+              throw new MissingRequiredPropertyException("LoggingConfigurationLoggingConfiguration", "logDestinationConfigs");
+            }
+            this.logDestinationConfigs = logDestinationConfigs;
             return this;
         }
         public Builder logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfig... logDestinationConfigs) {

@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -273,8 +274,12 @@ public final class IpSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IpSetArgs build() {
-            $.ipAddressVersion = Objects.requireNonNull($.ipAddressVersion, "expected parameter 'ipAddressVersion' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
+            if ($.ipAddressVersion == null) {
+                throw new MissingRequiredPropertyException("IpSetArgs", "ipAddressVersion");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("IpSetArgs", "scope");
+            }
             return $;
         }
     }

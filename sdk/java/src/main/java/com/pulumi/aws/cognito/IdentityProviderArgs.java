@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -273,10 +274,18 @@ public final class IdentityProviderArgs extends com.pulumi.resources.ResourceArg
         }
 
         public IdentityProviderArgs build() {
-            $.providerDetails = Objects.requireNonNull($.providerDetails, "expected parameter 'providerDetails' to be non-null");
-            $.providerName = Objects.requireNonNull($.providerName, "expected parameter 'providerName' to be non-null");
-            $.providerType = Objects.requireNonNull($.providerType, "expected parameter 'providerType' to be non-null");
-            $.userPoolId = Objects.requireNonNull($.userPoolId, "expected parameter 'userPoolId' to be non-null");
+            if ($.providerDetails == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderArgs", "providerDetails");
+            }
+            if ($.providerName == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderArgs", "providerName");
+            }
+            if ($.providerType == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderArgs", "providerType");
+            }
+            if ($.userPoolId == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderArgs", "userPoolId");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.eks;
 import com.pulumi.aws.eks.inputs.FargateProfileSelectorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -294,9 +295,15 @@ public final class FargateProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public FargateProfileArgs build() {
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
-            $.podExecutionRoleArn = Objects.requireNonNull($.podExecutionRoleArn, "expected parameter 'podExecutionRoleArn' to be non-null");
-            $.selectors = Objects.requireNonNull($.selectors, "expected parameter 'selectors' to be non-null");
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("FargateProfileArgs", "clusterName");
+            }
+            if ($.podExecutionRoleArn == null) {
+                throw new MissingRequiredPropertyException("FargateProfileArgs", "podExecutionRoleArn");
+            }
+            if ($.selectors == null) {
+                throw new MissingRequiredPropertyException("FargateProfileArgs", "selectors");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -59,11 +60,15 @@ public final class SchedulingPolicyFairSharePolicyShareDistribution {
 
         @CustomType.Setter
         public Builder shareIdentifier(String shareIdentifier) {
-            this.shareIdentifier = Objects.requireNonNull(shareIdentifier);
+            if (shareIdentifier == null) {
+              throw new MissingRequiredPropertyException("SchedulingPolicyFairSharePolicyShareDistribution", "shareIdentifier");
+            }
+            this.shareIdentifier = shareIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder weightFactor(@Nullable Double weightFactor) {
+
             this.weightFactor = weightFactor;
             return this;
         }

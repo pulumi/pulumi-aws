@@ -5,6 +5,7 @@ package com.pulumi.aws.backup;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -159,9 +160,15 @@ public final class VaultNotificationsArgs extends com.pulumi.resources.ResourceA
         }
 
         public VaultNotificationsArgs build() {
-            $.backupVaultEvents = Objects.requireNonNull($.backupVaultEvents, "expected parameter 'backupVaultEvents' to be non-null");
-            $.backupVaultName = Objects.requireNonNull($.backupVaultName, "expected parameter 'backupVaultName' to be non-null");
-            $.snsTopicArn = Objects.requireNonNull($.snsTopicArn, "expected parameter 'snsTopicArn' to be non-null");
+            if ($.backupVaultEvents == null) {
+                throw new MissingRequiredPropertyException("VaultNotificationsArgs", "backupVaultEvents");
+            }
+            if ($.backupVaultName == null) {
+                throw new MissingRequiredPropertyException("VaultNotificationsArgs", "backupVaultName");
+            }
+            if ($.snsTopicArn == null) {
+                throw new MissingRequiredPropertyException("VaultNotificationsArgs", "snsTopicArn");
+            }
             return $;
         }
     }

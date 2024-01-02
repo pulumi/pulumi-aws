@@ -6,6 +6,7 @@ package com.pulumi.aws.opsworks;
 import com.pulumi.aws.opsworks.inputs.StackCustomCookbooksSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -883,9 +884,15 @@ public final class StackArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public StackArgs build() {
-            $.defaultInstanceProfileArn = Objects.requireNonNull($.defaultInstanceProfileArn, "expected parameter 'defaultInstanceProfileArn' to be non-null");
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
-            $.serviceRoleArn = Objects.requireNonNull($.serviceRoleArn, "expected parameter 'serviceRoleArn' to be non-null");
+            if ($.defaultInstanceProfileArn == null) {
+                throw new MissingRequiredPropertyException("StackArgs", "defaultInstanceProfileArn");
+            }
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("StackArgs", "region");
+            }
+            if ($.serviceRoleArn == null) {
+                throw new MissingRequiredPropertyException("StackArgs", "serviceRoleArn");
+            }
             return $;
         }
     }

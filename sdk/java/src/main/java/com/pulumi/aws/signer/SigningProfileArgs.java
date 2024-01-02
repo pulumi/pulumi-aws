@@ -7,6 +7,7 @@ import com.pulumi.aws.signer.inputs.SigningProfileSignatureValidityPeriodArgs;
 import com.pulumi.aws.signer.inputs.SigningProfileSigningMaterialArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -244,7 +245,9 @@ public final class SigningProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public SigningProfileArgs build() {
-            $.platformId = Objects.requireNonNull($.platformId, "expected parameter 'platformId' to be non-null");
+            if ($.platformId == null) {
+                throw new MissingRequiredPropertyException("SigningProfileArgs", "platformId");
+            }
             return $;
         }
     }

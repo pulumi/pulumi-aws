@@ -8,6 +8,7 @@ import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttp2Route;
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttpRoute;
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecTcpRoute;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -63,7 +64,10 @@ public final class GetRouteSpec {
 
         @CustomType.Setter
         public Builder grpcRoutes(List<GetRouteSpecGrpcRoute> grpcRoutes) {
-            this.grpcRoutes = Objects.requireNonNull(grpcRoutes);
+            if (grpcRoutes == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpec", "grpcRoutes");
+            }
+            this.grpcRoutes = grpcRoutes;
             return this;
         }
         public Builder grpcRoutes(GetRouteSpecGrpcRoute... grpcRoutes) {
@@ -71,7 +75,10 @@ public final class GetRouteSpec {
         }
         @CustomType.Setter
         public Builder http2Routes(List<GetRouteSpecHttp2Route> http2Routes) {
-            this.http2Routes = Objects.requireNonNull(http2Routes);
+            if (http2Routes == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpec", "http2Routes");
+            }
+            this.http2Routes = http2Routes;
             return this;
         }
         public Builder http2Routes(GetRouteSpecHttp2Route... http2Routes) {
@@ -79,7 +86,10 @@ public final class GetRouteSpec {
         }
         @CustomType.Setter
         public Builder httpRoutes(List<GetRouteSpecHttpRoute> httpRoutes) {
-            this.httpRoutes = Objects.requireNonNull(httpRoutes);
+            if (httpRoutes == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpec", "httpRoutes");
+            }
+            this.httpRoutes = httpRoutes;
             return this;
         }
         public Builder httpRoutes(GetRouteSpecHttpRoute... httpRoutes) {
@@ -87,12 +97,18 @@ public final class GetRouteSpec {
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpec", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder tcpRoutes(List<GetRouteSpecTcpRoute> tcpRoutes) {
-            this.tcpRoutes = Objects.requireNonNull(tcpRoutes);
+            if (tcpRoutes == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpec", "tcpRoutes");
+            }
+            this.tcpRoutes = tcpRoutes;
             return this;
         }
         public Builder tcpRoutes(GetRouteSpecTcpRoute... tcpRoutes) {

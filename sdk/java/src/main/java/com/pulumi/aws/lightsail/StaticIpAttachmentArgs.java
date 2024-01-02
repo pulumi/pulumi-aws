@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class StaticIpAttachmentArgs extends com.pulumi.resources.ResourceA
         }
 
         public StaticIpAttachmentArgs build() {
-            $.instanceName = Objects.requireNonNull($.instanceName, "expected parameter 'instanceName' to be non-null");
-            $.staticIpName = Objects.requireNonNull($.staticIpName, "expected parameter 'staticIpName' to be non-null");
+            if ($.instanceName == null) {
+                throw new MissingRequiredPropertyException("StaticIpAttachmentArgs", "instanceName");
+            }
+            if ($.staticIpName == null) {
+                throw new MissingRequiredPropertyException("StaticIpAttachmentArgs", "staticIpName");
+            }
             return $;
         }
     }

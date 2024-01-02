@@ -6,6 +6,7 @@ package com.pulumi.aws.signer.inputs;
 import com.pulumi.aws.signer.inputs.SigningJobDestinationS3Args;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class SigningJobDestinationArgs extends com.pulumi.resources.Resour
         }
 
         public SigningJobDestinationArgs build() {
-            $.s3 = Objects.requireNonNull($.s3, "expected parameter 's3' to be non-null");
+            if ($.s3 == null) {
+                throw new MissingRequiredPropertyException("SigningJobDestinationArgs", "s3");
+            }
             return $;
         }
     }

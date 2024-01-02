@@ -4,6 +4,7 @@
 package com.pulumi.aws.pipes.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -116,22 +117,30 @@ public final class PipeTargetParametersRedshiftDataParameters {
 
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("PipeTargetParametersRedshiftDataParameters", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder dbUser(@Nullable String dbUser) {
+
             this.dbUser = dbUser;
             return this;
         }
         @CustomType.Setter
         public Builder secretManagerArn(@Nullable String secretManagerArn) {
+
             this.secretManagerArn = secretManagerArn;
             return this;
         }
         @CustomType.Setter
         public Builder sqls(List<String> sqls) {
-            this.sqls = Objects.requireNonNull(sqls);
+            if (sqls == null) {
+              throw new MissingRequiredPropertyException("PipeTargetParametersRedshiftDataParameters", "sqls");
+            }
+            this.sqls = sqls;
             return this;
         }
         public Builder sqls(String... sqls) {
@@ -139,11 +148,13 @@ public final class PipeTargetParametersRedshiftDataParameters {
         }
         @CustomType.Setter
         public Builder statementName(@Nullable String statementName) {
+
             this.statementName = statementName;
             return this;
         }
         @CustomType.Setter
         public Builder withEvent(@Nullable Boolean withEvent) {
+
             this.withEvent = withEvent;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive.inputs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -670,8 +671,12 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         }
 
         public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs build() {
-            $.outlineColor = Objects.requireNonNull($.outlineColor, "expected parameter 'outlineColor' to be non-null");
-            $.teletextGridControl = Objects.requireNonNull($.teletextGridControl, "expected parameter 'teletextGridControl' to be non-null");
+            if ($.outlineColor == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs", "outlineColor");
+            }
+            if ($.teletextGridControl == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs", "teletextGridControl");
+            }
             return $;
         }
     }

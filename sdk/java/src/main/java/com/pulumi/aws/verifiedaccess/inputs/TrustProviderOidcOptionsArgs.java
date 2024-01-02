@@ -5,6 +5,7 @@ package com.pulumi.aws.verifiedaccess.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,7 +159,9 @@ public final class TrustProviderOidcOptionsArgs extends com.pulumi.resources.Res
         }
 
         public TrustProviderOidcOptionsArgs build() {
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("TrustProviderOidcOptionsArgs", "clientSecret");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.aws.ec2.inputs.TrafficMirrorFilterRuleDestinationPortRangeArgs
 import com.pulumi.aws.ec2.inputs.TrafficMirrorFilterRuleSourcePortRangeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -420,12 +421,24 @@ public final class TrafficMirrorFilterRuleArgs extends com.pulumi.resources.Reso
         }
 
         public TrafficMirrorFilterRuleArgs build() {
-            $.destinationCidrBlock = Objects.requireNonNull($.destinationCidrBlock, "expected parameter 'destinationCidrBlock' to be non-null");
-            $.ruleAction = Objects.requireNonNull($.ruleAction, "expected parameter 'ruleAction' to be non-null");
-            $.ruleNumber = Objects.requireNonNull($.ruleNumber, "expected parameter 'ruleNumber' to be non-null");
-            $.sourceCidrBlock = Objects.requireNonNull($.sourceCidrBlock, "expected parameter 'sourceCidrBlock' to be non-null");
-            $.trafficDirection = Objects.requireNonNull($.trafficDirection, "expected parameter 'trafficDirection' to be non-null");
-            $.trafficMirrorFilterId = Objects.requireNonNull($.trafficMirrorFilterId, "expected parameter 'trafficMirrorFilterId' to be non-null");
+            if ($.destinationCidrBlock == null) {
+                throw new MissingRequiredPropertyException("TrafficMirrorFilterRuleArgs", "destinationCidrBlock");
+            }
+            if ($.ruleAction == null) {
+                throw new MissingRequiredPropertyException("TrafficMirrorFilterRuleArgs", "ruleAction");
+            }
+            if ($.ruleNumber == null) {
+                throw new MissingRequiredPropertyException("TrafficMirrorFilterRuleArgs", "ruleNumber");
+            }
+            if ($.sourceCidrBlock == null) {
+                throw new MissingRequiredPropertyException("TrafficMirrorFilterRuleArgs", "sourceCidrBlock");
+            }
+            if ($.trafficDirection == null) {
+                throw new MissingRequiredPropertyException("TrafficMirrorFilterRuleArgs", "trafficDirection");
+            }
+            if ($.trafficMirrorFilterId == null) {
+                throw new MissingRequiredPropertyException("TrafficMirrorFilterRuleArgs", "trafficMirrorFilterId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.auditmanager.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class AssessmentScopeAwsServiceArgs extends com.pulumi.resources.Re
         }
 
         public AssessmentScopeAwsServiceArgs build() {
-            $.serviceName = Objects.requireNonNull($.serviceName, "expected parameter 'serviceName' to be non-null");
+            if ($.serviceName == null) {
+                throw new MissingRequiredPropertyException("AssessmentScopeAwsServiceArgs", "serviceName");
+            }
             return $;
         }
     }

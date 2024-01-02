@@ -6,6 +6,7 @@ package com.pulumi.aws.kms;
 import com.pulumi.aws.kms.inputs.GrantConstraintArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -372,9 +373,15 @@ public final class GrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GrantArgs build() {
-            $.granteePrincipal = Objects.requireNonNull($.granteePrincipal, "expected parameter 'granteePrincipal' to be non-null");
-            $.keyId = Objects.requireNonNull($.keyId, "expected parameter 'keyId' to be non-null");
-            $.operations = Objects.requireNonNull($.operations, "expected parameter 'operations' to be non-null");
+            if ($.granteePrincipal == null) {
+                throw new MissingRequiredPropertyException("GrantArgs", "granteePrincipal");
+            }
+            if ($.keyId == null) {
+                throw new MissingRequiredPropertyException("GrantArgs", "keyId");
+            }
+            if ($.operations == null) {
+                throw new MissingRequiredPropertyException("GrantArgs", "operations");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.datasync;
 import com.pulumi.aws.datasync.inputs.LocationAzureBlobSasConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -348,9 +349,15 @@ public final class LocationAzureBlobArgs extends com.pulumi.resources.ResourceAr
         }
 
         public LocationAzureBlobArgs build() {
-            $.agentArns = Objects.requireNonNull($.agentArns, "expected parameter 'agentArns' to be non-null");
-            $.authenticationType = Objects.requireNonNull($.authenticationType, "expected parameter 'authenticationType' to be non-null");
-            $.containerUrl = Objects.requireNonNull($.containerUrl, "expected parameter 'containerUrl' to be non-null");
+            if ($.agentArns == null) {
+                throw new MissingRequiredPropertyException("LocationAzureBlobArgs", "agentArns");
+            }
+            if ($.authenticationType == null) {
+                throw new MissingRequiredPropertyException("LocationAzureBlobArgs", "authenticationType");
+            }
+            if ($.containerUrl == null) {
+                throw new MissingRequiredPropertyException("LocationAzureBlobArgs", "containerUrl");
+            }
             return $;
         }
     }

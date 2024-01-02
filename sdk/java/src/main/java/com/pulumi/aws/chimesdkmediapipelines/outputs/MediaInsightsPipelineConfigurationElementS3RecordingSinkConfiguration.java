@@ -44,6 +44,7 @@ public final class MediaInsightsPipelineConfigurationElementS3RecordingSinkConfi
 
         @CustomType.Setter
         public Builder destination(@Nullable String destination) {
+
             this.destination = destination;
             return this;
         }

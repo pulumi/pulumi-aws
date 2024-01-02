@@ -59,11 +59,13 @@ public final class ClassificationJobS3JobDefinitionBucketCriteria {
 
         @CustomType.Setter
         public Builder excludes(@Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludes excludes) {
+
             this.excludes = excludes;
             return this;
         }
         @CustomType.Setter
         public Builder includes(@Nullable ClassificationJobS3JobDefinitionBucketCriteriaIncludes includes) {
+
             this.includes = includes;
             return this;
         }

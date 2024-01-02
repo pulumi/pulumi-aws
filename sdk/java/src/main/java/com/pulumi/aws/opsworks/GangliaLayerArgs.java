@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.inputs.GangliaLayerEbsVolumeArgs;
 import com.pulumi.aws.opsworks.inputs.GangliaLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -934,8 +935,12 @@ public final class GangliaLayerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GangliaLayerArgs build() {
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.stackId = Objects.requireNonNull($.stackId, "expected parameter 'stackId' to be non-null");
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("GangliaLayerArgs", "password");
+            }
+            if ($.stackId == null) {
+                throw new MissingRequiredPropertyException("GangliaLayerArgs", "stackId");
+            }
             return $;
         }
     }

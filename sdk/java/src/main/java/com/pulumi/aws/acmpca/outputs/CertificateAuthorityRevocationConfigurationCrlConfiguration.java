@@ -102,26 +102,31 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfiguration {
 
         @CustomType.Setter
         public Builder customCname(@Nullable String customCname) {
+
             this.customCname = customCname;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder expirationInDays(@Nullable Integer expirationInDays) {
+
             this.expirationInDays = expirationInDays;
             return this;
         }
         @CustomType.Setter
         public Builder s3BucketName(@Nullable String s3BucketName) {
+
             this.s3BucketName = s3BucketName;
             return this;
         }
         @CustomType.Setter
         public Builder s3ObjectAcl(@Nullable String s3ObjectAcl) {
+
             this.s3ObjectAcl = s3ObjectAcl;
             return this;
         }

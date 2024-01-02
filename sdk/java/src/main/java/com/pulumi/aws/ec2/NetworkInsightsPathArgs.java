@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -308,9 +309,15 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
         }
 
         public NetworkInsightsPathArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("NetworkInsightsPathArgs", "destination");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("NetworkInsightsPathArgs", "protocol");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("NetworkInsightsPathArgs", "source");
+            }
             return $;
         }
     }

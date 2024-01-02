@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesisanalyticsv2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ApplicationSnapshotArgs extends com.pulumi.resources.Resource
         }
 
         public ApplicationSnapshotArgs build() {
-            $.applicationName = Objects.requireNonNull($.applicationName, "expected parameter 'applicationName' to be non-null");
-            $.snapshotName = Objects.requireNonNull($.snapshotName, "expected parameter 'snapshotName' to be non-null");
+            if ($.applicationName == null) {
+                throw new MissingRequiredPropertyException("ApplicationSnapshotArgs", "applicationName");
+            }
+            if ($.snapshotName == null) {
+                throw new MissingRequiredPropertyException("ApplicationSnapshotArgs", "snapshotName");
+            }
             return $;
         }
     }

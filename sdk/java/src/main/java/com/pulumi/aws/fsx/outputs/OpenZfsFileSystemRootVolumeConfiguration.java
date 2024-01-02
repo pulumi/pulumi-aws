@@ -119,31 +119,37 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
 
         @CustomType.Setter
         public Builder copyTagsToSnapshots(@Nullable Boolean copyTagsToSnapshots) {
+
             this.copyTagsToSnapshots = copyTagsToSnapshots;
             return this;
         }
         @CustomType.Setter
         public Builder dataCompressionType(@Nullable String dataCompressionType) {
+
             this.dataCompressionType = dataCompressionType;
             return this;
         }
         @CustomType.Setter
         public Builder nfsExports(@Nullable OpenZfsFileSystemRootVolumeConfigurationNfsExports nfsExports) {
+
             this.nfsExports = nfsExports;
             return this;
         }
         @CustomType.Setter
         public Builder readOnly(@Nullable Boolean readOnly) {
+
             this.readOnly = readOnly;
             return this;
         }
         @CustomType.Setter
         public Builder recordSizeKib(@Nullable Integer recordSizeKib) {
+
             this.recordSizeKib = recordSizeKib;
             return this;
         }
         @CustomType.Setter
         public Builder userAndGroupQuotas(@Nullable List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas) {
+
             this.userAndGroupQuotas = userAndGroupQuotas;
             return this;
         }

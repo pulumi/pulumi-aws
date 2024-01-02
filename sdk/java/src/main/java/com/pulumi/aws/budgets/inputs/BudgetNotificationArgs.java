@@ -5,6 +5,7 @@ package com.pulumi.aws.budgets.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -283,10 +284,18 @@ public final class BudgetNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         public BudgetNotificationArgs build() {
-            $.comparisonOperator = Objects.requireNonNull($.comparisonOperator, "expected parameter 'comparisonOperator' to be non-null");
-            $.notificationType = Objects.requireNonNull($.notificationType, "expected parameter 'notificationType' to be non-null");
-            $.threshold = Objects.requireNonNull($.threshold, "expected parameter 'threshold' to be non-null");
-            $.thresholdType = Objects.requireNonNull($.thresholdType, "expected parameter 'thresholdType' to be non-null");
+            if ($.comparisonOperator == null) {
+                throw new MissingRequiredPropertyException("BudgetNotificationArgs", "comparisonOperator");
+            }
+            if ($.notificationType == null) {
+                throw new MissingRequiredPropertyException("BudgetNotificationArgs", "notificationType");
+            }
+            if ($.threshold == null) {
+                throw new MissingRequiredPropertyException("BudgetNotificationArgs", "threshold");
+            }
+            if ($.thresholdType == null) {
+                throw new MissingRequiredPropertyException("BudgetNotificationArgs", "thresholdType");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.cloud9;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -406,7 +407,9 @@ public final class EnvironmentEC2Args extends com.pulumi.resources.ResourceArgs 
         }
 
         public EnvironmentEC2Args build() {
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
+            if ($.instanceType == null) {
+                throw new MissingRequiredPropertyException("EnvironmentEC2Args", "instanceType");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront.inputs;
 import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -149,9 +150,15 @@ public final class FieldLevelEncryptionProfileEncryptionEntitiesItemArgs extends
         }
 
         public FieldLevelEncryptionProfileEncryptionEntitiesItemArgs build() {
-            $.fieldPatterns = Objects.requireNonNull($.fieldPatterns, "expected parameter 'fieldPatterns' to be non-null");
-            $.providerId = Objects.requireNonNull($.providerId, "expected parameter 'providerId' to be non-null");
-            $.publicKeyId = Objects.requireNonNull($.publicKeyId, "expected parameter 'publicKeyId' to be non-null");
+            if ($.fieldPatterns == null) {
+                throw new MissingRequiredPropertyException("FieldLevelEncryptionProfileEncryptionEntitiesItemArgs", "fieldPatterns");
+            }
+            if ($.providerId == null) {
+                throw new MissingRequiredPropertyException("FieldLevelEncryptionProfileEncryptionEntitiesItemArgs", "providerId");
+            }
+            if ($.publicKeyId == null) {
+                throw new MissingRequiredPropertyException("FieldLevelEncryptionProfileEncryptionEntitiesItemArgs", "publicKeyId");
+            }
             return $;
         }
     }

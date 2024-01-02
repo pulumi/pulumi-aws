@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecBackendDefault;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListener;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecLogging;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,7 +50,10 @@ public final class GetVirtualGatewaySpec {
 
         @CustomType.Setter
         public Builder backendDefaults(List<GetVirtualGatewaySpecBackendDefault> backendDefaults) {
-            this.backendDefaults = Objects.requireNonNull(backendDefaults);
+            if (backendDefaults == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpec", "backendDefaults");
+            }
+            this.backendDefaults = backendDefaults;
             return this;
         }
         public Builder backendDefaults(GetVirtualGatewaySpecBackendDefault... backendDefaults) {
@@ -57,7 +61,10 @@ public final class GetVirtualGatewaySpec {
         }
         @CustomType.Setter
         public Builder listeners(List<GetVirtualGatewaySpecListener> listeners) {
-            this.listeners = Objects.requireNonNull(listeners);
+            if (listeners == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpec", "listeners");
+            }
+            this.listeners = listeners;
             return this;
         }
         public Builder listeners(GetVirtualGatewaySpecListener... listeners) {
@@ -65,7 +72,10 @@ public final class GetVirtualGatewaySpec {
         }
         @CustomType.Setter
         public Builder loggings(List<GetVirtualGatewaySpecLogging> loggings) {
-            this.loggings = Objects.requireNonNull(loggings);
+            if (loggings == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpec", "loggings");
+            }
+            this.loggings = loggings;
             return this;
         }
         public Builder loggings(GetVirtualGatewaySpecLogging... loggings) {

@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class ApplicationAssignmentArgs extends com.pulumi.resources.Resour
         }
 
         public ApplicationAssignmentArgs build() {
-            $.applicationArn = Objects.requireNonNull($.applicationArn, "expected parameter 'applicationArn' to be non-null");
-            $.principalId = Objects.requireNonNull($.principalId, "expected parameter 'principalId' to be non-null");
-            $.principalType = Objects.requireNonNull($.principalType, "expected parameter 'principalType' to be non-null");
+            if ($.applicationArn == null) {
+                throw new MissingRequiredPropertyException("ApplicationAssignmentArgs", "applicationArn");
+            }
+            if ($.principalId == null) {
+                throw new MissingRequiredPropertyException("ApplicationAssignmentArgs", "principalId");
+            }
+            if ($.principalType == null) {
+                throw new MissingRequiredPropertyException("ApplicationAssignmentArgs", "principalType");
+            }
             return $;
         }
     }

@@ -9,6 +9,7 @@ import com.pulumi.aws.cloudfront.inputs.DistributionOriginOriginShieldArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionOriginS3OriginConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -425,8 +426,12 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         public DistributionOriginArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.originId = Objects.requireNonNull($.originId, "expected parameter 'originId' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("DistributionOriginArgs", "domainName");
+            }
+            if ($.originId == null) {
+                throw new MissingRequiredPropertyException("DistributionOriginArgs", "originId");
+            }
             return $;
         }
     }

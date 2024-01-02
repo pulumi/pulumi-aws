@@ -58,11 +58,13 @@ public final class PipeTargetParametersCloudwatchLogsParameters {
 
         @CustomType.Setter
         public Builder logStreamName(@Nullable String logStreamName) {
+
             this.logStreamName = logStreamName;
             return this;
         }
         @CustomType.Setter
         public Builder timestamp(@Nullable String timestamp) {
+
             this.timestamp = timestamp;
             return this;
         }

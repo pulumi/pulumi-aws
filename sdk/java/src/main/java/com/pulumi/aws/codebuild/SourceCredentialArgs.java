@@ -5,6 +5,7 @@ package com.pulumi.aws.codebuild;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class SourceCredentialArgs extends com.pulumi.resources.ResourceArg
         }
 
         public SourceCredentialArgs build() {
-            $.authType = Objects.requireNonNull($.authType, "expected parameter 'authType' to be non-null");
-            $.serverType = Objects.requireNonNull($.serverType, "expected parameter 'serverType' to be non-null");
-            $.token = Objects.requireNonNull($.token, "expected parameter 'token' to be non-null");
+            if ($.authType == null) {
+                throw new MissingRequiredPropertyException("SourceCredentialArgs", "authType");
+            }
+            if ($.serverType == null) {
+                throw new MissingRequiredPropertyException("SourceCredentialArgs", "serverType");
+            }
+            if ($.token == null) {
+                throw new MissingRequiredPropertyException("SourceCredentialArgs", "token");
+            }
             return $;
         }
     }

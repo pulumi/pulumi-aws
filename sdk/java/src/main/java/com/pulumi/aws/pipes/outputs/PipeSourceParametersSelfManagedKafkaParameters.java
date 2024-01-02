@@ -6,6 +6,7 @@ package com.pulumi.aws.pipes.outputs;
 import com.pulumi.aws.pipes.outputs.PipeSourceParametersSelfManagedKafkaParametersCredentials;
 import com.pulumi.aws.pipes.outputs.PipeSourceParametersSelfManagedKafkaParametersVpc;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -160,6 +161,7 @@ public final class PipeSourceParametersSelfManagedKafkaParameters {
 
         @CustomType.Setter
         public Builder additionalBootstrapServers(@Nullable List<String> additionalBootstrapServers) {
+
             this.additionalBootstrapServers = additionalBootstrapServers;
             return this;
         }
@@ -168,41 +170,51 @@ public final class PipeSourceParametersSelfManagedKafkaParameters {
         }
         @CustomType.Setter
         public Builder batchSize(@Nullable Integer batchSize) {
+
             this.batchSize = batchSize;
             return this;
         }
         @CustomType.Setter
         public Builder consumerGroupId(@Nullable String consumerGroupId) {
+
             this.consumerGroupId = consumerGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder credentials(@Nullable PipeSourceParametersSelfManagedKafkaParametersCredentials credentials) {
+
             this.credentials = credentials;
             return this;
         }
         @CustomType.Setter
         public Builder maximumBatchingWindowInSeconds(@Nullable Integer maximumBatchingWindowInSeconds) {
+
             this.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder serverRootCaCertificate(@Nullable String serverRootCaCertificate) {
+
             this.serverRootCaCertificate = serverRootCaCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder startingPosition(@Nullable String startingPosition) {
+
             this.startingPosition = startingPosition;
             return this;
         }
         @CustomType.Setter
         public Builder topicName(String topicName) {
-            this.topicName = Objects.requireNonNull(topicName);
+            if (topicName == null) {
+              throw new MissingRequiredPropertyException("PipeSourceParametersSelfManagedKafkaParameters", "topicName");
+            }
+            this.topicName = topicName;
             return this;
         }
         @CustomType.Setter
         public Builder vpc(@Nullable PipeSourceParametersSelfManagedKafkaParametersVpc vpc) {
+
             this.vpc = vpc;
             return this;
         }

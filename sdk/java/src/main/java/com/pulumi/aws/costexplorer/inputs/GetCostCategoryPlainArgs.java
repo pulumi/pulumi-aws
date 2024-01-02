@@ -4,6 +4,7 @@
 package com.pulumi.aws.costexplorer.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -93,7 +94,9 @@ public final class GetCostCategoryPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         public GetCostCategoryPlainArgs build() {
-            $.costCategoryArn = Objects.requireNonNull($.costCategoryArn, "expected parameter 'costCategoryArn' to be non-null");
+            if ($.costCategoryArn == null) {
+                throw new MissingRequiredPropertyException("GetCostCategoryPlainArgs", "costCategoryArn");
+            }
             return $;
         }
     }

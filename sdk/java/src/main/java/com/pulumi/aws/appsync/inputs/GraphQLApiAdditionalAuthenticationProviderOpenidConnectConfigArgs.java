@@ -5,6 +5,7 @@ package com.pulumi.aws.appsync.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig
         }
 
         public GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs build() {
-            $.issuer = Objects.requireNonNull($.issuer, "expected parameter 'issuer' to be non-null");
+            if ($.issuer == null) {
+                throw new MissingRequiredPropertyException("GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs", "issuer");
+            }
             return $;
         }
     }

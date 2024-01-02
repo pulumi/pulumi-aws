@@ -73,6 +73,7 @@ public final class CoreNetworkSegment {
 
         @CustomType.Setter
         public Builder edgeLocations(@Nullable List<String> edgeLocations) {
+
             this.edgeLocations = edgeLocations;
             return this;
         }
@@ -81,11 +82,13 @@ public final class CoreNetworkSegment {
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sharedSegments(@Nullable List<String> sharedSegments) {
+
             this.sharedSegments = sharedSegments;
             return this;
         }

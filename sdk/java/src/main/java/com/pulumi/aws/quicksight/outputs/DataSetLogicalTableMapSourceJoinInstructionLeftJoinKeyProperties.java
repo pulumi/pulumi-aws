@@ -44,6 +44,7 @@ public final class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropert
 
         @CustomType.Setter
         public Builder uniqueKey(@Nullable Boolean uniqueKey) {
+
             this.uniqueKey = uniqueKey;
             return this;
         }

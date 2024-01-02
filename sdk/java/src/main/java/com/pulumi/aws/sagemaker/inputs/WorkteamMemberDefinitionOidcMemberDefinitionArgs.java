@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class WorkteamMemberDefinitionOidcMemberDefinitionArgs extends com.
         }
 
         public WorkteamMemberDefinitionOidcMemberDefinitionArgs build() {
-            $.groups = Objects.requireNonNull($.groups, "expected parameter 'groups' to be non-null");
+            if ($.groups == null) {
+                throw new MissingRequiredPropertyException("WorkteamMemberDefinitionOidcMemberDefinitionArgs", "groups");
+            }
             return $;
         }
     }

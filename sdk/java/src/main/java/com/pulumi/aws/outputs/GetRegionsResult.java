@@ -5,6 +5,7 @@ package com.pulumi.aws.outputs;
 
 import com.pulumi.aws.outputs.GetRegionsFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -73,11 +74,13 @@ public final class GetRegionsResult {
 
         @CustomType.Setter
         public Builder allRegions(@Nullable Boolean allRegions) {
+
             this.allRegions = allRegions;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetRegionsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -86,12 +89,18 @@ public final class GetRegionsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRegionsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+            if (names == null) {
+              throw new MissingRequiredPropertyException("GetRegionsResult", "names");
+            }
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {

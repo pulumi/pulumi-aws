@@ -44,6 +44,7 @@ public final class DeliveryChannelSnapshotDeliveryProperties {
 
         @CustomType.Setter
         public Builder deliveryFrequency(@Nullable String deliveryFrequency) {
+
             this.deliveryFrequency = deliveryFrequency;
             return this;
         }

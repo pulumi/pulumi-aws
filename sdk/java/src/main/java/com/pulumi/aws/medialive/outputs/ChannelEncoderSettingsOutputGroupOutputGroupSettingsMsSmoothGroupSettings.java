@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -194,96 +195,117 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
 
         @CustomType.Setter
         public Builder acquisitionPointId(@Nullable String acquisitionPointId) {
+
             this.acquisitionPointId = acquisitionPointId;
             return this;
         }
         @CustomType.Setter
         public Builder audioOnlyTimecodeControl(@Nullable String audioOnlyTimecodeControl) {
+
             this.audioOnlyTimecodeControl = audioOnlyTimecodeControl;
             return this;
         }
         @CustomType.Setter
         public Builder certificateMode(@Nullable String certificateMode) {
+
             this.certificateMode = certificateMode;
             return this;
         }
         @CustomType.Setter
         public Builder connectionRetryInterval(@Nullable Integer connectionRetryInterval) {
+
             this.connectionRetryInterval = connectionRetryInterval;
             return this;
         }
         @CustomType.Setter
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder eventId(@Nullable String eventId) {
+
             this.eventId = eventId;
             return this;
         }
         @CustomType.Setter
         public Builder eventIdMode(@Nullable String eventIdMode) {
+
             this.eventIdMode = eventIdMode;
             return this;
         }
         @CustomType.Setter
         public Builder eventStopBehavior(@Nullable String eventStopBehavior) {
+
             this.eventStopBehavior = eventStopBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder filecacheDuration(@Nullable Integer filecacheDuration) {
+
             this.filecacheDuration = filecacheDuration;
             return this;
         }
         @CustomType.Setter
         public Builder fragmentLength(@Nullable Integer fragmentLength) {
+
             this.fragmentLength = fragmentLength;
             return this;
         }
         @CustomType.Setter
         public Builder inputLossAction(@Nullable String inputLossAction) {
+
             this.inputLossAction = inputLossAction;
             return this;
         }
         @CustomType.Setter
         public Builder numRetries(@Nullable Integer numRetries) {
+
             this.numRetries = numRetries;
             return this;
         }
         @CustomType.Setter
         public Builder restartDelay(@Nullable Integer restartDelay) {
+
             this.restartDelay = restartDelay;
             return this;
         }
         @CustomType.Setter
         public Builder segmentationMode(@Nullable String segmentationMode) {
+
             this.segmentationMode = segmentationMode;
             return this;
         }
         @CustomType.Setter
         public Builder sendDelayMs(@Nullable Integer sendDelayMs) {
+
             this.sendDelayMs = sendDelayMs;
             return this;
         }
         @CustomType.Setter
         public Builder sparseTrackType(@Nullable String sparseTrackType) {
+
             this.sparseTrackType = sparseTrackType;
             return this;
         }
         @CustomType.Setter
         public Builder streamManifestBehavior(@Nullable String streamManifestBehavior) {
+
             this.streamManifestBehavior = streamManifestBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder timestampOffset(@Nullable String timestampOffset) {
+
             this.timestampOffset = timestampOffset;
             return this;
         }
         @CustomType.Setter
         public Builder timestampOffsetMode(@Nullable String timestampOffsetMode) {
+
             this.timestampOffsetMode = timestampOffsetMode;
             return this;
         }

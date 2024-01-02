@@ -7,6 +7,7 @@ import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleNotCostCategor
 import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleNotDimension;
 import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleNotTag;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -73,7 +74,10 @@ public final class GetCostCategoryRuleRuleNot {
 
         @CustomType.Setter
         public Builder costCategories(List<GetCostCategoryRuleRuleNotCostCategory> costCategories) {
-            this.costCategories = Objects.requireNonNull(costCategories);
+            if (costCategories == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRuleNot", "costCategories");
+            }
+            this.costCategories = costCategories;
             return this;
         }
         public Builder costCategories(GetCostCategoryRuleRuleNotCostCategory... costCategories) {
@@ -81,7 +85,10 @@ public final class GetCostCategoryRuleRuleNot {
         }
         @CustomType.Setter
         public Builder dimensions(List<GetCostCategoryRuleRuleNotDimension> dimensions) {
-            this.dimensions = Objects.requireNonNull(dimensions);
+            if (dimensions == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRuleNot", "dimensions");
+            }
+            this.dimensions = dimensions;
             return this;
         }
         public Builder dimensions(GetCostCategoryRuleRuleNotDimension... dimensions) {
@@ -89,7 +96,10 @@ public final class GetCostCategoryRuleRuleNot {
         }
         @CustomType.Setter
         public Builder tags(List<GetCostCategoryRuleRuleNotTag> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRuleNot", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public Builder tags(GetCostCategoryRuleRuleNotTag... tags) {

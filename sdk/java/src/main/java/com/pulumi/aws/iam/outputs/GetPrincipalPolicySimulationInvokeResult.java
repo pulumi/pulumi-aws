@@ -6,6 +6,7 @@ package com.pulumi.aws.iam.outputs;
 import com.pulumi.aws.iam.outputs.GetPrincipalPolicySimulationContext;
 import com.pulumi.aws.iam.outputs.GetPrincipalPolicySimulationResult;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -128,7 +129,10 @@ public final class GetPrincipalPolicySimulationInvokeResult {
 
         @CustomType.Setter
         public Builder actionNames(List<String> actionNames) {
-            this.actionNames = Objects.requireNonNull(actionNames);
+            if (actionNames == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationInvokeResult", "actionNames");
+            }
+            this.actionNames = actionNames;
             return this;
         }
         public Builder actionNames(String... actionNames) {
@@ -136,6 +140,7 @@ public final class GetPrincipalPolicySimulationInvokeResult {
         }
         @CustomType.Setter
         public Builder additionalPoliciesJsons(@Nullable List<String> additionalPoliciesJsons) {
+
             this.additionalPoliciesJsons = additionalPoliciesJsons;
             return this;
         }
@@ -144,16 +149,21 @@ public final class GetPrincipalPolicySimulationInvokeResult {
         }
         @CustomType.Setter
         public Builder allAllowed(Boolean allAllowed) {
-            this.allAllowed = Objects.requireNonNull(allAllowed);
+            if (allAllowed == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationInvokeResult", "allAllowed");
+            }
+            this.allAllowed = allAllowed;
             return this;
         }
         @CustomType.Setter
         public Builder callerArn(@Nullable String callerArn) {
+
             this.callerArn = callerArn;
             return this;
         }
         @CustomType.Setter
         public Builder contexts(@Nullable List<GetPrincipalPolicySimulationContext> contexts) {
+
             this.contexts = contexts;
             return this;
         }
@@ -162,11 +172,15 @@ public final class GetPrincipalPolicySimulationInvokeResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationInvokeResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder permissionsBoundaryPoliciesJsons(@Nullable List<String> permissionsBoundaryPoliciesJsons) {
+
             this.permissionsBoundaryPoliciesJsons = permissionsBoundaryPoliciesJsons;
             return this;
         }
@@ -175,11 +189,15 @@ public final class GetPrincipalPolicySimulationInvokeResult {
         }
         @CustomType.Setter
         public Builder policySourceArn(String policySourceArn) {
-            this.policySourceArn = Objects.requireNonNull(policySourceArn);
+            if (policySourceArn == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationInvokeResult", "policySourceArn");
+            }
+            this.policySourceArn = policySourceArn;
             return this;
         }
         @CustomType.Setter
         public Builder resourceArns(@Nullable List<String> resourceArns) {
+
             this.resourceArns = resourceArns;
             return this;
         }
@@ -188,22 +206,28 @@ public final class GetPrincipalPolicySimulationInvokeResult {
         }
         @CustomType.Setter
         public Builder resourceHandlingOption(@Nullable String resourceHandlingOption) {
+
             this.resourceHandlingOption = resourceHandlingOption;
             return this;
         }
         @CustomType.Setter
         public Builder resourceOwnerAccountId(@Nullable String resourceOwnerAccountId) {
+
             this.resourceOwnerAccountId = resourceOwnerAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder resourcePolicyJson(@Nullable String resourcePolicyJson) {
+
             this.resourcePolicyJson = resourcePolicyJson;
             return this;
         }
         @CustomType.Setter
         public Builder results(List<GetPrincipalPolicySimulationResult> results) {
-            this.results = Objects.requireNonNull(results);
+            if (results == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalPolicySimulationInvokeResult", "results");
+            }
+            this.results = results;
             return this;
         }
         public Builder results(GetPrincipalPolicySimulationResult... results) {

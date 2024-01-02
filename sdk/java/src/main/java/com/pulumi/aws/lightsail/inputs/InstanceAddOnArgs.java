@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class InstanceAddOnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public InstanceAddOnArgs build() {
-            $.snapshotTime = Objects.requireNonNull($.snapshotTime, "expected parameter 'snapshotTime' to be non-null");
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.snapshotTime == null) {
+                throw new MissingRequiredPropertyException("InstanceAddOnArgs", "snapshotTime");
+            }
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("InstanceAddOnArgs", "status");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("InstanceAddOnArgs", "type");
+            }
             return $;
         }
     }

@@ -9,6 +9,7 @@ import com.pulumi.aws.ec2clientvpn.inputs.EndpointClientLoginBannerOptionsArgs;
 import com.pulumi.aws.ec2clientvpn.inputs.EndpointConnectionLogOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -669,10 +670,18 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EndpointArgs build() {
-            $.authenticationOptions = Objects.requireNonNull($.authenticationOptions, "expected parameter 'authenticationOptions' to be non-null");
-            $.clientCidrBlock = Objects.requireNonNull($.clientCidrBlock, "expected parameter 'clientCidrBlock' to be non-null");
-            $.connectionLogOptions = Objects.requireNonNull($.connectionLogOptions, "expected parameter 'connectionLogOptions' to be non-null");
-            $.serverCertificateArn = Objects.requireNonNull($.serverCertificateArn, "expected parameter 'serverCertificateArn' to be non-null");
+            if ($.authenticationOptions == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "authenticationOptions");
+            }
+            if ($.clientCidrBlock == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "clientCidrBlock");
+            }
+            if ($.connectionLogOptions == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "connectionLogOptions");
+            }
+            if ($.serverCertificateArn == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "serverCertificateArn");
+            }
             return $;
         }
     }

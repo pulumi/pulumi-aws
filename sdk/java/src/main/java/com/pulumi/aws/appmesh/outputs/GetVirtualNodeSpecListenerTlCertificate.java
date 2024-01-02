@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTlCertificateAcm
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTlCertificateFile;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTlCertificateSd;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,7 +50,10 @@ public final class GetVirtualNodeSpecListenerTlCertificate {
 
         @CustomType.Setter
         public Builder acms(List<GetVirtualNodeSpecListenerTlCertificateAcm> acms) {
-            this.acms = Objects.requireNonNull(acms);
+            if (acms == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTlCertificate", "acms");
+            }
+            this.acms = acms;
             return this;
         }
         public Builder acms(GetVirtualNodeSpecListenerTlCertificateAcm... acms) {
@@ -57,7 +61,10 @@ public final class GetVirtualNodeSpecListenerTlCertificate {
         }
         @CustomType.Setter
         public Builder files(List<GetVirtualNodeSpecListenerTlCertificateFile> files) {
-            this.files = Objects.requireNonNull(files);
+            if (files == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTlCertificate", "files");
+            }
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualNodeSpecListenerTlCertificateFile... files) {
@@ -65,7 +72,10 @@ public final class GetVirtualNodeSpecListenerTlCertificate {
         }
         @CustomType.Setter
         public Builder sds(List<GetVirtualNodeSpecListenerTlCertificateSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+            if (sds == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTlCertificate", "sds");
+            }
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualNodeSpecListenerTlCertificateSd... sds) {

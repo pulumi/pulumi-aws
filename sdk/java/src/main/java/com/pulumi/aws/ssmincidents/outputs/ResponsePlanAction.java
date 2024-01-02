@@ -44,6 +44,7 @@ public final class ResponsePlanAction {
 
         @CustomType.Setter
         public Builder ssmAutomations(@Nullable List<ResponsePlanActionSsmAutomation> ssmAutomations) {
+
             this.ssmAutomations = ssmAutomations;
             return this;
         }

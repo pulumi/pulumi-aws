@@ -7,6 +7,7 @@ import com.pulumi.aws.backup.inputs.PlanRuleCopyActionArgs;
 import com.pulumi.aws.backup.inputs.PlanRuleLifecycleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -388,8 +389,12 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PlanRuleArgs build() {
-            $.ruleName = Objects.requireNonNull($.ruleName, "expected parameter 'ruleName' to be non-null");
-            $.targetVaultName = Objects.requireNonNull($.targetVaultName, "expected parameter 'targetVaultName' to be non-null");
+            if ($.ruleName == null) {
+                throw new MissingRequiredPropertyException("PlanRuleArgs", "ruleName");
+            }
+            if ($.targetVaultName == null) {
+                throw new MissingRequiredPropertyException("PlanRuleArgs", "targetVaultName");
+            }
             return $;
         }
     }

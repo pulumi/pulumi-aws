@@ -44,6 +44,7 @@ public final class BucketObjectv2OverrideProvider {
 
         @CustomType.Setter
         public Builder defaultTags(@Nullable BucketObjectv2OverrideProviderDefaultTags defaultTags) {
+
             this.defaultTags = defaultTags;
             return this;
         }

@@ -73,11 +73,13 @@ public final class EventTargetHttpTarget {
 
         @CustomType.Setter
         public Builder headerParameters(@Nullable Map<String,String> headerParameters) {
+
             this.headerParameters = headerParameters;
             return this;
         }
         @CustomType.Setter
         public Builder pathParameterValues(@Nullable List<String> pathParameterValues) {
+
             this.pathParameterValues = pathParameterValues;
             return this;
         }
@@ -86,6 +88,7 @@ public final class EventTargetHttpTarget {
         }
         @CustomType.Setter
         public Builder queryStringParameters(@Nullable Map<String,String> queryStringParameters) {
+
             this.queryStringParameters = queryStringParameters;
             return this;
         }

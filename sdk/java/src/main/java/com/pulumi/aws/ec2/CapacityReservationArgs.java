@@ -9,6 +9,7 @@ import com.pulumi.aws.ec2.enums.Tenancy;
 import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -587,10 +588,18 @@ public final class CapacityReservationArgs extends com.pulumi.resources.Resource
         }
 
         public CapacityReservationArgs build() {
-            $.availabilityZone = Objects.requireNonNull($.availabilityZone, "expected parameter 'availabilityZone' to be non-null");
-            $.instanceCount = Objects.requireNonNull($.instanceCount, "expected parameter 'instanceCount' to be non-null");
-            $.instancePlatform = Objects.requireNonNull($.instancePlatform, "expected parameter 'instancePlatform' to be non-null");
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
+            if ($.availabilityZone == null) {
+                throw new MissingRequiredPropertyException("CapacityReservationArgs", "availabilityZone");
+            }
+            if ($.instanceCount == null) {
+                throw new MissingRequiredPropertyException("CapacityReservationArgs", "instanceCount");
+            }
+            if ($.instancePlatform == null) {
+                throw new MissingRequiredPropertyException("CapacityReservationArgs", "instancePlatform");
+            }
+            if ($.instanceType == null) {
+                throw new MissingRequiredPropertyException("CapacityReservationArgs", "instanceType");
+            }
             return $;
         }
     }

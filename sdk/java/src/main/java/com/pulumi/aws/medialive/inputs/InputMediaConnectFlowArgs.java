@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class InputMediaConnectFlowArgs extends com.pulumi.resources.Resour
         }
 
         public InputMediaConnectFlowArgs build() {
-            $.flowArn = Objects.requireNonNull($.flowArn, "expected parameter 'flowArn' to be non-null");
+            if ($.flowArn == null) {
+                throw new MissingRequiredPropertyException("InputMediaConnectFlowArgs", "flowArn");
+            }
             return $;
         }
     }

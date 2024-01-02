@@ -6,6 +6,7 @@ package com.pulumi.aws.ssmcontacts;
 import com.pulumi.aws.ssmcontacts.inputs.PlanStageArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PlanArgs build() {
-            $.contactId = Objects.requireNonNull($.contactId, "expected parameter 'contactId' to be non-null");
-            $.stages = Objects.requireNonNull($.stages, "expected parameter 'stages' to be non-null");
+            if ($.contactId == null) {
+                throw new MissingRequiredPropertyException("PlanArgs", "contactId");
+            }
+            if ($.stages == null) {
+                throw new MissingRequiredPropertyException("PlanArgs", "stages");
+            }
             return $;
         }
     }

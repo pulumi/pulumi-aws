@@ -5,6 +5,7 @@ package com.pulumi.aws.ses;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class IdentityNotificationTopicArgs extends com.pulumi.resources.Re
         }
 
         public IdentityNotificationTopicArgs build() {
-            $.identity = Objects.requireNonNull($.identity, "expected parameter 'identity' to be non-null");
-            $.notificationType = Objects.requireNonNull($.notificationType, "expected parameter 'notificationType' to be non-null");
+            if ($.identity == null) {
+                throw new MissingRequiredPropertyException("IdentityNotificationTopicArgs", "identity");
+            }
+            if ($.notificationType == null) {
+                throw new MissingRequiredPropertyException("IdentityNotificationTopicArgs", "notificationType");
+            }
             return $;
         }
     }

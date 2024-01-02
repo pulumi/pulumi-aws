@@ -10,6 +10,7 @@ import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigura
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput;
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -149,6 +150,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         @CustomType.Setter
         public Builder inAppStreamNames(@Nullable List<String> inAppStreamNames) {
+
             this.inAppStreamNames = inAppStreamNames;
             return this;
         }
@@ -157,26 +159,33 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
         @CustomType.Setter
         public Builder inputId(@Nullable String inputId) {
+
             this.inputId = inputId;
             return this;
         }
         @CustomType.Setter
         public Builder inputParallelism(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism inputParallelism) {
+
             this.inputParallelism = inputParallelism;
             return this;
         }
         @CustomType.Setter
         public Builder inputProcessingConfiguration(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration inputProcessingConfiguration) {
+
             this.inputProcessingConfiguration = inputProcessingConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder inputSchema(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema inputSchema) {
-            this.inputSchema = Objects.requireNonNull(inputSchema);
+            if (inputSchema == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationInput", "inputSchema");
+            }
+            this.inputSchema = inputSchema;
             return this;
         }
         @CustomType.Setter
         public Builder inputStartingPositionConfigurations(@Nullable List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration> inputStartingPositionConfigurations) {
+
             this.inputStartingPositionConfigurations = inputStartingPositionConfigurations;
             return this;
         }
@@ -185,17 +194,22 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
         @CustomType.Setter
         public Builder kinesisFirehoseInput(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput kinesisFirehoseInput) {
+
             this.kinesisFirehoseInput = kinesisFirehoseInput;
             return this;
         }
         @CustomType.Setter
         public Builder kinesisStreamsInput(@Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput kinesisStreamsInput) {
+
             this.kinesisStreamsInput = kinesisStreamsInput;
             return this;
         }
         @CustomType.Setter
         public Builder namePrefix(String namePrefix) {
-            this.namePrefix = Objects.requireNonNull(namePrefix);
+            if (namePrefix == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationInput", "namePrefix");
+            }
+            this.namePrefix = namePrefix;
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInput build() {

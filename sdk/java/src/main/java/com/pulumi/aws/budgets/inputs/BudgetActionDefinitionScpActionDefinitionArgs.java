@@ -5,6 +5,7 @@ package com.pulumi.aws.budgets.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class BudgetActionDefinitionScpActionDefinitionArgs extends com.pul
         }
 
         public BudgetActionDefinitionScpActionDefinitionArgs build() {
-            $.policyId = Objects.requireNonNull($.policyId, "expected parameter 'policyId' to be non-null");
-            $.targetIds = Objects.requireNonNull($.targetIds, "expected parameter 'targetIds' to be non-null");
+            if ($.policyId == null) {
+                throw new MissingRequiredPropertyException("BudgetActionDefinitionScpActionDefinitionArgs", "policyId");
+            }
+            if ($.targetIds == null) {
+                throw new MissingRequiredPropertyException("BudgetActionDefinitionScpActionDefinitionArgs", "targetIds");
+            }
             return $;
         }
     }

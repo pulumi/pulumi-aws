@@ -7,6 +7,7 @@ import com.pulumi.aws.finspace.inputs.KxEnvironmentTransitGatewayConfigurationAt
 import com.pulumi.aws.finspace.inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -264,10 +265,18 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
         }
 
         public KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs build() {
-            $.cidrBlock = Objects.requireNonNull($.cidrBlock, "expected parameter 'cidrBlock' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.ruleAction = Objects.requireNonNull($.ruleAction, "expected parameter 'ruleAction' to be non-null");
-            $.ruleNumber = Objects.requireNonNull($.ruleNumber, "expected parameter 'ruleNumber' to be non-null");
+            if ($.cidrBlock == null) {
+                throw new MissingRequiredPropertyException("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs", "cidrBlock");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs", "protocol");
+            }
+            if ($.ruleAction == null) {
+                throw new MissingRequiredPropertyException("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs", "ruleAction");
+            }
+            if ($.ruleNumber == null) {
+                throw new MissingRequiredPropertyException("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs", "ruleNumber");
+            }
             return $;
         }
     }

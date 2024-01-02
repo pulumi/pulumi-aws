@@ -4,6 +4,7 @@
 package com.pulumi.aws.opensearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class DomainSamlOptionsSamlOptionsIdp {
 
         @CustomType.Setter
         public Builder entityId(String entityId) {
-            this.entityId = Objects.requireNonNull(entityId);
+            if (entityId == null) {
+              throw new MissingRequiredPropertyException("DomainSamlOptionsSamlOptionsIdp", "entityId");
+            }
+            this.entityId = entityId;
             return this;
         }
         @CustomType.Setter
         public Builder metadataContent(String metadataContent) {
-            this.metadataContent = Objects.requireNonNull(metadataContent);
+            if (metadataContent == null) {
+              throw new MissingRequiredPropertyException("DomainSamlOptionsSamlOptionsIdp", "metadataContent");
+            }
+            this.metadataContent = metadataContent;
             return this;
         }
         public DomainSamlOptionsSamlOptionsIdp build() {

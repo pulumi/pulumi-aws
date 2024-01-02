@@ -44,6 +44,7 @@ public final class UserProfileUserSettingsSpaceStorageSettings {
 
         @CustomType.Setter
         public Builder defaultEbsStorageSettings(@Nullable UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings defaultEbsStorageSettings) {
+
             this.defaultEbsStorageSettings = defaultEbsStorageSettings;
             return this;
         }

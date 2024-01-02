@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfi
         }
 
         public TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs build() {
-            $.claimAttributePath = Objects.requireNonNull($.claimAttributePath, "expected parameter 'claimAttributePath' to be non-null");
-            $.identityStoreAttributePath = Objects.requireNonNull($.identityStoreAttributePath, "expected parameter 'identityStoreAttributePath' to be non-null");
-            $.issuerUrl = Objects.requireNonNull($.issuerUrl, "expected parameter 'issuerUrl' to be non-null");
-            $.jwksRetrievalOption = Objects.requireNonNull($.jwksRetrievalOption, "expected parameter 'jwksRetrievalOption' to be non-null");
+            if ($.claimAttributePath == null) {
+                throw new MissingRequiredPropertyException("TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs", "claimAttributePath");
+            }
+            if ($.identityStoreAttributePath == null) {
+                throw new MissingRequiredPropertyException("TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs", "identityStoreAttributePath");
+            }
+            if ($.issuerUrl == null) {
+                throw new MissingRequiredPropertyException("TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs", "issuerUrl");
+            }
+            if ($.jwksRetrievalOption == null) {
+                throw new MissingRequiredPropertyException("TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs", "jwksRetrievalOption");
+            }
             return $;
         }
     }

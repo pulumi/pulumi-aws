@@ -11,6 +11,7 @@ import com.pulumi.aws.sesv2.inputs.ConfigurationSetTrackingOptionsArgs;
 import com.pulumi.aws.sesv2.inputs.ConfigurationSetVdmOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -342,7 +343,9 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ConfigurationSetArgs build() {
-            $.configurationSetName = Objects.requireNonNull($.configurationSetName, "expected parameter 'configurationSetName' to be non-null");
+            if ($.configurationSetName == null) {
+                throw new MissingRequiredPropertyException("ConfigurationSetArgs", "configurationSetName");
+            }
             return $;
         }
     }

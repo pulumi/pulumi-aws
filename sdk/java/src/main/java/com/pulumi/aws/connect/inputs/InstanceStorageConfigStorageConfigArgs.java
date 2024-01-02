@@ -9,6 +9,7 @@ import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigKinesisVi
 import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigS3ConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -228,7 +229,9 @@ public final class InstanceStorageConfigStorageConfigArgs extends com.pulumi.res
         }
 
         public InstanceStorageConfigStorageConfigArgs build() {
-            $.storageType = Objects.requireNonNull($.storageType, "expected parameter 'storageType' to be non-null");
+            if ($.storageType == null) {
+                throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigArgs", "storageType");
+            }
             return $;
         }
     }

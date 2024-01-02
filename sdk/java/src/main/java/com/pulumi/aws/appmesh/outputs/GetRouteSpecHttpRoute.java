@@ -8,6 +8,7 @@ import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttpRouteMatch;
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttpRouteRetryPolicy;
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttpRouteTimeout;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -56,7 +57,10 @@ public final class GetRouteSpecHttpRoute {
 
         @CustomType.Setter
         public Builder actions(List<GetRouteSpecHttpRouteAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRoute", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetRouteSpecHttpRouteAction... actions) {
@@ -64,7 +68,10 @@ public final class GetRouteSpecHttpRoute {
         }
         @CustomType.Setter
         public Builder matches(List<GetRouteSpecHttpRouteMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+            if (matches == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRoute", "matches");
+            }
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetRouteSpecHttpRouteMatch... matches) {
@@ -72,7 +79,10 @@ public final class GetRouteSpecHttpRoute {
         }
         @CustomType.Setter
         public Builder retryPolicies(List<GetRouteSpecHttpRouteRetryPolicy> retryPolicies) {
-            this.retryPolicies = Objects.requireNonNull(retryPolicies);
+            if (retryPolicies == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRoute", "retryPolicies");
+            }
+            this.retryPolicies = retryPolicies;
             return this;
         }
         public Builder retryPolicies(GetRouteSpecHttpRouteRetryPolicy... retryPolicies) {
@@ -80,7 +90,10 @@ public final class GetRouteSpecHttpRoute {
         }
         @CustomType.Setter
         public Builder timeouts(List<GetRouteSpecHttpRouteTimeout> timeouts) {
-            this.timeouts = Objects.requireNonNull(timeouts);
+            if (timeouts == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRoute", "timeouts");
+            }
+            this.timeouts = timeouts;
             return this;
         }
         public Builder timeouts(GetRouteSpecHttpRouteTimeout... timeouts) {

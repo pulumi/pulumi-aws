@@ -6,6 +6,7 @@ package com.pulumi.aws.vpclattice;
 import com.pulumi.aws.vpclattice.inputs.ListenerDefaultActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -305,8 +306,12 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ListenerArgs build() {
-            $.defaultAction = Objects.requireNonNull($.defaultAction, "expected parameter 'defaultAction' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.defaultAction == null) {
+                throw new MissingRequiredPropertyException("ListenerArgs", "defaultAction");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("ListenerArgs", "protocol");
+            }
             return $;
         }
     }

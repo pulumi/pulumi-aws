@@ -84,16 +84,19 @@ public final class DetectorDatasources {
 
         @CustomType.Setter
         public Builder kubernetes(@Nullable DetectorDatasourcesKubernetes kubernetes) {
+
             this.kubernetes = kubernetes;
             return this;
         }
         @CustomType.Setter
         public Builder malwareProtection(@Nullable DetectorDatasourcesMalwareProtection malwareProtection) {
+
             this.malwareProtection = malwareProtection;
             return this;
         }
         @CustomType.Setter
         public Builder s3Logs(@Nullable DetectorDatasourcesS3Logs s3Logs) {
+
             this.s3Logs = s3Logs;
             return this;
         }

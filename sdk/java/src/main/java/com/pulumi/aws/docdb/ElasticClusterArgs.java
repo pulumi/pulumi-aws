@@ -6,6 +6,7 @@ package com.pulumi.aws.docdb;
 import com.pulumi.aws.docdb.inputs.ElasticClusterTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -475,11 +476,21 @@ public final class ElasticClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ElasticClusterArgs build() {
-            $.adminUserName = Objects.requireNonNull($.adminUserName, "expected parameter 'adminUserName' to be non-null");
-            $.adminUserPassword = Objects.requireNonNull($.adminUserPassword, "expected parameter 'adminUserPassword' to be non-null");
-            $.authType = Objects.requireNonNull($.authType, "expected parameter 'authType' to be non-null");
-            $.shardCapacity = Objects.requireNonNull($.shardCapacity, "expected parameter 'shardCapacity' to be non-null");
-            $.shardCount = Objects.requireNonNull($.shardCount, "expected parameter 'shardCount' to be non-null");
+            if ($.adminUserName == null) {
+                throw new MissingRequiredPropertyException("ElasticClusterArgs", "adminUserName");
+            }
+            if ($.adminUserPassword == null) {
+                throw new MissingRequiredPropertyException("ElasticClusterArgs", "adminUserPassword");
+            }
+            if ($.authType == null) {
+                throw new MissingRequiredPropertyException("ElasticClusterArgs", "authType");
+            }
+            if ($.shardCapacity == null) {
+                throw new MissingRequiredPropertyException("ElasticClusterArgs", "shardCapacity");
+            }
+            if ($.shardCount == null) {
+                throw new MissingRequiredPropertyException("ElasticClusterArgs", "shardCount");
+            }
             return $;
         }
     }

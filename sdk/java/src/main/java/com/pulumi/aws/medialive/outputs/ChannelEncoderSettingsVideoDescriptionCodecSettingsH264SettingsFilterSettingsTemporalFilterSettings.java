@@ -58,11 +58,13 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
 
         @CustomType.Setter
         public Builder postFilterSharpening(@Nullable String postFilterSharpening) {
+
             this.postFilterSharpening = postFilterSharpening;
             return this;
         }
         @CustomType.Setter
         public Builder strength(@Nullable String strength) {
+
             this.strength = strength;
             return this;
         }

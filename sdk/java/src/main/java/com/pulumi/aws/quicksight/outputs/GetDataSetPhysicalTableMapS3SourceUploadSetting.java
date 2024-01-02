@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -60,27 +61,42 @@ public final class GetDataSetPhysicalTableMapS3SourceUploadSetting {
 
         @CustomType.Setter
         public Builder containsHeader(Boolean containsHeader) {
-            this.containsHeader = Objects.requireNonNull(containsHeader);
+            if (containsHeader == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMapS3SourceUploadSetting", "containsHeader");
+            }
+            this.containsHeader = containsHeader;
             return this;
         }
         @CustomType.Setter
         public Builder delimiter(String delimiter) {
-            this.delimiter = Objects.requireNonNull(delimiter);
+            if (delimiter == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMapS3SourceUploadSetting", "delimiter");
+            }
+            this.delimiter = delimiter;
             return this;
         }
         @CustomType.Setter
         public Builder format(String format) {
-            this.format = Objects.requireNonNull(format);
+            if (format == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMapS3SourceUploadSetting", "format");
+            }
+            this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder startFromRow(Integer startFromRow) {
-            this.startFromRow = Objects.requireNonNull(startFromRow);
+            if (startFromRow == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMapS3SourceUploadSetting", "startFromRow");
+            }
+            this.startFromRow = startFromRow;
             return this;
         }
         @CustomType.Setter
         public Builder textQualifier(String textQualifier) {
-            this.textQualifier = Objects.requireNonNull(textQualifier);
+            if (textQualifier == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMapS3SourceUploadSetting", "textQualifier");
+            }
+            this.textQualifier = textQualifier;
             return this;
         }
         public GetDataSetPhysicalTableMapS3SourceUploadSetting build() {

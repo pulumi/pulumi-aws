@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class KxEnvironmentCustomDnsConfigurationArgs extends com.pulumi.re
         }
 
         public KxEnvironmentCustomDnsConfigurationArgs build() {
-            $.customDnsServerIp = Objects.requireNonNull($.customDnsServerIp, "expected parameter 'customDnsServerIp' to be non-null");
-            $.customDnsServerName = Objects.requireNonNull($.customDnsServerName, "expected parameter 'customDnsServerName' to be non-null");
+            if ($.customDnsServerIp == null) {
+                throw new MissingRequiredPropertyException("KxEnvironmentCustomDnsConfigurationArgs", "customDnsServerIp");
+            }
+            if ($.customDnsServerName == null) {
+                throw new MissingRequiredPropertyException("KxEnvironmentCustomDnsConfigurationArgs", "customDnsServerName");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudwatch.inputs.InternetMonitorHealthEventsConfigArgs;
 import com.pulumi.aws.cloudwatch.inputs.InternetMonitorInternetMeasurementsLogDeliveryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -358,7 +359,9 @@ public final class InternetMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public InternetMonitorArgs build() {
-            $.monitorName = Objects.requireNonNull($.monitorName, "expected parameter 'monitorName' to be non-null");
+            if ($.monitorName == null) {
+                throw new MissingRequiredPropertyException("InternetMonitorArgs", "monitorName");
+            }
             return $;
         }
     }

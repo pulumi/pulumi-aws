@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -93,7 +94,9 @@ public final class GetPublicIpv4PoolPlainArgs extends com.pulumi.resources.Invok
         }
 
         public GetPublicIpv4PoolPlainArgs build() {
-            $.poolId = Objects.requireNonNull($.poolId, "expected parameter 'poolId' to be non-null");
+            if ($.poolId == null) {
+                throw new MissingRequiredPropertyException("GetPublicIpv4PoolPlainArgs", "poolId");
+            }
             return $;
         }
     }

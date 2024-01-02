@@ -4,6 +4,7 @@
 package com.pulumi.aws.datapipeline.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class PipelineDefinitionParameterValue {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("PipelineDefinitionParameterValue", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder stringValue(String stringValue) {
-            this.stringValue = Objects.requireNonNull(stringValue);
+            if (stringValue == null) {
+              throw new MissingRequiredPropertyException("PipelineDefinitionParameterValue", "stringValue");
+            }
+            this.stringValue = stringValue;
             return this;
         }
         public PipelineDefinitionParameterValue build() {

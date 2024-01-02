@@ -5,6 +5,7 @@ package com.pulumi.aws.chime.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class SdkvoiceSipRuleTargetApplicationArgs extends com.pulumi.resou
         }
 
         public SdkvoiceSipRuleTargetApplicationArgs build() {
-            $.awsRegion = Objects.requireNonNull($.awsRegion, "expected parameter 'awsRegion' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.sipMediaApplicationId = Objects.requireNonNull($.sipMediaApplicationId, "expected parameter 'sipMediaApplicationId' to be non-null");
+            if ($.awsRegion == null) {
+                throw new MissingRequiredPropertyException("SdkvoiceSipRuleTargetApplicationArgs", "awsRegion");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("SdkvoiceSipRuleTargetApplicationArgs", "priority");
+            }
+            if ($.sipMediaApplicationId == null) {
+                throw new MissingRequiredPropertyException("SdkvoiceSipRuleTargetApplicationArgs", "sipMediaApplicationId");
+            }
             return $;
         }
     }

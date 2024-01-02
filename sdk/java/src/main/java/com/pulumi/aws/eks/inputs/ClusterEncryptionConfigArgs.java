@@ -6,6 +6,7 @@ package com.pulumi.aws.eks.inputs;
 import com.pulumi.aws.eks.inputs.ClusterEncryptionConfigProviderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class ClusterEncryptionConfigArgs extends com.pulumi.resources.Reso
         }
 
         public ClusterEncryptionConfigArgs build() {
-            $.provider = Objects.requireNonNull($.provider, "expected parameter 'provider' to be non-null");
-            $.resources = Objects.requireNonNull($.resources, "expected parameter 'resources' to be non-null");
+            if ($.provider == null) {
+                throw new MissingRequiredPropertyException("ClusterEncryptionConfigArgs", "provider");
+            }
+            if ($.resources == null) {
+                throw new MissingRequiredPropertyException("ClusterEncryptionConfigArgs", "resources");
+            }
             return $;
         }
     }

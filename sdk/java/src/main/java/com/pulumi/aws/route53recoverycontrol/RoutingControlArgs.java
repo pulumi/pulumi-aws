@@ -5,6 +5,7 @@ package com.pulumi.aws.route53recoverycontrol;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,7 +159,9 @@ public final class RoutingControlArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public RoutingControlArgs build() {
-            $.clusterArn = Objects.requireNonNull($.clusterArn, "expected parameter 'clusterArn' to be non-null");
+            if ($.clusterArn == null) {
+                throw new MissingRequiredPropertyException("RoutingControlArgs", "clusterArn");
+            }
             return $;
         }
     }

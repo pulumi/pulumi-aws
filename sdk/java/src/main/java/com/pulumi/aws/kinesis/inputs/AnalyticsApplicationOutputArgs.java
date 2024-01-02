@@ -9,6 +9,7 @@ import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationOutputLambdaArgs;
 import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationOutputSchemaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -273,8 +274,12 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
         }
 
         public AnalyticsApplicationOutputArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationOutputArgs", "name");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationOutputArgs", "schema");
+            }
             return $;
         }
     }

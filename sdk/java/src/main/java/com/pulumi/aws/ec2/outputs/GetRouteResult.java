@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -126,77 +127,122 @@ public final class GetRouteResult {
 
         @CustomType.Setter
         public Builder carrierGatewayId(String carrierGatewayId) {
-            this.carrierGatewayId = Objects.requireNonNull(carrierGatewayId);
+            if (carrierGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "carrierGatewayId");
+            }
+            this.carrierGatewayId = carrierGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder coreNetworkArn(String coreNetworkArn) {
-            this.coreNetworkArn = Objects.requireNonNull(coreNetworkArn);
+            if (coreNetworkArn == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "coreNetworkArn");
+            }
+            this.coreNetworkArn = coreNetworkArn;
             return this;
         }
         @CustomType.Setter
         public Builder destinationCidrBlock(String destinationCidrBlock) {
-            this.destinationCidrBlock = Objects.requireNonNull(destinationCidrBlock);
+            if (destinationCidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "destinationCidrBlock");
+            }
+            this.destinationCidrBlock = destinationCidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder destinationIpv6CidrBlock(String destinationIpv6CidrBlock) {
-            this.destinationIpv6CidrBlock = Objects.requireNonNull(destinationIpv6CidrBlock);
+            if (destinationIpv6CidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "destinationIpv6CidrBlock");
+            }
+            this.destinationIpv6CidrBlock = destinationIpv6CidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder destinationPrefixListId(String destinationPrefixListId) {
-            this.destinationPrefixListId = Objects.requireNonNull(destinationPrefixListId);
+            if (destinationPrefixListId == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "destinationPrefixListId");
+            }
+            this.destinationPrefixListId = destinationPrefixListId;
             return this;
         }
         @CustomType.Setter
         public Builder egressOnlyGatewayId(String egressOnlyGatewayId) {
-            this.egressOnlyGatewayId = Objects.requireNonNull(egressOnlyGatewayId);
+            if (egressOnlyGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "egressOnlyGatewayId");
+            }
+            this.egressOnlyGatewayId = egressOnlyGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayId(String gatewayId) {
-            this.gatewayId = Objects.requireNonNull(gatewayId);
+            if (gatewayId == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "gatewayId");
+            }
+            this.gatewayId = gatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder localGatewayId(String localGatewayId) {
-            this.localGatewayId = Objects.requireNonNull(localGatewayId);
+            if (localGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "localGatewayId");
+            }
+            this.localGatewayId = localGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder natGatewayId(String natGatewayId) {
-            this.natGatewayId = Objects.requireNonNull(natGatewayId);
+            if (natGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "natGatewayId");
+            }
+            this.natGatewayId = natGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+            if (networkInterfaceId == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "networkInterfaceId");
+            }
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
         public Builder routeTableId(String routeTableId) {
-            this.routeTableId = Objects.requireNonNull(routeTableId);
+            if (routeTableId == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "routeTableId");
+            }
+            this.routeTableId = routeTableId;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+            if (transitGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "transitGatewayId");
+            }
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder vpcPeeringConnectionId(String vpcPeeringConnectionId) {
-            this.vpcPeeringConnectionId = Objects.requireNonNull(vpcPeeringConnectionId);
+            if (vpcPeeringConnectionId == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "vpcPeeringConnectionId");
+            }
+            this.vpcPeeringConnectionId = vpcPeeringConnectionId;
             return this;
         }
         public GetRouteResult build() {

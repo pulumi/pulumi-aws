@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesisanalyticsv2.inputs;
 import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,7 +86,9 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesArgs 
         }
 
         public ApplicationApplicationConfigurationEnvironmentPropertiesArgs build() {
-            $.propertyGroups = Objects.requireNonNull($.propertyGroups, "expected parameter 'propertyGroups' to be non-null");
+            if ($.propertyGroups == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationEnvironmentPropertiesArgs", "propertyGroups");
+            }
             return $;
         }
     }

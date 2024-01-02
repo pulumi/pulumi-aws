@@ -44,6 +44,7 @@ public final class IndexIndexStatisticFaqStatistic {
 
         @CustomType.Setter
         public Builder indexedQuestionAnswersCount(@Nullable Integer indexedQuestionAnswersCount) {
+
             this.indexedQuestionAnswersCount = indexedQuestionAnswersCount;
             return this;
         }

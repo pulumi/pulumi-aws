@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.inputs;
 import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,8 +189,12 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
         }
 
         public FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs build() {
-            $.intermediateBucketName = Objects.requireNonNull($.intermediateBucketName, "expected parameter 'intermediateBucketName' to be non-null");
-            $.object = Objects.requireNonNull($.object, "expected parameter 'object' to be non-null");
+            if ($.intermediateBucketName == null) {
+                throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs", "intermediateBucketName");
+            }
+            if ($.object == null) {
+                throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs", "object");
+            }
             return $;
         }
     }

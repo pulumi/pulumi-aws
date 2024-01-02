@@ -5,6 +5,7 @@ package com.pulumi.aws.appstream.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class FleetComputeCapacityArgs extends com.pulumi.resources.Resourc
         }
 
         public FleetComputeCapacityArgs build() {
-            $.desiredInstances = Objects.requireNonNull($.desiredInstances, "expected parameter 'desiredInstances' to be non-null");
+            if ($.desiredInstances == null) {
+                throw new MissingRequiredPropertyException("FleetComputeCapacityArgs", "desiredInstances");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.fsx.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -71,8 +72,12 @@ public final class OpenZfsVolumeOriginSnapshotArgs extends com.pulumi.resources.
         }
 
         public OpenZfsVolumeOriginSnapshotArgs build() {
-            $.copyStrategy = Objects.requireNonNull($.copyStrategy, "expected parameter 'copyStrategy' to be non-null");
-            $.snapshotArn = Objects.requireNonNull($.snapshotArn, "expected parameter 'snapshotArn' to be non-null");
+            if ($.copyStrategy == null) {
+                throw new MissingRequiredPropertyException("OpenZfsVolumeOriginSnapshotArgs", "copyStrategy");
+            }
+            if ($.snapshotArn == null) {
+                throw new MissingRequiredPropertyException("OpenZfsVolumeOriginSnapshotArgs", "snapshotArn");
+            }
             return $;
         }
     }

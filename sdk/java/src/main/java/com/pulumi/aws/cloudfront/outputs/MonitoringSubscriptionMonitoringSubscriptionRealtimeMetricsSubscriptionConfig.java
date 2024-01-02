@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSu
 
         @CustomType.Setter
         public Builder realtimeMetricsSubscriptionStatus(String realtimeMetricsSubscriptionStatus) {
-            this.realtimeMetricsSubscriptionStatus = Objects.requireNonNull(realtimeMetricsSubscriptionStatus);
+            if (realtimeMetricsSubscriptionStatus == null) {
+              throw new MissingRequiredPropertyException("MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig", "realtimeMetricsSubscriptionStatus");
+            }
+            this.realtimeMetricsSubscriptionStatus = realtimeMetricsSubscriptionStatus;
             return this;
         }
         public MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig build() {

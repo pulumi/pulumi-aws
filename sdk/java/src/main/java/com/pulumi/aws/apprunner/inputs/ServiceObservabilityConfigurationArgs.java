@@ -5,6 +5,7 @@ package com.pulumi.aws.apprunner.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class ServiceObservabilityConfigurationArgs extends com.pulumi.reso
         }
 
         public ServiceObservabilityConfigurationArgs build() {
-            $.observabilityEnabled = Objects.requireNonNull($.observabilityEnabled, "expected parameter 'observabilityEnabled' to be non-null");
+            if ($.observabilityEnabled == null) {
+                throw new MissingRequiredPropertyException("ServiceObservabilityConfigurationArgs", "observabilityEnabled");
+            }
             return $;
         }
     }

@@ -115,31 +115,37 @@ public final class UserPoolPasswordPolicy {
 
         @CustomType.Setter
         public Builder minimumLength(@Nullable Integer minimumLength) {
+
             this.minimumLength = minimumLength;
             return this;
         }
         @CustomType.Setter
         public Builder requireLowercase(@Nullable Boolean requireLowercase) {
+
             this.requireLowercase = requireLowercase;
             return this;
         }
         @CustomType.Setter
         public Builder requireNumbers(@Nullable Boolean requireNumbers) {
+
             this.requireNumbers = requireNumbers;
             return this;
         }
         @CustomType.Setter
         public Builder requireSymbols(@Nullable Boolean requireSymbols) {
+
             this.requireSymbols = requireSymbols;
             return this;
         }
         @CustomType.Setter
         public Builder requireUppercase(@Nullable Boolean requireUppercase) {
+
             this.requireUppercase = requireUppercase;
             return this;
         }
         @CustomType.Setter
         public Builder temporaryPasswordValidityDays(@Nullable Integer temporaryPasswordValidityDays) {
+
             this.temporaryPasswordValidityDays = temporaryPasswordValidityDays;
             return this;
         }

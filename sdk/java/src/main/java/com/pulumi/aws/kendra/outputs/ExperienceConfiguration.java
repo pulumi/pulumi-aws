@@ -59,11 +59,13 @@ public final class ExperienceConfiguration {
 
         @CustomType.Setter
         public Builder contentSourceConfiguration(@Nullable ExperienceConfigurationContentSourceConfiguration contentSourceConfiguration) {
+
             this.contentSourceConfiguration = contentSourceConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder userIdentityConfiguration(@Nullable ExperienceConfigurationUserIdentityConfiguration userIdentityConfiguration) {
+
             this.userIdentityConfiguration = userIdentityConfiguration;
             return this;
         }

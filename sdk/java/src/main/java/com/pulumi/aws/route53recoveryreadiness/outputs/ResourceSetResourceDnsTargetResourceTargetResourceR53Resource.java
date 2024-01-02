@@ -58,11 +58,13 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
 
         @CustomType.Setter
         public Builder domainName(@Nullable String domainName) {
+
             this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder recordSetId(@Nullable String recordSetId) {
+
             this.recordSetId = recordSetId;
             return this;
         }

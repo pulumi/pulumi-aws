@@ -15,6 +15,7 @@ import com.pulumi.aws.emr.inputs.ClusterPlacementGroupConfigArgs;
 import com.pulumi.aws.emr.inputs.ClusterStepArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1405,8 +1406,12 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
-            $.releaseLabel = Objects.requireNonNull($.releaseLabel, "expected parameter 'releaseLabel' to be non-null");
-            $.serviceRole = Objects.requireNonNull($.serviceRole, "expected parameter 'serviceRole' to be non-null");
+            if ($.releaseLabel == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "releaseLabel");
+            }
+            if ($.serviceRole == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "serviceRole");
+            }
             return $;
         }
     }

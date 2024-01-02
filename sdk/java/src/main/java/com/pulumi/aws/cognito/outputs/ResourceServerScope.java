@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ResourceServerScope {
 
         @CustomType.Setter
         public Builder scopeDescription(String scopeDescription) {
-            this.scopeDescription = Objects.requireNonNull(scopeDescription);
+            if (scopeDescription == null) {
+              throw new MissingRequiredPropertyException("ResourceServerScope", "scopeDescription");
+            }
+            this.scopeDescription = scopeDescription;
             return this;
         }
         @CustomType.Setter
         public Builder scopeName(String scopeName) {
-            this.scopeName = Objects.requireNonNull(scopeName);
+            if (scopeName == null) {
+              throw new MissingRequiredPropertyException("ResourceServerScope", "scopeName");
+            }
+            this.scopeName = scopeName;
             return this;
         }
         public ResourceServerScope build() {

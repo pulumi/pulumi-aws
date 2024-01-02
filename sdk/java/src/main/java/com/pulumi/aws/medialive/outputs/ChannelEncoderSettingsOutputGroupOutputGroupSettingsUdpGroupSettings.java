@@ -65,16 +65,19 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupS
 
         @CustomType.Setter
         public Builder inputLossAction(@Nullable String inputLossAction) {
+
             this.inputLossAction = inputLossAction;
             return this;
         }
         @CustomType.Setter
         public Builder timedMetadataId3Frame(@Nullable String timedMetadataId3Frame) {
+
             this.timedMetadataId3Frame = timedMetadataId3Frame;
             return this;
         }
         @CustomType.Setter
         public Builder timedMetadataId3Period(@Nullable Integer timedMetadataId3Period) {
+
             this.timedMetadataId3Period = timedMetadataId3Period;
             return this;
         }

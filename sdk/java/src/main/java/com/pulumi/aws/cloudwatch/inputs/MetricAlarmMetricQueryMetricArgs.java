@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -283,9 +284,15 @@ public final class MetricAlarmMetricQueryMetricArgs extends com.pulumi.resources
         }
 
         public MetricAlarmMetricQueryMetricArgs build() {
-            $.metricName = Objects.requireNonNull($.metricName, "expected parameter 'metricName' to be non-null");
-            $.period = Objects.requireNonNull($.period, "expected parameter 'period' to be non-null");
-            $.stat = Objects.requireNonNull($.stat, "expected parameter 'stat' to be non-null");
+            if ($.metricName == null) {
+                throw new MissingRequiredPropertyException("MetricAlarmMetricQueryMetricArgs", "metricName");
+            }
+            if ($.period == null) {
+                throw new MissingRequiredPropertyException("MetricAlarmMetricQueryMetricArgs", "period");
+            }
+            if ($.stat == null) {
+                throw new MissingRequiredPropertyException("MetricAlarmMetricQueryMetricArgs", "stat");
+            }
             return $;
         }
     }

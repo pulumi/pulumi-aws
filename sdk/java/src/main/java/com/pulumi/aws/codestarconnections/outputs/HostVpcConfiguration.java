@@ -4,6 +4,7 @@
 package com.pulumi.aws.codestarconnections.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -87,7 +88,10 @@ public final class HostVpcConfiguration {
 
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+            if (securityGroupIds == null) {
+              throw new MissingRequiredPropertyException("HostVpcConfiguration", "securityGroupIds");
+            }
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
@@ -95,7 +99,10 @@ public final class HostVpcConfiguration {
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("HostVpcConfiguration", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -103,12 +110,16 @@ public final class HostVpcConfiguration {
         }
         @CustomType.Setter
         public Builder tlsCertificate(@Nullable String tlsCertificate) {
+
             this.tlsCertificate = tlsCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("HostVpcConfiguration", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public HostVpcConfiguration build() {

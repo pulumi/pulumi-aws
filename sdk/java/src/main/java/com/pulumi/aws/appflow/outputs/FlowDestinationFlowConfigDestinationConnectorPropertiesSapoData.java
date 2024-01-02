@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.outputs;
 import com.pulumi.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig;
 import com.pulumi.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -103,11 +104,13 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
 
         @CustomType.Setter
         public Builder errorHandlingConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig errorHandlingConfig) {
+
             this.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
         @CustomType.Setter
         public Builder idFieldNames(@Nullable List<String> idFieldNames) {
+
             this.idFieldNames = idFieldNames;
             return this;
         }
@@ -116,16 +119,21 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
         @CustomType.Setter
         public Builder objectPath(String objectPath) {
-            this.objectPath = Objects.requireNonNull(objectPath);
+            if (objectPath == null) {
+              throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData", "objectPath");
+            }
+            this.objectPath = objectPath;
             return this;
         }
         @CustomType.Setter
         public Builder successResponseHandlingConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig successResponseHandlingConfig) {
+
             this.successResponseHandlingConfig = successResponseHandlingConfig;
             return this;
         }
         @CustomType.Setter
         public Builder writeOperationType(@Nullable String writeOperationType) {
+
             this.writeOperationType = writeOperationType;
             return this;
         }

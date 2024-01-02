@@ -8,6 +8,7 @@ import com.pulumi.aws.timestreamwrite.inputs.TableRetentionPropertiesArgs;
 import com.pulumi.aws.timestreamwrite.inputs.TableSchemaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -265,8 +266,12 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TableArgs build() {
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("TableArgs", "databaseName");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("TableArgs", "tableName");
+            }
             return $;
         }
     }

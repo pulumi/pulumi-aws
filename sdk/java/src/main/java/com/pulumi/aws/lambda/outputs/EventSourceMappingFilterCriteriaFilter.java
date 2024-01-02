@@ -44,6 +44,7 @@ public final class EventSourceMappingFilterCriteriaFilter {
 
         @CustomType.Setter
         public Builder pattern(@Nullable String pattern) {
+
             this.pattern = pattern;
             return this;
         }

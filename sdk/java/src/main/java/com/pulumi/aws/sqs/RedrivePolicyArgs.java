@@ -5,6 +5,7 @@ package com.pulumi.aws.sqs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class RedrivePolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RedrivePolicyArgs build() {
-            $.queueUrl = Objects.requireNonNull($.queueUrl, "expected parameter 'queueUrl' to be non-null");
-            $.redrivePolicy = Objects.requireNonNull($.redrivePolicy, "expected parameter 'redrivePolicy' to be non-null");
+            if ($.queueUrl == null) {
+                throw new MissingRequiredPropertyException("RedrivePolicyArgs", "queueUrl");
+            }
+            if ($.redrivePolicy == null) {
+                throw new MissingRequiredPropertyException("RedrivePolicyArgs", "redrivePolicy");
+            }
             return $;
         }
     }

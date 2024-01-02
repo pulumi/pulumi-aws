@@ -36,6 +36,7 @@ public final class RuleGroupRuleGroupReferenceSets {
 
         @CustomType.Setter
         public Builder ipSetReferences(@Nullable List<RuleGroupRuleGroupReferenceSetsIpSetReference> ipSetReferences) {
+
             this.ipSetReferences = ipSetReferences;
             return this;
         }

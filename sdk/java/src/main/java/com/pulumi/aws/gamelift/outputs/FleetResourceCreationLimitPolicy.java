@@ -58,11 +58,13 @@ public final class FleetResourceCreationLimitPolicy {
 
         @CustomType.Setter
         public Builder newGameSessionsPerCreator(@Nullable Integer newGameSessionsPerCreator) {
+
             this.newGameSessionsPerCreator = newGameSessionsPerCreator;
             return this;
         }
         @CustomType.Setter
         public Builder policyPeriodInMinutes(@Nullable Integer policyPeriodInMinutes) {
+
             this.policyPeriodInMinutes = policyPeriodInMinutes;
             return this;
         }

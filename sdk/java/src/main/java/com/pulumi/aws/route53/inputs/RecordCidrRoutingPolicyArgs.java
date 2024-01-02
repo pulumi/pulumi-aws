@@ -5,6 +5,7 @@ package com.pulumi.aws.route53.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class RecordCidrRoutingPolicyArgs extends com.pulumi.resources.Reso
         }
 
         public RecordCidrRoutingPolicyArgs build() {
-            $.collectionId = Objects.requireNonNull($.collectionId, "expected parameter 'collectionId' to be non-null");
-            $.locationName = Objects.requireNonNull($.locationName, "expected parameter 'locationName' to be non-null");
+            if ($.collectionId == null) {
+                throw new MissingRequiredPropertyException("RecordCidrRoutingPolicyArgs", "collectionId");
+            }
+            if ($.locationName == null) {
+                throw new MissingRequiredPropertyException("RecordCidrRoutingPolicyArgs", "locationName");
+            }
             return $;
         }
     }

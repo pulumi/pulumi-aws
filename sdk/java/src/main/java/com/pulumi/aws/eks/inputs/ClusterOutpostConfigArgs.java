@@ -6,6 +6,7 @@ package com.pulumi.aws.eks.inputs;
 import com.pulumi.aws.eks.inputs.ClusterOutpostConfigControlPlanePlacementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -198,8 +199,12 @@ public final class ClusterOutpostConfigArgs extends com.pulumi.resources.Resourc
         }
 
         public ClusterOutpostConfigArgs build() {
-            $.controlPlaneInstanceType = Objects.requireNonNull($.controlPlaneInstanceType, "expected parameter 'controlPlaneInstanceType' to be non-null");
-            $.outpostArns = Objects.requireNonNull($.outpostArns, "expected parameter 'outpostArns' to be non-null");
+            if ($.controlPlaneInstanceType == null) {
+                throw new MissingRequiredPropertyException("ClusterOutpostConfigArgs", "controlPlaneInstanceType");
+            }
+            if ($.outpostArns == null) {
+                throw new MissingRequiredPropertyException("ClusterOutpostConfigArgs", "outpostArns");
+            }
             return $;
         }
     }

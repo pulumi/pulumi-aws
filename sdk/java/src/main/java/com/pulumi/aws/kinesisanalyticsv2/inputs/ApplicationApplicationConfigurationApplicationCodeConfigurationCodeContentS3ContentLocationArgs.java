@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesisanalyticsv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         public ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs build() {
-            $.bucketArn = Objects.requireNonNull($.bucketArn, "expected parameter 'bucketArn' to be non-null");
-            $.fileKey = Objects.requireNonNull($.fileKey, "expected parameter 'fileKey' to be non-null");
+            if ($.bucketArn == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs", "bucketArn");
+            }
+            if ($.fileKey == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs", "fileKey");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigatewayv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -95,41 +96,59 @@ public final class GetExportResult {
 
         @CustomType.Setter
         public Builder apiId(String apiId) {
-            this.apiId = Objects.requireNonNull(apiId);
+            if (apiId == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "apiId");
+            }
+            this.apiId = apiId;
             return this;
         }
         @CustomType.Setter
         public Builder body(String body) {
-            this.body = Objects.requireNonNull(body);
+            if (body == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "body");
+            }
+            this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder exportVersion(@Nullable String exportVersion) {
+
             this.exportVersion = exportVersion;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeExtensions(@Nullable Boolean includeExtensions) {
+
             this.includeExtensions = includeExtensions;
             return this;
         }
         @CustomType.Setter
         public Builder outputType(String outputType) {
-            this.outputType = Objects.requireNonNull(outputType);
+            if (outputType == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "outputType");
+            }
+            this.outputType = outputType;
             return this;
         }
         @CustomType.Setter
         public Builder specification(String specification) {
-            this.specification = Objects.requireNonNull(specification);
+            if (specification == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "specification");
+            }
+            this.specification = specification;
             return this;
         }
         @CustomType.Setter
         public Builder stageName(@Nullable String stageName) {
+
             this.stageName = stageName;
             return this;
         }

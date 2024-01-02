@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -61,7 +62,10 @@ public final class GetRouteSpecGrpcRouteRetryPolicy {
 
         @CustomType.Setter
         public Builder grpcRetryEvents(List<String> grpcRetryEvents) {
-            this.grpcRetryEvents = Objects.requireNonNull(grpcRetryEvents);
+            if (grpcRetryEvents == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRouteRetryPolicy", "grpcRetryEvents");
+            }
+            this.grpcRetryEvents = grpcRetryEvents;
             return this;
         }
         public Builder grpcRetryEvents(String... grpcRetryEvents) {
@@ -69,7 +73,10 @@ public final class GetRouteSpecGrpcRouteRetryPolicy {
         }
         @CustomType.Setter
         public Builder httpRetryEvents(List<String> httpRetryEvents) {
-            this.httpRetryEvents = Objects.requireNonNull(httpRetryEvents);
+            if (httpRetryEvents == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRouteRetryPolicy", "httpRetryEvents");
+            }
+            this.httpRetryEvents = httpRetryEvents;
             return this;
         }
         public Builder httpRetryEvents(String... httpRetryEvents) {
@@ -77,12 +84,18 @@ public final class GetRouteSpecGrpcRouteRetryPolicy {
         }
         @CustomType.Setter
         public Builder maxRetries(Integer maxRetries) {
-            this.maxRetries = Objects.requireNonNull(maxRetries);
+            if (maxRetries == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRouteRetryPolicy", "maxRetries");
+            }
+            this.maxRetries = maxRetries;
             return this;
         }
         @CustomType.Setter
         public Builder perRetryTimeouts(List<GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout> perRetryTimeouts) {
-            this.perRetryTimeouts = Objects.requireNonNull(perRetryTimeouts);
+            if (perRetryTimeouts == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRouteRetryPolicy", "perRetryTimeouts");
+            }
+            this.perRetryTimeouts = perRetryTimeouts;
             return this;
         }
         public Builder perRetryTimeouts(GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeout... perRetryTimeouts) {
@@ -90,7 +103,10 @@ public final class GetRouteSpecGrpcRouteRetryPolicy {
         }
         @CustomType.Setter
         public Builder tcpRetryEvents(List<String> tcpRetryEvents) {
-            this.tcpRetryEvents = Objects.requireNonNull(tcpRetryEvents);
+            if (tcpRetryEvents == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecGrpcRouteRetryPolicy", "tcpRetryEvents");
+            }
+            this.tcpRetryEvents = tcpRetryEvents;
             return this;
         }
         public Builder tcpRetryEvents(String... tcpRetryEvents) {

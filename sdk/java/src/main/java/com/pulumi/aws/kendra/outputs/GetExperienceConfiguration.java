@@ -6,6 +6,7 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.aws.kendra.outputs.GetExperienceConfigurationContentSourceConfiguration;
 import com.pulumi.aws.kendra.outputs.GetExperienceConfigurationUserIdentityConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetExperienceConfiguration {
 
         @CustomType.Setter
         public Builder contentSourceConfigurations(List<GetExperienceConfigurationContentSourceConfiguration> contentSourceConfigurations) {
-            this.contentSourceConfigurations = Objects.requireNonNull(contentSourceConfigurations);
+            if (contentSourceConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetExperienceConfiguration", "contentSourceConfigurations");
+            }
+            this.contentSourceConfigurations = contentSourceConfigurations;
             return this;
         }
         public Builder contentSourceConfigurations(GetExperienceConfigurationContentSourceConfiguration... contentSourceConfigurations) {
@@ -66,7 +70,10 @@ public final class GetExperienceConfiguration {
         }
         @CustomType.Setter
         public Builder userIdentityConfigurations(List<GetExperienceConfigurationUserIdentityConfiguration> userIdentityConfigurations) {
-            this.userIdentityConfigurations = Objects.requireNonNull(userIdentityConfigurations);
+            if (userIdentityConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetExperienceConfiguration", "userIdentityConfigurations");
+            }
+            this.userIdentityConfigurations = userIdentityConfigurations;
             return this;
         }
         public Builder userIdentityConfigurations(GetExperienceConfigurationUserIdentityConfiguration... userIdentityConfigurations) {

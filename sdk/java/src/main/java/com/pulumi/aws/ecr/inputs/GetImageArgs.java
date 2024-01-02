@@ -5,6 +5,7 @@ package com.pulumi.aws.ecr.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -225,7 +226,9 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetImageArgs build() {
-            $.repositoryName = Objects.requireNonNull($.repositoryName, "expected parameter 'repositoryName' to be non-null");
+            if ($.repositoryName == null) {
+                throw new MissingRequiredPropertyException("GetImageArgs", "repositoryName");
+            }
             return $;
         }
     }

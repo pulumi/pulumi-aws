@@ -104,26 +104,31 @@ public final class FleetOnDemandOptions {
 
         @CustomType.Setter
         public Builder allocationStrategy(@Nullable String allocationStrategy) {
+
             this.allocationStrategy = allocationStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder maxTotalPrice(@Nullable String maxTotalPrice) {
+
             this.maxTotalPrice = maxTotalPrice;
             return this;
         }
         @CustomType.Setter
         public Builder minTargetCapacity(@Nullable Integer minTargetCapacity) {
+
             this.minTargetCapacity = minTargetCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder singleAvailabilityZone(@Nullable Boolean singleAvailabilityZone) {
+
             this.singleAvailabilityZone = singleAvailabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder singleInstanceType(@Nullable Boolean singleInstanceType) {
+
             this.singleInstanceType = singleInstanceType;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.s3control.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploa
         }
 
         public BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs build() {
-            $.daysAfterInitiation = Objects.requireNonNull($.daysAfterInitiation, "expected parameter 'daysAfterInitiation' to be non-null");
+            if ($.daysAfterInitiation == null) {
+                throw new MissingRequiredPropertyException("BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs", "daysAfterInitiation");
+            }
             return $;
         }
     }

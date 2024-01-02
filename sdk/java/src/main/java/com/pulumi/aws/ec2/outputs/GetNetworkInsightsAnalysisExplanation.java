@@ -36,6 +36,7 @@ import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisExplanationVpcPeerin
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisExplanationVpnConnection;
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisExplanationVpnGateway;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -350,7 +351,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
 
         @CustomType.Setter
         public Builder aclRules(List<GetNetworkInsightsAnalysisExplanationAclRule> aclRules) {
-            this.aclRules = Objects.requireNonNull(aclRules);
+            if (aclRules == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "aclRules");
+            }
+            this.aclRules = aclRules;
             return this;
         }
         public Builder aclRules(GetNetworkInsightsAnalysisExplanationAclRule... aclRules) {
@@ -358,7 +362,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder acls(List<GetNetworkInsightsAnalysisExplanationAcl> acls) {
-            this.acls = Objects.requireNonNull(acls);
+            if (acls == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "acls");
+            }
+            this.acls = acls;
             return this;
         }
         public Builder acls(GetNetworkInsightsAnalysisExplanationAcl... acls) {
@@ -366,12 +373,18 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+            if (address == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "address");
+            }
+            this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder addresses(List<String> addresses) {
-            this.addresses = Objects.requireNonNull(addresses);
+            if (addresses == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "addresses");
+            }
+            this.addresses = addresses;
             return this;
         }
         public Builder addresses(String... addresses) {
@@ -379,7 +392,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder attachedTos(List<GetNetworkInsightsAnalysisExplanationAttachedTo> attachedTos) {
-            this.attachedTos = Objects.requireNonNull(attachedTos);
+            if (attachedTos == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "attachedTos");
+            }
+            this.attachedTos = attachedTos;
             return this;
         }
         public Builder attachedTos(GetNetworkInsightsAnalysisExplanationAttachedTo... attachedTos) {
@@ -387,7 +403,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+            if (availabilityZones == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "availabilityZones");
+            }
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(String... availabilityZones) {
@@ -395,7 +414,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder cidrs(List<String> cidrs) {
-            this.cidrs = Objects.requireNonNull(cidrs);
+            if (cidrs == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "cidrs");
+            }
+            this.cidrs = cidrs;
             return this;
         }
         public Builder cidrs(String... cidrs) {
@@ -403,7 +425,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder classicLoadBalancerListeners(List<GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener> classicLoadBalancerListeners) {
-            this.classicLoadBalancerListeners = Objects.requireNonNull(classicLoadBalancerListeners);
+            if (classicLoadBalancerListeners == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "classicLoadBalancerListeners");
+            }
+            this.classicLoadBalancerListeners = classicLoadBalancerListeners;
             return this;
         }
         public Builder classicLoadBalancerListeners(GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListener... classicLoadBalancerListeners) {
@@ -411,7 +436,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder components(List<GetNetworkInsightsAnalysisExplanationComponent> components) {
-            this.components = Objects.requireNonNull(components);
+            if (components == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "components");
+            }
+            this.components = components;
             return this;
         }
         public Builder components(GetNetworkInsightsAnalysisExplanationComponent... components) {
@@ -419,7 +447,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder customerGateways(List<GetNetworkInsightsAnalysisExplanationCustomerGateway> customerGateways) {
-            this.customerGateways = Objects.requireNonNull(customerGateways);
+            if (customerGateways == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "customerGateways");
+            }
+            this.customerGateways = customerGateways;
             return this;
         }
         public Builder customerGateways(GetNetworkInsightsAnalysisExplanationCustomerGateway... customerGateways) {
@@ -427,7 +458,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder destinationVpcs(List<GetNetworkInsightsAnalysisExplanationDestinationVpc> destinationVpcs) {
-            this.destinationVpcs = Objects.requireNonNull(destinationVpcs);
+            if (destinationVpcs == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "destinationVpcs");
+            }
+            this.destinationVpcs = destinationVpcs;
             return this;
         }
         public Builder destinationVpcs(GetNetworkInsightsAnalysisExplanationDestinationVpc... destinationVpcs) {
@@ -435,7 +469,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder destinations(List<GetNetworkInsightsAnalysisExplanationDestination> destinations) {
-            this.destinations = Objects.requireNonNull(destinations);
+            if (destinations == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "destinations");
+            }
+            this.destinations = destinations;
             return this;
         }
         public Builder destinations(GetNetworkInsightsAnalysisExplanationDestination... destinations) {
@@ -443,12 +480,18 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder direction(String direction) {
-            this.direction = Objects.requireNonNull(direction);
+            if (direction == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "direction");
+            }
+            this.direction = direction;
             return this;
         }
         @CustomType.Setter
         public Builder elasticLoadBalancerListeners(List<GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener> elasticLoadBalancerListeners) {
-            this.elasticLoadBalancerListeners = Objects.requireNonNull(elasticLoadBalancerListeners);
+            if (elasticLoadBalancerListeners == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "elasticLoadBalancerListeners");
+            }
+            this.elasticLoadBalancerListeners = elasticLoadBalancerListeners;
             return this;
         }
         public Builder elasticLoadBalancerListeners(GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListener... elasticLoadBalancerListeners) {
@@ -456,12 +499,18 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder explanationCode(String explanationCode) {
-            this.explanationCode = Objects.requireNonNull(explanationCode);
+            if (explanationCode == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "explanationCode");
+            }
+            this.explanationCode = explanationCode;
             return this;
         }
         @CustomType.Setter
         public Builder ingressRouteTables(List<GetNetworkInsightsAnalysisExplanationIngressRouteTable> ingressRouteTables) {
-            this.ingressRouteTables = Objects.requireNonNull(ingressRouteTables);
+            if (ingressRouteTables == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "ingressRouteTables");
+            }
+            this.ingressRouteTables = ingressRouteTables;
             return this;
         }
         public Builder ingressRouteTables(GetNetworkInsightsAnalysisExplanationIngressRouteTable... ingressRouteTables) {
@@ -469,7 +518,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder internetGateways(List<GetNetworkInsightsAnalysisExplanationInternetGateway> internetGateways) {
-            this.internetGateways = Objects.requireNonNull(internetGateways);
+            if (internetGateways == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "internetGateways");
+            }
+            this.internetGateways = internetGateways;
             return this;
         }
         public Builder internetGateways(GetNetworkInsightsAnalysisExplanationInternetGateway... internetGateways) {
@@ -477,17 +529,26 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder loadBalancerArn(String loadBalancerArn) {
-            this.loadBalancerArn = Objects.requireNonNull(loadBalancerArn);
+            if (loadBalancerArn == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "loadBalancerArn");
+            }
+            this.loadBalancerArn = loadBalancerArn;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerListenerPort(Integer loadBalancerListenerPort) {
-            this.loadBalancerListenerPort = Objects.requireNonNull(loadBalancerListenerPort);
+            if (loadBalancerListenerPort == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "loadBalancerListenerPort");
+            }
+            this.loadBalancerListenerPort = loadBalancerListenerPort;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerTargetGroup(List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroup) {
-            this.loadBalancerTargetGroup = Objects.requireNonNull(loadBalancerTargetGroup);
+            if (loadBalancerTargetGroup == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "loadBalancerTargetGroup");
+            }
+            this.loadBalancerTargetGroup = loadBalancerTargetGroup;
             return this;
         }
         public Builder loadBalancerTargetGroup(GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup... loadBalancerTargetGroup) {
@@ -495,7 +556,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder loadBalancerTargetGroups(List<GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroups) {
-            this.loadBalancerTargetGroups = Objects.requireNonNull(loadBalancerTargetGroups);
+            if (loadBalancerTargetGroups == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "loadBalancerTargetGroups");
+            }
+            this.loadBalancerTargetGroups = loadBalancerTargetGroups;
             return this;
         }
         public Builder loadBalancerTargetGroups(GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroup... loadBalancerTargetGroups) {
@@ -503,17 +567,26 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder loadBalancerTargetPort(Integer loadBalancerTargetPort) {
-            this.loadBalancerTargetPort = Objects.requireNonNull(loadBalancerTargetPort);
+            if (loadBalancerTargetPort == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "loadBalancerTargetPort");
+            }
+            this.loadBalancerTargetPort = loadBalancerTargetPort;
             return this;
         }
         @CustomType.Setter
         public Builder missingComponent(String missingComponent) {
-            this.missingComponent = Objects.requireNonNull(missingComponent);
+            if (missingComponent == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "missingComponent");
+            }
+            this.missingComponent = missingComponent;
             return this;
         }
         @CustomType.Setter
         public Builder natGateways(List<GetNetworkInsightsAnalysisExplanationNatGateway> natGateways) {
-            this.natGateways = Objects.requireNonNull(natGateways);
+            if (natGateways == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "natGateways");
+            }
+            this.natGateways = natGateways;
             return this;
         }
         public Builder natGateways(GetNetworkInsightsAnalysisExplanationNatGateway... natGateways) {
@@ -521,7 +594,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder networkInterfaces(List<GetNetworkInsightsAnalysisExplanationNetworkInterface> networkInterfaces) {
-            this.networkInterfaces = Objects.requireNonNull(networkInterfaces);
+            if (networkInterfaces == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "networkInterfaces");
+            }
+            this.networkInterfaces = networkInterfaces;
             return this;
         }
         public Builder networkInterfaces(GetNetworkInsightsAnalysisExplanationNetworkInterface... networkInterfaces) {
@@ -529,17 +605,26 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder packetField(String packetField) {
-            this.packetField = Objects.requireNonNull(packetField);
+            if (packetField == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "packetField");
+            }
+            this.packetField = packetField;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder portRanges(List<GetNetworkInsightsAnalysisExplanationPortRange> portRanges) {
-            this.portRanges = Objects.requireNonNull(portRanges);
+            if (portRanges == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "portRanges");
+            }
+            this.portRanges = portRanges;
             return this;
         }
         public Builder portRanges(GetNetworkInsightsAnalysisExplanationPortRange... portRanges) {
@@ -547,7 +632,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder prefixLists(List<GetNetworkInsightsAnalysisExplanationPrefixList> prefixLists) {
-            this.prefixLists = Objects.requireNonNull(prefixLists);
+            if (prefixLists == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "prefixLists");
+            }
+            this.prefixLists = prefixLists;
             return this;
         }
         public Builder prefixLists(GetNetworkInsightsAnalysisExplanationPrefixList... prefixLists) {
@@ -555,7 +643,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder protocols(List<String> protocols) {
-            this.protocols = Objects.requireNonNull(protocols);
+            if (protocols == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "protocols");
+            }
+            this.protocols = protocols;
             return this;
         }
         public Builder protocols(String... protocols) {
@@ -563,7 +654,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder routeTableRoutes(List<GetNetworkInsightsAnalysisExplanationRouteTableRoute> routeTableRoutes) {
-            this.routeTableRoutes = Objects.requireNonNull(routeTableRoutes);
+            if (routeTableRoutes == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "routeTableRoutes");
+            }
+            this.routeTableRoutes = routeTableRoutes;
             return this;
         }
         public Builder routeTableRoutes(GetNetworkInsightsAnalysisExplanationRouteTableRoute... routeTableRoutes) {
@@ -571,7 +665,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder routeTables(List<GetNetworkInsightsAnalysisExplanationRouteTable> routeTables) {
-            this.routeTables = Objects.requireNonNull(routeTables);
+            if (routeTables == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "routeTables");
+            }
+            this.routeTables = routeTables;
             return this;
         }
         public Builder routeTables(GetNetworkInsightsAnalysisExplanationRouteTable... routeTables) {
@@ -579,7 +676,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder securityGroup(List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroup) {
-            this.securityGroup = Objects.requireNonNull(securityGroup);
+            if (securityGroup == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "securityGroup");
+            }
+            this.securityGroup = securityGroup;
             return this;
         }
         public Builder securityGroup(GetNetworkInsightsAnalysisExplanationSecurityGroup... securityGroup) {
@@ -587,7 +687,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder securityGroupRules(List<GetNetworkInsightsAnalysisExplanationSecurityGroupRule> securityGroupRules) {
-            this.securityGroupRules = Objects.requireNonNull(securityGroupRules);
+            if (securityGroupRules == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "securityGroupRules");
+            }
+            this.securityGroupRules = securityGroupRules;
             return this;
         }
         public Builder securityGroupRules(GetNetworkInsightsAnalysisExplanationSecurityGroupRule... securityGroupRules) {
@@ -595,7 +698,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder securityGroups(List<GetNetworkInsightsAnalysisExplanationSecurityGroup> securityGroups) {
-            this.securityGroups = Objects.requireNonNull(securityGroups);
+            if (securityGroups == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "securityGroups");
+            }
+            this.securityGroups = securityGroups;
             return this;
         }
         public Builder securityGroups(GetNetworkInsightsAnalysisExplanationSecurityGroup... securityGroups) {
@@ -603,7 +709,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder sourceVpcs(List<GetNetworkInsightsAnalysisExplanationSourceVpc> sourceVpcs) {
-            this.sourceVpcs = Objects.requireNonNull(sourceVpcs);
+            if (sourceVpcs == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "sourceVpcs");
+            }
+            this.sourceVpcs = sourceVpcs;
             return this;
         }
         public Builder sourceVpcs(GetNetworkInsightsAnalysisExplanationSourceVpc... sourceVpcs) {
@@ -611,12 +720,18 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder subnetRouteTables(List<GetNetworkInsightsAnalysisExplanationSubnetRouteTable> subnetRouteTables) {
-            this.subnetRouteTables = Objects.requireNonNull(subnetRouteTables);
+            if (subnetRouteTables == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "subnetRouteTables");
+            }
+            this.subnetRouteTables = subnetRouteTables;
             return this;
         }
         public Builder subnetRouteTables(GetNetworkInsightsAnalysisExplanationSubnetRouteTable... subnetRouteTables) {
@@ -624,7 +739,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder subnets(List<GetNetworkInsightsAnalysisExplanationSubnet> subnets) {
-            this.subnets = Objects.requireNonNull(subnets);
+            if (subnets == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "subnets");
+            }
+            this.subnets = subnets;
             return this;
         }
         public Builder subnets(GetNetworkInsightsAnalysisExplanationSubnet... subnets) {
@@ -632,7 +750,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder transitGatewayAttachments(List<GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment> transitGatewayAttachments) {
-            this.transitGatewayAttachments = Objects.requireNonNull(transitGatewayAttachments);
+            if (transitGatewayAttachments == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "transitGatewayAttachments");
+            }
+            this.transitGatewayAttachments = transitGatewayAttachments;
             return this;
         }
         public Builder transitGatewayAttachments(GetNetworkInsightsAnalysisExplanationTransitGatewayAttachment... transitGatewayAttachments) {
@@ -640,7 +761,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder transitGatewayRouteTableRoutes(List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes) {
-            this.transitGatewayRouteTableRoutes = Objects.requireNonNull(transitGatewayRouteTableRoutes);
+            if (transitGatewayRouteTableRoutes == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "transitGatewayRouteTableRoutes");
+            }
+            this.transitGatewayRouteTableRoutes = transitGatewayRouteTableRoutes;
             return this;
         }
         public Builder transitGatewayRouteTableRoutes(GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute... transitGatewayRouteTableRoutes) {
@@ -648,7 +772,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder transitGatewayRouteTables(List<GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable> transitGatewayRouteTables) {
-            this.transitGatewayRouteTables = Objects.requireNonNull(transitGatewayRouteTables);
+            if (transitGatewayRouteTables == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "transitGatewayRouteTables");
+            }
+            this.transitGatewayRouteTables = transitGatewayRouteTables;
             return this;
         }
         public Builder transitGatewayRouteTables(GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTable... transitGatewayRouteTables) {
@@ -656,7 +783,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder transitGateways(List<GetNetworkInsightsAnalysisExplanationTransitGateway> transitGateways) {
-            this.transitGateways = Objects.requireNonNull(transitGateways);
+            if (transitGateways == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "transitGateways");
+            }
+            this.transitGateways = transitGateways;
             return this;
         }
         public Builder transitGateways(GetNetworkInsightsAnalysisExplanationTransitGateway... transitGateways) {
@@ -664,7 +794,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder vpcEndpoints(List<GetNetworkInsightsAnalysisExplanationVpcEndpoint> vpcEndpoints) {
-            this.vpcEndpoints = Objects.requireNonNull(vpcEndpoints);
+            if (vpcEndpoints == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "vpcEndpoints");
+            }
+            this.vpcEndpoints = vpcEndpoints;
             return this;
         }
         public Builder vpcEndpoints(GetNetworkInsightsAnalysisExplanationVpcEndpoint... vpcEndpoints) {
@@ -672,7 +805,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder vpcPeeringConnections(List<GetNetworkInsightsAnalysisExplanationVpcPeeringConnection> vpcPeeringConnections) {
-            this.vpcPeeringConnections = Objects.requireNonNull(vpcPeeringConnections);
+            if (vpcPeeringConnections == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "vpcPeeringConnections");
+            }
+            this.vpcPeeringConnections = vpcPeeringConnections;
             return this;
         }
         public Builder vpcPeeringConnections(GetNetworkInsightsAnalysisExplanationVpcPeeringConnection... vpcPeeringConnections) {
@@ -680,7 +816,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder vpcs(List<GetNetworkInsightsAnalysisExplanationVpc> vpcs) {
-            this.vpcs = Objects.requireNonNull(vpcs);
+            if (vpcs == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "vpcs");
+            }
+            this.vpcs = vpcs;
             return this;
         }
         public Builder vpcs(GetNetworkInsightsAnalysisExplanationVpc... vpcs) {
@@ -688,7 +827,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder vpnConnections(List<GetNetworkInsightsAnalysisExplanationVpnConnection> vpnConnections) {
-            this.vpnConnections = Objects.requireNonNull(vpnConnections);
+            if (vpnConnections == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "vpnConnections");
+            }
+            this.vpnConnections = vpnConnections;
             return this;
         }
         public Builder vpnConnections(GetNetworkInsightsAnalysisExplanationVpnConnection... vpnConnections) {
@@ -696,7 +838,10 @@ public final class GetNetworkInsightsAnalysisExplanation {
         }
         @CustomType.Setter
         public Builder vpnGateways(List<GetNetworkInsightsAnalysisExplanationVpnGateway> vpnGateways) {
-            this.vpnGateways = Objects.requireNonNull(vpnGateways);
+            if (vpnGateways == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisExplanation", "vpnGateways");
+            }
+            this.vpnGateways = vpnGateways;
             return this;
         }
         public Builder vpnGateways(GetNetworkInsightsAnalysisExplanationVpnGateway... vpnGateways) {

@@ -44,6 +44,7 @@ public final class GroupWarmPoolInstanceReusePolicy {
 
         @CustomType.Setter
         public Builder reuseOnScaleIn(@Nullable Boolean reuseOnScaleIn) {
+
             this.reuseOnScaleIn = reuseOnScaleIn;
             return this;
         }

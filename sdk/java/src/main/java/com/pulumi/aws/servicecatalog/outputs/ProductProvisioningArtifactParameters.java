@@ -115,31 +115,37 @@ public final class ProductProvisioningArtifactParameters {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder disableTemplateValidation(@Nullable Boolean disableTemplateValidation) {
+
             this.disableTemplateValidation = disableTemplateValidation;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder templatePhysicalId(@Nullable String templatePhysicalId) {
+
             this.templatePhysicalId = templatePhysicalId;
             return this;
         }
         @CustomType.Setter
         public Builder templateUrl(@Nullable String templateUrl) {
+
             this.templateUrl = templateUrl;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

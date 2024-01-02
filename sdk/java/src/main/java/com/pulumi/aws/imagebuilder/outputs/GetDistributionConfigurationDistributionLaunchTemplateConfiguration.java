@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetDistributionConfigurationDistributionLaunchTemplateConfigu
 
         @CustomType.Setter
         public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionLaunchTemplateConfiguration", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter("default")
         public Builder default_(Boolean default_) {
-            this.default_ = Objects.requireNonNull(default_);
+            if (default_ == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionLaunchTemplateConfiguration", "default_");
+            }
+            this.default_ = default_;
             return this;
         }
         @CustomType.Setter
         public Builder launchTemplateId(String launchTemplateId) {
-            this.launchTemplateId = Objects.requireNonNull(launchTemplateId);
+            if (launchTemplateId == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionLaunchTemplateConfiguration", "launchTemplateId");
+            }
+            this.launchTemplateId = launchTemplateId;
             return this;
         }
         public GetDistributionConfigurationDistributionLaunchTemplateConfiguration build() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.autoscaling.outputs;
 import com.pulumi.aws.autoscaling.outputs.GroupMixedInstancesPolicyInstancesDistribution;
 import com.pulumi.aws.autoscaling.outputs.GroupMixedInstancesPolicyLaunchTemplate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -59,12 +60,16 @@ public final class GroupMixedInstancesPolicy {
 
         @CustomType.Setter
         public Builder instancesDistribution(@Nullable GroupMixedInstancesPolicyInstancesDistribution instancesDistribution) {
+
             this.instancesDistribution = instancesDistribution;
             return this;
         }
         @CustomType.Setter
         public Builder launchTemplate(GroupMixedInstancesPolicyLaunchTemplate launchTemplate) {
-            this.launchTemplate = Objects.requireNonNull(launchTemplate);
+            if (launchTemplate == null) {
+              throw new MissingRequiredPropertyException("GroupMixedInstancesPolicy", "launchTemplate");
+            }
+            this.launchTemplate = launchTemplate;
             return this;
         }
         public GroupMixedInstancesPolicy build() {

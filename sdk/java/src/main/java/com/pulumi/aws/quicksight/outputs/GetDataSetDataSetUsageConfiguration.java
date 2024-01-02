@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetDataSetDataSetUsageConfiguration {
 
         @CustomType.Setter
         public Builder disableUseAsDirectQuerySource(Boolean disableUseAsDirectQuerySource) {
-            this.disableUseAsDirectQuerySource = Objects.requireNonNull(disableUseAsDirectQuerySource);
+            if (disableUseAsDirectQuerySource == null) {
+              throw new MissingRequiredPropertyException("GetDataSetDataSetUsageConfiguration", "disableUseAsDirectQuerySource");
+            }
+            this.disableUseAsDirectQuerySource = disableUseAsDirectQuerySource;
             return this;
         }
         @CustomType.Setter
         public Builder disableUseAsImportedSource(Boolean disableUseAsImportedSource) {
-            this.disableUseAsImportedSource = Objects.requireNonNull(disableUseAsImportedSource);
+            if (disableUseAsImportedSource == null) {
+              throw new MissingRequiredPropertyException("GetDataSetDataSetUsageConfiguration", "disableUseAsImportedSource");
+            }
+            this.disableUseAsImportedSource = disableUseAsImportedSource;
             return this;
         }
         public GetDataSetDataSetUsageConfiguration build() {

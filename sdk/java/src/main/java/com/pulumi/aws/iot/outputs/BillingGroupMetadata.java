@@ -36,6 +36,7 @@ public final class BillingGroupMetadata {
 
         @CustomType.Setter
         public Builder creationDate(@Nullable String creationDate) {
+
             this.creationDate = creationDate;
             return this;
         }

@@ -7,6 +7,7 @@ import com.pulumi.aws.imagebuilder.outputs.GetImagePipelineImageScanningConfigur
 import com.pulumi.aws.imagebuilder.outputs.GetImagePipelineImageTestsConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.GetImagePipelineSchedule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -284,62 +285,98 @@ public final class GetImagePipelineResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder containerRecipeArn(String containerRecipeArn) {
-            this.containerRecipeArn = Objects.requireNonNull(containerRecipeArn);
+            if (containerRecipeArn == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "containerRecipeArn");
+            }
+            this.containerRecipeArn = containerRecipeArn;
             return this;
         }
         @CustomType.Setter
         public Builder dateCreated(String dateCreated) {
-            this.dateCreated = Objects.requireNonNull(dateCreated);
+            if (dateCreated == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "dateCreated");
+            }
+            this.dateCreated = dateCreated;
             return this;
         }
         @CustomType.Setter
         public Builder dateLastRun(String dateLastRun) {
-            this.dateLastRun = Objects.requireNonNull(dateLastRun);
+            if (dateLastRun == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "dateLastRun");
+            }
+            this.dateLastRun = dateLastRun;
             return this;
         }
         @CustomType.Setter
         public Builder dateNextRun(String dateNextRun) {
-            this.dateNextRun = Objects.requireNonNull(dateNextRun);
+            if (dateNextRun == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "dateNextRun");
+            }
+            this.dateNextRun = dateNextRun;
             return this;
         }
         @CustomType.Setter
         public Builder dateUpdated(String dateUpdated) {
-            this.dateUpdated = Objects.requireNonNull(dateUpdated);
+            if (dateUpdated == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "dateUpdated");
+            }
+            this.dateUpdated = dateUpdated;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder distributionConfigurationArn(String distributionConfigurationArn) {
-            this.distributionConfigurationArn = Objects.requireNonNull(distributionConfigurationArn);
+            if (distributionConfigurationArn == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "distributionConfigurationArn");
+            }
+            this.distributionConfigurationArn = distributionConfigurationArn;
             return this;
         }
         @CustomType.Setter
         public Builder enhancedImageMetadataEnabled(Boolean enhancedImageMetadataEnabled) {
-            this.enhancedImageMetadataEnabled = Objects.requireNonNull(enhancedImageMetadataEnabled);
+            if (enhancedImageMetadataEnabled == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "enhancedImageMetadataEnabled");
+            }
+            this.enhancedImageMetadataEnabled = enhancedImageMetadataEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder imageRecipeArn(String imageRecipeArn) {
-            this.imageRecipeArn = Objects.requireNonNull(imageRecipeArn);
+            if (imageRecipeArn == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "imageRecipeArn");
+            }
+            this.imageRecipeArn = imageRecipeArn;
             return this;
         }
         @CustomType.Setter
         public Builder imageScanningConfigurations(List<GetImagePipelineImageScanningConfiguration> imageScanningConfigurations) {
-            this.imageScanningConfigurations = Objects.requireNonNull(imageScanningConfigurations);
+            if (imageScanningConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "imageScanningConfigurations");
+            }
+            this.imageScanningConfigurations = imageScanningConfigurations;
             return this;
         }
         public Builder imageScanningConfigurations(GetImagePipelineImageScanningConfiguration... imageScanningConfigurations) {
@@ -347,7 +384,10 @@ public final class GetImagePipelineResult {
         }
         @CustomType.Setter
         public Builder imageTestsConfigurations(List<GetImagePipelineImageTestsConfiguration> imageTestsConfigurations) {
-            this.imageTestsConfigurations = Objects.requireNonNull(imageTestsConfigurations);
+            if (imageTestsConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "imageTestsConfigurations");
+            }
+            this.imageTestsConfigurations = imageTestsConfigurations;
             return this;
         }
         public Builder imageTestsConfigurations(GetImagePipelineImageTestsConfiguration... imageTestsConfigurations) {
@@ -355,22 +395,34 @@ public final class GetImagePipelineResult {
         }
         @CustomType.Setter
         public Builder infrastructureConfigurationArn(String infrastructureConfigurationArn) {
-            this.infrastructureConfigurationArn = Objects.requireNonNull(infrastructureConfigurationArn);
+            if (infrastructureConfigurationArn == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "infrastructureConfigurationArn");
+            }
+            this.infrastructureConfigurationArn = infrastructureConfigurationArn;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder platform(String platform) {
-            this.platform = Objects.requireNonNull(platform);
+            if (platform == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "platform");
+            }
+            this.platform = platform;
             return this;
         }
         @CustomType.Setter
         public Builder schedules(List<GetImagePipelineSchedule> schedules) {
-            this.schedules = Objects.requireNonNull(schedules);
+            if (schedules == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "schedules");
+            }
+            this.schedules = schedules;
             return this;
         }
         public Builder schedules(GetImagePipelineSchedule... schedules) {
@@ -378,12 +430,18 @@ public final class GetImagePipelineResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetImagePipelineResult build() {

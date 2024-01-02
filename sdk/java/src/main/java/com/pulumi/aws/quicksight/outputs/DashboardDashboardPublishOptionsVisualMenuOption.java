@@ -44,6 +44,7 @@ public final class DashboardDashboardPublishOptionsVisualMenuOption {
 
         @CustomType.Setter
         public Builder availabilityStatus(@Nullable String availabilityStatus) {
+
             this.availabilityStatus = availabilityStatus;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.batch.outputs;
 
 import com.pulumi.aws.batch.outputs.GetSchedulingPolicyFairSharePolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -85,12 +86,18 @@ public final class GetSchedulingPolicyResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetSchedulingPolicyResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder fairSharePolicies(List<GetSchedulingPolicyFairSharePolicy> fairSharePolicies) {
-            this.fairSharePolicies = Objects.requireNonNull(fairSharePolicies);
+            if (fairSharePolicies == null) {
+              throw new MissingRequiredPropertyException("GetSchedulingPolicyResult", "fairSharePolicies");
+            }
+            this.fairSharePolicies = fairSharePolicies;
             return this;
         }
         public Builder fairSharePolicies(GetSchedulingPolicyFairSharePolicy... fairSharePolicies) {
@@ -98,17 +105,26 @@ public final class GetSchedulingPolicyResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSchedulingPolicyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSchedulingPolicyResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSchedulingPolicyResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetSchedulingPolicyResult build() {

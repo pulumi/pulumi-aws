@@ -4,6 +4,7 @@
 package com.pulumi.aws.storagegateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,27 +75,42 @@ public final class GetLocalDiskResult {
 
         @CustomType.Setter
         public Builder diskId(String diskId) {
-            this.diskId = Objects.requireNonNull(diskId);
+            if (diskId == null) {
+              throw new MissingRequiredPropertyException("GetLocalDiskResult", "diskId");
+            }
+            this.diskId = diskId;
             return this;
         }
         @CustomType.Setter
         public Builder diskNode(String diskNode) {
-            this.diskNode = Objects.requireNonNull(diskNode);
+            if (diskNode == null) {
+              throw new MissingRequiredPropertyException("GetLocalDiskResult", "diskNode");
+            }
+            this.diskNode = diskNode;
             return this;
         }
         @CustomType.Setter
         public Builder diskPath(String diskPath) {
-            this.diskPath = Objects.requireNonNull(diskPath);
+            if (diskPath == null) {
+              throw new MissingRequiredPropertyException("GetLocalDiskResult", "diskPath");
+            }
+            this.diskPath = diskPath;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayArn(String gatewayArn) {
-            this.gatewayArn = Objects.requireNonNull(gatewayArn);
+            if (gatewayArn == null) {
+              throw new MissingRequiredPropertyException("GetLocalDiskResult", "gatewayArn");
+            }
+            this.gatewayArn = gatewayArn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLocalDiskResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetLocalDiskResult build() {

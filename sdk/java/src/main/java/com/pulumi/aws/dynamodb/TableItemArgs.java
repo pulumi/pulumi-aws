@@ -5,6 +5,7 @@ package com.pulumi.aws.dynamodb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class TableItemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TableItemArgs build() {
-            $.hashKey = Objects.requireNonNull($.hashKey, "expected parameter 'hashKey' to be non-null");
-            $.item = Objects.requireNonNull($.item, "expected parameter 'item' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.hashKey == null) {
+                throw new MissingRequiredPropertyException("TableItemArgs", "hashKey");
+            }
+            if ($.item == null) {
+                throw new MissingRequiredPropertyException("TableItemArgs", "item");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("TableItemArgs", "tableName");
+            }
             return $;
         }
     }

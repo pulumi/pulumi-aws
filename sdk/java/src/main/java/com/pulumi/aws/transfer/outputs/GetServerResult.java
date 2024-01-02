@@ -4,6 +4,7 @@
 package com.pulumi.aws.transfer.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -217,52 +218,82 @@ public final class GetServerResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder certificate(String certificate) {
-            this.certificate = Objects.requireNonNull(certificate);
+            if (certificate == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "certificate");
+            }
+            this.certificate = certificate;
             return this;
         }
         @CustomType.Setter
         public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "domain");
+            }
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "endpoint");
+            }
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
         public Builder endpointType(String endpointType) {
-            this.endpointType = Objects.requireNonNull(endpointType);
+            if (endpointType == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "endpointType");
+            }
+            this.endpointType = endpointType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identityProviderType(String identityProviderType) {
-            this.identityProviderType = Objects.requireNonNull(identityProviderType);
+            if (identityProviderType == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "identityProviderType");
+            }
+            this.identityProviderType = identityProviderType;
             return this;
         }
         @CustomType.Setter
         public Builder invocationRole(String invocationRole) {
-            this.invocationRole = Objects.requireNonNull(invocationRole);
+            if (invocationRole == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "invocationRole");
+            }
+            this.invocationRole = invocationRole;
             return this;
         }
         @CustomType.Setter
         public Builder loggingRole(String loggingRole) {
-            this.loggingRole = Objects.requireNonNull(loggingRole);
+            if (loggingRole == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "loggingRole");
+            }
+            this.loggingRole = loggingRole;
             return this;
         }
         @CustomType.Setter
         public Builder protocols(List<String> protocols) {
-            this.protocols = Objects.requireNonNull(protocols);
+            if (protocols == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "protocols");
+            }
+            this.protocols = protocols;
             return this;
         }
         public Builder protocols(String... protocols) {
@@ -270,17 +301,26 @@ public final class GetServerResult {
         }
         @CustomType.Setter
         public Builder securityPolicyName(String securityPolicyName) {
-            this.securityPolicyName = Objects.requireNonNull(securityPolicyName);
+            if (securityPolicyName == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "securityPolicyName");
+            }
+            this.securityPolicyName = securityPolicyName;
             return this;
         }
         @CustomType.Setter
         public Builder serverId(String serverId) {
-            this.serverId = Objects.requireNonNull(serverId);
+            if (serverId == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "serverId");
+            }
+            this.serverId = serverId;
             return this;
         }
         @CustomType.Setter
         public Builder structuredLogDestinations(List<String> structuredLogDestinations) {
-            this.structuredLogDestinations = Objects.requireNonNull(structuredLogDestinations);
+            if (structuredLogDestinations == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "structuredLogDestinations");
+            }
+            this.structuredLogDestinations = structuredLogDestinations;
             return this;
         }
         public Builder structuredLogDestinations(String... structuredLogDestinations) {
@@ -288,7 +328,10 @@ public final class GetServerResult {
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "url");
+            }
+            this.url = url;
             return this;
         }
         public GetServerResult build() {

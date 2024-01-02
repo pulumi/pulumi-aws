@@ -5,6 +5,7 @@ package com.pulumi.aws.guardduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -78,7 +79,9 @@ public final class DetectorDatasourcesKubernetesAuditLogsArgs extends com.pulumi
         }
 
         public DetectorDatasourcesKubernetesAuditLogsArgs build() {
-            $.enable = Objects.requireNonNull($.enable, "expected parameter 'enable' to be non-null");
+            if ($.enable == null) {
+                throw new MissingRequiredPropertyException("DetectorDatasourcesKubernetesAuditLogsArgs", "enable");
+            }
             return $;
         }
     }

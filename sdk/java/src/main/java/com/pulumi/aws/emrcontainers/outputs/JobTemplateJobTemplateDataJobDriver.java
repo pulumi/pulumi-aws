@@ -59,11 +59,13 @@ public final class JobTemplateJobTemplateDataJobDriver {
 
         @CustomType.Setter
         public Builder sparkSqlJobDriver(@Nullable JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver sparkSqlJobDriver) {
+
             this.sparkSqlJobDriver = sparkSqlJobDriver;
             return this;
         }
         @CustomType.Setter
         public Builder sparkSubmitJobDriver(@Nullable JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver sparkSubmitJobDriver) {
+
             this.sparkSubmitJobDriver = sparkSubmitJobDriver;
             return this;
         }

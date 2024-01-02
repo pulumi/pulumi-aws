@@ -6,6 +6,7 @@ package com.pulumi.aws.mediapackage;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -152,7 +153,9 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ChannelArgs build() {
-            $.channelId = Objects.requireNonNull($.channelId, "expected parameter 'channelId' to be non-null");
+            if ($.channelId == null) {
+                throw new MissingRequiredPropertyException("ChannelArgs", "channelId");
+            }
             $.description = Codegen.stringProp("description").output().arg($.description).def("Managed by Pulumi").getNullable();
             return $;
         }

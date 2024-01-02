@@ -5,6 +5,7 @@ package com.pulumi.aws.servicequotas.outputs;
 
 import com.pulumi.aws.servicequotas.outputs.GetServiceQuotaUsageMetricMetricDimension;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,7 +87,10 @@ public final class GetServiceQuotaUsageMetric {
 
         @CustomType.Setter
         public Builder metricDimensions(List<GetServiceQuotaUsageMetricMetricDimension> metricDimensions) {
-            this.metricDimensions = Objects.requireNonNull(metricDimensions);
+            if (metricDimensions == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaUsageMetric", "metricDimensions");
+            }
+            this.metricDimensions = metricDimensions;
             return this;
         }
         public Builder metricDimensions(GetServiceQuotaUsageMetricMetricDimension... metricDimensions) {
@@ -94,17 +98,26 @@ public final class GetServiceQuotaUsageMetric {
         }
         @CustomType.Setter
         public Builder metricName(String metricName) {
-            this.metricName = Objects.requireNonNull(metricName);
+            if (metricName == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaUsageMetric", "metricName");
+            }
+            this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
         public Builder metricNamespace(String metricNamespace) {
-            this.metricNamespace = Objects.requireNonNull(metricNamespace);
+            if (metricNamespace == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaUsageMetric", "metricNamespace");
+            }
+            this.metricNamespace = metricNamespace;
             return this;
         }
         @CustomType.Setter
         public Builder metricStatisticRecommendation(String metricStatisticRecommendation) {
-            this.metricStatisticRecommendation = Objects.requireNonNull(metricStatisticRecommendation);
+            if (metricStatisticRecommendation == null) {
+              throw new MissingRequiredPropertyException("GetServiceQuotaUsageMetric", "metricStatisticRecommendation");
+            }
+            this.metricStatisticRecommendation = metricStatisticRecommendation;
             return this;
         }
         public GetServiceQuotaUsageMetric build() {

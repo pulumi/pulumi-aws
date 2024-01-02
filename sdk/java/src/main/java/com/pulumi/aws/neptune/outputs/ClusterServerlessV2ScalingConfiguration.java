@@ -58,11 +58,13 @@ public final class ClusterServerlessV2ScalingConfiguration {
 
         @CustomType.Setter
         public Builder maxCapacity(@Nullable Double maxCapacity) {
+
             this.maxCapacity = maxCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder minCapacity(@Nullable Double minCapacity) {
+
             this.minCapacity = minCapacity;
             return this;
         }

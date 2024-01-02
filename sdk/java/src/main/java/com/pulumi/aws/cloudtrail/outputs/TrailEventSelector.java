@@ -89,6 +89,7 @@ public final class TrailEventSelector {
 
         @CustomType.Setter
         public Builder dataResources(@Nullable List<TrailEventSelectorDataResource> dataResources) {
+
             this.dataResources = dataResources;
             return this;
         }
@@ -97,6 +98,7 @@ public final class TrailEventSelector {
         }
         @CustomType.Setter
         public Builder excludeManagementEventSources(@Nullable List<String> excludeManagementEventSources) {
+
             this.excludeManagementEventSources = excludeManagementEventSources;
             return this;
         }
@@ -105,11 +107,13 @@ public final class TrailEventSelector {
         }
         @CustomType.Setter
         public Builder includeManagementEvents(@Nullable Boolean includeManagementEvents) {
+
             this.includeManagementEvents = includeManagementEvents;
             return this;
         }
         @CustomType.Setter
         public Builder readWriteType(@Nullable String readWriteType) {
+
             this.readWriteType = readWriteType;
             return this;
         }

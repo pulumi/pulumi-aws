@@ -52,11 +52,13 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
 
         @CustomType.Setter
         public Builder all(@Nullable WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder includedPaths(@Nullable List<String> includedPaths) {
+
             this.includedPaths = includedPaths;
             return this;
         }

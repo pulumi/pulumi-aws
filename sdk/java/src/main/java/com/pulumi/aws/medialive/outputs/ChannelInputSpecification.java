@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,17 +47,26 @@ public final class ChannelInputSpecification {
 
         @CustomType.Setter
         public Builder codec(String codec) {
-            this.codec = Objects.requireNonNull(codec);
+            if (codec == null) {
+              throw new MissingRequiredPropertyException("ChannelInputSpecification", "codec");
+            }
+            this.codec = codec;
             return this;
         }
         @CustomType.Setter
         public Builder inputResolution(String inputResolution) {
-            this.inputResolution = Objects.requireNonNull(inputResolution);
+            if (inputResolution == null) {
+              throw new MissingRequiredPropertyException("ChannelInputSpecification", "inputResolution");
+            }
+            this.inputResolution = inputResolution;
             return this;
         }
         @CustomType.Setter
         public Builder maximumBitrate(String maximumBitrate) {
-            this.maximumBitrate = Objects.requireNonNull(maximumBitrate);
+            if (maximumBitrate == null) {
+              throw new MissingRequiredPropertyException("ChannelInputSpecification", "maximumBitrate");
+            }
+            this.maximumBitrate = maximumBitrate;
             return this;
         }
         public ChannelInputSpecification build() {

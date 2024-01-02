@@ -6,6 +6,7 @@ package com.pulumi.aws.ssmincidents.inputs;
 import com.pulumi.aws.ssmincidents.inputs.ResponsePlanActionSsmAutomationParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -274,8 +275,12 @@ public final class ResponsePlanActionSsmAutomationArgs extends com.pulumi.resour
         }
 
         public ResponsePlanActionSsmAutomationArgs build() {
-            $.documentName = Objects.requireNonNull($.documentName, "expected parameter 'documentName' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.documentName == null) {
+                throw new MissingRequiredPropertyException("ResponsePlanActionSsmAutomationArgs", "documentName");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("ResponsePlanActionSsmAutomationArgs", "roleArn");
+            }
             return $;
         }
     }

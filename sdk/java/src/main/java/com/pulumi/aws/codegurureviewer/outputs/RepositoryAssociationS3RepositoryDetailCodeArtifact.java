@@ -42,11 +42,13 @@ public final class RepositoryAssociationS3RepositoryDetailCodeArtifact {
 
         @CustomType.Setter
         public Builder buildArtifactsObjectKey(@Nullable String buildArtifactsObjectKey) {
+
             this.buildArtifactsObjectKey = buildArtifactsObjectKey;
             return this;
         }
         @CustomType.Setter
         public Builder sourceCodeArtifactsObjectKey(@Nullable String sourceCodeArtifactsObjectKey) {
+
             this.sourceCodeArtifactsObjectKey = sourceCodeArtifactsObjectKey;
             return this;
         }

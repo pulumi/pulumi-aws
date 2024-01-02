@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class TaskSetCapacityProviderStrategyArgs extends com.pulumi.resour
         }
 
         public TaskSetCapacityProviderStrategyArgs build() {
-            $.capacityProvider = Objects.requireNonNull($.capacityProvider, "expected parameter 'capacityProvider' to be non-null");
-            $.weight = Objects.requireNonNull($.weight, "expected parameter 'weight' to be non-null");
+            if ($.capacityProvider == null) {
+                throw new MissingRequiredPropertyException("TaskSetCapacityProviderStrategyArgs", "capacityProvider");
+            }
+            if ($.weight == null) {
+                throw new MissingRequiredPropertyException("TaskSetCapacityProviderStrategyArgs", "weight");
+            }
             return $;
         }
     }

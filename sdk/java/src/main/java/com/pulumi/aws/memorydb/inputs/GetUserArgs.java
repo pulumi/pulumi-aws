@@ -5,6 +5,7 @@ package com.pulumi.aws.memorydb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetUserArgs build() {
-            $.userName = Objects.requireNonNull($.userName, "expected parameter 'userName' to be non-null");
+            if ($.userName == null) {
+                throw new MissingRequiredPropertyException("GetUserArgs", "userName");
+            }
             return $;
         }
     }

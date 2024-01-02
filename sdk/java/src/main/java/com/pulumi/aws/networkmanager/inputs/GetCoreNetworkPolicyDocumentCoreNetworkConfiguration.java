@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager.inputs;
 
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -179,8 +180,12 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration extends 
         }
 
         public GetCoreNetworkPolicyDocumentCoreNetworkConfiguration build() {
-            $.asnRanges = Objects.requireNonNull($.asnRanges, "expected parameter 'asnRanges' to be non-null");
-            $.edgeLocations = Objects.requireNonNull($.edgeLocations, "expected parameter 'edgeLocations' to be non-null");
+            if ($.asnRanges == null) {
+                throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentCoreNetworkConfiguration", "asnRanges");
+            }
+            if ($.edgeLocations == null) {
+                throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentCoreNetworkConfiguration", "edgeLocations");
+            }
             return $;
         }
     }

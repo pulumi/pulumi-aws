@@ -5,6 +5,7 @@ package com.pulumi.aws.redshiftserverless.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class GetCredentialsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetCredentialsArgs build() {
-            $.workgroupName = Objects.requireNonNull($.workgroupName, "expected parameter 'workgroupName' to be non-null");
+            if ($.workgroupName == null) {
+                throw new MissingRequiredPropertyException("GetCredentialsArgs", "workgroupName");
+            }
             return $;
         }
     }

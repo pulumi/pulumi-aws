@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticbeanstalk;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -308,9 +309,15 @@ public final class ApplicationVersionArgs extends com.pulumi.resources.ResourceA
         }
 
         public ApplicationVersionArgs build() {
-            $.application = Objects.requireNonNull($.application, "expected parameter 'application' to be non-null");
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.application == null) {
+                throw new MissingRequiredPropertyException("ApplicationVersionArgs", "application");
+            }
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("ApplicationVersionArgs", "bucket");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("ApplicationVersionArgs", "key");
+            }
             return $;
         }
     }

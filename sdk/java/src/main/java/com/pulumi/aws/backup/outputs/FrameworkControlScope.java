@@ -73,6 +73,7 @@ public final class FrameworkControlScope {
 
         @CustomType.Setter
         public Builder complianceResourceIds(@Nullable List<String> complianceResourceIds) {
+
             this.complianceResourceIds = complianceResourceIds;
             return this;
         }
@@ -81,6 +82,7 @@ public final class FrameworkControlScope {
         }
         @CustomType.Setter
         public Builder complianceResourceTypes(@Nullable List<String> complianceResourceTypes) {
+
             this.complianceResourceTypes = complianceResourceTypes;
             return this;
         }
@@ -89,6 +91,7 @@ public final class FrameworkControlScope {
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }

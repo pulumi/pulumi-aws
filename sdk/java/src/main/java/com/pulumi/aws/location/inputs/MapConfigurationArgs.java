@@ -5,6 +5,7 @@ package com.pulumi.aws.location.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class MapConfigurationArgs extends com.pulumi.resources.ResourceArg
         }
 
         public MapConfigurationArgs build() {
-            $.style = Objects.requireNonNull($.style, "expected parameter 'style' to be non-null");
+            if ($.style == null) {
+                throw new MissingRequiredPropertyException("MapConfigurationArgs", "style");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.sesv2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class EmailIdentityFeedbackAttributesArgs extends com.pulumi.resour
         }
 
         public EmailIdentityFeedbackAttributesArgs build() {
-            $.emailIdentity = Objects.requireNonNull($.emailIdentity, "expected parameter 'emailIdentity' to be non-null");
+            if ($.emailIdentity == null) {
+                throw new MissingRequiredPropertyException("EmailIdentityFeedbackAttributesArgs", "emailIdentity");
+            }
             return $;
         }
     }

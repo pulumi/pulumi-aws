@@ -5,6 +5,7 @@ package com.pulumi.aws.emr;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -154,7 +155,9 @@ public final class SecurityConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         public SecurityConfigurationArgs build() {
-            $.configuration = Objects.requireNonNull($.configuration, "expected parameter 'configuration' to be non-null");
+            if ($.configuration == null) {
+                throw new MissingRequiredPropertyException("SecurityConfigurationArgs", "configuration");
+            }
             return $;
         }
     }

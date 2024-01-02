@@ -60,11 +60,13 @@ public final class ScalingPlanApplicationSource {
 
         @CustomType.Setter
         public Builder cloudformationStackArn(@Nullable String cloudformationStackArn) {
+
             this.cloudformationStackArn = cloudformationStackArn;
             return this;
         }
         @CustomType.Setter
         public Builder tagFilters(@Nullable List<ScalingPlanApplicationSourceTagFilter> tagFilters) {
+
             this.tagFilters = tagFilters;
             return this;
         }

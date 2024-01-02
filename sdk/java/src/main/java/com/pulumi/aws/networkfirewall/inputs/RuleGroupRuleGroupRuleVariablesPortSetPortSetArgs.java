@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs extends com
         }
 
         public RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs build() {
-            $.definitions = Objects.requireNonNull($.definitions, "expected parameter 'definitions' to be non-null");
+            if ($.definitions == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs", "definitions");
+            }
             return $;
         }
     }

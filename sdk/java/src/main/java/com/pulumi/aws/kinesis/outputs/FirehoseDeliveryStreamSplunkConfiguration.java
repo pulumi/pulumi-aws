@@ -7,6 +7,7 @@ import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationC
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -160,47 +161,62 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
 
         @CustomType.Setter
         public Builder cloudwatchLoggingOptions(@Nullable FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions) {
+
             this.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             return this;
         }
         @CustomType.Setter
         public Builder hecAcknowledgmentTimeout(@Nullable Integer hecAcknowledgmentTimeout) {
+
             this.hecAcknowledgmentTimeout = hecAcknowledgmentTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder hecEndpoint(String hecEndpoint) {
-            this.hecEndpoint = Objects.requireNonNull(hecEndpoint);
+            if (hecEndpoint == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfiguration", "hecEndpoint");
+            }
+            this.hecEndpoint = hecEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder hecEndpointType(@Nullable String hecEndpointType) {
+
             this.hecEndpointType = hecEndpointType;
             return this;
         }
         @CustomType.Setter
         public Builder hecToken(String hecToken) {
-            this.hecToken = Objects.requireNonNull(hecToken);
+            if (hecToken == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfiguration", "hecToken");
+            }
+            this.hecToken = hecToken;
             return this;
         }
         @CustomType.Setter
         public Builder processingConfiguration(@Nullable FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration processingConfiguration) {
+
             this.processingConfiguration = processingConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder retryDuration(@Nullable Integer retryDuration) {
+
             this.retryDuration = retryDuration;
             return this;
         }
         @CustomType.Setter
         public Builder s3BackupMode(@Nullable String s3BackupMode) {
+
             this.s3BackupMode = s3BackupMode;
             return this;
         }
         @CustomType.Setter
         public Builder s3Configuration(FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration) {
-            this.s3Configuration = Objects.requireNonNull(s3Configuration);
+            if (s3Configuration == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfiguration", "s3Configuration");
+            }
+            this.s3Configuration = s3Configuration;
             return this;
         }
         public FirehoseDeliveryStreamSplunkConfiguration build() {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.lightsail.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class InstanceAddOn {
 
         @CustomType.Setter
         public Builder snapshotTime(String snapshotTime) {
-            this.snapshotTime = Objects.requireNonNull(snapshotTime);
+            if (snapshotTime == null) {
+              throw new MissingRequiredPropertyException("InstanceAddOn", "snapshotTime");
+            }
+            this.snapshotTime = snapshotTime;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("InstanceAddOn", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("InstanceAddOn", "type");
+            }
+            this.type = type;
             return this;
         }
         public InstanceAddOn build() {

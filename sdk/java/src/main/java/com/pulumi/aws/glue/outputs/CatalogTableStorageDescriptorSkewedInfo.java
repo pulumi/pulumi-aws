@@ -73,6 +73,7 @@ public final class CatalogTableStorageDescriptorSkewedInfo {
 
         @CustomType.Setter
         public Builder skewedColumnNames(@Nullable List<String> skewedColumnNames) {
+
             this.skewedColumnNames = skewedColumnNames;
             return this;
         }
@@ -81,11 +82,13 @@ public final class CatalogTableStorageDescriptorSkewedInfo {
         }
         @CustomType.Setter
         public Builder skewedColumnValueLocationMaps(@Nullable Map<String,String> skewedColumnValueLocationMaps) {
+
             this.skewedColumnValueLocationMaps = skewedColumnValueLocationMaps;
             return this;
         }
         @CustomType.Setter
         public Builder skewedColumnValues(@Nullable List<String> skewedColumnValues) {
+
             this.skewedColumnValues = skewedColumnValues;
             return this;
         }

@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationDataCaptureConfigCap
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationDataCaptureConfigCaptureOptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -276,9 +277,15 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
         }
 
         public EndpointConfigurationDataCaptureConfigArgs build() {
-            $.captureOptions = Objects.requireNonNull($.captureOptions, "expected parameter 'captureOptions' to be non-null");
-            $.destinationS3Uri = Objects.requireNonNull($.destinationS3Uri, "expected parameter 'destinationS3Uri' to be non-null");
-            $.initialSamplingPercentage = Objects.requireNonNull($.initialSamplingPercentage, "expected parameter 'initialSamplingPercentage' to be non-null");
+            if ($.captureOptions == null) {
+                throw new MissingRequiredPropertyException("EndpointConfigurationDataCaptureConfigArgs", "captureOptions");
+            }
+            if ($.destinationS3Uri == null) {
+                throw new MissingRequiredPropertyException("EndpointConfigurationDataCaptureConfigArgs", "destinationS3Uri");
+            }
+            if ($.initialSamplingPercentage == null) {
+                throw new MissingRequiredPropertyException("EndpointConfigurationDataCaptureConfigArgs", "initialSamplingPercentage");
+            }
             return $;
         }
     }

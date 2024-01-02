@@ -5,6 +5,7 @@ package com.pulumi.aws.codebuild.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ProjectEnvironmentRegistryCredentialArgs extends com.pulumi.r
         }
 
         public ProjectEnvironmentRegistryCredentialArgs build() {
-            $.credential = Objects.requireNonNull($.credential, "expected parameter 'credential' to be non-null");
-            $.credentialProvider = Objects.requireNonNull($.credentialProvider, "expected parameter 'credentialProvider' to be non-null");
+            if ($.credential == null) {
+                throw new MissingRequiredPropertyException("ProjectEnvironmentRegistryCredentialArgs", "credential");
+            }
+            if ($.credentialProvider == null) {
+                throw new MissingRequiredPropertyException("ProjectEnvironmentRegistryCredentialArgs", "credentialProvider");
+            }
             return $;
         }
     }

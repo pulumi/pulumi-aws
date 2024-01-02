@@ -5,6 +5,7 @@ package com.pulumi.aws.customerprofiles.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -218,7 +219,9 @@ public final class DomainRuleBasedMatchingAttributeTypesSelectorArgs extends com
         }
 
         public DomainRuleBasedMatchingAttributeTypesSelectorArgs build() {
-            $.attributeMatchingModel = Objects.requireNonNull($.attributeMatchingModel, "expected parameter 'attributeMatchingModel' to be non-null");
+            if ($.attributeMatchingModel == null) {
+                throw new MissingRequiredPropertyException("DomainRuleBasedMatchingAttributeTypesSelectorArgs", "attributeMatchingModel");
+            }
             return $;
         }
     }

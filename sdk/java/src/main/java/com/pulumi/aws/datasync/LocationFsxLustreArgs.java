@@ -5,6 +5,7 @@ package com.pulumi.aws.datasync;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -199,8 +200,12 @@ public final class LocationFsxLustreArgs extends com.pulumi.resources.ResourceAr
         }
 
         public LocationFsxLustreArgs build() {
-            $.fsxFilesystemArn = Objects.requireNonNull($.fsxFilesystemArn, "expected parameter 'fsxFilesystemArn' to be non-null");
-            $.securityGroupArns = Objects.requireNonNull($.securityGroupArns, "expected parameter 'securityGroupArns' to be non-null");
+            if ($.fsxFilesystemArn == null) {
+                throw new MissingRequiredPropertyException("LocationFsxLustreArgs", "fsxFilesystemArn");
+            }
+            if ($.securityGroupArns == null) {
+                throw new MissingRequiredPropertyException("LocationFsxLustreArgs", "securityGroupArns");
+            }
             return $;
         }
     }

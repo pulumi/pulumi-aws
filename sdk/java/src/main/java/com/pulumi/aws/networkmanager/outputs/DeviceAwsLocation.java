@@ -58,11 +58,13 @@ public final class DeviceAwsLocation {
 
         @CustomType.Setter
         public Builder subnetArn(@Nullable String subnetArn) {
+
             this.subnetArn = subnetArn;
             return this;
         }
         @CustomType.Setter
         public Builder zone(@Nullable String zone) {
+
             this.zone = zone;
             return this;
         }

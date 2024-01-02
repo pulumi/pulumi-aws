@@ -5,6 +5,7 @@ package com.pulumi.aws.iam;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class SecurityTokenServicePreferencesArgs extends com.pulumi.resour
         }
 
         public SecurityTokenServicePreferencesArgs build() {
-            $.globalEndpointTokenVersion = Objects.requireNonNull($.globalEndpointTokenVersion, "expected parameter 'globalEndpointTokenVersion' to be non-null");
+            if ($.globalEndpointTokenVersion == null) {
+                throw new MissingRequiredPropertyException("SecurityTokenServicePreferencesArgs", "globalEndpointTokenVersion");
+            }
             return $;
         }
     }

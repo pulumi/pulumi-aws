@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.inputs;
 import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteActionWeightedTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -90,7 +91,9 @@ public final class RouteSpecHttpRouteActionArgs extends com.pulumi.resources.Res
         }
 
         public RouteSpecHttpRouteActionArgs build() {
-            $.weightedTargets = Objects.requireNonNull($.weightedTargets, "expected parameter 'weightedTargets' to be non-null");
+            if ($.weightedTargets == null) {
+                throw new MissingRequiredPropertyException("RouteSpecHttpRouteActionArgs", "weightedTargets");
+            }
             return $;
         }
     }

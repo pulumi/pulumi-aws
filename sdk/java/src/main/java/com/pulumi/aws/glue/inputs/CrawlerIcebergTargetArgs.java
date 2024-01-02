@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -209,8 +210,12 @@ public final class CrawlerIcebergTargetArgs extends com.pulumi.resources.Resourc
         }
 
         public CrawlerIcebergTargetArgs build() {
-            $.maximumTraversalDepth = Objects.requireNonNull($.maximumTraversalDepth, "expected parameter 'maximumTraversalDepth' to be non-null");
-            $.paths = Objects.requireNonNull($.paths, "expected parameter 'paths' to be non-null");
+            if ($.maximumTraversalDepth == null) {
+                throw new MissingRequiredPropertyException("CrawlerIcebergTargetArgs", "maximumTraversalDepth");
+            }
+            if ($.paths == null) {
+                throw new MissingRequiredPropertyException("CrawlerIcebergTargetArgs", "paths");
+            }
             return $;
         }
     }

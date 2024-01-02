@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class NodeGroupScalingConfig {
 
         @CustomType.Setter
         public Builder desiredSize(Integer desiredSize) {
-            this.desiredSize = Objects.requireNonNull(desiredSize);
+            if (desiredSize == null) {
+              throw new MissingRequiredPropertyException("NodeGroupScalingConfig", "desiredSize");
+            }
+            this.desiredSize = desiredSize;
             return this;
         }
         @CustomType.Setter
         public Builder maxSize(Integer maxSize) {
-            this.maxSize = Objects.requireNonNull(maxSize);
+            if (maxSize == null) {
+              throw new MissingRequiredPropertyException("NodeGroupScalingConfig", "maxSize");
+            }
+            this.maxSize = maxSize;
             return this;
         }
         @CustomType.Setter
         public Builder minSize(Integer minSize) {
-            this.minSize = Objects.requireNonNull(minSize);
+            if (minSize == null) {
+              throw new MissingRequiredPropertyException("NodeGroupScalingConfig", "minSize");
+            }
+            this.minSize = minSize;
             return this;
         }
         public NodeGroupScalingConfig build() {

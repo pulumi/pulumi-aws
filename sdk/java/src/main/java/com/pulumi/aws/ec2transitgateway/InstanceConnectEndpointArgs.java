@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2transitgateway;
 import com.pulumi.aws.ec2transitgateway.inputs.InstanceConnectEndpointTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -218,7 +219,9 @@ public final class InstanceConnectEndpointArgs extends com.pulumi.resources.Reso
         }
 
         public InstanceConnectEndpointArgs build() {
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("InstanceConnectEndpointArgs", "subnetId");
+            }
             return $;
         }
     }

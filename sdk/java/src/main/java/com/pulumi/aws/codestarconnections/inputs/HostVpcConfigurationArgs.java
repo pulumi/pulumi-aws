@@ -5,6 +5,7 @@ package com.pulumi.aws.codestarconnections.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -208,9 +209,15 @@ public final class HostVpcConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         public HostVpcConfigurationArgs build() {
-            $.securityGroupIds = Objects.requireNonNull($.securityGroupIds, "expected parameter 'securityGroupIds' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.securityGroupIds == null) {
+                throw new MissingRequiredPropertyException("HostVpcConfigurationArgs", "securityGroupIds");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("HostVpcConfigurationArgs", "subnetIds");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("HostVpcConfigurationArgs", "vpcId");
+            }
             return $;
         }
     }

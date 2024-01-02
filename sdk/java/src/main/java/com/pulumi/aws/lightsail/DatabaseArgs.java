@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -596,12 +597,24 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DatabaseArgs build() {
-            $.blueprintId = Objects.requireNonNull($.blueprintId, "expected parameter 'blueprintId' to be non-null");
-            $.bundleId = Objects.requireNonNull($.bundleId, "expected parameter 'bundleId' to be non-null");
-            $.masterDatabaseName = Objects.requireNonNull($.masterDatabaseName, "expected parameter 'masterDatabaseName' to be non-null");
-            $.masterPassword = Objects.requireNonNull($.masterPassword, "expected parameter 'masterPassword' to be non-null");
-            $.masterUsername = Objects.requireNonNull($.masterUsername, "expected parameter 'masterUsername' to be non-null");
-            $.relationalDatabaseName = Objects.requireNonNull($.relationalDatabaseName, "expected parameter 'relationalDatabaseName' to be non-null");
+            if ($.blueprintId == null) {
+                throw new MissingRequiredPropertyException("DatabaseArgs", "blueprintId");
+            }
+            if ($.bundleId == null) {
+                throw new MissingRequiredPropertyException("DatabaseArgs", "bundleId");
+            }
+            if ($.masterDatabaseName == null) {
+                throw new MissingRequiredPropertyException("DatabaseArgs", "masterDatabaseName");
+            }
+            if ($.masterPassword == null) {
+                throw new MissingRequiredPropertyException("DatabaseArgs", "masterPassword");
+            }
+            if ($.masterUsername == null) {
+                throw new MissingRequiredPropertyException("DatabaseArgs", "masterUsername");
+            }
+            if ($.relationalDatabaseName == null) {
+                throw new MissingRequiredPropertyException("DatabaseArgs", "relationalDatabaseName");
+            }
             return $;
         }
     }

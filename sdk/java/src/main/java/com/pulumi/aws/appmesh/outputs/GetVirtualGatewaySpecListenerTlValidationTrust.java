@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlValidationTrustFile;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlValidationTrustSd;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetVirtualGatewaySpecListenerTlValidationTrust {
 
         @CustomType.Setter
         public Builder files(List<GetVirtualGatewaySpecListenerTlValidationTrustFile> files) {
-            this.files = Objects.requireNonNull(files);
+            if (files == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerTlValidationTrust", "files");
+            }
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualGatewaySpecListenerTlValidationTrustFile... files) {
@@ -50,7 +54,10 @@ public final class GetVirtualGatewaySpecListenerTlValidationTrust {
         }
         @CustomType.Setter
         public Builder sds(List<GetVirtualGatewaySpecListenerTlValidationTrustSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+            if (sds == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerTlValidationTrust", "sds");
+            }
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualGatewaySpecListenerTlValidationTrustSd... sds) {

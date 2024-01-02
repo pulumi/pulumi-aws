@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DomainDefaultUserSettingsCustomPosixUserConfigArgs extends co
         }
 
         public DomainDefaultUserSettingsCustomPosixUserConfigArgs build() {
-            $.gid = Objects.requireNonNull($.gid, "expected parameter 'gid' to be non-null");
-            $.uid = Objects.requireNonNull($.uid, "expected parameter 'uid' to be non-null");
+            if ($.gid == null) {
+                throw new MissingRequiredPropertyException("DomainDefaultUserSettingsCustomPosixUserConfigArgs", "gid");
+            }
+            if ($.uid == null) {
+                throw new MissingRequiredPropertyException("DomainDefaultUserSettingsCustomPosixUserConfigArgs", "uid");
+            }
             return $;
         }
     }

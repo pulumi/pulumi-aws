@@ -10,6 +10,7 @@ import com.pulumi.aws.datasync.inputs.TaskScheduleArgs;
 import com.pulumi.aws.datasync.inputs.TaskTaskReportConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -415,8 +416,12 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TaskArgs build() {
-            $.destinationLocationArn = Objects.requireNonNull($.destinationLocationArn, "expected parameter 'destinationLocationArn' to be non-null");
-            $.sourceLocationArn = Objects.requireNonNull($.sourceLocationArn, "expected parameter 'sourceLocationArn' to be non-null");
+            if ($.destinationLocationArn == null) {
+                throw new MissingRequiredPropertyException("TaskArgs", "destinationLocationArn");
+            }
+            if ($.sourceLocationArn == null) {
+                throw new MissingRequiredPropertyException("TaskArgs", "sourceLocationArn");
+            }
             return $;
         }
     }

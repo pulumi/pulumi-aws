@@ -5,6 +5,7 @@ package com.pulumi.aws.route53.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class RecordWeightedRoutingPolicyArgs extends com.pulumi.resources.
         }
 
         public RecordWeightedRoutingPolicyArgs build() {
-            $.weight = Objects.requireNonNull($.weight, "expected parameter 'weight' to be non-null");
+            if ($.weight == null) {
+                throw new MissingRequiredPropertyException("RecordWeightedRoutingPolicyArgs", "weight");
+            }
             return $;
         }
     }

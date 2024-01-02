@@ -5,6 +5,7 @@ package com.pulumi.aws.msk.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class ClusterConfigurationInfoArgs extends com.pulumi.resources.Res
         }
 
         public ClusterConfigurationInfoArgs build() {
-            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
-            $.revision = Objects.requireNonNull($.revision, "expected parameter 'revision' to be non-null");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("ClusterConfigurationInfoArgs", "arn");
+            }
+            if ($.revision == null) {
+                throw new MissingRequiredPropertyException("ClusterConfigurationInfoArgs", "revision");
+            }
             return $;
         }
     }

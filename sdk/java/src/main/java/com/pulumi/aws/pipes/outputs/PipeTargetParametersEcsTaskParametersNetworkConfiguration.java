@@ -44,6 +44,7 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfiguration {
 
         @CustomType.Setter
         public Builder awsVpcConfiguration(@Nullable PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration awsVpcConfiguration) {
+
             this.awsVpcConfiguration = awsVpcConfiguration;
             return this;
         }

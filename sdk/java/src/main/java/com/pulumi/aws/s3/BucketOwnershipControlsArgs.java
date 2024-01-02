@@ -6,6 +6,7 @@ package com.pulumi.aws.s3;
 import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class BucketOwnershipControlsArgs extends com.pulumi.resources.Reso
         }
 
         public BucketOwnershipControlsArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.rule = Objects.requireNonNull($.rule, "expected parameter 'rule' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("BucketOwnershipControlsArgs", "bucket");
+            }
+            if ($.rule == null) {
+                throw new MissingRequiredPropertyException("BucketOwnershipControlsArgs", "rule");
+            }
             return $;
         }
     }

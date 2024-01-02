@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -72,16 +73,23 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
         @CustomType.Setter
         public Builder oauth2GrantType(String oauth2GrantType) {
-            this.oauth2GrantType = Objects.requireNonNull(oauth2GrantType);
+            if (oauth2GrantType == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties", "oauth2GrantType");
+            }
+            this.oauth2GrantType = oauth2GrantType;
             return this;
         }
         @CustomType.Setter
         public Builder tokenUrl(String tokenUrl) {
-            this.tokenUrl = Objects.requireNonNull(tokenUrl);
+            if (tokenUrl == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties", "tokenUrl");
+            }
+            this.tokenUrl = tokenUrl;
             return this;
         }
         @CustomType.Setter
         public Builder tokenUrlCustomProperties(@Nullable Map<String,String> tokenUrlCustomProperties) {
+
             this.tokenUrlCustomProperties = tokenUrlCustomProperties;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.servicediscovery.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetServiceHealthCheckConfig {
 
         @CustomType.Setter
         public Builder failureThreshold(Integer failureThreshold) {
-            this.failureThreshold = Objects.requireNonNull(failureThreshold);
+            if (failureThreshold == null) {
+              throw new MissingRequiredPropertyException("GetServiceHealthCheckConfig", "failureThreshold");
+            }
+            this.failureThreshold = failureThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder resourcePath(String resourcePath) {
-            this.resourcePath = Objects.requireNonNull(resourcePath);
+            if (resourcePath == null) {
+              throw new MissingRequiredPropertyException("GetServiceHealthCheckConfig", "resourcePath");
+            }
+            this.resourcePath = resourcePath;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetServiceHealthCheckConfig", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetServiceHealthCheckConfig build() {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.codecommit.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetRepositoryPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         public GetRepositoryPlainArgs build() {
-            $.repositoryName = Objects.requireNonNull($.repositoryName, "expected parameter 'repositoryName' to be non-null");
+            if ($.repositoryName == null) {
+                throw new MissingRequiredPropertyException("GetRepositoryPlainArgs", "repositoryName");
+            }
             return $;
         }
     }

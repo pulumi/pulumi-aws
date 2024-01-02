@@ -6,6 +6,7 @@ package com.pulumi.aws.qldb;
 import com.pulumi.aws.qldb.inputs.StreamKinesisConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -300,11 +301,21 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public StreamArgs build() {
-            $.inclusiveStartTime = Objects.requireNonNull($.inclusiveStartTime, "expected parameter 'inclusiveStartTime' to be non-null");
-            $.kinesisConfiguration = Objects.requireNonNull($.kinesisConfiguration, "expected parameter 'kinesisConfiguration' to be non-null");
-            $.ledgerName = Objects.requireNonNull($.ledgerName, "expected parameter 'ledgerName' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.streamName = Objects.requireNonNull($.streamName, "expected parameter 'streamName' to be non-null");
+            if ($.inclusiveStartTime == null) {
+                throw new MissingRequiredPropertyException("StreamArgs", "inclusiveStartTime");
+            }
+            if ($.kinesisConfiguration == null) {
+                throw new MissingRequiredPropertyException("StreamArgs", "kinesisConfiguration");
+            }
+            if ($.ledgerName == null) {
+                throw new MissingRequiredPropertyException("StreamArgs", "ledgerName");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("StreamArgs", "roleArn");
+            }
+            if ($.streamName == null) {
+                throw new MissingRequiredPropertyException("StreamArgs", "streamName");
+            }
             return $;
         }
     }

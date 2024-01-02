@@ -4,6 +4,7 @@
 package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -317,12 +318,18 @@ public final class GetOrderableDbInstanceResult {
 
         @CustomType.Setter
         public Builder availabilityZoneGroup(String availabilityZoneGroup) {
-            this.availabilityZoneGroup = Objects.requireNonNull(availabilityZoneGroup);
+            if (availabilityZoneGroup == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "availabilityZoneGroup");
+            }
+            this.availabilityZoneGroup = availabilityZoneGroup;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+            if (availabilityZones == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "availabilityZones");
+            }
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(String... availabilityZones) {
@@ -330,71 +337,111 @@ public final class GetOrderableDbInstanceResult {
         }
         @CustomType.Setter
         public Builder engine(String engine) {
-            this.engine = Objects.requireNonNull(engine);
+            if (engine == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "engine");
+            }
+            this.engine = engine;
             return this;
         }
         @CustomType.Setter
         public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+            if (engineVersion == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "engineVersion");
+            }
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceClass(String instanceClass) {
-            this.instanceClass = Objects.requireNonNull(instanceClass);
+            if (instanceClass == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "instanceClass");
+            }
+            this.instanceClass = instanceClass;
             return this;
         }
         @CustomType.Setter
         public Builder licenseModel(String licenseModel) {
-            this.licenseModel = Objects.requireNonNull(licenseModel);
+            if (licenseModel == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "licenseModel");
+            }
+            this.licenseModel = licenseModel;
             return this;
         }
         @CustomType.Setter
         public Builder maxIopsPerDbInstance(Integer maxIopsPerDbInstance) {
-            this.maxIopsPerDbInstance = Objects.requireNonNull(maxIopsPerDbInstance);
+            if (maxIopsPerDbInstance == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "maxIopsPerDbInstance");
+            }
+            this.maxIopsPerDbInstance = maxIopsPerDbInstance;
             return this;
         }
         @CustomType.Setter
         public Builder maxIopsPerGib(Double maxIopsPerGib) {
-            this.maxIopsPerGib = Objects.requireNonNull(maxIopsPerGib);
+            if (maxIopsPerGib == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "maxIopsPerGib");
+            }
+            this.maxIopsPerGib = maxIopsPerGib;
             return this;
         }
         @CustomType.Setter
         public Builder maxStorageSize(Integer maxStorageSize) {
-            this.maxStorageSize = Objects.requireNonNull(maxStorageSize);
+            if (maxStorageSize == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "maxStorageSize");
+            }
+            this.maxStorageSize = maxStorageSize;
             return this;
         }
         @CustomType.Setter
         public Builder minIopsPerDbInstance(Integer minIopsPerDbInstance) {
-            this.minIopsPerDbInstance = Objects.requireNonNull(minIopsPerDbInstance);
+            if (minIopsPerDbInstance == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "minIopsPerDbInstance");
+            }
+            this.minIopsPerDbInstance = minIopsPerDbInstance;
             return this;
         }
         @CustomType.Setter
         public Builder minIopsPerGib(Double minIopsPerGib) {
-            this.minIopsPerGib = Objects.requireNonNull(minIopsPerGib);
+            if (minIopsPerGib == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "minIopsPerGib");
+            }
+            this.minIopsPerGib = minIopsPerGib;
             return this;
         }
         @CustomType.Setter
         public Builder minStorageSize(Integer minStorageSize) {
-            this.minStorageSize = Objects.requireNonNull(minStorageSize);
+            if (minStorageSize == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "minStorageSize");
+            }
+            this.minStorageSize = minStorageSize;
             return this;
         }
         @CustomType.Setter
         public Builder multiAzCapable(Boolean multiAzCapable) {
-            this.multiAzCapable = Objects.requireNonNull(multiAzCapable);
+            if (multiAzCapable == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "multiAzCapable");
+            }
+            this.multiAzCapable = multiAzCapable;
             return this;
         }
         @CustomType.Setter
         public Builder outpostCapable(Boolean outpostCapable) {
-            this.outpostCapable = Objects.requireNonNull(outpostCapable);
+            if (outpostCapable == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "outpostCapable");
+            }
+            this.outpostCapable = outpostCapable;
             return this;
         }
         @CustomType.Setter
         public Builder preferredEngineVersions(@Nullable List<String> preferredEngineVersions) {
+
             this.preferredEngineVersions = preferredEngineVersions;
             return this;
         }
@@ -403,6 +450,7 @@ public final class GetOrderableDbInstanceResult {
         }
         @CustomType.Setter
         public Builder preferredInstanceClasses(@Nullable List<String> preferredInstanceClasses) {
+
             this.preferredInstanceClasses = preferredInstanceClasses;
             return this;
         }
@@ -411,17 +459,26 @@ public final class GetOrderableDbInstanceResult {
         }
         @CustomType.Setter
         public Builder readReplicaCapable(Boolean readReplicaCapable) {
-            this.readReplicaCapable = Objects.requireNonNull(readReplicaCapable);
+            if (readReplicaCapable == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "readReplicaCapable");
+            }
+            this.readReplicaCapable = readReplicaCapable;
             return this;
         }
         @CustomType.Setter
         public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+            if (storageType == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "storageType");
+            }
+            this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
         public Builder supportedEngineModes(List<String> supportedEngineModes) {
-            this.supportedEngineModes = Objects.requireNonNull(supportedEngineModes);
+            if (supportedEngineModes == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "supportedEngineModes");
+            }
+            this.supportedEngineModes = supportedEngineModes;
             return this;
         }
         public Builder supportedEngineModes(String... supportedEngineModes) {
@@ -429,7 +486,10 @@ public final class GetOrderableDbInstanceResult {
         }
         @CustomType.Setter
         public Builder supportedNetworkTypes(List<String> supportedNetworkTypes) {
-            this.supportedNetworkTypes = Objects.requireNonNull(supportedNetworkTypes);
+            if (supportedNetworkTypes == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "supportedNetworkTypes");
+            }
+            this.supportedNetworkTypes = supportedNetworkTypes;
             return this;
         }
         public Builder supportedNetworkTypes(String... supportedNetworkTypes) {
@@ -437,47 +497,74 @@ public final class GetOrderableDbInstanceResult {
         }
         @CustomType.Setter
         public Builder supportsEnhancedMonitoring(Boolean supportsEnhancedMonitoring) {
-            this.supportsEnhancedMonitoring = Objects.requireNonNull(supportsEnhancedMonitoring);
+            if (supportsEnhancedMonitoring == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "supportsEnhancedMonitoring");
+            }
+            this.supportsEnhancedMonitoring = supportsEnhancedMonitoring;
             return this;
         }
         @CustomType.Setter
         public Builder supportsGlobalDatabases(Boolean supportsGlobalDatabases) {
-            this.supportsGlobalDatabases = Objects.requireNonNull(supportsGlobalDatabases);
+            if (supportsGlobalDatabases == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "supportsGlobalDatabases");
+            }
+            this.supportsGlobalDatabases = supportsGlobalDatabases;
             return this;
         }
         @CustomType.Setter
         public Builder supportsIamDatabaseAuthentication(Boolean supportsIamDatabaseAuthentication) {
-            this.supportsIamDatabaseAuthentication = Objects.requireNonNull(supportsIamDatabaseAuthentication);
+            if (supportsIamDatabaseAuthentication == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "supportsIamDatabaseAuthentication");
+            }
+            this.supportsIamDatabaseAuthentication = supportsIamDatabaseAuthentication;
             return this;
         }
         @CustomType.Setter
         public Builder supportsIops(Boolean supportsIops) {
-            this.supportsIops = Objects.requireNonNull(supportsIops);
+            if (supportsIops == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "supportsIops");
+            }
+            this.supportsIops = supportsIops;
             return this;
         }
         @CustomType.Setter
         public Builder supportsKerberosAuthentication(Boolean supportsKerberosAuthentication) {
-            this.supportsKerberosAuthentication = Objects.requireNonNull(supportsKerberosAuthentication);
+            if (supportsKerberosAuthentication == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "supportsKerberosAuthentication");
+            }
+            this.supportsKerberosAuthentication = supportsKerberosAuthentication;
             return this;
         }
         @CustomType.Setter
         public Builder supportsPerformanceInsights(Boolean supportsPerformanceInsights) {
-            this.supportsPerformanceInsights = Objects.requireNonNull(supportsPerformanceInsights);
+            if (supportsPerformanceInsights == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "supportsPerformanceInsights");
+            }
+            this.supportsPerformanceInsights = supportsPerformanceInsights;
             return this;
         }
         @CustomType.Setter
         public Builder supportsStorageAutoscaling(Boolean supportsStorageAutoscaling) {
-            this.supportsStorageAutoscaling = Objects.requireNonNull(supportsStorageAutoscaling);
+            if (supportsStorageAutoscaling == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "supportsStorageAutoscaling");
+            }
+            this.supportsStorageAutoscaling = supportsStorageAutoscaling;
             return this;
         }
         @CustomType.Setter
         public Builder supportsStorageEncryption(Boolean supportsStorageEncryption) {
-            this.supportsStorageEncryption = Objects.requireNonNull(supportsStorageEncryption);
+            if (supportsStorageEncryption == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "supportsStorageEncryption");
+            }
+            this.supportsStorageEncryption = supportsStorageEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder vpc(Boolean vpc) {
-            this.vpc = Objects.requireNonNull(vpc);
+            if (vpc == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "vpc");
+            }
+            this.vpc = vpc;
             return this;
         }
         public GetOrderableDbInstanceResult build() {

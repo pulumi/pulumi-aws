@@ -5,6 +5,7 @@ package com.pulumi.aws.lakeformation.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -196,9 +197,15 @@ public final class GetPermissionsTableArgs extends com.pulumi.resources.Resource
         }
 
         public GetPermissionsTableArgs build() {
-            $.catalogId = Objects.requireNonNull($.catalogId, "expected parameter 'catalogId' to be non-null");
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.catalogId == null) {
+                throw new MissingRequiredPropertyException("GetPermissionsTableArgs", "catalogId");
+            }
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("GetPermissionsTableArgs", "databaseName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetPermissionsTableArgs", "name");
+            }
             return $;
         }
     }

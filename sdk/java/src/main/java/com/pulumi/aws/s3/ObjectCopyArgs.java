@@ -6,6 +6,7 @@ package com.pulumi.aws.s3;
 import com.pulumi.aws.s3.inputs.ObjectCopyGrantArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -1484,9 +1485,15 @@ public final class ObjectCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ObjectCopyArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("ObjectCopyArgs", "bucket");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("ObjectCopyArgs", "key");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("ObjectCopyArgs", "source");
+            }
             return $;
         }
     }

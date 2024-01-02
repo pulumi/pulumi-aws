@@ -152,31 +152,37 @@ public final class LifecyclePolicyPolicyDetails {
 
         @CustomType.Setter
         public Builder action(@Nullable LifecyclePolicyPolicyDetailsAction action) {
+
             this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder eventSource(@Nullable LifecyclePolicyPolicyDetailsEventSource eventSource) {
+
             this.eventSource = eventSource;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable LifecyclePolicyPolicyDetailsParameters parameters) {
+
             this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder policyType(@Nullable String policyType) {
+
             this.policyType = policyType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceLocations(@Nullable String resourceLocations) {
+
             this.resourceLocations = resourceLocations;
             return this;
         }
         @CustomType.Setter
         public Builder resourceTypes(@Nullable List<String> resourceTypes) {
+
             this.resourceTypes = resourceTypes;
             return this;
         }
@@ -185,6 +191,7 @@ public final class LifecyclePolicyPolicyDetails {
         }
         @CustomType.Setter
         public Builder schedules(@Nullable List<LifecyclePolicyPolicyDetailsSchedule> schedules) {
+
             this.schedules = schedules;
             return this;
         }
@@ -193,6 +200,7 @@ public final class LifecyclePolicyPolicyDetails {
         }
         @CustomType.Setter
         public Builder targetTags(@Nullable Map<String,String> targetTags) {
+
             this.targetTags = targetTags;
             return this;
         }

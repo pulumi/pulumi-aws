@@ -5,6 +5,7 @@ package com.pulumi.aws.codepipeline.outputs;
 
 import com.pulumi.aws.codepipeline.outputs.PipelineStageAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class PipelineStage {
 
         @CustomType.Setter
         public Builder actions(List<PipelineStageAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("PipelineStage", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(PipelineStageAction... actions) {
@@ -66,7 +70,10 @@ public final class PipelineStage {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("PipelineStage", "name");
+            }
+            this.name = name;
             return this;
         }
         public PipelineStage build() {

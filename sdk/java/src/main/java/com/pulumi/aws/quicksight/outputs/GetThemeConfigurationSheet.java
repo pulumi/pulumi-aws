@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.aws.quicksight.outputs.GetThemeConfigurationSheetTile;
 import com.pulumi.aws.quicksight.outputs.GetThemeConfigurationSheetTileLayout;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetThemeConfigurationSheet {
 
         @CustomType.Setter
         public Builder tileLayouts(List<GetThemeConfigurationSheetTileLayout> tileLayouts) {
-            this.tileLayouts = Objects.requireNonNull(tileLayouts);
+            if (tileLayouts == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationSheet", "tileLayouts");
+            }
+            this.tileLayouts = tileLayouts;
             return this;
         }
         public Builder tileLayouts(GetThemeConfigurationSheetTileLayout... tileLayouts) {
@@ -66,7 +70,10 @@ public final class GetThemeConfigurationSheet {
         }
         @CustomType.Setter
         public Builder tiles(List<GetThemeConfigurationSheetTile> tiles) {
-            this.tiles = Objects.requireNonNull(tiles);
+            if (tiles == null) {
+              throw new MissingRequiredPropertyException("GetThemeConfigurationSheet", "tiles");
+            }
+            this.tiles = tiles;
             return this;
         }
         public Builder tiles(GetThemeConfigurationSheetTile... tiles) {

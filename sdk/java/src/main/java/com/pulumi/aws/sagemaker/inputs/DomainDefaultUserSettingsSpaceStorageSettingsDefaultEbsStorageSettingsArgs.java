@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorag
         }
 
         public DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs build() {
-            $.defaultEbsVolumeSizeInGb = Objects.requireNonNull($.defaultEbsVolumeSizeInGb, "expected parameter 'defaultEbsVolumeSizeInGb' to be non-null");
-            $.maximumEbsVolumeSizeInGb = Objects.requireNonNull($.maximumEbsVolumeSizeInGb, "expected parameter 'maximumEbsVolumeSizeInGb' to be non-null");
+            if ($.defaultEbsVolumeSizeInGb == null) {
+                throw new MissingRequiredPropertyException("DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs", "defaultEbsVolumeSizeInGb");
+            }
+            if ($.maximumEbsVolumeSizeInGb == null) {
+                throw new MissingRequiredPropertyException("DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs", "maximumEbsVolumeSizeInGb");
+            }
             return $;
         }
     }

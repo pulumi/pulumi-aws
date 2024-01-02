@@ -11,6 +11,7 @@ import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsSchemaArgs;
 import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsStartingPositionConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -394,8 +395,12 @@ public final class AnalyticsApplicationInputsArgs extends com.pulumi.resources.R
         }
 
         public AnalyticsApplicationInputsArgs build() {
-            $.namePrefix = Objects.requireNonNull($.namePrefix, "expected parameter 'namePrefix' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
+            if ($.namePrefix == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationInputsArgs", "namePrefix");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationInputsArgs", "schema");
+            }
             return $;
         }
     }

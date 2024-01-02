@@ -44,6 +44,7 @@ public final class ClusterIdentity {
 
         @CustomType.Setter
         public Builder oidcs(@Nullable List<ClusterIdentityOidc> oidcs) {
+
             this.oidcs = oidcs;
             return this;
         }

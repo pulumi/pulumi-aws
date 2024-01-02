@@ -89,21 +89,25 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         @CustomType.Setter
         public Builder bodyContains(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains bodyContains) {
+
             this.bodyContains = bodyContains;
             return this;
         }
         @CustomType.Setter
         public Builder header(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader header) {
+
             this.header = header;
             return this;
         }
         @CustomType.Setter
         public Builder json(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson json) {
+
             this.json = json;
             return this;
         }
         @CustomType.Setter
         public Builder statusCode(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode statusCode) {
+
             this.statusCode = statusCode;
             return this;
         }

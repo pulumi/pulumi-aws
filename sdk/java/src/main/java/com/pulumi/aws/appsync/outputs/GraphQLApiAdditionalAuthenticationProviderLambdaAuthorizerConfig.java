@@ -4,6 +4,7 @@
 package com.pulumi.aws.appsync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,21 @@ public final class GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerCon
 
         @CustomType.Setter
         public Builder authorizerResultTtlInSeconds(@Nullable Integer authorizerResultTtlInSeconds) {
+
             this.authorizerResultTtlInSeconds = authorizerResultTtlInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder authorizerUri(String authorizerUri) {
-            this.authorizerUri = Objects.requireNonNull(authorizerUri);
+            if (authorizerUri == null) {
+              throw new MissingRequiredPropertyException("GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig", "authorizerUri");
+            }
+            this.authorizerUri = authorizerUri;
             return this;
         }
         @CustomType.Setter
         public Builder identityValidationExpression(@Nullable String identityValidationExpression) {
+
             this.identityValidationExpression = identityValidationExpression;
             return this;
         }

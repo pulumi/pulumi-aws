@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GatewayRouteSpecHttpRouteActionRewritePath {
 
         @CustomType.Setter
         public Builder exact(String exact) {
-            this.exact = Objects.requireNonNull(exact);
+            if (exact == null) {
+              throw new MissingRequiredPropertyException("GatewayRouteSpecHttpRouteActionRewritePath", "exact");
+            }
+            this.exact = exact;
             return this;
         }
         public GatewayRouteSpecHttpRouteActionRewritePath build() {

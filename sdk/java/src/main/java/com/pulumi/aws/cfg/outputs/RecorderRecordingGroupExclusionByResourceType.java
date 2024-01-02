@@ -44,6 +44,7 @@ public final class RecorderRecordingGroupExclusionByResourceType {
 
         @CustomType.Setter
         public Builder resourceTypes(@Nullable List<String> resourceTypes) {
+
             this.resourceTypes = resourceTypes;
             return this;
         }

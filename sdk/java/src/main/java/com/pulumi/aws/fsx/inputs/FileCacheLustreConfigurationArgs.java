@@ -7,6 +7,7 @@ import com.pulumi.aws.fsx.inputs.FileCacheLustreConfigurationLogConfigurationArg
 import com.pulumi.aws.fsx.inputs.FileCacheLustreConfigurationMetadataConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -239,9 +240,15 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         }
 
         public FileCacheLustreConfigurationArgs build() {
-            $.deploymentType = Objects.requireNonNull($.deploymentType, "expected parameter 'deploymentType' to be non-null");
-            $.metadataConfigurations = Objects.requireNonNull($.metadataConfigurations, "expected parameter 'metadataConfigurations' to be non-null");
-            $.perUnitStorageThroughput = Objects.requireNonNull($.perUnitStorageThroughput, "expected parameter 'perUnitStorageThroughput' to be non-null");
+            if ($.deploymentType == null) {
+                throw new MissingRequiredPropertyException("FileCacheLustreConfigurationArgs", "deploymentType");
+            }
+            if ($.metadataConfigurations == null) {
+                throw new MissingRequiredPropertyException("FileCacheLustreConfigurationArgs", "metadataConfigurations");
+            }
+            if ($.perUnitStorageThroughput == null) {
+                throw new MissingRequiredPropertyException("FileCacheLustreConfigurationArgs", "perUnitStorageThroughput");
+            }
             return $;
         }
     }

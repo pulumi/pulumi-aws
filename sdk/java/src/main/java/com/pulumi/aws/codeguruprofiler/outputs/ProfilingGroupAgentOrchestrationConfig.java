@@ -4,6 +4,7 @@
 package com.pulumi.aws.codeguruprofiler.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class ProfilingGroupAgentOrchestrationConfig {
 
         @CustomType.Setter
         public Builder profilingEnabled(Boolean profilingEnabled) {
-            this.profilingEnabled = Objects.requireNonNull(profilingEnabled);
+            if (profilingEnabled == null) {
+              throw new MissingRequiredPropertyException("ProfilingGroupAgentOrchestrationConfig", "profilingEnabled");
+            }
+            this.profilingEnabled = profilingEnabled;
             return this;
         }
         public ProfilingGroupAgentOrchestrationConfig build() {

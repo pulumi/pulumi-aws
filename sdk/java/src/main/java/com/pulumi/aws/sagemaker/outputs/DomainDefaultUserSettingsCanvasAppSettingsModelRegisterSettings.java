@@ -58,11 +58,13 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettin
 
         @CustomType.Setter
         public Builder crossAccountModelRegisterRoleArn(@Nullable String crossAccountModelRegisterRoleArn) {
+
             this.crossAccountModelRegisterRoleArn = crossAccountModelRegisterRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }

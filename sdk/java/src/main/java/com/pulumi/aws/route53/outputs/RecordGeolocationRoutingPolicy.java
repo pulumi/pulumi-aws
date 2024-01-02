@@ -72,16 +72,19 @@ public final class RecordGeolocationRoutingPolicy {
 
         @CustomType.Setter
         public Builder continent(@Nullable String continent) {
+
             this.continent = continent;
             return this;
         }
         @CustomType.Setter
         public Builder country(@Nullable String country) {
+
             this.country = country;
             return this;
         }
         @CustomType.Setter
         public Builder subdivision(@Nullable String subdivision) {
+
             this.subdivision = subdivision;
             return this;
         }

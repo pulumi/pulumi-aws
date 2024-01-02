@@ -4,6 +4,7 @@
 package com.pulumi.aws.appintegrations.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class DataIntegrationScheduleConfig {
 
         @CustomType.Setter
         public Builder firstExecutionFrom(String firstExecutionFrom) {
-            this.firstExecutionFrom = Objects.requireNonNull(firstExecutionFrom);
+            if (firstExecutionFrom == null) {
+              throw new MissingRequiredPropertyException("DataIntegrationScheduleConfig", "firstExecutionFrom");
+            }
+            this.firstExecutionFrom = firstExecutionFrom;
             return this;
         }
         @CustomType.Setter
         public Builder object(String object) {
-            this.object = Objects.requireNonNull(object);
+            if (object == null) {
+              throw new MissingRequiredPropertyException("DataIntegrationScheduleConfig", "object");
+            }
+            this.object = object;
             return this;
         }
         @CustomType.Setter
         public Builder scheduleExpression(String scheduleExpression) {
-            this.scheduleExpression = Objects.requireNonNull(scheduleExpression);
+            if (scheduleExpression == null) {
+              throw new MissingRequiredPropertyException("DataIntegrationScheduleConfig", "scheduleExpression");
+            }
+            this.scheduleExpression = scheduleExpression;
             return this;
         }
         public DataIntegrationScheduleConfig build() {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -147,52 +148,82 @@ public final class GetAddonResult {
 
         @CustomType.Setter
         public Builder addonName(String addonName) {
-            this.addonName = Objects.requireNonNull(addonName);
+            if (addonName == null) {
+              throw new MissingRequiredPropertyException("GetAddonResult", "addonName");
+            }
+            this.addonName = addonName;
             return this;
         }
         @CustomType.Setter
         public Builder addonVersion(String addonVersion) {
-            this.addonVersion = Objects.requireNonNull(addonVersion);
+            if (addonVersion == null) {
+              throw new MissingRequiredPropertyException("GetAddonResult", "addonVersion");
+            }
+            this.addonVersion = addonVersion;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetAddonResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder clusterName(String clusterName) {
-            this.clusterName = Objects.requireNonNull(clusterName);
+            if (clusterName == null) {
+              throw new MissingRequiredPropertyException("GetAddonResult", "clusterName");
+            }
+            this.clusterName = clusterName;
             return this;
         }
         @CustomType.Setter
         public Builder configurationValues(String configurationValues) {
-            this.configurationValues = Objects.requireNonNull(configurationValues);
+            if (configurationValues == null) {
+              throw new MissingRequiredPropertyException("GetAddonResult", "configurationValues");
+            }
+            this.configurationValues = configurationValues;
             return this;
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetAddonResult", "createdAt");
+            }
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAddonResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder modifiedAt(String modifiedAt) {
-            this.modifiedAt = Objects.requireNonNull(modifiedAt);
+            if (modifiedAt == null) {
+              throw new MissingRequiredPropertyException("GetAddonResult", "modifiedAt");
+            }
+            this.modifiedAt = modifiedAt;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccountRoleArn(String serviceAccountRoleArn) {
-            this.serviceAccountRoleArn = Objects.requireNonNull(serviceAccountRoleArn);
+            if (serviceAccountRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetAddonResult", "serviceAccountRoleArn");
+            }
+            this.serviceAccountRoleArn = serviceAccountRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAddonResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetAddonResult build() {

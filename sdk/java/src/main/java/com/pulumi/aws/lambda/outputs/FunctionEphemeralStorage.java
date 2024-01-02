@@ -44,6 +44,7 @@ public final class FunctionEphemeralStorage {
 
         @CustomType.Setter
         public Builder size(@Nullable Integer size) {
+
             this.size = size;
             return this;
         }

@@ -11,6 +11,7 @@ import com.pulumi.aws.ecs.inputs.TaskDefinitionRuntimePlatformArgs;
 import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -762,8 +763,12 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public TaskDefinitionArgs build() {
-            $.containerDefinitions = Objects.requireNonNull($.containerDefinitions, "expected parameter 'containerDefinitions' to be non-null");
-            $.family = Objects.requireNonNull($.family, "expected parameter 'family' to be non-null");
+            if ($.containerDefinitions == null) {
+                throw new MissingRequiredPropertyException("TaskDefinitionArgs", "containerDefinitions");
+            }
+            if ($.family == null) {
+                throw new MissingRequiredPropertyException("TaskDefinitionArgs", "family");
+            }
             return $;
         }
     }

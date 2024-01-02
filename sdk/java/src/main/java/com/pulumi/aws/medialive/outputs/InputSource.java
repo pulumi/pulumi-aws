@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class InputSource {
 
         @CustomType.Setter
         public Builder passwordParam(String passwordParam) {
-            this.passwordParam = Objects.requireNonNull(passwordParam);
+            if (passwordParam == null) {
+              throw new MissingRequiredPropertyException("InputSource", "passwordParam");
+            }
+            this.passwordParam = passwordParam;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("InputSource", "url");
+            }
+            this.url = url;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("InputSource", "username");
+            }
+            this.username = username;
             return this;
         }
         public InputSource build() {

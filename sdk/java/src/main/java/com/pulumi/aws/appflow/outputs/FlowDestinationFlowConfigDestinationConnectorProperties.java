@@ -216,66 +216,79 @@ public final class FlowDestinationFlowConfigDestinationConnectorProperties {
 
         @CustomType.Setter
         public Builder customConnector(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector customConnector) {
+
             this.customConnector = customConnector;
             return this;
         }
         @CustomType.Setter
         public Builder customerProfiles(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles customerProfiles) {
+
             this.customerProfiles = customerProfiles;
             return this;
         }
         @CustomType.Setter
         public Builder eventBridge(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge eventBridge) {
+
             this.eventBridge = eventBridge;
             return this;
         }
         @CustomType.Setter
         public Builder honeycode(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode honeycode) {
+
             this.honeycode = honeycode;
             return this;
         }
         @CustomType.Setter
         public Builder lookoutMetrics(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics lookoutMetrics) {
+
             this.lookoutMetrics = lookoutMetrics;
             return this;
         }
         @CustomType.Setter
         public Builder marketo(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo marketo) {
+
             this.marketo = marketo;
             return this;
         }
         @CustomType.Setter
         public Builder redshift(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift redshift) {
+
             this.redshift = redshift;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3 s3) {
+
             this.s3 = s3;
             return this;
         }
         @CustomType.Setter
         public Builder salesforce(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce salesforce) {
+
             this.salesforce = salesforce;
             return this;
         }
         @CustomType.Setter
         public Builder sapoData(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData sapoData) {
+
             this.sapoData = sapoData;
             return this;
         }
         @CustomType.Setter
         public Builder snowflake(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake snowflake) {
+
             this.snowflake = snowflake;
             return this;
         }
         @CustomType.Setter
         public Builder upsolver(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver upsolver) {
+
             this.upsolver = upsolver;
             return this;
         }
         @CustomType.Setter
         public Builder zendesk(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk zendesk) {
+
             this.zendesk = zendesk;
             return this;
         }

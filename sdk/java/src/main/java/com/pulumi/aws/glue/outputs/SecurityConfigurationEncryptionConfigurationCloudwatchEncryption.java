@@ -58,11 +58,13 @@ public final class SecurityConfigurationEncryptionConfigurationCloudwatchEncrypt
 
         @CustomType.Setter
         public Builder cloudwatchEncryptionMode(@Nullable String cloudwatchEncryptionMode) {
+
             this.cloudwatchEncryptionMode = cloudwatchEncryptionMode;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(@Nullable String kmsKeyArn) {
+
             this.kmsKeyArn = kmsKeyArn;
             return this;
         }

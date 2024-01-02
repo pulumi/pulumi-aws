@@ -6,6 +6,7 @@ package com.pulumi.aws.wafregional.outputs;
 import com.pulumi.aws.wafregional.outputs.WebAclRuleAction;
 import com.pulumi.aws.wafregional.outputs.WebAclRuleOverrideAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -105,26 +106,35 @@ public final class WebAclRule {
 
         @CustomType.Setter
         public Builder action(@Nullable WebAclRuleAction action) {
+
             this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder overrideAction(@Nullable WebAclRuleOverrideAction overrideAction) {
+
             this.overrideAction = overrideAction;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("WebAclRule", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder ruleId(String ruleId) {
-            this.ruleId = Objects.requireNonNull(ruleId);
+            if (ruleId == null) {
+              throw new MissingRequiredPropertyException("WebAclRule", "ruleId");
+            }
+            this.ruleId = ruleId;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

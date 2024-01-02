@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudcontrol.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -82,31 +83,45 @@ public final class GetResourceResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identifier(String identifier) {
-            this.identifier = Objects.requireNonNull(identifier);
+            if (identifier == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "identifier");
+            }
+            this.identifier = identifier;
             return this;
         }
         @CustomType.Setter
         public Builder properties(String properties) {
-            this.properties = Objects.requireNonNull(properties);
+            if (properties == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "properties");
+            }
+            this.properties = properties;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
+
             this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder typeName(String typeName) {
-            this.typeName = Objects.requireNonNull(typeName);
+            if (typeName == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "typeName");
+            }
+            this.typeName = typeName;
             return this;
         }
         @CustomType.Setter
         public Builder typeVersionId(@Nullable String typeVersionId) {
+
             this.typeVersionId = typeVersionId;
             return this;
         }

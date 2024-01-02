@@ -6,6 +6,7 @@ package com.pulumi.aws.kms.outputs;
 import com.pulumi.aws.kms.outputs.GetKeyMultiRegionConfiguration;
 import com.pulumi.aws.kms.outputs.GetKeyXksKeyConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -340,56 +341,87 @@ public final class GetKeyResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder awsAccountId(String awsAccountId) {
-            this.awsAccountId = Objects.requireNonNull(awsAccountId);
+            if (awsAccountId == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "awsAccountId");
+            }
+            this.awsAccountId = awsAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder cloudHsmClusterId(String cloudHsmClusterId) {
-            this.cloudHsmClusterId = Objects.requireNonNull(cloudHsmClusterId);
+            if (cloudHsmClusterId == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "cloudHsmClusterId");
+            }
+            this.cloudHsmClusterId = cloudHsmClusterId;
             return this;
         }
         @CustomType.Setter
         public Builder creationDate(String creationDate) {
-            this.creationDate = Objects.requireNonNull(creationDate);
+            if (creationDate == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "creationDate");
+            }
+            this.creationDate = creationDate;
             return this;
         }
         @CustomType.Setter
         public Builder customKeyStoreId(String customKeyStoreId) {
-            this.customKeyStoreId = Objects.requireNonNull(customKeyStoreId);
+            if (customKeyStoreId == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "customKeyStoreId");
+            }
+            this.customKeyStoreId = customKeyStoreId;
             return this;
         }
         @CustomType.Setter
         public Builder customerMasterKeySpec(String customerMasterKeySpec) {
-            this.customerMasterKeySpec = Objects.requireNonNull(customerMasterKeySpec);
+            if (customerMasterKeySpec == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "customerMasterKeySpec");
+            }
+            this.customerMasterKeySpec = customerMasterKeySpec;
             return this;
         }
         @CustomType.Setter
         public Builder deletionDate(String deletionDate) {
-            this.deletionDate = Objects.requireNonNull(deletionDate);
+            if (deletionDate == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "deletionDate");
+            }
+            this.deletionDate = deletionDate;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder expirationModel(String expirationModel) {
-            this.expirationModel = Objects.requireNonNull(expirationModel);
+            if (expirationModel == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "expirationModel");
+            }
+            this.expirationModel = expirationModel;
             return this;
         }
         @CustomType.Setter
         public Builder grantTokens(@Nullable List<String> grantTokens) {
+
             this.grantTokens = grantTokens;
             return this;
         }
@@ -398,42 +430,66 @@ public final class GetKeyResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keyId(String keyId) {
-            this.keyId = Objects.requireNonNull(keyId);
+            if (keyId == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "keyId");
+            }
+            this.keyId = keyId;
             return this;
         }
         @CustomType.Setter
         public Builder keyManager(String keyManager) {
-            this.keyManager = Objects.requireNonNull(keyManager);
+            if (keyManager == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "keyManager");
+            }
+            this.keyManager = keyManager;
             return this;
         }
         @CustomType.Setter
         public Builder keySpec(String keySpec) {
-            this.keySpec = Objects.requireNonNull(keySpec);
+            if (keySpec == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "keySpec");
+            }
+            this.keySpec = keySpec;
             return this;
         }
         @CustomType.Setter
         public Builder keyState(String keyState) {
-            this.keyState = Objects.requireNonNull(keyState);
+            if (keyState == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "keyState");
+            }
+            this.keyState = keyState;
             return this;
         }
         @CustomType.Setter
         public Builder keyUsage(String keyUsage) {
-            this.keyUsage = Objects.requireNonNull(keyUsage);
+            if (keyUsage == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "keyUsage");
+            }
+            this.keyUsage = keyUsage;
             return this;
         }
         @CustomType.Setter
         public Builder multiRegion(Boolean multiRegion) {
-            this.multiRegion = Objects.requireNonNull(multiRegion);
+            if (multiRegion == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "multiRegion");
+            }
+            this.multiRegion = multiRegion;
             return this;
         }
         @CustomType.Setter
         public Builder multiRegionConfigurations(List<GetKeyMultiRegionConfiguration> multiRegionConfigurations) {
-            this.multiRegionConfigurations = Objects.requireNonNull(multiRegionConfigurations);
+            if (multiRegionConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "multiRegionConfigurations");
+            }
+            this.multiRegionConfigurations = multiRegionConfigurations;
             return this;
         }
         public Builder multiRegionConfigurations(GetKeyMultiRegionConfiguration... multiRegionConfigurations) {
@@ -441,22 +497,34 @@ public final class GetKeyResult {
         }
         @CustomType.Setter
         public Builder origin(String origin) {
-            this.origin = Objects.requireNonNull(origin);
+            if (origin == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "origin");
+            }
+            this.origin = origin;
             return this;
         }
         @CustomType.Setter
         public Builder pendingDeletionWindowInDays(Integer pendingDeletionWindowInDays) {
-            this.pendingDeletionWindowInDays = Objects.requireNonNull(pendingDeletionWindowInDays);
+            if (pendingDeletionWindowInDays == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "pendingDeletionWindowInDays");
+            }
+            this.pendingDeletionWindowInDays = pendingDeletionWindowInDays;
             return this;
         }
         @CustomType.Setter
         public Builder validTo(String validTo) {
-            this.validTo = Objects.requireNonNull(validTo);
+            if (validTo == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "validTo");
+            }
+            this.validTo = validTo;
             return this;
         }
         @CustomType.Setter
         public Builder xksKeyConfigurations(List<GetKeyXksKeyConfiguration> xksKeyConfigurations) {
-            this.xksKeyConfigurations = Objects.requireNonNull(xksKeyConfigurations);
+            if (xksKeyConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "xksKeyConfigurations");
+            }
+            this.xksKeyConfigurations = xksKeyConfigurations;
             return this;
         }
         public Builder xksKeyConfigurations(GetKeyXksKeyConfiguration... xksKeyConfigurations) {

@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.aws.cloudwatch.outputs.GetLogDataProtectionPolicyDocumentStatementOperation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -74,7 +75,10 @@ public final class GetLogDataProtectionPolicyDocumentStatement {
 
         @CustomType.Setter
         public Builder dataIdentifiers(List<String> dataIdentifiers) {
-            this.dataIdentifiers = Objects.requireNonNull(dataIdentifiers);
+            if (dataIdentifiers == null) {
+              throw new MissingRequiredPropertyException("GetLogDataProtectionPolicyDocumentStatement", "dataIdentifiers");
+            }
+            this.dataIdentifiers = dataIdentifiers;
             return this;
         }
         public Builder dataIdentifiers(String... dataIdentifiers) {
@@ -82,11 +86,15 @@ public final class GetLogDataProtectionPolicyDocumentStatement {
         }
         @CustomType.Setter
         public Builder operation(GetLogDataProtectionPolicyDocumentStatementOperation operation) {
-            this.operation = Objects.requireNonNull(operation);
+            if (operation == null) {
+              throw new MissingRequiredPropertyException("GetLogDataProtectionPolicyDocumentStatement", "operation");
+            }
+            this.operation = operation;
             return this;
         }
         @CustomType.Setter
         public Builder sid(@Nullable String sid) {
+
             this.sid = sid;
             return this;
         }

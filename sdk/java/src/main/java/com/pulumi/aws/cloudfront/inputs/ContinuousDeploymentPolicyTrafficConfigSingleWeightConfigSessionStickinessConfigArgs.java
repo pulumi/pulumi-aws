@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSess
         }
 
         public ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs build() {
-            $.idleTtl = Objects.requireNonNull($.idleTtl, "expected parameter 'idleTtl' to be non-null");
-            $.maximumTtl = Objects.requireNonNull($.maximumTtl, "expected parameter 'maximumTtl' to be non-null");
+            if ($.idleTtl == null) {
+                throw new MissingRequiredPropertyException("ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs", "idleTtl");
+            }
+            if ($.maximumTtl == null) {
+                throw new MissingRequiredPropertyException("ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs", "maximumTtl");
+            }
             return $;
         }
     }

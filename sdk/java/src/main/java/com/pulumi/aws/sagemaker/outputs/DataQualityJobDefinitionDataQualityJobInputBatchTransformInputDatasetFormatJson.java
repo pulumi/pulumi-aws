@@ -44,6 +44,7 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
 
         @CustomType.Setter
         public Builder line(@Nullable Boolean line) {
+
             this.line = line;
             return this;
         }

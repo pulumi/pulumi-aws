@@ -144,21 +144,25 @@ public final class ClassifierCsvClassifier {
 
         @CustomType.Setter
         public Builder allowSingleColumn(@Nullable Boolean allowSingleColumn) {
+
             this.allowSingleColumn = allowSingleColumn;
             return this;
         }
         @CustomType.Setter
         public Builder containsHeader(@Nullable String containsHeader) {
+
             this.containsHeader = containsHeader;
             return this;
         }
         @CustomType.Setter
         public Builder customDatatypeConfigured(@Nullable Boolean customDatatypeConfigured) {
+
             this.customDatatypeConfigured = customDatatypeConfigured;
             return this;
         }
         @CustomType.Setter
         public Builder customDatatypes(@Nullable List<String> customDatatypes) {
+
             this.customDatatypes = customDatatypes;
             return this;
         }
@@ -167,16 +171,19 @@ public final class ClassifierCsvClassifier {
         }
         @CustomType.Setter
         public Builder delimiter(@Nullable String delimiter) {
+
             this.delimiter = delimiter;
             return this;
         }
         @CustomType.Setter
         public Builder disableValueTrimming(@Nullable Boolean disableValueTrimming) {
+
             this.disableValueTrimming = disableValueTrimming;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<String> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -185,6 +192,7 @@ public final class ClassifierCsvClassifier {
         }
         @CustomType.Setter
         public Builder quoteSymbol(@Nullable String quoteSymbol) {
+
             this.quoteSymbol = quoteSymbol;
             return this;
         }

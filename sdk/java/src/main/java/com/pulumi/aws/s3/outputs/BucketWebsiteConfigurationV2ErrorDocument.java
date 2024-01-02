@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class BucketWebsiteConfigurationV2ErrorDocument {
 
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("BucketWebsiteConfigurationV2ErrorDocument", "key");
+            }
+            this.key = key;
             return this;
         }
         public BucketWebsiteConfigurationV2ErrorDocument build() {

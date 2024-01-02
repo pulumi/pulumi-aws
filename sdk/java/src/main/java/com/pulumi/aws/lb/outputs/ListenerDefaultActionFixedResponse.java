@@ -4,6 +4,7 @@
 package com.pulumi.aws.lb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -76,16 +77,21 @@ public final class ListenerDefaultActionFixedResponse {
 
         @CustomType.Setter
         public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+            if (contentType == null) {
+              throw new MissingRequiredPropertyException("ListenerDefaultActionFixedResponse", "contentType");
+            }
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder messageBody(@Nullable String messageBody) {
+
             this.messageBody = messageBody;
             return this;
         }
         @CustomType.Setter
         public Builder statusCode(@Nullable String statusCode) {
+
             this.statusCode = statusCode;
             return this;
         }

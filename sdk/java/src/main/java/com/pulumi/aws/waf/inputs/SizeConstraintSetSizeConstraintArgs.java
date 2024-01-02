@@ -6,6 +6,7 @@ package com.pulumi.aws.waf.inputs;
 import com.pulumi.aws.waf.inputs.SizeConstraintSetSizeConstraintFieldToMatchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -191,10 +192,18 @@ public final class SizeConstraintSetSizeConstraintArgs extends com.pulumi.resour
         }
 
         public SizeConstraintSetSizeConstraintArgs build() {
-            $.comparisonOperator = Objects.requireNonNull($.comparisonOperator, "expected parameter 'comparisonOperator' to be non-null");
-            $.fieldToMatch = Objects.requireNonNull($.fieldToMatch, "expected parameter 'fieldToMatch' to be non-null");
-            $.size = Objects.requireNonNull($.size, "expected parameter 'size' to be non-null");
-            $.textTransformation = Objects.requireNonNull($.textTransformation, "expected parameter 'textTransformation' to be non-null");
+            if ($.comparisonOperator == null) {
+                throw new MissingRequiredPropertyException("SizeConstraintSetSizeConstraintArgs", "comparisonOperator");
+            }
+            if ($.fieldToMatch == null) {
+                throw new MissingRequiredPropertyException("SizeConstraintSetSizeConstraintArgs", "fieldToMatch");
+            }
+            if ($.size == null) {
+                throw new MissingRequiredPropertyException("SizeConstraintSetSizeConstraintArgs", "size");
+            }
+            if ($.textTransformation == null) {
+                throw new MissingRequiredPropertyException("SizeConstraintSetSizeConstraintArgs", "textTransformation");
+            }
             return $;
         }
     }

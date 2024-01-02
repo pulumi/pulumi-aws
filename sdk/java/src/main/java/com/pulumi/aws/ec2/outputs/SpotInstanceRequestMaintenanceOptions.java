@@ -44,6 +44,7 @@ public final class SpotInstanceRequestMaintenanceOptions {
 
         @CustomType.Setter
         public Builder autoRecovery(@Nullable String autoRecovery) {
+
             this.autoRecovery = autoRecovery;
             return this;
         }

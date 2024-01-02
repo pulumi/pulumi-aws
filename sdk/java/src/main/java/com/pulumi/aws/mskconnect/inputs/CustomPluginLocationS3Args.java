@@ -5,6 +5,7 @@ package com.pulumi.aws.mskconnect.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class CustomPluginLocationS3Args extends com.pulumi.resources.Resou
         }
 
         public CustomPluginLocationS3Args build() {
-            $.bucketArn = Objects.requireNonNull($.bucketArn, "expected parameter 'bucketArn' to be non-null");
-            $.fileKey = Objects.requireNonNull($.fileKey, "expected parameter 'fileKey' to be non-null");
+            if ($.bucketArn == null) {
+                throw new MissingRequiredPropertyException("CustomPluginLocationS3Args", "bucketArn");
+            }
+            if ($.fileKey == null) {
+                throw new MissingRequiredPropertyException("CustomPluginLocationS3Args", "fileKey");
+            }
             return $;
         }
     }

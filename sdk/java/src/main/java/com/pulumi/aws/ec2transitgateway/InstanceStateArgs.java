@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -159,8 +160,12 @@ public final class InstanceStateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public InstanceStateArgs build() {
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
-            $.state = Objects.requireNonNull($.state, "expected parameter 'state' to be non-null");
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("InstanceStateArgs", "instanceId");
+            }
+            if ($.state == null) {
+                throw new MissingRequiredPropertyException("InstanceStateArgs", "state");
+            }
             return $;
         }
     }

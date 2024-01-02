@@ -44,6 +44,7 @@ public final class FleetSpotOptionsMaintenanceStrategies {
 
         @CustomType.Setter
         public Builder capacityRebalance(@Nullable FleetSpotOptionsMaintenanceStrategiesCapacityRebalance capacityRebalance) {
+
             this.capacityRebalance = capacityRebalance;
             return this;
         }

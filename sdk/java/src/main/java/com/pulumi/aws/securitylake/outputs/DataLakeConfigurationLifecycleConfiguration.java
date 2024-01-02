@@ -60,11 +60,13 @@ public final class DataLakeConfigurationLifecycleConfiguration {
 
         @CustomType.Setter
         public Builder expiration(@Nullable DataLakeConfigurationLifecycleConfigurationExpiration expiration) {
+
             this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
         public Builder transitions(@Nullable List<DataLakeConfigurationLifecycleConfigurationTransition> transitions) {
+
             this.transitions = transitions;
             return this;
         }

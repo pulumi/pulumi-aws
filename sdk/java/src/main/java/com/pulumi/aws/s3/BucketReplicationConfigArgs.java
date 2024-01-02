@@ -6,6 +6,7 @@ package com.pulumi.aws.s3;
 import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -203,9 +204,15 @@ public final class BucketReplicationConfigArgs extends com.pulumi.resources.Reso
         }
 
         public BucketReplicationConfigArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.role = Objects.requireNonNull($.role, "expected parameter 'role' to be non-null");
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("BucketReplicationConfigArgs", "bucket");
+            }
+            if ($.role == null) {
+                throw new MissingRequiredPropertyException("BucketReplicationConfigArgs", "role");
+            }
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("BucketReplicationConfigArgs", "rules");
+            }
             return $;
         }
     }

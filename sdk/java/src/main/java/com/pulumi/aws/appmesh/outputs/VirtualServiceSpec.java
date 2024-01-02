@@ -44,6 +44,7 @@ public final class VirtualServiceSpec {
 
         @CustomType.Setter
         public Builder provider(@Nullable VirtualServiceSpecProvider provider) {
+
             this.provider = provider;
             return this;
         }

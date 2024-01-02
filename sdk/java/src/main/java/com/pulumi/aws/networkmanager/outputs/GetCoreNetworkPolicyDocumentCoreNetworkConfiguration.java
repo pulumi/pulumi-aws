@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -89,7 +90,10 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
 
         @CustomType.Setter
         public Builder asnRanges(List<String> asnRanges) {
-            this.asnRanges = Objects.requireNonNull(asnRanges);
+            if (asnRanges == null) {
+              throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentCoreNetworkConfiguration", "asnRanges");
+            }
+            this.asnRanges = asnRanges;
             return this;
         }
         public Builder asnRanges(String... asnRanges) {
@@ -97,7 +101,10 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
         }
         @CustomType.Setter
         public Builder edgeLocations(List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation> edgeLocations) {
-            this.edgeLocations = Objects.requireNonNull(edgeLocations);
+            if (edgeLocations == null) {
+              throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentCoreNetworkConfiguration", "edgeLocations");
+            }
+            this.edgeLocations = edgeLocations;
             return this;
         }
         public Builder edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation... edgeLocations) {
@@ -105,6 +112,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
         }
         @CustomType.Setter
         public Builder insideCidrBlocks(@Nullable List<String> insideCidrBlocks) {
+
             this.insideCidrBlocks = insideCidrBlocks;
             return this;
         }
@@ -113,6 +121,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
         }
         @CustomType.Setter
         public Builder vpnEcmpSupport(@Nullable Boolean vpnEcmpSupport) {
+
             this.vpnEcmpSupport = vpnEcmpSupport;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class AnalyticsApplicationReferenceDataSourcesS3Args extends com.pu
         }
 
         public AnalyticsApplicationReferenceDataSourcesS3Args build() {
-            $.bucketArn = Objects.requireNonNull($.bucketArn, "expected parameter 'bucketArn' to be non-null");
-            $.fileKey = Objects.requireNonNull($.fileKey, "expected parameter 'fileKey' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.bucketArn == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSourcesS3Args", "bucketArn");
+            }
+            if ($.fileKey == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSourcesS3Args", "fileKey");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSourcesS3Args", "roleArn");
+            }
             return $;
         }
     }

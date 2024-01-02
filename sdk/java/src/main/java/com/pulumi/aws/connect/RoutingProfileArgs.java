@@ -7,6 +7,7 @@ import com.pulumi.aws.connect.inputs.RoutingProfileMediaConcurrencyArgs;
 import com.pulumi.aws.connect.inputs.RoutingProfileQueueConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -326,10 +327,18 @@ public final class RoutingProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public RoutingProfileArgs build() {
-            $.defaultOutboundQueueId = Objects.requireNonNull($.defaultOutboundQueueId, "expected parameter 'defaultOutboundQueueId' to be non-null");
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
-            $.mediaConcurrencies = Objects.requireNonNull($.mediaConcurrencies, "expected parameter 'mediaConcurrencies' to be non-null");
+            if ($.defaultOutboundQueueId == null) {
+                throw new MissingRequiredPropertyException("RoutingProfileArgs", "defaultOutboundQueueId");
+            }
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("RoutingProfileArgs", "description");
+            }
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("RoutingProfileArgs", "instanceId");
+            }
+            if ($.mediaConcurrencies == null) {
+                throw new MissingRequiredPropertyException("RoutingProfileArgs", "mediaConcurrencies");
+            }
             return $;
         }
     }

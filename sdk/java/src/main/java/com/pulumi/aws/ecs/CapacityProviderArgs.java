@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs;
 import com.pulumi.aws.ecs.inputs.CapacityProviderAutoScalingGroupProviderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -152,7 +153,9 @@ public final class CapacityProviderArgs extends com.pulumi.resources.ResourceArg
         }
 
         public CapacityProviderArgs build() {
-            $.autoScalingGroupProvider = Objects.requireNonNull($.autoScalingGroupProvider, "expected parameter 'autoScalingGroupProvider' to be non-null");
+            if ($.autoScalingGroupProvider == null) {
+                throw new MissingRequiredPropertyException("CapacityProviderArgs", "autoScalingGroupProvider");
+            }
             return $;
         }
     }

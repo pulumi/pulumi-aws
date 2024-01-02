@@ -44,6 +44,7 @@ public final class EventSourceMappingFilterCriteria {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<EventSourceMappingFilterCriteriaFilter> filters) {
+
             this.filters = filters;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.elb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -237,10 +238,18 @@ public final class LoadBalancerListenerArgs extends com.pulumi.resources.Resourc
         }
 
         public LoadBalancerListenerArgs build() {
-            $.instancePort = Objects.requireNonNull($.instancePort, "expected parameter 'instancePort' to be non-null");
-            $.instanceProtocol = Objects.requireNonNull($.instanceProtocol, "expected parameter 'instanceProtocol' to be non-null");
-            $.lbPort = Objects.requireNonNull($.lbPort, "expected parameter 'lbPort' to be non-null");
-            $.lbProtocol = Objects.requireNonNull($.lbProtocol, "expected parameter 'lbProtocol' to be non-null");
+            if ($.instancePort == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerListenerArgs", "instancePort");
+            }
+            if ($.instanceProtocol == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerListenerArgs", "instanceProtocol");
+            }
+            if ($.lbPort == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerListenerArgs", "lbPort");
+            }
+            if ($.lbProtocol == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerListenerArgs", "lbProtocol");
+            }
             return $;
         }
     }

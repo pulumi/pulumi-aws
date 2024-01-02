@@ -7,6 +7,7 @@ import com.pulumi.aws.s3.outputs.BucketV2ReplicationConfigurationRuleDestination
 import com.pulumi.aws.s3.outputs.BucketV2ReplicationConfigurationRuleDestinationMetric;
 import com.pulumi.aws.s3.outputs.BucketV2ReplicationConfigurationRuleDestinationReplicationTime;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -134,6 +135,7 @@ public final class BucketV2ReplicationConfigurationRuleDestination {
 
         @CustomType.Setter
         public Builder accessControlTranslations(@Nullable List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation> accessControlTranslations) {
+
             this.accessControlTranslations = accessControlTranslations;
             return this;
         }
@@ -142,16 +144,21 @@ public final class BucketV2ReplicationConfigurationRuleDestination {
         }
         @CustomType.Setter
         public Builder accountId(@Nullable String accountId) {
+
             this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("BucketV2ReplicationConfigurationRuleDestination", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder metrics(@Nullable List<BucketV2ReplicationConfigurationRuleDestinationMetric> metrics) {
+
             this.metrics = metrics;
             return this;
         }
@@ -160,11 +167,13 @@ public final class BucketV2ReplicationConfigurationRuleDestination {
         }
         @CustomType.Setter
         public Builder replicaKmsKeyId(@Nullable String replicaKmsKeyId) {
+
             this.replicaKmsKeyId = replicaKmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder replicationTimes(@Nullable List<BucketV2ReplicationConfigurationRuleDestinationReplicationTime> replicationTimes) {
+
             this.replicationTimes = replicationTimes;
             return this;
         }
@@ -173,6 +182,7 @@ public final class BucketV2ReplicationConfigurationRuleDestination {
         }
         @CustomType.Setter
         public Builder storageClass(@Nullable String storageClass) {
+
             this.storageClass = storageClass;
             return this;
         }

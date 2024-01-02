@@ -54,21 +54,25 @@ public final class MultiRegionAccessPointDetailsPublicAccessBlock {
 
         @CustomType.Setter
         public Builder blockPublicAcls(@Nullable Boolean blockPublicAcls) {
+
             this.blockPublicAcls = blockPublicAcls;
             return this;
         }
         @CustomType.Setter
         public Builder blockPublicPolicy(@Nullable Boolean blockPublicPolicy) {
+
             this.blockPublicPolicy = blockPublicPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder ignorePublicAcls(@Nullable Boolean ignorePublicAcls) {
+
             this.ignorePublicAcls = ignorePublicAcls;
             return this;
         }
         @CustomType.Setter
         public Builder restrictPublicBuckets(@Nullable Boolean restrictPublicBuckets) {
+
             this.restrictPublicBuckets = restrictPublicBuckets;
             return this;
         }

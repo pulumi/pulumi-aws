@@ -89,21 +89,25 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
         @CustomType.Setter
         public Builder audioHlsRenditionSelection(@Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection audioHlsRenditionSelection) {
+
             this.audioHlsRenditionSelection = audioHlsRenditionSelection;
             return this;
         }
         @CustomType.Setter
         public Builder audioLanguageSelection(@Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection audioLanguageSelection) {
+
             this.audioLanguageSelection = audioLanguageSelection;
             return this;
         }
         @CustomType.Setter
         public Builder audioPidSelection(@Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection audioPidSelection) {
+
             this.audioPidSelection = audioPidSelection;
             return this;
         }
         @CustomType.Setter
         public Builder audioTrackSelection(@Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection audioTrackSelection) {
+
             this.audioTrackSelection = audioTrackSelection;
             return this;
         }

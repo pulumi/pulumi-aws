@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationDeidentif
         }
 
         public GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs build() {
-            $.maskConfig = Objects.requireNonNull($.maskConfig, "expected parameter 'maskConfig' to be non-null");
+            if ($.maskConfig == null) {
+                throw new MissingRequiredPropertyException("GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs", "maskConfig");
+            }
             return $;
         }
     }

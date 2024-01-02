@@ -44,6 +44,7 @@ public final class ConnectorCapacityAutoscalingScaleOutPolicy {
 
         @CustomType.Setter
         public Builder cpuUtilizationPercentage(@Nullable Integer cpuUtilizationPercentage) {
+
             this.cpuUtilizationPercentage = cpuUtilizationPercentage;
             return this;
         }

@@ -59,11 +59,13 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
 
         @CustomType.Setter
         public Builder m2tsSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings m2tsSettings) {
+
             this.m2tsSettings = m2tsSettings;
             return this;
         }
         @CustomType.Setter
         public Builder rawSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings rawSettings) {
+
             this.rawSettings = rawSettings;
             return this;
         }

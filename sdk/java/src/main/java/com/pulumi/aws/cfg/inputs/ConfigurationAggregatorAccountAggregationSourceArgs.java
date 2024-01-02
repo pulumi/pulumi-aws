@@ -5,6 +5,7 @@ package com.pulumi.aws.cfg.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -182,7 +183,9 @@ public final class ConfigurationAggregatorAccountAggregationSourceArgs extends c
         }
 
         public ConfigurationAggregatorAccountAggregationSourceArgs build() {
-            $.accountIds = Objects.requireNonNull($.accountIds, "expected parameter 'accountIds' to be non-null");
+            if ($.accountIds == null) {
+                throw new MissingRequiredPropertyException("ConfigurationAggregatorAccountAggregationSourceArgs", "accountIds");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.aws.quicksight.inputs.DataSetLogicalTableMapDataTransformArgs;
 import com.pulumi.aws.quicksight.inputs.DataSetLogicalTableMapSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -200,9 +201,15 @@ public final class DataSetLogicalTableMapArgs extends com.pulumi.resources.Resou
         }
 
         public DataSetLogicalTableMapArgs build() {
-            $.alias = Objects.requireNonNull($.alias, "expected parameter 'alias' to be non-null");
-            $.logicalTableMapId = Objects.requireNonNull($.logicalTableMapId, "expected parameter 'logicalTableMapId' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
+            if ($.alias == null) {
+                throw new MissingRequiredPropertyException("DataSetLogicalTableMapArgs", "alias");
+            }
+            if ($.logicalTableMapId == null) {
+                throw new MissingRequiredPropertyException("DataSetLogicalTableMapArgs", "logicalTableMapId");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("DataSetLogicalTableMapArgs", "source");
+            }
             return $;
         }
     }

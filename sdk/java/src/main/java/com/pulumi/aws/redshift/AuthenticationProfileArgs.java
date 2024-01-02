@@ -5,6 +5,7 @@ package com.pulumi.aws.redshift;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AuthenticationProfileArgs extends com.pulumi.resources.Resour
         }
 
         public AuthenticationProfileArgs build() {
-            $.authenticationProfileContent = Objects.requireNonNull($.authenticationProfileContent, "expected parameter 'authenticationProfileContent' to be non-null");
-            $.authenticationProfileName = Objects.requireNonNull($.authenticationProfileName, "expected parameter 'authenticationProfileName' to be non-null");
+            if ($.authenticationProfileContent == null) {
+                throw new MissingRequiredPropertyException("AuthenticationProfileArgs", "authenticationProfileContent");
+            }
+            if ($.authenticationProfileName == null) {
+                throw new MissingRequiredPropertyException("AuthenticationProfileArgs", "authenticationProfileName");
+            }
             return $;
         }
     }

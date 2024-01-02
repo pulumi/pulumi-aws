@@ -5,6 +5,7 @@ package com.pulumi.aws.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -409,10 +410,18 @@ public final class TopicRuleDynamodbArgs extends com.pulumi.resources.ResourceAr
         }
 
         public TopicRuleDynamodbArgs build() {
-            $.hashKeyField = Objects.requireNonNull($.hashKeyField, "expected parameter 'hashKeyField' to be non-null");
-            $.hashKeyValue = Objects.requireNonNull($.hashKeyValue, "expected parameter 'hashKeyValue' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.hashKeyField == null) {
+                throw new MissingRequiredPropertyException("TopicRuleDynamodbArgs", "hashKeyField");
+            }
+            if ($.hashKeyValue == null) {
+                throw new MissingRequiredPropertyException("TopicRuleDynamodbArgs", "hashKeyValue");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("TopicRuleDynamodbArgs", "roleArn");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("TopicRuleDynamodbArgs", "tableName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.rds;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
         }
 
         public InstanceAutomatedBackupsReplicationArgs build() {
-            $.sourceDbInstanceArn = Objects.requireNonNull($.sourceDbInstanceArn, "expected parameter 'sourceDbInstanceArn' to be non-null");
+            if ($.sourceDbInstanceArn == null) {
+                throw new MissingRequiredPropertyException("InstanceAutomatedBackupsReplicationArgs", "sourceDbInstanceArn");
+            }
             return $;
         }
     }

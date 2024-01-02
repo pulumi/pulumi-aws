@@ -6,6 +6,7 @@ package com.pulumi.aws.fsx.outputs;
 import com.pulumi.aws.fsx.outputs.GetOntapFileSystemDiskIopsConfiguration;
 import com.pulumi.aws.fsx.outputs.GetOntapFileSystemEndpoint;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -327,27 +328,42 @@ public final class GetOntapFileSystemResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder automaticBackupRetentionDays(Integer automaticBackupRetentionDays) {
-            this.automaticBackupRetentionDays = Objects.requireNonNull(automaticBackupRetentionDays);
+            if (automaticBackupRetentionDays == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "automaticBackupRetentionDays");
+            }
+            this.automaticBackupRetentionDays = automaticBackupRetentionDays;
             return this;
         }
         @CustomType.Setter
         public Builder dailyAutomaticBackupStartTime(String dailyAutomaticBackupStartTime) {
-            this.dailyAutomaticBackupStartTime = Objects.requireNonNull(dailyAutomaticBackupStartTime);
+            if (dailyAutomaticBackupStartTime == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "dailyAutomaticBackupStartTime");
+            }
+            this.dailyAutomaticBackupStartTime = dailyAutomaticBackupStartTime;
             return this;
         }
         @CustomType.Setter
         public Builder deploymentType(String deploymentType) {
-            this.deploymentType = Objects.requireNonNull(deploymentType);
+            if (deploymentType == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "deploymentType");
+            }
+            this.deploymentType = deploymentType;
             return this;
         }
         @CustomType.Setter
         public Builder diskIopsConfigurations(List<GetOntapFileSystemDiskIopsConfiguration> diskIopsConfigurations) {
-            this.diskIopsConfigurations = Objects.requireNonNull(diskIopsConfigurations);
+            if (diskIopsConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "diskIopsConfigurations");
+            }
+            this.diskIopsConfigurations = diskIopsConfigurations;
             return this;
         }
         public Builder diskIopsConfigurations(GetOntapFileSystemDiskIopsConfiguration... diskIopsConfigurations) {
@@ -355,17 +371,26 @@ public final class GetOntapFileSystemResult {
         }
         @CustomType.Setter
         public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+            if (dnsName == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "dnsName");
+            }
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
         public Builder endpointIpAddressRange(String endpointIpAddressRange) {
-            this.endpointIpAddressRange = Objects.requireNonNull(endpointIpAddressRange);
+            if (endpointIpAddressRange == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "endpointIpAddressRange");
+            }
+            this.endpointIpAddressRange = endpointIpAddressRange;
             return this;
         }
         @CustomType.Setter
         public Builder endpoints(List<GetOntapFileSystemEndpoint> endpoints) {
-            this.endpoints = Objects.requireNonNull(endpoints);
+            if (endpoints == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "endpoints");
+            }
+            this.endpoints = endpoints;
             return this;
         }
         public Builder endpoints(GetOntapFileSystemEndpoint... endpoints) {
@@ -373,17 +398,26 @@ public final class GetOntapFileSystemResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceIds(List<String> networkInterfaceIds) {
-            this.networkInterfaceIds = Objects.requireNonNull(networkInterfaceIds);
+            if (networkInterfaceIds == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "networkInterfaceIds");
+            }
+            this.networkInterfaceIds = networkInterfaceIds;
             return this;
         }
         public Builder networkInterfaceIds(String... networkInterfaceIds) {
@@ -391,17 +425,26 @@ public final class GetOntapFileSystemResult {
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder preferredSubnetId(String preferredSubnetId) {
-            this.preferredSubnetId = Objects.requireNonNull(preferredSubnetId);
+            if (preferredSubnetId == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "preferredSubnetId");
+            }
+            this.preferredSubnetId = preferredSubnetId;
             return this;
         }
         @CustomType.Setter
         public Builder routeTableIds(List<String> routeTableIds) {
-            this.routeTableIds = Objects.requireNonNull(routeTableIds);
+            if (routeTableIds == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "routeTableIds");
+            }
+            this.routeTableIds = routeTableIds;
             return this;
         }
         public Builder routeTableIds(String... routeTableIds) {
@@ -409,17 +452,26 @@ public final class GetOntapFileSystemResult {
         }
         @CustomType.Setter
         public Builder storageCapacity(Integer storageCapacity) {
-            this.storageCapacity = Objects.requireNonNull(storageCapacity);
+            if (storageCapacity == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "storageCapacity");
+            }
+            this.storageCapacity = storageCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+            if (storageType == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "storageType");
+            }
+            this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -427,22 +479,34 @@ public final class GetOntapFileSystemResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder throughputCapacity(Integer throughputCapacity) {
-            this.throughputCapacity = Objects.requireNonNull(throughputCapacity);
+            if (throughputCapacity == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "throughputCapacity");
+            }
+            this.throughputCapacity = throughputCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         @CustomType.Setter
         public Builder weeklyMaintenanceStartTime(String weeklyMaintenanceStartTime) {
-            this.weeklyMaintenanceStartTime = Objects.requireNonNull(weeklyMaintenanceStartTime);
+            if (weeklyMaintenanceStartTime == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "weeklyMaintenanceStartTime");
+            }
+            this.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
             return this;
         }
         public GetOntapFileSystemResult build() {

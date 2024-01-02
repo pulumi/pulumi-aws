@@ -12,6 +12,7 @@ import com.pulumi.aws.keyspaces.inputs.TableSchemaDefinitionArgs;
 import com.pulumi.aws.keyspaces.inputs.TableTtlArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -463,9 +464,15 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TableArgs build() {
-            $.keyspaceName = Objects.requireNonNull($.keyspaceName, "expected parameter 'keyspaceName' to be non-null");
-            $.schemaDefinition = Objects.requireNonNull($.schemaDefinition, "expected parameter 'schemaDefinition' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.keyspaceName == null) {
+                throw new MissingRequiredPropertyException("TableArgs", "keyspaceName");
+            }
+            if ($.schemaDefinition == null) {
+                throw new MissingRequiredPropertyException("TableArgs", "schemaDefinition");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("TableArgs", "tableName");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.cognito.inputs;
 import com.pulumi.aws.cognito.inputs.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,8 +200,12 @@ public final class IdentityPoolRoleAttachmentRoleMappingArgs extends com.pulumi.
         }
 
         public IdentityPoolRoleAttachmentRoleMappingArgs build() {
-            $.identityProvider = Objects.requireNonNull($.identityProvider, "expected parameter 'identityProvider' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.identityProvider == null) {
+                throw new MissingRequiredPropertyException("IdentityPoolRoleAttachmentRoleMappingArgs", "identityProvider");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("IdentityPoolRoleAttachmentRoleMappingArgs", "type");
+            }
             return $;
         }
     }

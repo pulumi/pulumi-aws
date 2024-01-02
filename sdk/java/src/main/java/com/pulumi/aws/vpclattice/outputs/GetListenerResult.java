@@ -5,6 +5,7 @@ package com.pulumi.aws.vpclattice.outputs;
 
 import com.pulumi.aws.vpclattice.outputs.GetListenerDefaultAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -212,17 +213,26 @@ public final class GetListenerResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "createdAt");
+            }
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
         public Builder defaultActions(List<GetListenerDefaultAction> defaultActions) {
-            this.defaultActions = Objects.requireNonNull(defaultActions);
+            if (defaultActions == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "defaultActions");
+            }
+            this.defaultActions = defaultActions;
             return this;
         }
         public Builder defaultActions(GetListenerDefaultAction... defaultActions) {
@@ -230,57 +240,90 @@ public final class GetListenerResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastUpdatedAt(String lastUpdatedAt) {
-            this.lastUpdatedAt = Objects.requireNonNull(lastUpdatedAt);
+            if (lastUpdatedAt == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "lastUpdatedAt");
+            }
+            this.lastUpdatedAt = lastUpdatedAt;
             return this;
         }
         @CustomType.Setter
         public Builder listenerId(String listenerId) {
-            this.listenerId = Objects.requireNonNull(listenerId);
+            if (listenerId == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "listenerId");
+            }
+            this.listenerId = listenerId;
             return this;
         }
         @CustomType.Setter
         public Builder listenerIdentifier(String listenerIdentifier) {
-            this.listenerIdentifier = Objects.requireNonNull(listenerIdentifier);
+            if (listenerIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "listenerIdentifier");
+            }
+            this.listenerIdentifier = listenerIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder serviceArn(String serviceArn) {
-            this.serviceArn = Objects.requireNonNull(serviceArn);
+            if (serviceArn == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "serviceArn");
+            }
+            this.serviceArn = serviceArn;
             return this;
         }
         @CustomType.Setter
         public Builder serviceId(String serviceId) {
-            this.serviceId = Objects.requireNonNull(serviceId);
+            if (serviceId == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "serviceId");
+            }
+            this.serviceId = serviceId;
             return this;
         }
         @CustomType.Setter
         public Builder serviceIdentifier(String serviceIdentifier) {
-            this.serviceIdentifier = Objects.requireNonNull(serviceIdentifier);
+            if (serviceIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "serviceIdentifier");
+            }
+            this.serviceIdentifier = serviceIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetListenerResult build() {

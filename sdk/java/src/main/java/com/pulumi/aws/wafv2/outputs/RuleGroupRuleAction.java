@@ -104,26 +104,31 @@ public final class RuleGroupRuleAction {
 
         @CustomType.Setter
         public Builder allow(@Nullable RuleGroupRuleActionAllow allow) {
+
             this.allow = allow;
             return this;
         }
         @CustomType.Setter
         public Builder block(@Nullable RuleGroupRuleActionBlock block) {
+
             this.block = block;
             return this;
         }
         @CustomType.Setter
         public Builder captcha(@Nullable RuleGroupRuleActionCaptcha captcha) {
+
             this.captcha = captcha;
             return this;
         }
         @CustomType.Setter
         public Builder challenge(@Nullable RuleGroupRuleActionChallenge challenge) {
+
             this.challenge = challenge;
             return this;
         }
         @CustomType.Setter
         public Builder count(@Nullable RuleGroupRuleActionCount count) {
+
             this.count = count;
             return this;
         }

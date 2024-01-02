@@ -6,6 +6,7 @@ package com.pulumi.aws.s3.inputs;
 import com.pulumi.aws.s3.inputs.BucketV2ReplicationConfigurationRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class BucketV2ReplicationConfigurationArgs extends com.pulumi.resou
         }
 
         public BucketV2ReplicationConfigurationArgs build() {
-            $.role = Objects.requireNonNull($.role, "expected parameter 'role' to be non-null");
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
+            if ($.role == null) {
+                throw new MissingRequiredPropertyException("BucketV2ReplicationConfigurationArgs", "role");
+            }
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("BucketV2ReplicationConfigurationArgs", "rules");
+            }
             return $;
         }
     }

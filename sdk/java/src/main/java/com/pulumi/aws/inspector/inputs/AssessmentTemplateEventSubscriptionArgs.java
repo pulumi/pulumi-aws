@@ -5,6 +5,7 @@ package com.pulumi.aws.inspector.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AssessmentTemplateEventSubscriptionArgs extends com.pulumi.re
         }
 
         public AssessmentTemplateEventSubscriptionArgs build() {
-            $.event = Objects.requireNonNull($.event, "expected parameter 'event' to be non-null");
-            $.topicArn = Objects.requireNonNull($.topicArn, "expected parameter 'topicArn' to be non-null");
+            if ($.event == null) {
+                throw new MissingRequiredPropertyException("AssessmentTemplateEventSubscriptionArgs", "event");
+            }
+            if ($.topicArn == null) {
+                throw new MissingRequiredPropertyException("AssessmentTemplateEventSubscriptionArgs", "topicArn");
+            }
             return $;
         }
     }

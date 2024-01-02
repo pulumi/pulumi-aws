@@ -5,6 +5,7 @@ package com.pulumi.aws.grafana;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -216,8 +217,12 @@ public final class RoleAssociationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public RoleAssociationArgs build() {
-            $.role = Objects.requireNonNull($.role, "expected parameter 'role' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.role == null) {
+                throw new MissingRequiredPropertyException("RoleAssociationArgs", "role");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("RoleAssociationArgs", "workspaceId");
+            }
             return $;
         }
     }

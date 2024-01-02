@@ -8,6 +8,7 @@ import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfiguratio
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationS3Configuration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -217,67 +218,92 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
 
         @CustomType.Setter
         public Builder cloudwatchLoggingOptions(@Nullable FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions) {
+
             this.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             return this;
         }
         @CustomType.Setter
         public Builder clusterJdbcurl(String clusterJdbcurl) {
-            this.clusterJdbcurl = Objects.requireNonNull(clusterJdbcurl);
+            if (clusterJdbcurl == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfiguration", "clusterJdbcurl");
+            }
+            this.clusterJdbcurl = clusterJdbcurl;
             return this;
         }
         @CustomType.Setter
         public Builder copyOptions(@Nullable String copyOptions) {
+
             this.copyOptions = copyOptions;
             return this;
         }
         @CustomType.Setter
         public Builder dataTableColumns(@Nullable String dataTableColumns) {
+
             this.dataTableColumns = dataTableColumns;
             return this;
         }
         @CustomType.Setter
         public Builder dataTableName(String dataTableName) {
-            this.dataTableName = Objects.requireNonNull(dataTableName);
+            if (dataTableName == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfiguration", "dataTableName");
+            }
+            this.dataTableName = dataTableName;
             return this;
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfiguration", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder processingConfiguration(@Nullable FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration processingConfiguration) {
+
             this.processingConfiguration = processingConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder retryDuration(@Nullable Integer retryDuration) {
+
             this.retryDuration = retryDuration;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfiguration", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder s3BackupConfiguration(@Nullable FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration s3BackupConfiguration) {
+
             this.s3BackupConfiguration = s3BackupConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder s3BackupMode(@Nullable String s3BackupMode) {
+
             this.s3BackupMode = s3BackupMode;
             return this;
         }
         @CustomType.Setter
         public Builder s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration) {
-            this.s3Configuration = Objects.requireNonNull(s3Configuration);
+            if (s3Configuration == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfiguration", "s3Configuration");
+            }
+            this.s3Configuration = s3Configuration;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfiguration", "username");
+            }
+            this.username = username;
             return this;
         }
         public FirehoseDeliveryStreamRedshiftConfiguration build() {

@@ -88,21 +88,25 @@ public final class CostCategoryRule {
 
         @CustomType.Setter
         public Builder inheritedValue(@Nullable CostCategoryRuleInheritedValue inheritedValue) {
+
             this.inheritedValue = inheritedValue;
             return this;
         }
         @CustomType.Setter
         public Builder rule(@Nullable CostCategoryRuleRule rule) {
+
             this.rule = rule;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

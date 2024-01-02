@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
 
         @CustomType.Setter
         public Builder partitionDateSource(String partitionDateSource) {
-            this.partitionDateSource = Objects.requireNonNull(partitionDateSource);
+            if (partitionDateSource == null) {
+              throw new MissingRequiredPropertyException("BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix", "partitionDateSource");
+            }
+            this.partitionDateSource = partitionDateSource;
             return this;
         }
         public BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix build() {

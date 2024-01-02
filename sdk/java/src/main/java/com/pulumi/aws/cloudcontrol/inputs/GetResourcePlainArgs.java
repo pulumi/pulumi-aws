@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudcontrol.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -152,8 +153,12 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetResourcePlainArgs build() {
-            $.identifier = Objects.requireNonNull($.identifier, "expected parameter 'identifier' to be non-null");
-            $.typeName = Objects.requireNonNull($.typeName, "expected parameter 'typeName' to be non-null");
+            if ($.identifier == null) {
+                throw new MissingRequiredPropertyException("GetResourcePlainArgs", "identifier");
+            }
+            if ($.typeName == null) {
+                throw new MissingRequiredPropertyException("GetResourcePlainArgs", "typeName");
+            }
             return $;
         }
     }

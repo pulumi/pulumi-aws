@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionActionC
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition", "action");
+            }
+            this.action = action;
             return this;
         }
         public WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition build() {

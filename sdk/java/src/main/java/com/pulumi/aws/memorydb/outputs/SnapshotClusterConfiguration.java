@@ -213,66 +213,79 @@ public final class SnapshotClusterConfiguration {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder engineVersion(@Nullable String engineVersion) {
+
             this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
         public Builder maintenanceWindow(@Nullable String maintenanceWindow) {
+
             this.maintenanceWindow = maintenanceWindow;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nodeType(@Nullable String nodeType) {
+
             this.nodeType = nodeType;
             return this;
         }
         @CustomType.Setter
         public Builder numShards(@Nullable Integer numShards) {
+
             this.numShards = numShards;
             return this;
         }
         @CustomType.Setter
         public Builder parameterGroupName(@Nullable String parameterGroupName) {
+
             this.parameterGroupName = parameterGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotRetentionLimit(@Nullable Integer snapshotRetentionLimit) {
+
             this.snapshotRetentionLimit = snapshotRetentionLimit;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotWindow(@Nullable String snapshotWindow) {
+
             this.snapshotWindow = snapshotWindow;
             return this;
         }
         @CustomType.Setter
         public Builder subnetGroupName(@Nullable String subnetGroupName) {
+
             this.subnetGroupName = subnetGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder topicArn(@Nullable String topicArn) {
+
             this.topicArn = topicArn;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(@Nullable String vpcId) {
+
             this.vpcId = vpcId;
             return this;
         }

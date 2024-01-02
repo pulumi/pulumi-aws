@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -140,8 +141,12 @@ public final class KxClusterCacheStorageConfigurationArgs extends com.pulumi.res
         }
 
         public KxClusterCacheStorageConfigurationArgs build() {
-            $.size = Objects.requireNonNull($.size, "expected parameter 'size' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.size == null) {
+                throw new MissingRequiredPropertyException("KxClusterCacheStorageConfigurationArgs", "size");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("KxClusterCacheStorageConfigurationArgs", "type");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.inputs;
 import com.pulumi.aws.quicksight.inputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class DataSetRefreshPropertiesRefreshConfigurationArgs extends com.
         }
 
         public DataSetRefreshPropertiesRefreshConfigurationArgs build() {
-            $.incrementalRefresh = Objects.requireNonNull($.incrementalRefresh, "expected parameter 'incrementalRefresh' to be non-null");
+            if ($.incrementalRefresh == null) {
+                throw new MissingRequiredPropertyException("DataSetRefreshPropertiesRefreshConfigurationArgs", "incrementalRefresh");
+            }
             return $;
         }
     }

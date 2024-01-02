@@ -5,6 +5,7 @@ package com.pulumi.aws.directconnect;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -300,8 +301,12 @@ public final class LinkAggregationGroupArgs extends com.pulumi.resources.Resourc
         }
 
         public LinkAggregationGroupArgs build() {
-            $.connectionsBandwidth = Objects.requireNonNull($.connectionsBandwidth, "expected parameter 'connectionsBandwidth' to be non-null");
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
+            if ($.connectionsBandwidth == null) {
+                throw new MissingRequiredPropertyException("LinkAggregationGroupArgs", "connectionsBandwidth");
+            }
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("LinkAggregationGroupArgs", "location");
+            }
             return $;
         }
     }

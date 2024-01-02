@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.List;
@@ -56,7 +57,10 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTl {
 
         @CustomType.Setter
         public Builder certificates(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate> certificates) {
-            this.certificates = Objects.requireNonNull(certificates);
+            if (certificates == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendDefaultClientPolicyTl", "certificates");
+            }
+            this.certificates = certificates;
             return this;
         }
         public Builder certificates(GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificate... certificates) {
@@ -64,12 +68,18 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTl {
         }
         @CustomType.Setter
         public Builder enforce(Boolean enforce) {
-            this.enforce = Objects.requireNonNull(enforce);
+            if (enforce == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendDefaultClientPolicyTl", "enforce");
+            }
+            this.enforce = enforce;
             return this;
         }
         @CustomType.Setter
         public Builder ports(List<Integer> ports) {
-            this.ports = Objects.requireNonNull(ports);
+            if (ports == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendDefaultClientPolicyTl", "ports");
+            }
+            this.ports = ports;
             return this;
         }
         public Builder ports(Integer... ports) {
@@ -77,7 +87,10 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTl {
         }
         @CustomType.Setter
         public Builder validations(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation> validations) {
-            this.validations = Objects.requireNonNull(validations);
+            if (validations == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendDefaultClientPolicyTl", "validations");
+            }
+            this.validations = validations;
             return this;
         }
         public Builder validations(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation... validations) {

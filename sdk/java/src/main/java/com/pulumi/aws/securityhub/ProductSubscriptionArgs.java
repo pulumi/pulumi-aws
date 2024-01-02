@@ -5,6 +5,7 @@ package com.pulumi.aws.securityhub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -226,7 +227,9 @@ public final class ProductSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         public ProductSubscriptionArgs build() {
-            $.productArn = Objects.requireNonNull($.productArn, "expected parameter 'productArn' to be non-null");
+            if ($.productArn == null) {
+                throw new MissingRequiredPropertyException("ProductSubscriptionArgs", "productArn");
+            }
             return $;
         }
     }

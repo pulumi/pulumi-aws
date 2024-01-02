@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DataSourceParametersRdsArgs extends com.pulumi.resources.Reso
         }
 
         public DataSourceParametersRdsArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersRdsArgs", "database");
+            }
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersRdsArgs", "instanceId");
+            }
             return $;
         }
     }

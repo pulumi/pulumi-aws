@@ -4,6 +4,7 @@
 package com.pulumi.aws.mq.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetBrokerLogs {
 
         @CustomType.Setter
         public Builder audit(Boolean audit) {
-            this.audit = Objects.requireNonNull(audit);
+            if (audit == null) {
+              throw new MissingRequiredPropertyException("GetBrokerLogs", "audit");
+            }
+            this.audit = audit;
             return this;
         }
         @CustomType.Setter
         public Builder general(Boolean general) {
-            this.general = Objects.requireNonNull(general);
+            if (general == null) {
+              throw new MissingRequiredPropertyException("GetBrokerLogs", "general");
+            }
+            this.general = general;
             return this;
         }
         public GetBrokerLogs build() {

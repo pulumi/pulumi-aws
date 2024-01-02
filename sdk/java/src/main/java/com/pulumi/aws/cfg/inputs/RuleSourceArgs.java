@@ -7,6 +7,7 @@ import com.pulumi.aws.cfg.inputs.RuleSourceCustomPolicyDetailsArgs;
 import com.pulumi.aws.cfg.inputs.RuleSourceSourceDetailArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -200,7 +201,9 @@ public final class RuleSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RuleSourceArgs build() {
-            $.owner = Objects.requireNonNull($.owner, "expected parameter 'owner' to be non-null");
+            if ($.owner == null) {
+                throw new MissingRequiredPropertyException("RuleSourceArgs", "owner");
+            }
             return $;
         }
     }

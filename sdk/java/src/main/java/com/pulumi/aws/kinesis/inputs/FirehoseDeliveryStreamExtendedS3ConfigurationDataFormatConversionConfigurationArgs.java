@@ -8,6 +8,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3Configurati
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -190,9 +191,15 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs build() {
-            $.inputFormatConfiguration = Objects.requireNonNull($.inputFormatConfiguration, "expected parameter 'inputFormatConfiguration' to be non-null");
-            $.outputFormatConfiguration = Objects.requireNonNull($.outputFormatConfiguration, "expected parameter 'outputFormatConfiguration' to be non-null");
-            $.schemaConfiguration = Objects.requireNonNull($.schemaConfiguration, "expected parameter 'schemaConfiguration' to be non-null");
+            if ($.inputFormatConfiguration == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs", "inputFormatConfiguration");
+            }
+            if ($.outputFormatConfiguration == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs", "outputFormatConfiguration");
+            }
+            if ($.schemaConfiguration == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs", "schemaConfiguration");
+            }
             return $;
         }
     }

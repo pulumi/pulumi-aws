@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class VirtualNodeSpecListenerConnectionPoolTcpArgs extends com.pulu
         }
 
         public VirtualNodeSpecListenerConnectionPoolTcpArgs build() {
-            $.maxConnections = Objects.requireNonNull($.maxConnections, "expected parameter 'maxConnections' to be non-null");
+            if ($.maxConnections == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecListenerConnectionPoolTcpArgs", "maxConnections");
+            }
             return $;
         }
     }

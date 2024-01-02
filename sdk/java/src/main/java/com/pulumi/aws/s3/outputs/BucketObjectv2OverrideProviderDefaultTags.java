@@ -44,6 +44,7 @@ public final class BucketObjectv2OverrideProviderDefaultTags {
 
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }

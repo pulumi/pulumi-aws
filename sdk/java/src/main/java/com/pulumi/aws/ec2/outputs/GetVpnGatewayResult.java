@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetVpnGatewayFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -80,26 +81,39 @@ public final class GetVpnGatewayResult {
 
         @CustomType.Setter
         public Builder amazonSideAsn(String amazonSideAsn) {
-            this.amazonSideAsn = Objects.requireNonNull(amazonSideAsn);
+            if (amazonSideAsn == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "amazonSideAsn");
+            }
+            this.amazonSideAsn = amazonSideAsn;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder attachedVpcId(String attachedVpcId) {
-            this.attachedVpcId = Objects.requireNonNull(attachedVpcId);
+            if (attachedVpcId == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "attachedVpcId");
+            }
+            this.attachedVpcId = attachedVpcId;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+            if (availabilityZone == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "availabilityZone");
+            }
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetVpnGatewayFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -108,17 +122,26 @@ public final class GetVpnGatewayResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetVpnGatewayResult build() {

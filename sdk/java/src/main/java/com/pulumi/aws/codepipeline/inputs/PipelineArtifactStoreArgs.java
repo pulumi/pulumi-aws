@@ -6,6 +6,7 @@ package com.pulumi.aws.codepipeline.inputs;
 import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreEncryptionKeyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,8 +189,12 @@ public final class PipelineArtifactStoreArgs extends com.pulumi.resources.Resour
         }
 
         public PipelineArtifactStoreArgs build() {
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("PipelineArtifactStoreArgs", "location");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("PipelineArtifactStoreArgs", "type");
+            }
             return $;
         }
     }

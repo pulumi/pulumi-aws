@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs
         }
 
         public GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs build() {
-            $.findingsDestination = Objects.requireNonNull($.findingsDestination, "expected parameter 'findingsDestination' to be non-null");
+            if ($.findingsDestination == null) {
+                throw new MissingRequiredPropertyException("GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs", "findingsDestination");
+            }
             return $;
         }
     }

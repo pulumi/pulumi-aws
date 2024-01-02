@@ -6,6 +6,7 @@ package com.pulumi.aws.glue.inputs;
 import com.pulumi.aws.glue.inputs.TriggerPredicateConditionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class TriggerPredicateArgs extends com.pulumi.resources.ResourceArg
         }
 
         public TriggerPredicateArgs build() {
-            $.conditions = Objects.requireNonNull($.conditions, "expected parameter 'conditions' to be non-null");
+            if ($.conditions == null) {
+                throw new MissingRequiredPropertyException("TriggerPredicateArgs", "conditions");
+            }
             return $;
         }
     }

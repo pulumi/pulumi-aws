@@ -8,6 +8,7 @@ import com.pulumi.aws.cloudwatch.outputs.EventTargetEcsTargetNetworkConfiguratio
 import com.pulumi.aws.cloudwatch.outputs.EventTargetEcsTargetOrderedPlacementStrategy;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetEcsTargetPlacementConstraint;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -220,6 +221,7 @@ public final class EventTargetEcsTarget {
 
         @CustomType.Setter
         public Builder capacityProviderStrategies(@Nullable List<EventTargetEcsTargetCapacityProviderStrategy> capacityProviderStrategies) {
+
             this.capacityProviderStrategies = capacityProviderStrategies;
             return this;
         }
@@ -228,31 +230,37 @@ public final class EventTargetEcsTarget {
         }
         @CustomType.Setter
         public Builder enableEcsManagedTags(@Nullable Boolean enableEcsManagedTags) {
+
             this.enableEcsManagedTags = enableEcsManagedTags;
             return this;
         }
         @CustomType.Setter
         public Builder enableExecuteCommand(@Nullable Boolean enableExecuteCommand) {
+
             this.enableExecuteCommand = enableExecuteCommand;
             return this;
         }
         @CustomType.Setter
         public Builder group(@Nullable String group) {
+
             this.group = group;
             return this;
         }
         @CustomType.Setter
         public Builder launchType(@Nullable String launchType) {
+
             this.launchType = launchType;
             return this;
         }
         @CustomType.Setter
         public Builder networkConfiguration(@Nullable EventTargetEcsTargetNetworkConfiguration networkConfiguration) {
+
             this.networkConfiguration = networkConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder orderedPlacementStrategies(@Nullable List<EventTargetEcsTargetOrderedPlacementStrategy> orderedPlacementStrategies) {
+
             this.orderedPlacementStrategies = orderedPlacementStrategies;
             return this;
         }
@@ -261,6 +269,7 @@ public final class EventTargetEcsTarget {
         }
         @CustomType.Setter
         public Builder placementConstraints(@Nullable List<EventTargetEcsTargetPlacementConstraint> placementConstraints) {
+
             this.placementConstraints = placementConstraints;
             return this;
         }
@@ -269,27 +278,34 @@ public final class EventTargetEcsTarget {
         }
         @CustomType.Setter
         public Builder platformVersion(@Nullable String platformVersion) {
+
             this.platformVersion = platformVersion;
             return this;
         }
         @CustomType.Setter
         public Builder propagateTags(@Nullable String propagateTags) {
+
             this.propagateTags = propagateTags;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder taskCount(@Nullable Integer taskCount) {
+
             this.taskCount = taskCount;
             return this;
         }
         @CustomType.Setter
         public Builder taskDefinitionArn(String taskDefinitionArn) {
-            this.taskDefinitionArn = Objects.requireNonNull(taskDefinitionArn);
+            if (taskDefinitionArn == null) {
+              throw new MissingRequiredPropertyException("EventTargetEcsTarget", "taskDefinitionArn");
+            }
+            this.taskDefinitionArn = taskDefinitionArn;
             return this;
         }
         public EventTargetEcsTarget build() {

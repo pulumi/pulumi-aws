@@ -299,91 +299,109 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
         @CustomType.Setter
         public Builder amplitude(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude amplitude) {
+
             this.amplitude = amplitude;
             return this;
         }
         @CustomType.Setter
         public Builder customConnector(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector customConnector) {
+
             this.customConnector = customConnector;
             return this;
         }
         @CustomType.Setter
         public Builder datadog(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog datadog) {
+
             this.datadog = datadog;
             return this;
         }
         @CustomType.Setter
         public Builder dynatrace(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace dynatrace) {
+
             this.dynatrace = dynatrace;
             return this;
         }
         @CustomType.Setter
         public Builder googleAnalytics(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics googleAnalytics) {
+
             this.googleAnalytics = googleAnalytics;
             return this;
         }
         @CustomType.Setter
         public Builder honeycode(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode honeycode) {
+
             this.honeycode = honeycode;
             return this;
         }
         @CustomType.Setter
         public Builder inforNexus(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus inforNexus) {
+
             this.inforNexus = inforNexus;
             return this;
         }
         @CustomType.Setter
         public Builder marketo(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo marketo) {
+
             this.marketo = marketo;
             return this;
         }
         @CustomType.Setter
         public Builder redshift(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift redshift) {
+
             this.redshift = redshift;
             return this;
         }
         @CustomType.Setter
         public Builder salesforce(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce salesforce) {
+
             this.salesforce = salesforce;
             return this;
         }
         @CustomType.Setter
         public Builder sapoData(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData sapoData) {
+
             this.sapoData = sapoData;
             return this;
         }
         @CustomType.Setter
         public Builder serviceNow(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow serviceNow) {
+
             this.serviceNow = serviceNow;
             return this;
         }
         @CustomType.Setter
         public Builder singular(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular singular) {
+
             this.singular = singular;
             return this;
         }
         @CustomType.Setter
         public Builder slack(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack slack) {
+
             this.slack = slack;
             return this;
         }
         @CustomType.Setter
         public Builder snowflake(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake snowflake) {
+
             this.snowflake = snowflake;
             return this;
         }
         @CustomType.Setter
         public Builder trendmicro(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro trendmicro) {
+
             this.trendmicro = trendmicro;
             return this;
         }
         @CustomType.Setter
         public Builder veeva(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva veeva) {
+
             this.veeva = veeva;
             return this;
         }
         @CustomType.Setter
         public Builder zendesk(@Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk zendesk) {
+
             this.zendesk = zendesk;
             return this;
         }

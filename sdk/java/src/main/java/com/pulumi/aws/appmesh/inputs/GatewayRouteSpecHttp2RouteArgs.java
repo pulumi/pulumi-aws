@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttp2RouteActionArgs;
 import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttp2RouteMatchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -112,8 +113,12 @@ public final class GatewayRouteSpecHttp2RouteArgs extends com.pulumi.resources.R
         }
 
         public GatewayRouteSpecHttp2RouteArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.match = Objects.requireNonNull($.match, "expected parameter 'match' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("GatewayRouteSpecHttp2RouteArgs", "action");
+            }
+            if ($.match == null) {
+                throw new MissingRequiredPropertyException("GatewayRouteSpecHttp2RouteArgs", "match");
+            }
             return $;
         }
     }

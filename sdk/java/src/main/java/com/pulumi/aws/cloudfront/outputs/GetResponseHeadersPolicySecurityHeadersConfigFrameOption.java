@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigFrameOption {
 
         @CustomType.Setter
         public Builder frameOption(String frameOption) {
-            this.frameOption = Objects.requireNonNull(frameOption);
+            if (frameOption == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicySecurityHeadersConfigFrameOption", "frameOption");
+            }
+            this.frameOption = frameOption;
             return this;
         }
         @CustomType.Setter
         public Builder override(Boolean override) {
-            this.override = Objects.requireNonNull(override);
+            if (override == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicySecurityHeadersConfigFrameOption", "override");
+            }
+            this.override = override;
             return this;
         }
         public GetResponseHeadersPolicySecurityHeadersConfigFrameOption build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class FirehoseDeliveryStreamKinesisSourceConfigurationArgs extends 
         }
 
         public FirehoseDeliveryStreamKinesisSourceConfigurationArgs build() {
-            $.kinesisStreamArn = Objects.requireNonNull($.kinesisStreamArn, "expected parameter 'kinesisStreamArn' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.kinesisStreamArn == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamKinesisSourceConfigurationArgs", "kinesisStreamArn");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamKinesisSourceConfigurationArgs", "roleArn");
+            }
             return $;
         }
     }

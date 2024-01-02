@@ -6,6 +6,7 @@ package com.pulumi.aws.transcribe;
 import com.pulumi.aws.transcribe.inputs.LanguageModelInputDataConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -226,10 +227,18 @@ public final class LanguageModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LanguageModelArgs build() {
-            $.baseModelName = Objects.requireNonNull($.baseModelName, "expected parameter 'baseModelName' to be non-null");
-            $.inputDataConfig = Objects.requireNonNull($.inputDataConfig, "expected parameter 'inputDataConfig' to be non-null");
-            $.languageCode = Objects.requireNonNull($.languageCode, "expected parameter 'languageCode' to be non-null");
-            $.modelName = Objects.requireNonNull($.modelName, "expected parameter 'modelName' to be non-null");
+            if ($.baseModelName == null) {
+                throw new MissingRequiredPropertyException("LanguageModelArgs", "baseModelName");
+            }
+            if ($.inputDataConfig == null) {
+                throw new MissingRequiredPropertyException("LanguageModelArgs", "inputDataConfig");
+            }
+            if ($.languageCode == null) {
+                throw new MissingRequiredPropertyException("LanguageModelArgs", "languageCode");
+            }
+            if ($.modelName == null) {
+                throw new MissingRequiredPropertyException("LanguageModelArgs", "modelName");
+            }
             return $;
         }
     }

@@ -36,6 +36,7 @@ public final class FlowTriggerConfigTriggerProperties {
 
         @CustomType.Setter
         public Builder scheduled(@Nullable FlowTriggerConfigTriggerPropertiesScheduled scheduled) {
+
             this.scheduled = scheduled;
             return this;
         }

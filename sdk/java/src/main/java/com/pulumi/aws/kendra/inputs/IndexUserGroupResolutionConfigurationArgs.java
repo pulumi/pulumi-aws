@@ -5,6 +5,7 @@ package com.pulumi.aws.kendra.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class IndexUserGroupResolutionConfigurationArgs extends com.pulumi.
         }
 
         public IndexUserGroupResolutionConfigurationArgs build() {
-            $.userGroupResolutionMode = Objects.requireNonNull($.userGroupResolutionMode, "expected parameter 'userGroupResolutionMode' to be non-null");
+            if ($.userGroupResolutionMode == null) {
+                throw new MissingRequiredPropertyException("IndexUserGroupResolutionConfigurationArgs", "userGroupResolutionMode");
+            }
             return $;
         }
     }

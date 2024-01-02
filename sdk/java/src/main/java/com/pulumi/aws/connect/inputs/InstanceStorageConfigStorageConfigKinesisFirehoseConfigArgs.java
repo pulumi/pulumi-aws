@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs e
         }
 
         public InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs build() {
-            $.firehoseArn = Objects.requireNonNull($.firehoseArn, "expected parameter 'firehoseArn' to be non-null");
+            if ($.firehoseArn == null) {
+                throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs", "firehoseArn");
+            }
             return $;
         }
     }

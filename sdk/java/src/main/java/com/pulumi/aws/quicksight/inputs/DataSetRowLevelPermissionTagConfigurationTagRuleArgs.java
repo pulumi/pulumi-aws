@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class DataSetRowLevelPermissionTagConfigurationTagRuleArgs extends 
         }
 
         public DataSetRowLevelPermissionTagConfigurationTagRuleArgs build() {
-            $.columnName = Objects.requireNonNull($.columnName, "expected parameter 'columnName' to be non-null");
-            $.tagKey = Objects.requireNonNull($.tagKey, "expected parameter 'tagKey' to be non-null");
+            if ($.columnName == null) {
+                throw new MissingRequiredPropertyException("DataSetRowLevelPermissionTagConfigurationTagRuleArgs", "columnName");
+            }
+            if ($.tagKey == null) {
+                throw new MissingRequiredPropertyException("DataSetRowLevelPermissionTagConfigurationTagRuleArgs", "tagKey");
+            }
             return $;
         }
     }

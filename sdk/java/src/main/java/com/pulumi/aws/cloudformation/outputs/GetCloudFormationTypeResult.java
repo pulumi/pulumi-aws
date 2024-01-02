@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudformation.outputs;
 
 import com.pulumi.aws.cloudformation.outputs.GetCloudFormationTypeLoggingConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -231,47 +232,74 @@ public final class GetCloudFormationTypeResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder defaultVersionId(String defaultVersionId) {
-            this.defaultVersionId = Objects.requireNonNull(defaultVersionId);
+            if (defaultVersionId == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "defaultVersionId");
+            }
+            this.defaultVersionId = defaultVersionId;
             return this;
         }
         @CustomType.Setter
         public Builder deprecatedStatus(String deprecatedStatus) {
-            this.deprecatedStatus = Objects.requireNonNull(deprecatedStatus);
+            if (deprecatedStatus == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "deprecatedStatus");
+            }
+            this.deprecatedStatus = deprecatedStatus;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder documentationUrl(String documentationUrl) {
-            this.documentationUrl = Objects.requireNonNull(documentationUrl);
+            if (documentationUrl == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "documentationUrl");
+            }
+            this.documentationUrl = documentationUrl;
             return this;
         }
         @CustomType.Setter
         public Builder executionRoleArn(String executionRoleArn) {
-            this.executionRoleArn = Objects.requireNonNull(executionRoleArn);
+            if (executionRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "executionRoleArn");
+            }
+            this.executionRoleArn = executionRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder isDefaultVersion(Boolean isDefaultVersion) {
-            this.isDefaultVersion = Objects.requireNonNull(isDefaultVersion);
+            if (isDefaultVersion == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "isDefaultVersion");
+            }
+            this.isDefaultVersion = isDefaultVersion;
             return this;
         }
         @CustomType.Setter
         public Builder loggingConfigs(List<GetCloudFormationTypeLoggingConfig> loggingConfigs) {
-            this.loggingConfigs = Objects.requireNonNull(loggingConfigs);
+            if (loggingConfigs == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "loggingConfigs");
+            }
+            this.loggingConfigs = loggingConfigs;
             return this;
         }
         public Builder loggingConfigs(GetCloudFormationTypeLoggingConfig... loggingConfigs) {
@@ -279,42 +307,64 @@ public final class GetCloudFormationTypeResult {
         }
         @CustomType.Setter
         public Builder provisioningType(String provisioningType) {
-            this.provisioningType = Objects.requireNonNull(provisioningType);
+            if (provisioningType == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "provisioningType");
+            }
+            this.provisioningType = provisioningType;
             return this;
         }
         @CustomType.Setter
         public Builder schema(String schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         @CustomType.Setter
         public Builder sourceUrl(String sourceUrl) {
-            this.sourceUrl = Objects.requireNonNull(sourceUrl);
+            if (sourceUrl == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "sourceUrl");
+            }
+            this.sourceUrl = sourceUrl;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder typeArn(String typeArn) {
-            this.typeArn = Objects.requireNonNull(typeArn);
+            if (typeArn == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "typeArn");
+            }
+            this.typeArn = typeArn;
             return this;
         }
         @CustomType.Setter
         public Builder typeName(String typeName) {
-            this.typeName = Objects.requireNonNull(typeName);
+            if (typeName == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "typeName");
+            }
+            this.typeName = typeName;
             return this;
         }
         @CustomType.Setter
         public Builder versionId(@Nullable String versionId) {
+
             this.versionId = versionId;
             return this;
         }
         @CustomType.Setter
         public Builder visibility(String visibility) {
-            this.visibility = Objects.requireNonNull(visibility);
+            if (visibility == null) {
+              throw new MissingRequiredPropertyException("GetCloudFormationTypeResult", "visibility");
+            }
+            this.visibility = visibility;
             return this;
         }
         public GetCloudFormationTypeResult build() {

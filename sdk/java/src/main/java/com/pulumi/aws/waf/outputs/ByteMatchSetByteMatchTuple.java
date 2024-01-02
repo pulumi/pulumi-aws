@@ -5,6 +5,7 @@ package com.pulumi.aws.waf.outputs;
 
 import com.pulumi.aws.waf.outputs.ByteMatchSetByteMatchTupleFieldToMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -107,22 +108,32 @@ public final class ByteMatchSetByteMatchTuple {
 
         @CustomType.Setter
         public Builder fieldToMatch(ByteMatchSetByteMatchTupleFieldToMatch fieldToMatch) {
-            this.fieldToMatch = Objects.requireNonNull(fieldToMatch);
+            if (fieldToMatch == null) {
+              throw new MissingRequiredPropertyException("ByteMatchSetByteMatchTuple", "fieldToMatch");
+            }
+            this.fieldToMatch = fieldToMatch;
             return this;
         }
         @CustomType.Setter
         public Builder positionalConstraint(String positionalConstraint) {
-            this.positionalConstraint = Objects.requireNonNull(positionalConstraint);
+            if (positionalConstraint == null) {
+              throw new MissingRequiredPropertyException("ByteMatchSetByteMatchTuple", "positionalConstraint");
+            }
+            this.positionalConstraint = positionalConstraint;
             return this;
         }
         @CustomType.Setter
         public Builder targetString(@Nullable String targetString) {
+
             this.targetString = targetString;
             return this;
         }
         @CustomType.Setter
         public Builder textTransformation(String textTransformation) {
-            this.textTransformation = Objects.requireNonNull(textTransformation);
+            if (textTransformation == null) {
+              throw new MissingRequiredPropertyException("ByteMatchSetByteMatchTuple", "textTransformation");
+            }
+            this.textTransformation = textTransformation;
             return this;
         }
         public ByteMatchSetByteMatchTuple build() {

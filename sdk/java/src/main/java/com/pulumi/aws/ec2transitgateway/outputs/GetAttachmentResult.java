@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway.outputs;
 
 import com.pulumi.aws.ec2transitgateway.outputs.GetAttachmentFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -198,21 +199,31 @@ public final class GetAttachmentResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetAttachmentResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder associationState(String associationState) {
-            this.associationState = Objects.requireNonNull(associationState);
+            if (associationState == null) {
+              throw new MissingRequiredPropertyException("GetAttachmentResult", "associationState");
+            }
+            this.associationState = associationState;
             return this;
         }
         @CustomType.Setter
         public Builder associationTransitGatewayRouteTableId(String associationTransitGatewayRouteTableId) {
-            this.associationTransitGatewayRouteTableId = Objects.requireNonNull(associationTransitGatewayRouteTableId);
+            if (associationTransitGatewayRouteTableId == null) {
+              throw new MissingRequiredPropertyException("GetAttachmentResult", "associationTransitGatewayRouteTableId");
+            }
+            this.associationTransitGatewayRouteTableId = associationTransitGatewayRouteTableId;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetAttachmentFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -221,47 +232,74 @@ public final class GetAttachmentResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAttachmentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+            if (resourceId == null) {
+              throw new MissingRequiredPropertyException("GetAttachmentResult", "resourceId");
+            }
+            this.resourceId = resourceId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceOwnerId(String resourceOwnerId) {
-            this.resourceOwnerId = Objects.requireNonNull(resourceOwnerId);
+            if (resourceOwnerId == null) {
+              throw new MissingRequiredPropertyException("GetAttachmentResult", "resourceOwnerId");
+            }
+            this.resourceOwnerId = resourceOwnerId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceType(String resourceType) {
-            this.resourceType = Objects.requireNonNull(resourceType);
+            if (resourceType == null) {
+              throw new MissingRequiredPropertyException("GetAttachmentResult", "resourceType");
+            }
+            this.resourceType = resourceType;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetAttachmentResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAttachmentResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
-            this.transitGatewayAttachmentId = Objects.requireNonNull(transitGatewayAttachmentId);
+            if (transitGatewayAttachmentId == null) {
+              throw new MissingRequiredPropertyException("GetAttachmentResult", "transitGatewayAttachmentId");
+            }
+            this.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+            if (transitGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetAttachmentResult", "transitGatewayId");
+            }
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayOwnerId(String transitGatewayOwnerId) {
-            this.transitGatewayOwnerId = Objects.requireNonNull(transitGatewayOwnerId);
+            if (transitGatewayOwnerId == null) {
+              throw new MissingRequiredPropertyException("GetAttachmentResult", "transitGatewayOwnerId");
+            }
+            this.transitGatewayOwnerId = transitGatewayOwnerId;
             return this;
         }
         public GetAttachmentResult build() {

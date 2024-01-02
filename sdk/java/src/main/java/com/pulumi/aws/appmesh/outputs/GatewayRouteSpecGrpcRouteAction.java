@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecGrpcRouteActionTarget;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class GatewayRouteSpecGrpcRouteAction {
 
         @CustomType.Setter
         public Builder target(GatewayRouteSpecGrpcRouteActionTarget target) {
-            this.target = Objects.requireNonNull(target);
+            if (target == null) {
+              throw new MissingRequiredPropertyException("GatewayRouteSpecGrpcRouteAction", "target");
+            }
+            this.target = target;
             return this;
         }
         public GatewayRouteSpecGrpcRouteAction build() {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ses.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class EventDestinationCloudwatchDestination {
 
         @CustomType.Setter
         public Builder defaultValue(String defaultValue) {
-            this.defaultValue = Objects.requireNonNull(defaultValue);
+            if (defaultValue == null) {
+              throw new MissingRequiredPropertyException("EventDestinationCloudwatchDestination", "defaultValue");
+            }
+            this.defaultValue = defaultValue;
             return this;
         }
         @CustomType.Setter
         public Builder dimensionName(String dimensionName) {
-            this.dimensionName = Objects.requireNonNull(dimensionName);
+            if (dimensionName == null) {
+              throw new MissingRequiredPropertyException("EventDestinationCloudwatchDestination", "dimensionName");
+            }
+            this.dimensionName = dimensionName;
             return this;
         }
         @CustomType.Setter
         public Builder valueSource(String valueSource) {
-            this.valueSource = Objects.requireNonNull(valueSource);
+            if (valueSource == null) {
+              throw new MissingRequiredPropertyException("EventDestinationCloudwatchDestination", "valueSource");
+            }
+            this.valueSource = valueSource;
             return this;
         }
         public EventDestinationCloudwatchDestination build() {

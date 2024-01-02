@@ -132,6 +132,7 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
 
         @CustomType.Setter
         public Builder containerOverrides(@Nullable List<PipeTargetParametersEcsTaskParametersOverridesContainerOverride> containerOverrides) {
+
             this.containerOverrides = containerOverrides;
             return this;
         }
@@ -140,21 +141,25 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
         }
         @CustomType.Setter
         public Builder cpu(@Nullable String cpu) {
+
             this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
         public Builder ephemeralStorage(@Nullable PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage ephemeralStorage) {
+
             this.ephemeralStorage = ephemeralStorage;
             return this;
         }
         @CustomType.Setter
         public Builder executionRoleArn(@Nullable String executionRoleArn) {
+
             this.executionRoleArn = executionRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder inferenceAcceleratorOverrides(@Nullable List<PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides) {
+
             this.inferenceAcceleratorOverrides = inferenceAcceleratorOverrides;
             return this;
         }
@@ -163,11 +168,13 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
         }
         @CustomType.Setter
         public Builder memory(@Nullable String memory) {
+
             this.memory = memory;
             return this;
         }
         @CustomType.Setter
         public Builder taskRoleArn(@Nullable String taskRoleArn) {
+
             this.taskRoleArn = taskRoleArn;
             return this;
         }

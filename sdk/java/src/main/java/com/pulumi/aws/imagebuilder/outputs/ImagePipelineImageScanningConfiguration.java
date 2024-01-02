@@ -59,11 +59,13 @@ public final class ImagePipelineImageScanningConfiguration {
 
         @CustomType.Setter
         public Builder ecrConfiguration(@Nullable ImagePipelineImageScanningConfigurationEcrConfiguration ecrConfiguration) {
+
             this.ecrConfiguration = ecrConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder imageScanningEnabled(@Nullable Boolean imageScanningEnabled) {
+
             this.imageScanningEnabled = imageScanningEnabled;
             return this;
         }

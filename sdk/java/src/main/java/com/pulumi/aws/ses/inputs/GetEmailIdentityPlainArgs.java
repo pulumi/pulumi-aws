@@ -4,6 +4,7 @@
 package com.pulumi.aws.ses.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetEmailIdentityPlainArgs extends com.pulumi.resources.Invoke
         }
 
         public GetEmailIdentityPlainArgs build() {
-            $.email = Objects.requireNonNull($.email, "expected parameter 'email' to be non-null");
+            if ($.email == null) {
+                throw new MissingRequiredPropertyException("GetEmailIdentityPlainArgs", "email");
+            }
             return $;
         }
     }

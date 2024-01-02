@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -251,8 +252,12 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
         }
 
         public CrawlerCatalogTargetArgs build() {
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.tables = Objects.requireNonNull($.tables, "expected parameter 'tables' to be non-null");
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("CrawlerCatalogTargetArgs", "databaseName");
+            }
+            if ($.tables == null) {
+                throw new MissingRequiredPropertyException("CrawlerCatalogTargetArgs", "tables");
+            }
             return $;
         }
     }

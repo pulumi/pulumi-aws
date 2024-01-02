@@ -5,6 +5,7 @@ package com.pulumi.aws.mskconnect.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -132,8 +133,12 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpcArgs extends com.pu
         }
 
         public ConnectorKafkaClusterApacheKafkaClusterVpcArgs build() {
-            $.securityGroups = Objects.requireNonNull($.securityGroups, "expected parameter 'securityGroups' to be non-null");
-            $.subnets = Objects.requireNonNull($.subnets, "expected parameter 'subnets' to be non-null");
+            if ($.securityGroups == null) {
+                throw new MissingRequiredPropertyException("ConnectorKafkaClusterApacheKafkaClusterVpcArgs", "securityGroups");
+            }
+            if ($.subnets == null) {
+                throw new MissingRequiredPropertyException("ConnectorKafkaClusterApacheKafkaClusterVpcArgs", "subnets");
+            }
             return $;
         }
     }

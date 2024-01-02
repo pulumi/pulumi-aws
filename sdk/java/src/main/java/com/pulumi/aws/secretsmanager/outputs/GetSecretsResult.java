@@ -5,6 +5,7 @@ package com.pulumi.aws.secretsmanager.outputs;
 
 import com.pulumi.aws.secretsmanager.outputs.GetSecretsFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -79,7 +80,10 @@ public final class GetSecretsResult {
 
         @CustomType.Setter
         public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+            if (arns == null) {
+              throw new MissingRequiredPropertyException("GetSecretsResult", "arns");
+            }
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -87,6 +91,7 @@ public final class GetSecretsResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetSecretsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -95,12 +100,18 @@ public final class GetSecretsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSecretsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+            if (names == null) {
+              throw new MissingRequiredPropertyException("GetSecretsResult", "names");
+            }
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {

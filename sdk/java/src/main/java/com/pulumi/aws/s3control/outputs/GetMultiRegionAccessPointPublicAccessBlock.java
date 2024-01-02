@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3control.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -96,22 +97,34 @@ public final class GetMultiRegionAccessPointPublicAccessBlock {
 
         @CustomType.Setter
         public Builder blockPublicAcls(Boolean blockPublicAcls) {
-            this.blockPublicAcls = Objects.requireNonNull(blockPublicAcls);
+            if (blockPublicAcls == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointPublicAccessBlock", "blockPublicAcls");
+            }
+            this.blockPublicAcls = blockPublicAcls;
             return this;
         }
         @CustomType.Setter
         public Builder blockPublicPolicy(Boolean blockPublicPolicy) {
-            this.blockPublicPolicy = Objects.requireNonNull(blockPublicPolicy);
+            if (blockPublicPolicy == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointPublicAccessBlock", "blockPublicPolicy");
+            }
+            this.blockPublicPolicy = blockPublicPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder ignorePublicAcls(Boolean ignorePublicAcls) {
-            this.ignorePublicAcls = Objects.requireNonNull(ignorePublicAcls);
+            if (ignorePublicAcls == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointPublicAccessBlock", "ignorePublicAcls");
+            }
+            this.ignorePublicAcls = ignorePublicAcls;
             return this;
         }
         @CustomType.Setter
         public Builder restrictPublicBuckets(Boolean restrictPublicBuckets) {
-            this.restrictPublicBuckets = Objects.requireNonNull(restrictPublicBuckets);
+            if (restrictPublicBuckets == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointPublicAccessBlock", "restrictPublicBuckets");
+            }
+            this.restrictPublicBuckets = restrictPublicBuckets;
             return this;
         }
         public GetMultiRegionAccessPointPublicAccessBlock build() {

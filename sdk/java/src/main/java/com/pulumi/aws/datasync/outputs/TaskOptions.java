@@ -241,76 +241,91 @@ public final class TaskOptions {
 
         @CustomType.Setter
         public Builder atime(@Nullable String atime) {
+
             this.atime = atime;
             return this;
         }
         @CustomType.Setter
         public Builder bytesPerSecond(@Nullable Integer bytesPerSecond) {
+
             this.bytesPerSecond = bytesPerSecond;
             return this;
         }
         @CustomType.Setter
         public Builder gid(@Nullable String gid) {
+
             this.gid = gid;
             return this;
         }
         @CustomType.Setter
         public Builder logLevel(@Nullable String logLevel) {
+
             this.logLevel = logLevel;
             return this;
         }
         @CustomType.Setter
         public Builder mtime(@Nullable String mtime) {
+
             this.mtime = mtime;
             return this;
         }
         @CustomType.Setter
         public Builder objectTags(@Nullable String objectTags) {
+
             this.objectTags = objectTags;
             return this;
         }
         @CustomType.Setter
         public Builder overwriteMode(@Nullable String overwriteMode) {
+
             this.overwriteMode = overwriteMode;
             return this;
         }
         @CustomType.Setter
         public Builder posixPermissions(@Nullable String posixPermissions) {
+
             this.posixPermissions = posixPermissions;
             return this;
         }
         @CustomType.Setter
         public Builder preserveDeletedFiles(@Nullable String preserveDeletedFiles) {
+
             this.preserveDeletedFiles = preserveDeletedFiles;
             return this;
         }
         @CustomType.Setter
         public Builder preserveDevices(@Nullable String preserveDevices) {
+
             this.preserveDevices = preserveDevices;
             return this;
         }
         @CustomType.Setter
         public Builder securityDescriptorCopyFlags(@Nullable String securityDescriptorCopyFlags) {
+
             this.securityDescriptorCopyFlags = securityDescriptorCopyFlags;
             return this;
         }
         @CustomType.Setter
         public Builder taskQueueing(@Nullable String taskQueueing) {
+
             this.taskQueueing = taskQueueing;
             return this;
         }
         @CustomType.Setter
         public Builder transferMode(@Nullable String transferMode) {
+
             this.transferMode = transferMode;
             return this;
         }
         @CustomType.Setter
         public Builder uid(@Nullable String uid) {
+
             this.uid = uid;
             return this;
         }
         @CustomType.Setter
         public Builder verifyMode(@Nullable String verifyMode) {
+
             this.verifyMode = verifyMode;
             return this;
         }

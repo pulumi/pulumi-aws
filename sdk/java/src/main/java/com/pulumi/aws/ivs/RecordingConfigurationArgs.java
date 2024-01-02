@@ -7,6 +7,7 @@ import com.pulumi.aws.ivs.inputs.RecordingConfigurationDestinationConfigurationA
 import com.pulumi.aws.ivs.inputs.RecordingConfigurationThumbnailConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -228,7 +229,9 @@ public final class RecordingConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         public RecordingConfigurationArgs build() {
-            $.destinationConfiguration = Objects.requireNonNull($.destinationConfiguration, "expected parameter 'destinationConfiguration' to be non-null");
+            if ($.destinationConfiguration == null) {
+                throw new MissingRequiredPropertyException("RecordingConfigurationArgs", "destinationConfiguration");
+            }
             return $;
         }
     }

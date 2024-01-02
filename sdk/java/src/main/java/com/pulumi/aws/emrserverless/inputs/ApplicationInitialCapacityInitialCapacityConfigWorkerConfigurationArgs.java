@@ -5,6 +5,7 @@ package com.pulumi.aws.emrserverless.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigur
         }
 
         public ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs build() {
-            $.cpu = Objects.requireNonNull($.cpu, "expected parameter 'cpu' to be non-null");
-            $.memory = Objects.requireNonNull($.memory, "expected parameter 'memory' to be non-null");
+            if ($.cpu == null) {
+                throw new MissingRequiredPropertyException("ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs", "cpu");
+            }
+            if ($.memory == null) {
+                throw new MissingRequiredPropertyException("ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs", "memory");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -95,17 +96,22 @@ public final class PolicyStepAdjustment {
 
         @CustomType.Setter
         public Builder metricIntervalLowerBound(@Nullable String metricIntervalLowerBound) {
+
             this.metricIntervalLowerBound = metricIntervalLowerBound;
             return this;
         }
         @CustomType.Setter
         public Builder metricIntervalUpperBound(@Nullable String metricIntervalUpperBound) {
+
             this.metricIntervalUpperBound = metricIntervalUpperBound;
             return this;
         }
         @CustomType.Setter
         public Builder scalingAdjustment(Integer scalingAdjustment) {
-            this.scalingAdjustment = Objects.requireNonNull(scalingAdjustment);
+            if (scalingAdjustment == null) {
+              throw new MissingRequiredPropertyException("PolicyStepAdjustment", "scalingAdjustment");
+            }
+            this.scalingAdjustment = scalingAdjustment;
             return this;
         }
         public PolicyStepAdjustment build() {
