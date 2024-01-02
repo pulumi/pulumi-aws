@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class FlowDefinitionHumanLoopActivationConfigHumanLoopActivationCon
 
         @CustomType.Setter
         public Builder humanLoopActivationConditions(String humanLoopActivationConditions) {
-            this.humanLoopActivationConditions = Objects.requireNonNull(humanLoopActivationConditions);
+            if (humanLoopActivationConditions == null) {
+              throw new MissingRequiredPropertyException("FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig", "humanLoopActivationConditions");
+            }
+            this.humanLoopActivationConditions = humanLoopActivationConditions;
             return this;
         }
         public FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig build() {

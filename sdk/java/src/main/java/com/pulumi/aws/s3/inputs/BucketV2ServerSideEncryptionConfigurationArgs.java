@@ -6,6 +6,7 @@ package com.pulumi.aws.s3.inputs;
 import com.pulumi.aws.s3.inputs.BucketV2ServerSideEncryptionConfigurationRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,7 +86,9 @@ public final class BucketV2ServerSideEncryptionConfigurationArgs extends com.pul
         }
 
         public BucketV2ServerSideEncryptionConfigurationArgs build() {
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("BucketV2ServerSideEncryptionConfigurationArgs", "rules");
+            }
             return $;
         }
     }

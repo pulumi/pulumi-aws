@@ -44,6 +44,7 @@ public final class VirtualNodeSpecLogging {
 
         @CustomType.Setter
         public Builder accessLog(@Nullable VirtualNodeSpecLoggingAccessLog accessLog) {
+
             this.accessLog = accessLog;
             return this;
         }

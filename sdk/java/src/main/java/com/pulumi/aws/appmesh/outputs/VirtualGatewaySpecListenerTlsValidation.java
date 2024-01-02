@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames;
 import com.pulumi.aws.appmesh.outputs.VirtualGatewaySpecListenerTlsValidationTrust;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -59,12 +60,16 @@ public final class VirtualGatewaySpecListenerTlsValidation {
 
         @CustomType.Setter
         public Builder subjectAlternativeNames(@Nullable VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames subjectAlternativeNames) {
+
             this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
         @CustomType.Setter
         public Builder trust(VirtualGatewaySpecListenerTlsValidationTrust trust) {
-            this.trust = Objects.requireNonNull(trust);
+            if (trust == null) {
+              throw new MissingRequiredPropertyException("VirtualGatewaySpecListenerTlsValidation", "trust");
+            }
+            this.trust = trust;
             return this;
         }
         public VirtualGatewaySpecListenerTlsValidation build() {

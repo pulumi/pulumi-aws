@@ -4,6 +4,7 @@
 package com.pulumi.aws.outposts.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -167,62 +168,96 @@ public final class GetOutpostResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetOutpostResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+            if (availabilityZone == null) {
+              throw new MissingRequiredPropertyException("GetOutpostResult", "availabilityZone");
+            }
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZoneId(String availabilityZoneId) {
-            this.availabilityZoneId = Objects.requireNonNull(availabilityZoneId);
+            if (availabilityZoneId == null) {
+              throw new MissingRequiredPropertyException("GetOutpostResult", "availabilityZoneId");
+            }
+            this.availabilityZoneId = availabilityZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetOutpostResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOutpostResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleStatus(String lifecycleStatus) {
-            this.lifecycleStatus = Objects.requireNonNull(lifecycleStatus);
+            if (lifecycleStatus == null) {
+              throw new MissingRequiredPropertyException("GetOutpostResult", "lifecycleStatus");
+            }
+            this.lifecycleStatus = lifecycleStatus;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetOutpostResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(@Nullable String ownerId) {
+
             this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder siteArn(String siteArn) {
-            this.siteArn = Objects.requireNonNull(siteArn);
+            if (siteArn == null) {
+              throw new MissingRequiredPropertyException("GetOutpostResult", "siteArn");
+            }
+            this.siteArn = siteArn;
             return this;
         }
         @CustomType.Setter
         public Builder siteId(String siteId) {
-            this.siteId = Objects.requireNonNull(siteId);
+            if (siteId == null) {
+              throw new MissingRequiredPropertyException("GetOutpostResult", "siteId");
+            }
+            this.siteId = siteId;
             return this;
         }
         @CustomType.Setter
         public Builder supportedHardwareType(String supportedHardwareType) {
-            this.supportedHardwareType = Objects.requireNonNull(supportedHardwareType);
+            if (supportedHardwareType == null) {
+              throw new MissingRequiredPropertyException("GetOutpostResult", "supportedHardwareType");
+            }
+            this.supportedHardwareType = supportedHardwareType;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetOutpostResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetOutpostResult build() {

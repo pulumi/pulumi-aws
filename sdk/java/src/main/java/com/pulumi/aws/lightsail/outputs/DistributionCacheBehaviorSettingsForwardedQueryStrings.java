@@ -60,11 +60,13 @@ public final class DistributionCacheBehaviorSettingsForwardedQueryStrings {
 
         @CustomType.Setter
         public Builder option(@Nullable Boolean option) {
+
             this.option = option;
             return this;
         }
         @CustomType.Setter
         public Builder queryStringsAllowedLists(@Nullable List<String> queryStringsAllowedLists) {
+
             this.queryStringsAllowedLists = queryStringsAllowedLists;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.efs;
 import com.pulumi.aws.efs.inputs.BackupPolicyBackupPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class BackupPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BackupPolicyArgs build() {
-            $.backupPolicy = Objects.requireNonNull($.backupPolicy, "expected parameter 'backupPolicy' to be non-null");
-            $.fileSystemId = Objects.requireNonNull($.fileSystemId, "expected parameter 'fileSystemId' to be non-null");
+            if ($.backupPolicy == null) {
+                throw new MissingRequiredPropertyException("BackupPolicyArgs", "backupPolicy");
+            }
+            if ($.fileSystemId == null) {
+                throw new MissingRequiredPropertyException("BackupPolicyArgs", "fileSystemId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.costexplorer.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AnomalySubscriptionSubscriberArgs extends com.pulumi.resource
         }
 
         public AnomalySubscriptionSubscriberArgs build() {
-            $.address = Objects.requireNonNull($.address, "expected parameter 'address' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.address == null) {
+                throw new MissingRequiredPropertyException("AnomalySubscriptionSubscriberArgs", "address");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("AnomalySubscriptionSubscriberArgs", "type");
+            }
             return $;
         }
     }

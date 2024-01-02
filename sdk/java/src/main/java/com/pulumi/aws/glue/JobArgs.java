@@ -8,6 +8,7 @@ import com.pulumi.aws.glue.inputs.JobExecutionPropertyArgs;
 import com.pulumi.aws.glue.inputs.JobNotificationPropertyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -742,8 +743,12 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public JobArgs build() {
-            $.command = Objects.requireNonNull($.command, "expected parameter 'command' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.command == null) {
+                throw new MissingRequiredPropertyException("JobArgs", "command");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("JobArgs", "roleArn");
+            }
             return $;
         }
     }

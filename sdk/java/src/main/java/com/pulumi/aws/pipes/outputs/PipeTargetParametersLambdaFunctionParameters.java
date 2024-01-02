@@ -4,6 +4,7 @@
 package com.pulumi.aws.pipes.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class PipeTargetParametersLambdaFunctionParameters {
 
         @CustomType.Setter
         public Builder invocationType(String invocationType) {
-            this.invocationType = Objects.requireNonNull(invocationType);
+            if (invocationType == null) {
+              throw new MissingRequiredPropertyException("PipeTargetParametersLambdaFunctionParameters", "invocationType");
+            }
+            this.invocationType = invocationType;
             return this;
         }
         public PipeTargetParametersLambdaFunctionParameters build() {

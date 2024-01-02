@@ -4,6 +4,7 @@
 package com.pulumi.aws.cfg.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -78,11 +79,13 @@ public final class ConfigurationAggregatorOrganizationAggregationSource {
 
         @CustomType.Setter
         public Builder allRegions(@Nullable Boolean allRegions) {
+
             this.allRegions = allRegions;
             return this;
         }
         @CustomType.Setter
         public Builder regions(@Nullable List<String> regions) {
+
             this.regions = regions;
             return this;
         }
@@ -91,7 +94,10 @@ public final class ConfigurationAggregatorOrganizationAggregationSource {
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("ConfigurationAggregatorOrganizationAggregationSource", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         public ConfigurationAggregatorOrganizationAggregationSource build() {

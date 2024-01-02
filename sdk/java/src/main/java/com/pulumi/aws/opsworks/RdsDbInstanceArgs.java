@@ -5,6 +5,7 @@ package com.pulumi.aws.opsworks;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class RdsDbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RdsDbInstanceArgs build() {
-            $.dbPassword = Objects.requireNonNull($.dbPassword, "expected parameter 'dbPassword' to be non-null");
-            $.dbUser = Objects.requireNonNull($.dbUser, "expected parameter 'dbUser' to be non-null");
-            $.rdsDbInstanceArn = Objects.requireNonNull($.rdsDbInstanceArn, "expected parameter 'rdsDbInstanceArn' to be non-null");
-            $.stackId = Objects.requireNonNull($.stackId, "expected parameter 'stackId' to be non-null");
+            if ($.dbPassword == null) {
+                throw new MissingRequiredPropertyException("RdsDbInstanceArgs", "dbPassword");
+            }
+            if ($.dbUser == null) {
+                throw new MissingRequiredPropertyException("RdsDbInstanceArgs", "dbUser");
+            }
+            if ($.rdsDbInstanceArn == null) {
+                throw new MissingRequiredPropertyException("RdsDbInstanceArgs", "rdsDbInstanceArn");
+            }
+            if ($.stackId == null) {
+                throw new MissingRequiredPropertyException("RdsDbInstanceArgs", "stackId");
+            }
             return $;
         }
     }

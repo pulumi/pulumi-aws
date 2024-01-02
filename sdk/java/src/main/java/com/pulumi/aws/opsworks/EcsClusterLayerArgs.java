@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.inputs.EcsClusterLayerEbsVolumeArgs;
 import com.pulumi.aws.opsworks.inputs.EcsClusterLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -860,8 +861,12 @@ public final class EcsClusterLayerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public EcsClusterLayerArgs build() {
-            $.ecsClusterArn = Objects.requireNonNull($.ecsClusterArn, "expected parameter 'ecsClusterArn' to be non-null");
-            $.stackId = Objects.requireNonNull($.stackId, "expected parameter 'stackId' to be non-null");
+            if ($.ecsClusterArn == null) {
+                throw new MissingRequiredPropertyException("EcsClusterLayerArgs", "ecsClusterArn");
+            }
+            if ($.stackId == null) {
+                throw new MissingRequiredPropertyException("EcsClusterLayerArgs", "stackId");
+            }
             return $;
         }
     }

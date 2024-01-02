@@ -7,6 +7,7 @@ import com.pulumi.aws.ec2.enums.ProtocolType;
 import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -521,11 +522,21 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         public SecurityGroupRuleArgs build() {
-            $.fromPort = Objects.requireNonNull($.fromPort, "expected parameter 'fromPort' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.securityGroupId = Objects.requireNonNull($.securityGroupId, "expected parameter 'securityGroupId' to be non-null");
-            $.toPort = Objects.requireNonNull($.toPort, "expected parameter 'toPort' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.fromPort == null) {
+                throw new MissingRequiredPropertyException("SecurityGroupRuleArgs", "fromPort");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("SecurityGroupRuleArgs", "protocol");
+            }
+            if ($.securityGroupId == null) {
+                throw new MissingRequiredPropertyException("SecurityGroupRuleArgs", "securityGroupId");
+            }
+            if ($.toPort == null) {
+                throw new MissingRequiredPropertyException("SecurityGroupRuleArgs", "toPort");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("SecurityGroupRuleArgs", "type");
+            }
             return $;
         }
     }

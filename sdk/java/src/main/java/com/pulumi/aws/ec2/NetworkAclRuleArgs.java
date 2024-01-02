@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -472,10 +473,18 @@ public final class NetworkAclRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public NetworkAclRuleArgs build() {
-            $.networkAclId = Objects.requireNonNull($.networkAclId, "expected parameter 'networkAclId' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.ruleAction = Objects.requireNonNull($.ruleAction, "expected parameter 'ruleAction' to be non-null");
-            $.ruleNumber = Objects.requireNonNull($.ruleNumber, "expected parameter 'ruleNumber' to be non-null");
+            if ($.networkAclId == null) {
+                throw new MissingRequiredPropertyException("NetworkAclRuleArgs", "networkAclId");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("NetworkAclRuleArgs", "protocol");
+            }
+            if ($.ruleAction == null) {
+                throw new MissingRequiredPropertyException("NetworkAclRuleArgs", "ruleAction");
+            }
+            if ($.ruleNumber == null) {
+                throw new MissingRequiredPropertyException("NetworkAclRuleArgs", "ruleNumber");
+            }
             return $;
         }
     }

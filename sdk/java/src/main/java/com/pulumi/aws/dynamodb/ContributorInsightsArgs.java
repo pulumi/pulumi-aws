@@ -5,6 +5,7 @@ package com.pulumi.aws.dynamodb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class ContributorInsightsArgs extends com.pulumi.resources.Resource
         }
 
         public ContributorInsightsArgs build() {
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("ContributorInsightsArgs", "tableName");
+            }
             return $;
         }
     }

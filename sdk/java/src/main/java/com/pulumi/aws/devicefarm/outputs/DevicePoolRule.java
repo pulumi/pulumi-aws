@@ -72,16 +72,19 @@ public final class DevicePoolRule {
 
         @CustomType.Setter
         public Builder attribute(@Nullable String attribute) {
+
             this.attribute = attribute;
             return this;
         }
         @CustomType.Setter
         public Builder operator(@Nullable String operator) {
+
             this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

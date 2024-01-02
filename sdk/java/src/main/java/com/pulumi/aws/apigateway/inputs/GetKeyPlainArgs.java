@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -93,7 +94,9 @@ public final class GetKeyPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetKeyPlainArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("GetKeyPlainArgs", "id");
+            }
             return $;
         }
     }

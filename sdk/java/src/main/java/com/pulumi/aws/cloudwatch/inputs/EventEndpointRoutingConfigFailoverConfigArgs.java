@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigFailoverConfig
 import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigFailoverConfigSecondaryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -112,8 +113,12 @@ public final class EventEndpointRoutingConfigFailoverConfigArgs extends com.pulu
         }
 
         public EventEndpointRoutingConfigFailoverConfigArgs build() {
-            $.primary = Objects.requireNonNull($.primary, "expected parameter 'primary' to be non-null");
-            $.secondary = Objects.requireNonNull($.secondary, "expected parameter 'secondary' to be non-null");
+            if ($.primary == null) {
+                throw new MissingRequiredPropertyException("EventEndpointRoutingConfigFailoverConfigArgs", "primary");
+            }
+            if ($.secondary == null) {
+                throw new MissingRequiredPropertyException("EventEndpointRoutingConfigFailoverConfigArgs", "secondary");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecTcpRouteTimeoutIdle;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,7 +36,10 @@ public final class GetRouteSpecTcpRouteTimeout {
 
         @CustomType.Setter
         public Builder idles(List<GetRouteSpecTcpRouteTimeoutIdle> idles) {
-            this.idles = Objects.requireNonNull(idles);
+            if (idles == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecTcpRouteTimeout", "idles");
+            }
+            this.idles = idles;
             return this;
         }
         public Builder idles(GetRouteSpecTcpRouteTimeoutIdle... idles) {

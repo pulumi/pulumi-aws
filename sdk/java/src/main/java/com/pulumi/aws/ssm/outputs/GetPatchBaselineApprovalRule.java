@@ -5,6 +5,7 @@ package com.pulumi.aws.ssm.outputs;
 
 import com.pulumi.aws.ssm.outputs.GetPatchBaselineApprovalRulePatchFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -102,27 +103,42 @@ public final class GetPatchBaselineApprovalRule {
 
         @CustomType.Setter
         public Builder approveAfterDays(Integer approveAfterDays) {
-            this.approveAfterDays = Objects.requireNonNull(approveAfterDays);
+            if (approveAfterDays == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineApprovalRule", "approveAfterDays");
+            }
+            this.approveAfterDays = approveAfterDays;
             return this;
         }
         @CustomType.Setter
         public Builder approveUntilDate(String approveUntilDate) {
-            this.approveUntilDate = Objects.requireNonNull(approveUntilDate);
+            if (approveUntilDate == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineApprovalRule", "approveUntilDate");
+            }
+            this.approveUntilDate = approveUntilDate;
             return this;
         }
         @CustomType.Setter
         public Builder complianceLevel(String complianceLevel) {
-            this.complianceLevel = Objects.requireNonNull(complianceLevel);
+            if (complianceLevel == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineApprovalRule", "complianceLevel");
+            }
+            this.complianceLevel = complianceLevel;
             return this;
         }
         @CustomType.Setter
         public Builder enableNonSecurity(Boolean enableNonSecurity) {
-            this.enableNonSecurity = Objects.requireNonNull(enableNonSecurity);
+            if (enableNonSecurity == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineApprovalRule", "enableNonSecurity");
+            }
+            this.enableNonSecurity = enableNonSecurity;
             return this;
         }
         @CustomType.Setter
         public Builder patchFilters(List<GetPatchBaselineApprovalRulePatchFilter> patchFilters) {
-            this.patchFilters = Objects.requireNonNull(patchFilters);
+            if (patchFilters == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineApprovalRule", "patchFilters");
+            }
+            this.patchFilters = patchFilters;
             return this;
         }
         public Builder patchFilters(GetPatchBaselineApprovalRulePatchFilter... patchFilters) {

@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ImageRecipeSystemsManagerAgentArgs extends com.pulumi.resourc
         }
 
         public ImageRecipeSystemsManagerAgentArgs build() {
-            $.uninstallAfterBuild = Objects.requireNonNull($.uninstallAfterBuild, "expected parameter 'uninstallAfterBuild' to be non-null");
+            if ($.uninstallAfterBuild == null) {
+                throw new MissingRequiredPropertyException("ImageRecipeSystemsManagerAgentArgs", "uninstallAfterBuild");
+            }
             return $;
         }
     }

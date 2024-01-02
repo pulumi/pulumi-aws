@@ -5,6 +5,7 @@ package com.pulumi.aws.apigatewayv2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class ApiMappingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApiMappingArgs build() {
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.stage = Objects.requireNonNull($.stage, "expected parameter 'stage' to be non-null");
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("ApiMappingArgs", "apiId");
+            }
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("ApiMappingArgs", "domainName");
+            }
+            if ($.stage == null) {
+                throw new MissingRequiredPropertyException("ApiMappingArgs", "stage");
+            }
             return $;
         }
     }

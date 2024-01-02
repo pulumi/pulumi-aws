@@ -6,6 +6,7 @@ package com.pulumi.aws.elasticsearch.inputs;
 import com.pulumi.aws.elasticsearch.inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -151,7 +152,9 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
         }
 
         public DomainAdvancedSecurityOptionsArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("DomainAdvancedSecurityOptionsArgs", "enabled");
+            }
             return $;
         }
     }

@@ -333,236 +333,283 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
 
         @CustomType.Setter
         public Builder absentInputAudioBehavior(@Nullable String absentInputAudioBehavior) {
+
             this.absentInputAudioBehavior = absentInputAudioBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder arib(@Nullable String arib) {
+
             this.arib = arib;
             return this;
         }
         @CustomType.Setter
         public Builder aribCaptionsPid(@Nullable String aribCaptionsPid) {
+
             this.aribCaptionsPid = aribCaptionsPid;
             return this;
         }
         @CustomType.Setter
         public Builder aribCaptionsPidControl(@Nullable String aribCaptionsPidControl) {
+
             this.aribCaptionsPidControl = aribCaptionsPidControl;
             return this;
         }
         @CustomType.Setter
         public Builder audioBufferModel(@Nullable String audioBufferModel) {
+
             this.audioBufferModel = audioBufferModel;
             return this;
         }
         @CustomType.Setter
         public Builder audioFramesPerPes(@Nullable Integer audioFramesPerPes) {
+
             this.audioFramesPerPes = audioFramesPerPes;
             return this;
         }
         @CustomType.Setter
         public Builder audioPids(@Nullable String audioPids) {
+
             this.audioPids = audioPids;
             return this;
         }
         @CustomType.Setter
         public Builder audioStreamType(@Nullable String audioStreamType) {
+
             this.audioStreamType = audioStreamType;
             return this;
         }
         @CustomType.Setter
         public Builder bitrate(@Nullable Integer bitrate) {
+
             this.bitrate = bitrate;
             return this;
         }
         @CustomType.Setter
         public Builder bufferModel(@Nullable String bufferModel) {
+
             this.bufferModel = bufferModel;
             return this;
         }
         @CustomType.Setter
         public Builder ccDescriptor(@Nullable String ccDescriptor) {
+
             this.ccDescriptor = ccDescriptor;
             return this;
         }
         @CustomType.Setter
         public Builder dvbNitSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings dvbNitSettings) {
+
             this.dvbNitSettings = dvbNitSettings;
             return this;
         }
         @CustomType.Setter
         public Builder dvbSdtSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings dvbSdtSettings) {
+
             this.dvbSdtSettings = dvbSdtSettings;
             return this;
         }
         @CustomType.Setter
         public Builder dvbSubPids(@Nullable String dvbSubPids) {
+
             this.dvbSubPids = dvbSubPids;
             return this;
         }
         @CustomType.Setter
         public Builder dvbTdtSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings dvbTdtSettings) {
+
             this.dvbTdtSettings = dvbTdtSettings;
             return this;
         }
         @CustomType.Setter
         public Builder dvbTeletextPid(@Nullable String dvbTeletextPid) {
+
             this.dvbTeletextPid = dvbTeletextPid;
             return this;
         }
         @CustomType.Setter
         public Builder ebif(@Nullable String ebif) {
+
             this.ebif = ebif;
             return this;
         }
         @CustomType.Setter
         public Builder ebpAudioInterval(@Nullable String ebpAudioInterval) {
+
             this.ebpAudioInterval = ebpAudioInterval;
             return this;
         }
         @CustomType.Setter
         public Builder ebpLookaheadMs(@Nullable Integer ebpLookaheadMs) {
+
             this.ebpLookaheadMs = ebpLookaheadMs;
             return this;
         }
         @CustomType.Setter
         public Builder ebpPlacement(@Nullable String ebpPlacement) {
+
             this.ebpPlacement = ebpPlacement;
             return this;
         }
         @CustomType.Setter
         public Builder ecmPid(@Nullable String ecmPid) {
+
             this.ecmPid = ecmPid;
             return this;
         }
         @CustomType.Setter
         public Builder esRateInPes(@Nullable String esRateInPes) {
+
             this.esRateInPes = esRateInPes;
             return this;
         }
         @CustomType.Setter
         public Builder etvPlatformPid(@Nullable String etvPlatformPid) {
+
             this.etvPlatformPid = etvPlatformPid;
             return this;
         }
         @CustomType.Setter
         public Builder etvSignalPid(@Nullable String etvSignalPid) {
+
             this.etvSignalPid = etvSignalPid;
             return this;
         }
         @CustomType.Setter
         public Builder fragmentTime(@Nullable Double fragmentTime) {
+
             this.fragmentTime = fragmentTime;
             return this;
         }
         @CustomType.Setter
         public Builder klv(@Nullable String klv) {
+
             this.klv = klv;
             return this;
         }
         @CustomType.Setter
         public Builder klvDataPids(@Nullable String klvDataPids) {
+
             this.klvDataPids = klvDataPids;
             return this;
         }
         @CustomType.Setter
         public Builder nielsenId3Behavior(@Nullable String nielsenId3Behavior) {
+
             this.nielsenId3Behavior = nielsenId3Behavior;
             return this;
         }
         @CustomType.Setter
         public Builder nullPacketBitrate(@Nullable Double nullPacketBitrate) {
+
             this.nullPacketBitrate = nullPacketBitrate;
             return this;
         }
         @CustomType.Setter
         public Builder patInterval(@Nullable Integer patInterval) {
+
             this.patInterval = patInterval;
             return this;
         }
         @CustomType.Setter
         public Builder pcrControl(@Nullable String pcrControl) {
+
             this.pcrControl = pcrControl;
             return this;
         }
         @CustomType.Setter
         public Builder pcrPeriod(@Nullable Integer pcrPeriod) {
+
             this.pcrPeriod = pcrPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder pcrPid(@Nullable String pcrPid) {
+
             this.pcrPid = pcrPid;
             return this;
         }
         @CustomType.Setter
         public Builder pmtInterval(@Nullable Integer pmtInterval) {
+
             this.pmtInterval = pmtInterval;
             return this;
         }
         @CustomType.Setter
         public Builder pmtPid(@Nullable String pmtPid) {
+
             this.pmtPid = pmtPid;
             return this;
         }
         @CustomType.Setter
         public Builder programNum(@Nullable Integer programNum) {
+
             this.programNum = programNum;
             return this;
         }
         @CustomType.Setter
         public Builder rateMode(@Nullable String rateMode) {
+
             this.rateMode = rateMode;
             return this;
         }
         @CustomType.Setter
         public Builder scte27Pids(@Nullable String scte27Pids) {
+
             this.scte27Pids = scte27Pids;
             return this;
         }
         @CustomType.Setter
         public Builder scte35Control(@Nullable String scte35Control) {
+
             this.scte35Control = scte35Control;
             return this;
         }
         @CustomType.Setter
         public Builder scte35Pid(@Nullable String scte35Pid) {
+
             this.scte35Pid = scte35Pid;
             return this;
         }
         @CustomType.Setter
         public Builder segmentationMarkers(@Nullable String segmentationMarkers) {
+
             this.segmentationMarkers = segmentationMarkers;
             return this;
         }
         @CustomType.Setter
         public Builder segmentationStyle(@Nullable String segmentationStyle) {
+
             this.segmentationStyle = segmentationStyle;
             return this;
         }
         @CustomType.Setter
         public Builder segmentationTime(@Nullable Double segmentationTime) {
+
             this.segmentationTime = segmentationTime;
             return this;
         }
         @CustomType.Setter
         public Builder timedMetadataBehavior(@Nullable String timedMetadataBehavior) {
+
             this.timedMetadataBehavior = timedMetadataBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder timedMetadataPid(@Nullable String timedMetadataPid) {
+
             this.timedMetadataPid = timedMetadataPid;
             return this;
         }
         @CustomType.Setter
         public Builder transportStreamId(@Nullable Integer transportStreamId) {
+
             this.transportStreamId = transportStreamId;
             return this;
         }
         @CustomType.Setter
         public Builder videoPid(@Nullable String videoPid) {
+
             this.videoPid = videoPid;
             return this;
         }

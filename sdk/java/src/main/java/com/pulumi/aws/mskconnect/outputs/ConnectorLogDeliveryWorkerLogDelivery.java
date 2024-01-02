@@ -74,16 +74,19 @@ public final class ConnectorLogDeliveryWorkerLogDelivery {
 
         @CustomType.Setter
         public Builder cloudwatchLogs(@Nullable ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs cloudwatchLogs) {
+
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
         @CustomType.Setter
         public Builder firehose(@Nullable ConnectorLogDeliveryWorkerLogDeliveryFirehose firehose) {
+
             this.firehose = firehose;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable ConnectorLogDeliveryWorkerLogDeliveryS3 s3) {
+
             this.s3 = s3;
             return this;
         }

@@ -7,6 +7,7 @@ import com.pulumi.aws.glue.inputs.DataCatalogEncryptionSettingsDataCatalogEncryp
 import com.pulumi.aws.glue.inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -112,8 +113,12 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArg
         }
 
         public DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs build() {
-            $.connectionPasswordEncryption = Objects.requireNonNull($.connectionPasswordEncryption, "expected parameter 'connectionPasswordEncryption' to be non-null");
-            $.encryptionAtRest = Objects.requireNonNull($.encryptionAtRest, "expected parameter 'encryptionAtRest' to be non-null");
+            if ($.connectionPasswordEncryption == null) {
+                throw new MissingRequiredPropertyException("DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs", "connectionPasswordEncryption");
+            }
+            if ($.encryptionAtRest == null) {
+                throw new MissingRequiredPropertyException("DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs", "encryptionAtRest");
+            }
             return $;
         }
     }

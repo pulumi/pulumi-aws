@@ -5,6 +5,7 @@ package com.pulumi.aws.detective;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -225,9 +226,15 @@ public final class MemberArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MemberArgs build() {
-            $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
-            $.emailAddress = Objects.requireNonNull($.emailAddress, "expected parameter 'emailAddress' to be non-null");
-            $.graphArn = Objects.requireNonNull($.graphArn, "expected parameter 'graphArn' to be non-null");
+            if ($.accountId == null) {
+                throw new MissingRequiredPropertyException("MemberArgs", "accountId");
+            }
+            if ($.emailAddress == null) {
+                throw new MissingRequiredPropertyException("MemberArgs", "emailAddress");
+            }
+            if ($.graphArn == null) {
+                throw new MissingRequiredPropertyException("MemberArgs", "graphArn");
+            }
             return $;
         }
     }

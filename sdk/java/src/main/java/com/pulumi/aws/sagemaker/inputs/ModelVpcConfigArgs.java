@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -80,8 +81,12 @@ public final class ModelVpcConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ModelVpcConfigArgs build() {
-            $.securityGroupIds = Objects.requireNonNull($.securityGroupIds, "expected parameter 'securityGroupIds' to be non-null");
-            $.subnets = Objects.requireNonNull($.subnets, "expected parameter 'subnets' to be non-null");
+            if ($.securityGroupIds == null) {
+                throw new MissingRequiredPropertyException("ModelVpcConfigArgs", "securityGroupIds");
+            }
+            if ($.subnets == null) {
+                throw new MissingRequiredPropertyException("ModelVpcConfigArgs", "subnets");
+            }
             return $;
         }
     }

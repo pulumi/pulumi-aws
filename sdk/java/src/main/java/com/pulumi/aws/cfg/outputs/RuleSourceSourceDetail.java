@@ -72,16 +72,19 @@ public final class RuleSourceSourceDetail {
 
         @CustomType.Setter
         public Builder eventSource(@Nullable String eventSource) {
+
             this.eventSource = eventSource;
             return this;
         }
         @CustomType.Setter
         public Builder maximumExecutionFrequency(@Nullable String maximumExecutionFrequency) {
+
             this.maximumExecutionFrequency = maximumExecutionFrequency;
             return this;
         }
         @CustomType.Setter
         public Builder messageType(@Nullable String messageType) {
+
             this.messageType = messageType;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.codebuild.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -171,52 +172,66 @@ public final class ProjectSecondaryArtifact {
 
         @CustomType.Setter
         public Builder artifactIdentifier(String artifactIdentifier) {
-            this.artifactIdentifier = Objects.requireNonNull(artifactIdentifier);
+            if (artifactIdentifier == null) {
+              throw new MissingRequiredPropertyException("ProjectSecondaryArtifact", "artifactIdentifier");
+            }
+            this.artifactIdentifier = artifactIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder bucketOwnerAccess(@Nullable String bucketOwnerAccess) {
+
             this.bucketOwnerAccess = bucketOwnerAccess;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionDisabled(@Nullable Boolean encryptionDisabled) {
+
             this.encryptionDisabled = encryptionDisabled;
             return this;
         }
         @CustomType.Setter
         public Builder location(@Nullable String location) {
+
             this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceType(@Nullable String namespaceType) {
+
             this.namespaceType = namespaceType;
             return this;
         }
         @CustomType.Setter
         public Builder overrideArtifactName(@Nullable Boolean overrideArtifactName) {
+
             this.overrideArtifactName = overrideArtifactName;
             return this;
         }
         @CustomType.Setter
         public Builder packaging(@Nullable String packaging) {
+
             this.packaging = packaging;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ProjectSecondaryArtifact", "type");
+            }
+            this.type = type;
             return this;
         }
         public ProjectSecondaryArtifact build() {

@@ -7,6 +7,7 @@ import com.pulumi.aws.fsx.inputs.OntapVolumeSnaplockConfigurationArgs;
 import com.pulumi.aws.fsx.inputs.OntapVolumeTieringPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -599,8 +600,12 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OntapVolumeArgs build() {
-            $.sizeInMegabytes = Objects.requireNonNull($.sizeInMegabytes, "expected parameter 'sizeInMegabytes' to be non-null");
-            $.storageVirtualMachineId = Objects.requireNonNull($.storageVirtualMachineId, "expected parameter 'storageVirtualMachineId' to be non-null");
+            if ($.sizeInMegabytes == null) {
+                throw new MissingRequiredPropertyException("OntapVolumeArgs", "sizeInMegabytes");
+            }
+            if ($.storageVirtualMachineId == null) {
+                throw new MissingRequiredPropertyException("OntapVolumeArgs", "storageVirtualMachineId");
+            }
             return $;
         }
     }

@@ -59,11 +59,13 @@ public final class DomainConfigurationAuthorizerConfig {
 
         @CustomType.Setter
         public Builder allowAuthorizerOverride(@Nullable Boolean allowAuthorizerOverride) {
+
             this.allowAuthorizerOverride = allowAuthorizerOverride;
             return this;
         }
         @CustomType.Setter
         public Builder defaultAuthorizerName(@Nullable String defaultAuthorizerName) {
+
             this.defaultAuthorizerName = defaultAuthorizerName;
             return this;
         }

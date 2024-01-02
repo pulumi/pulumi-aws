@@ -6,6 +6,7 @@ package com.pulumi.aws.ecrpublic;
 import com.pulumi.aws.ecrpublic.inputs.RepositoryCatalogDataArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -170,7 +171,9 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RepositoryArgs build() {
-            $.repositoryName = Objects.requireNonNull($.repositoryName, "expected parameter 'repositoryName' to be non-null");
+            if ($.repositoryName == null) {
+                throw new MissingRequiredPropertyException("RepositoryArgs", "repositoryName");
+            }
             return $;
         }
     }

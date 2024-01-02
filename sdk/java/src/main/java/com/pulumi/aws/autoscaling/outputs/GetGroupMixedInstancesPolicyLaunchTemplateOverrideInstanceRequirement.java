@@ -13,6 +13,7 @@ import com.pulumi.aws.autoscaling.outputs.GetGroupMixedInstancesPolicyLaunchTemp
 import com.pulumi.aws.autoscaling.outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb;
 import com.pulumi.aws.autoscaling.outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -354,7 +355,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
 
         @CustomType.Setter
         public Builder acceleratorCounts(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount> acceleratorCounts) {
-            this.acceleratorCounts = Objects.requireNonNull(acceleratorCounts);
+            if (acceleratorCounts == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "acceleratorCounts");
+            }
+            this.acceleratorCounts = acceleratorCounts;
             return this;
         }
         public Builder acceleratorCounts(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount... acceleratorCounts) {
@@ -362,7 +366,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder acceleratorManufacturers(List<String> acceleratorManufacturers) {
-            this.acceleratorManufacturers = Objects.requireNonNull(acceleratorManufacturers);
+            if (acceleratorManufacturers == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "acceleratorManufacturers");
+            }
+            this.acceleratorManufacturers = acceleratorManufacturers;
             return this;
         }
         public Builder acceleratorManufacturers(String... acceleratorManufacturers) {
@@ -370,7 +377,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder acceleratorNames(List<String> acceleratorNames) {
-            this.acceleratorNames = Objects.requireNonNull(acceleratorNames);
+            if (acceleratorNames == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "acceleratorNames");
+            }
+            this.acceleratorNames = acceleratorNames;
             return this;
         }
         public Builder acceleratorNames(String... acceleratorNames) {
@@ -378,7 +388,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder acceleratorTotalMemoryMibs(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib> acceleratorTotalMemoryMibs) {
-            this.acceleratorTotalMemoryMibs = Objects.requireNonNull(acceleratorTotalMemoryMibs);
+            if (acceleratorTotalMemoryMibs == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "acceleratorTotalMemoryMibs");
+            }
+            this.acceleratorTotalMemoryMibs = acceleratorTotalMemoryMibs;
             return this;
         }
         public Builder acceleratorTotalMemoryMibs(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib... acceleratorTotalMemoryMibs) {
@@ -386,7 +399,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder acceleratorTypes(List<String> acceleratorTypes) {
-            this.acceleratorTypes = Objects.requireNonNull(acceleratorTypes);
+            if (acceleratorTypes == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "acceleratorTypes");
+            }
+            this.acceleratorTypes = acceleratorTypes;
             return this;
         }
         public Builder acceleratorTypes(String... acceleratorTypes) {
@@ -394,7 +410,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder allowedInstanceTypes(List<String> allowedInstanceTypes) {
-            this.allowedInstanceTypes = Objects.requireNonNull(allowedInstanceTypes);
+            if (allowedInstanceTypes == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "allowedInstanceTypes");
+            }
+            this.allowedInstanceTypes = allowedInstanceTypes;
             return this;
         }
         public Builder allowedInstanceTypes(String... allowedInstanceTypes) {
@@ -402,12 +421,18 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder bareMetal(String bareMetal) {
-            this.bareMetal = Objects.requireNonNull(bareMetal);
+            if (bareMetal == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "bareMetal");
+            }
+            this.bareMetal = bareMetal;
             return this;
         }
         @CustomType.Setter
         public Builder baselineEbsBandwidthMbps(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp> baselineEbsBandwidthMbps) {
-            this.baselineEbsBandwidthMbps = Objects.requireNonNull(baselineEbsBandwidthMbps);
+            if (baselineEbsBandwidthMbps == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "baselineEbsBandwidthMbps");
+            }
+            this.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
             return this;
         }
         public Builder baselineEbsBandwidthMbps(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp... baselineEbsBandwidthMbps) {
@@ -415,12 +440,18 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder burstablePerformance(String burstablePerformance) {
-            this.burstablePerformance = Objects.requireNonNull(burstablePerformance);
+            if (burstablePerformance == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "burstablePerformance");
+            }
+            this.burstablePerformance = burstablePerformance;
             return this;
         }
         @CustomType.Setter
         public Builder cpuManufacturers(List<String> cpuManufacturers) {
-            this.cpuManufacturers = Objects.requireNonNull(cpuManufacturers);
+            if (cpuManufacturers == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "cpuManufacturers");
+            }
+            this.cpuManufacturers = cpuManufacturers;
             return this;
         }
         public Builder cpuManufacturers(String... cpuManufacturers) {
@@ -428,7 +459,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder excludedInstanceTypes(List<String> excludedInstanceTypes) {
-            this.excludedInstanceTypes = Objects.requireNonNull(excludedInstanceTypes);
+            if (excludedInstanceTypes == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "excludedInstanceTypes");
+            }
+            this.excludedInstanceTypes = excludedInstanceTypes;
             return this;
         }
         public Builder excludedInstanceTypes(String... excludedInstanceTypes) {
@@ -436,7 +470,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder instanceGenerations(List<String> instanceGenerations) {
-            this.instanceGenerations = Objects.requireNonNull(instanceGenerations);
+            if (instanceGenerations == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "instanceGenerations");
+            }
+            this.instanceGenerations = instanceGenerations;
             return this;
         }
         public Builder instanceGenerations(String... instanceGenerations) {
@@ -444,12 +481,18 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder localStorage(String localStorage) {
-            this.localStorage = Objects.requireNonNull(localStorage);
+            if (localStorage == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "localStorage");
+            }
+            this.localStorage = localStorage;
             return this;
         }
         @CustomType.Setter
         public Builder localStorageTypes(List<String> localStorageTypes) {
-            this.localStorageTypes = Objects.requireNonNull(localStorageTypes);
+            if (localStorageTypes == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "localStorageTypes");
+            }
+            this.localStorageTypes = localStorageTypes;
             return this;
         }
         public Builder localStorageTypes(String... localStorageTypes) {
@@ -457,7 +500,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder memoryGibPerVcpus(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus) {
-            this.memoryGibPerVcpus = Objects.requireNonNull(memoryGibPerVcpus);
+            if (memoryGibPerVcpus == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "memoryGibPerVcpus");
+            }
+            this.memoryGibPerVcpus = memoryGibPerVcpus;
             return this;
         }
         public Builder memoryGibPerVcpus(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus... memoryGibPerVcpus) {
@@ -465,7 +511,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder memoryMibs(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib> memoryMibs) {
-            this.memoryMibs = Objects.requireNonNull(memoryMibs);
+            if (memoryMibs == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "memoryMibs");
+            }
+            this.memoryMibs = memoryMibs;
             return this;
         }
         public Builder memoryMibs(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib... memoryMibs) {
@@ -473,7 +522,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder networkBandwidthGbps(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps) {
-            this.networkBandwidthGbps = Objects.requireNonNull(networkBandwidthGbps);
+            if (networkBandwidthGbps == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "networkBandwidthGbps");
+            }
+            this.networkBandwidthGbps = networkBandwidthGbps;
             return this;
         }
         public Builder networkBandwidthGbps(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp... networkBandwidthGbps) {
@@ -481,7 +533,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder networkInterfaceCounts(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount> networkInterfaceCounts) {
-            this.networkInterfaceCounts = Objects.requireNonNull(networkInterfaceCounts);
+            if (networkInterfaceCounts == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "networkInterfaceCounts");
+            }
+            this.networkInterfaceCounts = networkInterfaceCounts;
             return this;
         }
         public Builder networkInterfaceCounts(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount... networkInterfaceCounts) {
@@ -489,22 +544,34 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder onDemandMaxPricePercentageOverLowestPrice(Integer onDemandMaxPricePercentageOverLowestPrice) {
-            this.onDemandMaxPricePercentageOverLowestPrice = Objects.requireNonNull(onDemandMaxPricePercentageOverLowestPrice);
+            if (onDemandMaxPricePercentageOverLowestPrice == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "onDemandMaxPricePercentageOverLowestPrice");
+            }
+            this.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             return this;
         }
         @CustomType.Setter
         public Builder requireHibernateSupport(Boolean requireHibernateSupport) {
-            this.requireHibernateSupport = Objects.requireNonNull(requireHibernateSupport);
+            if (requireHibernateSupport == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "requireHibernateSupport");
+            }
+            this.requireHibernateSupport = requireHibernateSupport;
             return this;
         }
         @CustomType.Setter
         public Builder spotMaxPricePercentageOverLowestPrice(Integer spotMaxPricePercentageOverLowestPrice) {
-            this.spotMaxPricePercentageOverLowestPrice = Objects.requireNonNull(spotMaxPricePercentageOverLowestPrice);
+            if (spotMaxPricePercentageOverLowestPrice == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "spotMaxPricePercentageOverLowestPrice");
+            }
+            this.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
             return this;
         }
         @CustomType.Setter
         public Builder totalLocalStorageGbs(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb> totalLocalStorageGbs) {
-            this.totalLocalStorageGbs = Objects.requireNonNull(totalLocalStorageGbs);
+            if (totalLocalStorageGbs == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "totalLocalStorageGbs");
+            }
+            this.totalLocalStorageGbs = totalLocalStorageGbs;
             return this;
         }
         public Builder totalLocalStorageGbs(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb... totalLocalStorageGbs) {
@@ -512,7 +579,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         }
         @CustomType.Setter
         public Builder vcpuCounts(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount> vcpuCounts) {
-            this.vcpuCounts = Objects.requireNonNull(vcpuCounts);
+            if (vcpuCounts == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "vcpuCounts");
+            }
+            this.vcpuCounts = vcpuCounts;
             return this;
         }
         public Builder vcpuCounts(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount... vcpuCounts) {

@@ -5,6 +5,7 @@ package com.pulumi.aws.location.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class GetGeofenceCollectionArgs extends com.pulumi.resources.Invoke
         }
 
         public GetGeofenceCollectionArgs build() {
-            $.collectionName = Objects.requireNonNull($.collectionName, "expected parameter 'collectionName' to be non-null");
+            if ($.collectionName == null) {
+                throw new MissingRequiredPropertyException("GetGeofenceCollectionArgs", "collectionName");
+            }
             return $;
         }
     }

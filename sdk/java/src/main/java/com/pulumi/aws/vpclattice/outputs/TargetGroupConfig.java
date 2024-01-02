@@ -130,36 +130,43 @@ public final class TargetGroupConfig {
 
         @CustomType.Setter
         public Builder healthCheck(@Nullable TargetGroupConfigHealthCheck healthCheck) {
+
             this.healthCheck = healthCheck;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddressType(@Nullable String ipAddressType) {
+
             this.ipAddressType = ipAddressType;
             return this;
         }
         @CustomType.Setter
         public Builder lambdaEventStructureVersion(@Nullable String lambdaEventStructureVersion) {
+
             this.lambdaEventStructureVersion = lambdaEventStructureVersion;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder protocolVersion(@Nullable String protocolVersion) {
+
             this.protocolVersion = protocolVersion;
             return this;
         }
         @CustomType.Setter
         public Builder vpcIdentifier(@Nullable String vpcIdentifier) {
+
             this.vpcIdentifier = vpcIdentifier;
             return this;
         }

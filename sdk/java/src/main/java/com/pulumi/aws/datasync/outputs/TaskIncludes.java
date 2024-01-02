@@ -58,11 +58,13 @@ public final class TaskIncludes {
 
         @CustomType.Setter
         public Builder filterType(@Nullable String filterType) {
+
             this.filterType = filterType;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

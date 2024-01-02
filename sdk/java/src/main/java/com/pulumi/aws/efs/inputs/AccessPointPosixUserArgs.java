@@ -5,6 +5,7 @@ package com.pulumi.aws.efs.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -161,8 +162,12 @@ public final class AccessPointPosixUserArgs extends com.pulumi.resources.Resourc
         }
 
         public AccessPointPosixUserArgs build() {
-            $.gid = Objects.requireNonNull($.gid, "expected parameter 'gid' to be non-null");
-            $.uid = Objects.requireNonNull($.uid, "expected parameter 'uid' to be non-null");
+            if ($.gid == null) {
+                throw new MissingRequiredPropertyException("AccessPointPosixUserArgs", "gid");
+            }
+            if ($.uid == null) {
+                throw new MissingRequiredPropertyException("AccessPointPosixUserArgs", "uid");
+            }
             return $;
         }
     }

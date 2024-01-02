@@ -60,11 +60,13 @@ public final class JobDefinitionRetryStrategy {
 
         @CustomType.Setter
         public Builder attempts(@Nullable Integer attempts) {
+
             this.attempts = attempts;
             return this;
         }
         @CustomType.Setter
         public Builder evaluateOnExits(@Nullable List<JobDefinitionRetryStrategyEvaluateOnExit> evaluateOnExits) {
+
             this.evaluateOnExits = evaluateOnExits;
             return this;
         }

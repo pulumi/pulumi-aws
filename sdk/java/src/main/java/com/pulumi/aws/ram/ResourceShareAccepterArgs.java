@@ -5,6 +5,7 @@ package com.pulumi.aws.ram;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ResourceShareAccepterArgs extends com.pulumi.resources.Resour
         }
 
         public ResourceShareAccepterArgs build() {
-            $.shareArn = Objects.requireNonNull($.shareArn, "expected parameter 'shareArn' to be non-null");
+            if ($.shareArn == null) {
+                throw new MissingRequiredPropertyException("ResourceShareAccepterArgs", "shareArn");
+            }
             return $;
         }
     }

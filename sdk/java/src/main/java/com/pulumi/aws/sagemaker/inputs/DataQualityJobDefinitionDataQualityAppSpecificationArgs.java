@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class DataQualityJobDefinitionDataQualityAppSpecificationArgs exten
         }
 
         public DataQualityJobDefinitionDataQualityAppSpecificationArgs build() {
-            $.imageUri = Objects.requireNonNull($.imageUri, "expected parameter 'imageUri' to be non-null");
+            if ($.imageUri == null) {
+                throw new MissingRequiredPropertyException("DataQualityJobDefinitionDataQualityAppSpecificationArgs", "imageUri");
+            }
             return $;
         }
     }

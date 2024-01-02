@@ -5,6 +5,7 @@ package com.pulumi.aws.apigatewayv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -272,7 +273,9 @@ public final class StageRouteSettingArgs extends com.pulumi.resources.ResourceAr
         }
 
         public StageRouteSettingArgs build() {
-            $.routeKey = Objects.requireNonNull($.routeKey, "expected parameter 'routeKey' to be non-null");
+            if ($.routeKey == null) {
+                throw new MissingRequiredPropertyException("StageRouteSettingArgs", "routeKey");
+            }
             return $;
         }
     }

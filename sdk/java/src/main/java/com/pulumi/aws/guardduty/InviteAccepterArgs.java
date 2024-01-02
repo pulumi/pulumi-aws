@@ -5,6 +5,7 @@ package com.pulumi.aws.guardduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class InviteAccepterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public InviteAccepterArgs build() {
-            $.detectorId = Objects.requireNonNull($.detectorId, "expected parameter 'detectorId' to be non-null");
-            $.masterAccountId = Objects.requireNonNull($.masterAccountId, "expected parameter 'masterAccountId' to be non-null");
+            if ($.detectorId == null) {
+                throw new MissingRequiredPropertyException("InviteAccepterArgs", "detectorId");
+            }
+            if ($.masterAccountId == null) {
+                throw new MissingRequiredPropertyException("InviteAccepterArgs", "masterAccountId");
+            }
             return $;
         }
     }

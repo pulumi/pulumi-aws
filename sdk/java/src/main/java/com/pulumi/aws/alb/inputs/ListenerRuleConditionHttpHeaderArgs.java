@@ -5,6 +5,7 @@ package com.pulumi.aws.alb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class ListenerRuleConditionHttpHeaderArgs extends com.pulumi.resour
         }
 
         public ListenerRuleConditionHttpHeaderArgs build() {
-            $.httpHeaderName = Objects.requireNonNull($.httpHeaderName, "expected parameter 'httpHeaderName' to be non-null");
-            $.values = Objects.requireNonNull($.values, "expected parameter 'values' to be non-null");
+            if ($.httpHeaderName == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleConditionHttpHeaderArgs", "httpHeaderName");
+            }
+            if ($.values == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleConditionHttpHeaderArgs", "values");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -223,8 +224,12 @@ public final class ChannelVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ChannelVpcArgs build() {
-            $.publicAddressAllocationIds = Objects.requireNonNull($.publicAddressAllocationIds, "expected parameter 'publicAddressAllocationIds' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
+            if ($.publicAddressAllocationIds == null) {
+                throw new MissingRequiredPropertyException("ChannelVpcArgs", "publicAddressAllocationIds");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("ChannelVpcArgs", "subnetIds");
+            }
             return $;
         }
     }

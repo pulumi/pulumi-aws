@@ -4,6 +4,7 @@
 package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,17 +47,26 @@ public final class GetWindowsFileSystemAuditLogConfiguration {
 
         @CustomType.Setter
         public Builder auditLogDestination(String auditLogDestination) {
-            this.auditLogDestination = Objects.requireNonNull(auditLogDestination);
+            if (auditLogDestination == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemAuditLogConfiguration", "auditLogDestination");
+            }
+            this.auditLogDestination = auditLogDestination;
             return this;
         }
         @CustomType.Setter
         public Builder fileAccessAuditLogLevel(String fileAccessAuditLogLevel) {
-            this.fileAccessAuditLogLevel = Objects.requireNonNull(fileAccessAuditLogLevel);
+            if (fileAccessAuditLogLevel == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemAuditLogConfiguration", "fileAccessAuditLogLevel");
+            }
+            this.fileAccessAuditLogLevel = fileAccessAuditLogLevel;
             return this;
         }
         @CustomType.Setter
         public Builder fileShareAccessAuditLogLevel(String fileShareAccessAuditLogLevel) {
-            this.fileShareAccessAuditLogLevel = Objects.requireNonNull(fileShareAccessAuditLogLevel);
+            if (fileShareAccessAuditLogLevel == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFileSystemAuditLogConfiguration", "fileShareAccessAuditLogLevel");
+            }
+            this.fileShareAccessAuditLogLevel = fileShareAccessAuditLogLevel;
             return this;
         }
         public GetWindowsFileSystemAuditLogConfiguration build() {

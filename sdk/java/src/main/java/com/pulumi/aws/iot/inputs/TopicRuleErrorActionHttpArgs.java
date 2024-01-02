@@ -6,6 +6,7 @@ package com.pulumi.aws.iot.inputs;
 import com.pulumi.aws.iot.inputs.TopicRuleErrorActionHttpHttpHeaderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -162,7 +163,9 @@ public final class TopicRuleErrorActionHttpArgs extends com.pulumi.resources.Res
         }
 
         public TopicRuleErrorActionHttpArgs build() {
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionHttpArgs", "url");
+            }
             return $;
         }
     }

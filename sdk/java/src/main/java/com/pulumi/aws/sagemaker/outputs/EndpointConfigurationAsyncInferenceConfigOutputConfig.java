@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -87,22 +88,28 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfig {
 
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder notificationConfig(@Nullable EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig notificationConfig) {
+
             this.notificationConfig = notificationConfig;
             return this;
         }
         @CustomType.Setter
         public Builder s3FailurePath(@Nullable String s3FailurePath) {
+
             this.s3FailurePath = s3FailurePath;
             return this;
         }
         @CustomType.Setter
         public Builder s3OutputPath(String s3OutputPath) {
-            this.s3OutputPath = Objects.requireNonNull(s3OutputPath);
+            if (s3OutputPath == null) {
+              throw new MissingRequiredPropertyException("EndpointConfigurationAsyncInferenceConfigOutputConfig", "s3OutputPath");
+            }
+            this.s3OutputPath = s3OutputPath;
             return this;
         }
         public EndpointConfigurationAsyncInferenceConfigOutputConfig build() {

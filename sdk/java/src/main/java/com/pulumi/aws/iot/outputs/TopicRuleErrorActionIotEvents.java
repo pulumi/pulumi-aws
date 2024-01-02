@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -87,22 +88,30 @@ public final class TopicRuleErrorActionIotEvents {
 
         @CustomType.Setter
         public Builder batchMode(@Nullable Boolean batchMode) {
+
             this.batchMode = batchMode;
             return this;
         }
         @CustomType.Setter
         public Builder inputName(String inputName) {
-            this.inputName = Objects.requireNonNull(inputName);
+            if (inputName == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionIotEvents", "inputName");
+            }
+            this.inputName = inputName;
             return this;
         }
         @CustomType.Setter
         public Builder messageId(@Nullable String messageId) {
+
             this.messageId = messageId;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionIotEvents", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         public TopicRuleErrorActionIotEvents build() {

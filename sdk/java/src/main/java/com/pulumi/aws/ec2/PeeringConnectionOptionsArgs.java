@@ -7,6 +7,7 @@ import com.pulumi.aws.ec2.inputs.PeeringConnectionOptionsAccepterArgs;
 import com.pulumi.aws.ec2.inputs.PeeringConnectionOptionsRequesterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -152,7 +153,9 @@ public final class PeeringConnectionOptionsArgs extends com.pulumi.resources.Res
         }
 
         public PeeringConnectionOptionsArgs build() {
-            $.vpcPeeringConnectionId = Objects.requireNonNull($.vpcPeeringConnectionId, "expected parameter 'vpcPeeringConnectionId' to be non-null");
+            if ($.vpcPeeringConnectionId == null) {
+                throw new MissingRequiredPropertyException("PeeringConnectionOptionsArgs", "vpcPeeringConnectionId");
+            }
             return $;
         }
     }

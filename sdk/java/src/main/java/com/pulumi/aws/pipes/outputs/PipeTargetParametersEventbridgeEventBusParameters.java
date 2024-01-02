@@ -101,16 +101,19 @@ public final class PipeTargetParametersEventbridgeEventBusParameters {
 
         @CustomType.Setter
         public Builder detailType(@Nullable String detailType) {
+
             this.detailType = detailType;
             return this;
         }
         @CustomType.Setter
         public Builder endpointId(@Nullable String endpointId) {
+
             this.endpointId = endpointId;
             return this;
         }
         @CustomType.Setter
         public Builder resources(@Nullable List<String> resources) {
+
             this.resources = resources;
             return this;
         }
@@ -119,11 +122,13 @@ public final class PipeTargetParametersEventbridgeEventBusParameters {
         }
         @CustomType.Setter
         public Builder source(@Nullable String source) {
+
             this.source = source;
             return this;
         }
         @CustomType.Setter
         public Builder time(@Nullable String time) {
+
             this.time = time;
             return this;
         }

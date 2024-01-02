@@ -6,6 +6,7 @@ package com.pulumi.aws.sesv2.outputs;
 import com.pulumi.aws.sesv2.outputs.GetConfigurationSetVdmOptionDashboardOption;
 import com.pulumi.aws.sesv2.outputs.GetConfigurationSetVdmOptionGuardianOption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetConfigurationSetVdmOption {
 
         @CustomType.Setter
         public Builder dashboardOptions(List<GetConfigurationSetVdmOptionDashboardOption> dashboardOptions) {
-            this.dashboardOptions = Objects.requireNonNull(dashboardOptions);
+            if (dashboardOptions == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetVdmOption", "dashboardOptions");
+            }
+            this.dashboardOptions = dashboardOptions;
             return this;
         }
         public Builder dashboardOptions(GetConfigurationSetVdmOptionDashboardOption... dashboardOptions) {
@@ -66,7 +70,10 @@ public final class GetConfigurationSetVdmOption {
         }
         @CustomType.Setter
         public Builder guardianOptions(List<GetConfigurationSetVdmOptionGuardianOption> guardianOptions) {
-            this.guardianOptions = Objects.requireNonNull(guardianOptions);
+            if (guardianOptions == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetVdmOption", "guardianOptions");
+            }
+            this.guardianOptions = guardianOptions;
             return this;
         }
         public Builder guardianOptions(GetConfigurationSetVdmOptionGuardianOption... guardianOptions) {

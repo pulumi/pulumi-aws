@@ -44,6 +44,7 @@ public final class IndexingConfigurationThingIndexingConfigurationFilter {
 
         @CustomType.Setter
         public Builder namedShadowNames(@Nullable List<String> namedShadowNames) {
+
             this.namedShadowNames = namedShadowNames;
             return this;
         }

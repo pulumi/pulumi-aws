@@ -58,11 +58,13 @@ public final class ServiceNetworkConfigurationEgressConfiguration {
 
         @CustomType.Setter
         public Builder egressType(@Nullable String egressType) {
+
             this.egressType = egressType;
             return this;
         }
         @CustomType.Setter
         public Builder vpcConnectorArn(@Nullable String vpcConnectorArn) {
+
             this.vpcConnectorArn = vpcConnectorArn;
             return this;
         }

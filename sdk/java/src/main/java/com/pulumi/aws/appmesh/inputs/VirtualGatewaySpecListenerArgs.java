@@ -9,6 +9,7 @@ import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerPortMappingArgs;
 import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerTlsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -190,7 +191,9 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
         }
 
         public VirtualGatewaySpecListenerArgs build() {
-            $.portMapping = Objects.requireNonNull($.portMapping, "expected parameter 'portMapping' to be non-null");
+            if ($.portMapping == null) {
+                throw new MissingRequiredPropertyException("VirtualGatewaySpecListenerArgs", "portMapping");
+            }
             return $;
         }
     }

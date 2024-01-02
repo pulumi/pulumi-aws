@@ -4,6 +4,7 @@
 package com.pulumi.aws.signer.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,17 +47,26 @@ public final class GetSigningJobRevocationRecord {
 
         @CustomType.Setter
         public Builder reason(String reason) {
-            this.reason = Objects.requireNonNull(reason);
+            if (reason == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobRevocationRecord", "reason");
+            }
+            this.reason = reason;
             return this;
         }
         @CustomType.Setter
         public Builder revokedAt(String revokedAt) {
-            this.revokedAt = Objects.requireNonNull(revokedAt);
+            if (revokedAt == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobRevocationRecord", "revokedAt");
+            }
+            this.revokedAt = revokedAt;
             return this;
         }
         @CustomType.Setter
         public Builder revokedBy(String revokedBy) {
-            this.revokedBy = Objects.requireNonNull(revokedBy);
+            if (revokedBy == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobRevocationRecord", "revokedBy");
+            }
+            this.revokedBy = revokedBy;
             return this;
         }
         public GetSigningJobRevocationRecord build() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.inputs;
 import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecGrpcRouteActionTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class GatewayRouteSpecGrpcRouteActionArgs extends com.pulumi.resour
         }
 
         public GatewayRouteSpecGrpcRouteActionArgs build() {
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("GatewayRouteSpecGrpcRouteActionArgs", "target");
+            }
             return $;
         }
     }

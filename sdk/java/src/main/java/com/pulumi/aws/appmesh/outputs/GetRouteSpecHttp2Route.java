@@ -8,6 +8,7 @@ import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttp2RouteMatch;
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttp2RouteRetryPolicy;
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttp2RouteTimeout;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -56,7 +57,10 @@ public final class GetRouteSpecHttp2Route {
 
         @CustomType.Setter
         public Builder actions(List<GetRouteSpecHttp2RouteAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2Route", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetRouteSpecHttp2RouteAction... actions) {
@@ -64,7 +68,10 @@ public final class GetRouteSpecHttp2Route {
         }
         @CustomType.Setter
         public Builder matches(List<GetRouteSpecHttp2RouteMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+            if (matches == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2Route", "matches");
+            }
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetRouteSpecHttp2RouteMatch... matches) {
@@ -72,7 +79,10 @@ public final class GetRouteSpecHttp2Route {
         }
         @CustomType.Setter
         public Builder retryPolicies(List<GetRouteSpecHttp2RouteRetryPolicy> retryPolicies) {
-            this.retryPolicies = Objects.requireNonNull(retryPolicies);
+            if (retryPolicies == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2Route", "retryPolicies");
+            }
+            this.retryPolicies = retryPolicies;
             return this;
         }
         public Builder retryPolicies(GetRouteSpecHttp2RouteRetryPolicy... retryPolicies) {
@@ -80,7 +90,10 @@ public final class GetRouteSpecHttp2Route {
         }
         @CustomType.Setter
         public Builder timeouts(List<GetRouteSpecHttp2RouteTimeout> timeouts) {
-            this.timeouts = Objects.requireNonNull(timeouts);
+            if (timeouts == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttp2Route", "timeouts");
+            }
+            this.timeouts = timeouts;
             return this;
         }
         public Builder timeouts(GetRouteSpecHttp2RouteTimeout... timeouts) {

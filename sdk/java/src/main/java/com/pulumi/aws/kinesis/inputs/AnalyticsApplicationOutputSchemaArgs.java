@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class AnalyticsApplicationOutputSchemaArgs extends com.pulumi.resou
         }
 
         public AnalyticsApplicationOutputSchemaArgs build() {
-            $.recordFormatType = Objects.requireNonNull($.recordFormatType, "expected parameter 'recordFormatType' to be non-null");
+            if ($.recordFormatType == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationOutputSchemaArgs", "recordFormatType");
+            }
             return $;
         }
     }

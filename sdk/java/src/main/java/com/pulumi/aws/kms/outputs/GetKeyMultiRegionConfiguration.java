@@ -6,6 +6,7 @@ package com.pulumi.aws.kms.outputs;
 import com.pulumi.aws.kms.outputs.GetKeyMultiRegionConfigurationPrimaryKey;
 import com.pulumi.aws.kms.outputs.GetKeyMultiRegionConfigurationReplicaKey;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,12 +74,18 @@ public final class GetKeyMultiRegionConfiguration {
 
         @CustomType.Setter
         public Builder multiRegionKeyType(String multiRegionKeyType) {
-            this.multiRegionKeyType = Objects.requireNonNull(multiRegionKeyType);
+            if (multiRegionKeyType == null) {
+              throw new MissingRequiredPropertyException("GetKeyMultiRegionConfiguration", "multiRegionKeyType");
+            }
+            this.multiRegionKeyType = multiRegionKeyType;
             return this;
         }
         @CustomType.Setter
         public Builder primaryKeys(List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys) {
-            this.primaryKeys = Objects.requireNonNull(primaryKeys);
+            if (primaryKeys == null) {
+              throw new MissingRequiredPropertyException("GetKeyMultiRegionConfiguration", "primaryKeys");
+            }
+            this.primaryKeys = primaryKeys;
             return this;
         }
         public Builder primaryKeys(GetKeyMultiRegionConfigurationPrimaryKey... primaryKeys) {
@@ -86,7 +93,10 @@ public final class GetKeyMultiRegionConfiguration {
         }
         @CustomType.Setter
         public Builder replicaKeys(List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys) {
-            this.replicaKeys = Objects.requireNonNull(replicaKeys);
+            if (replicaKeys == null) {
+              throw new MissingRequiredPropertyException("GetKeyMultiRegionConfiguration", "replicaKeys");
+            }
+            this.replicaKeys = replicaKeys;
             return this;
         }
         public Builder replicaKeys(GetKeyMultiRegionConfigurationReplicaKey... replicaKeys) {

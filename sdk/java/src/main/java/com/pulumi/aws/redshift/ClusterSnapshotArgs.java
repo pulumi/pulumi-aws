@@ -5,6 +5,7 @@ package com.pulumi.aws.redshift;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -189,8 +190,12 @@ public final class ClusterSnapshotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ClusterSnapshotArgs build() {
-            $.clusterIdentifier = Objects.requireNonNull($.clusterIdentifier, "expected parameter 'clusterIdentifier' to be non-null");
-            $.snapshotIdentifier = Objects.requireNonNull($.snapshotIdentifier, "expected parameter 'snapshotIdentifier' to be non-null");
+            if ($.clusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("ClusterSnapshotArgs", "clusterIdentifier");
+            }
+            if ($.snapshotIdentifier == null) {
+                throw new MissingRequiredPropertyException("ClusterSnapshotArgs", "snapshotIdentifier");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.inspector2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,21 +87,29 @@ public final class OrganizationConfigurationAutoEnable {
 
         @CustomType.Setter
         public Builder ec2(Boolean ec2) {
-            this.ec2 = Objects.requireNonNull(ec2);
+            if (ec2 == null) {
+              throw new MissingRequiredPropertyException("OrganizationConfigurationAutoEnable", "ec2");
+            }
+            this.ec2 = ec2;
             return this;
         }
         @CustomType.Setter
         public Builder ecr(Boolean ecr) {
-            this.ecr = Objects.requireNonNull(ecr);
+            if (ecr == null) {
+              throw new MissingRequiredPropertyException("OrganizationConfigurationAutoEnable", "ecr");
+            }
+            this.ecr = ecr;
             return this;
         }
         @CustomType.Setter
         public Builder lambda(@Nullable Boolean lambda) {
+
             this.lambda = lambda;
             return this;
         }
         @CustomType.Setter
         public Builder lambdaCode(@Nullable Boolean lambdaCode) {
+
             this.lambdaCode = lambdaCode;
             return this;
         }

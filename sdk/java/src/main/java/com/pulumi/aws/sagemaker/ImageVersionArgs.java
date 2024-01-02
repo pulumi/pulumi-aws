@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ImageVersionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ImageVersionArgs build() {
-            $.baseImage = Objects.requireNonNull($.baseImage, "expected parameter 'baseImage' to be non-null");
-            $.imageName = Objects.requireNonNull($.imageName, "expected parameter 'imageName' to be non-null");
+            if ($.baseImage == null) {
+                throw new MissingRequiredPropertyException("ImageVersionArgs", "baseImage");
+            }
+            if ($.imageName == null) {
+                throw new MissingRequiredPropertyException("ImageVersionArgs", "imageName");
+            }
             return $;
         }
     }

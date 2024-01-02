@@ -5,6 +5,7 @@ package com.pulumi.aws.docdb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -697,8 +698,12 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ClusterInstanceArgs build() {
-            $.clusterIdentifier = Objects.requireNonNull($.clusterIdentifier, "expected parameter 'clusterIdentifier' to be non-null");
-            $.instanceClass = Objects.requireNonNull($.instanceClass, "expected parameter 'instanceClass' to be non-null");
+            if ($.clusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("ClusterInstanceArgs", "clusterIdentifier");
+            }
+            if ($.instanceClass == null) {
+                throw new MissingRequiredPropertyException("ClusterInstanceArgs", "instanceClass");
+            }
             return $;
         }
     }

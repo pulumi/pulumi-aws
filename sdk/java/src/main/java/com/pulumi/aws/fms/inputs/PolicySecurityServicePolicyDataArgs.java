@@ -6,6 +6,7 @@ package com.pulumi.aws.fms.inputs;
 import com.pulumi.aws.fms.inputs.PolicySecurityServicePolicyDataPolicyOptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -151,7 +152,9 @@ public final class PolicySecurityServicePolicyDataArgs extends com.pulumi.resour
         }
 
         public PolicySecurityServicePolicyDataArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("PolicySecurityServicePolicyDataArgs", "type");
+            }
             return $;
         }
     }

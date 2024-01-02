@@ -44,6 +44,7 @@ public final class TrustedTokenIssuerTrustedTokenIssuerConfiguration {
 
         @CustomType.Setter
         public Builder oidcJwtConfiguration(@Nullable TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration oidcJwtConfiguration) {
+
             this.oidcJwtConfiguration = oidcJwtConfiguration;
             return this;
         }

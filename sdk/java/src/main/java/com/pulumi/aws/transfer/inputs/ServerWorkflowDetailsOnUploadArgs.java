@@ -5,6 +5,7 @@ package com.pulumi.aws.transfer.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ServerWorkflowDetailsOnUploadArgs extends com.pulumi.resource
         }
 
         public ServerWorkflowDetailsOnUploadArgs build() {
-            $.executionRole = Objects.requireNonNull($.executionRole, "expected parameter 'executionRole' to be non-null");
-            $.workflowId = Objects.requireNonNull($.workflowId, "expected parameter 'workflowId' to be non-null");
+            if ($.executionRole == null) {
+                throw new MissingRequiredPropertyException("ServerWorkflowDetailsOnUploadArgs", "executionRole");
+            }
+            if ($.workflowId == null) {
+                throw new MissingRequiredPropertyException("ServerWorkflowDetailsOnUploadArgs", "workflowId");
+            }
             return $;
         }
     }

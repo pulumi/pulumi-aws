@@ -5,6 +5,7 @@ package com.pulumi.aws.dynamodb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -198,9 +199,15 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
         }
 
         public TableLocalSecondaryIndexArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.projectionType = Objects.requireNonNull($.projectionType, "expected parameter 'projectionType' to be non-null");
-            $.rangeKey = Objects.requireNonNull($.rangeKey, "expected parameter 'rangeKey' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("TableLocalSecondaryIndexArgs", "name");
+            }
+            if ($.projectionType == null) {
+                throw new MissingRequiredPropertyException("TableLocalSecondaryIndexArgs", "projectionType");
+            }
+            if ($.rangeKey == null) {
+                throw new MissingRequiredPropertyException("TableLocalSecondaryIndexArgs", "rangeKey");
+            }
             return $;
         }
     }

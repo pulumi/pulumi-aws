@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -42,12 +43,18 @@ public final class GetLaunchTemplateCapacityReservationSpecification {
 
         @CustomType.Setter
         public Builder capacityReservationPreference(String capacityReservationPreference) {
-            this.capacityReservationPreference = Objects.requireNonNull(capacityReservationPreference);
+            if (capacityReservationPreference == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateCapacityReservationSpecification", "capacityReservationPreference");
+            }
+            this.capacityReservationPreference = capacityReservationPreference;
             return this;
         }
         @CustomType.Setter
         public Builder capacityReservationTargets(List<GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTargets) {
-            this.capacityReservationTargets = Objects.requireNonNull(capacityReservationTargets);
+            if (capacityReservationTargets == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateCapacityReservationSpecification", "capacityReservationTargets");
+            }
+            this.capacityReservationTargets = capacityReservationTargets;
             return this;
         }
         public Builder capacityReservationTargets(GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget... capacityReservationTargets) {

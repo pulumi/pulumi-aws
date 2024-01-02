@@ -6,6 +6,7 @@ package com.pulumi.aws.globalaccelerator.outputs;
 import com.pulumi.aws.globalaccelerator.outputs.GetAcceleratorAttribute;
 import com.pulumi.aws.globalaccelerator.outputs.GetAcceleratorIpSet;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -99,12 +100,18 @@ public final class GetAcceleratorResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetAcceleratorResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder attributes(List<GetAcceleratorAttribute> attributes) {
-            this.attributes = Objects.requireNonNull(attributes);
+            if (attributes == null) {
+              throw new MissingRequiredPropertyException("GetAcceleratorResult", "attributes");
+            }
+            this.attributes = attributes;
             return this;
         }
         public Builder attributes(GetAcceleratorAttribute... attributes) {
@@ -112,37 +119,58 @@ public final class GetAcceleratorResult {
         }
         @CustomType.Setter
         public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+            if (dnsName == null) {
+              throw new MissingRequiredPropertyException("GetAcceleratorResult", "dnsName");
+            }
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
         public Builder dualStackDnsName(String dualStackDnsName) {
-            this.dualStackDnsName = Objects.requireNonNull(dualStackDnsName);
+            if (dualStackDnsName == null) {
+              throw new MissingRequiredPropertyException("GetAcceleratorResult", "dualStackDnsName");
+            }
+            this.dualStackDnsName = dualStackDnsName;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetAcceleratorResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder hostedZoneId(String hostedZoneId) {
-            this.hostedZoneId = Objects.requireNonNull(hostedZoneId);
+            if (hostedZoneId == null) {
+              throw new MissingRequiredPropertyException("GetAcceleratorResult", "hostedZoneId");
+            }
+            this.hostedZoneId = hostedZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAcceleratorResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddressType(String ipAddressType) {
-            this.ipAddressType = Objects.requireNonNull(ipAddressType);
+            if (ipAddressType == null) {
+              throw new MissingRequiredPropertyException("GetAcceleratorResult", "ipAddressType");
+            }
+            this.ipAddressType = ipAddressType;
             return this;
         }
         @CustomType.Setter
         public Builder ipSets(List<GetAcceleratorIpSet> ipSets) {
-            this.ipSets = Objects.requireNonNull(ipSets);
+            if (ipSets == null) {
+              throw new MissingRequiredPropertyException("GetAcceleratorResult", "ipSets");
+            }
+            this.ipSets = ipSets;
             return this;
         }
         public Builder ipSets(GetAcceleratorIpSet... ipSets) {
@@ -150,12 +178,18 @@ public final class GetAcceleratorResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAcceleratorResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAcceleratorResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetAcceleratorResult build() {

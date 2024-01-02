@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class VpcEndpointRouteTableAssociationArgs extends com.pulumi.resou
         }
 
         public VpcEndpointRouteTableAssociationArgs build() {
-            $.routeTableId = Objects.requireNonNull($.routeTableId, "expected parameter 'routeTableId' to be non-null");
-            $.vpcEndpointId = Objects.requireNonNull($.vpcEndpointId, "expected parameter 'vpcEndpointId' to be non-null");
+            if ($.routeTableId == null) {
+                throw new MissingRequiredPropertyException("VpcEndpointRouteTableAssociationArgs", "routeTableId");
+            }
+            if ($.vpcEndpointId == null) {
+                throw new MissingRequiredPropertyException("VpcEndpointRouteTableAssociationArgs", "vpcEndpointId");
+            }
             return $;
         }
     }

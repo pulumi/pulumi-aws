@@ -4,6 +4,7 @@
 package com.pulumi.aws.directconnect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -76,22 +77,34 @@ public final class GetGatewayResult {
 
         @CustomType.Setter
         public Builder amazonSideAsn(String amazonSideAsn) {
-            this.amazonSideAsn = Objects.requireNonNull(amazonSideAsn);
+            if (amazonSideAsn == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "amazonSideAsn");
+            }
+            this.amazonSideAsn = amazonSideAsn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ownerAccountId(String ownerAccountId) {
-            this.ownerAccountId = Objects.requireNonNull(ownerAccountId);
+            if (ownerAccountId == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "ownerAccountId");
+            }
+            this.ownerAccountId = ownerAccountId;
             return this;
         }
         public GetGatewayResult build() {

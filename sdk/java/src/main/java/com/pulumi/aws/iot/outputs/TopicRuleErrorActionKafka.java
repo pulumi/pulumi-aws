@@ -5,6 +5,7 @@ package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.aws.iot.outputs.TopicRuleErrorActionKafkaHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -117,16 +118,23 @@ public final class TopicRuleErrorActionKafka {
 
         @CustomType.Setter
         public Builder clientProperties(Map<String,String> clientProperties) {
-            this.clientProperties = Objects.requireNonNull(clientProperties);
+            if (clientProperties == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionKafka", "clientProperties");
+            }
+            this.clientProperties = clientProperties;
             return this;
         }
         @CustomType.Setter
         public Builder destinationArn(String destinationArn) {
-            this.destinationArn = Objects.requireNonNull(destinationArn);
+            if (destinationArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionKafka", "destinationArn");
+            }
+            this.destinationArn = destinationArn;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<TopicRuleErrorActionKafkaHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -135,17 +143,22 @@ public final class TopicRuleErrorActionKafka {
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder partition(@Nullable String partition) {
+
             this.partition = partition;
             return this;
         }
         @CustomType.Setter
         public Builder topic(String topic) {
-            this.topic = Objects.requireNonNull(topic);
+            if (topic == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionKafka", "topic");
+            }
+            this.topic = topic;
             return this;
         }
         public TopicRuleErrorActionKafka build() {

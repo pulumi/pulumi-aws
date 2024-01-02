@@ -36,6 +36,7 @@ public final class InternetMonitorInternetMeasurementsLogDelivery {
 
         @CustomType.Setter
         public Builder s3Config(@Nullable InternetMonitorInternetMeasurementsLogDeliveryS3Config s3Config) {
+
             this.s3Config = s3Config;
             return this;
         }

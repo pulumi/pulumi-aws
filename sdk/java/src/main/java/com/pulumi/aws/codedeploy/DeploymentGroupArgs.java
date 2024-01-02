@@ -15,6 +15,7 @@ import com.pulumi.aws.codedeploy.inputs.DeploymentGroupOnPremisesInstanceTagFilt
 import com.pulumi.aws.codedeploy.inputs.DeploymentGroupTriggerConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -730,9 +731,15 @@ public final class DeploymentGroupArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public DeploymentGroupArgs build() {
-            $.appName = Objects.requireNonNull($.appName, "expected parameter 'appName' to be non-null");
-            $.deploymentGroupName = Objects.requireNonNull($.deploymentGroupName, "expected parameter 'deploymentGroupName' to be non-null");
-            $.serviceRoleArn = Objects.requireNonNull($.serviceRoleArn, "expected parameter 'serviceRoleArn' to be non-null");
+            if ($.appName == null) {
+                throw new MissingRequiredPropertyException("DeploymentGroupArgs", "appName");
+            }
+            if ($.deploymentGroupName == null) {
+                throw new MissingRequiredPropertyException("DeploymentGroupArgs", "deploymentGroupName");
+            }
+            if ($.serviceRoleArn == null) {
+                throw new MissingRequiredPropertyException("DeploymentGroupArgs", "serviceRoleArn");
+            }
             return $;
         }
     }

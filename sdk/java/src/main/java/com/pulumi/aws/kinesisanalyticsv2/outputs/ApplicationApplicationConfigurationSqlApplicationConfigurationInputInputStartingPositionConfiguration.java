@@ -44,6 +44,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         @CustomType.Setter
         public Builder inputStartingPosition(@Nullable String inputStartingPosition) {
+
             this.inputStartingPosition = inputStartingPosition;
             return this;
         }

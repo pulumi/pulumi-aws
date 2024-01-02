@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -131,8 +132,12 @@ public final class ProxyProtocolPolicyArgs extends com.pulumi.resources.Resource
         }
 
         public ProxyProtocolPolicyArgs build() {
-            $.instancePorts = Objects.requireNonNull($.instancePorts, "expected parameter 'instancePorts' to be non-null");
-            $.loadBalancer = Objects.requireNonNull($.loadBalancer, "expected parameter 'loadBalancer' to be non-null");
+            if ($.instancePorts == null) {
+                throw new MissingRequiredPropertyException("ProxyProtocolPolicyArgs", "instancePorts");
+            }
+            if ($.loadBalancer == null) {
+                throw new MissingRequiredPropertyException("ProxyProtocolPolicyArgs", "loadBalancer");
+            }
             return $;
         }
     }

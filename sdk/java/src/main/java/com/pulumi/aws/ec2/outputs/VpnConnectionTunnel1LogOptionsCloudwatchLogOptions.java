@@ -73,16 +73,19 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
 
         @CustomType.Setter
         public Builder logEnabled(@Nullable Boolean logEnabled) {
+
             this.logEnabled = logEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder logGroupArn(@Nullable String logGroupArn) {
+
             this.logGroupArn = logGroupArn;
             return this;
         }
         @CustomType.Setter
         public Builder logOutputFormat(@Nullable String logOutputFormat) {
+
             this.logOutputFormat = logOutputFormat;
             return this;
         }

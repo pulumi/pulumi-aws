@@ -6,6 +6,7 @@ package com.pulumi.aws.glue;
 import com.pulumi.aws.glue.inputs.UserDefinedFunctionResourceUriArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -310,10 +311,18 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
         }
 
         public UserDefinedFunctionArgs build() {
-            $.className = Objects.requireNonNull($.className, "expected parameter 'className' to be non-null");
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.ownerName = Objects.requireNonNull($.ownerName, "expected parameter 'ownerName' to be non-null");
-            $.ownerType = Objects.requireNonNull($.ownerType, "expected parameter 'ownerType' to be non-null");
+            if ($.className == null) {
+                throw new MissingRequiredPropertyException("UserDefinedFunctionArgs", "className");
+            }
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("UserDefinedFunctionArgs", "databaseName");
+            }
+            if ($.ownerName == null) {
+                throw new MissingRequiredPropertyException("UserDefinedFunctionArgs", "ownerName");
+            }
+            if ($.ownerType == null) {
+                throw new MissingRequiredPropertyException("UserDefinedFunctionArgs", "ownerType");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.aws.lambda.inputs.CodeSigningConfigAllowedPublishersArgs;
 import com.pulumi.aws.lambda.inputs.CodeSigningConfigPoliciesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -152,7 +153,9 @@ public final class CodeSigningConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         public CodeSigningConfigArgs build() {
-            $.allowedPublishers = Objects.requireNonNull($.allowedPublishers, "expected parameter 'allowedPublishers' to be non-null");
+            if ($.allowedPublishers == null) {
+                throw new MissingRequiredPropertyException("CodeSigningConfigArgs", "allowedPublishers");
+            }
             return $;
         }
     }

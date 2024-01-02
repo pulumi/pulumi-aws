@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -435,157 +436,246 @@ public final class GetObjectResult {
 
         @CustomType.Setter
         public Builder body(String body) {
-            this.body = Objects.requireNonNull(body);
+            if (body == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "body");
+            }
+            this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder bucketKeyEnabled(Boolean bucketKeyEnabled) {
-            this.bucketKeyEnabled = Objects.requireNonNull(bucketKeyEnabled);
+            if (bucketKeyEnabled == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "bucketKeyEnabled");
+            }
+            this.bucketKeyEnabled = bucketKeyEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder cacheControl(String cacheControl) {
-            this.cacheControl = Objects.requireNonNull(cacheControl);
+            if (cacheControl == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "cacheControl");
+            }
+            this.cacheControl = cacheControl;
             return this;
         }
         @CustomType.Setter
         public Builder checksumCrc32(String checksumCrc32) {
-            this.checksumCrc32 = Objects.requireNonNull(checksumCrc32);
+            if (checksumCrc32 == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "checksumCrc32");
+            }
+            this.checksumCrc32 = checksumCrc32;
             return this;
         }
         @CustomType.Setter
         public Builder checksumCrc32c(String checksumCrc32c) {
-            this.checksumCrc32c = Objects.requireNonNull(checksumCrc32c);
+            if (checksumCrc32c == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "checksumCrc32c");
+            }
+            this.checksumCrc32c = checksumCrc32c;
             return this;
         }
         @CustomType.Setter
         public Builder checksumMode(@Nullable String checksumMode) {
+
             this.checksumMode = checksumMode;
             return this;
         }
         @CustomType.Setter
         public Builder checksumSha1(String checksumSha1) {
-            this.checksumSha1 = Objects.requireNonNull(checksumSha1);
+            if (checksumSha1 == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "checksumSha1");
+            }
+            this.checksumSha1 = checksumSha1;
             return this;
         }
         @CustomType.Setter
         public Builder checksumSha256(String checksumSha256) {
-            this.checksumSha256 = Objects.requireNonNull(checksumSha256);
+            if (checksumSha256 == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "checksumSha256");
+            }
+            this.checksumSha256 = checksumSha256;
             return this;
         }
         @CustomType.Setter
         public Builder contentDisposition(String contentDisposition) {
-            this.contentDisposition = Objects.requireNonNull(contentDisposition);
+            if (contentDisposition == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "contentDisposition");
+            }
+            this.contentDisposition = contentDisposition;
             return this;
         }
         @CustomType.Setter
         public Builder contentEncoding(String contentEncoding) {
-            this.contentEncoding = Objects.requireNonNull(contentEncoding);
+            if (contentEncoding == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "contentEncoding");
+            }
+            this.contentEncoding = contentEncoding;
             return this;
         }
         @CustomType.Setter
         public Builder contentLanguage(String contentLanguage) {
-            this.contentLanguage = Objects.requireNonNull(contentLanguage);
+            if (contentLanguage == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "contentLanguage");
+            }
+            this.contentLanguage = contentLanguage;
             return this;
         }
         @CustomType.Setter
         public Builder contentLength(Integer contentLength) {
-            this.contentLength = Objects.requireNonNull(contentLength);
+            if (contentLength == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "contentLength");
+            }
+            this.contentLength = contentLength;
             return this;
         }
         @CustomType.Setter
         public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+            if (contentType == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "contentType");
+            }
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder etag(String etag) {
-            this.etag = Objects.requireNonNull(etag);
+            if (etag == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "etag");
+            }
+            this.etag = etag;
             return this;
         }
         @CustomType.Setter
         public Builder expiration(String expiration) {
-            this.expiration = Objects.requireNonNull(expiration);
+            if (expiration == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "expiration");
+            }
+            this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
         public Builder expires(String expires) {
-            this.expires = Objects.requireNonNull(expires);
+            if (expires == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "expires");
+            }
+            this.expires = expires;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder lastModified(String lastModified) {
-            this.lastModified = Objects.requireNonNull(lastModified);
+            if (lastModified == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "lastModified");
+            }
+            this.lastModified = lastModified;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(Map<String,String> metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "metadata");
+            }
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder objectLockLegalHoldStatus(String objectLockLegalHoldStatus) {
-            this.objectLockLegalHoldStatus = Objects.requireNonNull(objectLockLegalHoldStatus);
+            if (objectLockLegalHoldStatus == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "objectLockLegalHoldStatus");
+            }
+            this.objectLockLegalHoldStatus = objectLockLegalHoldStatus;
             return this;
         }
         @CustomType.Setter
         public Builder objectLockMode(String objectLockMode) {
-            this.objectLockMode = Objects.requireNonNull(objectLockMode);
+            if (objectLockMode == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "objectLockMode");
+            }
+            this.objectLockMode = objectLockMode;
             return this;
         }
         @CustomType.Setter
         public Builder objectLockRetainUntilDate(String objectLockRetainUntilDate) {
-            this.objectLockRetainUntilDate = Objects.requireNonNull(objectLockRetainUntilDate);
+            if (objectLockRetainUntilDate == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "objectLockRetainUntilDate");
+            }
+            this.objectLockRetainUntilDate = objectLockRetainUntilDate;
             return this;
         }
         @CustomType.Setter
         public Builder range(@Nullable String range) {
+
             this.range = range;
             return this;
         }
         @CustomType.Setter
         public Builder serverSideEncryption(String serverSideEncryption) {
-            this.serverSideEncryption = Objects.requireNonNull(serverSideEncryption);
+            if (serverSideEncryption == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "serverSideEncryption");
+            }
+            this.serverSideEncryption = serverSideEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder sseKmsKeyId(String sseKmsKeyId) {
-            this.sseKmsKeyId = Objects.requireNonNull(sseKmsKeyId);
+            if (sseKmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "sseKmsKeyId");
+            }
+            this.sseKmsKeyId = sseKmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder storageClass(String storageClass) {
-            this.storageClass = Objects.requireNonNull(storageClass);
+            if (storageClass == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "storageClass");
+            }
+            this.storageClass = storageClass;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder versionId(String versionId) {
-            this.versionId = Objects.requireNonNull(versionId);
+            if (versionId == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "versionId");
+            }
+            this.versionId = versionId;
             return this;
         }
         @CustomType.Setter
         public Builder websiteRedirectLocation(String websiteRedirectLocation) {
-            this.websiteRedirectLocation = Objects.requireNonNull(websiteRedirectLocation);
+            if (websiteRedirectLocation == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "websiteRedirectLocation");
+            }
+            this.websiteRedirectLocation = websiteRedirectLocation;
             return this;
         }
         public GetObjectResult build() {

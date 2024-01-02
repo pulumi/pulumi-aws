@@ -6,6 +6,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate;
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -103,17 +104,26 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
 
         @CustomType.Setter
         public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionFastLaunchConfiguration", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionFastLaunchConfiguration", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder launchTemplates(List<GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate> launchTemplates) {
-            this.launchTemplates = Objects.requireNonNull(launchTemplates);
+            if (launchTemplates == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionFastLaunchConfiguration", "launchTemplates");
+            }
+            this.launchTemplates = launchTemplates;
             return this;
         }
         public Builder launchTemplates(GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate... launchTemplates) {
@@ -121,12 +131,18 @@ public final class GetDistributionConfigurationDistributionFastLaunchConfigurati
         }
         @CustomType.Setter
         public Builder maxParallelLaunches(Integer maxParallelLaunches) {
-            this.maxParallelLaunches = Objects.requireNonNull(maxParallelLaunches);
+            if (maxParallelLaunches == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionFastLaunchConfiguration", "maxParallelLaunches");
+            }
+            this.maxParallelLaunches = maxParallelLaunches;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotConfigurations(List<GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration> snapshotConfigurations) {
-            this.snapshotConfigurations = Objects.requireNonNull(snapshotConfigurations);
+            if (snapshotConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistributionFastLaunchConfiguration", "snapshotConfigurations");
+            }
+            this.snapshotConfigurations = snapshotConfigurations;
             return this;
         }
         public Builder snapshotConfigurations(GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration... snapshotConfigurations) {

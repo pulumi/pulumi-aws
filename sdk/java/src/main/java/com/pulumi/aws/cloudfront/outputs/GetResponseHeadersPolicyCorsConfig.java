@@ -8,6 +8,7 @@ import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicyCorsConfigAcces
 import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin;
 import com.pulumi.aws.cloudfront.outputs.GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.List;
@@ -124,12 +125,18 @@ public final class GetResponseHeadersPolicyCorsConfig {
 
         @CustomType.Setter
         public Builder accessControlAllowCredentials(Boolean accessControlAllowCredentials) {
-            this.accessControlAllowCredentials = Objects.requireNonNull(accessControlAllowCredentials);
+            if (accessControlAllowCredentials == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyCorsConfig", "accessControlAllowCredentials");
+            }
+            this.accessControlAllowCredentials = accessControlAllowCredentials;
             return this;
         }
         @CustomType.Setter
         public Builder accessControlAllowHeaders(List<GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader> accessControlAllowHeaders) {
-            this.accessControlAllowHeaders = Objects.requireNonNull(accessControlAllowHeaders);
+            if (accessControlAllowHeaders == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyCorsConfig", "accessControlAllowHeaders");
+            }
+            this.accessControlAllowHeaders = accessControlAllowHeaders;
             return this;
         }
         public Builder accessControlAllowHeaders(GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader... accessControlAllowHeaders) {
@@ -137,7 +144,10 @@ public final class GetResponseHeadersPolicyCorsConfig {
         }
         @CustomType.Setter
         public Builder accessControlAllowMethods(List<GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod> accessControlAllowMethods) {
-            this.accessControlAllowMethods = Objects.requireNonNull(accessControlAllowMethods);
+            if (accessControlAllowMethods == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyCorsConfig", "accessControlAllowMethods");
+            }
+            this.accessControlAllowMethods = accessControlAllowMethods;
             return this;
         }
         public Builder accessControlAllowMethods(GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod... accessControlAllowMethods) {
@@ -145,7 +155,10 @@ public final class GetResponseHeadersPolicyCorsConfig {
         }
         @CustomType.Setter
         public Builder accessControlAllowOrigins(List<GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin> accessControlAllowOrigins) {
-            this.accessControlAllowOrigins = Objects.requireNonNull(accessControlAllowOrigins);
+            if (accessControlAllowOrigins == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyCorsConfig", "accessControlAllowOrigins");
+            }
+            this.accessControlAllowOrigins = accessControlAllowOrigins;
             return this;
         }
         public Builder accessControlAllowOrigins(GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin... accessControlAllowOrigins) {
@@ -153,7 +166,10 @@ public final class GetResponseHeadersPolicyCorsConfig {
         }
         @CustomType.Setter
         public Builder accessControlExposeHeaders(List<GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader> accessControlExposeHeaders) {
-            this.accessControlExposeHeaders = Objects.requireNonNull(accessControlExposeHeaders);
+            if (accessControlExposeHeaders == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyCorsConfig", "accessControlExposeHeaders");
+            }
+            this.accessControlExposeHeaders = accessControlExposeHeaders;
             return this;
         }
         public Builder accessControlExposeHeaders(GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader... accessControlExposeHeaders) {
@@ -161,12 +177,18 @@ public final class GetResponseHeadersPolicyCorsConfig {
         }
         @CustomType.Setter
         public Builder accessControlMaxAgeSec(Integer accessControlMaxAgeSec) {
-            this.accessControlMaxAgeSec = Objects.requireNonNull(accessControlMaxAgeSec);
+            if (accessControlMaxAgeSec == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyCorsConfig", "accessControlMaxAgeSec");
+            }
+            this.accessControlMaxAgeSec = accessControlMaxAgeSec;
             return this;
         }
         @CustomType.Setter
         public Builder originOverride(Boolean originOverride) {
-            this.originOverride = Objects.requireNonNull(originOverride);
+            if (originOverride == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyCorsConfig", "originOverride");
+            }
+            this.originOverride = originOverride;
             return this;
         }
         public GetResponseHeadersPolicyCorsConfig build() {

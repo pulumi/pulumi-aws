@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -126,82 +127,130 @@ public final class GetEndpointPostgresSetting {
 
         @CustomType.Setter
         public Builder afterConnectScript(String afterConnectScript) {
-            this.afterConnectScript = Objects.requireNonNull(afterConnectScript);
+            if (afterConnectScript == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "afterConnectScript");
+            }
+            this.afterConnectScript = afterConnectScript;
             return this;
         }
         @CustomType.Setter
         public Builder babelfishDatabaseName(String babelfishDatabaseName) {
-            this.babelfishDatabaseName = Objects.requireNonNull(babelfishDatabaseName);
+            if (babelfishDatabaseName == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "babelfishDatabaseName");
+            }
+            this.babelfishDatabaseName = babelfishDatabaseName;
             return this;
         }
         @CustomType.Setter
         public Builder captureDdls(Boolean captureDdls) {
-            this.captureDdls = Objects.requireNonNull(captureDdls);
+            if (captureDdls == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "captureDdls");
+            }
+            this.captureDdls = captureDdls;
             return this;
         }
         @CustomType.Setter
         public Builder databaseMode(String databaseMode) {
-            this.databaseMode = Objects.requireNonNull(databaseMode);
+            if (databaseMode == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "databaseMode");
+            }
+            this.databaseMode = databaseMode;
             return this;
         }
         @CustomType.Setter
         public Builder ddlArtifactsSchema(String ddlArtifactsSchema) {
-            this.ddlArtifactsSchema = Objects.requireNonNull(ddlArtifactsSchema);
+            if (ddlArtifactsSchema == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "ddlArtifactsSchema");
+            }
+            this.ddlArtifactsSchema = ddlArtifactsSchema;
             return this;
         }
         @CustomType.Setter
         public Builder executeTimeout(Integer executeTimeout) {
-            this.executeTimeout = Objects.requireNonNull(executeTimeout);
+            if (executeTimeout == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "executeTimeout");
+            }
+            this.executeTimeout = executeTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder failTasksOnLobTruncation(Boolean failTasksOnLobTruncation) {
-            this.failTasksOnLobTruncation = Objects.requireNonNull(failTasksOnLobTruncation);
+            if (failTasksOnLobTruncation == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "failTasksOnLobTruncation");
+            }
+            this.failTasksOnLobTruncation = failTasksOnLobTruncation;
             return this;
         }
         @CustomType.Setter
         public Builder heartbeatEnable(Boolean heartbeatEnable) {
-            this.heartbeatEnable = Objects.requireNonNull(heartbeatEnable);
+            if (heartbeatEnable == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "heartbeatEnable");
+            }
+            this.heartbeatEnable = heartbeatEnable;
             return this;
         }
         @CustomType.Setter
         public Builder heartbeatFrequency(Integer heartbeatFrequency) {
-            this.heartbeatFrequency = Objects.requireNonNull(heartbeatFrequency);
+            if (heartbeatFrequency == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "heartbeatFrequency");
+            }
+            this.heartbeatFrequency = heartbeatFrequency;
             return this;
         }
         @CustomType.Setter
         public Builder heartbeatSchema(String heartbeatSchema) {
-            this.heartbeatSchema = Objects.requireNonNull(heartbeatSchema);
+            if (heartbeatSchema == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "heartbeatSchema");
+            }
+            this.heartbeatSchema = heartbeatSchema;
             return this;
         }
         @CustomType.Setter
         public Builder mapBooleanAsBoolean(Boolean mapBooleanAsBoolean) {
-            this.mapBooleanAsBoolean = Objects.requireNonNull(mapBooleanAsBoolean);
+            if (mapBooleanAsBoolean == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "mapBooleanAsBoolean");
+            }
+            this.mapBooleanAsBoolean = mapBooleanAsBoolean;
             return this;
         }
         @CustomType.Setter
         public Builder mapJsonbAsClob(Boolean mapJsonbAsClob) {
-            this.mapJsonbAsClob = Objects.requireNonNull(mapJsonbAsClob);
+            if (mapJsonbAsClob == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "mapJsonbAsClob");
+            }
+            this.mapJsonbAsClob = mapJsonbAsClob;
             return this;
         }
         @CustomType.Setter
         public Builder mapLongVarcharAs(String mapLongVarcharAs) {
-            this.mapLongVarcharAs = Objects.requireNonNull(mapLongVarcharAs);
+            if (mapLongVarcharAs == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "mapLongVarcharAs");
+            }
+            this.mapLongVarcharAs = mapLongVarcharAs;
             return this;
         }
         @CustomType.Setter
         public Builder maxFileSize(Integer maxFileSize) {
-            this.maxFileSize = Objects.requireNonNull(maxFileSize);
+            if (maxFileSize == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "maxFileSize");
+            }
+            this.maxFileSize = maxFileSize;
             return this;
         }
         @CustomType.Setter
         public Builder pluginName(String pluginName) {
-            this.pluginName = Objects.requireNonNull(pluginName);
+            if (pluginName == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "pluginName");
+            }
+            this.pluginName = pluginName;
             return this;
         }
         @CustomType.Setter
         public Builder slotName(String slotName) {
-            this.slotName = Objects.requireNonNull(slotName);
+            if (slotName == null) {
+              throw new MissingRequiredPropertyException("GetEndpointPostgresSetting", "slotName");
+            }
+            this.slotName = slotName;
             return this;
         }
         public GetEndpointPostgresSetting build() {

@@ -132,36 +132,43 @@ public final class WorkgroupConfiguration {
 
         @CustomType.Setter
         public Builder bytesScannedCutoffPerQuery(@Nullable Integer bytesScannedCutoffPerQuery) {
+
             this.bytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
             return this;
         }
         @CustomType.Setter
         public Builder enforceWorkgroupConfiguration(@Nullable Boolean enforceWorkgroupConfiguration) {
+
             this.enforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder engineVersion(@Nullable WorkgroupConfigurationEngineVersion engineVersion) {
+
             this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
         public Builder executionRole(@Nullable String executionRole) {
+
             this.executionRole = executionRole;
             return this;
         }
         @CustomType.Setter
         public Builder publishCloudwatchMetricsEnabled(@Nullable Boolean publishCloudwatchMetricsEnabled) {
+
             this.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder requesterPaysEnabled(@Nullable Boolean requesterPaysEnabled) {
+
             this.requesterPaysEnabled = requesterPaysEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder resultConfiguration(@Nullable WorkgroupConfigurationResultConfiguration resultConfiguration) {
+
             this.resultConfiguration = resultConfiguration;
             return this;
         }

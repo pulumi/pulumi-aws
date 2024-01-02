@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin.outputs;
 
 import com.pulumi.aws.ssoadmin.outputs.GetApplicationAssignmentsApplicationAssignment;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -65,11 +66,15 @@ public final class GetApplicationAssignmentsResult {
 
         @CustomType.Setter
         public Builder applicationArn(String applicationArn) {
-            this.applicationArn = Objects.requireNonNull(applicationArn);
+            if (applicationArn == null) {
+              throw new MissingRequiredPropertyException("GetApplicationAssignmentsResult", "applicationArn");
+            }
+            this.applicationArn = applicationArn;
             return this;
         }
         @CustomType.Setter
         public Builder applicationAssignments(@Nullable List<GetApplicationAssignmentsApplicationAssignment> applicationAssignments) {
+
             this.applicationAssignments = applicationAssignments;
             return this;
         }
@@ -78,7 +83,10 @@ public final class GetApplicationAssignmentsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationAssignmentsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetApplicationAssignmentsResult build() {

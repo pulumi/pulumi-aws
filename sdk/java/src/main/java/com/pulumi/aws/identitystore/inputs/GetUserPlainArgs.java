@@ -6,6 +6,7 @@ package com.pulumi.aws.identitystore.inputs;
 import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifier;
 import com.pulumi.aws.identitystore.inputs.GetUserFilter;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -172,7 +173,9 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetUserPlainArgs build() {
-            $.identityStoreId = Objects.requireNonNull($.identityStoreId, "expected parameter 'identityStoreId' to be non-null");
+            if ($.identityStoreId == null) {
+                throw new MissingRequiredPropertyException("GetUserPlainArgs", "identityStoreId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -102,26 +103,35 @@ public final class EndpointElasticsearchSettings {
 
         @CustomType.Setter
         public Builder endpointUri(String endpointUri) {
-            this.endpointUri = Objects.requireNonNull(endpointUri);
+            if (endpointUri == null) {
+              throw new MissingRequiredPropertyException("EndpointElasticsearchSettings", "endpointUri");
+            }
+            this.endpointUri = endpointUri;
             return this;
         }
         @CustomType.Setter
         public Builder errorRetryDuration(@Nullable Integer errorRetryDuration) {
+
             this.errorRetryDuration = errorRetryDuration;
             return this;
         }
         @CustomType.Setter
         public Builder fullLoadErrorPercentage(@Nullable Integer fullLoadErrorPercentage) {
+
             this.fullLoadErrorPercentage = fullLoadErrorPercentage;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccessRoleArn(String serviceAccessRoleArn) {
-            this.serviceAccessRoleArn = Objects.requireNonNull(serviceAccessRoleArn);
+            if (serviceAccessRoleArn == null) {
+              throw new MissingRequiredPropertyException("EndpointElasticsearchSettings", "serviceAccessRoleArn");
+            }
+            this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder useNewMappingType(@Nullable Boolean useNewMappingType) {
+
             this.useNewMappingType = useNewMappingType;
             return this;
         }

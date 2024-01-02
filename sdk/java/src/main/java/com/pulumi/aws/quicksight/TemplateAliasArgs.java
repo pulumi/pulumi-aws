@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -196,9 +197,15 @@ public final class TemplateAliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TemplateAliasArgs build() {
-            $.aliasName = Objects.requireNonNull($.aliasName, "expected parameter 'aliasName' to be non-null");
-            $.templateId = Objects.requireNonNull($.templateId, "expected parameter 'templateId' to be non-null");
-            $.templateVersionNumber = Objects.requireNonNull($.templateVersionNumber, "expected parameter 'templateVersionNumber' to be non-null");
+            if ($.aliasName == null) {
+                throw new MissingRequiredPropertyException("TemplateAliasArgs", "aliasName");
+            }
+            if ($.templateId == null) {
+                throw new MissingRequiredPropertyException("TemplateAliasArgs", "templateId");
+            }
+            if ($.templateVersionNumber == null) {
+                throw new MissingRequiredPropertyException("TemplateAliasArgs", "templateVersionNumber");
+            }
             return $;
         }
     }

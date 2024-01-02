@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -159,8 +160,12 @@ public final class LocalGatewayRouteTableVpcAssociationArgs extends com.pulumi.r
         }
 
         public LocalGatewayRouteTableVpcAssociationArgs build() {
-            $.localGatewayRouteTableId = Objects.requireNonNull($.localGatewayRouteTableId, "expected parameter 'localGatewayRouteTableId' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.localGatewayRouteTableId == null) {
+                throw new MissingRequiredPropertyException("LocalGatewayRouteTableVpcAssociationArgs", "localGatewayRouteTableId");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("LocalGatewayRouteTableVpcAssociationArgs", "vpcId");
+            }
             return $;
         }
     }

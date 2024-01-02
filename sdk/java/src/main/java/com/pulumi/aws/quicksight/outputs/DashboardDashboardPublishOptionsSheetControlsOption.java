@@ -44,6 +44,7 @@ public final class DashboardDashboardPublishOptionsSheetControlsOption {
 
         @CustomType.Setter
         public Builder visibilityState(@Nullable String visibilityState) {
+
             this.visibilityState = visibilityState;
             return this;
         }

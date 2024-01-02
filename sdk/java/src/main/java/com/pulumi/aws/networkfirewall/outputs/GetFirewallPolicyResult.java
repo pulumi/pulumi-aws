@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -115,17 +116,24 @@ public final class GetFirewallPolicyResult {
 
         @CustomType.Setter
         public Builder arn(@Nullable String arn) {
+
             this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder firewallPolicies(List<GetFirewallPolicyFirewallPolicy> firewallPolicies) {
-            this.firewallPolicies = Objects.requireNonNull(firewallPolicies);
+            if (firewallPolicies == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "firewallPolicies");
+            }
+            this.firewallPolicies = firewallPolicies;
             return this;
         }
         public Builder firewallPolicies(GetFirewallPolicyFirewallPolicy... firewallPolicies) {
@@ -133,22 +141,32 @@ public final class GetFirewallPolicyResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder updateToken(String updateToken) {
-            this.updateToken = Objects.requireNonNull(updateToken);
+            if (updateToken == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "updateToken");
+            }
+            this.updateToken = updateToken;
             return this;
         }
         public GetFirewallPolicyResult build() {

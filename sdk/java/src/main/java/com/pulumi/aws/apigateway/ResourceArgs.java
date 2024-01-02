@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ResourceArgs build() {
-            $.parentId = Objects.requireNonNull($.parentId, "expected parameter 'parentId' to be non-null");
-            $.pathPart = Objects.requireNonNull($.pathPart, "expected parameter 'pathPart' to be non-null");
-            $.restApi = Objects.requireNonNull($.restApi, "expected parameter 'restApi' to be non-null");
+            if ($.parentId == null) {
+                throw new MissingRequiredPropertyException("ResourceArgs", "parentId");
+            }
+            if ($.pathPart == null) {
+                throw new MissingRequiredPropertyException("ResourceArgs", "pathPart");
+            }
+            if ($.restApi == null) {
+                throw new MissingRequiredPropertyException("ResourceArgs", "restApi");
+            }
             return $;
         }
     }

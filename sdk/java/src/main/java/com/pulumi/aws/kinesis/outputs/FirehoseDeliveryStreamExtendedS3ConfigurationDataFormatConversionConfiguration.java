@@ -7,6 +7,7 @@ import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamExtendedS3Configurat
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -89,22 +90,32 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder inputFormatConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration inputFormatConfiguration) {
-            this.inputFormatConfiguration = Objects.requireNonNull(inputFormatConfiguration);
+            if (inputFormatConfiguration == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration", "inputFormatConfiguration");
+            }
+            this.inputFormatConfiguration = inputFormatConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder outputFormatConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration outputFormatConfiguration) {
-            this.outputFormatConfiguration = Objects.requireNonNull(outputFormatConfiguration);
+            if (outputFormatConfiguration == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration", "outputFormatConfiguration");
+            }
+            this.outputFormatConfiguration = outputFormatConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder schemaConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration schemaConfiguration) {
-            this.schemaConfiguration = Objects.requireNonNull(schemaConfiguration);
+            if (schemaConfiguration == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration", "schemaConfiguration");
+            }
+            this.schemaConfiguration = schemaConfiguration;
             return this;
         }
         public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration build() {

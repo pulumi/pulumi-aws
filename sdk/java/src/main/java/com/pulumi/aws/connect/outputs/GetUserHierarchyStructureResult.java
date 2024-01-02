@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.aws.connect.outputs.GetUserHierarchyStructureHierarchyStructure;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -64,7 +65,10 @@ public final class GetUserHierarchyStructureResult {
 
         @CustomType.Setter
         public Builder hierarchyStructures(List<GetUserHierarchyStructureHierarchyStructure> hierarchyStructures) {
-            this.hierarchyStructures = Objects.requireNonNull(hierarchyStructures);
+            if (hierarchyStructures == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyStructureResult", "hierarchyStructures");
+            }
+            this.hierarchyStructures = hierarchyStructures;
             return this;
         }
         public Builder hierarchyStructures(GetUserHierarchyStructureHierarchyStructure... hierarchyStructures) {
@@ -72,12 +76,18 @@ public final class GetUserHierarchyStructureResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyStructureResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyStructureResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         public GetUserHierarchyStructureResult build() {

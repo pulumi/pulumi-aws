@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -182,52 +183,82 @@ public final class GetAuthorizerResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizerResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder authorizerCredentials(String authorizerCredentials) {
-            this.authorizerCredentials = Objects.requireNonNull(authorizerCredentials);
+            if (authorizerCredentials == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizerResult", "authorizerCredentials");
+            }
+            this.authorizerCredentials = authorizerCredentials;
             return this;
         }
         @CustomType.Setter
         public Builder authorizerId(String authorizerId) {
-            this.authorizerId = Objects.requireNonNull(authorizerId);
+            if (authorizerId == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizerResult", "authorizerId");
+            }
+            this.authorizerId = authorizerId;
             return this;
         }
         @CustomType.Setter
         public Builder authorizerResultTtlInSeconds(Integer authorizerResultTtlInSeconds) {
-            this.authorizerResultTtlInSeconds = Objects.requireNonNull(authorizerResultTtlInSeconds);
+            if (authorizerResultTtlInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizerResult", "authorizerResultTtlInSeconds");
+            }
+            this.authorizerResultTtlInSeconds = authorizerResultTtlInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder authorizerUri(String authorizerUri) {
-            this.authorizerUri = Objects.requireNonNull(authorizerUri);
+            if (authorizerUri == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizerResult", "authorizerUri");
+            }
+            this.authorizerUri = authorizerUri;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identitySource(String identitySource) {
-            this.identitySource = Objects.requireNonNull(identitySource);
+            if (identitySource == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizerResult", "identitySource");
+            }
+            this.identitySource = identitySource;
             return this;
         }
         @CustomType.Setter
         public Builder identityValidationExpression(String identityValidationExpression) {
-            this.identityValidationExpression = Objects.requireNonNull(identityValidationExpression);
+            if (identityValidationExpression == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizerResult", "identityValidationExpression");
+            }
+            this.identityValidationExpression = identityValidationExpression;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizerResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder providerArns(List<String> providerArns) {
-            this.providerArns = Objects.requireNonNull(providerArns);
+            if (providerArns == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizerResult", "providerArns");
+            }
+            this.providerArns = providerArns;
             return this;
         }
         public Builder providerArns(String... providerArns) {
@@ -235,12 +266,18 @@ public final class GetAuthorizerResult {
         }
         @CustomType.Setter
         public Builder restApiId(String restApiId) {
-            this.restApiId = Objects.requireNonNull(restApiId);
+            if (restApiId == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizerResult", "restApiId");
+            }
+            this.restApiId = restApiId;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizerResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetAuthorizerResult build() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.networkfirewall.inputs;
 import com.pulumi.aws.networkfirewall.inputs.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,7 +86,9 @@ public final class LoggingConfigurationLoggingConfigurationArgs extends com.pulu
         }
 
         public LoggingConfigurationLoggingConfigurationArgs build() {
-            $.logDestinationConfigs = Objects.requireNonNull($.logDestinationConfigs, "expected parameter 'logDestinationConfigs' to be non-null");
+            if ($.logDestinationConfigs == null) {
+                throw new MissingRequiredPropertyException("LoggingConfigurationLoggingConfigurationArgs", "logDestinationConfigs");
+            }
             return $;
         }
     }

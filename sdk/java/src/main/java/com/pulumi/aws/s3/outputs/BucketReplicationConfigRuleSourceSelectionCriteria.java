@@ -59,11 +59,13 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteria {
 
         @CustomType.Setter
         public Builder replicaModifications(@Nullable BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications replicaModifications) {
+
             this.replicaModifications = replicaModifications;
             return this;
         }
         @CustomType.Setter
         public Builder sseKmsEncryptedObjects(@Nullable BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects) {
+
             this.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
             return this;
         }

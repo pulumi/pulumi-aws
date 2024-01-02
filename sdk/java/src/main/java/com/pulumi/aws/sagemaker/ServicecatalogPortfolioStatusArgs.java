@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ServicecatalogPortfolioStatusArgs extends com.pulumi.resource
         }
 
         public ServicecatalogPortfolioStatusArgs build() {
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("ServicecatalogPortfolioStatusArgs", "status");
+            }
             return $;
         }
     }

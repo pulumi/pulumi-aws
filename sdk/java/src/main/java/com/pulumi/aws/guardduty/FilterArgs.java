@@ -6,6 +6,7 @@ package com.pulumi.aws.guardduty;
 import com.pulumi.aws.guardduty.inputs.FilterFindingCriteriaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -301,10 +302,18 @@ public final class FilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FilterArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.detectorId = Objects.requireNonNull($.detectorId, "expected parameter 'detectorId' to be non-null");
-            $.findingCriteria = Objects.requireNonNull($.findingCriteria, "expected parameter 'findingCriteria' to be non-null");
-            $.rank = Objects.requireNonNull($.rank, "expected parameter 'rank' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("FilterArgs", "action");
+            }
+            if ($.detectorId == null) {
+                throw new MissingRequiredPropertyException("FilterArgs", "detectorId");
+            }
+            if ($.findingCriteria == null) {
+                throw new MissingRequiredPropertyException("FilterArgs", "findingCriteria");
+            }
+            if ($.rank == null) {
+                throw new MissingRequiredPropertyException("FilterArgs", "rank");
+            }
             return $;
         }
     }

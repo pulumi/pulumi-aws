@@ -44,6 +44,7 @@ public final class JobDefinitionTimeout {
 
         @CustomType.Setter
         public Builder attemptDurationSeconds(@Nullable Integer attemptDurationSeconds) {
+
             this.attemptDurationSeconds = attemptDurationSeconds;
             return this;
         }

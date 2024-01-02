@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.inputs;
 import com.pulumi.aws.quicksight.inputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,7 +189,9 @@ public final class RefreshScheduleScheduleScheduleFrequencyArgs extends com.pulu
         }
 
         public RefreshScheduleScheduleScheduleFrequencyArgs build() {
-            $.interval = Objects.requireNonNull($.interval, "expected parameter 'interval' to be non-null");
+            if ($.interval == null) {
+                throw new MissingRequiredPropertyException("RefreshScheduleScheduleScheduleFrequencyArgs", "interval");
+            }
             return $;
         }
     }

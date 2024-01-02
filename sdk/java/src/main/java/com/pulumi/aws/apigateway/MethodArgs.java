@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -471,10 +472,18 @@ public final class MethodArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MethodArgs build() {
-            $.authorization = Objects.requireNonNull($.authorization, "expected parameter 'authorization' to be non-null");
-            $.httpMethod = Objects.requireNonNull($.httpMethod, "expected parameter 'httpMethod' to be non-null");
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
-            $.restApi = Objects.requireNonNull($.restApi, "expected parameter 'restApi' to be non-null");
+            if ($.authorization == null) {
+                throw new MissingRequiredPropertyException("MethodArgs", "authorization");
+            }
+            if ($.httpMethod == null) {
+                throw new MissingRequiredPropertyException("MethodArgs", "httpMethod");
+            }
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("MethodArgs", "resourceId");
+            }
+            if ($.restApi == null) {
+                throw new MissingRequiredPropertyException("MethodArgs", "restApi");
+            }
             return $;
         }
     }

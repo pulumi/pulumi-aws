@@ -7,6 +7,7 @@ import com.pulumi.aws.datasync.inputs.NfsLocationMountOptionsArgs;
 import com.pulumi.aws.datasync.inputs.NfsLocationOnPremConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -227,9 +228,15 @@ public final class NfsLocationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NfsLocationArgs build() {
-            $.onPremConfig = Objects.requireNonNull($.onPremConfig, "expected parameter 'onPremConfig' to be non-null");
-            $.serverHostname = Objects.requireNonNull($.serverHostname, "expected parameter 'serverHostname' to be non-null");
-            $.subdirectory = Objects.requireNonNull($.subdirectory, "expected parameter 'subdirectory' to be non-null");
+            if ($.onPremConfig == null) {
+                throw new MissingRequiredPropertyException("NfsLocationArgs", "onPremConfig");
+            }
+            if ($.serverHostname == null) {
+                throw new MissingRequiredPropertyException("NfsLocationArgs", "serverHostname");
+            }
+            if ($.subdirectory == null) {
+                throw new MissingRequiredPropertyException("NfsLocationArgs", "subdirectory");
+            }
             return $;
         }
     }

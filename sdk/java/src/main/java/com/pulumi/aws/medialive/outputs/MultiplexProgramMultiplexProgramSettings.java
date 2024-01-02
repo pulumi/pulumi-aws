@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive.outputs;
 import com.pulumi.aws.medialive.outputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor;
 import com.pulumi.aws.medialive.outputs.MultiplexProgramMultiplexProgramSettingsVideoSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -89,21 +90,29 @@ public final class MultiplexProgramMultiplexProgramSettings {
 
         @CustomType.Setter
         public Builder preferredChannelPipeline(String preferredChannelPipeline) {
-            this.preferredChannelPipeline = Objects.requireNonNull(preferredChannelPipeline);
+            if (preferredChannelPipeline == null) {
+              throw new MissingRequiredPropertyException("MultiplexProgramMultiplexProgramSettings", "preferredChannelPipeline");
+            }
+            this.preferredChannelPipeline = preferredChannelPipeline;
             return this;
         }
         @CustomType.Setter
         public Builder programNumber(Integer programNumber) {
-            this.programNumber = Objects.requireNonNull(programNumber);
+            if (programNumber == null) {
+              throw new MissingRequiredPropertyException("MultiplexProgramMultiplexProgramSettings", "programNumber");
+            }
+            this.programNumber = programNumber;
             return this;
         }
         @CustomType.Setter
         public Builder serviceDescriptor(@Nullable MultiplexProgramMultiplexProgramSettingsServiceDescriptor serviceDescriptor) {
+
             this.serviceDescriptor = serviceDescriptor;
             return this;
         }
         @CustomType.Setter
         public Builder videoSettings(@Nullable MultiplexProgramMultiplexProgramSettingsVideoSettings videoSettings) {
+
             this.videoSettings = videoSettings;
             return this;
         }

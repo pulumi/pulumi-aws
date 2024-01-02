@@ -44,6 +44,7 @@ public final class PipeSourceParametersDynamodbStreamParametersDeadLetterConfig 
 
         @CustomType.Setter
         public Builder arn(@Nullable String arn) {
+
             this.arn = arn;
             return this;
         }

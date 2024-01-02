@@ -10,6 +10,7 @@ import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleNot;
 import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleOr;
 import com.pulumi.aws.costexplorer.outputs.GetCostCategoryRuleRuleTag;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -118,7 +119,10 @@ public final class GetCostCategoryRuleRule {
 
         @CustomType.Setter
         public Builder ands(List<GetCostCategoryRuleRuleAnd> ands) {
-            this.ands = Objects.requireNonNull(ands);
+            if (ands == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRule", "ands");
+            }
+            this.ands = ands;
             return this;
         }
         public Builder ands(GetCostCategoryRuleRuleAnd... ands) {
@@ -126,7 +130,10 @@ public final class GetCostCategoryRuleRule {
         }
         @CustomType.Setter
         public Builder costCategories(List<GetCostCategoryRuleRuleCostCategory> costCategories) {
-            this.costCategories = Objects.requireNonNull(costCategories);
+            if (costCategories == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRule", "costCategories");
+            }
+            this.costCategories = costCategories;
             return this;
         }
         public Builder costCategories(GetCostCategoryRuleRuleCostCategory... costCategories) {
@@ -134,7 +141,10 @@ public final class GetCostCategoryRuleRule {
         }
         @CustomType.Setter
         public Builder dimensions(List<GetCostCategoryRuleRuleDimension> dimensions) {
-            this.dimensions = Objects.requireNonNull(dimensions);
+            if (dimensions == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRule", "dimensions");
+            }
+            this.dimensions = dimensions;
             return this;
         }
         public Builder dimensions(GetCostCategoryRuleRuleDimension... dimensions) {
@@ -142,7 +152,10 @@ public final class GetCostCategoryRuleRule {
         }
         @CustomType.Setter
         public Builder nots(List<GetCostCategoryRuleRuleNot> nots) {
-            this.nots = Objects.requireNonNull(nots);
+            if (nots == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRule", "nots");
+            }
+            this.nots = nots;
             return this;
         }
         public Builder nots(GetCostCategoryRuleRuleNot... nots) {
@@ -150,7 +163,10 @@ public final class GetCostCategoryRuleRule {
         }
         @CustomType.Setter
         public Builder ors(List<GetCostCategoryRuleRuleOr> ors) {
-            this.ors = Objects.requireNonNull(ors);
+            if (ors == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRule", "ors");
+            }
+            this.ors = ors;
             return this;
         }
         public Builder ors(GetCostCategoryRuleRuleOr... ors) {
@@ -158,7 +174,10 @@ public final class GetCostCategoryRuleRule {
         }
         @CustomType.Setter
         public Builder tags(List<GetCostCategoryRuleRuleTag> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetCostCategoryRuleRule", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public Builder tags(GetCostCategoryRuleRuleTag... tags) {

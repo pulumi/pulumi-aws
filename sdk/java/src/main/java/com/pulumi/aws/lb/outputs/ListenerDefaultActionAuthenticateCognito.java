@@ -4,6 +4,7 @@
 package com.pulumi.aws.lb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -148,42 +149,56 @@ public final class ListenerDefaultActionAuthenticateCognito {
 
         @CustomType.Setter
         public Builder authenticationRequestExtraParams(@Nullable Map<String,String> authenticationRequestExtraParams) {
+
             this.authenticationRequestExtraParams = authenticationRequestExtraParams;
             return this;
         }
         @CustomType.Setter
         public Builder onUnauthenticatedRequest(@Nullable String onUnauthenticatedRequest) {
+
             this.onUnauthenticatedRequest = onUnauthenticatedRequest;
             return this;
         }
         @CustomType.Setter
         public Builder scope(@Nullable String scope) {
+
             this.scope = scope;
             return this;
         }
         @CustomType.Setter
         public Builder sessionCookieName(@Nullable String sessionCookieName) {
+
             this.sessionCookieName = sessionCookieName;
             return this;
         }
         @CustomType.Setter
         public Builder sessionTimeout(@Nullable Integer sessionTimeout) {
+
             this.sessionTimeout = sessionTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder userPoolArn(String userPoolArn) {
-            this.userPoolArn = Objects.requireNonNull(userPoolArn);
+            if (userPoolArn == null) {
+              throw new MissingRequiredPropertyException("ListenerDefaultActionAuthenticateCognito", "userPoolArn");
+            }
+            this.userPoolArn = userPoolArn;
             return this;
         }
         @CustomType.Setter
         public Builder userPoolClientId(String userPoolClientId) {
-            this.userPoolClientId = Objects.requireNonNull(userPoolClientId);
+            if (userPoolClientId == null) {
+              throw new MissingRequiredPropertyException("ListenerDefaultActionAuthenticateCognito", "userPoolClientId");
+            }
+            this.userPoolClientId = userPoolClientId;
             return this;
         }
         @CustomType.Setter
         public Builder userPoolDomain(String userPoolDomain) {
-            this.userPoolDomain = Objects.requireNonNull(userPoolDomain);
+            if (userPoolDomain == null) {
+              throw new MissingRequiredPropertyException("ListenerDefaultActionAuthenticateCognito", "userPoolDomain");
+            }
+            this.userPoolDomain = userPoolDomain;
             return this;
         }
         public ListenerDefaultActionAuthenticateCognito build() {

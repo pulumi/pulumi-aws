@@ -5,6 +5,7 @@ package com.pulumi.aws.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class ProvisioningTemplatePreProvisioningHookArgs extends com.pulum
         }
 
         public ProvisioningTemplatePreProvisioningHookArgs build() {
-            $.targetArn = Objects.requireNonNull($.targetArn, "expected parameter 'targetArn' to be non-null");
+            if ($.targetArn == null) {
+                throw new MissingRequiredPropertyException("ProvisioningTemplatePreProvisioningHookArgs", "targetArn");
+            }
             return $;
         }
     }

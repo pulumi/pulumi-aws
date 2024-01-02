@@ -5,6 +5,7 @@ package com.pulumi.aws.codeguruprofiler.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ProfilingGroupAgentOrchestrationConfigArgs extends com.pulumi
         }
 
         public ProfilingGroupAgentOrchestrationConfigArgs build() {
-            $.profilingEnabled = Objects.requireNonNull($.profilingEnabled, "expected parameter 'profilingEnabled' to be non-null");
+            if ($.profilingEnabled == null) {
+                throw new MissingRequiredPropertyException("ProfilingGroupAgentOrchestrationConfigArgs", "profilingEnabled");
+            }
             return $;
         }
     }

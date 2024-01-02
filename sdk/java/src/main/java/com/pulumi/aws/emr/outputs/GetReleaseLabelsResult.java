@@ -5,6 +5,7 @@ package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.aws.emr.outputs.GetReleaseLabelsFilters;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -66,17 +67,24 @@ public final class GetReleaseLabelsResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable GetReleaseLabelsFilters filters) {
+
             this.filters = filters;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetReleaseLabelsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder releaseLabels(List<String> releaseLabels) {
-            this.releaseLabels = Objects.requireNonNull(releaseLabels);
+            if (releaseLabels == null) {
+              throw new MissingRequiredPropertyException("GetReleaseLabelsResult", "releaseLabels");
+            }
+            this.releaseLabels = releaseLabels;
             return this;
         }
         public Builder releaseLabels(String... releaseLabels) {

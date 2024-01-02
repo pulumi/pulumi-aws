@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideE
 
         @CustomType.Setter
         public Builder kmsMasterKeyId(@Nullable String kmsMasterKeyId) {
+
             this.kmsMasterKeyId = kmsMasterKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder sseAlgorithm(String sseAlgorithm) {
-            this.sseAlgorithm = Objects.requireNonNull(sseAlgorithm);
+            if (sseAlgorithm == null) {
+              throw new MissingRequiredPropertyException("BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault", "sseAlgorithm");
+            }
+            this.sseAlgorithm = sseAlgorithm;
             return this;
         }
         public BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault build() {

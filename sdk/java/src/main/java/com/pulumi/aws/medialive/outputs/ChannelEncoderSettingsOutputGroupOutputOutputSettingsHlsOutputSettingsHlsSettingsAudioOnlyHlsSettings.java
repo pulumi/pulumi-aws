@@ -55,21 +55,25 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
 
         @CustomType.Setter
         public Builder audioGroupId(@Nullable String audioGroupId) {
+
             this.audioGroupId = audioGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder audioOnlyImage(@Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage audioOnlyImage) {
+
             this.audioOnlyImage = audioOnlyImage;
             return this;
         }
         @CustomType.Setter
         public Builder audioTrackType(@Nullable String audioTrackType) {
+
             this.audioTrackType = audioTrackType;
             return this;
         }
         @CustomType.Setter
         public Builder segmentType(@Nullable String segmentType) {
+
             this.segmentType = segmentType;
             return this;
         }

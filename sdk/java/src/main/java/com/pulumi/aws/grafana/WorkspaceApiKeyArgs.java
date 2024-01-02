@@ -5,6 +5,7 @@ package com.pulumi.aws.grafana;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -186,10 +187,18 @@ public final class WorkspaceApiKeyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public WorkspaceApiKeyArgs build() {
-            $.keyName = Objects.requireNonNull($.keyName, "expected parameter 'keyName' to be non-null");
-            $.keyRole = Objects.requireNonNull($.keyRole, "expected parameter 'keyRole' to be non-null");
-            $.secondsToLive = Objects.requireNonNull($.secondsToLive, "expected parameter 'secondsToLive' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.keyName == null) {
+                throw new MissingRequiredPropertyException("WorkspaceApiKeyArgs", "keyName");
+            }
+            if ($.keyRole == null) {
+                throw new MissingRequiredPropertyException("WorkspaceApiKeyArgs", "keyRole");
+            }
+            if ($.secondsToLive == null) {
+                throw new MissingRequiredPropertyException("WorkspaceApiKeyArgs", "secondsToLive");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceApiKeyArgs", "workspaceId");
+            }
             return $;
         }
     }

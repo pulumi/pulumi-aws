@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,12 +72,18 @@ public final class RuleGroupRuleGroupRulesSourceRulesSourceList {
 
         @CustomType.Setter
         public Builder generatedRulesType(String generatedRulesType) {
-            this.generatedRulesType = Objects.requireNonNull(generatedRulesType);
+            if (generatedRulesType == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceRulesSourceList", "generatedRulesType");
+            }
+            this.generatedRulesType = generatedRulesType;
             return this;
         }
         @CustomType.Setter
         public Builder targetTypes(List<String> targetTypes) {
-            this.targetTypes = Objects.requireNonNull(targetTypes);
+            if (targetTypes == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceRulesSourceList", "targetTypes");
+            }
+            this.targetTypes = targetTypes;
             return this;
         }
         public Builder targetTypes(String... targetTypes) {
@@ -84,7 +91,10 @@ public final class RuleGroupRuleGroupRulesSourceRulesSourceList {
         }
         @CustomType.Setter
         public Builder targets(List<String> targets) {
-            this.targets = Objects.requireNonNull(targets);
+            if (targets == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceRulesSourceList", "targets");
+            }
+            this.targets = targets;
             return this;
         }
         public Builder targets(String... targets) {

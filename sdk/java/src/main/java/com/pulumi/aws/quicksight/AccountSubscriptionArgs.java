@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -633,10 +634,18 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         public AccountSubscriptionArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.authenticationMethod = Objects.requireNonNull($.authenticationMethod, "expected parameter 'authenticationMethod' to be non-null");
-            $.edition = Objects.requireNonNull($.edition, "expected parameter 'edition' to be non-null");
-            $.notificationEmail = Objects.requireNonNull($.notificationEmail, "expected parameter 'notificationEmail' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("AccountSubscriptionArgs", "accountName");
+            }
+            if ($.authenticationMethod == null) {
+                throw new MissingRequiredPropertyException("AccountSubscriptionArgs", "authenticationMethod");
+            }
+            if ($.edition == null) {
+                throw new MissingRequiredPropertyException("AccountSubscriptionArgs", "edition");
+            }
+            if ($.notificationEmail == null) {
+                throw new MissingRequiredPropertyException("AccountSubscriptionArgs", "notificationEmail");
+            }
             return $;
         }
     }

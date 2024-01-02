@@ -5,6 +5,7 @@ package com.pulumi.aws.appconfig.outputs;
 
 import com.pulumi.aws.appconfig.outputs.GetEnvironmentMonitor;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -143,32 +144,50 @@ public final class GetEnvironmentResult {
 
         @CustomType.Setter
         public Builder applicationId(String applicationId) {
-            this.applicationId = Objects.requireNonNull(applicationId);
+            if (applicationId == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "applicationId");
+            }
+            this.applicationId = applicationId;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder environmentId(String environmentId) {
-            this.environmentId = Objects.requireNonNull(environmentId);
+            if (environmentId == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "environmentId");
+            }
+            this.environmentId = environmentId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder monitors(List<GetEnvironmentMonitor> monitors) {
-            this.monitors = Objects.requireNonNull(monitors);
+            if (monitors == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "monitors");
+            }
+            this.monitors = monitors;
             return this;
         }
         public Builder monitors(GetEnvironmentMonitor... monitors) {
@@ -176,17 +195,26 @@ public final class GetEnvironmentResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetEnvironmentResult build() {

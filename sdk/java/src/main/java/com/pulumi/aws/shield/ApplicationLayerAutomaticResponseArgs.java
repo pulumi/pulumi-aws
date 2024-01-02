@@ -6,6 +6,7 @@ package com.pulumi.aws.shield;
 import com.pulumi.aws.shield.inputs.ApplicationLayerAutomaticResponseTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -131,8 +132,12 @@ public final class ApplicationLayerAutomaticResponseArgs extends com.pulumi.reso
         }
 
         public ApplicationLayerAutomaticResponseArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("ApplicationLayerAutomaticResponseArgs", "action");
+            }
+            if ($.resourceArn == null) {
+                throw new MissingRequiredPropertyException("ApplicationLayerAutomaticResponseArgs", "resourceArn");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.aws.codeartifact.inputs.RepositoryExternalConnectionsArgs;
 import com.pulumi.aws.codeartifact.inputs.RepositoryUpstreamArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -312,8 +313,12 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RepositoryArgs build() {
-            $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.domain == null) {
+                throw new MissingRequiredPropertyException("RepositoryArgs", "domain");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("RepositoryArgs", "repository");
+            }
             return $;
         }
     }

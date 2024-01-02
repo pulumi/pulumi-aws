@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         @CustomType.Setter
         public Builder failureCodes(List<Integer> failureCodes) {
-            this.failureCodes = Objects.requireNonNull(failureCodes);
+            if (failureCodes == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode", "failureCodes");
+            }
+            this.failureCodes = failureCodes;
             return this;
         }
         public Builder failureCodes(Integer... failureCodes) {
@@ -65,7 +69,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
         @CustomType.Setter
         public Builder successCodes(List<Integer> successCodes) {
-            this.successCodes = Objects.requireNonNull(successCodes);
+            if (successCodes == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode", "successCodes");
+            }
+            this.successCodes = successCodes;
             return this;
         }
         public Builder successCodes(Integer... successCodes) {

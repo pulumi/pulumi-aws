@@ -4,6 +4,7 @@
 package com.pulumi.aws.finspace.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -35,7 +36,10 @@ public final class KxClusterTickerplantLogConfiguration {
 
         @CustomType.Setter
         public Builder tickerplantLogVolumes(List<String> tickerplantLogVolumes) {
-            this.tickerplantLogVolumes = Objects.requireNonNull(tickerplantLogVolumes);
+            if (tickerplantLogVolumes == null) {
+              throw new MissingRequiredPropertyException("KxClusterTickerplantLogConfiguration", "tickerplantLogVolumes");
+            }
+            this.tickerplantLogVolumes = tickerplantLogVolumes;
             return this;
         }
         public Builder tickerplantLogVolumes(String... tickerplantLogVolumes) {

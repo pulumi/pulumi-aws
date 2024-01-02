@@ -6,6 +6,7 @@ package com.pulumi.aws.datasync;
 import com.pulumi.aws.datasync.inputs.LocationFsxOntapFileSystemProtocolArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -255,9 +256,15 @@ public final class LocationFsxOntapFileSystemArgs extends com.pulumi.resources.R
         }
 
         public LocationFsxOntapFileSystemArgs build() {
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.securityGroupArns = Objects.requireNonNull($.securityGroupArns, "expected parameter 'securityGroupArns' to be non-null");
-            $.storageVirtualMachineArn = Objects.requireNonNull($.storageVirtualMachineArn, "expected parameter 'storageVirtualMachineArn' to be non-null");
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("LocationFsxOntapFileSystemArgs", "protocol");
+            }
+            if ($.securityGroupArns == null) {
+                throw new MissingRequiredPropertyException("LocationFsxOntapFileSystemArgs", "securityGroupArns");
+            }
+            if ($.storageVirtualMachineArn == null) {
+                throw new MissingRequiredPropertyException("LocationFsxOntapFileSystemArgs", "storageVirtualMachineArn");
+            }
             return $;
         }
     }

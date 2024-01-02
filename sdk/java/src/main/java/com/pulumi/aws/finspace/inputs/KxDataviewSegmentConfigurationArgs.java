@@ -5,6 +5,7 @@ package com.pulumi.aws.finspace.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class KxDataviewSegmentConfigurationArgs extends com.pulumi.resourc
         }
 
         public KxDataviewSegmentConfigurationArgs build() {
-            $.dbPaths = Objects.requireNonNull($.dbPaths, "expected parameter 'dbPaths' to be non-null");
-            $.volumeName = Objects.requireNonNull($.volumeName, "expected parameter 'volumeName' to be non-null");
+            if ($.dbPaths == null) {
+                throw new MissingRequiredPropertyException("KxDataviewSegmentConfigurationArgs", "dbPaths");
+            }
+            if ($.volumeName == null) {
+                throw new MissingRequiredPropertyException("KxDataviewSegmentConfigurationArgs", "volumeName");
+            }
             return $;
         }
     }

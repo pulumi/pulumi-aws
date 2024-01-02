@@ -7,6 +7,7 @@ import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurat
 import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -169,9 +170,15 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs build() {
-            $.referenceSchema = Objects.requireNonNull($.referenceSchema, "expected parameter 'referenceSchema' to be non-null");
-            $.s3ReferenceDataSource = Objects.requireNonNull($.s3ReferenceDataSource, "expected parameter 's3ReferenceDataSource' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.referenceSchema == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs", "referenceSchema");
+            }
+            if ($.s3ReferenceDataSource == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs", "s3ReferenceDataSource");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs", "tableName");
+            }
             return $;
         }
     }

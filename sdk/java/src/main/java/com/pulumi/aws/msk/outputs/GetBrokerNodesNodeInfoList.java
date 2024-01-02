@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -114,27 +115,42 @@ public final class GetBrokerNodesNodeInfoList {
 
         @CustomType.Setter
         public Builder attachedEniId(String attachedEniId) {
-            this.attachedEniId = Objects.requireNonNull(attachedEniId);
+            if (attachedEniId == null) {
+              throw new MissingRequiredPropertyException("GetBrokerNodesNodeInfoList", "attachedEniId");
+            }
+            this.attachedEniId = attachedEniId;
             return this;
         }
         @CustomType.Setter
         public Builder brokerId(Double brokerId) {
-            this.brokerId = Objects.requireNonNull(brokerId);
+            if (brokerId == null) {
+              throw new MissingRequiredPropertyException("GetBrokerNodesNodeInfoList", "brokerId");
+            }
+            this.brokerId = brokerId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSubnet(String clientSubnet) {
-            this.clientSubnet = Objects.requireNonNull(clientSubnet);
+            if (clientSubnet == null) {
+              throw new MissingRequiredPropertyException("GetBrokerNodesNodeInfoList", "clientSubnet");
+            }
+            this.clientSubnet = clientSubnet;
             return this;
         }
         @CustomType.Setter
         public Builder clientVpcIpAddress(String clientVpcIpAddress) {
-            this.clientVpcIpAddress = Objects.requireNonNull(clientVpcIpAddress);
+            if (clientVpcIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetBrokerNodesNodeInfoList", "clientVpcIpAddress");
+            }
+            this.clientVpcIpAddress = clientVpcIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder endpoints(List<String> endpoints) {
-            this.endpoints = Objects.requireNonNull(endpoints);
+            if (endpoints == null) {
+              throw new MissingRequiredPropertyException("GetBrokerNodesNodeInfoList", "endpoints");
+            }
+            this.endpoints = endpoints;
             return this;
         }
         public Builder endpoints(String... endpoints) {
@@ -142,7 +158,10 @@ public final class GetBrokerNodesNodeInfoList {
         }
         @CustomType.Setter
         public Builder nodeArn(String nodeArn) {
-            this.nodeArn = Objects.requireNonNull(nodeArn);
+            if (nodeArn == null) {
+              throw new MissingRequiredPropertyException("GetBrokerNodesNodeInfoList", "nodeArn");
+            }
+            this.nodeArn = nodeArn;
             return this;
         }
         public GetBrokerNodesNodeInfoList build() {

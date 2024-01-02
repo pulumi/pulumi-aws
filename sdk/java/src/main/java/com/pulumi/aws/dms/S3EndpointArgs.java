@@ -5,6 +5,7 @@ package com.pulumi.aws.dms;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1826,10 +1827,18 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public S3EndpointArgs build() {
-            $.bucketName = Objects.requireNonNull($.bucketName, "expected parameter 'bucketName' to be non-null");
-            $.endpointId = Objects.requireNonNull($.endpointId, "expected parameter 'endpointId' to be non-null");
-            $.endpointType = Objects.requireNonNull($.endpointType, "expected parameter 'endpointType' to be non-null");
-            $.serviceAccessRoleArn = Objects.requireNonNull($.serviceAccessRoleArn, "expected parameter 'serviceAccessRoleArn' to be non-null");
+            if ($.bucketName == null) {
+                throw new MissingRequiredPropertyException("S3EndpointArgs", "bucketName");
+            }
+            if ($.endpointId == null) {
+                throw new MissingRequiredPropertyException("S3EndpointArgs", "endpointId");
+            }
+            if ($.endpointType == null) {
+                throw new MissingRequiredPropertyException("S3EndpointArgs", "endpointType");
+            }
+            if ($.serviceAccessRoleArn == null) {
+                throw new MissingRequiredPropertyException("S3EndpointArgs", "serviceAccessRoleArn");
+            }
             return $;
         }
     }

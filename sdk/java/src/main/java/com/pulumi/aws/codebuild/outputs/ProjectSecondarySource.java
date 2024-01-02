@@ -6,6 +6,7 @@ package com.pulumi.aws.codebuild.outputs;
 import com.pulumi.aws.codebuild.outputs.ProjectSecondarySourceBuildStatusConfig;
 import com.pulumi.aws.codebuild.outputs.ProjectSecondarySourceGitSubmodulesConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -160,47 +161,60 @@ public final class ProjectSecondarySource {
 
         @CustomType.Setter
         public Builder buildStatusConfig(@Nullable ProjectSecondarySourceBuildStatusConfig buildStatusConfig) {
+
             this.buildStatusConfig = buildStatusConfig;
             return this;
         }
         @CustomType.Setter
         public Builder buildspec(@Nullable String buildspec) {
+
             this.buildspec = buildspec;
             return this;
         }
         @CustomType.Setter
         public Builder gitCloneDepth(@Nullable Integer gitCloneDepth) {
+
             this.gitCloneDepth = gitCloneDepth;
             return this;
         }
         @CustomType.Setter
         public Builder gitSubmodulesConfig(@Nullable ProjectSecondarySourceGitSubmodulesConfig gitSubmodulesConfig) {
+
             this.gitSubmodulesConfig = gitSubmodulesConfig;
             return this;
         }
         @CustomType.Setter
         public Builder insecureSsl(@Nullable Boolean insecureSsl) {
+
             this.insecureSsl = insecureSsl;
             return this;
         }
         @CustomType.Setter
         public Builder location(@Nullable String location) {
+
             this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder reportBuildStatus(@Nullable Boolean reportBuildStatus) {
+
             this.reportBuildStatus = reportBuildStatus;
             return this;
         }
         @CustomType.Setter
         public Builder sourceIdentifier(String sourceIdentifier) {
-            this.sourceIdentifier = Objects.requireNonNull(sourceIdentifier);
+            if (sourceIdentifier == null) {
+              throw new MissingRequiredPropertyException("ProjectSecondarySource", "sourceIdentifier");
+            }
+            this.sourceIdentifier = sourceIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ProjectSecondarySource", "type");
+            }
+            this.type = type;
             return this;
         }
         public ProjectSecondarySource build() {

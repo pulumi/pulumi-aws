@@ -174,11 +174,13 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
 
         @CustomType.Setter
         public Builder blockSizeBytes(@Nullable Integer blockSizeBytes) {
+
             this.blockSizeBytes = blockSizeBytes;
             return this;
         }
         @CustomType.Setter
         public Builder bloomFilterColumns(@Nullable List<String> bloomFilterColumns) {
+
             this.bloomFilterColumns = bloomFilterColumns;
             return this;
         }
@@ -187,41 +189,49 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
         @CustomType.Setter
         public Builder bloomFilterFalsePositiveProbability(@Nullable Double bloomFilterFalsePositiveProbability) {
+
             this.bloomFilterFalsePositiveProbability = bloomFilterFalsePositiveProbability;
             return this;
         }
         @CustomType.Setter
         public Builder compression(@Nullable String compression) {
+
             this.compression = compression;
             return this;
         }
         @CustomType.Setter
         public Builder dictionaryKeyThreshold(@Nullable Double dictionaryKeyThreshold) {
+
             this.dictionaryKeyThreshold = dictionaryKeyThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder enablePadding(@Nullable Boolean enablePadding) {
+
             this.enablePadding = enablePadding;
             return this;
         }
         @CustomType.Setter
         public Builder formatVersion(@Nullable String formatVersion) {
+
             this.formatVersion = formatVersion;
             return this;
         }
         @CustomType.Setter
         public Builder paddingTolerance(@Nullable Double paddingTolerance) {
+
             this.paddingTolerance = paddingTolerance;
             return this;
         }
         @CustomType.Setter
         public Builder rowIndexStride(@Nullable Integer rowIndexStride) {
+
             this.rowIndexStride = rowIndexStride;
             return this;
         }
         @CustomType.Setter
         public Builder stripeSizeBytes(@Nullable Integer stripeSizeBytes) {
+
             this.stripeSizeBytes = stripeSizeBytes;
             return this;
         }

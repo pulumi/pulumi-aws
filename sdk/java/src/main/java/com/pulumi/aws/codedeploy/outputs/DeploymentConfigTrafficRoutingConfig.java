@@ -74,16 +74,19 @@ public final class DeploymentConfigTrafficRoutingConfig {
 
         @CustomType.Setter
         public Builder timeBasedCanary(@Nullable DeploymentConfigTrafficRoutingConfigTimeBasedCanary timeBasedCanary) {
+
             this.timeBasedCanary = timeBasedCanary;
             return this;
         }
         @CustomType.Setter
         public Builder timeBasedLinear(@Nullable DeploymentConfigTrafficRoutingConfigTimeBasedLinear timeBasedLinear) {
+
             this.timeBasedLinear = timeBasedLinear;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

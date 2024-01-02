@@ -59,11 +59,13 @@ public final class VoiceConnectorStreamingMediaInsightsConfiguration {
 
         @CustomType.Setter
         public Builder configurationArn(@Nullable String configurationArn) {
+
             this.configurationArn = configurationArn;
             return this;
         }
         @CustomType.Setter
         public Builder disabled(@Nullable Boolean disabled) {
+
             this.disabled = disabled;
             return this;
         }

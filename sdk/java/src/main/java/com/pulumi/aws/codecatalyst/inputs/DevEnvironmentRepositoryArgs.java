@@ -5,6 +5,7 @@ package com.pulumi.aws.codecatalyst.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -121,7 +122,9 @@ public final class DevEnvironmentRepositoryArgs extends com.pulumi.resources.Res
         }
 
         public DevEnvironmentRepositoryArgs build() {
-            $.repositoryName = Objects.requireNonNull($.repositoryName, "expected parameter 'repositoryName' to be non-null");
+            if ($.repositoryName == null) {
+                throw new MissingRequiredPropertyException("DevEnvironmentRepositoryArgs", "repositoryName");
+            }
             return $;
         }
     }

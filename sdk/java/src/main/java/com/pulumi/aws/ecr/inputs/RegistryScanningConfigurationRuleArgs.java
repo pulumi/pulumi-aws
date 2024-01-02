@@ -6,6 +6,7 @@ package com.pulumi.aws.ecr.inputs;
 import com.pulumi.aws.ecr.inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class RegistryScanningConfigurationRuleArgs extends com.pulumi.reso
         }
 
         public RegistryScanningConfigurationRuleArgs build() {
-            $.repositoryFilters = Objects.requireNonNull($.repositoryFilters, "expected parameter 'repositoryFilters' to be non-null");
-            $.scanFrequency = Objects.requireNonNull($.scanFrequency, "expected parameter 'scanFrequency' to be non-null");
+            if ($.repositoryFilters == null) {
+                throw new MissingRequiredPropertyException("RegistryScanningConfigurationRuleArgs", "repositoryFilters");
+            }
+            if ($.scanFrequency == null) {
+                throw new MissingRequiredPropertyException("RegistryScanningConfigurationRuleArgs", "scanFrequency");
+            }
             return $;
         }
     }

@@ -63,6 +63,7 @@ public final class NetworkInsightsAnalysisForwardPathComponentOutboundHeader {
 
         @CustomType.Setter
         public Builder destinationAddresses(@Nullable List<String> destinationAddresses) {
+
             this.destinationAddresses = destinationAddresses;
             return this;
         }
@@ -71,6 +72,7 @@ public final class NetworkInsightsAnalysisForwardPathComponentOutboundHeader {
         }
         @CustomType.Setter
         public Builder destinationPortRanges(@Nullable List<NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange> destinationPortRanges) {
+
             this.destinationPortRanges = destinationPortRanges;
             return this;
         }
@@ -79,11 +81,13 @@ public final class NetworkInsightsAnalysisForwardPathComponentOutboundHeader {
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder sourceAddresses(@Nullable List<String> sourceAddresses) {
+
             this.sourceAddresses = sourceAddresses;
             return this;
         }
@@ -92,6 +96,7 @@ public final class NetworkInsightsAnalysisForwardPathComponentOutboundHeader {
         }
         @CustomType.Setter
         public Builder sourcePortRanges(@Nullable List<NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRange> sourcePortRanges) {
+
             this.sourcePortRanges = sourcePortRanges;
             return this;
         }

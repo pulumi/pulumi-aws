@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlValidationTrust;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetVirtualGatewaySpecListenerTlValidation {
 
         @CustomType.Setter
         public Builder subjectAlternativeNames(List<GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName> subjectAlternativeNames) {
-            this.subjectAlternativeNames = Objects.requireNonNull(subjectAlternativeNames);
+            if (subjectAlternativeNames == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerTlValidation", "subjectAlternativeNames");
+            }
+            this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
         public Builder subjectAlternativeNames(GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeName... subjectAlternativeNames) {
@@ -50,7 +54,10 @@ public final class GetVirtualGatewaySpecListenerTlValidation {
         }
         @CustomType.Setter
         public Builder trusts(List<GetVirtualGatewaySpecListenerTlValidationTrust> trusts) {
-            this.trusts = Objects.requireNonNull(trusts);
+            if (trusts == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerTlValidation", "trusts");
+            }
+            this.trusts = trusts;
             return this;
         }
         public Builder trusts(GetVirtualGatewaySpecListenerTlValidationTrust... trusts) {

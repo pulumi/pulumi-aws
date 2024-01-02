@@ -59,11 +59,13 @@ public final class ThemeConfigurationSheetTileLayout {
 
         @CustomType.Setter
         public Builder gutter(@Nullable ThemeConfigurationSheetTileLayoutGutter gutter) {
+
             this.gutter = gutter;
             return this;
         }
         @CustomType.Setter
         public Builder margin(@Nullable ThemeConfigurationSheetTileLayoutMargin margin) {
+
             this.margin = margin;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.aws.s3.outputs;
 import com.pulumi.aws.s3.outputs.BucketWebsiteConfigurationV2RoutingRuleCondition;
 import com.pulumi.aws.s3.outputs.BucketWebsiteConfigurationV2RoutingRuleRedirect;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -59,12 +60,16 @@ public final class BucketWebsiteConfigurationV2RoutingRule {
 
         @CustomType.Setter
         public Builder condition(@Nullable BucketWebsiteConfigurationV2RoutingRuleCondition condition) {
+
             this.condition = condition;
             return this;
         }
         @CustomType.Setter
         public Builder redirect(BucketWebsiteConfigurationV2RoutingRuleRedirect redirect) {
-            this.redirect = Objects.requireNonNull(redirect);
+            if (redirect == null) {
+              throw new MissingRequiredPropertyException("BucketWebsiteConfigurationV2RoutingRule", "redirect");
+            }
+            this.redirect = redirect;
             return this;
         }
         public BucketWebsiteConfigurationV2RoutingRule build() {

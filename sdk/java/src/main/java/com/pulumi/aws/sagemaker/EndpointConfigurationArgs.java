@@ -9,6 +9,7 @@ import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantArg
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationShadowProductionVariantArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -361,7 +362,9 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         public EndpointConfigurationArgs build() {
-            $.productionVariants = Objects.requireNonNull($.productionVariants, "expected parameter 'productionVariants' to be non-null");
+            if ($.productionVariants == null) {
+                throw new MissingRequiredPropertyException("EndpointConfigurationArgs", "productionVariants");
+            }
             return $;
         }
     }

@@ -59,11 +59,13 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAnd {
 
         @CustomType.Setter
         public Builder simpleScopeTerm(@Nullable ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm simpleScopeTerm) {
+
             this.simpleScopeTerm = simpleScopeTerm;
             return this;
         }
         @CustomType.Setter
         public Builder tagScopeTerm(@Nullable ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm tagScopeTerm) {
+
             this.tagScopeTerm = tagScopeTerm;
             return this;
         }

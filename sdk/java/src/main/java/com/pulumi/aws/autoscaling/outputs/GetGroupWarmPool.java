@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.aws.autoscaling.outputs.GetGroupWarmPoolInstanceReusePolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -79,7 +80,10 @@ public final class GetGroupWarmPool {
 
         @CustomType.Setter
         public Builder instanceReusePolicies(List<GetGroupWarmPoolInstanceReusePolicy> instanceReusePolicies) {
-            this.instanceReusePolicies = Objects.requireNonNull(instanceReusePolicies);
+            if (instanceReusePolicies == null) {
+              throw new MissingRequiredPropertyException("GetGroupWarmPool", "instanceReusePolicies");
+            }
+            this.instanceReusePolicies = instanceReusePolicies;
             return this;
         }
         public Builder instanceReusePolicies(GetGroupWarmPoolInstanceReusePolicy... instanceReusePolicies) {
@@ -87,17 +91,26 @@ public final class GetGroupWarmPool {
         }
         @CustomType.Setter
         public Builder maxGroupPreparedCapacity(Integer maxGroupPreparedCapacity) {
-            this.maxGroupPreparedCapacity = Objects.requireNonNull(maxGroupPreparedCapacity);
+            if (maxGroupPreparedCapacity == null) {
+              throw new MissingRequiredPropertyException("GetGroupWarmPool", "maxGroupPreparedCapacity");
+            }
+            this.maxGroupPreparedCapacity = maxGroupPreparedCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder minSize(Integer minSize) {
-            this.minSize = Objects.requireNonNull(minSize);
+            if (minSize == null) {
+              throw new MissingRequiredPropertyException("GetGroupWarmPool", "minSize");
+            }
+            this.minSize = minSize;
             return this;
         }
         @CustomType.Setter
         public Builder poolState(String poolState) {
-            this.poolState = Objects.requireNonNull(poolState);
+            if (poolState == null) {
+              throw new MissingRequiredPropertyException("GetGroupWarmPool", "poolState");
+            }
+            this.poolState = poolState;
             return this;
         }
         public GetGroupWarmPool build() {

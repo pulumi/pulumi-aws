@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway.inputs;
 
 import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTablePropagationsFilter;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,7 +123,9 @@ public final class GetRouteTablePropagationsPlainArgs extends com.pulumi.resourc
         }
 
         public GetRouteTablePropagationsPlainArgs build() {
-            $.transitGatewayRouteTableId = Objects.requireNonNull($.transitGatewayRouteTableId, "expected parameter 'transitGatewayRouteTableId' to be non-null");
+            if ($.transitGatewayRouteTableId == null) {
+                throw new MissingRequiredPropertyException("GetRouteTablePropagationsPlainArgs", "transitGatewayRouteTableId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.rds;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class ClusterRoleAssociationArgs extends com.pulumi.resources.Resou
         }
 
         public ClusterRoleAssociationArgs build() {
-            $.dbClusterIdentifier = Objects.requireNonNull($.dbClusterIdentifier, "expected parameter 'dbClusterIdentifier' to be non-null");
-            $.featureName = Objects.requireNonNull($.featureName, "expected parameter 'featureName' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.dbClusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("ClusterRoleAssociationArgs", "dbClusterIdentifier");
+            }
+            if ($.featureName == null) {
+                throw new MissingRequiredPropertyException("ClusterRoleAssociationArgs", "featureName");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("ClusterRoleAssociationArgs", "roleArn");
+            }
             return $;
         }
     }

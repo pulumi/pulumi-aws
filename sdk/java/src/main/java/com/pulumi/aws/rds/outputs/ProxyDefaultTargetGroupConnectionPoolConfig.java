@@ -102,26 +102,31 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfig {
 
         @CustomType.Setter
         public Builder connectionBorrowTimeout(@Nullable Integer connectionBorrowTimeout) {
+
             this.connectionBorrowTimeout = connectionBorrowTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder initQuery(@Nullable String initQuery) {
+
             this.initQuery = initQuery;
             return this;
         }
         @CustomType.Setter
         public Builder maxConnectionsPercent(@Nullable Integer maxConnectionsPercent) {
+
             this.maxConnectionsPercent = maxConnectionsPercent;
             return this;
         }
         @CustomType.Setter
         public Builder maxIdleConnectionsPercent(@Nullable Integer maxIdleConnectionsPercent) {
+
             this.maxIdleConnectionsPercent = maxIdleConnectionsPercent;
             return this;
         }
         @CustomType.Setter
         public Builder sessionPinningFilters(@Nullable List<String> sessionPinningFilters) {
+
             this.sessionPinningFilters = sessionPinningFilters;
             return this;
         }

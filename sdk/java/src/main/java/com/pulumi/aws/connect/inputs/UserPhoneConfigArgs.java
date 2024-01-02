@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -189,7 +190,9 @@ public final class UserPhoneConfigArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public UserPhoneConfigArgs build() {
-            $.phoneType = Objects.requireNonNull($.phoneType, "expected parameter 'phoneType' to be non-null");
+            if ($.phoneType == null) {
+                throw new MissingRequiredPropertyException("UserPhoneConfigArgs", "phoneType");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.emr.inputs;
 import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupEbsConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -274,7 +275,9 @@ public final class ClusterMasterInstanceGroupArgs extends com.pulumi.resources.R
         }
 
         public ClusterMasterInstanceGroupArgs build() {
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
+            if ($.instanceType == null) {
+                throw new MissingRequiredPropertyException("ClusterMasterInstanceGroupArgs", "instanceType");
+            }
             return $;
         }
     }

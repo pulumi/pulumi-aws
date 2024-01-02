@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.inputs;
 import com.pulumi.aws.appflow.inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -300,10 +301,18 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs build() {
-            $.applicationHostUrl = Objects.requireNonNull($.applicationHostUrl, "expected parameter 'applicationHostUrl' to be non-null");
-            $.applicationServicePath = Objects.requireNonNull($.applicationServicePath, "expected parameter 'applicationServicePath' to be non-null");
-            $.clientNumber = Objects.requireNonNull($.clientNumber, "expected parameter 'clientNumber' to be non-null");
-            $.portNumber = Objects.requireNonNull($.portNumber, "expected parameter 'portNumber' to be non-null");
+            if ($.applicationHostUrl == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs", "applicationHostUrl");
+            }
+            if ($.applicationServicePath == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs", "applicationServicePath");
+            }
+            if ($.clientNumber == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs", "clientNumber");
+            }
+            if ($.portNumber == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs", "portNumber");
+            }
             return $;
         }
     }

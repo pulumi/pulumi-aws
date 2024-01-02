@@ -6,6 +6,7 @@ package com.pulumi.aws.codebuild.outputs;
 import com.pulumi.aws.codebuild.outputs.ProjectEnvironmentEnvironmentVariable;
 import com.pulumi.aws.codebuild.outputs.ProjectEnvironmentRegistryCredential;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -146,16 +147,21 @@ public final class ProjectEnvironment {
 
         @CustomType.Setter
         public Builder certificate(@Nullable String certificate) {
+
             this.certificate = certificate;
             return this;
         }
         @CustomType.Setter
         public Builder computeType(String computeType) {
-            this.computeType = Objects.requireNonNull(computeType);
+            if (computeType == null) {
+              throw new MissingRequiredPropertyException("ProjectEnvironment", "computeType");
+            }
+            this.computeType = computeType;
             return this;
         }
         @CustomType.Setter
         public Builder environmentVariables(@Nullable List<ProjectEnvironmentEnvironmentVariable> environmentVariables) {
+
             this.environmentVariables = environmentVariables;
             return this;
         }
@@ -164,27 +170,36 @@ public final class ProjectEnvironment {
         }
         @CustomType.Setter
         public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+            if (image == null) {
+              throw new MissingRequiredPropertyException("ProjectEnvironment", "image");
+            }
+            this.image = image;
             return this;
         }
         @CustomType.Setter
         public Builder imagePullCredentialsType(@Nullable String imagePullCredentialsType) {
+
             this.imagePullCredentialsType = imagePullCredentialsType;
             return this;
         }
         @CustomType.Setter
         public Builder privilegedMode(@Nullable Boolean privilegedMode) {
+
             this.privilegedMode = privilegedMode;
             return this;
         }
         @CustomType.Setter
         public Builder registryCredential(@Nullable ProjectEnvironmentRegistryCredential registryCredential) {
+
             this.registryCredential = registryCredential;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ProjectEnvironment", "type");
+            }
+            this.type = type;
             return this;
         }
         public ProjectEnvironment build() {

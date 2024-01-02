@@ -5,6 +5,7 @@ package com.pulumi.aws.storagegateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -226,8 +227,12 @@ public final class TapePoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TapePoolArgs build() {
-            $.poolName = Objects.requireNonNull($.poolName, "expected parameter 'poolName' to be non-null");
-            $.storageClass = Objects.requireNonNull($.storageClass, "expected parameter 'storageClass' to be non-null");
+            if ($.poolName == null) {
+                throw new MissingRequiredPropertyException("TapePoolArgs", "poolName");
+            }
+            if ($.storageClass == null) {
+                throw new MissingRequiredPropertyException("TapePoolArgs", "storageClass");
+            }
             return $;
         }
     }

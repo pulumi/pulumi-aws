@@ -5,6 +5,7 @@ package com.pulumi.aws.auditmanager.inputs;
 
 import com.pulumi.aws.auditmanager.inputs.GetControlControlMappingSourceSourceKeyword;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -143,13 +144,27 @@ public final class GetControlControlMappingSource extends com.pulumi.resources.I
         }
 
         public GetControlControlMappingSource build() {
-            $.sourceDescription = Objects.requireNonNull($.sourceDescription, "expected parameter 'sourceDescription' to be non-null");
-            $.sourceFrequency = Objects.requireNonNull($.sourceFrequency, "expected parameter 'sourceFrequency' to be non-null");
-            $.sourceId = Objects.requireNonNull($.sourceId, "expected parameter 'sourceId' to be non-null");
-            $.sourceName = Objects.requireNonNull($.sourceName, "expected parameter 'sourceName' to be non-null");
-            $.sourceSetUpOption = Objects.requireNonNull($.sourceSetUpOption, "expected parameter 'sourceSetUpOption' to be non-null");
-            $.sourceType = Objects.requireNonNull($.sourceType, "expected parameter 'sourceType' to be non-null");
-            $.troubleshootingText = Objects.requireNonNull($.troubleshootingText, "expected parameter 'troubleshootingText' to be non-null");
+            if ($.sourceDescription == null) {
+                throw new MissingRequiredPropertyException("GetControlControlMappingSource", "sourceDescription");
+            }
+            if ($.sourceFrequency == null) {
+                throw new MissingRequiredPropertyException("GetControlControlMappingSource", "sourceFrequency");
+            }
+            if ($.sourceId == null) {
+                throw new MissingRequiredPropertyException("GetControlControlMappingSource", "sourceId");
+            }
+            if ($.sourceName == null) {
+                throw new MissingRequiredPropertyException("GetControlControlMappingSource", "sourceName");
+            }
+            if ($.sourceSetUpOption == null) {
+                throw new MissingRequiredPropertyException("GetControlControlMappingSource", "sourceSetUpOption");
+            }
+            if ($.sourceType == null) {
+                throw new MissingRequiredPropertyException("GetControlControlMappingSource", "sourceType");
+            }
+            if ($.troubleshootingText == null) {
+                throw new MissingRequiredPropertyException("GetControlControlMappingSource", "troubleshootingText");
+            }
             return $;
         }
     }

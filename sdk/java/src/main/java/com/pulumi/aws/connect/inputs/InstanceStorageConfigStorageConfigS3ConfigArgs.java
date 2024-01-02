@@ -6,6 +6,7 @@ package com.pulumi.aws.connect.inputs;
 import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -151,8 +152,12 @@ public final class InstanceStorageConfigStorageConfigS3ConfigArgs extends com.pu
         }
 
         public InstanceStorageConfigStorageConfigS3ConfigArgs build() {
-            $.bucketName = Objects.requireNonNull($.bucketName, "expected parameter 'bucketName' to be non-null");
-            $.bucketPrefix = Objects.requireNonNull($.bucketPrefix, "expected parameter 'bucketPrefix' to be non-null");
+            if ($.bucketName == null) {
+                throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigS3ConfigArgs", "bucketName");
+            }
+            if ($.bucketPrefix == null) {
+                throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigS3ConfigArgs", "bucketPrefix");
+            }
             return $;
         }
     }

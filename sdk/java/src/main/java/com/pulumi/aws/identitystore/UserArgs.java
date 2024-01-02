@@ -9,6 +9,7 @@ import com.pulumi.aws.identitystore.inputs.UserNameArgs;
 import com.pulumi.aws.identitystore.inputs.UserPhoneNumbersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -569,9 +570,15 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserArgs build() {
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.identityStoreId = Objects.requireNonNull($.identityStoreId, "expected parameter 'identityStoreId' to be non-null");
-            $.userName = Objects.requireNonNull($.userName, "expected parameter 'userName' to be non-null");
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "displayName");
+            }
+            if ($.identityStoreId == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "identityStoreId");
+            }
+            if ($.userName == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "userName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.route53;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,8 +162,12 @@ public final class CidrLocationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CidrLocationArgs build() {
-            $.cidrBlocks = Objects.requireNonNull($.cidrBlocks, "expected parameter 'cidrBlocks' to be non-null");
-            $.cidrCollectionId = Objects.requireNonNull($.cidrCollectionId, "expected parameter 'cidrCollectionId' to be non-null");
+            if ($.cidrBlocks == null) {
+                throw new MissingRequiredPropertyException("CidrLocationArgs", "cidrBlocks");
+            }
+            if ($.cidrCollectionId == null) {
+                throw new MissingRequiredPropertyException("CidrLocationArgs", "cidrCollectionId");
+            }
             return $;
         }
     }

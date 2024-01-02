@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetAmiProductCode {
 
         @CustomType.Setter
         public Builder productCodeId(String productCodeId) {
-            this.productCodeId = Objects.requireNonNull(productCodeId);
+            if (productCodeId == null) {
+              throw new MissingRequiredPropertyException("GetAmiProductCode", "productCodeId");
+            }
+            this.productCodeId = productCodeId;
             return this;
         }
         @CustomType.Setter
         public Builder productCodeType(String productCodeType) {
-            this.productCodeType = Objects.requireNonNull(productCodeType);
+            if (productCodeType == null) {
+              throw new MissingRequiredPropertyException("GetAmiProductCode", "productCodeType");
+            }
+            this.productCodeType = productCodeType;
             return this;
         }
         public GetAmiProductCode build() {

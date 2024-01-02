@@ -4,6 +4,7 @@
 package com.pulumi.aws.appsync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,22 +88,28 @@ public final class GraphQLApiOpenidConnectConfig {
 
         @CustomType.Setter
         public Builder authTtl(@Nullable Integer authTtl) {
+
             this.authTtl = authTtl;
             return this;
         }
         @CustomType.Setter
         public Builder clientId(@Nullable String clientId) {
+
             this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder iatTtl(@Nullable Integer iatTtl) {
+
             this.iatTtl = iatTtl;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+            if (issuer == null) {
+              throw new MissingRequiredPropertyException("GraphQLApiOpenidConnectConfig", "issuer");
+            }
+            this.issuer = issuer;
             return this;
         }
         public GraphQLApiOpenidConnectConfig build() {

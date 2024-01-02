@@ -75,16 +75,19 @@ public final class WorkgroupEndpoint {
 
         @CustomType.Setter
         public Builder address(@Nullable String address) {
+
             this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder vpcEndpoints(@Nullable List<WorkgroupEndpointVpcEndpoint> vpcEndpoints) {
+
             this.vpcEndpoints = vpcEndpoints;
             return this;
         }

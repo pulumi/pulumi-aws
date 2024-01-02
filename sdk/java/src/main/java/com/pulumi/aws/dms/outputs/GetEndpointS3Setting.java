@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -264,197 +265,314 @@ public final class GetEndpointS3Setting {
 
         @CustomType.Setter
         public Builder addColumnName(Boolean addColumnName) {
-            this.addColumnName = Objects.requireNonNull(addColumnName);
+            if (addColumnName == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "addColumnName");
+            }
+            this.addColumnName = addColumnName;
             return this;
         }
         @CustomType.Setter
         public Builder bucketFolder(String bucketFolder) {
-            this.bucketFolder = Objects.requireNonNull(bucketFolder);
+            if (bucketFolder == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "bucketFolder");
+            }
+            this.bucketFolder = bucketFolder;
             return this;
         }
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder cannedAclForObjects(String cannedAclForObjects) {
-            this.cannedAclForObjects = Objects.requireNonNull(cannedAclForObjects);
+            if (cannedAclForObjects == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "cannedAclForObjects");
+            }
+            this.cannedAclForObjects = cannedAclForObjects;
             return this;
         }
         @CustomType.Setter
         public Builder cdcInsertsAndUpdates(Boolean cdcInsertsAndUpdates) {
-            this.cdcInsertsAndUpdates = Objects.requireNonNull(cdcInsertsAndUpdates);
+            if (cdcInsertsAndUpdates == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "cdcInsertsAndUpdates");
+            }
+            this.cdcInsertsAndUpdates = cdcInsertsAndUpdates;
             return this;
         }
         @CustomType.Setter
         public Builder cdcInsertsOnly(Boolean cdcInsertsOnly) {
-            this.cdcInsertsOnly = Objects.requireNonNull(cdcInsertsOnly);
+            if (cdcInsertsOnly == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "cdcInsertsOnly");
+            }
+            this.cdcInsertsOnly = cdcInsertsOnly;
             return this;
         }
         @CustomType.Setter
         public Builder cdcMaxBatchInterval(Integer cdcMaxBatchInterval) {
-            this.cdcMaxBatchInterval = Objects.requireNonNull(cdcMaxBatchInterval);
+            if (cdcMaxBatchInterval == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "cdcMaxBatchInterval");
+            }
+            this.cdcMaxBatchInterval = cdcMaxBatchInterval;
             return this;
         }
         @CustomType.Setter
         public Builder cdcMinFileSize(Integer cdcMinFileSize) {
-            this.cdcMinFileSize = Objects.requireNonNull(cdcMinFileSize);
+            if (cdcMinFileSize == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "cdcMinFileSize");
+            }
+            this.cdcMinFileSize = cdcMinFileSize;
             return this;
         }
         @CustomType.Setter
         public Builder cdcPath(String cdcPath) {
-            this.cdcPath = Objects.requireNonNull(cdcPath);
+            if (cdcPath == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "cdcPath");
+            }
+            this.cdcPath = cdcPath;
             return this;
         }
         @CustomType.Setter
         public Builder compressionType(String compressionType) {
-            this.compressionType = Objects.requireNonNull(compressionType);
+            if (compressionType == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "compressionType");
+            }
+            this.compressionType = compressionType;
             return this;
         }
         @CustomType.Setter
         public Builder csvDelimiter(String csvDelimiter) {
-            this.csvDelimiter = Objects.requireNonNull(csvDelimiter);
+            if (csvDelimiter == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "csvDelimiter");
+            }
+            this.csvDelimiter = csvDelimiter;
             return this;
         }
         @CustomType.Setter
         public Builder csvNoSupValue(String csvNoSupValue) {
-            this.csvNoSupValue = Objects.requireNonNull(csvNoSupValue);
+            if (csvNoSupValue == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "csvNoSupValue");
+            }
+            this.csvNoSupValue = csvNoSupValue;
             return this;
         }
         @CustomType.Setter
         public Builder csvNullValue(String csvNullValue) {
-            this.csvNullValue = Objects.requireNonNull(csvNullValue);
+            if (csvNullValue == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "csvNullValue");
+            }
+            this.csvNullValue = csvNullValue;
             return this;
         }
         @CustomType.Setter
         public Builder csvRowDelimiter(String csvRowDelimiter) {
-            this.csvRowDelimiter = Objects.requireNonNull(csvRowDelimiter);
+            if (csvRowDelimiter == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "csvRowDelimiter");
+            }
+            this.csvRowDelimiter = csvRowDelimiter;
             return this;
         }
         @CustomType.Setter
         public Builder dataFormat(String dataFormat) {
-            this.dataFormat = Objects.requireNonNull(dataFormat);
+            if (dataFormat == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "dataFormat");
+            }
+            this.dataFormat = dataFormat;
             return this;
         }
         @CustomType.Setter
         public Builder dataPageSize(Integer dataPageSize) {
-            this.dataPageSize = Objects.requireNonNull(dataPageSize);
+            if (dataPageSize == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "dataPageSize");
+            }
+            this.dataPageSize = dataPageSize;
             return this;
         }
         @CustomType.Setter
         public Builder datePartitionDelimiter(String datePartitionDelimiter) {
-            this.datePartitionDelimiter = Objects.requireNonNull(datePartitionDelimiter);
+            if (datePartitionDelimiter == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "datePartitionDelimiter");
+            }
+            this.datePartitionDelimiter = datePartitionDelimiter;
             return this;
         }
         @CustomType.Setter
         public Builder datePartitionEnabled(Boolean datePartitionEnabled) {
-            this.datePartitionEnabled = Objects.requireNonNull(datePartitionEnabled);
+            if (datePartitionEnabled == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "datePartitionEnabled");
+            }
+            this.datePartitionEnabled = datePartitionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder datePartitionSequence(String datePartitionSequence) {
-            this.datePartitionSequence = Objects.requireNonNull(datePartitionSequence);
+            if (datePartitionSequence == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "datePartitionSequence");
+            }
+            this.datePartitionSequence = datePartitionSequence;
             return this;
         }
         @CustomType.Setter
         public Builder dictPageSizeLimit(Integer dictPageSizeLimit) {
-            this.dictPageSizeLimit = Objects.requireNonNull(dictPageSizeLimit);
+            if (dictPageSizeLimit == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "dictPageSizeLimit");
+            }
+            this.dictPageSizeLimit = dictPageSizeLimit;
             return this;
         }
         @CustomType.Setter
         public Builder enableStatistics(Boolean enableStatistics) {
-            this.enableStatistics = Objects.requireNonNull(enableStatistics);
+            if (enableStatistics == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "enableStatistics");
+            }
+            this.enableStatistics = enableStatistics;
             return this;
         }
         @CustomType.Setter
         public Builder encodingType(String encodingType) {
-            this.encodingType = Objects.requireNonNull(encodingType);
+            if (encodingType == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "encodingType");
+            }
+            this.encodingType = encodingType;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionMode(String encryptionMode) {
-            this.encryptionMode = Objects.requireNonNull(encryptionMode);
+            if (encryptionMode == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "encryptionMode");
+            }
+            this.encryptionMode = encryptionMode;
             return this;
         }
         @CustomType.Setter
         public Builder externalTableDefinition(String externalTableDefinition) {
-            this.externalTableDefinition = Objects.requireNonNull(externalTableDefinition);
+            if (externalTableDefinition == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "externalTableDefinition");
+            }
+            this.externalTableDefinition = externalTableDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder glueCatalogGeneration(Boolean glueCatalogGeneration) {
-            this.glueCatalogGeneration = Objects.requireNonNull(glueCatalogGeneration);
+            if (glueCatalogGeneration == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "glueCatalogGeneration");
+            }
+            this.glueCatalogGeneration = glueCatalogGeneration;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreHeaderRows(Integer ignoreHeaderRows) {
-            this.ignoreHeaderRows = Objects.requireNonNull(ignoreHeaderRows);
+            if (ignoreHeaderRows == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "ignoreHeaderRows");
+            }
+            this.ignoreHeaderRows = ignoreHeaderRows;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreHeadersRow(Integer ignoreHeadersRow) {
-            this.ignoreHeadersRow = Objects.requireNonNull(ignoreHeadersRow);
+            if (ignoreHeadersRow == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "ignoreHeadersRow");
+            }
+            this.ignoreHeadersRow = ignoreHeadersRow;
             return this;
         }
         @CustomType.Setter
         public Builder includeOpForFullLoad(Boolean includeOpForFullLoad) {
-            this.includeOpForFullLoad = Objects.requireNonNull(includeOpForFullLoad);
+            if (includeOpForFullLoad == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "includeOpForFullLoad");
+            }
+            this.includeOpForFullLoad = includeOpForFullLoad;
             return this;
         }
         @CustomType.Setter
         public Builder maxFileSize(Integer maxFileSize) {
-            this.maxFileSize = Objects.requireNonNull(maxFileSize);
+            if (maxFileSize == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "maxFileSize");
+            }
+            this.maxFileSize = maxFileSize;
             return this;
         }
         @CustomType.Setter
         public Builder parquetTimestampInMillisecond(Boolean parquetTimestampInMillisecond) {
-            this.parquetTimestampInMillisecond = Objects.requireNonNull(parquetTimestampInMillisecond);
+            if (parquetTimestampInMillisecond == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "parquetTimestampInMillisecond");
+            }
+            this.parquetTimestampInMillisecond = parquetTimestampInMillisecond;
             return this;
         }
         @CustomType.Setter
         public Builder parquetVersion(String parquetVersion) {
-            this.parquetVersion = Objects.requireNonNull(parquetVersion);
+            if (parquetVersion == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "parquetVersion");
+            }
+            this.parquetVersion = parquetVersion;
             return this;
         }
         @CustomType.Setter
         public Builder preserveTransactions(Boolean preserveTransactions) {
-            this.preserveTransactions = Objects.requireNonNull(preserveTransactions);
+            if (preserveTransactions == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "preserveTransactions");
+            }
+            this.preserveTransactions = preserveTransactions;
             return this;
         }
         @CustomType.Setter
         public Builder rfc4180(Boolean rfc4180) {
-            this.rfc4180 = Objects.requireNonNull(rfc4180);
+            if (rfc4180 == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "rfc4180");
+            }
+            this.rfc4180 = rfc4180;
             return this;
         }
         @CustomType.Setter
         public Builder rowGroupLength(Integer rowGroupLength) {
-            this.rowGroupLength = Objects.requireNonNull(rowGroupLength);
+            if (rowGroupLength == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "rowGroupLength");
+            }
+            this.rowGroupLength = rowGroupLength;
             return this;
         }
         @CustomType.Setter
         public Builder serverSideEncryptionKmsKeyId(String serverSideEncryptionKmsKeyId) {
-            this.serverSideEncryptionKmsKeyId = Objects.requireNonNull(serverSideEncryptionKmsKeyId);
+            if (serverSideEncryptionKmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "serverSideEncryptionKmsKeyId");
+            }
+            this.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccessRoleArn(String serviceAccessRoleArn) {
-            this.serviceAccessRoleArn = Objects.requireNonNull(serviceAccessRoleArn);
+            if (serviceAccessRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "serviceAccessRoleArn");
+            }
+            this.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder timestampColumnName(String timestampColumnName) {
-            this.timestampColumnName = Objects.requireNonNull(timestampColumnName);
+            if (timestampColumnName == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "timestampColumnName");
+            }
+            this.timestampColumnName = timestampColumnName;
             return this;
         }
         @CustomType.Setter
         public Builder useCsvNoSupValue(Boolean useCsvNoSupValue) {
-            this.useCsvNoSupValue = Objects.requireNonNull(useCsvNoSupValue);
+            if (useCsvNoSupValue == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "useCsvNoSupValue");
+            }
+            this.useCsvNoSupValue = useCsvNoSupValue;
             return this;
         }
         @CustomType.Setter
         public Builder useTaskStartTimeForFullLoadTimestamp(Boolean useTaskStartTimeForFullLoadTimestamp) {
-            this.useTaskStartTimeForFullLoadTimestamp = Objects.requireNonNull(useTaskStartTimeForFullLoadTimestamp);
+            if (useTaskStartTimeForFullLoadTimestamp == null) {
+              throw new MissingRequiredPropertyException("GetEndpointS3Setting", "useTaskStartTimeForFullLoadTimestamp");
+            }
+            this.useTaskStartTimeForFullLoadTimestamp = useTaskStartTimeForFullLoadTimestamp;
             return this;
         }
         public GetEndpointS3Setting build() {

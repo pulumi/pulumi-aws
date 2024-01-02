@@ -5,6 +5,7 @@ package com.pulumi.aws.kendra.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,9 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
         }
 
         public DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs build() {
-            $.seedUrls = Objects.requireNonNull($.seedUrls, "expected parameter 'seedUrls' to be non-null");
+            if ($.seedUrls == null) {
+                throw new MissingRequiredPropertyException("DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs", "seedUrls");
+            }
             return $;
         }
     }

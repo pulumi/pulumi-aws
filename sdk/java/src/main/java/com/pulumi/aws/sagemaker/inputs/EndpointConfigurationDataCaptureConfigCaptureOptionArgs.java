@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class EndpointConfigurationDataCaptureConfigCaptureOptionArgs exten
         }
 
         public EndpointConfigurationDataCaptureConfigCaptureOptionArgs build() {
-            $.captureMode = Objects.requireNonNull($.captureMode, "expected parameter 'captureMode' to be non-null");
+            if ($.captureMode == null) {
+                throw new MissingRequiredPropertyException("EndpointConfigurationDataCaptureConfigCaptureOptionArgs", "captureMode");
+            }
             return $;
         }
     }

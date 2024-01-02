@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorProperties;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -87,22 +88,30 @@ public final class FlowDestinationFlowConfig {
 
         @CustomType.Setter
         public Builder apiVersion(@Nullable String apiVersion) {
+
             this.apiVersion = apiVersion;
             return this;
         }
         @CustomType.Setter
         public Builder connectorProfileName(@Nullable String connectorProfileName) {
+
             this.connectorProfileName = connectorProfileName;
             return this;
         }
         @CustomType.Setter
         public Builder connectorType(String connectorType) {
-            this.connectorType = Objects.requireNonNull(connectorType);
+            if (connectorType == null) {
+              throw new MissingRequiredPropertyException("FlowDestinationFlowConfig", "connectorType");
+            }
+            this.connectorType = connectorType;
             return this;
         }
         @CustomType.Setter
         public Builder destinationConnectorProperties(FlowDestinationFlowConfigDestinationConnectorProperties destinationConnectorProperties) {
-            this.destinationConnectorProperties = Objects.requireNonNull(destinationConnectorProperties);
+            if (destinationConnectorProperties == null) {
+              throw new MissingRequiredPropertyException("FlowDestinationFlowConfig", "destinationConnectorProperties");
+            }
+            this.destinationConnectorProperties = destinationConnectorProperties;
             return this;
         }
         public FlowDestinationFlowConfig build() {

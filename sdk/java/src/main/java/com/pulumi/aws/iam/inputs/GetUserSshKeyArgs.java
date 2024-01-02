@@ -5,6 +5,7 @@ package com.pulumi.aws.iam.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class GetUserSshKeyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetUserSshKeyArgs build() {
-            $.encoding = Objects.requireNonNull($.encoding, "expected parameter 'encoding' to be non-null");
-            $.sshPublicKeyId = Objects.requireNonNull($.sshPublicKeyId, "expected parameter 'sshPublicKeyId' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.encoding == null) {
+                throw new MissingRequiredPropertyException("GetUserSshKeyArgs", "encoding");
+            }
+            if ($.sshPublicKeyId == null) {
+                throw new MissingRequiredPropertyException("GetUserSshKeyArgs", "sshPublicKeyId");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("GetUserSshKeyArgs", "username");
+            }
             return $;
         }
     }

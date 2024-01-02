@@ -6,6 +6,7 @@ package com.pulumi.aws.resourcegroups.inputs;
 import com.pulumi.aws.resourcegroups.inputs.GroupConfigurationParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class GroupConfigurationArgs extends com.pulumi.resources.ResourceA
         }
 
         public GroupConfigurationArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("GroupConfigurationArgs", "type");
+            }
             return $;
         }
     }

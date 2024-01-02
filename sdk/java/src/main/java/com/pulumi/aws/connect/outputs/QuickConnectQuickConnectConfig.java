@@ -7,6 +7,7 @@ import com.pulumi.aws.connect.outputs.QuickConnectQuickConnectConfigPhoneConfig;
 import com.pulumi.aws.connect.outputs.QuickConnectQuickConnectConfigQueueConfig;
 import com.pulumi.aws.connect.outputs.QuickConnectQuickConnectConfigUserConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -89,6 +90,7 @@ public final class QuickConnectQuickConnectConfig {
 
         @CustomType.Setter
         public Builder phoneConfigs(@Nullable List<QuickConnectQuickConnectConfigPhoneConfig> phoneConfigs) {
+
             this.phoneConfigs = phoneConfigs;
             return this;
         }
@@ -97,6 +99,7 @@ public final class QuickConnectQuickConnectConfig {
         }
         @CustomType.Setter
         public Builder queueConfigs(@Nullable List<QuickConnectQuickConnectConfigQueueConfig> queueConfigs) {
+
             this.queueConfigs = queueConfigs;
             return this;
         }
@@ -105,11 +108,15 @@ public final class QuickConnectQuickConnectConfig {
         }
         @CustomType.Setter
         public Builder quickConnectType(String quickConnectType) {
-            this.quickConnectType = Objects.requireNonNull(quickConnectType);
+            if (quickConnectType == null) {
+              throw new MissingRequiredPropertyException("QuickConnectQuickConnectConfig", "quickConnectType");
+            }
+            this.quickConnectType = quickConnectType;
             return this;
         }
         @CustomType.Setter
         public Builder userConfigs(@Nullable List<QuickConnectQuickConnectConfigUserConfig> userConfigs) {
+
             this.userConfigs = userConfigs;
             return this;
         }

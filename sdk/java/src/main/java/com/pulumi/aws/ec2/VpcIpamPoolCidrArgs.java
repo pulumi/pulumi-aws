@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2;
 import com.pulumi.aws.ec2.inputs.VpcIpamPoolCidrCidrAuthorizationContextArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -189,7 +190,9 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public VpcIpamPoolCidrArgs build() {
-            $.ipamPoolId = Objects.requireNonNull($.ipamPoolId, "expected parameter 'ipamPoolId' to be non-null");
+            if ($.ipamPoolId == null) {
+                throw new MissingRequiredPropertyException("VpcIpamPoolCidrArgs", "ipamPoolId");
+            }
             return $;
         }
     }

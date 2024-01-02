@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesisanalyticsv2.inputs;
 import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         public ApplicationApplicationConfigurationApplicationCodeConfigurationArgs build() {
-            $.codeContentType = Objects.requireNonNull($.codeContentType, "expected parameter 'codeContentType' to be non-null");
+            if ($.codeContentType == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationApplicationCodeConfigurationArgs", "codeContentType");
+            }
             return $;
         }
     }

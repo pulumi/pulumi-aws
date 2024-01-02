@@ -4,6 +4,7 @@
 package com.pulumi.aws.redshift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -104,21 +105,27 @@ public final class ClusterLogging {
 
         @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
+
             this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder enable(Boolean enable) {
-            this.enable = Objects.requireNonNull(enable);
+            if (enable == null) {
+              throw new MissingRequiredPropertyException("ClusterLogging", "enable");
+            }
+            this.enable = enable;
             return this;
         }
         @CustomType.Setter
         public Builder logDestinationType(@Nullable String logDestinationType) {
+
             this.logDestinationType = logDestinationType;
             return this;
         }
         @CustomType.Setter
         public Builder logExports(@Nullable List<String> logExports) {
+
             this.logExports = logExports;
             return this;
         }
@@ -127,6 +134,7 @@ public final class ClusterLogging {
         }
         @CustomType.Setter
         public Builder s3KeyPrefix(@Nullable String s3KeyPrefix) {
+
             this.s3KeyPrefix = s3KeyPrefix;
             return this;
         }

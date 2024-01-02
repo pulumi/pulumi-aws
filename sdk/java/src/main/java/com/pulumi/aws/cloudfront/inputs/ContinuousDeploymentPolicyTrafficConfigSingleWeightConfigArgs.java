@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront.inputs;
 import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs
         }
 
         public ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs build() {
-            $.weight = Objects.requireNonNull($.weight, "expected parameter 'weight' to be non-null");
+            if ($.weight == null) {
+                throw new MissingRequiredPropertyException("ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs", "weight");
+            }
             return $;
         }
     }

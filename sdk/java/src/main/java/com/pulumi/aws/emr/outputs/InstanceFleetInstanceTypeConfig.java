@@ -6,6 +6,7 @@ package com.pulumi.aws.emr.outputs;
 import com.pulumi.aws.emr.outputs.InstanceFleetInstanceTypeConfigConfiguration;
 import com.pulumi.aws.emr.outputs.InstanceFleetInstanceTypeConfigEbsConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -119,16 +120,19 @@ public final class InstanceFleetInstanceTypeConfig {
 
         @CustomType.Setter
         public Builder bidPrice(@Nullable String bidPrice) {
+
             this.bidPrice = bidPrice;
             return this;
         }
         @CustomType.Setter
         public Builder bidPriceAsPercentageOfOnDemandPrice(@Nullable Double bidPriceAsPercentageOfOnDemandPrice) {
+
             this.bidPriceAsPercentageOfOnDemandPrice = bidPriceAsPercentageOfOnDemandPrice;
             return this;
         }
         @CustomType.Setter
         public Builder configurations(@Nullable List<InstanceFleetInstanceTypeConfigConfiguration> configurations) {
+
             this.configurations = configurations;
             return this;
         }
@@ -137,6 +141,7 @@ public final class InstanceFleetInstanceTypeConfig {
         }
         @CustomType.Setter
         public Builder ebsConfigs(@Nullable List<InstanceFleetInstanceTypeConfigEbsConfig> ebsConfigs) {
+
             this.ebsConfigs = ebsConfigs;
             return this;
         }
@@ -145,11 +150,15 @@ public final class InstanceFleetInstanceTypeConfig {
         }
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("InstanceFleetInstanceTypeConfig", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder weightedCapacity(@Nullable Integer weightedCapacity) {
+
             this.weightedCapacity = weightedCapacity;
             return this;
         }

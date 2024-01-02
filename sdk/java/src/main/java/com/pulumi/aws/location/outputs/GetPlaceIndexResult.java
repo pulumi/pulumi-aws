@@ -5,6 +5,7 @@ package com.pulumi.aws.location.outputs;
 
 import com.pulumi.aws.location.outputs.GetPlaceIndexDataSourceConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -149,17 +150,26 @@ public final class GetPlaceIndexResult {
 
         @CustomType.Setter
         public Builder createTime(String createTime) {
-            this.createTime = Objects.requireNonNull(createTime);
+            if (createTime == null) {
+              throw new MissingRequiredPropertyException("GetPlaceIndexResult", "createTime");
+            }
+            this.createTime = createTime;
             return this;
         }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
-            this.dataSource = Objects.requireNonNull(dataSource);
+            if (dataSource == null) {
+              throw new MissingRequiredPropertyException("GetPlaceIndexResult", "dataSource");
+            }
+            this.dataSource = dataSource;
             return this;
         }
         @CustomType.Setter
         public Builder dataSourceConfigurations(List<GetPlaceIndexDataSourceConfiguration> dataSourceConfigurations) {
-            this.dataSourceConfigurations = Objects.requireNonNull(dataSourceConfigurations);
+            if (dataSourceConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetPlaceIndexResult", "dataSourceConfigurations");
+            }
+            this.dataSourceConfigurations = dataSourceConfigurations;
             return this;
         }
         public Builder dataSourceConfigurations(GetPlaceIndexDataSourceConfiguration... dataSourceConfigurations) {
@@ -167,32 +177,50 @@ public final class GetPlaceIndexResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetPlaceIndexResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPlaceIndexResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder indexArn(String indexArn) {
-            this.indexArn = Objects.requireNonNull(indexArn);
+            if (indexArn == null) {
+              throw new MissingRequiredPropertyException("GetPlaceIndexResult", "indexArn");
+            }
+            this.indexArn = indexArn;
             return this;
         }
         @CustomType.Setter
         public Builder indexName(String indexName) {
-            this.indexName = Objects.requireNonNull(indexName);
+            if (indexName == null) {
+              throw new MissingRequiredPropertyException("GetPlaceIndexResult", "indexName");
+            }
+            this.indexName = indexName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetPlaceIndexResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder updateTime(String updateTime) {
-            this.updateTime = Objects.requireNonNull(updateTime);
+            if (updateTime == null) {
+              throw new MissingRequiredPropertyException("GetPlaceIndexResult", "updateTime");
+            }
+            this.updateTime = updateTime;
             return this;
         }
         public GetPlaceIndexResult build() {

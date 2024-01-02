@@ -46,6 +46,7 @@ public final class StackStreamingExperienceSettings {
 
         @CustomType.Setter
         public Builder preferredProtocol(@Nullable String preferredProtocol) {
+
             this.preferredProtocol = preferredProtocol;
             return this;
         }

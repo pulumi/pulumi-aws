@@ -5,6 +5,7 @@ package com.pulumi.aws.emr.inputs;
 
 import com.pulumi.aws.emr.inputs.GetSupportedInstanceTypesSupportedInstanceType;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -104,7 +105,9 @@ public final class GetSupportedInstanceTypesPlainArgs extends com.pulumi.resourc
         }
 
         public GetSupportedInstanceTypesPlainArgs build() {
-            $.releaseLabel = Objects.requireNonNull($.releaseLabel, "expected parameter 'releaseLabel' to be non-null");
+            if ($.releaseLabel == null) {
+                throw new MissingRequiredPropertyException("GetSupportedInstanceTypesPlainArgs", "releaseLabel");
+            }
             return $;
         }
     }

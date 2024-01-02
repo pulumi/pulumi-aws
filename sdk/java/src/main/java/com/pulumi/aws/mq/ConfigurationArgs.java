@@ -5,6 +5,7 @@ package com.pulumi.aws.mq;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -307,9 +308,15 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConfigurationArgs build() {
-            $.data = Objects.requireNonNull($.data, "expected parameter 'data' to be non-null");
-            $.engineType = Objects.requireNonNull($.engineType, "expected parameter 'engineType' to be non-null");
-            $.engineVersion = Objects.requireNonNull($.engineVersion, "expected parameter 'engineVersion' to be non-null");
+            if ($.data == null) {
+                throw new MissingRequiredPropertyException("ConfigurationArgs", "data");
+            }
+            if ($.engineType == null) {
+                throw new MissingRequiredPropertyException("ConfigurationArgs", "engineType");
+            }
+            if ($.engineVersion == null) {
+                throw new MissingRequiredPropertyException("ConfigurationArgs", "engineVersion");
+            }
             return $;
         }
     }

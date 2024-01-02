@@ -6,6 +6,7 @@ package com.pulumi.aws.elb;
 import com.pulumi.aws.elb.inputs.LoadBalancerPolicyPolicyAttributeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,9 +200,15 @@ public final class LoadBalancerPolicyArgs extends com.pulumi.resources.ResourceA
         }
 
         public LoadBalancerPolicyArgs build() {
-            $.loadBalancerName = Objects.requireNonNull($.loadBalancerName, "expected parameter 'loadBalancerName' to be non-null");
-            $.policyName = Objects.requireNonNull($.policyName, "expected parameter 'policyName' to be non-null");
-            $.policyTypeName = Objects.requireNonNull($.policyTypeName, "expected parameter 'policyTypeName' to be non-null");
+            if ($.loadBalancerName == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerPolicyArgs", "loadBalancerName");
+            }
+            if ($.policyName == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerPolicyArgs", "policyName");
+            }
+            if ($.policyTypeName == null) {
+                throw new MissingRequiredPropertyException("LoadBalancerPolicyArgs", "policyTypeName");
+            }
             return $;
         }
     }

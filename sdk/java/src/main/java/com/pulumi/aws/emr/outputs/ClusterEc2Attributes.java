@@ -4,6 +4,7 @@
 package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,46 +162,57 @@ public final class ClusterEc2Attributes {
 
         @CustomType.Setter
         public Builder additionalMasterSecurityGroups(@Nullable String additionalMasterSecurityGroups) {
+
             this.additionalMasterSecurityGroups = additionalMasterSecurityGroups;
             return this;
         }
         @CustomType.Setter
         public Builder additionalSlaveSecurityGroups(@Nullable String additionalSlaveSecurityGroups) {
+
             this.additionalSlaveSecurityGroups = additionalSlaveSecurityGroups;
             return this;
         }
         @CustomType.Setter
         public Builder emrManagedMasterSecurityGroup(@Nullable String emrManagedMasterSecurityGroup) {
+
             this.emrManagedMasterSecurityGroup = emrManagedMasterSecurityGroup;
             return this;
         }
         @CustomType.Setter
         public Builder emrManagedSlaveSecurityGroup(@Nullable String emrManagedSlaveSecurityGroup) {
+
             this.emrManagedSlaveSecurityGroup = emrManagedSlaveSecurityGroup;
             return this;
         }
         @CustomType.Setter
         public Builder instanceProfile(String instanceProfile) {
-            this.instanceProfile = Objects.requireNonNull(instanceProfile);
+            if (instanceProfile == null) {
+              throw new MissingRequiredPropertyException("ClusterEc2Attributes", "instanceProfile");
+            }
+            this.instanceProfile = instanceProfile;
             return this;
         }
         @CustomType.Setter
         public Builder keyName(@Nullable String keyName) {
+
             this.keyName = keyName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccessSecurityGroup(@Nullable String serviceAccessSecurityGroup) {
+
             this.serviceAccessSecurityGroup = serviceAccessSecurityGroup;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder subnetIds(@Nullable List<String> subnetIds) {
+
             this.subnetIds = subnetIds;
             return this;
         }

@@ -51,11 +51,13 @@ public final class PolicySecurityServicePolicyDataPolicyOption {
 
         @CustomType.Setter
         public Builder networkFirewallPolicy(@Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy networkFirewallPolicy) {
+
             this.networkFirewallPolicy = networkFirewallPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder thirdPartyFirewallPolicy(@Nullable PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy thirdPartyFirewallPolicy) {
+
             this.thirdPartyFirewallPolicy = thirdPartyFirewallPolicy;
             return this;
         }

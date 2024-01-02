@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.inputs;
 import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesAr
         }
 
         public VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs build() {
-            $.match = Objects.requireNonNull($.match, "expected parameter 'match' to be non-null");
+            if ($.match == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs", "match");
+            }
             return $;
         }
     }

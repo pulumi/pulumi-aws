@@ -4,6 +4,7 @@
 package com.pulumi.aws.codebuild.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class ProjectSecondarySourceGitSubmodulesConfig {
 
         @CustomType.Setter
         public Builder fetchSubmodules(Boolean fetchSubmodules) {
-            this.fetchSubmodules = Objects.requireNonNull(fetchSubmodules);
+            if (fetchSubmodules == null) {
+              throw new MissingRequiredPropertyException("ProjectSecondarySourceGitSubmodulesConfig", "fetchSubmodules");
+            }
+            this.fetchSubmodules = fetchSubmodules;
             return this;
         }
         public ProjectSecondarySourceGitSubmodulesConfig build() {

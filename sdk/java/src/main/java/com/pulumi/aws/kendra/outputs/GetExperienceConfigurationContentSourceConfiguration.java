@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -72,7 +73,10 @@ public final class GetExperienceConfigurationContentSourceConfiguration {
 
         @CustomType.Setter
         public Builder dataSourceIds(List<String> dataSourceIds) {
-            this.dataSourceIds = Objects.requireNonNull(dataSourceIds);
+            if (dataSourceIds == null) {
+              throw new MissingRequiredPropertyException("GetExperienceConfigurationContentSourceConfiguration", "dataSourceIds");
+            }
+            this.dataSourceIds = dataSourceIds;
             return this;
         }
         public Builder dataSourceIds(String... dataSourceIds) {
@@ -80,12 +84,18 @@ public final class GetExperienceConfigurationContentSourceConfiguration {
         }
         @CustomType.Setter
         public Builder directPutContent(Boolean directPutContent) {
-            this.directPutContent = Objects.requireNonNull(directPutContent);
+            if (directPutContent == null) {
+              throw new MissingRequiredPropertyException("GetExperienceConfigurationContentSourceConfiguration", "directPutContent");
+            }
+            this.directPutContent = directPutContent;
             return this;
         }
         @CustomType.Setter
         public Builder faqIds(List<String> faqIds) {
-            this.faqIds = Objects.requireNonNull(faqIds);
+            if (faqIds == null) {
+              throw new MissingRequiredPropertyException("GetExperienceConfigurationContentSourceConfiguration", "faqIds");
+            }
+            this.faqIds = faqIds;
             return this;
         }
         public Builder faqIds(String... faqIds) {

@@ -7,6 +7,7 @@ import com.pulumi.aws.quicksight.inputs.TemplatePermissionArgs;
 import com.pulumi.aws.quicksight.inputs.TemplateSourceEntityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -320,8 +321,12 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TemplateArgs build() {
-            $.templateId = Objects.requireNonNull($.templateId, "expected parameter 'templateId' to be non-null");
-            $.versionDescription = Objects.requireNonNull($.versionDescription, "expected parameter 'versionDescription' to be non-null");
+            if ($.templateId == null) {
+                throw new MissingRequiredPropertyException("TemplateArgs", "templateId");
+            }
+            if ($.versionDescription == null) {
+                throw new MissingRequiredPropertyException("TemplateArgs", "versionDescription");
+            }
             return $;
         }
     }

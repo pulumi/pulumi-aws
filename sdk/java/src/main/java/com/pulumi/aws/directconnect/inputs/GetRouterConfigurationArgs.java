@@ -5,6 +5,7 @@ package com.pulumi.aws.directconnect.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -207,8 +208,12 @@ public final class GetRouterConfigurationArgs extends com.pulumi.resources.Invok
         }
 
         public GetRouterConfigurationArgs build() {
-            $.routerTypeIdentifier = Objects.requireNonNull($.routerTypeIdentifier, "expected parameter 'routerTypeIdentifier' to be non-null");
-            $.virtualInterfaceId = Objects.requireNonNull($.virtualInterfaceId, "expected parameter 'virtualInterfaceId' to be non-null");
+            if ($.routerTypeIdentifier == null) {
+                throw new MissingRequiredPropertyException("GetRouterConfigurationArgs", "routerTypeIdentifier");
+            }
+            if ($.virtualInterfaceId == null) {
+                throw new MissingRequiredPropertyException("GetRouterConfigurationArgs", "virtualInterfaceId");
+            }
             return $;
         }
     }

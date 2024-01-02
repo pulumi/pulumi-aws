@@ -58,11 +58,13 @@ public final class RefreshScheduleScheduleScheduleFrequencyRefreshOnDay {
 
         @CustomType.Setter
         public Builder dayOfMonth(@Nullable String dayOfMonth) {
+
             this.dayOfMonth = dayOfMonth;
             return this;
         }
         @CustomType.Setter
         public Builder dayOfWeek(@Nullable String dayOfWeek) {
+
             this.dayOfWeek = dayOfWeek;
             return this;
         }

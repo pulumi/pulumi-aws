@@ -5,6 +5,7 @@ package com.pulumi.aws.fsx.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,9 @@ public final class FileCacheDataRepositoryAssociationNfArgs extends com.pulumi.r
         }
 
         public FileCacheDataRepositoryAssociationNfArgs build() {
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("FileCacheDataRepositoryAssociationNfArgs", "version");
+            }
             return $;
         }
     }

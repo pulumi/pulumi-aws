@@ -6,6 +6,7 @@ package com.pulumi.aws.eks;
 import com.pulumi.aws.eks.inputs.IdentityProviderConfigOidcArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -152,8 +153,12 @@ public final class IdentityProviderConfigArgs extends com.pulumi.resources.Resou
         }
 
         public IdentityProviderConfigArgs build() {
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
-            $.oidc = Objects.requireNonNull($.oidc, "expected parameter 'oidc' to be non-null");
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderConfigArgs", "clusterName");
+            }
+            if ($.oidc == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderConfigArgs", "oidc");
+            }
             return $;
         }
     }

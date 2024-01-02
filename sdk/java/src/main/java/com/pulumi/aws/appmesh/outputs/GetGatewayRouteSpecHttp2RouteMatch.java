@@ -8,6 +8,7 @@ import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2RouteMatchHostname
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2RouteMatchPath;
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -70,7 +71,10 @@ public final class GetGatewayRouteSpecHttp2RouteMatch {
 
         @CustomType.Setter
         public Builder headers(List<GetGatewayRouteSpecHttp2RouteMatchHeader> headers) {
-            this.headers = Objects.requireNonNull(headers);
+            if (headers == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttp2RouteMatch", "headers");
+            }
+            this.headers = headers;
             return this;
         }
         public Builder headers(GetGatewayRouteSpecHttp2RouteMatchHeader... headers) {
@@ -78,7 +82,10 @@ public final class GetGatewayRouteSpecHttp2RouteMatch {
         }
         @CustomType.Setter
         public Builder hostnames(List<GetGatewayRouteSpecHttp2RouteMatchHostname> hostnames) {
-            this.hostnames = Objects.requireNonNull(hostnames);
+            if (hostnames == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttp2RouteMatch", "hostnames");
+            }
+            this.hostnames = hostnames;
             return this;
         }
         public Builder hostnames(GetGatewayRouteSpecHttp2RouteMatchHostname... hostnames) {
@@ -86,7 +93,10 @@ public final class GetGatewayRouteSpecHttp2RouteMatch {
         }
         @CustomType.Setter
         public Builder paths(List<GetGatewayRouteSpecHttp2RouteMatchPath> paths) {
-            this.paths = Objects.requireNonNull(paths);
+            if (paths == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttp2RouteMatch", "paths");
+            }
+            this.paths = paths;
             return this;
         }
         public Builder paths(GetGatewayRouteSpecHttp2RouteMatchPath... paths) {
@@ -94,17 +104,26 @@ public final class GetGatewayRouteSpecHttp2RouteMatch {
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttp2RouteMatch", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(String prefix) {
-            this.prefix = Objects.requireNonNull(prefix);
+            if (prefix == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttp2RouteMatch", "prefix");
+            }
+            this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder queryParameters(List<GetGatewayRouteSpecHttp2RouteMatchQueryParameter> queryParameters) {
-            this.queryParameters = Objects.requireNonNull(queryParameters);
+            if (queryParameters == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttp2RouteMatch", "queryParameters");
+            }
+            this.queryParameters = queryParameters;
             return this;
         }
         public Builder queryParameters(GetGatewayRouteSpecHttp2RouteMatchQueryParameter... queryParameters) {

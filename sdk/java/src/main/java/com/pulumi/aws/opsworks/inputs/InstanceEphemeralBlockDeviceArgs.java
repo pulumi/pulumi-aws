@@ -5,6 +5,7 @@ package com.pulumi.aws.opsworks.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -71,8 +72,12 @@ public final class InstanceEphemeralBlockDeviceArgs extends com.pulumi.resources
         }
 
         public InstanceEphemeralBlockDeviceArgs build() {
-            $.deviceName = Objects.requireNonNull($.deviceName, "expected parameter 'deviceName' to be non-null");
-            $.virtualName = Objects.requireNonNull($.virtualName, "expected parameter 'virtualName' to be non-null");
+            if ($.deviceName == null) {
+                throw new MissingRequiredPropertyException("InstanceEphemeralBlockDeviceArgs", "deviceName");
+            }
+            if ($.virtualName == null) {
+                throw new MissingRequiredPropertyException("InstanceEphemeralBlockDeviceArgs", "virtualName");
+            }
             return $;
         }
     }

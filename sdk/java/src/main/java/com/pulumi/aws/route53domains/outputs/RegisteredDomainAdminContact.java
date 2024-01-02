@@ -227,71 +227,85 @@ public final class RegisteredDomainAdminContact {
 
         @CustomType.Setter
         public Builder addressLine1(@Nullable String addressLine1) {
+
             this.addressLine1 = addressLine1;
             return this;
         }
         @CustomType.Setter
         public Builder addressLine2(@Nullable String addressLine2) {
+
             this.addressLine2 = addressLine2;
             return this;
         }
         @CustomType.Setter
         public Builder city(@Nullable String city) {
+
             this.city = city;
             return this;
         }
         @CustomType.Setter
         public Builder contactType(@Nullable String contactType) {
+
             this.contactType = contactType;
             return this;
         }
         @CustomType.Setter
         public Builder countryCode(@Nullable String countryCode) {
+
             this.countryCode = countryCode;
             return this;
         }
         @CustomType.Setter
         public Builder email(@Nullable String email) {
+
             this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder extraParams(@Nullable Map<String,String> extraParams) {
+
             this.extraParams = extraParams;
             return this;
         }
         @CustomType.Setter
         public Builder fax(@Nullable String fax) {
+
             this.fax = fax;
             return this;
         }
         @CustomType.Setter
         public Builder firstName(@Nullable String firstName) {
+
             this.firstName = firstName;
             return this;
         }
         @CustomType.Setter
         public Builder lastName(@Nullable String lastName) {
+
             this.lastName = lastName;
             return this;
         }
         @CustomType.Setter
         public Builder organizationName(@Nullable String organizationName) {
+
             this.organizationName = organizationName;
             return this;
         }
         @CustomType.Setter
         public Builder phoneNumber(@Nullable String phoneNumber) {
+
             this.phoneNumber = phoneNumber;
             return this;
         }
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder zipCode(@Nullable String zipCode) {
+
             this.zipCode = zipCode;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -159,8 +160,12 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         public SiteToSiteVpnAttachmentArgs build() {
-            $.coreNetworkId = Objects.requireNonNull($.coreNetworkId, "expected parameter 'coreNetworkId' to be non-null");
-            $.vpnConnectionArn = Objects.requireNonNull($.vpnConnectionArn, "expected parameter 'vpnConnectionArn' to be non-null");
+            if ($.coreNetworkId == null) {
+                throw new MissingRequiredPropertyException("SiteToSiteVpnAttachmentArgs", "coreNetworkId");
+            }
+            if ($.vpnConnectionArn == null) {
+                throw new MissingRequiredPropertyException("SiteToSiteVpnAttachmentArgs", "vpnConnectionArn");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs ext
         }
 
         public BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs build() {
-            $.partitionDateSource = Objects.requireNonNull($.partitionDateSource, "expected parameter 'partitionDateSource' to be non-null");
+            if ($.partitionDateSource == null) {
+                throw new MissingRequiredPropertyException("BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs", "partitionDateSource");
+            }
             return $;
         }
     }

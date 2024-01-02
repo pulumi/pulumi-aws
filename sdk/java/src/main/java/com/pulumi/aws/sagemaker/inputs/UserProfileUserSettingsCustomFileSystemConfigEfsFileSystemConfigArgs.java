@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemCon
         }
 
         public UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs build() {
-            $.fileSystemId = Objects.requireNonNull($.fileSystemId, "expected parameter 'fileSystemId' to be non-null");
+            if ($.fileSystemId == null) {
+                throw new MissingRequiredPropertyException("UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs", "fileSystemId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class CoreNetworkPolicyAttachmentArgs extends com.pulumi.resources.
         }
 
         public CoreNetworkPolicyAttachmentArgs build() {
-            $.coreNetworkId = Objects.requireNonNull($.coreNetworkId, "expected parameter 'coreNetworkId' to be non-null");
-            $.policyDocument = Objects.requireNonNull($.policyDocument, "expected parameter 'policyDocument' to be non-null");
+            if ($.coreNetworkId == null) {
+                throw new MissingRequiredPropertyException("CoreNetworkPolicyAttachmentArgs", "coreNetworkId");
+            }
+            if ($.policyDocument == null) {
+                throw new MissingRequiredPropertyException("CoreNetworkPolicyAttachmentArgs", "policyDocument");
+            }
             return $;
         }
     }

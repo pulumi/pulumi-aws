@@ -5,6 +5,7 @@ package com.pulumi.aws.auditmanager;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -195,9 +196,15 @@ public final class FrameworkShareArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public FrameworkShareArgs build() {
-            $.destinationAccount = Objects.requireNonNull($.destinationAccount, "expected parameter 'destinationAccount' to be non-null");
-            $.destinationRegion = Objects.requireNonNull($.destinationRegion, "expected parameter 'destinationRegion' to be non-null");
-            $.frameworkId = Objects.requireNonNull($.frameworkId, "expected parameter 'frameworkId' to be non-null");
+            if ($.destinationAccount == null) {
+                throw new MissingRequiredPropertyException("FrameworkShareArgs", "destinationAccount");
+            }
+            if ($.destinationRegion == null) {
+                throw new MissingRequiredPropertyException("FrameworkShareArgs", "destinationRegion");
+            }
+            if ($.frameworkId == null) {
+                throw new MissingRequiredPropertyException("FrameworkShareArgs", "frameworkId");
+            }
             return $;
         }
     }

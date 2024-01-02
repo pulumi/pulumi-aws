@@ -5,6 +5,7 @@ package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.aws.kendra.outputs.GetThesaurusSourceS3Path;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -240,52 +241,82 @@ public final class GetThesaurusResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "createdAt");
+            }
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder errorMessage(String errorMessage) {
-            this.errorMessage = Objects.requireNonNull(errorMessage);
+            if (errorMessage == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "errorMessage");
+            }
+            this.errorMessage = errorMessage;
             return this;
         }
         @CustomType.Setter
         public Builder fileSizeBytes(Integer fileSizeBytes) {
-            this.fileSizeBytes = Objects.requireNonNull(fileSizeBytes);
+            if (fileSizeBytes == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "fileSizeBytes");
+            }
+            this.fileSizeBytes = fileSizeBytes;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder indexId(String indexId) {
-            this.indexId = Objects.requireNonNull(indexId);
+            if (indexId == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "indexId");
+            }
+            this.indexId = indexId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder sourceS3Paths(List<GetThesaurusSourceS3Path> sourceS3Paths) {
-            this.sourceS3Paths = Objects.requireNonNull(sourceS3Paths);
+            if (sourceS3Paths == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "sourceS3Paths");
+            }
+            this.sourceS3Paths = sourceS3Paths;
             return this;
         }
         public Builder sourceS3Paths(GetThesaurusSourceS3Path... sourceS3Paths) {
@@ -293,32 +324,50 @@ public final class GetThesaurusResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder synonymRuleCount(Integer synonymRuleCount) {
-            this.synonymRuleCount = Objects.requireNonNull(synonymRuleCount);
+            if (synonymRuleCount == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "synonymRuleCount");
+            }
+            this.synonymRuleCount = synonymRuleCount;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder termCount(Integer termCount) {
-            this.termCount = Objects.requireNonNull(termCount);
+            if (termCount == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "termCount");
+            }
+            this.termCount = termCount;
             return this;
         }
         @CustomType.Setter
         public Builder thesaurusId(String thesaurusId) {
-            this.thesaurusId = Objects.requireNonNull(thesaurusId);
+            if (thesaurusId == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "thesaurusId");
+            }
+            this.thesaurusId = thesaurusId;
             return this;
         }
         @CustomType.Setter
         public Builder updatedAt(String updatedAt) {
-            this.updatedAt = Objects.requireNonNull(updatedAt);
+            if (updatedAt == null) {
+              throw new MissingRequiredPropertyException("GetThesaurusResult", "updatedAt");
+            }
+            this.updatedAt = updatedAt;
             return this;
         }
         public GetThesaurusResult build() {

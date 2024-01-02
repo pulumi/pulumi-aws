@@ -44,6 +44,7 @@ public final class InstanceCreditSpecification {
 
         @CustomType.Setter
         public Builder cpuCredits(@Nullable String cpuCredits) {
+
             this.cpuCredits = cpuCredits;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.alb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class TargetGroupTargetHealthState {
 
         @CustomType.Setter
         public Builder enableUnhealthyConnectionTermination(Boolean enableUnhealthyConnectionTermination) {
-            this.enableUnhealthyConnectionTermination = Objects.requireNonNull(enableUnhealthyConnectionTermination);
+            if (enableUnhealthyConnectionTermination == null) {
+              throw new MissingRequiredPropertyException("TargetGroupTargetHealthState", "enableUnhealthyConnectionTermination");
+            }
+            this.enableUnhealthyConnectionTermination = enableUnhealthyConnectionTermination;
             return this;
         }
         public TargetGroupTargetHealthState build() {

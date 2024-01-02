@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,22 +87,28 @@ public final class JobCommand {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder pythonVersion(@Nullable String pythonVersion) {
+
             this.pythonVersion = pythonVersion;
             return this;
         }
         @CustomType.Setter
         public Builder runtime(@Nullable String runtime) {
+
             this.runtime = runtime;
             return this;
         }
         @CustomType.Setter
         public Builder scriptLocation(String scriptLocation) {
-            this.scriptLocation = Objects.requireNonNull(scriptLocation);
+            if (scriptLocation == null) {
+              throw new MissingRequiredPropertyException("JobCommand", "scriptLocation");
+            }
+            this.scriptLocation = scriptLocation;
             return this;
         }
         public JobCommand build() {

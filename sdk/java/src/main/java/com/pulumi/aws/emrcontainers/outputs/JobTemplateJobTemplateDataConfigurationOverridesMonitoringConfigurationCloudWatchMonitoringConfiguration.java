@@ -4,6 +4,7 @@
 package com.pulumi.aws.emrcontainers.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringCon
 
         @CustomType.Setter
         public Builder logGroupName(String logGroupName) {
-            this.logGroupName = Objects.requireNonNull(logGroupName);
+            if (logGroupName == null) {
+              throw new MissingRequiredPropertyException("JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration", "logGroupName");
+            }
+            this.logGroupName = logGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder logStreamNamePrefix(@Nullable String logStreamNamePrefix) {
+
             this.logStreamNamePrefix = logStreamNamePrefix;
             return this;
         }

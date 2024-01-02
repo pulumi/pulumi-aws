@@ -648,11 +648,13 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
 
         @CustomType.Setter
         public Builder acceleratorCount(@Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount acceleratorCount) {
+
             this.acceleratorCount = acceleratorCount;
             return this;
         }
         @CustomType.Setter
         public Builder acceleratorManufacturers(@Nullable List<String> acceleratorManufacturers) {
+
             this.acceleratorManufacturers = acceleratorManufacturers;
             return this;
         }
@@ -661,6 +663,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
         @CustomType.Setter
         public Builder acceleratorNames(@Nullable List<String> acceleratorNames) {
+
             this.acceleratorNames = acceleratorNames;
             return this;
         }
@@ -669,11 +672,13 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
         @CustomType.Setter
         public Builder acceleratorTotalMemoryMib(@Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib) {
+
             this.acceleratorTotalMemoryMib = acceleratorTotalMemoryMib;
             return this;
         }
         @CustomType.Setter
         public Builder acceleratorTypes(@Nullable List<String> acceleratorTypes) {
+
             this.acceleratorTypes = acceleratorTypes;
             return this;
         }
@@ -682,6 +687,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
         @CustomType.Setter
         public Builder allowedInstanceTypes(@Nullable List<String> allowedInstanceTypes) {
+
             this.allowedInstanceTypes = allowedInstanceTypes;
             return this;
         }
@@ -690,21 +696,25 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
         @CustomType.Setter
         public Builder bareMetal(@Nullable String bareMetal) {
+
             this.bareMetal = bareMetal;
             return this;
         }
         @CustomType.Setter
         public Builder baselineEbsBandwidthMbps(@Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps baselineEbsBandwidthMbps) {
+
             this.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
             return this;
         }
         @CustomType.Setter
         public Builder burstablePerformance(@Nullable String burstablePerformance) {
+
             this.burstablePerformance = burstablePerformance;
             return this;
         }
         @CustomType.Setter
         public Builder cpuManufacturers(@Nullable List<String> cpuManufacturers) {
+
             this.cpuManufacturers = cpuManufacturers;
             return this;
         }
@@ -713,6 +723,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
         @CustomType.Setter
         public Builder excludedInstanceTypes(@Nullable List<String> excludedInstanceTypes) {
+
             this.excludedInstanceTypes = excludedInstanceTypes;
             return this;
         }
@@ -721,6 +732,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
         @CustomType.Setter
         public Builder instanceGenerations(@Nullable List<String> instanceGenerations) {
+
             this.instanceGenerations = instanceGenerations;
             return this;
         }
@@ -729,11 +741,13 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
         @CustomType.Setter
         public Builder localStorage(@Nullable String localStorage) {
+
             this.localStorage = localStorage;
             return this;
         }
         @CustomType.Setter
         public Builder localStorageTypes(@Nullable List<String> localStorageTypes) {
+
             this.localStorageTypes = localStorageTypes;
             return this;
         }
@@ -742,46 +756,55 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
         @CustomType.Setter
         public Builder memoryGibPerVcpu(@Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu) {
+
             this.memoryGibPerVcpu = memoryGibPerVcpu;
             return this;
         }
         @CustomType.Setter
         public Builder memoryMib(@Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib memoryMib) {
+
             this.memoryMib = memoryMib;
             return this;
         }
         @CustomType.Setter
         public Builder networkBandwidthGbps(@Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps networkBandwidthGbps) {
+
             this.networkBandwidthGbps = networkBandwidthGbps;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceCount(@Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount networkInterfaceCount) {
+
             this.networkInterfaceCount = networkInterfaceCount;
             return this;
         }
         @CustomType.Setter
         public Builder onDemandMaxPricePercentageOverLowestPrice(@Nullable Integer onDemandMaxPricePercentageOverLowestPrice) {
+
             this.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             return this;
         }
         @CustomType.Setter
         public Builder requireHibernateSupport(@Nullable Boolean requireHibernateSupport) {
+
             this.requireHibernateSupport = requireHibernateSupport;
             return this;
         }
         @CustomType.Setter
         public Builder spotMaxPricePercentageOverLowestPrice(@Nullable Integer spotMaxPricePercentageOverLowestPrice) {
+
             this.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
             return this;
         }
         @CustomType.Setter
         public Builder totalLocalStorageGb(@Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb totalLocalStorageGb) {
+
             this.totalLocalStorageGb = totalLocalStorageGb;
             return this;
         }
         @CustomType.Setter
         public Builder vcpuCount(@Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount vcpuCount) {
+
             this.vcpuCount = vcpuCount;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.transfer.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ServerWorkflowDetailsOnPartialUpload {
 
         @CustomType.Setter
         public Builder executionRole(String executionRole) {
-            this.executionRole = Objects.requireNonNull(executionRole);
+            if (executionRole == null) {
+              throw new MissingRequiredPropertyException("ServerWorkflowDetailsOnPartialUpload", "executionRole");
+            }
+            this.executionRole = executionRole;
             return this;
         }
         @CustomType.Setter
         public Builder workflowId(String workflowId) {
-            this.workflowId = Objects.requireNonNull(workflowId);
+            if (workflowId == null) {
+              throw new MissingRequiredPropertyException("ServerWorkflowDetailsOnPartialUpload", "workflowId");
+            }
+            this.workflowId = workflowId;
             return this;
         }
         public ServerWorkflowDetailsOnPartialUpload build() {

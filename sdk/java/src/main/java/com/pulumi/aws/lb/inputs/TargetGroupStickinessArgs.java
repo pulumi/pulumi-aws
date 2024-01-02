@@ -5,6 +5,7 @@ package com.pulumi.aws.lb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -189,7 +190,9 @@ public final class TargetGroupStickinessArgs extends com.pulumi.resources.Resour
         }
 
         public TargetGroupStickinessArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("TargetGroupStickinessArgs", "type");
+            }
             return $;
         }
     }

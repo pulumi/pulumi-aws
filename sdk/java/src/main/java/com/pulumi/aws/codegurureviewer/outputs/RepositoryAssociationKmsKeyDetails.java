@@ -58,11 +58,13 @@ public final class RepositoryAssociationKmsKeyDetails {
 
         @CustomType.Setter
         public Builder encryptionOption(@Nullable String encryptionOption) {
+
             this.encryptionOption = encryptionOption;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }

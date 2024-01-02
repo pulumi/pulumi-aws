@@ -5,6 +5,7 @@ package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.aws.sesv2.outputs.GetDedicatedIpPoolDedicatedIp;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -107,12 +108,18 @@ public final class GetDedicatedIpPoolResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedIpPoolResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder dedicatedIps(List<GetDedicatedIpPoolDedicatedIp> dedicatedIps) {
-            this.dedicatedIps = Objects.requireNonNull(dedicatedIps);
+            if (dedicatedIps == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedIpPoolResult", "dedicatedIps");
+            }
+            this.dedicatedIps = dedicatedIps;
             return this;
         }
         public Builder dedicatedIps(GetDedicatedIpPoolDedicatedIp... dedicatedIps) {
@@ -120,22 +127,34 @@ public final class GetDedicatedIpPoolResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedIpPoolResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder poolName(String poolName) {
-            this.poolName = Objects.requireNonNull(poolName);
+            if (poolName == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedIpPoolResult", "poolName");
+            }
+            this.poolName = poolName;
             return this;
         }
         @CustomType.Setter
         public Builder scalingMode(String scalingMode) {
-            this.scalingMode = Objects.requireNonNull(scalingMode);
+            if (scalingMode == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedIpPoolResult", "scalingMode");
+            }
+            this.scalingMode = scalingMode;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedIpPoolResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetDedicatedIpPoolResult build() {

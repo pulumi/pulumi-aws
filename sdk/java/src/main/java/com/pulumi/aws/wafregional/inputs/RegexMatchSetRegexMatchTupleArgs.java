@@ -6,6 +6,7 @@ package com.pulumi.aws.wafregional.inputs;
 import com.pulumi.aws.wafregional.inputs.RegexMatchSetRegexMatchTupleFieldToMatchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -161,9 +162,15 @@ public final class RegexMatchSetRegexMatchTupleArgs extends com.pulumi.resources
         }
 
         public RegexMatchSetRegexMatchTupleArgs build() {
-            $.fieldToMatch = Objects.requireNonNull($.fieldToMatch, "expected parameter 'fieldToMatch' to be non-null");
-            $.regexPatternSetId = Objects.requireNonNull($.regexPatternSetId, "expected parameter 'regexPatternSetId' to be non-null");
-            $.textTransformation = Objects.requireNonNull($.textTransformation, "expected parameter 'textTransformation' to be non-null");
+            if ($.fieldToMatch == null) {
+                throw new MissingRequiredPropertyException("RegexMatchSetRegexMatchTupleArgs", "fieldToMatch");
+            }
+            if ($.regexPatternSetId == null) {
+                throw new MissingRequiredPropertyException("RegexMatchSetRegexMatchTupleArgs", "regexPatternSetId");
+            }
+            if ($.textTransformation == null) {
+                throw new MissingRequiredPropertyException("RegexMatchSetRegexMatchTupleArgs", "textTransformation");
+            }
             return $;
         }
     }

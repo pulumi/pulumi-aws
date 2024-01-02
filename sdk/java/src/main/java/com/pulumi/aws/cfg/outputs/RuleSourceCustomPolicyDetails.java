@@ -4,6 +4,7 @@
 package com.pulumi.aws.cfg.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,24 @@ public final class RuleSourceCustomPolicyDetails {
 
         @CustomType.Setter
         public Builder enableDebugLogDelivery(@Nullable Boolean enableDebugLogDelivery) {
+
             this.enableDebugLogDelivery = enableDebugLogDelivery;
             return this;
         }
         @CustomType.Setter
         public Builder policyRuntime(String policyRuntime) {
-            this.policyRuntime = Objects.requireNonNull(policyRuntime);
+            if (policyRuntime == null) {
+              throw new MissingRequiredPropertyException("RuleSourceCustomPolicyDetails", "policyRuntime");
+            }
+            this.policyRuntime = policyRuntime;
             return this;
         }
         @CustomType.Setter
         public Builder policyText(String policyText) {
-            this.policyText = Objects.requireNonNull(policyText);
+            if (policyText == null) {
+              throw new MissingRequiredPropertyException("RuleSourceCustomPolicyDetails", "policyText");
+            }
+            this.policyText = policyText;
             return this;
         }
         public RuleSourceCustomPolicyDetails build() {

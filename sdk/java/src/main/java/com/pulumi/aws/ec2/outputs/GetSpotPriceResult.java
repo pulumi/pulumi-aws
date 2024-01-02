@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetSpotPriceFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -92,11 +93,13 @@ public final class GetSpotPriceResult {
 
         @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
+
             this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetSpotPriceFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -105,22 +108,32 @@ public final class GetSpotPriceResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSpotPriceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
+
             this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder spotPrice(String spotPrice) {
-            this.spotPrice = Objects.requireNonNull(spotPrice);
+            if (spotPrice == null) {
+              throw new MissingRequiredPropertyException("GetSpotPriceResult", "spotPrice");
+            }
+            this.spotPrice = spotPrice;
             return this;
         }
         @CustomType.Setter
         public Builder spotPriceTimestamp(String spotPriceTimestamp) {
-            this.spotPriceTimestamp = Objects.requireNonNull(spotPriceTimestamp);
+            if (spotPriceTimestamp == null) {
+              throw new MissingRequiredPropertyException("GetSpotPriceResult", "spotPriceTimestamp");
+            }
+            this.spotPriceTimestamp = spotPriceTimestamp;
             return this;
         }
         public GetSpotPriceResult build() {

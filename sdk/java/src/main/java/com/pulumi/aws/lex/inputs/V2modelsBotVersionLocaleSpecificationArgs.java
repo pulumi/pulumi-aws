@@ -5,6 +5,7 @@ package com.pulumi.aws.lex.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -54,7 +55,9 @@ public final class V2modelsBotVersionLocaleSpecificationArgs extends com.pulumi.
         }
 
         public V2modelsBotVersionLocaleSpecificationArgs build() {
-            $.sourceBotVersion = Objects.requireNonNull($.sourceBotVersion, "expected parameter 'sourceBotVersion' to be non-null");
+            if ($.sourceBotVersion == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotVersionLocaleSpecificationArgs", "sourceBotVersion");
+            }
             return $;
         }
     }

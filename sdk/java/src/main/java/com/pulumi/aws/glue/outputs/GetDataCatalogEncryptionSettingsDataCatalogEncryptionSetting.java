@@ -6,6 +6,7 @@ package com.pulumi.aws.glue.outputs;
 import com.pulumi.aws.glue.outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption;
 import com.pulumi.aws.glue.outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting 
 
         @CustomType.Setter
         public Builder connectionPasswordEncryptions(List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption> connectionPasswordEncryptions) {
-            this.connectionPasswordEncryptions = Objects.requireNonNull(connectionPasswordEncryptions);
+            if (connectionPasswordEncryptions == null) {
+              throw new MissingRequiredPropertyException("GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting", "connectionPasswordEncryptions");
+            }
+            this.connectionPasswordEncryptions = connectionPasswordEncryptions;
             return this;
         }
         public Builder connectionPasswordEncryptions(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption... connectionPasswordEncryptions) {
@@ -66,7 +70,10 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting 
         }
         @CustomType.Setter
         public Builder encryptionAtRests(List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest> encryptionAtRests) {
-            this.encryptionAtRests = Objects.requireNonNull(encryptionAtRests);
+            if (encryptionAtRests == null) {
+              throw new MissingRequiredPropertyException("GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting", "encryptionAtRests");
+            }
+            this.encryptionAtRests = encryptionAtRests;
             return this;
         }
         public Builder encryptionAtRests(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest... encryptionAtRests) {

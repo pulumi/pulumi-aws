@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticsearch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class DomainLogPublishingOptionArgs extends com.pulumi.resources.Re
         }
 
         public DomainLogPublishingOptionArgs build() {
-            $.cloudwatchLogGroupArn = Objects.requireNonNull($.cloudwatchLogGroupArn, "expected parameter 'cloudwatchLogGroupArn' to be non-null");
-            $.logType = Objects.requireNonNull($.logType, "expected parameter 'logType' to be non-null");
+            if ($.cloudwatchLogGroupArn == null) {
+                throw new MissingRequiredPropertyException("DomainLogPublishingOptionArgs", "cloudwatchLogGroupArn");
+            }
+            if ($.logType == null) {
+                throw new MissingRequiredPropertyException("DomainLogPublishingOptionArgs", "logType");
+            }
             return $;
         }
     }

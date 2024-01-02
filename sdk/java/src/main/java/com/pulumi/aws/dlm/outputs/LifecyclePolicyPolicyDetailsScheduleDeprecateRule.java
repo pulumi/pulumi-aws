@@ -73,16 +73,19 @@ public final class LifecyclePolicyPolicyDetailsScheduleDeprecateRule {
 
         @CustomType.Setter
         public Builder count(@Nullable Integer count) {
+
             this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
+
             this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder intervalUnit(@Nullable String intervalUnit) {
+
             this.intervalUnit = intervalUnit;
             return this;
         }

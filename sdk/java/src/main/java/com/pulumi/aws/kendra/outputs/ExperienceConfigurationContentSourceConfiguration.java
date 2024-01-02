@@ -74,6 +74,7 @@ public final class ExperienceConfigurationContentSourceConfiguration {
 
         @CustomType.Setter
         public Builder dataSourceIds(@Nullable List<String> dataSourceIds) {
+
             this.dataSourceIds = dataSourceIds;
             return this;
         }
@@ -82,11 +83,13 @@ public final class ExperienceConfigurationContentSourceConfiguration {
         }
         @CustomType.Setter
         public Builder directPutContent(@Nullable Boolean directPutContent) {
+
             this.directPutContent = directPutContent;
             return this;
         }
         @CustomType.Setter
         public Builder faqIds(@Nullable List<String> faqIds) {
+
             this.faqIds = faqIds;
             return this;
         }

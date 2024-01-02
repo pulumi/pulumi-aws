@@ -44,6 +44,7 @@ public final class ClusterServerSideEncryption {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }

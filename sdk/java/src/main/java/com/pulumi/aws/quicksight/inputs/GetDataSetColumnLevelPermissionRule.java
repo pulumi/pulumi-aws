@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,8 +72,12 @@ public final class GetDataSetColumnLevelPermissionRule extends com.pulumi.resour
         }
 
         public GetDataSetColumnLevelPermissionRule build() {
-            $.columnNames = Objects.requireNonNull($.columnNames, "expected parameter 'columnNames' to be non-null");
-            $.principals = Objects.requireNonNull($.principals, "expected parameter 'principals' to be non-null");
+            if ($.columnNames == null) {
+                throw new MissingRequiredPropertyException("GetDataSetColumnLevelPermissionRule", "columnNames");
+            }
+            if ($.principals == null) {
+                throw new MissingRequiredPropertyException("GetDataSetColumnLevelPermissionRule", "principals");
+            }
             return $;
         }
     }

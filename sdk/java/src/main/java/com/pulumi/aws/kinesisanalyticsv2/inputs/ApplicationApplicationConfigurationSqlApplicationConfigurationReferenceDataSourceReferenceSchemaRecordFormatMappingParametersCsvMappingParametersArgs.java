@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesisanalyticsv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs build() {
-            $.recordColumnDelimiter = Objects.requireNonNull($.recordColumnDelimiter, "expected parameter 'recordColumnDelimiter' to be non-null");
-            $.recordRowDelimiter = Objects.requireNonNull($.recordRowDelimiter, "expected parameter 'recordRowDelimiter' to be non-null");
+            if ($.recordColumnDelimiter == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs", "recordColumnDelimiter");
+            }
+            if ($.recordRowDelimiter == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs", "recordRowDelimiter");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.aws.glue.outputs.CatalogTableStorageDescriptorSchemaReferenceSchemaId;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -74,17 +75,22 @@ public final class CatalogTableStorageDescriptorSchemaReference {
 
         @CustomType.Setter
         public Builder schemaId(@Nullable CatalogTableStorageDescriptorSchemaReferenceSchemaId schemaId) {
+
             this.schemaId = schemaId;
             return this;
         }
         @CustomType.Setter
         public Builder schemaVersionId(@Nullable String schemaVersionId) {
+
             this.schemaVersionId = schemaVersionId;
             return this;
         }
         @CustomType.Setter
         public Builder schemaVersionNumber(Integer schemaVersionNumber) {
-            this.schemaVersionNumber = Objects.requireNonNull(schemaVersionNumber);
+            if (schemaVersionNumber == null) {
+              throw new MissingRequiredPropertyException("CatalogTableStorageDescriptorSchemaReference", "schemaVersionNumber");
+            }
+            this.schemaVersionNumber = schemaVersionNumber;
             return this;
         }
         public CatalogTableStorageDescriptorSchemaReference build() {

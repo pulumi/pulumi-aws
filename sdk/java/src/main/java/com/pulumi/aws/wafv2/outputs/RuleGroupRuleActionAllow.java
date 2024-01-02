@@ -44,6 +44,7 @@ public final class RuleGroupRuleActionAllow {
 
         @CustomType.Setter
         public Builder customRequestHandling(@Nullable RuleGroupRuleActionAllowCustomRequestHandling customRequestHandling) {
+
             this.customRequestHandling = customRequestHandling;
             return this;
         }

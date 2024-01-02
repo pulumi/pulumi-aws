@@ -4,6 +4,7 @@
 package com.pulumi.aws.lb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,21 @@ public final class ListenerMutualAuthentication {
 
         @CustomType.Setter
         public Builder ignoreClientCertificateExpiry(@Nullable Boolean ignoreClientCertificateExpiry) {
+
             this.ignoreClientCertificateExpiry = ignoreClientCertificateExpiry;
             return this;
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("ListenerMutualAuthentication", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder trustStoreArn(@Nullable String trustStoreArn) {
+
             this.trustStoreArn = trustStoreArn;
             return this;
         }

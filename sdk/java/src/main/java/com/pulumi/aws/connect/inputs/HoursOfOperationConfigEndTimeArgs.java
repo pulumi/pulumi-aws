@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class HoursOfOperationConfigEndTimeArgs extends com.pulumi.resource
         }
 
         public HoursOfOperationConfigEndTimeArgs build() {
-            $.hours = Objects.requireNonNull($.hours, "expected parameter 'hours' to be non-null");
-            $.minutes = Objects.requireNonNull($.minutes, "expected parameter 'minutes' to be non-null");
+            if ($.hours == null) {
+                throw new MissingRequiredPropertyException("HoursOfOperationConfigEndTimeArgs", "hours");
+            }
+            if ($.minutes == null) {
+                throw new MissingRequiredPropertyException("HoursOfOperationConfigEndTimeArgs", "minutes");
+            }
             return $;
         }
     }

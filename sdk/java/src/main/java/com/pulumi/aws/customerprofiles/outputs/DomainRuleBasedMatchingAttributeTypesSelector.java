@@ -4,6 +4,7 @@
 package com.pulumi.aws.customerprofiles.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,6 +87,7 @@ public final class DomainRuleBasedMatchingAttributeTypesSelector {
 
         @CustomType.Setter
         public Builder addresses(@Nullable List<String> addresses) {
+
             this.addresses = addresses;
             return this;
         }
@@ -94,11 +96,15 @@ public final class DomainRuleBasedMatchingAttributeTypesSelector {
         }
         @CustomType.Setter
         public Builder attributeMatchingModel(String attributeMatchingModel) {
-            this.attributeMatchingModel = Objects.requireNonNull(attributeMatchingModel);
+            if (attributeMatchingModel == null) {
+              throw new MissingRequiredPropertyException("DomainRuleBasedMatchingAttributeTypesSelector", "attributeMatchingModel");
+            }
+            this.attributeMatchingModel = attributeMatchingModel;
             return this;
         }
         @CustomType.Setter
         public Builder emailAddresses(@Nullable List<String> emailAddresses) {
+
             this.emailAddresses = emailAddresses;
             return this;
         }
@@ -107,6 +113,7 @@ public final class DomainRuleBasedMatchingAttributeTypesSelector {
         }
         @CustomType.Setter
         public Builder phoneNumbers(@Nullable List<String> phoneNumbers) {
+
             this.phoneNumbers = phoneNumbers;
             return this;
         }

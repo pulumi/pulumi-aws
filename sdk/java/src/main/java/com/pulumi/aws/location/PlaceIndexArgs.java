@@ -6,6 +6,7 @@ package com.pulumi.aws.location;
 import com.pulumi.aws.location.inputs.PlaceIndexDataSourceConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -234,8 +235,12 @@ public final class PlaceIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PlaceIndexArgs build() {
-            $.dataSource = Objects.requireNonNull($.dataSource, "expected parameter 'dataSource' to be non-null");
-            $.indexName = Objects.requireNonNull($.indexName, "expected parameter 'indexName' to be non-null");
+            if ($.dataSource == null) {
+                throw new MissingRequiredPropertyException("PlaceIndexArgs", "dataSource");
+            }
+            if ($.indexName == null) {
+                throw new MissingRequiredPropertyException("PlaceIndexArgs", "indexName");
+            }
             return $;
         }
     }

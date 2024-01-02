@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -92,8 +93,12 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
         }
 
         public ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs build() {
-            $.checkDigitString = Objects.requireNonNull($.checkDigitString, "expected parameter 'checkDigitString' to be non-null");
-            $.sid = Objects.requireNonNull($.sid, "expected parameter 'sid' to be non-null");
+            if ($.checkDigitString == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs", "checkDigitString");
+            }
+            if ($.sid == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs", "sid");
+            }
             return $;
         }
     }

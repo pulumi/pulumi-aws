@@ -5,6 +5,7 @@ package com.pulumi.aws.storagegateway.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class GetLocalDiskArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetLocalDiskArgs build() {
-            $.gatewayArn = Objects.requireNonNull($.gatewayArn, "expected parameter 'gatewayArn' to be non-null");
+            if ($.gatewayArn == null) {
+                throw new MissingRequiredPropertyException("GetLocalDiskArgs", "gatewayArn");
+            }
             return $;
         }
     }

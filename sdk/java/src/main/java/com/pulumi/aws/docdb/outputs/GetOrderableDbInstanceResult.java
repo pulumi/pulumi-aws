@@ -4,6 +4,7 @@
 package com.pulumi.aws.docdb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -96,7 +97,10 @@ public final class GetOrderableDbInstanceResult {
 
         @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+            if (availabilityZones == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "availabilityZones");
+            }
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(String... availabilityZones) {
@@ -104,31 +108,43 @@ public final class GetOrderableDbInstanceResult {
         }
         @CustomType.Setter
         public Builder engine(@Nullable String engine) {
+
             this.engine = engine;
             return this;
         }
         @CustomType.Setter
         public Builder engineVersion(String engineVersion) {
-            this.engineVersion = Objects.requireNonNull(engineVersion);
+            if (engineVersion == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "engineVersion");
+            }
+            this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceClass(String instanceClass) {
-            this.instanceClass = Objects.requireNonNull(instanceClass);
+            if (instanceClass == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "instanceClass");
+            }
+            this.instanceClass = instanceClass;
             return this;
         }
         @CustomType.Setter
         public Builder licenseModel(@Nullable String licenseModel) {
+
             this.licenseModel = licenseModel;
             return this;
         }
         @CustomType.Setter
         public Builder preferredInstanceClasses(@Nullable List<String> preferredInstanceClasses) {
+
             this.preferredInstanceClasses = preferredInstanceClasses;
             return this;
         }
@@ -137,7 +153,10 @@ public final class GetOrderableDbInstanceResult {
         }
         @CustomType.Setter
         public Builder vpc(Boolean vpc) {
-            this.vpc = Objects.requireNonNull(vpc);
+            if (vpc == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "vpc");
+            }
+            this.vpc = vpc;
             return this;
         }
         public GetOrderableDbInstanceResult build() {

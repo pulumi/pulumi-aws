@@ -5,6 +5,7 @@ package com.pulumi.aws.lb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class TargetGroupTargetHealthStateArgs extends com.pulumi.resources
         }
 
         public TargetGroupTargetHealthStateArgs build() {
-            $.enableUnhealthyConnectionTermination = Objects.requireNonNull($.enableUnhealthyConnectionTermination, "expected parameter 'enableUnhealthyConnectionTermination' to be non-null");
+            if ($.enableUnhealthyConnectionTermination == null) {
+                throw new MissingRequiredPropertyException("TargetGroupTargetHealthStateArgs", "enableUnhealthyConnectionTermination");
+            }
             return $;
         }
     }

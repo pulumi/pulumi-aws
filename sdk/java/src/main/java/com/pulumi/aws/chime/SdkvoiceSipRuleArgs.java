@@ -6,6 +6,7 @@ package com.pulumi.aws.chime;
 import com.pulumi.aws.chime.inputs.SdkvoiceSipRuleTargetApplicationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -245,9 +246,15 @@ public final class SdkvoiceSipRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public SdkvoiceSipRuleArgs build() {
-            $.targetApplications = Objects.requireNonNull($.targetApplications, "expected parameter 'targetApplications' to be non-null");
-            $.triggerType = Objects.requireNonNull($.triggerType, "expected parameter 'triggerType' to be non-null");
-            $.triggerValue = Objects.requireNonNull($.triggerValue, "expected parameter 'triggerValue' to be non-null");
+            if ($.targetApplications == null) {
+                throw new MissingRequiredPropertyException("SdkvoiceSipRuleArgs", "targetApplications");
+            }
+            if ($.triggerType == null) {
+                throw new MissingRequiredPropertyException("SdkvoiceSipRuleArgs", "triggerType");
+            }
+            if ($.triggerValue == null) {
+                throw new MissingRequiredPropertyException("SdkvoiceSipRuleArgs", "triggerValue");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.directoryservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -145,8 +146,12 @@ public final class DirectoryVpcSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         public DirectoryVpcSettingsArgs build() {
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("DirectoryVpcSettingsArgs", "subnetIds");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("DirectoryVpcSettingsArgs", "vpcId");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthClient
 import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthOauthHttpParametersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -189,9 +190,15 @@ public final class EventConnectionAuthParametersOauthArgs extends com.pulumi.res
         }
 
         public EventConnectionAuthParametersOauthArgs build() {
-            $.authorizationEndpoint = Objects.requireNonNull($.authorizationEndpoint, "expected parameter 'authorizationEndpoint' to be non-null");
-            $.httpMethod = Objects.requireNonNull($.httpMethod, "expected parameter 'httpMethod' to be non-null");
-            $.oauthHttpParameters = Objects.requireNonNull($.oauthHttpParameters, "expected parameter 'oauthHttpParameters' to be non-null");
+            if ($.authorizationEndpoint == null) {
+                throw new MissingRequiredPropertyException("EventConnectionAuthParametersOauthArgs", "authorizationEndpoint");
+            }
+            if ($.httpMethod == null) {
+                throw new MissingRequiredPropertyException("EventConnectionAuthParametersOauthArgs", "httpMethod");
+            }
+            if ($.oauthHttpParameters == null) {
+                throw new MissingRequiredPropertyException("EventConnectionAuthParametersOauthArgs", "oauthHttpParameters");
+            }
             return $;
         }
     }

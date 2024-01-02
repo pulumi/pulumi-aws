@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.aws.connect.outputs.GetUserHierarchyGroupHierarchyPath;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -127,17 +128,26 @@ public final class GetUserHierarchyGroupResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyGroupResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder hierarchyGroupId(String hierarchyGroupId) {
-            this.hierarchyGroupId = Objects.requireNonNull(hierarchyGroupId);
+            if (hierarchyGroupId == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyGroupResult", "hierarchyGroupId");
+            }
+            this.hierarchyGroupId = hierarchyGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder hierarchyPaths(List<GetUserHierarchyGroupHierarchyPath> hierarchyPaths) {
-            this.hierarchyPaths = Objects.requireNonNull(hierarchyPaths);
+            if (hierarchyPaths == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyGroupResult", "hierarchyPaths");
+            }
+            this.hierarchyPaths = hierarchyPaths;
             return this;
         }
         public Builder hierarchyPaths(GetUserHierarchyGroupHierarchyPath... hierarchyPaths) {
@@ -145,27 +155,42 @@ public final class GetUserHierarchyGroupResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyGroupResult", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder levelId(String levelId) {
-            this.levelId = Objects.requireNonNull(levelId);
+            if (levelId == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyGroupResult", "levelId");
+            }
+            this.levelId = levelId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyGroupResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetUserHierarchyGroupResult build() {

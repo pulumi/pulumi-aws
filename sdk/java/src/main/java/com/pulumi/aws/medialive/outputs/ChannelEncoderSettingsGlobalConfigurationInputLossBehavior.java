@@ -62,26 +62,31 @@ public final class ChannelEncoderSettingsGlobalConfigurationInputLossBehavior {
 
         @CustomType.Setter
         public Builder blackFrameMsec(@Nullable Integer blackFrameMsec) {
+
             this.blackFrameMsec = blackFrameMsec;
             return this;
         }
         @CustomType.Setter
         public Builder inputLossImageColor(@Nullable String inputLossImageColor) {
+
             this.inputLossImageColor = inputLossImageColor;
             return this;
         }
         @CustomType.Setter
         public Builder inputLossImageSlate(@Nullable ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate inputLossImageSlate) {
+
             this.inputLossImageSlate = inputLossImageSlate;
             return this;
         }
         @CustomType.Setter
         public Builder inputLossImageType(@Nullable String inputLossImageType) {
+
             this.inputLossImageType = inputLossImageType;
             return this;
         }
         @CustomType.Setter
         public Builder repeatFrameMsec(@Nullable Integer repeatFrameMsec) {
+
             this.repeatFrameMsec = repeatFrameMsec;
             return this;
         }

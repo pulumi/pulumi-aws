@@ -5,6 +5,7 @@ package com.pulumi.aws.apprunner;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class DefaultAutoScalingConfigurationVersionArgs extends com.pulumi
         }
 
         public DefaultAutoScalingConfigurationVersionArgs build() {
-            $.autoScalingConfigurationArn = Objects.requireNonNull($.autoScalingConfigurationArn, "expected parameter 'autoScalingConfigurationArn' to be non-null");
+            if ($.autoScalingConfigurationArn == null) {
+                throw new MissingRequiredPropertyException("DefaultAutoScalingConfigurationVersionArgs", "autoScalingConfigurationArn");
+            }
             return $;
         }
     }

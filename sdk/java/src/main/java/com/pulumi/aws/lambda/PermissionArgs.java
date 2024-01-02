@@ -5,6 +5,7 @@ package com.pulumi.aws.lambda;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -478,9 +479,15 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PermissionArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.function = Objects.requireNonNull($.function, "expected parameter 'function' to be non-null");
-            $.principal = Objects.requireNonNull($.principal, "expected parameter 'principal' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("PermissionArgs", "action");
+            }
+            if ($.function == null) {
+                throw new MissingRequiredPropertyException("PermissionArgs", "function");
+            }
+            if ($.principal == null) {
+                throw new MissingRequiredPropertyException("PermissionArgs", "principal");
+            }
             return $;
         }
     }

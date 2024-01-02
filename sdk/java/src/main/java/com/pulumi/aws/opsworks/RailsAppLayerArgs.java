@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.inputs.RailsAppLayerEbsVolumeArgs;
 import com.pulumi.aws.opsworks.inputs.RailsAppLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1045,7 +1046,9 @@ public final class RailsAppLayerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RailsAppLayerArgs build() {
-            $.stackId = Objects.requireNonNull($.stackId, "expected parameter 'stackId' to be non-null");
+            if ($.stackId == null) {
+                throw new MissingRequiredPropertyException("RailsAppLayerArgs", "stackId");
+            }
             return $;
         }
     }

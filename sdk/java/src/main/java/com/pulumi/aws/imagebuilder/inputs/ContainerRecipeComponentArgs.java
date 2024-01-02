@@ -6,6 +6,7 @@ package com.pulumi.aws.imagebuilder.inputs;
 import com.pulumi.aws.imagebuilder.inputs.ContainerRecipeComponentParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class ContainerRecipeComponentArgs extends com.pulumi.resources.Res
         }
 
         public ContainerRecipeComponentArgs build() {
-            $.componentArn = Objects.requireNonNull($.componentArn, "expected parameter 'componentArn' to be non-null");
+            if ($.componentArn == null) {
+                throw new MissingRequiredPropertyException("ContainerRecipeComponentArgs", "componentArn");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecu
         }
 
         public ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs build() {
-            $.accessControlMaxAgeSec = Objects.requireNonNull($.accessControlMaxAgeSec, "expected parameter 'accessControlMaxAgeSec' to be non-null");
-            $.override = Objects.requireNonNull($.override, "expected parameter 'override' to be non-null");
+            if ($.accessControlMaxAgeSec == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs", "accessControlMaxAgeSec");
+            }
+            if ($.override == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs", "override");
+            }
             return $;
         }
     }

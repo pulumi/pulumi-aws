@@ -7,6 +7,7 @@ import com.pulumi.aws.imagebuilder.inputs.InfrastructureConfigurationInstanceMet
 import com.pulumi.aws.imagebuilder.inputs.InfrastructureConfigurationLoggingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -553,7 +554,9 @@ public final class InfrastructureConfigurationArgs extends com.pulumi.resources.
         }
 
         public InfrastructureConfigurationArgs build() {
-            $.instanceProfileName = Objects.requireNonNull($.instanceProfileName, "expected parameter 'instanceProfileName' to be non-null");
+            if ($.instanceProfileName == null) {
+                throw new MissingRequiredPropertyException("InfrastructureConfigurationArgs", "instanceProfileName");
+            }
             return $;
         }
     }

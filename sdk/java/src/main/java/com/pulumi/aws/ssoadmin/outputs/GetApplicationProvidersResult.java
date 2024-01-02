@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin.outputs;
 
 import com.pulumi.aws.ssoadmin.outputs.GetApplicationProvidersApplicationProvider;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -59,6 +60,7 @@ public final class GetApplicationProvidersResult {
 
         @CustomType.Setter
         public Builder applicationProviders(@Nullable List<GetApplicationProvidersApplicationProvider> applicationProviders) {
+
             this.applicationProviders = applicationProviders;
             return this;
         }
@@ -67,7 +69,10 @@ public final class GetApplicationProvidersResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationProvidersResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetApplicationProvidersResult build() {

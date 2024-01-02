@@ -12,6 +12,7 @@ import com.pulumi.aws.sagemaker.inputs.DataQualityJobDefinitionNetworkConfigArgs
 import com.pulumi.aws.sagemaker.inputs.DataQualityJobDefinitionStoppingConditionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -417,11 +418,21 @@ public final class DataQualityJobDefinitionArgs extends com.pulumi.resources.Res
         }
 
         public DataQualityJobDefinitionArgs build() {
-            $.dataQualityAppSpecification = Objects.requireNonNull($.dataQualityAppSpecification, "expected parameter 'dataQualityAppSpecification' to be non-null");
-            $.dataQualityJobInput = Objects.requireNonNull($.dataQualityJobInput, "expected parameter 'dataQualityJobInput' to be non-null");
-            $.dataQualityJobOutputConfig = Objects.requireNonNull($.dataQualityJobOutputConfig, "expected parameter 'dataQualityJobOutputConfig' to be non-null");
-            $.jobResources = Objects.requireNonNull($.jobResources, "expected parameter 'jobResources' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.dataQualityAppSpecification == null) {
+                throw new MissingRequiredPropertyException("DataQualityJobDefinitionArgs", "dataQualityAppSpecification");
+            }
+            if ($.dataQualityJobInput == null) {
+                throw new MissingRequiredPropertyException("DataQualityJobDefinitionArgs", "dataQualityJobInput");
+            }
+            if ($.dataQualityJobOutputConfig == null) {
+                throw new MissingRequiredPropertyException("DataQualityJobDefinitionArgs", "dataQualityJobOutputConfig");
+            }
+            if ($.jobResources == null) {
+                throw new MissingRequiredPropertyException("DataQualityJobDefinitionArgs", "jobResources");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("DataQualityJobDefinitionArgs", "roleArn");
+            }
             return $;
         }
     }

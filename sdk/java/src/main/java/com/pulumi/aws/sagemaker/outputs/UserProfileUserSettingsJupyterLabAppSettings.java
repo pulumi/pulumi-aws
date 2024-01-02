@@ -90,6 +90,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettings {
 
         @CustomType.Setter
         public Builder codeRepositories(@Nullable List<UserProfileUserSettingsJupyterLabAppSettingsCodeRepository> codeRepositories) {
+
             this.codeRepositories = codeRepositories;
             return this;
         }
@@ -98,6 +99,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettings {
         }
         @CustomType.Setter
         public Builder customImages(@Nullable List<UserProfileUserSettingsJupyterLabAppSettingsCustomImage> customImages) {
+
             this.customImages = customImages;
             return this;
         }
@@ -106,11 +108,13 @@ public final class UserProfileUserSettingsJupyterLabAppSettings {
         }
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec) {
+
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleConfigArns(@Nullable List<String> lifecycleConfigArns) {
+
             this.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }

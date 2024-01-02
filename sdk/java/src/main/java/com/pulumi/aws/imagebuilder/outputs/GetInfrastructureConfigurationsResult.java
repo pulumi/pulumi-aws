@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.GetInfrastructureConfigurationsFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -79,7 +80,10 @@ public final class GetInfrastructureConfigurationsResult {
 
         @CustomType.Setter
         public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+            if (arns == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationsResult", "arns");
+            }
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -87,6 +91,7 @@ public final class GetInfrastructureConfigurationsResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetInfrastructureConfigurationsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -95,12 +100,18 @@ public final class GetInfrastructureConfigurationsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+            if (names == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationsResult", "names");
+            }
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {

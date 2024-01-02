@@ -5,6 +5,7 @@ package com.pulumi.aws.ecrpublic;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class RepositoryPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         public RepositoryPolicyArgs build() {
-            $.policy = Objects.requireNonNull($.policy, "expected parameter 'policy' to be non-null");
-            $.repositoryName = Objects.requireNonNull($.repositoryName, "expected parameter 'repositoryName' to be non-null");
+            if ($.policy == null) {
+                throw new MissingRequiredPropertyException("RepositoryPolicyArgs", "policy");
+            }
+            if ($.repositoryName == null) {
+                throw new MissingRequiredPropertyException("RepositoryPolicyArgs", "repositoryName");
+            }
             return $;
         }
     }

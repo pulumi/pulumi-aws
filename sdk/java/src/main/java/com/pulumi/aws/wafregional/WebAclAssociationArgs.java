@@ -5,6 +5,7 @@ package com.pulumi.aws.wafregional;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.ResourceAr
         }
 
         public WebAclAssociationArgs build() {
-            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
-            $.webAclId = Objects.requireNonNull($.webAclId, "expected parameter 'webAclId' to be non-null");
+            if ($.resourceArn == null) {
+                throw new MissingRequiredPropertyException("WebAclAssociationArgs", "resourceArn");
+            }
+            if ($.webAclId == null) {
+                throw new MissingRequiredPropertyException("WebAclAssociationArgs", "webAclId");
+            }
             return $;
         }
     }

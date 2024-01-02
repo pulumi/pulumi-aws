@@ -5,6 +5,7 @@ package com.pulumi.aws.alb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class ListenerRuleActionFixedResponseArgs extends com.pulumi.resour
         }
 
         public ListenerRuleActionFixedResponseArgs build() {
-            $.contentType = Objects.requireNonNull($.contentType, "expected parameter 'contentType' to be non-null");
+            if ($.contentType == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleActionFixedResponseArgs", "contentType");
+            }
             return $;
         }
     }

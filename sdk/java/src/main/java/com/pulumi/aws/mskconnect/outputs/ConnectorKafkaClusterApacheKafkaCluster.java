@@ -5,6 +5,7 @@ package com.pulumi.aws.mskconnect.outputs;
 
 import com.pulumi.aws.mskconnect.outputs.ConnectorKafkaClusterApacheKafkaClusterVpc;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,12 +58,18 @@ public final class ConnectorKafkaClusterApacheKafkaCluster {
 
         @CustomType.Setter
         public Builder bootstrapServers(String bootstrapServers) {
-            this.bootstrapServers = Objects.requireNonNull(bootstrapServers);
+            if (bootstrapServers == null) {
+              throw new MissingRequiredPropertyException("ConnectorKafkaClusterApacheKafkaCluster", "bootstrapServers");
+            }
+            this.bootstrapServers = bootstrapServers;
             return this;
         }
         @CustomType.Setter
         public Builder vpc(ConnectorKafkaClusterApacheKafkaClusterVpc vpc) {
-            this.vpc = Objects.requireNonNull(vpc);
+            if (vpc == null) {
+              throw new MissingRequiredPropertyException("ConnectorKafkaClusterApacheKafkaCluster", "vpc");
+            }
+            this.vpc = vpc;
             return this;
         }
         public ConnectorKafkaClusterApacheKafkaCluster build() {

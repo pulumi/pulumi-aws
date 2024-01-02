@@ -36,6 +36,7 @@ public final class ResponseHeadersPolicyCustomHeadersConfig {
 
         @CustomType.Setter
         public Builder items(@Nullable List<ResponseHeadersPolicyCustomHeadersConfigItem> items) {
+
             this.items = items;
             return this;
         }

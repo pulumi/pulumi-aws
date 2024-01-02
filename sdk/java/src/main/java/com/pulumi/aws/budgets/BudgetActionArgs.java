@@ -8,6 +8,7 @@ import com.pulumi.aws.budgets.inputs.BudgetActionDefinitionArgs;
 import com.pulumi.aws.budgets.inputs.BudgetActionSubscriberArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -386,14 +387,30 @@ public final class BudgetActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BudgetActionArgs build() {
-            $.actionThreshold = Objects.requireNonNull($.actionThreshold, "expected parameter 'actionThreshold' to be non-null");
-            $.actionType = Objects.requireNonNull($.actionType, "expected parameter 'actionType' to be non-null");
-            $.approvalModel = Objects.requireNonNull($.approvalModel, "expected parameter 'approvalModel' to be non-null");
-            $.budgetName = Objects.requireNonNull($.budgetName, "expected parameter 'budgetName' to be non-null");
-            $.definition = Objects.requireNonNull($.definition, "expected parameter 'definition' to be non-null");
-            $.executionRoleArn = Objects.requireNonNull($.executionRoleArn, "expected parameter 'executionRoleArn' to be non-null");
-            $.notificationType = Objects.requireNonNull($.notificationType, "expected parameter 'notificationType' to be non-null");
-            $.subscribers = Objects.requireNonNull($.subscribers, "expected parameter 'subscribers' to be non-null");
+            if ($.actionThreshold == null) {
+                throw new MissingRequiredPropertyException("BudgetActionArgs", "actionThreshold");
+            }
+            if ($.actionType == null) {
+                throw new MissingRequiredPropertyException("BudgetActionArgs", "actionType");
+            }
+            if ($.approvalModel == null) {
+                throw new MissingRequiredPropertyException("BudgetActionArgs", "approvalModel");
+            }
+            if ($.budgetName == null) {
+                throw new MissingRequiredPropertyException("BudgetActionArgs", "budgetName");
+            }
+            if ($.definition == null) {
+                throw new MissingRequiredPropertyException("BudgetActionArgs", "definition");
+            }
+            if ($.executionRoleArn == null) {
+                throw new MissingRequiredPropertyException("BudgetActionArgs", "executionRoleArn");
+            }
+            if ($.notificationType == null) {
+                throw new MissingRequiredPropertyException("BudgetActionArgs", "notificationType");
+            }
+            if ($.subscribers == null) {
+                throw new MissingRequiredPropertyException("BudgetActionArgs", "subscribers");
+            }
             return $;
         }
     }

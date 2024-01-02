@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.GetInfrastructureConfigurationLoggingS3Log;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class GetInfrastructureConfigurationLogging {
 
         @CustomType.Setter
         public Builder s3Logs(List<GetInfrastructureConfigurationLoggingS3Log> s3Logs) {
-            this.s3Logs = Objects.requireNonNull(s3Logs);
+            if (s3Logs == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationLogging", "s3Logs");
+            }
+            this.s3Logs = s3Logs;
             return this;
         }
         public Builder s3Logs(GetInfrastructureConfigurationLoggingS3Log... s3Logs) {

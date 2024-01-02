@@ -5,6 +5,7 @@ package com.pulumi.aws.lakeformation;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -121,7 +122,9 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ResourceArgs build() {
-            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("ResourceArgs", "arn");
+            }
             return $;
         }
     }

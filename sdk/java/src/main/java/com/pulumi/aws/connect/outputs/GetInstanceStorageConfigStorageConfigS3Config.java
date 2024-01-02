@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.aws.connect.outputs.GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,17 +73,26 @@ public final class GetInstanceStorageConfigStorageConfigS3Config {
 
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigStorageConfigS3Config", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder bucketPrefix(String bucketPrefix) {
-            this.bucketPrefix = Objects.requireNonNull(bucketPrefix);
+            if (bucketPrefix == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigStorageConfigS3Config", "bucketPrefix");
+            }
+            this.bucketPrefix = bucketPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionConfigs(List<GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig> encryptionConfigs) {
-            this.encryptionConfigs = Objects.requireNonNull(encryptionConfigs);
+            if (encryptionConfigs == null) {
+              throw new MissingRequiredPropertyException("GetInstanceStorageConfigStorageConfigS3Config", "encryptionConfigs");
+            }
+            this.encryptionConfigs = encryptionConfigs;
             return this;
         }
         public Builder encryptionConfigs(GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfig... encryptionConfigs) {

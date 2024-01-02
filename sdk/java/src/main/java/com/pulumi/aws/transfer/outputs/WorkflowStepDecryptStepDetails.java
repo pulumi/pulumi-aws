@@ -5,6 +5,7 @@ package com.pulumi.aws.transfer.outputs;
 
 import com.pulumi.aws.transfer.outputs.WorkflowStepDecryptStepDetailsDestinationFileLocation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -101,27 +102,34 @@ public final class WorkflowStepDecryptStepDetails {
 
         @CustomType.Setter
         public Builder destinationFileLocation(@Nullable WorkflowStepDecryptStepDetailsDestinationFileLocation destinationFileLocation) {
+
             this.destinationFileLocation = destinationFileLocation;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder overwriteExisting(@Nullable String overwriteExisting) {
+
             this.overwriteExisting = overwriteExisting;
             return this;
         }
         @CustomType.Setter
         public Builder sourceFileLocation(@Nullable String sourceFileLocation) {
+
             this.sourceFileLocation = sourceFileLocation;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("WorkflowStepDecryptStepDetails", "type");
+            }
+            this.type = type;
             return this;
         }
         public WorkflowStepDecryptStepDetails build() {

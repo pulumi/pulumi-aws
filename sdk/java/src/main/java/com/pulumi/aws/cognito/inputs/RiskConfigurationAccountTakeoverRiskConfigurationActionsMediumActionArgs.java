@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediu
         }
 
         public RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs build() {
-            $.eventAction = Objects.requireNonNull($.eventAction, "expected parameter 'eventAction' to be non-null");
-            $.notify = Objects.requireNonNull($.notify, "expected parameter 'notify' to be non-null");
+            if ($.eventAction == null) {
+                throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs", "eventAction");
+            }
+            if ($.notify == null) {
+                throw new MissingRequiredPropertyException("RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs", "notify");
+            }
             return $;
         }
     }

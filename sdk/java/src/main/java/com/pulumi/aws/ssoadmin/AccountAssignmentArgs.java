@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,11 +262,21 @@ public final class AccountAssignmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         public AccountAssignmentArgs build() {
-            $.instanceArn = Objects.requireNonNull($.instanceArn, "expected parameter 'instanceArn' to be non-null");
-            $.permissionSetArn = Objects.requireNonNull($.permissionSetArn, "expected parameter 'permissionSetArn' to be non-null");
-            $.principalId = Objects.requireNonNull($.principalId, "expected parameter 'principalId' to be non-null");
-            $.principalType = Objects.requireNonNull($.principalType, "expected parameter 'principalType' to be non-null");
-            $.targetId = Objects.requireNonNull($.targetId, "expected parameter 'targetId' to be non-null");
+            if ($.instanceArn == null) {
+                throw new MissingRequiredPropertyException("AccountAssignmentArgs", "instanceArn");
+            }
+            if ($.permissionSetArn == null) {
+                throw new MissingRequiredPropertyException("AccountAssignmentArgs", "permissionSetArn");
+            }
+            if ($.principalId == null) {
+                throw new MissingRequiredPropertyException("AccountAssignmentArgs", "principalId");
+            }
+            if ($.principalType == null) {
+                throw new MissingRequiredPropertyException("AccountAssignmentArgs", "principalType");
+            }
+            if ($.targetId == null) {
+                throw new MissingRequiredPropertyException("AccountAssignmentArgs", "targetId");
+            }
             return $;
         }
     }

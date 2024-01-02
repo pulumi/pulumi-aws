@@ -5,6 +5,7 @@ package com.pulumi.aws.docdb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -303,7 +304,9 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GlobalClusterArgs build() {
-            $.globalClusterIdentifier = Objects.requireNonNull($.globalClusterIdentifier, "expected parameter 'globalClusterIdentifier' to be non-null");
+            if ($.globalClusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("GlobalClusterArgs", "globalClusterIdentifier");
+            }
             return $;
         }
     }

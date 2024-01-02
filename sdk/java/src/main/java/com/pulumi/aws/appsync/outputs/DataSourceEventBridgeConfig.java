@@ -4,6 +4,7 @@
 package com.pulumi.aws.appsync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class DataSourceEventBridgeConfig {
 
         @CustomType.Setter
         public Builder eventBusArn(String eventBusArn) {
-            this.eventBusArn = Objects.requireNonNull(eventBusArn);
+            if (eventBusArn == null) {
+              throw new MissingRequiredPropertyException("DataSourceEventBridgeConfig", "eventBusArn");
+            }
+            this.eventBusArn = eventBusArn;
             return this;
         }
         public DataSourceEventBridgeConfig build() {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssoadmin.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetApplicationPortalOptionSignInOption {
 
         @CustomType.Setter
         public Builder applicationUrl(String applicationUrl) {
-            this.applicationUrl = Objects.requireNonNull(applicationUrl);
+            if (applicationUrl == null) {
+              throw new MissingRequiredPropertyException("GetApplicationPortalOptionSignInOption", "applicationUrl");
+            }
+            this.applicationUrl = applicationUrl;
             return this;
         }
         @CustomType.Setter
         public Builder origin(String origin) {
-            this.origin = Objects.requireNonNull(origin);
+            if (origin == null) {
+              throw new MissingRequiredPropertyException("GetApplicationPortalOptionSignInOption", "origin");
+            }
+            this.origin = origin;
             return this;
         }
         public GetApplicationPortalOptionSignInOption build() {

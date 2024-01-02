@@ -59,11 +59,13 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd {
 
         @CustomType.Setter
         public Builder simpleCriterion(@Nullable ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion simpleCriterion) {
+
             this.simpleCriterion = simpleCriterion;
             return this;
         }
         @CustomType.Setter
         public Builder tagCriterion(@Nullable ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion tagCriterion) {
+
             this.tagCriterion = tagCriterion;
             return this;
         }

@@ -7,6 +7,7 @@ import com.pulumi.aws.storagegateway.inputs.GatewayMaintenanceStartTimeArgs;
 import com.pulumi.aws.storagegateway.inputs.GatewaySmbActiveDirectorySettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -673,8 +674,12 @@ public final class GatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GatewayArgs build() {
-            $.gatewayName = Objects.requireNonNull($.gatewayName, "expected parameter 'gatewayName' to be non-null");
-            $.gatewayTimezone = Objects.requireNonNull($.gatewayTimezone, "expected parameter 'gatewayTimezone' to be non-null");
+            if ($.gatewayName == null) {
+                throw new MissingRequiredPropertyException("GatewayArgs", "gatewayName");
+            }
+            if ($.gatewayTimezone == null) {
+                throw new MissingRequiredPropertyException("GatewayArgs", "gatewayTimezone");
+            }
             return $;
         }
     }

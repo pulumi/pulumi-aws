@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -34,7 +35,10 @@ public final class GetLaunchTemplateMaintenanceOption {
 
         @CustomType.Setter
         public Builder autoRecovery(String autoRecovery) {
-            this.autoRecovery = Objects.requireNonNull(autoRecovery);
+            if (autoRecovery == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateMaintenanceOption", "autoRecovery");
+            }
+            this.autoRecovery = autoRecovery;
             return this;
         }
         public GetLaunchTemplateMaintenanceOption build() {

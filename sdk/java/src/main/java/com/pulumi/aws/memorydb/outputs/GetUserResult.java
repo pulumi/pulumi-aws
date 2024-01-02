@@ -5,6 +5,7 @@ package com.pulumi.aws.memorydb.outputs;
 
 import com.pulumi.aws.memorydb.outputs.GetUserAuthenticationMode;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -121,17 +122,26 @@ public final class GetUserResult {
 
         @CustomType.Setter
         public Builder accessString(String accessString) {
-            this.accessString = Objects.requireNonNull(accessString);
+            if (accessString == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "accessString");
+            }
+            this.accessString = accessString;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder authenticationModes(List<GetUserAuthenticationMode> authenticationModes) {
-            this.authenticationModes = Objects.requireNonNull(authenticationModes);
+            if (authenticationModes == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "authenticationModes");
+            }
+            this.authenticationModes = authenticationModes;
             return this;
         }
         public Builder authenticationModes(GetUserAuthenticationMode... authenticationModes) {
@@ -139,22 +149,34 @@ public final class GetUserResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder minimumEngineVersion(String minimumEngineVersion) {
-            this.minimumEngineVersion = Objects.requireNonNull(minimumEngineVersion);
+            if (minimumEngineVersion == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "minimumEngineVersion");
+            }
+            this.minimumEngineVersion = minimumEngineVersion;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder userName(String userName) {
-            this.userName = Objects.requireNonNull(userName);
+            if (userName == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "userName");
+            }
+            this.userName = userName;
             return this;
         }
         public GetUserResult build() {

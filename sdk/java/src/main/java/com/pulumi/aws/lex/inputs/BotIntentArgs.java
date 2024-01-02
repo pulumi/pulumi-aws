@@ -5,6 +5,7 @@ package com.pulumi.aws.lex.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class BotIntentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BotIntentArgs build() {
-            $.intentName = Objects.requireNonNull($.intentName, "expected parameter 'intentName' to be non-null");
-            $.intentVersion = Objects.requireNonNull($.intentVersion, "expected parameter 'intentVersion' to be non-null");
+            if ($.intentName == null) {
+                throw new MissingRequiredPropertyException("BotIntentArgs", "intentName");
+            }
+            if ($.intentVersion == null) {
+                throw new MissingRequiredPropertyException("BotIntentArgs", "intentVersion");
+            }
             return $;
         }
     }

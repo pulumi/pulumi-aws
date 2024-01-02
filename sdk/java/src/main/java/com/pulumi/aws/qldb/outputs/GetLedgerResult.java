@@ -4,6 +4,7 @@
 package com.pulumi.aws.qldb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -80,37 +81,58 @@ public final class GetLedgerResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetLedgerResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder deletionProtection(Boolean deletionProtection) {
-            this.deletionProtection = Objects.requireNonNull(deletionProtection);
+            if (deletionProtection == null) {
+              throw new MissingRequiredPropertyException("GetLedgerResult", "deletionProtection");
+            }
+            this.deletionProtection = deletionProtection;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLedgerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKey(String kmsKey) {
-            this.kmsKey = Objects.requireNonNull(kmsKey);
+            if (kmsKey == null) {
+              throw new MissingRequiredPropertyException("GetLedgerResult", "kmsKey");
+            }
+            this.kmsKey = kmsKey;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLedgerResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder permissionsMode(String permissionsMode) {
-            this.permissionsMode = Objects.requireNonNull(permissionsMode);
+            if (permissionsMode == null) {
+              throw new MissingRequiredPropertyException("GetLedgerResult", "permissionsMode");
+            }
+            this.permissionsMode = permissionsMode;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLedgerResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetLedgerResult build() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.wafregional.inputs;
 import com.pulumi.aws.wafregional.inputs.ByteMatchSetByteMatchTupleFieldToMatchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -196,9 +197,15 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
         }
 
         public ByteMatchSetByteMatchTupleArgs build() {
-            $.fieldToMatch = Objects.requireNonNull($.fieldToMatch, "expected parameter 'fieldToMatch' to be non-null");
-            $.positionalConstraint = Objects.requireNonNull($.positionalConstraint, "expected parameter 'positionalConstraint' to be non-null");
-            $.textTransformation = Objects.requireNonNull($.textTransformation, "expected parameter 'textTransformation' to be non-null");
+            if ($.fieldToMatch == null) {
+                throw new MissingRequiredPropertyException("ByteMatchSetByteMatchTupleArgs", "fieldToMatch");
+            }
+            if ($.positionalConstraint == null) {
+                throw new MissingRequiredPropertyException("ByteMatchSetByteMatchTupleArgs", "positionalConstraint");
+            }
+            if ($.textTransformation == null) {
+                throw new MissingRequiredPropertyException("ByteMatchSetByteMatchTupleArgs", "textTransformation");
+            }
             return $;
         }
     }

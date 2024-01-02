@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs build() {
-            $.height = Objects.requireNonNull($.height, "expected parameter 'height' to be non-null");
-            $.leftOffset = Objects.requireNonNull($.leftOffset, "expected parameter 'leftOffset' to be non-null");
-            $.topOffset = Objects.requireNonNull($.topOffset, "expected parameter 'topOffset' to be non-null");
-            $.width = Objects.requireNonNull($.width, "expected parameter 'width' to be non-null");
+            if ($.height == null) {
+                throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs", "height");
+            }
+            if ($.leftOffset == null) {
+                throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs", "leftOffset");
+            }
+            if ($.topOffset == null) {
+                throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs", "topOffset");
+            }
+            if ($.width == null) {
+                throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs", "width");
+            }
             return $;
         }
     }

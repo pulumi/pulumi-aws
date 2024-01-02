@@ -4,6 +4,7 @@
 package com.pulumi.aws.codebuild.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -103,26 +104,35 @@ public final class ReportGroupExportConfigS3Destination {
 
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("ReportGroupExportConfigS3Destination", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionDisabled(@Nullable Boolean encryptionDisabled) {
+
             this.encryptionDisabled = encryptionDisabled;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionKey(String encryptionKey) {
-            this.encryptionKey = Objects.requireNonNull(encryptionKey);
+            if (encryptionKey == null) {
+              throw new MissingRequiredPropertyException("ReportGroupExportConfigS3Destination", "encryptionKey");
+            }
+            this.encryptionKey = encryptionKey;
             return this;
         }
         @CustomType.Setter
         public Builder packaging(@Nullable String packaging) {
+
             this.packaging = packaging;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }

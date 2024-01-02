@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecGrpcRouteActionTargetVirtualService;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,12 +60,16 @@ public final class GatewayRouteSpecGrpcRouteActionTarget {
 
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder virtualService(GatewayRouteSpecGrpcRouteActionTargetVirtualService virtualService) {
-            this.virtualService = Objects.requireNonNull(virtualService);
+            if (virtualService == null) {
+              throw new MissingRequiredPropertyException("GatewayRouteSpecGrpcRouteActionTarget", "virtualService");
+            }
+            this.virtualService = virtualService;
             return this;
         }
         public GatewayRouteSpecGrpcRouteActionTarget build() {

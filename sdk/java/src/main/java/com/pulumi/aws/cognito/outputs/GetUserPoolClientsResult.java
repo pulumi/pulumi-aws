@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -77,7 +78,10 @@ public final class GetUserPoolClientsResult {
 
         @CustomType.Setter
         public Builder clientIds(List<String> clientIds) {
-            this.clientIds = Objects.requireNonNull(clientIds);
+            if (clientIds == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientsResult", "clientIds");
+            }
+            this.clientIds = clientIds;
             return this;
         }
         public Builder clientIds(String... clientIds) {
@@ -85,7 +89,10 @@ public final class GetUserPoolClientsResult {
         }
         @CustomType.Setter
         public Builder clientNames(List<String> clientNames) {
-            this.clientNames = Objects.requireNonNull(clientNames);
+            if (clientNames == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientsResult", "clientNames");
+            }
+            this.clientNames = clientNames;
             return this;
         }
         public Builder clientNames(String... clientNames) {
@@ -93,12 +100,18 @@ public final class GetUserPoolClientsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder userPoolId(String userPoolId) {
-            this.userPoolId = Objects.requireNonNull(userPoolId);
+            if (userPoolId == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientsResult", "userPoolId");
+            }
+            this.userPoolId = userPoolId;
             return this;
         }
         public GetUserPoolClientsResult build() {

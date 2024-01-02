@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -47,17 +48,26 @@ public final class GetLaunchTemplateCpuOption {
 
         @CustomType.Setter
         public Builder amdSevSnp(String amdSevSnp) {
-            this.amdSevSnp = Objects.requireNonNull(amdSevSnp);
+            if (amdSevSnp == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateCpuOption", "amdSevSnp");
+            }
+            this.amdSevSnp = amdSevSnp;
             return this;
         }
         @CustomType.Setter
         public Builder coreCount(Integer coreCount) {
-            this.coreCount = Objects.requireNonNull(coreCount);
+            if (coreCount == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateCpuOption", "coreCount");
+            }
+            this.coreCount = coreCount;
             return this;
         }
         @CustomType.Setter
         public Builder threadsPerCore(Integer threadsPerCore) {
-            this.threadsPerCore = Objects.requireNonNull(threadsPerCore);
+            if (threadsPerCore == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateCpuOption", "threadsPerCore");
+            }
+            this.threadsPerCore = threadsPerCore;
             return this;
         }
         public GetLaunchTemplateCpuOption build() {

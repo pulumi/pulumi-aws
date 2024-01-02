@@ -5,6 +5,7 @@ package com.pulumi.aws.shield;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -273,9 +274,15 @@ public final class ProtectionGroupArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ProtectionGroupArgs build() {
-            $.aggregation = Objects.requireNonNull($.aggregation, "expected parameter 'aggregation' to be non-null");
-            $.pattern = Objects.requireNonNull($.pattern, "expected parameter 'pattern' to be non-null");
-            $.protectionGroupId = Objects.requireNonNull($.protectionGroupId, "expected parameter 'protectionGroupId' to be non-null");
+            if ($.aggregation == null) {
+                throw new MissingRequiredPropertyException("ProtectionGroupArgs", "aggregation");
+            }
+            if ($.pattern == null) {
+                throw new MissingRequiredPropertyException("ProtectionGroupArgs", "pattern");
+            }
+            if ($.protectionGroupId == null) {
+                throw new MissingRequiredPropertyException("ProtectionGroupArgs", "protectionGroupId");
+            }
             return $;
         }
     }

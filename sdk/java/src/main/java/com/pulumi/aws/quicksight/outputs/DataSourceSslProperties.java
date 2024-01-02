@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class DataSourceSslProperties {
 
         @CustomType.Setter
         public Builder disableSsl(Boolean disableSsl) {
-            this.disableSsl = Objects.requireNonNull(disableSsl);
+            if (disableSsl == null) {
+              throw new MissingRequiredPropertyException("DataSourceSslProperties", "disableSsl");
+            }
+            this.disableSsl = disableSsl;
             return this;
         }
         public DataSourceSslProperties build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class ResponseHeadersPolicyCustomHeadersConfigItemArgs extends com.
         }
 
         public ResponseHeadersPolicyCustomHeadersConfigItemArgs build() {
-            $.header = Objects.requireNonNull($.header, "expected parameter 'header' to be non-null");
-            $.override = Objects.requireNonNull($.override, "expected parameter 'override' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.header == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicyCustomHeadersConfigItemArgs", "header");
+            }
+            if ($.override == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicyCustomHeadersConfigItemArgs", "override");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicyCustomHeadersConfigItemArgs", "value");
+            }
             return $;
         }
     }

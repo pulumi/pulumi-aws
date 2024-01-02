@@ -8,6 +8,7 @@ import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationOutputKinesisStream;
 import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationOutputLambda;
 import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationOutputSchema;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -122,32 +123,42 @@ public final class AnalyticsApplicationOutput {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kinesisFirehose(@Nullable AnalyticsApplicationOutputKinesisFirehose kinesisFirehose) {
+
             this.kinesisFirehose = kinesisFirehose;
             return this;
         }
         @CustomType.Setter
         public Builder kinesisStream(@Nullable AnalyticsApplicationOutputKinesisStream kinesisStream) {
+
             this.kinesisStream = kinesisStream;
             return this;
         }
         @CustomType.Setter
         public Builder lambda(@Nullable AnalyticsApplicationOutputLambda lambda) {
+
             this.lambda = lambda;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationOutput", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder schema(AnalyticsApplicationOutputSchema schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationOutput", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         public AnalyticsApplicationOutput build() {

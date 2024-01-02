@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -159,9 +160,15 @@ public final class DataSetColumnGroupGeoSpatialColumnGroupArgs extends com.pulum
         }
 
         public DataSetColumnGroupGeoSpatialColumnGroupArgs build() {
-            $.columns = Objects.requireNonNull($.columns, "expected parameter 'columns' to be non-null");
-            $.countryCode = Objects.requireNonNull($.countryCode, "expected parameter 'countryCode' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.columns == null) {
+                throw new MissingRequiredPropertyException("DataSetColumnGroupGeoSpatialColumnGroupArgs", "columns");
+            }
+            if ($.countryCode == null) {
+                throw new MissingRequiredPropertyException("DataSetColumnGroupGeoSpatialColumnGroupArgs", "countryCode");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DataSetColumnGroupGeoSpatialColumnGroupArgs", "name");
+            }
             return $;
         }
     }

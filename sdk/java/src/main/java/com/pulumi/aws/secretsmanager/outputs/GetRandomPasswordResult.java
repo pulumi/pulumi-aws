@@ -4,6 +4,7 @@
 package com.pulumi.aws.secretsmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -108,51 +109,65 @@ public final class GetRandomPasswordResult {
 
         @CustomType.Setter
         public Builder excludeCharacters(@Nullable String excludeCharacters) {
+
             this.excludeCharacters = excludeCharacters;
             return this;
         }
         @CustomType.Setter
         public Builder excludeLowercase(@Nullable Boolean excludeLowercase) {
+
             this.excludeLowercase = excludeLowercase;
             return this;
         }
         @CustomType.Setter
         public Builder excludeNumbers(@Nullable Boolean excludeNumbers) {
+
             this.excludeNumbers = excludeNumbers;
             return this;
         }
         @CustomType.Setter
         public Builder excludePunctuation(@Nullable Boolean excludePunctuation) {
+
             this.excludePunctuation = excludePunctuation;
             return this;
         }
         @CustomType.Setter
         public Builder excludeUppercase(@Nullable Boolean excludeUppercase) {
+
             this.excludeUppercase = excludeUppercase;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRandomPasswordResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeSpace(@Nullable Boolean includeSpace) {
+
             this.includeSpace = includeSpace;
             return this;
         }
         @CustomType.Setter
         public Builder passwordLength(@Nullable Integer passwordLength) {
+
             this.passwordLength = passwordLength;
             return this;
         }
         @CustomType.Setter
         public Builder randomPassword(String randomPassword) {
-            this.randomPassword = Objects.requireNonNull(randomPassword);
+            if (randomPassword == null) {
+              throw new MissingRequiredPropertyException("GetRandomPasswordResult", "randomPassword");
+            }
+            this.randomPassword = randomPassword;
             return this;
         }
         @CustomType.Setter
         public Builder requireEachIncludedType(@Nullable Boolean requireEachIncludedType) {
+
             this.requireEachIncludedType = requireEachIncludedType;
             return this;
         }

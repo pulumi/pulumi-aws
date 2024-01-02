@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow;
 import com.pulumi.aws.appflow.inputs.ConnectorProfileConnectorProfileConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -242,9 +243,15 @@ public final class ConnectorProfileArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ConnectorProfileArgs build() {
-            $.connectionMode = Objects.requireNonNull($.connectionMode, "expected parameter 'connectionMode' to be non-null");
-            $.connectorProfileConfig = Objects.requireNonNull($.connectorProfileConfig, "expected parameter 'connectorProfileConfig' to be non-null");
-            $.connectorType = Objects.requireNonNull($.connectorType, "expected parameter 'connectorType' to be non-null");
+            if ($.connectionMode == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileArgs", "connectionMode");
+            }
+            if ($.connectorProfileConfig == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileArgs", "connectorProfileConfig");
+            }
+            if ($.connectorType == null) {
+                throw new MissingRequiredPropertyException("ConnectorProfileArgs", "connectorType");
+            }
             return $;
         }
     }

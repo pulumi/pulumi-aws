@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -87,21 +88,27 @@ public final class DomainDomainSettingsRStudioServerProDomainSettings {
 
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec defaultResourceSpec) {
+
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         @CustomType.Setter
         public Builder domainExecutionRoleArn(String domainExecutionRoleArn) {
-            this.domainExecutionRoleArn = Objects.requireNonNull(domainExecutionRoleArn);
+            if (domainExecutionRoleArn == null) {
+              throw new MissingRequiredPropertyException("DomainDomainSettingsRStudioServerProDomainSettings", "domainExecutionRoleArn");
+            }
+            this.domainExecutionRoleArn = domainExecutionRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder rStudioConnectUrl(@Nullable String rStudioConnectUrl) {
+
             this.rStudioConnectUrl = rStudioConnectUrl;
             return this;
         }
         @CustomType.Setter
         public Builder rStudioPackageManagerUrl(@Nullable String rStudioPackageManagerUrl) {
+
             this.rStudioPackageManagerUrl = rStudioPackageManagerUrl;
             return this;
         }

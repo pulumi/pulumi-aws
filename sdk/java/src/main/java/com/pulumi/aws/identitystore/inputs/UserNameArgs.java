@@ -5,6 +5,7 @@ package com.pulumi.aws.identitystore.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -269,8 +270,12 @@ public final class UserNameArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserNameArgs build() {
-            $.familyName = Objects.requireNonNull($.familyName, "expected parameter 'familyName' to be non-null");
-            $.givenName = Objects.requireNonNull($.givenName, "expected parameter 'givenName' to be non-null");
+            if ($.familyName == null) {
+                throw new MissingRequiredPropertyException("UserNameArgs", "familyName");
+            }
+            if ($.givenName == null) {
+                throw new MissingRequiredPropertyException("UserNameArgs", "givenName");
+            }
             return $;
         }
     }

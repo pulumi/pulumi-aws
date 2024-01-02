@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -62,7 +63,10 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
 
         @CustomType.Setter
         public Builder flags(List<String> flags) {
-            this.flags = Objects.requireNonNull(flags);
+            if (flags == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag", "flags");
+            }
+            this.flags = flags;
             return this;
         }
         public Builder flags(String... flags) {
@@ -70,6 +74,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
         @CustomType.Setter
         public Builder masks(@Nullable List<String> masks) {
+
             this.masks = masks;
             return this;
         }

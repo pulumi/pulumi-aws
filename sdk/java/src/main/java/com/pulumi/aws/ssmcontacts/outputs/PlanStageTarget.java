@@ -59,11 +59,13 @@ public final class PlanStageTarget {
 
         @CustomType.Setter
         public Builder channelTargetInfo(@Nullable PlanStageTargetChannelTargetInfo channelTargetInfo) {
+
             this.channelTargetInfo = channelTargetInfo;
             return this;
         }
         @CustomType.Setter
         public Builder contactTargetInfo(@Nullable PlanStageTargetContactTargetInfo contactTargetInfo) {
+
             this.contactTargetInfo = contactTargetInfo;
             return this;
         }

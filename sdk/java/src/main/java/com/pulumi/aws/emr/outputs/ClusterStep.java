@@ -5,6 +5,7 @@ package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.aws.emr.outputs.ClusterStepHadoopJarStep;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -71,17 +72,26 @@ public final class ClusterStep {
 
         @CustomType.Setter
         public Builder actionOnFailure(String actionOnFailure) {
-            this.actionOnFailure = Objects.requireNonNull(actionOnFailure);
+            if (actionOnFailure == null) {
+              throw new MissingRequiredPropertyException("ClusterStep", "actionOnFailure");
+            }
+            this.actionOnFailure = actionOnFailure;
             return this;
         }
         @CustomType.Setter
         public Builder hadoopJarStep(ClusterStepHadoopJarStep hadoopJarStep) {
-            this.hadoopJarStep = Objects.requireNonNull(hadoopJarStep);
+            if (hadoopJarStep == null) {
+              throw new MissingRequiredPropertyException("ClusterStep", "hadoopJarStep");
+            }
+            this.hadoopJarStep = hadoopJarStep;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ClusterStep", "name");
+            }
+            this.name = name;
             return this;
         }
         public ClusterStep build() {

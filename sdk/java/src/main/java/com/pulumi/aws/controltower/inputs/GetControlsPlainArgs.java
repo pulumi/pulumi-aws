@@ -4,6 +4,7 @@
 package com.pulumi.aws.controltower.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetControlsPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetControlsPlainArgs build() {
-            $.targetIdentifier = Objects.requireNonNull($.targetIdentifier, "expected parameter 'targetIdentifier' to be non-null");
+            if ($.targetIdentifier == null) {
+                throw new MissingRequiredPropertyException("GetControlsPlainArgs", "targetIdentifier");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -134,17 +135,26 @@ public final class GetVpcConnectionResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetVpcConnectionResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder authentication(String authentication) {
-            this.authentication = Objects.requireNonNull(authentication);
+            if (authentication == null) {
+              throw new MissingRequiredPropertyException("GetVpcConnectionResult", "authentication");
+            }
+            this.authentication = authentication;
             return this;
         }
         @CustomType.Setter
         public Builder clientSubnets(List<String> clientSubnets) {
-            this.clientSubnets = Objects.requireNonNull(clientSubnets);
+            if (clientSubnets == null) {
+              throw new MissingRequiredPropertyException("GetVpcConnectionResult", "clientSubnets");
+            }
+            this.clientSubnets = clientSubnets;
             return this;
         }
         public Builder clientSubnets(String... clientSubnets) {
@@ -152,12 +162,18 @@ public final class GetVpcConnectionResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpcConnectionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
-            this.securityGroups = Objects.requireNonNull(securityGroups);
+            if (securityGroups == null) {
+              throw new MissingRequiredPropertyException("GetVpcConnectionResult", "securityGroups");
+            }
+            this.securityGroups = securityGroups;
             return this;
         }
         public Builder securityGroups(String... securityGroups) {
@@ -165,17 +181,26 @@ public final class GetVpcConnectionResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVpcConnectionResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder targetClusterArn(String targetClusterArn) {
-            this.targetClusterArn = Objects.requireNonNull(targetClusterArn);
+            if (targetClusterArn == null) {
+              throw new MissingRequiredPropertyException("GetVpcConnectionResult", "targetClusterArn");
+            }
+            this.targetClusterArn = targetClusterArn;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetVpcConnectionResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetVpcConnectionResult build() {

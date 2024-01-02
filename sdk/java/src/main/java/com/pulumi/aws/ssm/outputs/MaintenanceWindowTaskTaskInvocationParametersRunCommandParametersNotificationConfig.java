@@ -73,11 +73,13 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
 
         @CustomType.Setter
         public Builder notificationArn(@Nullable String notificationArn) {
+
             this.notificationArn = notificationArn;
             return this;
         }
         @CustomType.Setter
         public Builder notificationEvents(@Nullable List<String> notificationEvents) {
+
             this.notificationEvents = notificationEvents;
             return this;
         }
@@ -86,6 +88,7 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
         }
         @CustomType.Setter
         public Builder notificationType(@Nullable String notificationType) {
+
             this.notificationType = notificationType;
             return this;
         }

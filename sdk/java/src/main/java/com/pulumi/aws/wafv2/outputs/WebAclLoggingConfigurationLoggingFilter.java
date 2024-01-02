@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclLoggingConfigurationLoggingFilterFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,12 +59,18 @@ public final class WebAclLoggingConfigurationLoggingFilter {
 
         @CustomType.Setter
         public Builder defaultBehavior(String defaultBehavior) {
-            this.defaultBehavior = Objects.requireNonNull(defaultBehavior);
+            if (defaultBehavior == null) {
+              throw new MissingRequiredPropertyException("WebAclLoggingConfigurationLoggingFilter", "defaultBehavior");
+            }
+            this.defaultBehavior = defaultBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder filters(List<WebAclLoggingConfigurationLoggingFilterFilter> filters) {
-            this.filters = Objects.requireNonNull(filters);
+            if (filters == null) {
+              throw new MissingRequiredPropertyException("WebAclLoggingConfigurationLoggingFilter", "filters");
+            }
+            this.filters = filters;
             return this;
         }
         public Builder filters(WebAclLoggingConfigurationLoggingFilterFilter... filters) {

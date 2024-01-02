@@ -4,6 +4,7 @@
 package com.pulumi.aws.lb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class TargetGroupTargetFailover {
 
         @CustomType.Setter
         public Builder onDeregistration(String onDeregistration) {
-            this.onDeregistration = Objects.requireNonNull(onDeregistration);
+            if (onDeregistration == null) {
+              throw new MissingRequiredPropertyException("TargetGroupTargetFailover", "onDeregistration");
+            }
+            this.onDeregistration = onDeregistration;
             return this;
         }
         @CustomType.Setter
         public Builder onUnhealthy(String onUnhealthy) {
-            this.onUnhealthy = Objects.requireNonNull(onUnhealthy);
+            if (onUnhealthy == null) {
+              throw new MissingRequiredPropertyException("TargetGroupTargetFailover", "onUnhealthy");
+            }
+            this.onUnhealthy = onUnhealthy;
             return this;
         }
         public TargetGroupTargetFailover build() {

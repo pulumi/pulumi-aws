@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class InputSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public InputSourceArgs build() {
-            $.passwordParam = Objects.requireNonNull($.passwordParam, "expected parameter 'passwordParam' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.passwordParam == null) {
+                throw new MissingRequiredPropertyException("InputSourceArgs", "passwordParam");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("InputSourceArgs", "url");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("InputSourceArgs", "username");
+            }
             return $;
         }
     }

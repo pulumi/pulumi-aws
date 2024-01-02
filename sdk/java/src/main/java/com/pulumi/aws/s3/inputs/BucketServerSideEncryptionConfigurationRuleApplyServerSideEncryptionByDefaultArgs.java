@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class BucketServerSideEncryptionConfigurationRuleApplyServerSideEnc
         }
 
         public BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs build() {
-            $.sseAlgorithm = Objects.requireNonNull($.sseAlgorithm, "expected parameter 'sseAlgorithm' to be non-null");
+            if ($.sseAlgorithm == null) {
+                throw new MissingRequiredPropertyException("BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs", "sseAlgorithm");
+            }
             return $;
         }
     }

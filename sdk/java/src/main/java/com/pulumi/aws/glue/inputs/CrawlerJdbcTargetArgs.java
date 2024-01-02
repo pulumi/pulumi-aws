@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -208,8 +209,12 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         public CrawlerJdbcTargetArgs build() {
-            $.connectionName = Objects.requireNonNull($.connectionName, "expected parameter 'connectionName' to be non-null");
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
+            if ($.connectionName == null) {
+                throw new MissingRequiredPropertyException("CrawlerJdbcTargetArgs", "connectionName");
+            }
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("CrawlerJdbcTargetArgs", "path");
+            }
             return $;
         }
     }

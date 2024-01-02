@@ -102,26 +102,31 @@ public final class TaskDefinitionVolumeDockerVolumeConfiguration {
 
         @CustomType.Setter
         public Builder autoprovision(@Nullable Boolean autoprovision) {
+
             this.autoprovision = autoprovision;
             return this;
         }
         @CustomType.Setter
         public Builder driver(@Nullable String driver) {
+
             this.driver = driver;
             return this;
         }
         @CustomType.Setter
         public Builder driverOpts(@Nullable Map<String,String> driverOpts) {
+
             this.driverOpts = driverOpts;
             return this;
         }
         @CustomType.Setter
         public Builder labels(@Nullable Map<String,String> labels) {
+
             this.labels = labels;
             return this;
         }
         @CustomType.Setter
         public Builder scope(@Nullable String scope) {
+
             this.scope = scope;
             return this;
         }

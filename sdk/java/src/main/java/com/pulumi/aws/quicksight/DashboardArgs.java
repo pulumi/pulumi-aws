@@ -9,6 +9,7 @@ import com.pulumi.aws.quicksight.inputs.DashboardPermissionArgs;
 import com.pulumi.aws.quicksight.inputs.DashboardSourceEntityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -433,8 +434,12 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DashboardArgs build() {
-            $.dashboardId = Objects.requireNonNull($.dashboardId, "expected parameter 'dashboardId' to be non-null");
-            $.versionDescription = Objects.requireNonNull($.versionDescription, "expected parameter 'versionDescription' to be non-null");
+            if ($.dashboardId == null) {
+                throw new MissingRequiredPropertyException("DashboardArgs", "dashboardId");
+            }
+            if ($.versionDescription == null) {
+                throw new MissingRequiredPropertyException("DashboardArgs", "versionDescription");
+            }
             return $;
         }
     }

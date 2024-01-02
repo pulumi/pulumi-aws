@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class ExperienceConfigurationUserIdentityConfiguration {
 
         @CustomType.Setter
         public Builder identityAttributeName(String identityAttributeName) {
-            this.identityAttributeName = Objects.requireNonNull(identityAttributeName);
+            if (identityAttributeName == null) {
+              throw new MissingRequiredPropertyException("ExperienceConfigurationUserIdentityConfiguration", "identityAttributeName");
+            }
+            this.identityAttributeName = identityAttributeName;
             return this;
         }
         public ExperienceConfigurationUserIdentityConfiguration build() {

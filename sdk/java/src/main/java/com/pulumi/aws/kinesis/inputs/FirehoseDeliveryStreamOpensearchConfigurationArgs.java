@@ -9,6 +9,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurati
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -562,9 +563,15 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         public FirehoseDeliveryStreamOpensearchConfigurationArgs build() {
-            $.indexName = Objects.requireNonNull($.indexName, "expected parameter 'indexName' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.s3Configuration = Objects.requireNonNull($.s3Configuration, "expected parameter 's3Configuration' to be non-null");
+            if ($.indexName == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchConfigurationArgs", "indexName");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchConfigurationArgs", "roleArn");
+            }
+            if ($.s3Configuration == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchConfigurationArgs", "s3Configuration");
+            }
             return $;
         }
     }

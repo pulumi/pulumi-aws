@@ -6,6 +6,7 @@ package com.pulumi.aws.lex.inputs;
 import com.pulumi.aws.lex.inputs.BotClarificationPromptMessageArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -181,8 +182,12 @@ public final class BotClarificationPromptArgs extends com.pulumi.resources.Resou
         }
 
         public BotClarificationPromptArgs build() {
-            $.maxAttempts = Objects.requireNonNull($.maxAttempts, "expected parameter 'maxAttempts' to be non-null");
-            $.messages = Objects.requireNonNull($.messages, "expected parameter 'messages' to be non-null");
+            if ($.maxAttempts == null) {
+                throw new MissingRequiredPropertyException("BotClarificationPromptArgs", "maxAttempts");
+            }
+            if ($.messages == null) {
+                throw new MissingRequiredPropertyException("BotClarificationPromptArgs", "messages");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.elasticbeanstalk;
 import com.pulumi.aws.elasticbeanstalk.inputs.EnvironmentSettingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -599,7 +600,9 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EnvironmentArgs build() {
-            $.application = Objects.requireNonNull($.application, "expected parameter 'application' to be non-null");
+            if ($.application == null) {
+                throw new MissingRequiredPropertyException("EnvironmentArgs", "application");
+            }
             return $;
         }
     }

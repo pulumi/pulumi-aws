@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationShadowProductionVariantCoreDumpConfig;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationShadowProductionVariantServerlessConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -203,61 +204,75 @@ public final class EndpointConfigurationShadowProductionVariant {
 
         @CustomType.Setter
         public Builder acceleratorType(@Nullable String acceleratorType) {
+
             this.acceleratorType = acceleratorType;
             return this;
         }
         @CustomType.Setter
         public Builder containerStartupHealthCheckTimeoutInSeconds(@Nullable Integer containerStartupHealthCheckTimeoutInSeconds) {
+
             this.containerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder coreDumpConfig(@Nullable EndpointConfigurationShadowProductionVariantCoreDumpConfig coreDumpConfig) {
+
             this.coreDumpConfig = coreDumpConfig;
             return this;
         }
         @CustomType.Setter
         public Builder enableSsmAccess(@Nullable Boolean enableSsmAccess) {
+
             this.enableSsmAccess = enableSsmAccess;
             return this;
         }
         @CustomType.Setter
         public Builder initialInstanceCount(@Nullable Integer initialInstanceCount) {
+
             this.initialInstanceCount = initialInstanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder initialVariantWeight(@Nullable Double initialVariantWeight) {
+
             this.initialVariantWeight = initialVariantWeight;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
+
             this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder modelDataDownloadTimeoutInSeconds(@Nullable Integer modelDataDownloadTimeoutInSeconds) {
+
             this.modelDataDownloadTimeoutInSeconds = modelDataDownloadTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder modelName(String modelName) {
-            this.modelName = Objects.requireNonNull(modelName);
+            if (modelName == null) {
+              throw new MissingRequiredPropertyException("EndpointConfigurationShadowProductionVariant", "modelName");
+            }
+            this.modelName = modelName;
             return this;
         }
         @CustomType.Setter
         public Builder serverlessConfig(@Nullable EndpointConfigurationShadowProductionVariantServerlessConfig serverlessConfig) {
+
             this.serverlessConfig = serverlessConfig;
             return this;
         }
         @CustomType.Setter
         public Builder variantName(@Nullable String variantName) {
+
             this.variantName = variantName;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSizeInGb(@Nullable Integer volumeSizeInGb) {
+
             this.volumeSizeInGb = volumeSizeInGb;
             return this;
         }

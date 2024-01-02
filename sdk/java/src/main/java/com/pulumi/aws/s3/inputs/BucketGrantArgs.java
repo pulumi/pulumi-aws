@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -198,8 +199,12 @@ public final class BucketGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BucketGrantArgs build() {
-            $.permissions = Objects.requireNonNull($.permissions, "expected parameter 'permissions' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.permissions == null) {
+                throw new MissingRequiredPropertyException("BucketGrantArgs", "permissions");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("BucketGrantArgs", "type");
+            }
             return $;
         }
     }

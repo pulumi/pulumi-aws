@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront.inputs;
 import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigArgs extends c
         }
 
         public FieldLevelEncryptionConfigQueryArgProfileConfigArgs build() {
-            $.forwardWhenQueryArgProfileIsUnknown = Objects.requireNonNull($.forwardWhenQueryArgProfileIsUnknown, "expected parameter 'forwardWhenQueryArgProfileIsUnknown' to be non-null");
+            if ($.forwardWhenQueryArgProfileIsUnknown == null) {
+                throw new MissingRequiredPropertyException("FieldLevelEncryptionConfigQueryArgProfileConfigArgs", "forwardWhenQueryArgProfileIsUnknown");
+            }
             return $;
         }
     }

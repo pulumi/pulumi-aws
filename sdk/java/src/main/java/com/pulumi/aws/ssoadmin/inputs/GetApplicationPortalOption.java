@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin.inputs;
 
 import com.pulumi.aws.ssoadmin.inputs.GetApplicationPortalOptionSignInOption;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -70,7 +71,9 @@ public final class GetApplicationPortalOption extends com.pulumi.resources.Invok
         }
 
         public GetApplicationPortalOption build() {
-            $.visibility = Objects.requireNonNull($.visibility, "expected parameter 'visibility' to be non-null");
+            if ($.visibility == null) {
+                throw new MissingRequiredPropertyException("GetApplicationPortalOption", "visibility");
+            }
             return $;
         }
     }

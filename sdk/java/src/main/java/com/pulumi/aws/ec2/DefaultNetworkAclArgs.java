@@ -7,6 +7,7 @@ import com.pulumi.aws.ec2.inputs.DefaultNetworkAclEgressArgs;
 import com.pulumi.aws.ec2.inputs.DefaultNetworkAclIngressArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -266,7 +267,9 @@ public final class DefaultNetworkAclArgs extends com.pulumi.resources.ResourceAr
         }
 
         public DefaultNetworkAclArgs build() {
-            $.defaultNetworkAclId = Objects.requireNonNull($.defaultNetworkAclId, "expected parameter 'defaultNetworkAclId' to be non-null");
+            if ($.defaultNetworkAclId == null) {
+                throw new MissingRequiredPropertyException("DefaultNetworkAclArgs", "defaultNetworkAclId");
+            }
             return $;
         }
     }

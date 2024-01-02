@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class BucketV2LifecycleRuleTransitionArgs extends com.pulumi.resour
         }
 
         public BucketV2LifecycleRuleTransitionArgs build() {
-            $.storageClass = Objects.requireNonNull($.storageClass, "expected parameter 'storageClass' to be non-null");
+            if ($.storageClass == null) {
+                throw new MissingRequiredPropertyException("BucketV2LifecycleRuleTransitionArgs", "storageClass");
+            }
             return $;
         }
     }

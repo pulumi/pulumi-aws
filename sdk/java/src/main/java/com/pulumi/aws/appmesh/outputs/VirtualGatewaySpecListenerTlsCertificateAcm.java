@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class VirtualGatewaySpecListenerTlsCertificateAcm {
 
         @CustomType.Setter
         public Builder certificateArn(String certificateArn) {
-            this.certificateArn = Objects.requireNonNull(certificateArn);
+            if (certificateArn == null) {
+              throw new MissingRequiredPropertyException("VirtualGatewaySpecListenerTlsCertificateAcm", "certificateArn");
+            }
+            this.certificateArn = certificateArn;
             return this;
         }
         public VirtualGatewaySpecListenerTlsCertificateAcm build() {

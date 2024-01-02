@@ -7,6 +7,7 @@ import com.pulumi.aws.ssm.outputs.GetPatchBaselineApprovalRule;
 import com.pulumi.aws.ssm.outputs.GetPatchBaselineGlobalFilter;
 import com.pulumi.aws.ssm.outputs.GetPatchBaselineSource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -213,7 +214,10 @@ public final class GetPatchBaselineResult {
 
         @CustomType.Setter
         public Builder approvalRules(List<GetPatchBaselineApprovalRule> approvalRules) {
-            this.approvalRules = Objects.requireNonNull(approvalRules);
+            if (approvalRules == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineResult", "approvalRules");
+            }
+            this.approvalRules = approvalRules;
             return this;
         }
         public Builder approvalRules(GetPatchBaselineApprovalRule... approvalRules) {
@@ -221,7 +225,10 @@ public final class GetPatchBaselineResult {
         }
         @CustomType.Setter
         public Builder approvedPatches(List<String> approvedPatches) {
-            this.approvedPatches = Objects.requireNonNull(approvedPatches);
+            if (approvedPatches == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineResult", "approvedPatches");
+            }
+            this.approvedPatches = approvedPatches;
             return this;
         }
         public Builder approvedPatches(String... approvedPatches) {
@@ -229,27 +236,40 @@ public final class GetPatchBaselineResult {
         }
         @CustomType.Setter
         public Builder approvedPatchesComplianceLevel(String approvedPatchesComplianceLevel) {
-            this.approvedPatchesComplianceLevel = Objects.requireNonNull(approvedPatchesComplianceLevel);
+            if (approvedPatchesComplianceLevel == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineResult", "approvedPatchesComplianceLevel");
+            }
+            this.approvedPatchesComplianceLevel = approvedPatchesComplianceLevel;
             return this;
         }
         @CustomType.Setter
         public Builder approvedPatchesEnableNonSecurity(Boolean approvedPatchesEnableNonSecurity) {
-            this.approvedPatchesEnableNonSecurity = Objects.requireNonNull(approvedPatchesEnableNonSecurity);
+            if (approvedPatchesEnableNonSecurity == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineResult", "approvedPatchesEnableNonSecurity");
+            }
+            this.approvedPatchesEnableNonSecurity = approvedPatchesEnableNonSecurity;
             return this;
         }
         @CustomType.Setter
         public Builder defaultBaseline(@Nullable Boolean defaultBaseline) {
+
             this.defaultBaseline = defaultBaseline;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder globalFilters(List<GetPatchBaselineGlobalFilter> globalFilters) {
-            this.globalFilters = Objects.requireNonNull(globalFilters);
+            if (globalFilters == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineResult", "globalFilters");
+            }
+            this.globalFilters = globalFilters;
             return this;
         }
         public Builder globalFilters(GetPatchBaselineGlobalFilter... globalFilters) {
@@ -257,32 +277,46 @@ public final class GetPatchBaselineResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namePrefix(@Nullable String namePrefix) {
+
             this.namePrefix = namePrefix;
             return this;
         }
         @CustomType.Setter
         public Builder operatingSystem(@Nullable String operatingSystem) {
+
             this.operatingSystem = operatingSystem;
             return this;
         }
         @CustomType.Setter
         public Builder owner(String owner) {
-            this.owner = Objects.requireNonNull(owner);
+            if (owner == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineResult", "owner");
+            }
+            this.owner = owner;
             return this;
         }
         @CustomType.Setter
         public Builder rejectedPatches(List<String> rejectedPatches) {
-            this.rejectedPatches = Objects.requireNonNull(rejectedPatches);
+            if (rejectedPatches == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineResult", "rejectedPatches");
+            }
+            this.rejectedPatches = rejectedPatches;
             return this;
         }
         public Builder rejectedPatches(String... rejectedPatches) {
@@ -290,12 +324,18 @@ public final class GetPatchBaselineResult {
         }
         @CustomType.Setter
         public Builder rejectedPatchesAction(String rejectedPatchesAction) {
-            this.rejectedPatchesAction = Objects.requireNonNull(rejectedPatchesAction);
+            if (rejectedPatchesAction == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineResult", "rejectedPatchesAction");
+            }
+            this.rejectedPatchesAction = rejectedPatchesAction;
             return this;
         }
         @CustomType.Setter
         public Builder sources(List<GetPatchBaselineSource> sources) {
-            this.sources = Objects.requireNonNull(sources);
+            if (sources == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineResult", "sources");
+            }
+            this.sources = sources;
             return this;
         }
         public Builder sources(GetPatchBaselineSource... sources) {

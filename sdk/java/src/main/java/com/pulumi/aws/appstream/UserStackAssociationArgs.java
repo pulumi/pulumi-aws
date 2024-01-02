@@ -5,6 +5,7 @@ package com.pulumi.aws.appstream;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -196,9 +197,15 @@ public final class UserStackAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         public UserStackAssociationArgs build() {
-            $.authenticationType = Objects.requireNonNull($.authenticationType, "expected parameter 'authenticationType' to be non-null");
-            $.stackName = Objects.requireNonNull($.stackName, "expected parameter 'stackName' to be non-null");
-            $.userName = Objects.requireNonNull($.userName, "expected parameter 'userName' to be non-null");
+            if ($.authenticationType == null) {
+                throw new MissingRequiredPropertyException("UserStackAssociationArgs", "authenticationType");
+            }
+            if ($.stackName == null) {
+                throw new MissingRequiredPropertyException("UserStackAssociationArgs", "stackName");
+            }
+            if ($.userName == null) {
+                throw new MissingRequiredPropertyException("UserStackAssociationArgs", "userName");
+            }
             return $;
         }
     }

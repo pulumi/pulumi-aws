@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class DataSourceParametersPrestoArgs extends com.pulumi.resources.R
         }
 
         public DataSourceParametersPrestoArgs build() {
-            $.catalog = Objects.requireNonNull($.catalog, "expected parameter 'catalog' to be non-null");
-            $.host = Objects.requireNonNull($.host, "expected parameter 'host' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
+            if ($.catalog == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersPrestoArgs", "catalog");
+            }
+            if ($.host == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersPrestoArgs", "host");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersPrestoArgs", "port");
+            }
             return $;
         }
     }

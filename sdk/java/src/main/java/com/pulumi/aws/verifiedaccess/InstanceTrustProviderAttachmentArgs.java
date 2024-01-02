@@ -5,6 +5,7 @@ package com.pulumi.aws.verifiedaccess;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class InstanceTrustProviderAttachmentArgs extends com.pulumi.resour
         }
 
         public InstanceTrustProviderAttachmentArgs build() {
-            $.verifiedaccessInstanceId = Objects.requireNonNull($.verifiedaccessInstanceId, "expected parameter 'verifiedaccessInstanceId' to be non-null");
-            $.verifiedaccessTrustProviderId = Objects.requireNonNull($.verifiedaccessTrustProviderId, "expected parameter 'verifiedaccessTrustProviderId' to be non-null");
+            if ($.verifiedaccessInstanceId == null) {
+                throw new MissingRequiredPropertyException("InstanceTrustProviderAttachmentArgs", "verifiedaccessInstanceId");
+            }
+            if ($.verifiedaccessTrustProviderId == null) {
+                throw new MissingRequiredPropertyException("InstanceTrustProviderAttachmentArgs", "verifiedaccessTrustProviderId");
+            }
             return $;
         }
     }

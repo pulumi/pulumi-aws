@@ -120,6 +120,7 @@ public final class AnomalySubscriptionThresholdExpression {
 
         @CustomType.Setter
         public Builder ands(@Nullable List<AnomalySubscriptionThresholdExpressionAnd> ands) {
+
             this.ands = ands;
             return this;
         }
@@ -128,21 +129,25 @@ public final class AnomalySubscriptionThresholdExpression {
         }
         @CustomType.Setter
         public Builder costCategory(@Nullable AnomalySubscriptionThresholdExpressionCostCategory costCategory) {
+
             this.costCategory = costCategory;
             return this;
         }
         @CustomType.Setter
         public Builder dimension(@Nullable AnomalySubscriptionThresholdExpressionDimension dimension) {
+
             this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder not(@Nullable AnomalySubscriptionThresholdExpressionNot not) {
+
             this.not = not;
             return this;
         }
         @CustomType.Setter
         public Builder ors(@Nullable List<AnomalySubscriptionThresholdExpressionOr> ors) {
+
             this.ors = ors;
             return this;
         }
@@ -151,6 +156,7 @@ public final class AnomalySubscriptionThresholdExpression {
         }
         @CustomType.Setter
         public Builder tags(@Nullable AnomalySubscriptionThresholdExpressionTags tags) {
+
             this.tags = tags;
             return this;
         }

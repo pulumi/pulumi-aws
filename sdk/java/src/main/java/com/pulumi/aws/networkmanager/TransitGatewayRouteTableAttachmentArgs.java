@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
         }
 
         public TransitGatewayRouteTableAttachmentArgs build() {
-            $.peeringId = Objects.requireNonNull($.peeringId, "expected parameter 'peeringId' to be non-null");
-            $.transitGatewayRouteTableArn = Objects.requireNonNull($.transitGatewayRouteTableArn, "expected parameter 'transitGatewayRouteTableArn' to be non-null");
+            if ($.peeringId == null) {
+                throw new MissingRequiredPropertyException("TransitGatewayRouteTableAttachmentArgs", "peeringId");
+            }
+            if ($.transitGatewayRouteTableArn == null) {
+                throw new MissingRequiredPropertyException("TransitGatewayRouteTableAttachmentArgs", "transitGatewayRouteTableArn");
+            }
             return $;
         }
     }

@@ -44,6 +44,7 @@ public final class ClusterCertificateAuthority {
 
         @CustomType.Setter
         public Builder data(@Nullable String data) {
+
             this.data = data;
             return this;
         }

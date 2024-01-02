@@ -62,11 +62,13 @@ public final class DeploymentGroupDeploymentStyle {
 
         @CustomType.Setter
         public Builder deploymentOption(@Nullable String deploymentOption) {
+
             this.deploymentOption = deploymentOption;
             return this;
         }
         @CustomType.Setter
         public Builder deploymentType(@Nullable String deploymentType) {
+
             this.deploymentType = deploymentType;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.vpclattice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ListenerRuleActionFixedResponseArgs extends com.pulumi.resour
         }
 
         public ListenerRuleActionFixedResponseArgs build() {
-            $.statusCode = Objects.requireNonNull($.statusCode, "expected parameter 'statusCode' to be non-null");
+            if ($.statusCode == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleActionFixedResponseArgs", "statusCode");
+            }
             return $;
         }
     }

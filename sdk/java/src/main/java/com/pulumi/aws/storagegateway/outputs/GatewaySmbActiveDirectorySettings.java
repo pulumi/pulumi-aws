@@ -4,6 +4,7 @@
 package com.pulumi.aws.storagegateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -126,11 +127,13 @@ public final class GatewaySmbActiveDirectorySettings {
 
         @CustomType.Setter
         public Builder activeDirectoryStatus(@Nullable String activeDirectoryStatus) {
+
             this.activeDirectoryStatus = activeDirectoryStatus;
             return this;
         }
         @CustomType.Setter
         public Builder domainControllers(@Nullable List<String> domainControllers) {
+
             this.domainControllers = domainControllers;
             return this;
         }
@@ -139,27 +142,38 @@ public final class GatewaySmbActiveDirectorySettings {
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("GatewaySmbActiveDirectorySettings", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder organizationalUnit(@Nullable String organizationalUnit) {
+
             this.organizationalUnit = organizationalUnit;
             return this;
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("GatewaySmbActiveDirectorySettings", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutInSeconds(@Nullable Integer timeoutInSeconds) {
+
             this.timeoutInSeconds = timeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("GatewaySmbActiveDirectorySettings", "username");
+            }
+            this.username = username;
             return this;
         }
         public GatewaySmbActiveDirectorySettings build() {

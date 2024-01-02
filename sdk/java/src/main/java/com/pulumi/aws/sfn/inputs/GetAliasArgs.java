@@ -5,6 +5,7 @@ package com.pulumi.aws.sfn.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class GetAliasArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetAliasArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.statemachineArn = Objects.requireNonNull($.statemachineArn, "expected parameter 'statemachineArn' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetAliasArgs", "name");
+            }
+            if ($.statemachineArn == null) {
+                throw new MissingRequiredPropertyException("GetAliasArgs", "statemachineArn");
+            }
             return $;
         }
     }

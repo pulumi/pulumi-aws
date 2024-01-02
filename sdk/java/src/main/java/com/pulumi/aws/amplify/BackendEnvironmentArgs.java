@@ -5,6 +5,7 @@ package com.pulumi.aws.amplify;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class BackendEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         public BackendEnvironmentArgs build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
-            $.environmentName = Objects.requireNonNull($.environmentName, "expected parameter 'environmentName' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("BackendEnvironmentArgs", "appId");
+            }
+            if ($.environmentName == null) {
+                throw new MissingRequiredPropertyException("BackendEnvironmentArgs", "environmentName");
+            }
             return $;
         }
     }

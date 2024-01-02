@@ -9,6 +9,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleRuleLabel;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleVisibilityConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -135,26 +136,37 @@ public final class RuleGroupRule {
 
         @CustomType.Setter
         public Builder action(RuleGroupRuleAction action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRule", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder captchaConfig(@Nullable RuleGroupRuleCaptchaConfig captchaConfig) {
+
             this.captchaConfig = captchaConfig;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRule", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder ruleLabels(@Nullable List<RuleGroupRuleRuleLabel> ruleLabels) {
+
             this.ruleLabels = ruleLabels;
             return this;
         }
@@ -163,12 +175,18 @@ public final class RuleGroupRule {
         }
         @CustomType.Setter
         public Builder statement(RuleGroupRuleStatement statement) {
-            this.statement = Objects.requireNonNull(statement);
+            if (statement == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRule", "statement");
+            }
+            this.statement = statement;
             return this;
         }
         @CustomType.Setter
         public Builder visibilityConfig(RuleGroupRuleVisibilityConfig visibilityConfig) {
-            this.visibilityConfig = Objects.requireNonNull(visibilityConfig);
+            if (visibilityConfig == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRule", "visibilityConfig");
+            }
+            this.visibilityConfig = visibilityConfig;
             return this;
         }
         public RuleGroupRule build() {

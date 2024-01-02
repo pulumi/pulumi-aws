@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticsearch.outputs;
 
 import com.pulumi.aws.elasticsearch.outputs.GetDomainAutoTuneOptionMaintenanceScheduleDuration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,12 +73,18 @@ public final class GetDomainAutoTuneOptionMaintenanceSchedule {
 
         @CustomType.Setter
         public Builder cronExpressionForRecurrence(String cronExpressionForRecurrence) {
-            this.cronExpressionForRecurrence = Objects.requireNonNull(cronExpressionForRecurrence);
+            if (cronExpressionForRecurrence == null) {
+              throw new MissingRequiredPropertyException("GetDomainAutoTuneOptionMaintenanceSchedule", "cronExpressionForRecurrence");
+            }
+            this.cronExpressionForRecurrence = cronExpressionForRecurrence;
             return this;
         }
         @CustomType.Setter
         public Builder durations(List<GetDomainAutoTuneOptionMaintenanceScheduleDuration> durations) {
-            this.durations = Objects.requireNonNull(durations);
+            if (durations == null) {
+              throw new MissingRequiredPropertyException("GetDomainAutoTuneOptionMaintenanceSchedule", "durations");
+            }
+            this.durations = durations;
             return this;
         }
         public Builder durations(GetDomainAutoTuneOptionMaintenanceScheduleDuration... durations) {
@@ -85,7 +92,10 @@ public final class GetDomainAutoTuneOptionMaintenanceSchedule {
         }
         @CustomType.Setter
         public Builder startAt(String startAt) {
-            this.startAt = Objects.requireNonNull(startAt);
+            if (startAt == null) {
+              throw new MissingRequiredPropertyException("GetDomainAutoTuneOptionMaintenanceSchedule", "startAt");
+            }
+            this.startAt = startAt;
             return this;
         }
         public GetDomainAutoTuneOptionMaintenanceSchedule build() {

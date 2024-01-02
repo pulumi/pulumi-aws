@@ -6,6 +6,7 @@ package com.pulumi.aws.inspector;
 import com.pulumi.aws.inspector.inputs.AssessmentTemplateEventSubscriptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -285,9 +286,15 @@ public final class AssessmentTemplateArgs extends com.pulumi.resources.ResourceA
         }
 
         public AssessmentTemplateArgs build() {
-            $.duration = Objects.requireNonNull($.duration, "expected parameter 'duration' to be non-null");
-            $.rulesPackageArns = Objects.requireNonNull($.rulesPackageArns, "expected parameter 'rulesPackageArns' to be non-null");
-            $.targetArn = Objects.requireNonNull($.targetArn, "expected parameter 'targetArn' to be non-null");
+            if ($.duration == null) {
+                throw new MissingRequiredPropertyException("AssessmentTemplateArgs", "duration");
+            }
+            if ($.rulesPackageArns == null) {
+                throw new MissingRequiredPropertyException("AssessmentTemplateArgs", "rulesPackageArns");
+            }
+            if ($.targetArn == null) {
+                throw new MissingRequiredPropertyException("AssessmentTemplateArgs", "targetArn");
+            }
             return $;
         }
     }

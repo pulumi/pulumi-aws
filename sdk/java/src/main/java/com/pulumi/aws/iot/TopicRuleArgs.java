@@ -25,6 +25,7 @@ import com.pulumi.aws.iot.inputs.TopicRuleStepFunctionArgs;
 import com.pulumi.aws.iot.inputs.TopicRuleTimestreamArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -720,9 +721,15 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TopicRuleArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.sql = Objects.requireNonNull($.sql, "expected parameter 'sql' to be non-null");
-            $.sqlVersion = Objects.requireNonNull($.sqlVersion, "expected parameter 'sqlVersion' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("TopicRuleArgs", "enabled");
+            }
+            if ($.sql == null) {
+                throw new MissingRequiredPropertyException("TopicRuleArgs", "sql");
+            }
+            if ($.sqlVersion == null) {
+                throw new MissingRequiredPropertyException("TopicRuleArgs", "sqlVersion");
+            }
             return $;
         }
     }

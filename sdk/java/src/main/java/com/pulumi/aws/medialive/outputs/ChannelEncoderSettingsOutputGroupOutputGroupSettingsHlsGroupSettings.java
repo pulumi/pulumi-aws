@@ -8,6 +8,7 @@ import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputG
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -320,6 +321,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
         @CustomType.Setter
         public Builder adMarkers(@Nullable List<String> adMarkers) {
+
             this.adMarkers = adMarkers;
             return this;
         }
@@ -328,26 +330,31 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
         @CustomType.Setter
         public Builder baseUrlContent(@Nullable String baseUrlContent) {
+
             this.baseUrlContent = baseUrlContent;
             return this;
         }
         @CustomType.Setter
         public Builder baseUrlContent1(@Nullable String baseUrlContent1) {
+
             this.baseUrlContent1 = baseUrlContent1;
             return this;
         }
         @CustomType.Setter
         public Builder baseUrlManifest(@Nullable String baseUrlManifest) {
+
             this.baseUrlManifest = baseUrlManifest;
             return this;
         }
         @CustomType.Setter
         public Builder baseUrlManifest1(@Nullable String baseUrlManifest1) {
+
             this.baseUrlManifest1 = baseUrlManifest1;
             return this;
         }
         @CustomType.Setter
         public Builder captionLanguageMappings(@Nullable List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping> captionLanguageMappings) {
+
             this.captionLanguageMappings = captionLanguageMappings;
             return this;
         }
@@ -356,46 +363,57 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
         @CustomType.Setter
         public Builder captionLanguageSetting(@Nullable String captionLanguageSetting) {
+
             this.captionLanguageSetting = captionLanguageSetting;
             return this;
         }
         @CustomType.Setter
         public Builder clientCache(@Nullable String clientCache) {
+
             this.clientCache = clientCache;
             return this;
         }
         @CustomType.Setter
         public Builder codecSpecification(@Nullable String codecSpecification) {
+
             this.codecSpecification = codecSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder constantIv(@Nullable String constantIv) {
+
             this.constantIv = constantIv;
             return this;
         }
         @CustomType.Setter
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder directoryStructure(@Nullable String directoryStructure) {
+
             this.directoryStructure = directoryStructure;
             return this;
         }
         @CustomType.Setter
         public Builder discontinuityTags(@Nullable String discontinuityTags) {
+
             this.discontinuityTags = discontinuityTags;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionType(@Nullable String encryptionType) {
+
             this.encryptionType = encryptionType;
             return this;
         }
         @CustomType.Setter
         public Builder hlsCdnSettings(@Nullable List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting> hlsCdnSettings) {
+
             this.hlsCdnSettings = hlsCdnSettings;
             return this;
         }
@@ -404,136 +422,163 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
         @CustomType.Setter
         public Builder hlsId3SegmentTagging(@Nullable String hlsId3SegmentTagging) {
+
             this.hlsId3SegmentTagging = hlsId3SegmentTagging;
             return this;
         }
         @CustomType.Setter
         public Builder iframeOnlyPlaylists(@Nullable String iframeOnlyPlaylists) {
+
             this.iframeOnlyPlaylists = iframeOnlyPlaylists;
             return this;
         }
         @CustomType.Setter
         public Builder incompleteSegmentBehavior(@Nullable String incompleteSegmentBehavior) {
+
             this.incompleteSegmentBehavior = incompleteSegmentBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder indexNSegments(@Nullable Integer indexNSegments) {
+
             this.indexNSegments = indexNSegments;
             return this;
         }
         @CustomType.Setter
         public Builder inputLossAction(@Nullable String inputLossAction) {
+
             this.inputLossAction = inputLossAction;
             return this;
         }
         @CustomType.Setter
         public Builder ivInManifest(@Nullable String ivInManifest) {
+
             this.ivInManifest = ivInManifest;
             return this;
         }
         @CustomType.Setter
         public Builder ivSource(@Nullable String ivSource) {
+
             this.ivSource = ivSource;
             return this;
         }
         @CustomType.Setter
         public Builder keepSegments(@Nullable Integer keepSegments) {
+
             this.keepSegments = keepSegments;
             return this;
         }
         @CustomType.Setter
         public Builder keyFormat(@Nullable String keyFormat) {
+
             this.keyFormat = keyFormat;
             return this;
         }
         @CustomType.Setter
         public Builder keyFormatVersions(@Nullable String keyFormatVersions) {
+
             this.keyFormatVersions = keyFormatVersions;
             return this;
         }
         @CustomType.Setter
         public Builder keyProviderSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings keyProviderSettings) {
+
             this.keyProviderSettings = keyProviderSettings;
             return this;
         }
         @CustomType.Setter
         public Builder manifestCompression(@Nullable String manifestCompression) {
+
             this.manifestCompression = manifestCompression;
             return this;
         }
         @CustomType.Setter
         public Builder manifestDurationFormat(@Nullable String manifestDurationFormat) {
+
             this.manifestDurationFormat = manifestDurationFormat;
             return this;
         }
         @CustomType.Setter
         public Builder minSegmentLength(@Nullable Integer minSegmentLength) {
+
             this.minSegmentLength = minSegmentLength;
             return this;
         }
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder outputSelection(@Nullable String outputSelection) {
+
             this.outputSelection = outputSelection;
             return this;
         }
         @CustomType.Setter
         public Builder programDateTime(@Nullable String programDateTime) {
+
             this.programDateTime = programDateTime;
             return this;
         }
         @CustomType.Setter
         public Builder programDateTimeClock(@Nullable String programDateTimeClock) {
+
             this.programDateTimeClock = programDateTimeClock;
             return this;
         }
         @CustomType.Setter
         public Builder programDateTimePeriod(@Nullable Integer programDateTimePeriod) {
+
             this.programDateTimePeriod = programDateTimePeriod;
             return this;
         }
         @CustomType.Setter
         public Builder redundantManifest(@Nullable String redundantManifest) {
+
             this.redundantManifest = redundantManifest;
             return this;
         }
         @CustomType.Setter
         public Builder segmentLength(@Nullable Integer segmentLength) {
+
             this.segmentLength = segmentLength;
             return this;
         }
         @CustomType.Setter
         public Builder segmentsPerSubdirectory(@Nullable Integer segmentsPerSubdirectory) {
+
             this.segmentsPerSubdirectory = segmentsPerSubdirectory;
             return this;
         }
         @CustomType.Setter
         public Builder streamInfResolution(@Nullable String streamInfResolution) {
+
             this.streamInfResolution = streamInfResolution;
             return this;
         }
         @CustomType.Setter
         public Builder timedMetadataId3Frame(@Nullable String timedMetadataId3Frame) {
+
             this.timedMetadataId3Frame = timedMetadataId3Frame;
             return this;
         }
         @CustomType.Setter
         public Builder timedMetadataId3Period(@Nullable Integer timedMetadataId3Period) {
+
             this.timedMetadataId3Period = timedMetadataId3Period;
             return this;
         }
         @CustomType.Setter
         public Builder timestampDeltaMilliseconds(@Nullable Integer timestampDeltaMilliseconds) {
+
             this.timestampDeltaMilliseconds = timestampDeltaMilliseconds;
             return this;
         }
         @CustomType.Setter
         public Builder tsFileMode(@Nullable String tsFileMode) {
+
             this.tsFileMode = tsFileMode;
             return this;
         }

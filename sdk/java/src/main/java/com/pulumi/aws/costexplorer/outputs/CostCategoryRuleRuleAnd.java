@@ -74,16 +74,19 @@ public final class CostCategoryRuleRuleAnd {
 
         @CustomType.Setter
         public Builder costCategory(@Nullable CostCategoryRuleRuleAndCostCategory costCategory) {
+
             this.costCategory = costCategory;
             return this;
         }
         @CustomType.Setter
         public Builder dimension(@Nullable CostCategoryRuleRuleAndDimension dimension) {
+
             this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable CostCategoryRuleRuleAndTags tags) {
+
             this.tags = tags;
             return this;
         }

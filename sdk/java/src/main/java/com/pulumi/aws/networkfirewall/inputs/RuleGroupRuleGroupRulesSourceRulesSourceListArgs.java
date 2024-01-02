@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -169,9 +170,15 @@ public final class RuleGroupRuleGroupRulesSourceRulesSourceListArgs extends com.
         }
 
         public RuleGroupRuleGroupRulesSourceRulesSourceListArgs build() {
-            $.generatedRulesType = Objects.requireNonNull($.generatedRulesType, "expected parameter 'generatedRulesType' to be non-null");
-            $.targetTypes = Objects.requireNonNull($.targetTypes, "expected parameter 'targetTypes' to be non-null");
-            $.targets = Objects.requireNonNull($.targets, "expected parameter 'targets' to be non-null");
+            if ($.generatedRulesType == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceRulesSourceListArgs", "generatedRulesType");
+            }
+            if ($.targetTypes == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceRulesSourceListArgs", "targetTypes");
+            }
+            if ($.targets == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRulesSourceRulesSourceListArgs", "targets");
+            }
             return $;
         }
     }

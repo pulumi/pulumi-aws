@@ -44,6 +44,7 @@ public final class ChannelHlsIngest {
 
         @CustomType.Setter
         public Builder ingestEndpoints(@Nullable List<ChannelHlsIngestIngestEndpoint> ingestEndpoints) {
+
             this.ingestEndpoints = ingestEndpoints;
             return this;
         }

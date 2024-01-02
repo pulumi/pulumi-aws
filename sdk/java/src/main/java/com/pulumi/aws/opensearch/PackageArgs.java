@@ -6,6 +6,7 @@ package com.pulumi.aws.opensearch;
 import com.pulumi.aws.opensearch.inputs.PackagePackageSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,9 +189,15 @@ public final class PackageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PackageArgs build() {
-            $.packageName = Objects.requireNonNull($.packageName, "expected parameter 'packageName' to be non-null");
-            $.packageSource = Objects.requireNonNull($.packageSource, "expected parameter 'packageSource' to be non-null");
-            $.packageType = Objects.requireNonNull($.packageType, "expected parameter 'packageType' to be non-null");
+            if ($.packageName == null) {
+                throw new MissingRequiredPropertyException("PackageArgs", "packageName");
+            }
+            if ($.packageSource == null) {
+                throw new MissingRequiredPropertyException("PackageArgs", "packageSource");
+            }
+            if ($.packageType == null) {
+                throw new MissingRequiredPropertyException("PackageArgs", "packageType");
+            }
             return $;
         }
     }

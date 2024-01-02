@@ -59,11 +59,13 @@ public final class PipeEnrichmentParameters {
 
         @CustomType.Setter
         public Builder httpParameters(@Nullable PipeEnrichmentParametersHttpParameters httpParameters) {
+
             this.httpParameters = httpParameters;
             return this;
         }
         @CustomType.Setter
         public Builder inputTemplate(@Nullable String inputTemplate) {
+
             this.inputTemplate = inputTemplate;
             return this;
         }

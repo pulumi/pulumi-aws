@@ -6,6 +6,7 @@ package com.pulumi.aws.elasticsearch.inputs;
 import com.pulumi.aws.elasticsearch.inputs.DomainAutoTuneOptionsMaintenanceScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -162,7 +163,9 @@ public final class DomainAutoTuneOptionsArgs extends com.pulumi.resources.Resour
         }
 
         public DomainAutoTuneOptionsArgs build() {
-            $.desiredState = Objects.requireNonNull($.desiredState, "expected parameter 'desiredState' to be non-null");
+            if ($.desiredState == null) {
+                throw new MissingRequiredPropertyException("DomainAutoTuneOptionsArgs", "desiredState");
+            }
             return $;
         }
     }

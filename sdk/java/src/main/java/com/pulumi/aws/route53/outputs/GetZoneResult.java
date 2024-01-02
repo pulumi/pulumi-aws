@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -190,42 +191,66 @@ public final class GetZoneResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder callerReference(String callerReference) {
-            this.callerReference = Objects.requireNonNull(callerReference);
+            if (callerReference == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "callerReference");
+            }
+            this.callerReference = callerReference;
             return this;
         }
         @CustomType.Setter
         public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+            if (comment == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "comment");
+            }
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder linkedServiceDescription(String linkedServiceDescription) {
-            this.linkedServiceDescription = Objects.requireNonNull(linkedServiceDescription);
+            if (linkedServiceDescription == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "linkedServiceDescription");
+            }
+            this.linkedServiceDescription = linkedServiceDescription;
             return this;
         }
         @CustomType.Setter
         public Builder linkedServicePrincipal(String linkedServicePrincipal) {
-            this.linkedServicePrincipal = Objects.requireNonNull(linkedServicePrincipal);
+            if (linkedServicePrincipal == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "linkedServicePrincipal");
+            }
+            this.linkedServicePrincipal = linkedServicePrincipal;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nameServers(List<String> nameServers) {
-            this.nameServers = Objects.requireNonNull(nameServers);
+            if (nameServers == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "nameServers");
+            }
+            this.nameServers = nameServers;
             return this;
         }
         public Builder nameServers(String... nameServers) {
@@ -233,32 +258,48 @@ public final class GetZoneResult {
         }
         @CustomType.Setter
         public Builder primaryNameServer(String primaryNameServer) {
-            this.primaryNameServer = Objects.requireNonNull(primaryNameServer);
+            if (primaryNameServer == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "primaryNameServer");
+            }
+            this.primaryNameServer = primaryNameServer;
             return this;
         }
         @CustomType.Setter
         public Builder privateZone(@Nullable Boolean privateZone) {
+
             this.privateZone = privateZone;
             return this;
         }
         @CustomType.Setter
         public Builder resourceRecordSetCount(Integer resourceRecordSetCount) {
-            this.resourceRecordSetCount = Objects.requireNonNull(resourceRecordSetCount);
+            if (resourceRecordSetCount == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "resourceRecordSetCount");
+            }
+            this.resourceRecordSetCount = resourceRecordSetCount;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         @CustomType.Setter
         public Builder zoneId(String zoneId) {
-            this.zoneId = Objects.requireNonNull(zoneId);
+            if (zoneId == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "zoneId");
+            }
+            this.zoneId = zoneId;
             return this;
         }
         public GetZoneResult build() {

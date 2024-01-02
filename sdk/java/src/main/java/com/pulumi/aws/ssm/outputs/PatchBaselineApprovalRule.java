@@ -5,6 +5,7 @@ package com.pulumi.aws.ssm.outputs;
 
 import com.pulumi.aws.ssm.outputs.PatchBaselineApprovalRulePatchFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -128,27 +129,34 @@ public final class PatchBaselineApprovalRule {
 
         @CustomType.Setter
         public Builder approveAfterDays(@Nullable Integer approveAfterDays) {
+
             this.approveAfterDays = approveAfterDays;
             return this;
         }
         @CustomType.Setter
         public Builder approveUntilDate(@Nullable String approveUntilDate) {
+
             this.approveUntilDate = approveUntilDate;
             return this;
         }
         @CustomType.Setter
         public Builder complianceLevel(@Nullable String complianceLevel) {
+
             this.complianceLevel = complianceLevel;
             return this;
         }
         @CustomType.Setter
         public Builder enableNonSecurity(@Nullable Boolean enableNonSecurity) {
+
             this.enableNonSecurity = enableNonSecurity;
             return this;
         }
         @CustomType.Setter
         public Builder patchFilters(List<PatchBaselineApprovalRulePatchFilter> patchFilters) {
-            this.patchFilters = Objects.requireNonNull(patchFilters);
+            if (patchFilters == null) {
+              throw new MissingRequiredPropertyException("PatchBaselineApprovalRule", "patchFilters");
+            }
+            this.patchFilters = patchFilters;
             return this;
         }
         public Builder patchFilters(PatchBaselineApprovalRulePatchFilter... patchFilters) {

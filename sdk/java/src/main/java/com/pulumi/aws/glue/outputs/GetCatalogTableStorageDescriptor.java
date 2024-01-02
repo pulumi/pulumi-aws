@@ -9,6 +9,7 @@ import com.pulumi.aws.glue.outputs.GetCatalogTableStorageDescriptorSerDeInfo;
 import com.pulumi.aws.glue.outputs.GetCatalogTableStorageDescriptorSkewedInfo;
 import com.pulumi.aws.glue.outputs.GetCatalogTableStorageDescriptorSortColumn;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -219,7 +220,10 @@ public final class GetCatalogTableStorageDescriptor {
 
         @CustomType.Setter
         public Builder bucketColumns(List<String> bucketColumns) {
-            this.bucketColumns = Objects.requireNonNull(bucketColumns);
+            if (bucketColumns == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptor", "bucketColumns");
+            }
+            this.bucketColumns = bucketColumns;
             return this;
         }
         public Builder bucketColumns(String... bucketColumns) {
@@ -227,7 +231,10 @@ public final class GetCatalogTableStorageDescriptor {
         }
         @CustomType.Setter
         public Builder columns(List<GetCatalogTableStorageDescriptorColumn> columns) {
-            this.columns = Objects.requireNonNull(columns);
+            if (columns == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptor", "columns");
+            }
+            this.columns = columns;
             return this;
         }
         public Builder columns(GetCatalogTableStorageDescriptorColumn... columns) {
@@ -235,37 +242,58 @@ public final class GetCatalogTableStorageDescriptor {
         }
         @CustomType.Setter
         public Builder compressed(Boolean compressed) {
-            this.compressed = Objects.requireNonNull(compressed);
+            if (compressed == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptor", "compressed");
+            }
+            this.compressed = compressed;
             return this;
         }
         @CustomType.Setter
         public Builder inputFormat(String inputFormat) {
-            this.inputFormat = Objects.requireNonNull(inputFormat);
+            if (inputFormat == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptor", "inputFormat");
+            }
+            this.inputFormat = inputFormat;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptor", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder numberOfBuckets(Integer numberOfBuckets) {
-            this.numberOfBuckets = Objects.requireNonNull(numberOfBuckets);
+            if (numberOfBuckets == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptor", "numberOfBuckets");
+            }
+            this.numberOfBuckets = numberOfBuckets;
             return this;
         }
         @CustomType.Setter
         public Builder outputFormat(String outputFormat) {
-            this.outputFormat = Objects.requireNonNull(outputFormat);
+            if (outputFormat == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptor", "outputFormat");
+            }
+            this.outputFormat = outputFormat;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(Map<String,String> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptor", "parameters");
+            }
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder schemaReferences(List<GetCatalogTableStorageDescriptorSchemaReference> schemaReferences) {
-            this.schemaReferences = Objects.requireNonNull(schemaReferences);
+            if (schemaReferences == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptor", "schemaReferences");
+            }
+            this.schemaReferences = schemaReferences;
             return this;
         }
         public Builder schemaReferences(GetCatalogTableStorageDescriptorSchemaReference... schemaReferences) {
@@ -273,7 +301,10 @@ public final class GetCatalogTableStorageDescriptor {
         }
         @CustomType.Setter
         public Builder serDeInfos(List<GetCatalogTableStorageDescriptorSerDeInfo> serDeInfos) {
-            this.serDeInfos = Objects.requireNonNull(serDeInfos);
+            if (serDeInfos == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptor", "serDeInfos");
+            }
+            this.serDeInfos = serDeInfos;
             return this;
         }
         public Builder serDeInfos(GetCatalogTableStorageDescriptorSerDeInfo... serDeInfos) {
@@ -281,7 +312,10 @@ public final class GetCatalogTableStorageDescriptor {
         }
         @CustomType.Setter
         public Builder skewedInfos(List<GetCatalogTableStorageDescriptorSkewedInfo> skewedInfos) {
-            this.skewedInfos = Objects.requireNonNull(skewedInfos);
+            if (skewedInfos == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptor", "skewedInfos");
+            }
+            this.skewedInfos = skewedInfos;
             return this;
         }
         public Builder skewedInfos(GetCatalogTableStorageDescriptorSkewedInfo... skewedInfos) {
@@ -289,7 +323,10 @@ public final class GetCatalogTableStorageDescriptor {
         }
         @CustomType.Setter
         public Builder sortColumns(List<GetCatalogTableStorageDescriptorSortColumn> sortColumns) {
-            this.sortColumns = Objects.requireNonNull(sortColumns);
+            if (sortColumns == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptor", "sortColumns");
+            }
+            this.sortColumns = sortColumns;
             return this;
         }
         public Builder sortColumns(GetCatalogTableStorageDescriptorSortColumn... sortColumns) {
@@ -297,7 +334,10 @@ public final class GetCatalogTableStorageDescriptor {
         }
         @CustomType.Setter
         public Builder storedAsSubDirectories(Boolean storedAsSubDirectories) {
-            this.storedAsSubDirectories = Objects.requireNonNull(storedAsSubDirectories);
+            if (storedAsSubDirectories == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptor", "storedAsSubDirectories");
+            }
+            this.storedAsSubDirectories = storedAsSubDirectories;
             return this;
         }
         public GetCatalogTableStorageDescriptor build() {

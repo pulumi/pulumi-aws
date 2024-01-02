@@ -5,6 +5,7 @@ package com.pulumi.aws.signer;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,9 +262,15 @@ public final class SigningProfilePermissionArgs extends com.pulumi.resources.Res
         }
 
         public SigningProfilePermissionArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.principal = Objects.requireNonNull($.principal, "expected parameter 'principal' to be non-null");
-            $.profileName = Objects.requireNonNull($.profileName, "expected parameter 'profileName' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("SigningProfilePermissionArgs", "action");
+            }
+            if ($.principal == null) {
+                throw new MissingRequiredPropertyException("SigningProfilePermissionArgs", "principal");
+            }
+            if ($.profileName == null) {
+                throw new MissingRequiredPropertyException("SigningProfilePermissionArgs", "profileName");
+            }
             return $;
         }
     }

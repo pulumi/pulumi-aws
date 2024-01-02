@@ -86,21 +86,25 @@ public final class NfsFileShareNfsFileShareDefaults {
 
         @CustomType.Setter
         public Builder directoryMode(@Nullable String directoryMode) {
+
             this.directoryMode = directoryMode;
             return this;
         }
         @CustomType.Setter
         public Builder fileMode(@Nullable String fileMode) {
+
             this.fileMode = fileMode;
             return this;
         }
         @CustomType.Setter
         public Builder groupId(@Nullable String groupId) {
+
             this.groupId = groupId;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(@Nullable String ownerId) {
+
             this.ownerId = ownerId;
             return this;
         }

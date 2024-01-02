@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class DataSetLogicalTableMapDataTransformCreateColumnsOperationColu
         }
 
         public DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs build() {
-            $.columnId = Objects.requireNonNull($.columnId, "expected parameter 'columnId' to be non-null");
-            $.columnName = Objects.requireNonNull($.columnName, "expected parameter 'columnName' to be non-null");
-            $.expression = Objects.requireNonNull($.expression, "expected parameter 'expression' to be non-null");
+            if ($.columnId == null) {
+                throw new MissingRequiredPropertyException("DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs", "columnId");
+            }
+            if ($.columnName == null) {
+                throw new MissingRequiredPropertyException("DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs", "columnName");
+            }
+            if ($.expression == null) {
+                throw new MissingRequiredPropertyException("DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs", "expression");
+            }
             return $;
         }
     }

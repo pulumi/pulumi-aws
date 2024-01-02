@@ -44,6 +44,7 @@ public final class ObservabilityConfigurationTraceConfiguration {
 
         @CustomType.Setter
         public Builder vendor(@Nullable String vendor) {
+
             this.vendor = vendor;
             return this;
         }

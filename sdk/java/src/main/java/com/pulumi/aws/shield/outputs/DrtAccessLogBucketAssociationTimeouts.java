@@ -48,16 +48,19 @@ public final class DrtAccessLogBucketAssociationTimeouts {
 
         @CustomType.Setter
         public Builder create(@Nullable String create) {
+
             this.create = create;
             return this;
         }
         @CustomType.Setter
         public Builder delete(@Nullable String delete) {
+
             this.delete = delete;
             return this;
         }
         @CustomType.Setter
         public Builder read(@Nullable String read) {
+
             this.read = read;
             return this;
         }

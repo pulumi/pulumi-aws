@@ -5,6 +5,7 @@ package com.pulumi.aws.neptune;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ClusterSnapshotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ClusterSnapshotArgs build() {
-            $.dbClusterIdentifier = Objects.requireNonNull($.dbClusterIdentifier, "expected parameter 'dbClusterIdentifier' to be non-null");
-            $.dbClusterSnapshotIdentifier = Objects.requireNonNull($.dbClusterSnapshotIdentifier, "expected parameter 'dbClusterSnapshotIdentifier' to be non-null");
+            if ($.dbClusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("ClusterSnapshotArgs", "dbClusterIdentifier");
+            }
+            if ($.dbClusterSnapshotIdentifier == null) {
+                throw new MissingRequiredPropertyException("ClusterSnapshotArgs", "dbClusterSnapshotIdentifier");
+            }
             return $;
         }
     }

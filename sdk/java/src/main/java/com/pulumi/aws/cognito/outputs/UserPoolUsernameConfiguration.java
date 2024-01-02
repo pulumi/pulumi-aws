@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class UserPoolUsernameConfiguration {
 
         @CustomType.Setter
         public Builder caseSensitive(Boolean caseSensitive) {
-            this.caseSensitive = Objects.requireNonNull(caseSensitive);
+            if (caseSensitive == null) {
+              throw new MissingRequiredPropertyException("UserPoolUsernameConfiguration", "caseSensitive");
+            }
+            this.caseSensitive = caseSensitive;
             return this;
         }
         public UserPoolUsernameConfiguration build() {

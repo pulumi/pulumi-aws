@@ -5,6 +5,7 @@ package com.pulumi.aws.gamelift.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class BuildStorageLocationArgs extends com.pulumi.resources.Resourc
         }
 
         public BuildStorageLocationArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("BuildStorageLocationArgs", "bucket");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("BuildStorageLocationArgs", "key");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("BuildStorageLocationArgs", "roleArn");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,12 +58,18 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
 
         @CustomType.Setter
         public Builder actionToUse(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse actionToUse) {
-            this.actionToUse = Objects.requireNonNull(actionToUse);
+            if (actionToUse == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride", "actionToUse");
+            }
+            this.actionToUse = actionToUse;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride", "name");
+            }
+            this.name = name;
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride build() {

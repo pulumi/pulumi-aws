@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
 
         @CustomType.Setter
         public Builder logGroup(String logGroup) {
-            this.logGroup = Objects.requireNonNull(logGroup);
+            if (logGroup == null) {
+              throw new MissingRequiredPropertyException("GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs", "logGroup");
+            }
+            this.logGroup = logGroup;
             return this;
         }
         public GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs build() {

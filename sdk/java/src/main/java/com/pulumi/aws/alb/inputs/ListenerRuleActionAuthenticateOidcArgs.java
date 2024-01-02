@@ -5,6 +5,7 @@ package com.pulumi.aws.alb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -448,12 +449,24 @@ public final class ListenerRuleActionAuthenticateOidcArgs extends com.pulumi.res
         }
 
         public ListenerRuleActionAuthenticateOidcArgs build() {
-            $.authorizationEndpoint = Objects.requireNonNull($.authorizationEndpoint, "expected parameter 'authorizationEndpoint' to be non-null");
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
-            $.issuer = Objects.requireNonNull($.issuer, "expected parameter 'issuer' to be non-null");
-            $.tokenEndpoint = Objects.requireNonNull($.tokenEndpoint, "expected parameter 'tokenEndpoint' to be non-null");
-            $.userInfoEndpoint = Objects.requireNonNull($.userInfoEndpoint, "expected parameter 'userInfoEndpoint' to be non-null");
+            if ($.authorizationEndpoint == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleActionAuthenticateOidcArgs", "authorizationEndpoint");
+            }
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleActionAuthenticateOidcArgs", "clientId");
+            }
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleActionAuthenticateOidcArgs", "clientSecret");
+            }
+            if ($.issuer == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleActionAuthenticateOidcArgs", "issuer");
+            }
+            if ($.tokenEndpoint == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleActionAuthenticateOidcArgs", "tokenEndpoint");
+            }
+            if ($.userInfoEndpoint == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleActionAuthenticateOidcArgs", "userInfoEndpoint");
+            }
             return $;
         }
     }

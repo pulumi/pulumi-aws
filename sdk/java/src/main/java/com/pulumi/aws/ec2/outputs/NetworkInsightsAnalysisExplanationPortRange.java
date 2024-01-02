@@ -42,11 +42,13 @@ public final class NetworkInsightsAnalysisExplanationPortRange {
 
         @CustomType.Setter
         public Builder from(@Nullable Integer from) {
+
             this.from = from;
             return this;
         }
         @CustomType.Setter
         public Builder to(@Nullable Integer to) {
+
             this.to = to;
             return this;
         }

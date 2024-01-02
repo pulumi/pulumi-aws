@@ -5,6 +5,7 @@ package com.pulumi.aws.opsworks.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -300,9 +301,15 @@ public final class CustomLayerEbsVolumeArgs extends com.pulumi.resources.Resourc
         }
 
         public CustomLayerEbsVolumeArgs build() {
-            $.mountPoint = Objects.requireNonNull($.mountPoint, "expected parameter 'mountPoint' to be non-null");
-            $.numberOfDisks = Objects.requireNonNull($.numberOfDisks, "expected parameter 'numberOfDisks' to be non-null");
-            $.size = Objects.requireNonNull($.size, "expected parameter 'size' to be non-null");
+            if ($.mountPoint == null) {
+                throw new MissingRequiredPropertyException("CustomLayerEbsVolumeArgs", "mountPoint");
+            }
+            if ($.numberOfDisks == null) {
+                throw new MissingRequiredPropertyException("CustomLayerEbsVolumeArgs", "numberOfDisks");
+            }
+            if ($.size == null) {
+                throw new MissingRequiredPropertyException("CustomLayerEbsVolumeArgs", "size");
+            }
             return $;
         }
     }

@@ -58,11 +58,13 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptions {
 
         @CustomType.Setter
         public Builder ruleOrder(@Nullable String ruleOrder) {
+
             this.ruleOrder = ruleOrder;
             return this;
         }
         @CustomType.Setter
         public Builder streamExceptionPolicy(@Nullable String streamExceptionPolicy) {
+
             this.streamExceptionPolicy = streamExceptionPolicy;
             return this;
         }

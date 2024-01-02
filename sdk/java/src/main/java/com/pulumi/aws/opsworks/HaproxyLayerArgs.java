@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.inputs.HaproxyLayerEbsVolumeArgs;
 import com.pulumi.aws.opsworks.inputs.HaproxyLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1045,8 +1046,12 @@ public final class HaproxyLayerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public HaproxyLayerArgs build() {
-            $.stackId = Objects.requireNonNull($.stackId, "expected parameter 'stackId' to be non-null");
-            $.statsPassword = Objects.requireNonNull($.statsPassword, "expected parameter 'statsPassword' to be non-null");
+            if ($.stackId == null) {
+                throw new MissingRequiredPropertyException("HaproxyLayerArgs", "stackId");
+            }
+            if ($.statsPassword == null) {
+                throw new MissingRequiredPropertyException("HaproxyLayerArgs", "statsPassword");
+            }
             return $;
         }
     }

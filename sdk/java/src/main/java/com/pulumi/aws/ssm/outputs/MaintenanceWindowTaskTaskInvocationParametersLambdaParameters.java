@@ -72,16 +72,19 @@ public final class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters
 
         @CustomType.Setter
         public Builder clientContext(@Nullable String clientContext) {
+
             this.clientContext = clientContext;
             return this;
         }
         @CustomType.Setter
         public Builder payload(@Nullable String payload) {
+
             this.payload = payload;
             return this;
         }
         @CustomType.Setter
         public Builder qualifier(@Nullable String qualifier) {
+
             this.qualifier = qualifier;
             return this;
         }

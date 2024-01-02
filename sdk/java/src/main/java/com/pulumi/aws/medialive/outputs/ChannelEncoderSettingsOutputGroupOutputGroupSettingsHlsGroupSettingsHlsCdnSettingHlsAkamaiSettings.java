@@ -97,36 +97,43 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
         @CustomType.Setter
         public Builder connectionRetryInterval(@Nullable Integer connectionRetryInterval) {
+
             this.connectionRetryInterval = connectionRetryInterval;
             return this;
         }
         @CustomType.Setter
         public Builder filecacheDuration(@Nullable Integer filecacheDuration) {
+
             this.filecacheDuration = filecacheDuration;
             return this;
         }
         @CustomType.Setter
         public Builder httpTransferMode(@Nullable String httpTransferMode) {
+
             this.httpTransferMode = httpTransferMode;
             return this;
         }
         @CustomType.Setter
         public Builder numRetries(@Nullable Integer numRetries) {
+
             this.numRetries = numRetries;
             return this;
         }
         @CustomType.Setter
         public Builder restartDelay(@Nullable Integer restartDelay) {
+
             this.restartDelay = restartDelay;
             return this;
         }
         @CustomType.Setter
         public Builder salt(@Nullable String salt) {
+
             this.salt = salt;
             return this;
         }
         @CustomType.Setter
         public Builder token(@Nullable String token) {
+
             this.token = token;
             return this;
         }

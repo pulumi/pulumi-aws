@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class LocalGatewayRouteArgs extends com.pulumi.resources.ResourceAr
         }
 
         public LocalGatewayRouteArgs build() {
-            $.destinationCidrBlock = Objects.requireNonNull($.destinationCidrBlock, "expected parameter 'destinationCidrBlock' to be non-null");
-            $.localGatewayRouteTableId = Objects.requireNonNull($.localGatewayRouteTableId, "expected parameter 'localGatewayRouteTableId' to be non-null");
-            $.localGatewayVirtualInterfaceGroupId = Objects.requireNonNull($.localGatewayVirtualInterfaceGroupId, "expected parameter 'localGatewayVirtualInterfaceGroupId' to be non-null");
+            if ($.destinationCidrBlock == null) {
+                throw new MissingRequiredPropertyException("LocalGatewayRouteArgs", "destinationCidrBlock");
+            }
+            if ($.localGatewayRouteTableId == null) {
+                throw new MissingRequiredPropertyException("LocalGatewayRouteArgs", "localGatewayRouteTableId");
+            }
+            if ($.localGatewayVirtualInterfaceGroupId == null) {
+                throw new MissingRequiredPropertyException("LocalGatewayRouteArgs", "localGatewayVirtualInterfaceGroupId");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.appflow.inputs;
 import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,7 +200,9 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
         }
 
         public FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs build() {
-            $.object = Objects.requireNonNull($.object, "expected parameter 'object' to be non-null");
+            if ($.object == null) {
+                throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs", "object");
+            }
             return $;
         }
     }

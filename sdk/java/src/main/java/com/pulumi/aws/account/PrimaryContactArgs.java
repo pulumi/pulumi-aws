@@ -5,6 +5,7 @@ package com.pulumi.aws.account;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -520,12 +521,24 @@ public final class PrimaryContactArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public PrimaryContactArgs build() {
-            $.addressLine1 = Objects.requireNonNull($.addressLine1, "expected parameter 'addressLine1' to be non-null");
-            $.city = Objects.requireNonNull($.city, "expected parameter 'city' to be non-null");
-            $.countryCode = Objects.requireNonNull($.countryCode, "expected parameter 'countryCode' to be non-null");
-            $.fullName = Objects.requireNonNull($.fullName, "expected parameter 'fullName' to be non-null");
-            $.phoneNumber = Objects.requireNonNull($.phoneNumber, "expected parameter 'phoneNumber' to be non-null");
-            $.postalCode = Objects.requireNonNull($.postalCode, "expected parameter 'postalCode' to be non-null");
+            if ($.addressLine1 == null) {
+                throw new MissingRequiredPropertyException("PrimaryContactArgs", "addressLine1");
+            }
+            if ($.city == null) {
+                throw new MissingRequiredPropertyException("PrimaryContactArgs", "city");
+            }
+            if ($.countryCode == null) {
+                throw new MissingRequiredPropertyException("PrimaryContactArgs", "countryCode");
+            }
+            if ($.fullName == null) {
+                throw new MissingRequiredPropertyException("PrimaryContactArgs", "fullName");
+            }
+            if ($.phoneNumber == null) {
+                throw new MissingRequiredPropertyException("PrimaryContactArgs", "phoneNumber");
+            }
+            if ($.postalCode == null) {
+                throw new MissingRequiredPropertyException("PrimaryContactArgs", "postalCode");
+            }
             return $;
         }
     }

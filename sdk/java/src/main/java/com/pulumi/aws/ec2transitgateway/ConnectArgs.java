@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -263,8 +264,12 @@ public final class ConnectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConnectArgs build() {
-            $.transitGatewayId = Objects.requireNonNull($.transitGatewayId, "expected parameter 'transitGatewayId' to be non-null");
-            $.transportAttachmentId = Objects.requireNonNull($.transportAttachmentId, "expected parameter 'transportAttachmentId' to be non-null");
+            if ($.transitGatewayId == null) {
+                throw new MissingRequiredPropertyException("ConnectArgs", "transitGatewayId");
+            }
+            if ($.transportAttachmentId == null) {
+                throw new MissingRequiredPropertyException("ConnectArgs", "transportAttachmentId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class TransitGatewayRegistrationArgs extends com.pulumi.resources.R
         }
 
         public TransitGatewayRegistrationArgs build() {
-            $.globalNetworkId = Objects.requireNonNull($.globalNetworkId, "expected parameter 'globalNetworkId' to be non-null");
-            $.transitGatewayArn = Objects.requireNonNull($.transitGatewayArn, "expected parameter 'transitGatewayArn' to be non-null");
+            if ($.globalNetworkId == null) {
+                throw new MissingRequiredPropertyException("TransitGatewayRegistrationArgs", "globalNetworkId");
+            }
+            if ($.transitGatewayArn == null) {
+                throw new MissingRequiredPropertyException("TransitGatewayRegistrationArgs", "transitGatewayArn");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.codepipeline.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class WebhookFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WebhookFilterArgs build() {
-            $.jsonPath = Objects.requireNonNull($.jsonPath, "expected parameter 'jsonPath' to be non-null");
-            $.matchEquals = Objects.requireNonNull($.matchEquals, "expected parameter 'matchEquals' to be non-null");
+            if ($.jsonPath == null) {
+                throw new MissingRequiredPropertyException("WebhookFilterArgs", "jsonPath");
+            }
+            if ($.matchEquals == null) {
+                throw new MissingRequiredPropertyException("WebhookFilterArgs", "matchEquals");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.inputs;
 import com.pulumi.aws.sagemaker.inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -151,7 +152,9 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyArgs extends com
         }
 
         public EndpointDeploymentConfigBlueGreenUpdatePolicyArgs build() {
-            $.trafficRoutingConfiguration = Objects.requireNonNull($.trafficRoutingConfiguration, "expected parameter 'trafficRoutingConfiguration' to be non-null");
+            if ($.trafficRoutingConfiguration == null) {
+                throw new MissingRequiredPropertyException("EndpointDeploymentConfigBlueGreenUpdatePolicyArgs", "trafficRoutingConfiguration");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.GetDataSetPhysicalTableMapRelationalTableInputColumn;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -60,17 +61,26 @@ public final class GetDataSetPhysicalTableMapRelationalTable {
 
         @CustomType.Setter
         public Builder catalog(String catalog) {
-            this.catalog = Objects.requireNonNull(catalog);
+            if (catalog == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMapRelationalTable", "catalog");
+            }
+            this.catalog = catalog;
             return this;
         }
         @CustomType.Setter
         public Builder dataSourceArn(String dataSourceArn) {
-            this.dataSourceArn = Objects.requireNonNull(dataSourceArn);
+            if (dataSourceArn == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMapRelationalTable", "dataSourceArn");
+            }
+            this.dataSourceArn = dataSourceArn;
             return this;
         }
         @CustomType.Setter
         public Builder inputColumns(List<GetDataSetPhysicalTableMapRelationalTableInputColumn> inputColumns) {
-            this.inputColumns = Objects.requireNonNull(inputColumns);
+            if (inputColumns == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMapRelationalTable", "inputColumns");
+            }
+            this.inputColumns = inputColumns;
             return this;
         }
         public Builder inputColumns(GetDataSetPhysicalTableMapRelationalTableInputColumn... inputColumns) {
@@ -78,12 +88,18 @@ public final class GetDataSetPhysicalTableMapRelationalTable {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMapRelationalTable", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder schema(String schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("GetDataSetPhysicalTableMapRelationalTable", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         public GetDataSetPhysicalTableMapRelationalTable build() {

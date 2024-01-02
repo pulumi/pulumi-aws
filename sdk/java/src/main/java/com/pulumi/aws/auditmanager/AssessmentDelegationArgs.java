@@ -5,6 +5,7 @@ package com.pulumi.aws.auditmanager;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -232,10 +233,18 @@ public final class AssessmentDelegationArgs extends com.pulumi.resources.Resourc
         }
 
         public AssessmentDelegationArgs build() {
-            $.assessmentId = Objects.requireNonNull($.assessmentId, "expected parameter 'assessmentId' to be non-null");
-            $.controlSetId = Objects.requireNonNull($.controlSetId, "expected parameter 'controlSetId' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.roleType = Objects.requireNonNull($.roleType, "expected parameter 'roleType' to be non-null");
+            if ($.assessmentId == null) {
+                throw new MissingRequiredPropertyException("AssessmentDelegationArgs", "assessmentId");
+            }
+            if ($.controlSetId == null) {
+                throw new MissingRequiredPropertyException("AssessmentDelegationArgs", "controlSetId");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("AssessmentDelegationArgs", "roleArn");
+            }
+            if ($.roleType == null) {
+                throw new MissingRequiredPropertyException("AssessmentDelegationArgs", "roleType");
+            }
             return $;
         }
     }

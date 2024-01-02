@@ -5,6 +5,7 @@ package com.pulumi.aws.lb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class TrustStoreRevocationArgs extends com.pulumi.resources.Resourc
         }
 
         public TrustStoreRevocationArgs build() {
-            $.revocationsS3Bucket = Objects.requireNonNull($.revocationsS3Bucket, "expected parameter 'revocationsS3Bucket' to be non-null");
-            $.revocationsS3Key = Objects.requireNonNull($.revocationsS3Key, "expected parameter 'revocationsS3Key' to be non-null");
-            $.trustStoreArn = Objects.requireNonNull($.trustStoreArn, "expected parameter 'trustStoreArn' to be non-null");
+            if ($.revocationsS3Bucket == null) {
+                throw new MissingRequiredPropertyException("TrustStoreRevocationArgs", "revocationsS3Bucket");
+            }
+            if ($.revocationsS3Key == null) {
+                throw new MissingRequiredPropertyException("TrustStoreRevocationArgs", "revocationsS3Key");
+            }
+            if ($.trustStoreArn == null) {
+                throw new MissingRequiredPropertyException("TrustStoreRevocationArgs", "trustStoreArn");
+            }
             return $;
         }
     }

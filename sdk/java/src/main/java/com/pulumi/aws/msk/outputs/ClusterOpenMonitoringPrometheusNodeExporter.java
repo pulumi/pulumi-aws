@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class ClusterOpenMonitoringPrometheusNodeExporter {
 
         @CustomType.Setter
         public Builder enabledInBroker(Boolean enabledInBroker) {
-            this.enabledInBroker = Objects.requireNonNull(enabledInBroker);
+            if (enabledInBroker == null) {
+              throw new MissingRequiredPropertyException("ClusterOpenMonitoringPrometheusNodeExporter", "enabledInBroker");
+            }
+            this.enabledInBroker = enabledInBroker;
             return this;
         }
         public ClusterOpenMonitoringPrometheusNodeExporter build() {

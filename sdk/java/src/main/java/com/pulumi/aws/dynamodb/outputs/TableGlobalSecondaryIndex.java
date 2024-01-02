@@ -4,6 +4,7 @@
 package com.pulumi.aws.dynamodb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -130,16 +131,23 @@ public final class TableGlobalSecondaryIndex {
 
         @CustomType.Setter
         public Builder hashKey(String hashKey) {
-            this.hashKey = Objects.requireNonNull(hashKey);
+            if (hashKey == null) {
+              throw new MissingRequiredPropertyException("TableGlobalSecondaryIndex", "hashKey");
+            }
+            this.hashKey = hashKey;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("TableGlobalSecondaryIndex", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nonKeyAttributes(@Nullable List<String> nonKeyAttributes) {
+
             this.nonKeyAttributes = nonKeyAttributes;
             return this;
         }
@@ -148,21 +156,27 @@ public final class TableGlobalSecondaryIndex {
         }
         @CustomType.Setter
         public Builder projectionType(String projectionType) {
-            this.projectionType = Objects.requireNonNull(projectionType);
+            if (projectionType == null) {
+              throw new MissingRequiredPropertyException("TableGlobalSecondaryIndex", "projectionType");
+            }
+            this.projectionType = projectionType;
             return this;
         }
         @CustomType.Setter
         public Builder rangeKey(@Nullable String rangeKey) {
+
             this.rangeKey = rangeKey;
             return this;
         }
         @CustomType.Setter
         public Builder readCapacity(@Nullable Integer readCapacity) {
+
             this.readCapacity = readCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder writeCapacity(@Nullable Integer writeCapacity) {
+
             this.writeCapacity = writeCapacity;
             return this;
         }

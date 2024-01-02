@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssmincidents.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetResponsePlanIntegrationPagerduty {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanIntegrationPagerduty", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder secretId(String secretId) {
-            this.secretId = Objects.requireNonNull(secretId);
+            if (secretId == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanIntegrationPagerduty", "secretId");
+            }
+            this.secretId = secretId;
             return this;
         }
         @CustomType.Setter
         public Builder serviceId(String serviceId) {
-            this.serviceId = Objects.requireNonNull(serviceId);
+            if (serviceId == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanIntegrationPagerduty", "serviceId");
+            }
+            this.serviceId = serviceId;
             return this;
         }
         public GetResponsePlanIntegrationPagerduty build() {

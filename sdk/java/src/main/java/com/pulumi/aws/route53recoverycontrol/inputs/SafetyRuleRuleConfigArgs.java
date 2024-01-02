@@ -5,6 +5,7 @@ package com.pulumi.aws.route53recoverycontrol.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -150,9 +151,15 @@ public final class SafetyRuleRuleConfigArgs extends com.pulumi.resources.Resourc
         }
 
         public SafetyRuleRuleConfigArgs build() {
-            $.inverted = Objects.requireNonNull($.inverted, "expected parameter 'inverted' to be non-null");
-            $.threshold = Objects.requireNonNull($.threshold, "expected parameter 'threshold' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.inverted == null) {
+                throw new MissingRequiredPropertyException("SafetyRuleRuleConfigArgs", "inverted");
+            }
+            if ($.threshold == null) {
+                throw new MissingRequiredPropertyException("SafetyRuleRuleConfigArgs", "threshold");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("SafetyRuleRuleConfigArgs", "type");
+            }
             return $;
         }
     }

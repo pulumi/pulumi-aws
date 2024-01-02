@@ -5,6 +5,7 @@ package com.pulumi.aws.directconnect;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -195,7 +196,9 @@ public final class MacsecKeyAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         public MacsecKeyAssociationArgs build() {
-            $.connectionId = Objects.requireNonNull($.connectionId, "expected parameter 'connectionId' to be non-null");
+            if ($.connectionId == null) {
+                throw new MissingRequiredPropertyException("MacsecKeyAssociationArgs", "connectionId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -141,47 +142,72 @@ public final class GetCertificateResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder certificateType(String certificateType) {
-            this.certificateType = Objects.requireNonNull(certificateType);
+            if (certificateType == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "certificateType");
+            }
+            this.certificateType = certificateType;
             return this;
         }
         @CustomType.Setter
         public Builder customerOverride(Boolean customerOverride) {
-            this.customerOverride = Objects.requireNonNull(customerOverride);
+            if (customerOverride == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "customerOverride");
+            }
+            this.customerOverride = customerOverride;
             return this;
         }
         @CustomType.Setter
         public Builder customerOverrideValidTill(String customerOverrideValidTill) {
-            this.customerOverrideValidTill = Objects.requireNonNull(customerOverrideValidTill);
+            if (customerOverrideValidTill == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "customerOverrideValidTill");
+            }
+            this.customerOverrideValidTill = customerOverrideValidTill;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder latestValidTill(@Nullable Boolean latestValidTill) {
+
             this.latestValidTill = latestValidTill;
             return this;
         }
         @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
-            this.thumbprint = Objects.requireNonNull(thumbprint);
+            if (thumbprint == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "thumbprint");
+            }
+            this.thumbprint = thumbprint;
             return this;
         }
         @CustomType.Setter
         public Builder validFrom(String validFrom) {
-            this.validFrom = Objects.requireNonNull(validFrom);
+            if (validFrom == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "validFrom");
+            }
+            this.validFrom = validFrom;
             return this;
         }
         @CustomType.Setter
         public Builder validTill(String validTill) {
-            this.validTill = Objects.requireNonNull(validTill);
+            if (validTill == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "validTill");
+            }
+            this.validTill = validTill;
             return this;
         }
         public GetCertificateResult build() {

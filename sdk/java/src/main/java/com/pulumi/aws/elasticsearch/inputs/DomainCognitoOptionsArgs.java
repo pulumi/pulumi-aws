@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticsearch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class DomainCognitoOptionsArgs extends com.pulumi.resources.Resourc
         }
 
         public DomainCognitoOptionsArgs build() {
-            $.identityPoolId = Objects.requireNonNull($.identityPoolId, "expected parameter 'identityPoolId' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.userPoolId = Objects.requireNonNull($.userPoolId, "expected parameter 'userPoolId' to be non-null");
+            if ($.identityPoolId == null) {
+                throw new MissingRequiredPropertyException("DomainCognitoOptionsArgs", "identityPoolId");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("DomainCognitoOptionsArgs", "roleArn");
+            }
+            if ($.userPoolId == null) {
+                throw new MissingRequiredPropertyException("DomainCognitoOptionsArgs", "userPoolId");
+            }
             return $;
         }
     }

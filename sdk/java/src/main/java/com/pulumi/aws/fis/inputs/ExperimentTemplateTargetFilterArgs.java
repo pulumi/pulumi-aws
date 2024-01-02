@@ -5,6 +5,7 @@ package com.pulumi.aws.fis.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -132,8 +133,12 @@ public final class ExperimentTemplateTargetFilterArgs extends com.pulumi.resourc
         }
 
         public ExperimentTemplateTargetFilterArgs build() {
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
-            $.values = Objects.requireNonNull($.values, "expected parameter 'values' to be non-null");
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("ExperimentTemplateTargetFilterArgs", "path");
+            }
+            if ($.values == null) {
+                throw new MissingRequiredPropertyException("ExperimentTemplateTargetFilterArgs", "values");
+            }
             return $;
         }
     }

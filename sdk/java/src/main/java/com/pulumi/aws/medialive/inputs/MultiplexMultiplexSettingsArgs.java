@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class MultiplexMultiplexSettingsArgs extends com.pulumi.resources.R
         }
 
         public MultiplexMultiplexSettingsArgs build() {
-            $.transportStreamBitrate = Objects.requireNonNull($.transportStreamBitrate, "expected parameter 'transportStreamBitrate' to be non-null");
-            $.transportStreamId = Objects.requireNonNull($.transportStreamId, "expected parameter 'transportStreamId' to be non-null");
+            if ($.transportStreamBitrate == null) {
+                throw new MissingRequiredPropertyException("MultiplexMultiplexSettingsArgs", "transportStreamBitrate");
+            }
+            if ($.transportStreamId == null) {
+                throw new MissingRequiredPropertyException("MultiplexMultiplexSettingsArgs", "transportStreamId");
+            }
             return $;
         }
     }

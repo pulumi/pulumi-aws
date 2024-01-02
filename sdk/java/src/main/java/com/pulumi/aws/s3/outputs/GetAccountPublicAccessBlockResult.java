@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -107,32 +108,48 @@ public final class GetAccountPublicAccessBlockResult {
 
         @CustomType.Setter
         public Builder accountId(@Nullable String accountId) {
+
             this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder blockPublicAcls(Boolean blockPublicAcls) {
-            this.blockPublicAcls = Objects.requireNonNull(blockPublicAcls);
+            if (blockPublicAcls == null) {
+              throw new MissingRequiredPropertyException("GetAccountPublicAccessBlockResult", "blockPublicAcls");
+            }
+            this.blockPublicAcls = blockPublicAcls;
             return this;
         }
         @CustomType.Setter
         public Builder blockPublicPolicy(Boolean blockPublicPolicy) {
-            this.blockPublicPolicy = Objects.requireNonNull(blockPublicPolicy);
+            if (blockPublicPolicy == null) {
+              throw new MissingRequiredPropertyException("GetAccountPublicAccessBlockResult", "blockPublicPolicy");
+            }
+            this.blockPublicPolicy = blockPublicPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAccountPublicAccessBlockResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ignorePublicAcls(Boolean ignorePublicAcls) {
-            this.ignorePublicAcls = Objects.requireNonNull(ignorePublicAcls);
+            if (ignorePublicAcls == null) {
+              throw new MissingRequiredPropertyException("GetAccountPublicAccessBlockResult", "ignorePublicAcls");
+            }
+            this.ignorePublicAcls = ignorePublicAcls;
             return this;
         }
         @CustomType.Setter
         public Builder restrictPublicBuckets(Boolean restrictPublicBuckets) {
-            this.restrictPublicBuckets = Objects.requireNonNull(restrictPublicBuckets);
+            if (restrictPublicBuckets == null) {
+              throw new MissingRequiredPropertyException("GetAccountPublicAccessBlockResult", "restrictPublicBuckets");
+            }
+            this.restrictPublicBuckets = restrictPublicBuckets;
             return this;
         }
         public GetAccountPublicAccessBlockResult build() {

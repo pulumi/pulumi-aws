@@ -86,21 +86,25 @@ public final class AssumeRole {
 
         @CustomType.Setter
         public Builder duration(@Nullable String duration) {
+
             this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder externalId(@Nullable String externalId) {
+
             this.externalId = externalId;
             return this;
         }
         @CustomType.Setter
         public Builder policy(@Nullable String policy) {
+
             this.policy = policy;
             return this;
         }
         @CustomType.Setter
         public Builder policyArns(@Nullable List<String> policyArns) {
+
             this.policyArns = policyArns;
             return this;
         }
@@ -109,26 +113,31 @@ public final class AssumeRole {
         }
         @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
+
             this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder sessionName(@Nullable String sessionName) {
+
             this.sessionName = sessionName;
             return this;
         }
         @CustomType.Setter
         public Builder sourceIdentity(@Nullable String sourceIdentity) {
+
             this.sourceIdentity = sourceIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder transitiveTagKeys(@Nullable List<String> transitiveTagKeys) {
+
             this.transitiveTagKeys = transitiveTagKeys;
             return this;
         }

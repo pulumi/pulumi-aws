@@ -4,6 +4,7 @@
 package com.pulumi.aws.cur.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -190,7 +191,10 @@ public final class GetReportDefinitionResult {
 
         @CustomType.Setter
         public Builder additionalArtifacts(List<String> additionalArtifacts) {
-            this.additionalArtifacts = Objects.requireNonNull(additionalArtifacts);
+            if (additionalArtifacts == null) {
+              throw new MissingRequiredPropertyException("GetReportDefinitionResult", "additionalArtifacts");
+            }
+            this.additionalArtifacts = additionalArtifacts;
             return this;
         }
         public Builder additionalArtifacts(String... additionalArtifacts) {
@@ -198,7 +202,10 @@ public final class GetReportDefinitionResult {
         }
         @CustomType.Setter
         public Builder additionalSchemaElements(List<String> additionalSchemaElements) {
-            this.additionalSchemaElements = Objects.requireNonNull(additionalSchemaElements);
+            if (additionalSchemaElements == null) {
+              throw new MissingRequiredPropertyException("GetReportDefinitionResult", "additionalSchemaElements");
+            }
+            this.additionalSchemaElements = additionalSchemaElements;
             return this;
         }
         public Builder additionalSchemaElements(String... additionalSchemaElements) {
@@ -206,52 +213,82 @@ public final class GetReportDefinitionResult {
         }
         @CustomType.Setter
         public Builder compression(String compression) {
-            this.compression = Objects.requireNonNull(compression);
+            if (compression == null) {
+              throw new MissingRequiredPropertyException("GetReportDefinitionResult", "compression");
+            }
+            this.compression = compression;
             return this;
         }
         @CustomType.Setter
         public Builder format(String format) {
-            this.format = Objects.requireNonNull(format);
+            if (format == null) {
+              throw new MissingRequiredPropertyException("GetReportDefinitionResult", "format");
+            }
+            this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetReportDefinitionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder refreshClosedReports(Boolean refreshClosedReports) {
-            this.refreshClosedReports = Objects.requireNonNull(refreshClosedReports);
+            if (refreshClosedReports == null) {
+              throw new MissingRequiredPropertyException("GetReportDefinitionResult", "refreshClosedReports");
+            }
+            this.refreshClosedReports = refreshClosedReports;
             return this;
         }
         @CustomType.Setter
         public Builder reportName(String reportName) {
-            this.reportName = Objects.requireNonNull(reportName);
+            if (reportName == null) {
+              throw new MissingRequiredPropertyException("GetReportDefinitionResult", "reportName");
+            }
+            this.reportName = reportName;
             return this;
         }
         @CustomType.Setter
         public Builder reportVersioning(String reportVersioning) {
-            this.reportVersioning = Objects.requireNonNull(reportVersioning);
+            if (reportVersioning == null) {
+              throw new MissingRequiredPropertyException("GetReportDefinitionResult", "reportVersioning");
+            }
+            this.reportVersioning = reportVersioning;
             return this;
         }
         @CustomType.Setter
         public Builder s3Bucket(String s3Bucket) {
-            this.s3Bucket = Objects.requireNonNull(s3Bucket);
+            if (s3Bucket == null) {
+              throw new MissingRequiredPropertyException("GetReportDefinitionResult", "s3Bucket");
+            }
+            this.s3Bucket = s3Bucket;
             return this;
         }
         @CustomType.Setter
         public Builder s3Prefix(String s3Prefix) {
-            this.s3Prefix = Objects.requireNonNull(s3Prefix);
+            if (s3Prefix == null) {
+              throw new MissingRequiredPropertyException("GetReportDefinitionResult", "s3Prefix");
+            }
+            this.s3Prefix = s3Prefix;
             return this;
         }
         @CustomType.Setter
         public Builder s3Region(String s3Region) {
-            this.s3Region = Objects.requireNonNull(s3Region);
+            if (s3Region == null) {
+              throw new MissingRequiredPropertyException("GetReportDefinitionResult", "s3Region");
+            }
+            this.s3Region = s3Region;
             return this;
         }
         @CustomType.Setter
         public Builder timeUnit(String timeUnit) {
-            this.timeUnit = Objects.requireNonNull(timeUnit);
+            if (timeUnit == null) {
+              throw new MissingRequiredPropertyException("GetReportDefinitionResult", "timeUnit");
+            }
+            this.timeUnit = timeUnit;
             return this;
         }
         public GetReportDefinitionResult build() {

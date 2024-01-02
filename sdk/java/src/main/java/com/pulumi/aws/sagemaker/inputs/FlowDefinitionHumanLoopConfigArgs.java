@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.inputs;
 import com.pulumi.aws.sagemaker.inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -385,11 +386,21 @@ public final class FlowDefinitionHumanLoopConfigArgs extends com.pulumi.resource
         }
 
         public FlowDefinitionHumanLoopConfigArgs build() {
-            $.humanTaskUiArn = Objects.requireNonNull($.humanTaskUiArn, "expected parameter 'humanTaskUiArn' to be non-null");
-            $.taskCount = Objects.requireNonNull($.taskCount, "expected parameter 'taskCount' to be non-null");
-            $.taskDescription = Objects.requireNonNull($.taskDescription, "expected parameter 'taskDescription' to be non-null");
-            $.taskTitle = Objects.requireNonNull($.taskTitle, "expected parameter 'taskTitle' to be non-null");
-            $.workteamArn = Objects.requireNonNull($.workteamArn, "expected parameter 'workteamArn' to be non-null");
+            if ($.humanTaskUiArn == null) {
+                throw new MissingRequiredPropertyException("FlowDefinitionHumanLoopConfigArgs", "humanTaskUiArn");
+            }
+            if ($.taskCount == null) {
+                throw new MissingRequiredPropertyException("FlowDefinitionHumanLoopConfigArgs", "taskCount");
+            }
+            if ($.taskDescription == null) {
+                throw new MissingRequiredPropertyException("FlowDefinitionHumanLoopConfigArgs", "taskDescription");
+            }
+            if ($.taskTitle == null) {
+                throw new MissingRequiredPropertyException("FlowDefinitionHumanLoopConfigArgs", "taskTitle");
+            }
+            if ($.workteamArn == null) {
+                throw new MissingRequiredPropertyException("FlowDefinitionHumanLoopConfigArgs", "workteamArn");
+            }
             return $;
         }
     }

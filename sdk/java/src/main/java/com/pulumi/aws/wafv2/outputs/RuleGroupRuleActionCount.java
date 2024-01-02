@@ -44,6 +44,7 @@ public final class RuleGroupRuleActionCount {
 
         @CustomType.Setter
         public Builder customRequestHandling(@Nullable RuleGroupRuleActionCountCustomRequestHandling customRequestHandling) {
+
             this.customRequestHandling = customRequestHandling;
             return this;
         }

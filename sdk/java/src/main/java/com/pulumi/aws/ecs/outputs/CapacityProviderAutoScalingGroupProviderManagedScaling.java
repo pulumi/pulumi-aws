@@ -101,26 +101,31 @@ public final class CapacityProviderAutoScalingGroupProviderManagedScaling {
 
         @CustomType.Setter
         public Builder instanceWarmupPeriod(@Nullable Integer instanceWarmupPeriod) {
+
             this.instanceWarmupPeriod = instanceWarmupPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder maximumScalingStepSize(@Nullable Integer maximumScalingStepSize) {
+
             this.maximumScalingStepSize = maximumScalingStepSize;
             return this;
         }
         @CustomType.Setter
         public Builder minimumScalingStepSize(@Nullable Integer minimumScalingStepSize) {
+
             this.minimumScalingStepSize = minimumScalingStepSize;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder targetCapacity(@Nullable Integer targetCapacity) {
+
             this.targetCapacity = targetCapacity;
             return this;
         }

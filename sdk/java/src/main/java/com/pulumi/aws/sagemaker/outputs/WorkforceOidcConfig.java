@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -140,42 +141,66 @@ public final class WorkforceOidcConfig {
 
         @CustomType.Setter
         public Builder authorizationEndpoint(String authorizationEndpoint) {
-            this.authorizationEndpoint = Objects.requireNonNull(authorizationEndpoint);
+            if (authorizationEndpoint == null) {
+              throw new MissingRequiredPropertyException("WorkforceOidcConfig", "authorizationEndpoint");
+            }
+            this.authorizationEndpoint = authorizationEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("WorkforceOidcConfig", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
-            this.clientSecret = Objects.requireNonNull(clientSecret);
+            if (clientSecret == null) {
+              throw new MissingRequiredPropertyException("WorkforceOidcConfig", "clientSecret");
+            }
+            this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+            if (issuer == null) {
+              throw new MissingRequiredPropertyException("WorkforceOidcConfig", "issuer");
+            }
+            this.issuer = issuer;
             return this;
         }
         @CustomType.Setter
         public Builder jwksUri(String jwksUri) {
-            this.jwksUri = Objects.requireNonNull(jwksUri);
+            if (jwksUri == null) {
+              throw new MissingRequiredPropertyException("WorkforceOidcConfig", "jwksUri");
+            }
+            this.jwksUri = jwksUri;
             return this;
         }
         @CustomType.Setter
         public Builder logoutEndpoint(String logoutEndpoint) {
-            this.logoutEndpoint = Objects.requireNonNull(logoutEndpoint);
+            if (logoutEndpoint == null) {
+              throw new MissingRequiredPropertyException("WorkforceOidcConfig", "logoutEndpoint");
+            }
+            this.logoutEndpoint = logoutEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder tokenEndpoint(String tokenEndpoint) {
-            this.tokenEndpoint = Objects.requireNonNull(tokenEndpoint);
+            if (tokenEndpoint == null) {
+              throw new MissingRequiredPropertyException("WorkforceOidcConfig", "tokenEndpoint");
+            }
+            this.tokenEndpoint = tokenEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder userInfoEndpoint(String userInfoEndpoint) {
-            this.userInfoEndpoint = Objects.requireNonNull(userInfoEndpoint);
+            if (userInfoEndpoint == null) {
+              throw new MissingRequiredPropertyException("WorkforceOidcConfig", "userInfoEndpoint");
+            }
+            this.userInfoEndpoint = userInfoEndpoint;
             return this;
         }
         public WorkforceOidcConfig build() {

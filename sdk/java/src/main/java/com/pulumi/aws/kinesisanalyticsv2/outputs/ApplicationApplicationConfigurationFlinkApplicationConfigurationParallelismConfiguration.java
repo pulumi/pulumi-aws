@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesisanalyticsv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -88,21 +89,27 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
 
         @CustomType.Setter
         public Builder autoScalingEnabled(@Nullable Boolean autoScalingEnabled) {
+
             this.autoScalingEnabled = autoScalingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder configurationType(String configurationType) {
-            this.configurationType = Objects.requireNonNull(configurationType);
+            if (configurationType == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration", "configurationType");
+            }
+            this.configurationType = configurationType;
             return this;
         }
         @CustomType.Setter
         public Builder parallelism(@Nullable Integer parallelism) {
+
             this.parallelism = parallelism;
             return this;
         }
         @CustomType.Setter
         public Builder parallelismPerKpu(@Nullable Integer parallelismPerKpu) {
+
             this.parallelismPerKpu = parallelismPerKpu;
             return this;
         }

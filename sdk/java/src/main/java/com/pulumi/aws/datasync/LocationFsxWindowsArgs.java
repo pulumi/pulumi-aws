@@ -5,6 +5,7 @@ package com.pulumi.aws.datasync;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -310,10 +311,18 @@ public final class LocationFsxWindowsArgs extends com.pulumi.resources.ResourceA
         }
 
         public LocationFsxWindowsArgs build() {
-            $.fsxFilesystemArn = Objects.requireNonNull($.fsxFilesystemArn, "expected parameter 'fsxFilesystemArn' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.securityGroupArns = Objects.requireNonNull($.securityGroupArns, "expected parameter 'securityGroupArns' to be non-null");
-            $.user = Objects.requireNonNull($.user, "expected parameter 'user' to be non-null");
+            if ($.fsxFilesystemArn == null) {
+                throw new MissingRequiredPropertyException("LocationFsxWindowsArgs", "fsxFilesystemArn");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("LocationFsxWindowsArgs", "password");
+            }
+            if ($.securityGroupArns == null) {
+                throw new MissingRequiredPropertyException("LocationFsxWindowsArgs", "securityGroupArns");
+            }
+            if ($.user == null) {
+                throw new MissingRequiredPropertyException("LocationFsxWindowsArgs", "user");
+            }
             return $;
         }
     }

@@ -10,6 +10,7 @@ import com.pulumi.aws.quicksight.inputs.DataSourceSslPropertiesArgs;
 import com.pulumi.aws.quicksight.inputs.DataSourceVpcConnectionPropertiesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -434,9 +435,15 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DataSourceArgs build() {
-            $.dataSourceId = Objects.requireNonNull($.dataSourceId, "expected parameter 'dataSourceId' to be non-null");
-            $.parameters = Objects.requireNonNull($.parameters, "expected parameter 'parameters' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.dataSourceId == null) {
+                throw new MissingRequiredPropertyException("DataSourceArgs", "dataSourceId");
+            }
+            if ($.parameters == null) {
+                throw new MissingRequiredPropertyException("DataSourceArgs", "parameters");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("DataSourceArgs", "type");
+            }
             return $;
         }
     }

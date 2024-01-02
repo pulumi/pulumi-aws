@@ -73,11 +73,13 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
 
         @CustomType.Setter
         public Builder errorTopic(@Nullable String errorTopic) {
+
             this.errorTopic = errorTopic;
             return this;
         }
         @CustomType.Setter
         public Builder includeInferenceResponseIns(@Nullable List<String> includeInferenceResponseIns) {
+
             this.includeInferenceResponseIns = includeInferenceResponseIns;
             return this;
         }
@@ -86,6 +88,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
         }
         @CustomType.Setter
         public Builder successTopic(@Nullable String successTopic) {
+
             this.successTopic = successTopic;
             return this;
         }

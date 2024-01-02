@@ -6,6 +6,7 @@ package com.pulumi.aws.evidently;
 import com.pulumi.aws.evidently.inputs.FeatureVariationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -348,8 +349,12 @@ public final class FeatureArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FeatureArgs build() {
-            $.project = Objects.requireNonNull($.project, "expected parameter 'project' to be non-null");
-            $.variations = Objects.requireNonNull($.variations, "expected parameter 'variations' to be non-null");
+            if ($.project == null) {
+                throw new MissingRequiredPropertyException("FeatureArgs", "project");
+            }
+            if ($.variations == null) {
+                throw new MissingRequiredPropertyException("FeatureArgs", "variations");
+            }
             return $;
         }
     }

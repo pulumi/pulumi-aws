@@ -4,6 +4,7 @@
 package com.pulumi.aws.customerprofiles.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class DomainMatchingJobSchedule {
 
         @CustomType.Setter
         public Builder dayOfTheWeek(String dayOfTheWeek) {
-            this.dayOfTheWeek = Objects.requireNonNull(dayOfTheWeek);
+            if (dayOfTheWeek == null) {
+              throw new MissingRequiredPropertyException("DomainMatchingJobSchedule", "dayOfTheWeek");
+            }
+            this.dayOfTheWeek = dayOfTheWeek;
             return this;
         }
         @CustomType.Setter
         public Builder time(String time) {
-            this.time = Objects.requireNonNull(time);
+            if (time == null) {
+              throw new MissingRequiredPropertyException("DomainMatchingJobSchedule", "time");
+            }
+            this.time = time;
             return this;
         }
         public DomainMatchingJobSchedule build() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront;
 import com.pulumi.aws.cloudfront.inputs.MonitoringSubscriptionMonitoringSubscriptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class MonitoringSubscriptionArgs extends com.pulumi.resources.Resou
         }
 
         public MonitoringSubscriptionArgs build() {
-            $.distributionId = Objects.requireNonNull($.distributionId, "expected parameter 'distributionId' to be non-null");
-            $.monitoringSubscription = Objects.requireNonNull($.monitoringSubscription, "expected parameter 'monitoringSubscription' to be non-null");
+            if ($.distributionId == null) {
+                throw new MissingRequiredPropertyException("MonitoringSubscriptionArgs", "distributionId");
+            }
+            if ($.monitoringSubscription == null) {
+                throw new MissingRequiredPropertyException("MonitoringSubscriptionArgs", "monitoringSubscription");
+            }
             return $;
         }
     }

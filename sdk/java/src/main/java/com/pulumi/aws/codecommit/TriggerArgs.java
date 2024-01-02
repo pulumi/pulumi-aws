@@ -6,6 +6,7 @@ package com.pulumi.aws.codecommit;
 import com.pulumi.aws.codecommit.inputs.TriggerTriggerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class TriggerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TriggerArgs build() {
-            $.repositoryName = Objects.requireNonNull($.repositoryName, "expected parameter 'repositoryName' to be non-null");
-            $.triggers = Objects.requireNonNull($.triggers, "expected parameter 'triggers' to be non-null");
+            if ($.repositoryName == null) {
+                throw new MissingRequiredPropertyException("TriggerArgs", "repositoryName");
+            }
+            if ($.triggers == null) {
+                throw new MissingRequiredPropertyException("TriggerArgs", "triggers");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListConsumerGroupRepli
 import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -281,11 +282,21 @@ public final class ReplicatorReplicationInfoListArgs extends com.pulumi.resource
         }
 
         public ReplicatorReplicationInfoListArgs build() {
-            $.consumerGroupReplications = Objects.requireNonNull($.consumerGroupReplications, "expected parameter 'consumerGroupReplications' to be non-null");
-            $.sourceKafkaClusterArn = Objects.requireNonNull($.sourceKafkaClusterArn, "expected parameter 'sourceKafkaClusterArn' to be non-null");
-            $.targetCompressionType = Objects.requireNonNull($.targetCompressionType, "expected parameter 'targetCompressionType' to be non-null");
-            $.targetKafkaClusterArn = Objects.requireNonNull($.targetKafkaClusterArn, "expected parameter 'targetKafkaClusterArn' to be non-null");
-            $.topicReplications = Objects.requireNonNull($.topicReplications, "expected parameter 'topicReplications' to be non-null");
+            if ($.consumerGroupReplications == null) {
+                throw new MissingRequiredPropertyException("ReplicatorReplicationInfoListArgs", "consumerGroupReplications");
+            }
+            if ($.sourceKafkaClusterArn == null) {
+                throw new MissingRequiredPropertyException("ReplicatorReplicationInfoListArgs", "sourceKafkaClusterArn");
+            }
+            if ($.targetCompressionType == null) {
+                throw new MissingRequiredPropertyException("ReplicatorReplicationInfoListArgs", "targetCompressionType");
+            }
+            if ($.targetKafkaClusterArn == null) {
+                throw new MissingRequiredPropertyException("ReplicatorReplicationInfoListArgs", "targetKafkaClusterArn");
+            }
+            if ($.topicReplications == null) {
+                throw new MissingRequiredPropertyException("ReplicatorReplicationInfoListArgs", "topicReplications");
+            }
             return $;
         }
     }

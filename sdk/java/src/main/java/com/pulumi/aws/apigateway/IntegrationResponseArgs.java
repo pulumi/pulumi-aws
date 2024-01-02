@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -344,10 +345,18 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         public IntegrationResponseArgs build() {
-            $.httpMethod = Objects.requireNonNull($.httpMethod, "expected parameter 'httpMethod' to be non-null");
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
-            $.restApi = Objects.requireNonNull($.restApi, "expected parameter 'restApi' to be non-null");
-            $.statusCode = Objects.requireNonNull($.statusCode, "expected parameter 'statusCode' to be non-null");
+            if ($.httpMethod == null) {
+                throw new MissingRequiredPropertyException("IntegrationResponseArgs", "httpMethod");
+            }
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("IntegrationResponseArgs", "resourceId");
+            }
+            if ($.restApi == null) {
+                throw new MissingRequiredPropertyException("IntegrationResponseArgs", "restApi");
+            }
+            if ($.statusCode == null) {
+                throw new MissingRequiredPropertyException("IntegrationResponseArgs", "statusCode");
+            }
             return $;
         }
     }

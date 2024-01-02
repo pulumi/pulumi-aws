@@ -6,6 +6,7 @@ package com.pulumi.aws.apprunner;
 import com.pulumi.aws.apprunner.inputs.VpcIngressConnectionIngressVpcConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -189,8 +190,12 @@ public final class VpcIngressConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         public VpcIngressConnectionArgs build() {
-            $.ingressVpcConfiguration = Objects.requireNonNull($.ingressVpcConfiguration, "expected parameter 'ingressVpcConfiguration' to be non-null");
-            $.serviceArn = Objects.requireNonNull($.serviceArn, "expected parameter 'serviceArn' to be non-null");
+            if ($.ingressVpcConfiguration == null) {
+                throw new MissingRequiredPropertyException("VpcIngressConnectionArgs", "ingressVpcConfiguration");
+            }
+            if ($.serviceArn == null) {
+                throw new MissingRequiredPropertyException("VpcIngressConnectionArgs", "serviceArn");
+            }
             return $;
         }
     }

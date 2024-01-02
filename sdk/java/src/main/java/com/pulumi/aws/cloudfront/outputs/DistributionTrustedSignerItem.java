@@ -59,11 +59,13 @@ public final class DistributionTrustedSignerItem {
 
         @CustomType.Setter
         public Builder awsAccountNumber(@Nullable String awsAccountNumber) {
+
             this.awsAccountNumber = awsAccountNumber;
             return this;
         }
         @CustomType.Setter
         public Builder keyPairIds(@Nullable List<String> keyPairIds) {
+
             this.keyPairIds = keyPairIds;
             return this;
         }

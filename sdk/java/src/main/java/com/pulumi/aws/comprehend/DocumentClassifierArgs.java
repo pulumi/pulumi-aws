@@ -8,6 +8,7 @@ import com.pulumi.aws.comprehend.inputs.DocumentClassifierOutputDataConfigArgs;
 import com.pulumi.aws.comprehend.inputs.DocumentClassifierVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -571,9 +572,15 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.ResourceA
         }
 
         public DocumentClassifierArgs build() {
-            $.dataAccessRoleArn = Objects.requireNonNull($.dataAccessRoleArn, "expected parameter 'dataAccessRoleArn' to be non-null");
-            $.inputDataConfig = Objects.requireNonNull($.inputDataConfig, "expected parameter 'inputDataConfig' to be non-null");
-            $.languageCode = Objects.requireNonNull($.languageCode, "expected parameter 'languageCode' to be non-null");
+            if ($.dataAccessRoleArn == null) {
+                throw new MissingRequiredPropertyException("DocumentClassifierArgs", "dataAccessRoleArn");
+            }
+            if ($.inputDataConfig == null) {
+                throw new MissingRequiredPropertyException("DocumentClassifierArgs", "inputDataConfig");
+            }
+            if ($.languageCode == null) {
+                throw new MissingRequiredPropertyException("DocumentClassifierArgs", "languageCode");
+            }
             return $;
         }
     }

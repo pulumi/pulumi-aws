@@ -4,6 +4,7 @@
 package com.pulumi.aws.kms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -102,37 +103,58 @@ public final class GetCustomKeyStoreResult {
 
         @CustomType.Setter
         public Builder cloudHsmClusterId(String cloudHsmClusterId) {
-            this.cloudHsmClusterId = Objects.requireNonNull(cloudHsmClusterId);
+            if (cloudHsmClusterId == null) {
+              throw new MissingRequiredPropertyException("GetCustomKeyStoreResult", "cloudHsmClusterId");
+            }
+            this.cloudHsmClusterId = cloudHsmClusterId;
             return this;
         }
         @CustomType.Setter
         public Builder connectionState(String connectionState) {
-            this.connectionState = Objects.requireNonNull(connectionState);
+            if (connectionState == null) {
+              throw new MissingRequiredPropertyException("GetCustomKeyStoreResult", "connectionState");
+            }
+            this.connectionState = connectionState;
             return this;
         }
         @CustomType.Setter
         public Builder creationDate(String creationDate) {
-            this.creationDate = Objects.requireNonNull(creationDate);
+            if (creationDate == null) {
+              throw new MissingRequiredPropertyException("GetCustomKeyStoreResult", "creationDate");
+            }
+            this.creationDate = creationDate;
             return this;
         }
         @CustomType.Setter
         public Builder customKeyStoreId(String customKeyStoreId) {
-            this.customKeyStoreId = Objects.requireNonNull(customKeyStoreId);
+            if (customKeyStoreId == null) {
+              throw new MissingRequiredPropertyException("GetCustomKeyStoreResult", "customKeyStoreId");
+            }
+            this.customKeyStoreId = customKeyStoreId;
             return this;
         }
         @CustomType.Setter
         public Builder customKeyStoreName(String customKeyStoreName) {
-            this.customKeyStoreName = Objects.requireNonNull(customKeyStoreName);
+            if (customKeyStoreName == null) {
+              throw new MissingRequiredPropertyException("GetCustomKeyStoreResult", "customKeyStoreName");
+            }
+            this.customKeyStoreName = customKeyStoreName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCustomKeyStoreResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder trustAnchorCertificate(String trustAnchorCertificate) {
-            this.trustAnchorCertificate = Objects.requireNonNull(trustAnchorCertificate);
+            if (trustAnchorCertificate == null) {
+              throw new MissingRequiredPropertyException("GetCustomKeyStoreResult", "trustAnchorCertificate");
+            }
+            this.trustAnchorCertificate = trustAnchorCertificate;
             return this;
         }
         public GetCustomKeyStoreResult build() {

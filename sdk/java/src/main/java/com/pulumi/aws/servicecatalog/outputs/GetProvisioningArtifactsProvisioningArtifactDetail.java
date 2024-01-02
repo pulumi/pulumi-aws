@@ -4,6 +4,7 @@
 package com.pulumi.aws.servicecatalog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -127,37 +128,58 @@ public final class GetProvisioningArtifactsProvisioningArtifactDetail {
 
         @CustomType.Setter
         public Builder active(Boolean active) {
-            this.active = Objects.requireNonNull(active);
+            if (active == null) {
+              throw new MissingRequiredPropertyException("GetProvisioningArtifactsProvisioningArtifactDetail", "active");
+            }
+            this.active = active;
             return this;
         }
         @CustomType.Setter
         public Builder createdTime(String createdTime) {
-            this.createdTime = Objects.requireNonNull(createdTime);
+            if (createdTime == null) {
+              throw new MissingRequiredPropertyException("GetProvisioningArtifactsProvisioningArtifactDetail", "createdTime");
+            }
+            this.createdTime = createdTime;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetProvisioningArtifactsProvisioningArtifactDetail", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder guidance(String guidance) {
-            this.guidance = Objects.requireNonNull(guidance);
+            if (guidance == null) {
+              throw new MissingRequiredPropertyException("GetProvisioningArtifactsProvisioningArtifactDetail", "guidance");
+            }
+            this.guidance = guidance;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetProvisioningArtifactsProvisioningArtifactDetail", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetProvisioningArtifactsProvisioningArtifactDetail", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetProvisioningArtifactsProvisioningArtifactDetail", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetProvisioningArtifactsProvisioningArtifactDetail build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.iot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class LoggingOptionsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public LoggingOptionsArgs build() {
-            $.defaultLogLevel = Objects.requireNonNull($.defaultLogLevel, "expected parameter 'defaultLogLevel' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.defaultLogLevel == null) {
+                throw new MissingRequiredPropertyException("LoggingOptionsArgs", "defaultLogLevel");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("LoggingOptionsArgs", "roleArn");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.memorydb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -959,8 +960,12 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
-            $.aclName = Objects.requireNonNull($.aclName, "expected parameter 'aclName' to be non-null");
-            $.nodeType = Objects.requireNonNull($.nodeType, "expected parameter 'nodeType' to be non-null");
+            if ($.aclName == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "aclName");
+            }
+            if ($.nodeType == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "nodeType");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.wafregional.outputs;
 
 import com.pulumi.aws.wafregional.outputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class WebAclLoggingConfigurationRedactedFields {
 
         @CustomType.Setter
         public Builder fieldToMatches(List<WebAclLoggingConfigurationRedactedFieldsFieldToMatch> fieldToMatches) {
-            this.fieldToMatches = Objects.requireNonNull(fieldToMatches);
+            if (fieldToMatches == null) {
+              throw new MissingRequiredPropertyException("WebAclLoggingConfigurationRedactedFields", "fieldToMatches");
+            }
+            this.fieldToMatches = fieldToMatches;
             return this;
         }
         public Builder fieldToMatches(WebAclLoggingConfigurationRedactedFieldsFieldToMatch... fieldToMatches) {

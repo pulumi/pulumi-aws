@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class WebAclRuleVisibilityConfigArgs extends com.pulumi.resources.R
         }
 
         public WebAclRuleVisibilityConfigArgs build() {
-            $.cloudwatchMetricsEnabled = Objects.requireNonNull($.cloudwatchMetricsEnabled, "expected parameter 'cloudwatchMetricsEnabled' to be non-null");
-            $.metricName = Objects.requireNonNull($.metricName, "expected parameter 'metricName' to be non-null");
-            $.sampledRequestsEnabled = Objects.requireNonNull($.sampledRequestsEnabled, "expected parameter 'sampledRequestsEnabled' to be non-null");
+            if ($.cloudwatchMetricsEnabled == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleVisibilityConfigArgs", "cloudwatchMetricsEnabled");
+            }
+            if ($.metricName == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleVisibilityConfigArgs", "metricName");
+            }
+            if ($.sampledRequestsEnabled == null) {
+                throw new MissingRequiredPropertyException("WebAclRuleVisibilityConfigArgs", "sampledRequestsEnabled");
+            }
             return $;
         }
     }

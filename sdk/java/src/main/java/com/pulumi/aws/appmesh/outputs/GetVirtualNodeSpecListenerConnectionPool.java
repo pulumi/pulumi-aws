@@ -8,6 +8,7 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerConnectionPoolHt
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerConnectionPoolHttp;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerConnectionPoolTcp;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -56,7 +57,10 @@ public final class GetVirtualNodeSpecListenerConnectionPool {
 
         @CustomType.Setter
         public Builder grpcs(List<GetVirtualNodeSpecListenerConnectionPoolGrpc> grpcs) {
-            this.grpcs = Objects.requireNonNull(grpcs);
+            if (grpcs == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerConnectionPool", "grpcs");
+            }
+            this.grpcs = grpcs;
             return this;
         }
         public Builder grpcs(GetVirtualNodeSpecListenerConnectionPoolGrpc... grpcs) {
@@ -64,7 +68,10 @@ public final class GetVirtualNodeSpecListenerConnectionPool {
         }
         @CustomType.Setter
         public Builder http2s(List<GetVirtualNodeSpecListenerConnectionPoolHttp2> http2s) {
-            this.http2s = Objects.requireNonNull(http2s);
+            if (http2s == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerConnectionPool", "http2s");
+            }
+            this.http2s = http2s;
             return this;
         }
         public Builder http2s(GetVirtualNodeSpecListenerConnectionPoolHttp2... http2s) {
@@ -72,7 +79,10 @@ public final class GetVirtualNodeSpecListenerConnectionPool {
         }
         @CustomType.Setter
         public Builder https(List<GetVirtualNodeSpecListenerConnectionPoolHttp> https) {
-            this.https = Objects.requireNonNull(https);
+            if (https == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerConnectionPool", "https");
+            }
+            this.https = https;
             return this;
         }
         public Builder https(GetVirtualNodeSpecListenerConnectionPoolHttp... https) {
@@ -80,7 +90,10 @@ public final class GetVirtualNodeSpecListenerConnectionPool {
         }
         @CustomType.Setter
         public Builder tcps(List<GetVirtualNodeSpecListenerConnectionPoolTcp> tcps) {
-            this.tcps = Objects.requireNonNull(tcps);
+            if (tcps == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerConnectionPool", "tcps");
+            }
+            this.tcps = tcps;
             return this;
         }
         public Builder tcps(GetVirtualNodeSpecListenerConnectionPoolTcp... tcps) {

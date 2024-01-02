@@ -4,6 +4,7 @@
 package com.pulumi.aws.opensearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -85,22 +86,34 @@ public final class GetServerlessSecurityConfigSamlOptions {
 
         @CustomType.Setter
         public Builder groupAttribute(String groupAttribute) {
-            this.groupAttribute = Objects.requireNonNull(groupAttribute);
+            if (groupAttribute == null) {
+              throw new MissingRequiredPropertyException("GetServerlessSecurityConfigSamlOptions", "groupAttribute");
+            }
+            this.groupAttribute = groupAttribute;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(String metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("GetServerlessSecurityConfigSamlOptions", "metadata");
+            }
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder sessionTimeout(Integer sessionTimeout) {
-            this.sessionTimeout = Objects.requireNonNull(sessionTimeout);
+            if (sessionTimeout == null) {
+              throw new MissingRequiredPropertyException("GetServerlessSecurityConfigSamlOptions", "sessionTimeout");
+            }
+            this.sessionTimeout = sessionTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder userAttribute(String userAttribute) {
-            this.userAttribute = Objects.requireNonNull(userAttribute);
+            if (userAttribute == null) {
+              throw new MissingRequiredPropertyException("GetServerlessSecurityConfigSamlOptions", "userAttribute");
+            }
+            this.userAttribute = userAttribute;
             return this;
         }
         public GetServerlessSecurityConfigSamlOptions build() {

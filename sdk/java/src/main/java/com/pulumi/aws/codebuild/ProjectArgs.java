@@ -16,6 +16,7 @@ import com.pulumi.aws.codebuild.inputs.ProjectSourceArgs;
 import com.pulumi.aws.codebuild.inputs.ProjectVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -953,10 +954,18 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProjectArgs build() {
-            $.artifacts = Objects.requireNonNull($.artifacts, "expected parameter 'artifacts' to be non-null");
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.serviceRole = Objects.requireNonNull($.serviceRole, "expected parameter 'serviceRole' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
+            if ($.artifacts == null) {
+                throw new MissingRequiredPropertyException("ProjectArgs", "artifacts");
+            }
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("ProjectArgs", "environment");
+            }
+            if ($.serviceRole == null) {
+                throw new MissingRequiredPropertyException("ProjectArgs", "serviceRole");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("ProjectArgs", "source");
+            }
             return $;
         }
     }

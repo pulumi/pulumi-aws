@@ -5,6 +5,7 @@ package com.pulumi.aws.alb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -337,9 +338,15 @@ public final class ListenerRuleActionAuthenticateCognitoArgs extends com.pulumi.
         }
 
         public ListenerRuleActionAuthenticateCognitoArgs build() {
-            $.userPoolArn = Objects.requireNonNull($.userPoolArn, "expected parameter 'userPoolArn' to be non-null");
-            $.userPoolClientId = Objects.requireNonNull($.userPoolClientId, "expected parameter 'userPoolClientId' to be non-null");
-            $.userPoolDomain = Objects.requireNonNull($.userPoolDomain, "expected parameter 'userPoolDomain' to be non-null");
+            if ($.userPoolArn == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleActionAuthenticateCognitoArgs", "userPoolArn");
+            }
+            if ($.userPoolClientId == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleActionAuthenticateCognitoArgs", "userPoolClientId");
+            }
+            if ($.userPoolDomain == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleActionAuthenticateCognitoArgs", "userPoolDomain");
+            }
             return $;
         }
     }

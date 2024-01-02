@@ -7,6 +7,7 @@ import com.pulumi.aws.cognito.inputs.UserPoolSchemaNumberAttributeConstraintsArg
 import com.pulumi.aws.cognito.inputs.UserPoolSchemaStringAttributeConstraintsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -301,8 +302,12 @@ public final class UserPoolSchemaArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public UserPoolSchemaArgs build() {
-            $.attributeDataType = Objects.requireNonNull($.attributeDataType, "expected parameter 'attributeDataType' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.attributeDataType == null) {
+                throw new MissingRequiredPropertyException("UserPoolSchemaArgs", "attributeDataType");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("UserPoolSchemaArgs", "name");
+            }
             return $;
         }
     }

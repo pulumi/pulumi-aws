@@ -36,6 +36,7 @@ public final class ConnectPeerBgpOptions {
 
         @CustomType.Setter
         public Builder peerAsn(@Nullable Integer peerAsn) {
+
             this.peerAsn = peerAsn;
             return this;
         }

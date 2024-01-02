@@ -86,21 +86,25 @@ public final class IndexDocumentMetadataConfigurationUpdateSearch {
 
         @CustomType.Setter
         public Builder displayable(@Nullable Boolean displayable) {
+
             this.displayable = displayable;
             return this;
         }
         @CustomType.Setter
         public Builder facetable(@Nullable Boolean facetable) {
+
             this.facetable = facetable;
             return this;
         }
         @CustomType.Setter
         public Builder searchable(@Nullable Boolean searchable) {
+
             this.searchable = searchable;
             return this;
         }
         @CustomType.Setter
         public Builder sortable(@Nullable Boolean sortable) {
+
             this.sortable = sortable;
             return this;
         }

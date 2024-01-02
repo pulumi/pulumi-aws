@@ -4,6 +4,7 @@
 package com.pulumi.aws.backup.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetSelectionPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         public GetSelectionPlainArgs build() {
-            $.planId = Objects.requireNonNull($.planId, "expected parameter 'planId' to be non-null");
-            $.selectionId = Objects.requireNonNull($.selectionId, "expected parameter 'selectionId' to be non-null");
+            if ($.planId == null) {
+                throw new MissingRequiredPropertyException("GetSelectionPlainArgs", "planId");
+            }
+            if ($.selectionId == null) {
+                throw new MissingRequiredPropertyException("GetSelectionPlainArgs", "selectionId");
+            }
             return $;
         }
     }

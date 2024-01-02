@@ -6,6 +6,7 @@ package com.pulumi.aws.lambda;
 import com.pulumi.aws.lambda.inputs.AliasRoutingConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -225,8 +226,12 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AliasArgs build() {
-            $.functionName = Objects.requireNonNull($.functionName, "expected parameter 'functionName' to be non-null");
-            $.functionVersion = Objects.requireNonNull($.functionVersion, "expected parameter 'functionVersion' to be non-null");
+            if ($.functionName == null) {
+                throw new MissingRequiredPropertyException("AliasArgs", "functionName");
+            }
+            if ($.functionVersion == null) {
+                throw new MissingRequiredPropertyException("AliasArgs", "functionVersion");
+            }
             return $;
         }
     }

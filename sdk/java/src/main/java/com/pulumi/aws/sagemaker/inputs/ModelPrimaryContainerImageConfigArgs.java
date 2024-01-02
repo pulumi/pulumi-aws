@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.inputs;
 import com.pulumi.aws.sagemaker.inputs.ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class ModelPrimaryContainerImageConfigArgs extends com.pulumi.resou
         }
 
         public ModelPrimaryContainerImageConfigArgs build() {
-            $.repositoryAccessMode = Objects.requireNonNull($.repositoryAccessMode, "expected parameter 'repositoryAccessMode' to be non-null");
+            if ($.repositoryAccessMode == null) {
+                throw new MissingRequiredPropertyException("ModelPrimaryContainerImageConfigArgs", "repositoryAccessMode");
+            }
             return $;
         }
     }

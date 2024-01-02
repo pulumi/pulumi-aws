@@ -6,6 +6,7 @@ package com.pulumi.aws.kendra;
 import com.pulumi.aws.kendra.inputs.FaqS3PathArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -345,9 +346,15 @@ public final class FaqArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FaqArgs build() {
-            $.indexId = Objects.requireNonNull($.indexId, "expected parameter 'indexId' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.s3Path = Objects.requireNonNull($.s3Path, "expected parameter 's3Path' to be non-null");
+            if ($.indexId == null) {
+                throw new MissingRequiredPropertyException("FaqArgs", "indexId");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("FaqArgs", "roleArn");
+            }
+            if ($.s3Path == null) {
+                throw new MissingRequiredPropertyException("FaqArgs", "s3Path");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -55,7 +56,10 @@ public final class GetRouteSpecHttpRouteRetryPolicy {
 
         @CustomType.Setter
         public Builder httpRetryEvents(List<String> httpRetryEvents) {
-            this.httpRetryEvents = Objects.requireNonNull(httpRetryEvents);
+            if (httpRetryEvents == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRouteRetryPolicy", "httpRetryEvents");
+            }
+            this.httpRetryEvents = httpRetryEvents;
             return this;
         }
         public Builder httpRetryEvents(String... httpRetryEvents) {
@@ -63,12 +67,18 @@ public final class GetRouteSpecHttpRouteRetryPolicy {
         }
         @CustomType.Setter
         public Builder maxRetries(Integer maxRetries) {
-            this.maxRetries = Objects.requireNonNull(maxRetries);
+            if (maxRetries == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRouteRetryPolicy", "maxRetries");
+            }
+            this.maxRetries = maxRetries;
             return this;
         }
         @CustomType.Setter
         public Builder perRetryTimeouts(List<GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout> perRetryTimeouts) {
-            this.perRetryTimeouts = Objects.requireNonNull(perRetryTimeouts);
+            if (perRetryTimeouts == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRouteRetryPolicy", "perRetryTimeouts");
+            }
+            this.perRetryTimeouts = perRetryTimeouts;
             return this;
         }
         public Builder perRetryTimeouts(GetRouteSpecHttpRouteRetryPolicyPerRetryTimeout... perRetryTimeouts) {
@@ -76,7 +86,10 @@ public final class GetRouteSpecHttpRouteRetryPolicy {
         }
         @CustomType.Setter
         public Builder tcpRetryEvents(List<String> tcpRetryEvents) {
-            this.tcpRetryEvents = Objects.requireNonNull(tcpRetryEvents);
+            if (tcpRetryEvents == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRouteRetryPolicy", "tcpRetryEvents");
+            }
+            this.tcpRetryEvents = tcpRetryEvents;
             return this;
         }
         public Builder tcpRetryEvents(String... tcpRetryEvents) {

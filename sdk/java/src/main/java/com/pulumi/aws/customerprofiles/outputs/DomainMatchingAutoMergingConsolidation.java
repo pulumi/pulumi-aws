@@ -4,6 +4,7 @@
 package com.pulumi.aws.customerprofiles.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class DomainMatchingAutoMergingConsolidation {
 
         @CustomType.Setter
         public Builder matchingAttributesLists(List<List<String>> matchingAttributesLists) {
-            this.matchingAttributesLists = Objects.requireNonNull(matchingAttributesLists);
+            if (matchingAttributesLists == null) {
+              throw new MissingRequiredPropertyException("DomainMatchingAutoMergingConsolidation", "matchingAttributesLists");
+            }
+            this.matchingAttributesLists = matchingAttributesLists;
             return this;
         }
         public DomainMatchingAutoMergingConsolidation build() {

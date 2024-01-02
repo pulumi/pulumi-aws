@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,24 @@ public final class AnalyticsApplicationCloudwatchLoggingOptions {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder logStreamArn(String logStreamArn) {
-            this.logStreamArn = Objects.requireNonNull(logStreamArn);
+            if (logStreamArn == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationCloudwatchLoggingOptions", "logStreamArn");
+            }
+            this.logStreamArn = logStreamArn;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationCloudwatchLoggingOptions", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         public AnalyticsApplicationCloudwatchLoggingOptions build() {

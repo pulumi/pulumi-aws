@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs.inputs;
 import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -163,7 +164,9 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
         }
 
         public ServiceServiceConnectConfigurationLogConfigurationArgs build() {
-            $.logDriver = Objects.requireNonNull($.logDriver, "expected parameter 'logDriver' to be non-null");
+            if ($.logDriver == null) {
+                throw new MissingRequiredPropertyException("ServiceServiceConnectConfigurationLogConfigurationArgs", "logDriver");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGr
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -152,7 +153,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
         }
 
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs", "destination");
+            }
             return $;
         }
     }

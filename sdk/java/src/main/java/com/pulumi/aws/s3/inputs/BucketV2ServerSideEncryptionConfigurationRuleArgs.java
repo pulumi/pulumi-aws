@@ -6,6 +6,7 @@ package com.pulumi.aws.s3.inputs;
 import com.pulumi.aws.s3.inputs.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class BucketV2ServerSideEncryptionConfigurationRuleArgs extends com
         }
 
         public BucketV2ServerSideEncryptionConfigurationRuleArgs build() {
-            $.applyServerSideEncryptionByDefaults = Objects.requireNonNull($.applyServerSideEncryptionByDefaults, "expected parameter 'applyServerSideEncryptionByDefaults' to be non-null");
+            if ($.applyServerSideEncryptionByDefaults == null) {
+                throw new MissingRequiredPropertyException("BucketV2ServerSideEncryptionConfigurationRuleArgs", "applyServerSideEncryptionByDefaults");
+            }
             return $;
         }
     }

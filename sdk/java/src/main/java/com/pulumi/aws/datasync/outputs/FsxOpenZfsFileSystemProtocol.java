@@ -5,6 +5,7 @@ package com.pulumi.aws.datasync.outputs;
 
 import com.pulumi.aws.datasync.outputs.FsxOpenZfsFileSystemProtocolNfs;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class FsxOpenZfsFileSystemProtocol {
 
         @CustomType.Setter
         public Builder nfs(FsxOpenZfsFileSystemProtocolNfs nfs) {
-            this.nfs = Objects.requireNonNull(nfs);
+            if (nfs == null) {
+              throw new MissingRequiredPropertyException("FsxOpenZfsFileSystemProtocol", "nfs");
+            }
+            this.nfs = nfs;
             return this;
         }
         public FsxOpenZfsFileSystemProtocol build() {

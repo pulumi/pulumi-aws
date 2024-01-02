@@ -8,6 +8,7 @@ import com.pulumi.aws.pipes.inputs.PipeSourceParametersArgs;
 import com.pulumi.aws.pipes.inputs.PipeTargetParametersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -495,9 +496,15 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PipeArgs build() {
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("PipeArgs", "roleArn");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("PipeArgs", "source");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("PipeArgs", "target");
+            }
             return $;
         }
     }

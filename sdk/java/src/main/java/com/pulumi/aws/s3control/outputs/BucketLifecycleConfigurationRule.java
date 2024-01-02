@@ -7,6 +7,7 @@ import com.pulumi.aws.s3control.outputs.BucketLifecycleConfigurationRuleAbortInc
 import com.pulumi.aws.s3control.outputs.BucketLifecycleConfigurationRuleExpiration;
 import com.pulumi.aws.s3control.outputs.BucketLifecycleConfigurationRuleFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -103,26 +104,33 @@ public final class BucketLifecycleConfigurationRule {
 
         @CustomType.Setter
         public Builder abortIncompleteMultipartUpload(@Nullable BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload) {
+
             this.abortIncompleteMultipartUpload = abortIncompleteMultipartUpload;
             return this;
         }
         @CustomType.Setter
         public Builder expiration(@Nullable BucketLifecycleConfigurationRuleExpiration expiration) {
+
             this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
         public Builder filter(@Nullable BucketLifecycleConfigurationRuleFilter filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("BucketLifecycleConfigurationRule", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }

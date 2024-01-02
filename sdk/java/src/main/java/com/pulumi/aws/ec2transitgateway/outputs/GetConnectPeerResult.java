@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway.outputs;
 
 import com.pulumi.aws.ec2transitgateway.outputs.GetConnectPeerFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -184,22 +185,34 @@ public final class GetConnectPeerResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetConnectPeerResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder bgpAsn(String bgpAsn) {
-            this.bgpAsn = Objects.requireNonNull(bgpAsn);
+            if (bgpAsn == null) {
+              throw new MissingRequiredPropertyException("GetConnectPeerResult", "bgpAsn");
+            }
+            this.bgpAsn = bgpAsn;
             return this;
         }
         @CustomType.Setter
         public Builder bgpPeerAddress(String bgpPeerAddress) {
-            this.bgpPeerAddress = Objects.requireNonNull(bgpPeerAddress);
+            if (bgpPeerAddress == null) {
+              throw new MissingRequiredPropertyException("GetConnectPeerResult", "bgpPeerAddress");
+            }
+            this.bgpPeerAddress = bgpPeerAddress;
             return this;
         }
         @CustomType.Setter
         public Builder bgpTransitGatewayAddresses(List<String> bgpTransitGatewayAddresses) {
-            this.bgpTransitGatewayAddresses = Objects.requireNonNull(bgpTransitGatewayAddresses);
+            if (bgpTransitGatewayAddresses == null) {
+              throw new MissingRequiredPropertyException("GetConnectPeerResult", "bgpTransitGatewayAddresses");
+            }
+            this.bgpTransitGatewayAddresses = bgpTransitGatewayAddresses;
             return this;
         }
         public Builder bgpTransitGatewayAddresses(String... bgpTransitGatewayAddresses) {
@@ -207,6 +220,7 @@ public final class GetConnectPeerResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetConnectPeerFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -215,12 +229,18 @@ public final class GetConnectPeerResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConnectPeerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder insideCidrBlocks(List<String> insideCidrBlocks) {
-            this.insideCidrBlocks = Objects.requireNonNull(insideCidrBlocks);
+            if (insideCidrBlocks == null) {
+              throw new MissingRequiredPropertyException("GetConnectPeerResult", "insideCidrBlocks");
+            }
+            this.insideCidrBlocks = insideCidrBlocks;
             return this;
         }
         public Builder insideCidrBlocks(String... insideCidrBlocks) {
@@ -228,27 +248,42 @@ public final class GetConnectPeerResult {
         }
         @CustomType.Setter
         public Builder peerAddress(String peerAddress) {
-            this.peerAddress = Objects.requireNonNull(peerAddress);
+            if (peerAddress == null) {
+              throw new MissingRequiredPropertyException("GetConnectPeerResult", "peerAddress");
+            }
+            this.peerAddress = peerAddress;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetConnectPeerResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayAddress(String transitGatewayAddress) {
-            this.transitGatewayAddress = Objects.requireNonNull(transitGatewayAddress);
+            if (transitGatewayAddress == null) {
+              throw new MissingRequiredPropertyException("GetConnectPeerResult", "transitGatewayAddress");
+            }
+            this.transitGatewayAddress = transitGatewayAddress;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
-            this.transitGatewayAttachmentId = Objects.requireNonNull(transitGatewayAttachmentId);
+            if (transitGatewayAttachmentId == null) {
+              throw new MissingRequiredPropertyException("GetConnectPeerResult", "transitGatewayAttachmentId");
+            }
+            this.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayConnectPeerId(String transitGatewayConnectPeerId) {
-            this.transitGatewayConnectPeerId = Objects.requireNonNull(transitGatewayConnectPeerId);
+            if (transitGatewayConnectPeerId == null) {
+              throw new MissingRequiredPropertyException("GetConnectPeerResult", "transitGatewayConnectPeerId");
+            }
+            this.transitGatewayConnectPeerId = transitGatewayConnectPeerId;
             return this;
         }
         public GetConnectPeerResult build() {

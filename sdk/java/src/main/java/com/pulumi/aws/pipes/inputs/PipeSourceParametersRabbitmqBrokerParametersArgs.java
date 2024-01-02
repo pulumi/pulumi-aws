@@ -6,6 +6,7 @@ package com.pulumi.aws.pipes.inputs;
 import com.pulumi.aws.pipes.inputs.PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -226,8 +227,12 @@ public final class PipeSourceParametersRabbitmqBrokerParametersArgs extends com.
         }
 
         public PipeSourceParametersRabbitmqBrokerParametersArgs build() {
-            $.credentials = Objects.requireNonNull($.credentials, "expected parameter 'credentials' to be non-null");
-            $.queueName = Objects.requireNonNull($.queueName, "expected parameter 'queueName' to be non-null");
+            if ($.credentials == null) {
+                throw new MissingRequiredPropertyException("PipeSourceParametersRabbitmqBrokerParametersArgs", "credentials");
+            }
+            if ($.queueName == null) {
+                throw new MissingRequiredPropertyException("PipeSourceParametersRabbitmqBrokerParametersArgs", "queueName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -141,8 +142,12 @@ public final class CatalogTablePartitionIndexArgs extends com.pulumi.resources.R
         }
 
         public CatalogTablePartitionIndexArgs build() {
-            $.indexName = Objects.requireNonNull($.indexName, "expected parameter 'indexName' to be non-null");
-            $.keys = Objects.requireNonNull($.keys, "expected parameter 'keys' to be non-null");
+            if ($.indexName == null) {
+                throw new MissingRequiredPropertyException("CatalogTablePartitionIndexArgs", "indexName");
+            }
+            if ($.keys == null) {
+                throw new MissingRequiredPropertyException("CatalogTablePartitionIndexArgs", "keys");
+            }
             return $;
         }
     }

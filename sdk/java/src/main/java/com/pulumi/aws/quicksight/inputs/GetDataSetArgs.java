@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.inputs;
 import com.pulumi.aws.quicksight.inputs.GetDataSetColumnLevelPermissionRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -207,7 +208,9 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetDataSetArgs build() {
-            $.dataSetId = Objects.requireNonNull($.dataSetId, "expected parameter 'dataSetId' to be non-null");
+            if ($.dataSetId == null) {
+                throw new MissingRequiredPropertyException("GetDataSetArgs", "dataSetId");
+            }
             return $;
         }
     }

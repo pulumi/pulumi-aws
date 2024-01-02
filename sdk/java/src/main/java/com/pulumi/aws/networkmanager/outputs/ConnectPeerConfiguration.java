@@ -90,6 +90,7 @@ public final class ConnectPeerConfiguration {
 
         @CustomType.Setter
         public Builder bgpConfigurations(@Nullable List<ConnectPeerConfigurationBgpConfiguration> bgpConfigurations) {
+
             this.bgpConfigurations = bgpConfigurations;
             return this;
         }
@@ -98,11 +99,13 @@ public final class ConnectPeerConfiguration {
         }
         @CustomType.Setter
         public Builder coreNetworkAddress(@Nullable String coreNetworkAddress) {
+
             this.coreNetworkAddress = coreNetworkAddress;
             return this;
         }
         @CustomType.Setter
         public Builder insideCidrBlocks(@Nullable List<String> insideCidrBlocks) {
+
             this.insideCidrBlocks = insideCidrBlocks;
             return this;
         }
@@ -111,11 +114,13 @@ public final class ConnectPeerConfiguration {
         }
         @CustomType.Setter
         public Builder peerAddress(@Nullable String peerAddress) {
+
             this.peerAddress = peerAddress;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }

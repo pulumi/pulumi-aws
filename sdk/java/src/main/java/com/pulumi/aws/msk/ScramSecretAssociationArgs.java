@@ -5,6 +5,7 @@ package com.pulumi.aws.msk;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class ScramSecretAssociationArgs extends com.pulumi.resources.Resou
         }
 
         public ScramSecretAssociationArgs build() {
-            $.clusterArn = Objects.requireNonNull($.clusterArn, "expected parameter 'clusterArn' to be non-null");
-            $.secretArnLists = Objects.requireNonNull($.secretArnLists, "expected parameter 'secretArnLists' to be non-null");
+            if ($.clusterArn == null) {
+                throw new MissingRequiredPropertyException("ScramSecretAssociationArgs", "clusterArn");
+            }
+            if ($.secretArnLists == null) {
+                throw new MissingRequiredPropertyException("ScramSecretAssociationArgs", "secretArnLists");
+            }
             return $;
         }
     }

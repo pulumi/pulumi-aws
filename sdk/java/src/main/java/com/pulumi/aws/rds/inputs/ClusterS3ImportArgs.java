@@ -5,6 +5,7 @@ package com.pulumi.aws.rds.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -232,10 +233,18 @@ public final class ClusterS3ImportArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ClusterS3ImportArgs build() {
-            $.bucketName = Objects.requireNonNull($.bucketName, "expected parameter 'bucketName' to be non-null");
-            $.ingestionRole = Objects.requireNonNull($.ingestionRole, "expected parameter 'ingestionRole' to be non-null");
-            $.sourceEngine = Objects.requireNonNull($.sourceEngine, "expected parameter 'sourceEngine' to be non-null");
-            $.sourceEngineVersion = Objects.requireNonNull($.sourceEngineVersion, "expected parameter 'sourceEngineVersion' to be non-null");
+            if ($.bucketName == null) {
+                throw new MissingRequiredPropertyException("ClusterS3ImportArgs", "bucketName");
+            }
+            if ($.ingestionRole == null) {
+                throw new MissingRequiredPropertyException("ClusterS3ImportArgs", "ingestionRole");
+            }
+            if ($.sourceEngine == null) {
+                throw new MissingRequiredPropertyException("ClusterS3ImportArgs", "sourceEngine");
+            }
+            if ($.sourceEngineVersion == null) {
+                throw new MissingRequiredPropertyException("ClusterS3ImportArgs", "sourceEngineVersion");
+            }
             return $;
         }
     }

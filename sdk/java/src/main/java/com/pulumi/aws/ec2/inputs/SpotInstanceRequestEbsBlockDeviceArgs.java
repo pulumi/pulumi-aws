@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -437,7 +438,9 @@ public final class SpotInstanceRequestEbsBlockDeviceArgs extends com.pulumi.reso
         }
 
         public SpotInstanceRequestEbsBlockDeviceArgs build() {
-            $.deviceName = Objects.requireNonNull($.deviceName, "expected parameter 'deviceName' to be non-null");
+            if ($.deviceName == null) {
+                throw new MissingRequiredPropertyException("SpotInstanceRequestEbsBlockDeviceArgs", "deviceName");
+            }
             return $;
         }
     }

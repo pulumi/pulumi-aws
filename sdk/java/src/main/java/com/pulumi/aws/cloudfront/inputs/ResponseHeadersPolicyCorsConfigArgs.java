@@ -9,6 +9,7 @@ import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCorsConfigAccessCon
 import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -303,11 +304,21 @@ public final class ResponseHeadersPolicyCorsConfigArgs extends com.pulumi.resour
         }
 
         public ResponseHeadersPolicyCorsConfigArgs build() {
-            $.accessControlAllowCredentials = Objects.requireNonNull($.accessControlAllowCredentials, "expected parameter 'accessControlAllowCredentials' to be non-null");
-            $.accessControlAllowHeaders = Objects.requireNonNull($.accessControlAllowHeaders, "expected parameter 'accessControlAllowHeaders' to be non-null");
-            $.accessControlAllowMethods = Objects.requireNonNull($.accessControlAllowMethods, "expected parameter 'accessControlAllowMethods' to be non-null");
-            $.accessControlAllowOrigins = Objects.requireNonNull($.accessControlAllowOrigins, "expected parameter 'accessControlAllowOrigins' to be non-null");
-            $.originOverride = Objects.requireNonNull($.originOverride, "expected parameter 'originOverride' to be non-null");
+            if ($.accessControlAllowCredentials == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicyCorsConfigArgs", "accessControlAllowCredentials");
+            }
+            if ($.accessControlAllowHeaders == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicyCorsConfigArgs", "accessControlAllowHeaders");
+            }
+            if ($.accessControlAllowMethods == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicyCorsConfigArgs", "accessControlAllowMethods");
+            }
+            if ($.accessControlAllowOrigins == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicyCorsConfigArgs", "accessControlAllowOrigins");
+            }
+            if ($.originOverride == null) {
+                throw new MissingRequiredPropertyException("ResponseHeadersPolicyCorsConfigArgs", "originOverride");
+            }
             return $;
         }
     }

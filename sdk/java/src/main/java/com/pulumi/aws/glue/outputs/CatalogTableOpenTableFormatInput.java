@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.aws.glue.outputs.CatalogTableOpenTableFormatInputIcebergInput;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class CatalogTableOpenTableFormatInput {
 
         @CustomType.Setter
         public Builder icebergInput(CatalogTableOpenTableFormatInputIcebergInput icebergInput) {
-            this.icebergInput = Objects.requireNonNull(icebergInput);
+            if (icebergInput == null) {
+              throw new MissingRequiredPropertyException("CatalogTableOpenTableFormatInput", "icebergInput");
+            }
+            this.icebergInput = icebergInput;
             return this;
         }
         public CatalogTableOpenTableFormatInput build() {

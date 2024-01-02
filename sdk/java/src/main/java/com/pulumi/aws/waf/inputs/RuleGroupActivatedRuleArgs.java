@@ -6,6 +6,7 @@ package com.pulumi.aws.waf.inputs;
 import com.pulumi.aws.waf.inputs.RuleGroupActivatedRuleActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -189,9 +190,15 @@ public final class RuleGroupActivatedRuleArgs extends com.pulumi.resources.Resou
         }
 
         public RuleGroupActivatedRuleArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.ruleId = Objects.requireNonNull($.ruleId, "expected parameter 'ruleId' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("RuleGroupActivatedRuleArgs", "action");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("RuleGroupActivatedRuleArgs", "priority");
+            }
+            if ($.ruleId == null) {
+                throw new MissingRequiredPropertyException("RuleGroupActivatedRuleArgs", "ruleId");
+            }
             return $;
         }
     }

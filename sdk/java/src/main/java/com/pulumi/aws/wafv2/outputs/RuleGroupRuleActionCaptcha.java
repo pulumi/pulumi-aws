@@ -44,6 +44,7 @@ public final class RuleGroupRuleActionCaptcha {
 
         @CustomType.Setter
         public Builder customRequestHandling(@Nullable RuleGroupRuleActionCaptchaCustomRequestHandling customRequestHandling) {
+
             this.customRequestHandling = customRequestHandling;
             return this;
         }

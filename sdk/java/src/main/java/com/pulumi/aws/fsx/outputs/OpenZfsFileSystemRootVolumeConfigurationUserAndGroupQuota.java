@@ -4,6 +4,7 @@
 package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota {
 
         @CustomType.Setter
         public Builder id(Integer id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder storageCapacityQuotaGib(Integer storageCapacityQuotaGib) {
-            this.storageCapacityQuotaGib = Objects.requireNonNull(storageCapacityQuotaGib);
+            if (storageCapacityQuotaGib == null) {
+              throw new MissingRequiredPropertyException("OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota", "storageCapacityQuotaGib");
+            }
+            this.storageCapacityQuotaGib = storageCapacityQuotaGib;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota", "type");
+            }
+            this.type = type;
             return this;
         }
         public OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota build() {

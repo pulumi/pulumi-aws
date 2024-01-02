@@ -9,6 +9,7 @@ import com.pulumi.aws.eks.outputs.GetNodeGroupResource;
 import com.pulumi.aws.eks.outputs.GetNodeGroupScalingConfig;
 import com.pulumi.aws.eks.outputs.GetNodeGroupTaint;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -300,37 +301,58 @@ public final class GetNodeGroupResult {
 
         @CustomType.Setter
         public Builder amiType(String amiType) {
-            this.amiType = Objects.requireNonNull(amiType);
+            if (amiType == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "amiType");
+            }
+            this.amiType = amiType;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder capacityType(String capacityType) {
-            this.capacityType = Objects.requireNonNull(capacityType);
+            if (capacityType == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "capacityType");
+            }
+            this.capacityType = capacityType;
             return this;
         }
         @CustomType.Setter
         public Builder clusterName(String clusterName) {
-            this.clusterName = Objects.requireNonNull(clusterName);
+            if (clusterName == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "clusterName");
+            }
+            this.clusterName = clusterName;
             return this;
         }
         @CustomType.Setter
         public Builder diskSize(Integer diskSize) {
-            this.diskSize = Objects.requireNonNull(diskSize);
+            if (diskSize == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "diskSize");
+            }
+            this.diskSize = diskSize;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceTypes(List<String> instanceTypes) {
-            this.instanceTypes = Objects.requireNonNull(instanceTypes);
+            if (instanceTypes == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "instanceTypes");
+            }
+            this.instanceTypes = instanceTypes;
             return this;
         }
         public Builder instanceTypes(String... instanceTypes) {
@@ -338,12 +360,18 @@ public final class GetNodeGroupResult {
         }
         @CustomType.Setter
         public Builder labels(Map<String,String> labels) {
-            this.labels = Objects.requireNonNull(labels);
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "labels");
+            }
+            this.labels = labels;
             return this;
         }
         @CustomType.Setter
         public Builder launchTemplates(List<GetNodeGroupLaunchTemplate> launchTemplates) {
-            this.launchTemplates = Objects.requireNonNull(launchTemplates);
+            if (launchTemplates == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "launchTemplates");
+            }
+            this.launchTemplates = launchTemplates;
             return this;
         }
         public Builder launchTemplates(GetNodeGroupLaunchTemplate... launchTemplates) {
@@ -351,22 +379,34 @@ public final class GetNodeGroupResult {
         }
         @CustomType.Setter
         public Builder nodeGroupName(String nodeGroupName) {
-            this.nodeGroupName = Objects.requireNonNull(nodeGroupName);
+            if (nodeGroupName == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "nodeGroupName");
+            }
+            this.nodeGroupName = nodeGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder nodeRoleArn(String nodeRoleArn) {
-            this.nodeRoleArn = Objects.requireNonNull(nodeRoleArn);
+            if (nodeRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "nodeRoleArn");
+            }
+            this.nodeRoleArn = nodeRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder releaseVersion(String releaseVersion) {
-            this.releaseVersion = Objects.requireNonNull(releaseVersion);
+            if (releaseVersion == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "releaseVersion");
+            }
+            this.releaseVersion = releaseVersion;
             return this;
         }
         @CustomType.Setter
         public Builder remoteAccesses(List<GetNodeGroupRemoteAccess> remoteAccesses) {
-            this.remoteAccesses = Objects.requireNonNull(remoteAccesses);
+            if (remoteAccesses == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "remoteAccesses");
+            }
+            this.remoteAccesses = remoteAccesses;
             return this;
         }
         public Builder remoteAccesses(GetNodeGroupRemoteAccess... remoteAccesses) {
@@ -374,7 +414,10 @@ public final class GetNodeGroupResult {
         }
         @CustomType.Setter
         public Builder resources(List<GetNodeGroupResource> resources) {
-            this.resources = Objects.requireNonNull(resources);
+            if (resources == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "resources");
+            }
+            this.resources = resources;
             return this;
         }
         public Builder resources(GetNodeGroupResource... resources) {
@@ -382,7 +425,10 @@ public final class GetNodeGroupResult {
         }
         @CustomType.Setter
         public Builder scalingConfigs(List<GetNodeGroupScalingConfig> scalingConfigs) {
-            this.scalingConfigs = Objects.requireNonNull(scalingConfigs);
+            if (scalingConfigs == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "scalingConfigs");
+            }
+            this.scalingConfigs = scalingConfigs;
             return this;
         }
         public Builder scalingConfigs(GetNodeGroupScalingConfig... scalingConfigs) {
@@ -390,12 +436,18 @@ public final class GetNodeGroupResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -403,12 +455,18 @@ public final class GetNodeGroupResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder taints(List<GetNodeGroupTaint> taints) {
-            this.taints = Objects.requireNonNull(taints);
+            if (taints == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "taints");
+            }
+            this.taints = taints;
             return this;
         }
         public Builder taints(GetNodeGroupTaint... taints) {
@@ -416,7 +474,10 @@ public final class GetNodeGroupResult {
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetNodeGroupResult build() {

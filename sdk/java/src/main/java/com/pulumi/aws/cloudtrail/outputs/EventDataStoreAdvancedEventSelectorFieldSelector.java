@@ -129,6 +129,7 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
 
         @CustomType.Setter
         public Builder endsWiths(@Nullable List<String> endsWiths) {
+
             this.endsWiths = endsWiths;
             return this;
         }
@@ -137,6 +138,7 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
         }
         @CustomType.Setter("equals")
         public Builder equals_(@Nullable List<String> equals) {
+
             this.equals = equals;
             return this;
         }
@@ -145,11 +147,13 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
         }
         @CustomType.Setter
         public Builder field(@Nullable String field) {
+
             this.field = field;
             return this;
         }
         @CustomType.Setter
         public Builder notEndsWiths(@Nullable List<String> notEndsWiths) {
+
             this.notEndsWiths = notEndsWiths;
             return this;
         }
@@ -158,6 +162,7 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
         }
         @CustomType.Setter
         public Builder notEquals(@Nullable List<String> notEquals) {
+
             this.notEquals = notEquals;
             return this;
         }
@@ -166,6 +171,7 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
         }
         @CustomType.Setter
         public Builder notStartsWiths(@Nullable List<String> notStartsWiths) {
+
             this.notStartsWiths = notStartsWiths;
             return this;
         }
@@ -174,6 +180,7 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
         }
         @CustomType.Setter
         public Builder startsWiths(@Nullable List<String> startsWiths) {
+
             this.startsWiths = startsWiths;
             return this;
         }

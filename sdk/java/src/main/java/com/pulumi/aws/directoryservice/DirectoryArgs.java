@@ -7,6 +7,7 @@ import com.pulumi.aws.directoryservice.inputs.DirectoryConnectSettingsArgs;
 import com.pulumi.aws.directoryservice.inputs.DirectoryVpcSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -525,8 +526,12 @@ public final class DirectoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DirectoryArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DirectoryArgs", "name");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("DirectoryArgs", "password");
+            }
             return $;
         }
     }

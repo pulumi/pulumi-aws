@@ -59,11 +59,13 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
 
         @CustomType.Setter
         public Builder csv(@Nullable DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv csv) {
+
             this.csv = csv;
             return this;
         }
         @CustomType.Setter
         public Builder json(@Nullable DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson json) {
+
             this.json = json;
             return this;
         }

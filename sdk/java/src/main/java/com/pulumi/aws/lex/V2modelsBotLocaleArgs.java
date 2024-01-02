@@ -7,6 +7,7 @@ import com.pulumi.aws.lex.inputs.V2modelsBotLocaleTimeoutsArgs;
 import com.pulumi.aws.lex.inputs.V2modelsBotLocaleVoiceSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -326,10 +327,18 @@ public final class V2modelsBotLocaleArgs extends com.pulumi.resources.ResourceAr
         }
 
         public V2modelsBotLocaleArgs build() {
-            $.botId = Objects.requireNonNull($.botId, "expected parameter 'botId' to be non-null");
-            $.botVersion = Objects.requireNonNull($.botVersion, "expected parameter 'botVersion' to be non-null");
-            $.localeId = Objects.requireNonNull($.localeId, "expected parameter 'localeId' to be non-null");
-            $.nLuIntentConfidenceThreshold = Objects.requireNonNull($.nLuIntentConfidenceThreshold, "expected parameter 'nLuIntentConfidenceThreshold' to be non-null");
+            if ($.botId == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotLocaleArgs", "botId");
+            }
+            if ($.botVersion == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotLocaleArgs", "botVersion");
+            }
+            if ($.localeId == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotLocaleArgs", "localeId");
+            }
+            if ($.nLuIntentConfidenceThreshold == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotLocaleArgs", "nLuIntentConfidenceThreshold");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.lambda;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -300,11 +301,21 @@ public final class LayerVersionPermissionArgs extends com.pulumi.resources.Resou
         }
 
         public LayerVersionPermissionArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.layerName = Objects.requireNonNull($.layerName, "expected parameter 'layerName' to be non-null");
-            $.principal = Objects.requireNonNull($.principal, "expected parameter 'principal' to be non-null");
-            $.statementId = Objects.requireNonNull($.statementId, "expected parameter 'statementId' to be non-null");
-            $.versionNumber = Objects.requireNonNull($.versionNumber, "expected parameter 'versionNumber' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("LayerVersionPermissionArgs", "action");
+            }
+            if ($.layerName == null) {
+                throw new MissingRequiredPropertyException("LayerVersionPermissionArgs", "layerName");
+            }
+            if ($.principal == null) {
+                throw new MissingRequiredPropertyException("LayerVersionPermissionArgs", "principal");
+            }
+            if ($.statementId == null) {
+                throw new MissingRequiredPropertyException("LayerVersionPermissionArgs", "statementId");
+            }
+            if ($.versionNumber == null) {
+                throw new MissingRequiredPropertyException("LayerVersionPermissionArgs", "versionNumber");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class FirehoseDeliveryStreamKinesisSourceConfiguration {
 
         @CustomType.Setter
         public Builder kinesisStreamArn(String kinesisStreamArn) {
-            this.kinesisStreamArn = Objects.requireNonNull(kinesisStreamArn);
+            if (kinesisStreamArn == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamKinesisSourceConfiguration", "kinesisStreamArn");
+            }
+            this.kinesisStreamArn = kinesisStreamArn;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamKinesisSourceConfiguration", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         public FirehoseDeliveryStreamKinesisSourceConfiguration build() {

@@ -36,6 +36,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
         @CustomType.Setter
         public Builder staticKeySettings(@Nullable List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting> staticKeySettings) {
+
             this.staticKeySettings = staticKeySettings;
             return this;
         }

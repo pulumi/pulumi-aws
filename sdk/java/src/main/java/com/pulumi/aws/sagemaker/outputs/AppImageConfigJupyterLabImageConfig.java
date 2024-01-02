@@ -44,6 +44,7 @@ public final class AppImageConfigJupyterLabImageConfig {
 
         @CustomType.Setter
         public Builder containerConfig(@Nullable AppImageConfigJupyterLabImageConfigContainerConfig containerConfig) {
+
             this.containerConfig = containerConfig;
             return this;
         }

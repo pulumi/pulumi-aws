@@ -7,6 +7,7 @@ import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
 import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -322,9 +323,15 @@ public final class AnomalySubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         public AnomalySubscriptionArgs build() {
-            $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
-            $.monitorArnLists = Objects.requireNonNull($.monitorArnLists, "expected parameter 'monitorArnLists' to be non-null");
-            $.subscribers = Objects.requireNonNull($.subscribers, "expected parameter 'subscribers' to be non-null");
+            if ($.frequency == null) {
+                throw new MissingRequiredPropertyException("AnomalySubscriptionArgs", "frequency");
+            }
+            if ($.monitorArnLists == null) {
+                throw new MissingRequiredPropertyException("AnomalySubscriptionArgs", "monitorArnLists");
+            }
+            if ($.subscribers == null) {
+                throw new MissingRequiredPropertyException("AnomalySubscriptionArgs", "subscribers");
+            }
             return $;
         }
     }

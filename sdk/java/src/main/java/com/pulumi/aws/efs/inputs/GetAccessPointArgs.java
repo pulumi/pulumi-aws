@@ -5,6 +5,7 @@ package com.pulumi.aws.efs.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class GetAccessPointArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetAccessPointArgs build() {
-            $.accessPointId = Objects.requireNonNull($.accessPointId, "expected parameter 'accessPointId' to be non-null");
+            if ($.accessPointId == null) {
+                throw new MissingRequiredPropertyException("GetAccessPointArgs", "accessPointId");
+            }
             return $;
         }
     }

@@ -9,6 +9,7 @@ import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatef
 import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatelessCustomAction;
 import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -152,11 +153,13 @@ public final class FirewallPolicyFirewallPolicy {
 
         @CustomType.Setter
         public Builder policyVariables(@Nullable FirewallPolicyFirewallPolicyPolicyVariables policyVariables) {
+
             this.policyVariables = policyVariables;
             return this;
         }
         @CustomType.Setter
         public Builder statefulDefaultActions(@Nullable List<String> statefulDefaultActions) {
+
             this.statefulDefaultActions = statefulDefaultActions;
             return this;
         }
@@ -165,11 +168,13 @@ public final class FirewallPolicyFirewallPolicy {
         }
         @CustomType.Setter
         public Builder statefulEngineOptions(@Nullable FirewallPolicyFirewallPolicyStatefulEngineOptions statefulEngineOptions) {
+
             this.statefulEngineOptions = statefulEngineOptions;
             return this;
         }
         @CustomType.Setter
         public Builder statefulRuleGroupReferences(@Nullable List<FirewallPolicyFirewallPolicyStatefulRuleGroupReference> statefulRuleGroupReferences) {
+
             this.statefulRuleGroupReferences = statefulRuleGroupReferences;
             return this;
         }
@@ -178,6 +183,7 @@ public final class FirewallPolicyFirewallPolicy {
         }
         @CustomType.Setter
         public Builder statelessCustomActions(@Nullable List<FirewallPolicyFirewallPolicyStatelessCustomAction> statelessCustomActions) {
+
             this.statelessCustomActions = statelessCustomActions;
             return this;
         }
@@ -186,7 +192,10 @@ public final class FirewallPolicyFirewallPolicy {
         }
         @CustomType.Setter
         public Builder statelessDefaultActions(List<String> statelessDefaultActions) {
-            this.statelessDefaultActions = Objects.requireNonNull(statelessDefaultActions);
+            if (statelessDefaultActions == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicy", "statelessDefaultActions");
+            }
+            this.statelessDefaultActions = statelessDefaultActions;
             return this;
         }
         public Builder statelessDefaultActions(String... statelessDefaultActions) {
@@ -194,7 +203,10 @@ public final class FirewallPolicyFirewallPolicy {
         }
         @CustomType.Setter
         public Builder statelessFragmentDefaultActions(List<String> statelessFragmentDefaultActions) {
-            this.statelessFragmentDefaultActions = Objects.requireNonNull(statelessFragmentDefaultActions);
+            if (statelessFragmentDefaultActions == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyFirewallPolicy", "statelessFragmentDefaultActions");
+            }
+            this.statelessFragmentDefaultActions = statelessFragmentDefaultActions;
             return this;
         }
         public Builder statelessFragmentDefaultActions(String... statelessFragmentDefaultActions) {
@@ -202,6 +214,7 @@ public final class FirewallPolicyFirewallPolicy {
         }
         @CustomType.Setter
         public Builder statelessRuleGroupReferences(@Nullable List<FirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences) {
+
             this.statelessRuleGroupReferences = statelessRuleGroupReferences;
             return this;
         }

@@ -59,11 +59,13 @@ public final class BucketLoggingV2TargetObjectKeyFormat {
 
         @CustomType.Setter
         public Builder partitionedPrefix(@Nullable BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix partitionedPrefix) {
+
             this.partitionedPrefix = partitionedPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder simplePrefix(@Nullable BucketLoggingV2TargetObjectKeyFormatSimplePrefix simplePrefix) {
+
             this.simplePrefix = simplePrefix;
             return this;
         }

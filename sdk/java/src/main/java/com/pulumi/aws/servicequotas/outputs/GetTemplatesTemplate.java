@@ -4,6 +4,7 @@
 package com.pulumi.aws.servicequotas.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -142,42 +143,66 @@ public final class GetTemplatesTemplate {
 
         @CustomType.Setter
         public Builder globalQuota(Boolean globalQuota) {
-            this.globalQuota = Objects.requireNonNull(globalQuota);
+            if (globalQuota == null) {
+              throw new MissingRequiredPropertyException("GetTemplatesTemplate", "globalQuota");
+            }
+            this.globalQuota = globalQuota;
             return this;
         }
         @CustomType.Setter
         public Builder quotaCode(String quotaCode) {
-            this.quotaCode = Objects.requireNonNull(quotaCode);
+            if (quotaCode == null) {
+              throw new MissingRequiredPropertyException("GetTemplatesTemplate", "quotaCode");
+            }
+            this.quotaCode = quotaCode;
             return this;
         }
         @CustomType.Setter
         public Builder quotaName(String quotaName) {
-            this.quotaName = Objects.requireNonNull(quotaName);
+            if (quotaName == null) {
+              throw new MissingRequiredPropertyException("GetTemplatesTemplate", "quotaName");
+            }
+            this.quotaName = quotaName;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetTemplatesTemplate", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder serviceCode(String serviceCode) {
-            this.serviceCode = Objects.requireNonNull(serviceCode);
+            if (serviceCode == null) {
+              throw new MissingRequiredPropertyException("GetTemplatesTemplate", "serviceCode");
+            }
+            this.serviceCode = serviceCode;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("GetTemplatesTemplate", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         @CustomType.Setter
         public Builder unit(String unit) {
-            this.unit = Objects.requireNonNull(unit);
+            if (unit == null) {
+              throw new MissingRequiredPropertyException("GetTemplatesTemplate", "unit");
+            }
+            this.unit = unit;
             return this;
         }
         @CustomType.Setter
         public Builder value(Double value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetTemplatesTemplate", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetTemplatesTemplate build() {

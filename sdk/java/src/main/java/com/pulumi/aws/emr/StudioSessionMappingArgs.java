@@ -5,6 +5,7 @@ package com.pulumi.aws.emr;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class StudioSessionMappingArgs extends com.pulumi.resources.Resourc
         }
 
         public StudioSessionMappingArgs build() {
-            $.identityType = Objects.requireNonNull($.identityType, "expected parameter 'identityType' to be non-null");
-            $.sessionPolicyArn = Objects.requireNonNull($.sessionPolicyArn, "expected parameter 'sessionPolicyArn' to be non-null");
-            $.studioId = Objects.requireNonNull($.studioId, "expected parameter 'studioId' to be non-null");
+            if ($.identityType == null) {
+                throw new MissingRequiredPropertyException("StudioSessionMappingArgs", "identityType");
+            }
+            if ($.sessionPolicyArn == null) {
+                throw new MissingRequiredPropertyException("StudioSessionMappingArgs", "sessionPolicyArn");
+            }
+            if ($.studioId == null) {
+                throw new MissingRequiredPropertyException("StudioSessionMappingArgs", "studioId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.aws.glue.inputs.GetScriptDagNodeArg;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -159,9 +160,15 @@ public final class GetScriptDagNode extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetScriptDagNode build() {
-            $.args = Objects.requireNonNull($.args, "expected parameter 'args' to be non-null");
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.nodeType = Objects.requireNonNull($.nodeType, "expected parameter 'nodeType' to be non-null");
+            if ($.args == null) {
+                throw new MissingRequiredPropertyException("GetScriptDagNode", "args");
+            }
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("GetScriptDagNode", "id");
+            }
+            if ($.nodeType == null) {
+                throw new MissingRequiredPropertyException("GetScriptDagNode", "nodeType");
+            }
             return $;
         }
     }

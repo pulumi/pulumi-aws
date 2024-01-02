@@ -6,6 +6,7 @@ package com.pulumi.aws.opensearch;
 import com.pulumi.aws.opensearch.inputs.VpcEndpointVpcOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VpcEndpointArgs build() {
-            $.domainArn = Objects.requireNonNull($.domainArn, "expected parameter 'domainArn' to be non-null");
-            $.vpcOptions = Objects.requireNonNull($.vpcOptions, "expected parameter 'vpcOptions' to be non-null");
+            if ($.domainArn == null) {
+                throw new MissingRequiredPropertyException("VpcEndpointArgs", "domainArn");
+            }
+            if ($.vpcOptions == null) {
+                throw new MissingRequiredPropertyException("VpcEndpointArgs", "vpcOptions");
+            }
             return $;
         }
     }

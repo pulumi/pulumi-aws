@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ChannelDestinationMultiplexSettings {
 
         @CustomType.Setter
         public Builder multiplexId(String multiplexId) {
-            this.multiplexId = Objects.requireNonNull(multiplexId);
+            if (multiplexId == null) {
+              throw new MissingRequiredPropertyException("ChannelDestinationMultiplexSettings", "multiplexId");
+            }
+            this.multiplexId = multiplexId;
             return this;
         }
         @CustomType.Setter
         public Builder programName(String programName) {
-            this.programName = Objects.requireNonNull(programName);
+            if (programName == null) {
+              throw new MissingRequiredPropertyException("ChannelDestinationMultiplexSettings", "programName");
+            }
+            this.programName = programName;
             return this;
         }
         public ChannelDestinationMultiplexSettings build() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive.inputs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationArgs extends
         }
 
         public ChannelEncoderSettingsMotionGraphicsConfigurationArgs build() {
-            $.motionGraphicsSettings = Objects.requireNonNull($.motionGraphicsSettings, "expected parameter 'motionGraphicsSettings' to be non-null");
+            if ($.motionGraphicsSettings == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsMotionGraphicsConfigurationArgs", "motionGraphicsSettings");
+            }
             return $;
         }
     }

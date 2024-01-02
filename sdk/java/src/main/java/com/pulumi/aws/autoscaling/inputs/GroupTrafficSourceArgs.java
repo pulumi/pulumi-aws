@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -129,7 +130,9 @@ public final class GroupTrafficSourceArgs extends com.pulumi.resources.ResourceA
         }
 
         public GroupTrafficSourceArgs build() {
-            $.identifier = Objects.requireNonNull($.identifier, "expected parameter 'identifier' to be non-null");
+            if ($.identifier == null) {
+                throw new MissingRequiredPropertyException("GroupTrafficSourceArgs", "identifier");
+            }
             return $;
         }
     }

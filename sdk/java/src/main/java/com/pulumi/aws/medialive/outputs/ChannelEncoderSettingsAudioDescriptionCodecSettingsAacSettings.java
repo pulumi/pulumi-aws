@@ -157,46 +157,55 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
 
         @CustomType.Setter
         public Builder bitrate(@Nullable Double bitrate) {
+
             this.bitrate = bitrate;
             return this;
         }
         @CustomType.Setter
         public Builder codingMode(@Nullable String codingMode) {
+
             this.codingMode = codingMode;
             return this;
         }
         @CustomType.Setter
         public Builder inputType(@Nullable String inputType) {
+
             this.inputType = inputType;
             return this;
         }
         @CustomType.Setter
         public Builder profile(@Nullable String profile) {
+
             this.profile = profile;
             return this;
         }
         @CustomType.Setter
         public Builder rateControlMode(@Nullable String rateControlMode) {
+
             this.rateControlMode = rateControlMode;
             return this;
         }
         @CustomType.Setter
         public Builder rawFormat(@Nullable String rawFormat) {
+
             this.rawFormat = rawFormat;
             return this;
         }
         @CustomType.Setter
         public Builder sampleRate(@Nullable Double sampleRate) {
+
             this.sampleRate = sampleRate;
             return this;
         }
         @CustomType.Setter
         public Builder spec(@Nullable String spec) {
+
             this.spec = spec;
             return this;
         }
         @CustomType.Setter
         public Builder vbrQuality(@Nullable String vbrQuality) {
+
             this.vbrQuality = vbrQuality;
             return this;
         }

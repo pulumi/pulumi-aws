@@ -117,6 +117,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
 
         @CustomType.Setter
         public Builder dimensions(@Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> dimensions) {
+
             this.dimensions = dimensions;
             return this;
         }
@@ -125,11 +126,13 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
         @CustomType.Setter
         public Builder metricName(@Nullable String metricName) {
+
             this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
         public Builder metrics(@Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric> metrics) {
+
             this.metrics = metrics;
             return this;
         }
@@ -138,16 +141,19 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
         @CustomType.Setter
         public Builder namespace(@Nullable String namespace) {
+
             this.namespace = namespace;
             return this;
         }
         @CustomType.Setter
         public Builder statistic(@Nullable String statistic) {
+
             this.statistic = statistic;
             return this;
         }
         @CustomType.Setter
         public Builder unit(@Nullable String unit) {
+
             this.unit = unit;
             return this;
         }

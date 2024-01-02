@@ -162,96 +162,115 @@ public final class TopicRuleErrorAction {
 
         @CustomType.Setter
         public Builder cloudwatchAlarm(@Nullable TopicRuleErrorActionCloudwatchAlarm cloudwatchAlarm) {
+
             this.cloudwatchAlarm = cloudwatchAlarm;
             return this;
         }
         @CustomType.Setter
         public Builder cloudwatchLogs(@Nullable TopicRuleErrorActionCloudwatchLogs cloudwatchLogs) {
+
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
         @CustomType.Setter
         public Builder cloudwatchMetric(@Nullable TopicRuleErrorActionCloudwatchMetric cloudwatchMetric) {
+
             this.cloudwatchMetric = cloudwatchMetric;
             return this;
         }
         @CustomType.Setter
         public Builder dynamodb(@Nullable TopicRuleErrorActionDynamodb dynamodb) {
+
             this.dynamodb = dynamodb;
             return this;
         }
         @CustomType.Setter
         public Builder dynamodbv2(@Nullable TopicRuleErrorActionDynamodbv2 dynamodbv2) {
+
             this.dynamodbv2 = dynamodbv2;
             return this;
         }
         @CustomType.Setter
         public Builder elasticsearch(@Nullable TopicRuleErrorActionElasticsearch elasticsearch) {
+
             this.elasticsearch = elasticsearch;
             return this;
         }
         @CustomType.Setter
         public Builder firehose(@Nullable TopicRuleErrorActionFirehose firehose) {
+
             this.firehose = firehose;
             return this;
         }
         @CustomType.Setter
         public Builder http(@Nullable TopicRuleErrorActionHttp http) {
+
             this.http = http;
             return this;
         }
         @CustomType.Setter
         public Builder iotAnalytics(@Nullable TopicRuleErrorActionIotAnalytics iotAnalytics) {
+
             this.iotAnalytics = iotAnalytics;
             return this;
         }
         @CustomType.Setter
         public Builder iotEvents(@Nullable TopicRuleErrorActionIotEvents iotEvents) {
+
             this.iotEvents = iotEvents;
             return this;
         }
         @CustomType.Setter
         public Builder kafka(@Nullable TopicRuleErrorActionKafka kafka) {
+
             this.kafka = kafka;
             return this;
         }
         @CustomType.Setter
         public Builder kinesis(@Nullable TopicRuleErrorActionKinesis kinesis) {
+
             this.kinesis = kinesis;
             return this;
         }
         @CustomType.Setter
         public Builder lambda(@Nullable TopicRuleErrorActionLambda lambda) {
+
             this.lambda = lambda;
             return this;
         }
         @CustomType.Setter
         public Builder republish(@Nullable TopicRuleErrorActionRepublish republish) {
+
             this.republish = republish;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable TopicRuleErrorActionS3 s3) {
+
             this.s3 = s3;
             return this;
         }
         @CustomType.Setter
         public Builder sns(@Nullable TopicRuleErrorActionSns sns) {
+
             this.sns = sns;
             return this;
         }
         @CustomType.Setter
         public Builder sqs(@Nullable TopicRuleErrorActionSqs sqs) {
+
             this.sqs = sqs;
             return this;
         }
         @CustomType.Setter
         public Builder stepFunctions(@Nullable TopicRuleErrorActionStepFunctions stepFunctions) {
+
             this.stepFunctions = stepFunctions;
             return this;
         }
         @CustomType.Setter
         public Builder timestream(@Nullable TopicRuleErrorActionTimestream timestream) {
+
             this.timestream = timestream;
             return this;
         }

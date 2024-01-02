@@ -4,6 +4,7 @@
 package com.pulumi.aws.opensearch.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetServerlessVpcEndpointPlainArgs extends com.pulumi.resource
         }
 
         public GetServerlessVpcEndpointPlainArgs build() {
-            $.vpcEndpointId = Objects.requireNonNull($.vpcEndpointId, "expected parameter 'vpcEndpointId' to be non-null");
+            if ($.vpcEndpointId == null) {
+                throw new MissingRequiredPropertyException("GetServerlessVpcEndpointPlainArgs", "vpcEndpointId");
+            }
             return $;
         }
     }

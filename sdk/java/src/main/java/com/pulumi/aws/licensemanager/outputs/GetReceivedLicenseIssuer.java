@@ -4,6 +4,7 @@
 package com.pulumi.aws.licensemanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetReceivedLicenseIssuer {
 
         @CustomType.Setter
         public Builder keyFingerprint(String keyFingerprint) {
-            this.keyFingerprint = Objects.requireNonNull(keyFingerprint);
+            if (keyFingerprint == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseIssuer", "keyFingerprint");
+            }
+            this.keyFingerprint = keyFingerprint;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseIssuer", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder signKey(String signKey) {
-            this.signKey = Objects.requireNonNull(signKey);
+            if (signKey == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseIssuer", "signKey");
+            }
+            this.signKey = signKey;
             return this;
         }
         public GetReceivedLicenseIssuer build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.ssm;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class PatchGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PatchGroupArgs build() {
-            $.baselineId = Objects.requireNonNull($.baselineId, "expected parameter 'baselineId' to be non-null");
-            $.patchGroup = Objects.requireNonNull($.patchGroup, "expected parameter 'patchGroup' to be non-null");
+            if ($.baselineId == null) {
+                throw new MissingRequiredPropertyException("PatchGroupArgs", "baselineId");
+            }
+            if ($.patchGroup == null) {
+                throw new MissingRequiredPropertyException("PatchGroupArgs", "patchGroup");
+            }
             return $;
         }
     }

@@ -59,11 +59,13 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
         @CustomType.Setter
         public Builder instanceUrl(@Nullable String instanceUrl) {
+
             this.instanceUrl = instanceUrl;
             return this;
         }
         @CustomType.Setter
         public Builder isSandboxEnvironment(@Nullable Boolean isSandboxEnvironment) {
+
             this.isSandboxEnvironment = isSandboxEnvironment;
             return this;
         }

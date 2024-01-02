@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GatewayRouteSpecHttpRouteActionRewritePathArgs extends com.pu
         }
 
         public GatewayRouteSpecHttpRouteActionRewritePathArgs build() {
-            $.exact = Objects.requireNonNull($.exact, "expected parameter 'exact' to be non-null");
+            if ($.exact == null) {
+                throw new MissingRequiredPropertyException("GatewayRouteSpecHttpRouteActionRewritePathArgs", "exact");
+            }
             return $;
         }
     }

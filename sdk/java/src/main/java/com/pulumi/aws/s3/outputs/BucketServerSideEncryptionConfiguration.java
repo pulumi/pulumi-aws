@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.BucketServerSideEncryptionConfigurationRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class BucketServerSideEncryptionConfiguration {
 
         @CustomType.Setter
         public Builder rule(BucketServerSideEncryptionConfigurationRule rule) {
-            this.rule = Objects.requireNonNull(rule);
+            if (rule == null) {
+              throw new MissingRequiredPropertyException("BucketServerSideEncryptionConfiguration", "rule");
+            }
+            this.rule = rule;
             return this;
         }
         public BucketServerSideEncryptionConfiguration build() {

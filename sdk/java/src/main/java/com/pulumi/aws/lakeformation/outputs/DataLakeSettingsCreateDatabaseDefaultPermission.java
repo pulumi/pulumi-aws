@@ -59,6 +59,7 @@ public final class DataLakeSettingsCreateDatabaseDefaultPermission {
 
         @CustomType.Setter
         public Builder permissions(@Nullable List<String> permissions) {
+
             this.permissions = permissions;
             return this;
         }
@@ -67,6 +68,7 @@ public final class DataLakeSettingsCreateDatabaseDefaultPermission {
         }
         @CustomType.Setter
         public Builder principal(@Nullable String principal) {
+
             this.principal = principal;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.kms;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -154,7 +155,9 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AliasArgs build() {
-            $.targetKeyId = Objects.requireNonNull($.targetKeyId, "expected parameter 'targetKeyId' to be non-null");
+            if ($.targetKeyId == null) {
+                throw new MissingRequiredPropertyException("AliasArgs", "targetKeyId");
+            }
             return $;
         }
     }

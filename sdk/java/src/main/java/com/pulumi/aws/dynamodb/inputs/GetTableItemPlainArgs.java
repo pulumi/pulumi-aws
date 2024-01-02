@@ -4,6 +4,7 @@
 package com.pulumi.aws.dynamodb.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -145,8 +146,12 @@ public final class GetTableItemPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         public GetTableItemPlainArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetTableItemPlainArgs", "key");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("GetTableItemPlainArgs", "tableName");
+            }
             return $;
         }
     }

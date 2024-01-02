@@ -5,6 +5,7 @@ package com.pulumi.aws.servicecatalog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class BudgetResourceAssociationArgs extends com.pulumi.resources.Re
         }
 
         public BudgetResourceAssociationArgs build() {
-            $.budgetName = Objects.requireNonNull($.budgetName, "expected parameter 'budgetName' to be non-null");
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
+            if ($.budgetName == null) {
+                throw new MissingRequiredPropertyException("BudgetResourceAssociationArgs", "budgetName");
+            }
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("BudgetResourceAssociationArgs", "resourceId");
+            }
             return $;
         }
     }

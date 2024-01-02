@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticbeanstalk.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class GetSolutionStackPlainArgs extends com.pulumi.resources.Invoke
         }
 
         public GetSolutionStackPlainArgs build() {
-            $.nameRegex = Objects.requireNonNull($.nameRegex, "expected parameter 'nameRegex' to be non-null");
+            if ($.nameRegex == null) {
+                throw new MissingRequiredPropertyException("GetSolutionStackPlainArgs", "nameRegex");
+            }
             return $;
         }
     }

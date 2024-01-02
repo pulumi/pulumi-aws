@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,8 +225,12 @@ public final class DataSetRowLevelPermissionDataSetArgs extends com.pulumi.resou
         }
 
         public DataSetRowLevelPermissionDataSetArgs build() {
-            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
-            $.permissionPolicy = Objects.requireNonNull($.permissionPolicy, "expected parameter 'permissionPolicy' to be non-null");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("DataSetRowLevelPermissionDataSetArgs", "arn");
+            }
+            if ($.permissionPolicy == null) {
+                throw new MissingRequiredPropertyException("DataSetRowLevelPermissionDataSetArgs", "permissionPolicy");
+            }
             return $;
         }
     }

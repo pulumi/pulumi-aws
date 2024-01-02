@@ -5,6 +5,7 @@ package com.pulumi.aws.iam;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GroupPolicyAttachmentArgs extends com.pulumi.resources.Resour
         }
 
         public GroupPolicyAttachmentArgs build() {
-            $.group = Objects.requireNonNull($.group, "expected parameter 'group' to be non-null");
-            $.policyArn = Objects.requireNonNull($.policyArn, "expected parameter 'policyArn' to be non-null");
+            if ($.group == null) {
+                throw new MissingRequiredPropertyException("GroupPolicyAttachmentArgs", "group");
+            }
+            if ($.policyArn == null) {
+                throw new MissingRequiredPropertyException("GroupPolicyAttachmentArgs", "policyArn");
+            }
             return $;
         }
     }

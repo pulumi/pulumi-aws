@@ -7,6 +7,7 @@ import com.pulumi.aws.backup.inputs.FrameworkControlInputParameterArgs;
 import com.pulumi.aws.backup.inputs.FrameworkControlScopeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -163,7 +164,9 @@ public final class FrameworkControlArgs extends com.pulumi.resources.ResourceArg
         }
 
         public FrameworkControlArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("FrameworkControlArgs", "name");
+            }
             return $;
         }
     }

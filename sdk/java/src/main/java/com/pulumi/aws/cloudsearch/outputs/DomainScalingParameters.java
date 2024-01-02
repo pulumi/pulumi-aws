@@ -73,16 +73,19 @@ public final class DomainScalingParameters {
 
         @CustomType.Setter
         public Builder desiredInstanceType(@Nullable String desiredInstanceType) {
+
             this.desiredInstanceType = desiredInstanceType;
             return this;
         }
         @CustomType.Setter
         public Builder desiredPartitionCount(@Nullable Integer desiredPartitionCount) {
+
             this.desiredPartitionCount = desiredPartitionCount;
             return this;
         }
         @CustomType.Setter
         public Builder desiredReplicationCount(@Nullable Integer desiredReplicationCount) {
+
             this.desiredReplicationCount = desiredReplicationCount;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.budgets.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class BudgetActionSubscriberArgs extends com.pulumi.resources.Resou
         }
 
         public BudgetActionSubscriberArgs build() {
-            $.address = Objects.requireNonNull($.address, "expected parameter 'address' to be non-null");
-            $.subscriptionType = Objects.requireNonNull($.subscriptionType, "expected parameter 'subscriptionType' to be non-null");
+            if ($.address == null) {
+                throw new MissingRequiredPropertyException("BudgetActionSubscriberArgs", "address");
+            }
+            if ($.subscriptionType == null) {
+                throw new MissingRequiredPropertyException("BudgetActionSubscriberArgs", "subscriptionType");
+            }
             return $;
         }
     }

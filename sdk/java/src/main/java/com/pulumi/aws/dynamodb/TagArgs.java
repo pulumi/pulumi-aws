@@ -5,6 +5,7 @@ package com.pulumi.aws.dynamodb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TagArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("TagArgs", "key");
+            }
+            if ($.resourceArn == null) {
+                throw new MissingRequiredPropertyException("TagArgs", "resourceArn");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("TagArgs", "value");
+            }
             return $;
         }
     }

@@ -11,6 +11,7 @@ import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleNoncurrentVers
 import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleTransitionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -415,8 +416,12 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
         }
 
         public BucketLifecycleConfigurationV2RuleArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("BucketLifecycleConfigurationV2RuleArgs", "id");
+            }
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("BucketLifecycleConfigurationV2RuleArgs", "status");
+            }
             return $;
         }
     }

@@ -36,6 +36,7 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOver
 
         @CustomType.Setter
         public Builder action(@Nullable String action) {
+
             this.action = action;
             return this;
         }

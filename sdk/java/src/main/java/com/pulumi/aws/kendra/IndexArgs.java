@@ -10,6 +10,7 @@ import com.pulumi.aws.kendra.inputs.IndexUserGroupResolutionConfigurationArgs;
 import com.pulumi.aws.kendra.inputs.IndexUserTokenConfigurationsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -467,7 +468,9 @@ public final class IndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IndexArgs build() {
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("IndexArgs", "roleArn");
+            }
             return $;
         }
     }

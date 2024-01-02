@@ -147,41 +147,49 @@ public final class EmailIdentityDkimSigningAttributes {
 
         @CustomType.Setter
         public Builder currentSigningKeyLength(@Nullable String currentSigningKeyLength) {
+
             this.currentSigningKeyLength = currentSigningKeyLength;
             return this;
         }
         @CustomType.Setter
         public Builder domainSigningPrivateKey(@Nullable String domainSigningPrivateKey) {
+
             this.domainSigningPrivateKey = domainSigningPrivateKey;
             return this;
         }
         @CustomType.Setter
         public Builder domainSigningSelector(@Nullable String domainSigningSelector) {
+
             this.domainSigningSelector = domainSigningSelector;
             return this;
         }
         @CustomType.Setter
         public Builder lastKeyGenerationTimestamp(@Nullable String lastKeyGenerationTimestamp) {
+
             this.lastKeyGenerationTimestamp = lastKeyGenerationTimestamp;
             return this;
         }
         @CustomType.Setter
         public Builder nextSigningKeyLength(@Nullable String nextSigningKeyLength) {
+
             this.nextSigningKeyLength = nextSigningKeyLength;
             return this;
         }
         @CustomType.Setter
         public Builder signingAttributesOrigin(@Nullable String signingAttributesOrigin) {
+
             this.signingAttributesOrigin = signingAttributesOrigin;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tokens(@Nullable List<String> tokens) {
+
             this.tokens = tokens;
             return this;
         }

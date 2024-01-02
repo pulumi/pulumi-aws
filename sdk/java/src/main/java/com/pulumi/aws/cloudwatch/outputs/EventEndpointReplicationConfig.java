@@ -44,6 +44,7 @@ public final class EventEndpointReplicationConfig {
 
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }

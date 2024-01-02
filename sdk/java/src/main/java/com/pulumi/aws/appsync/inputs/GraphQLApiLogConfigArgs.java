@@ -5,6 +5,7 @@ package com.pulumi.aws.appsync.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class GraphQLApiLogConfigArgs extends com.pulumi.resources.Resource
         }
 
         public GraphQLApiLogConfigArgs build() {
-            $.cloudwatchLogsRoleArn = Objects.requireNonNull($.cloudwatchLogsRoleArn, "expected parameter 'cloudwatchLogsRoleArn' to be non-null");
-            $.fieldLogLevel = Objects.requireNonNull($.fieldLogLevel, "expected parameter 'fieldLogLevel' to be non-null");
+            if ($.cloudwatchLogsRoleArn == null) {
+                throw new MissingRequiredPropertyException("GraphQLApiLogConfigArgs", "cloudwatchLogsRoleArn");
+            }
+            if ($.fieldLogLevel == null) {
+                throw new MissingRequiredPropertyException("GraphQLApiLogConfigArgs", "fieldLogLevel");
+            }
             return $;
         }
     }

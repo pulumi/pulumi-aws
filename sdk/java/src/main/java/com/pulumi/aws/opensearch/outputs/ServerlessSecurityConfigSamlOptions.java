@@ -4,6 +4,7 @@
 package com.pulumi.aws.opensearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,21 +88,27 @@ public final class ServerlessSecurityConfigSamlOptions {
 
         @CustomType.Setter
         public Builder groupAttribute(@Nullable String groupAttribute) {
+
             this.groupAttribute = groupAttribute;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(String metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("ServerlessSecurityConfigSamlOptions", "metadata");
+            }
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder sessionTimeout(@Nullable Integer sessionTimeout) {
+
             this.sessionTimeout = sessionTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder userAttribute(@Nullable String userAttribute) {
+
             this.userAttribute = userAttribute;
             return this;
         }

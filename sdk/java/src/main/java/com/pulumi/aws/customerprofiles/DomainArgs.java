@@ -7,6 +7,7 @@ import com.pulumi.aws.customerprofiles.inputs.DomainMatchingArgs;
 import com.pulumi.aws.customerprofiles.inputs.DomainRuleBasedMatchingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -310,8 +311,12 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DomainArgs build() {
-            $.defaultExpirationDays = Objects.requireNonNull($.defaultExpirationDays, "expected parameter 'defaultExpirationDays' to be non-null");
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
+            if ($.defaultExpirationDays == null) {
+                throw new MissingRequiredPropertyException("DomainArgs", "defaultExpirationDays");
+            }
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("DomainArgs", "domainName");
+            }
             return $;
         }
     }

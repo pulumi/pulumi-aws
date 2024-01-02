@@ -4,6 +4,7 @@
 package com.pulumi.aws.acm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class CertificateValidationOption {
 
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("CertificateValidationOption", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder validationDomain(String validationDomain) {
-            this.validationDomain = Objects.requireNonNull(validationDomain);
+            if (validationDomain == null) {
+              throw new MissingRequiredPropertyException("CertificateValidationOption", "validationDomain");
+            }
+            this.validationDomain = validationDomain;
             return this;
         }
         public CertificateValidationOption build() {

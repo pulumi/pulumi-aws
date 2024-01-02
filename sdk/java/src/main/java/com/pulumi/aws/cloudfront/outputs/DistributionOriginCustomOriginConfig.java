@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -116,32 +117,46 @@ public final class DistributionOriginCustomOriginConfig {
 
         @CustomType.Setter
         public Builder httpPort(Integer httpPort) {
-            this.httpPort = Objects.requireNonNull(httpPort);
+            if (httpPort == null) {
+              throw new MissingRequiredPropertyException("DistributionOriginCustomOriginConfig", "httpPort");
+            }
+            this.httpPort = httpPort;
             return this;
         }
         @CustomType.Setter
         public Builder httpsPort(Integer httpsPort) {
-            this.httpsPort = Objects.requireNonNull(httpsPort);
+            if (httpsPort == null) {
+              throw new MissingRequiredPropertyException("DistributionOriginCustomOriginConfig", "httpsPort");
+            }
+            this.httpsPort = httpsPort;
             return this;
         }
         @CustomType.Setter
         public Builder originKeepaliveTimeout(@Nullable Integer originKeepaliveTimeout) {
+
             this.originKeepaliveTimeout = originKeepaliveTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder originProtocolPolicy(String originProtocolPolicy) {
-            this.originProtocolPolicy = Objects.requireNonNull(originProtocolPolicy);
+            if (originProtocolPolicy == null) {
+              throw new MissingRequiredPropertyException("DistributionOriginCustomOriginConfig", "originProtocolPolicy");
+            }
+            this.originProtocolPolicy = originProtocolPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder originReadTimeout(@Nullable Integer originReadTimeout) {
+
             this.originReadTimeout = originReadTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder originSslProtocols(List<String> originSslProtocols) {
-            this.originSslProtocols = Objects.requireNonNull(originSslProtocols);
+            if (originSslProtocols == null) {
+              throw new MissingRequiredPropertyException("DistributionOriginCustomOriginConfig", "originSslProtocols");
+            }
+            this.originSslProtocols = originSslProtocols;
             return this;
         }
         public Builder originSslProtocols(String... originSslProtocols) {

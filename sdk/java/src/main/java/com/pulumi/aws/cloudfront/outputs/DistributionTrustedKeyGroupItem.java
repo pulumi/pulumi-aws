@@ -59,11 +59,13 @@ public final class DistributionTrustedKeyGroupItem {
 
         @CustomType.Setter
         public Builder keyGroupId(@Nullable String keyGroupId) {
+
             this.keyGroupId = keyGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder keyPairIds(@Nullable List<String> keyPairIds) {
+
             this.keyPairIds = keyPairIds;
             return this;
         }

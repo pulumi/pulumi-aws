@@ -7,6 +7,7 @@ import com.pulumi.aws.rds.inputs.OptionGroupOptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -312,8 +313,12 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OptionGroupArgs build() {
-            $.engineName = Objects.requireNonNull($.engineName, "expected parameter 'engineName' to be non-null");
-            $.majorEngineVersion = Objects.requireNonNull($.majorEngineVersion, "expected parameter 'majorEngineVersion' to be non-null");
+            if ($.engineName == null) {
+                throw new MissingRequiredPropertyException("OptionGroupArgs", "engineName");
+            }
+            if ($.majorEngineVersion == null) {
+                throw new MissingRequiredPropertyException("OptionGroupArgs", "majorEngineVersion");
+            }
             $.optionGroupDescription = Codegen.stringProp("optionGroupDescription").output().arg($.optionGroupDescription).def("Managed by Pulumi").getNullable();
             return $;
         }

@@ -10,6 +10,7 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerPortMapping;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTimeout;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTl;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -70,7 +71,10 @@ public final class GetVirtualNodeSpecListener {
 
         @CustomType.Setter
         public Builder connectionPools(List<GetVirtualNodeSpecListenerConnectionPool> connectionPools) {
-            this.connectionPools = Objects.requireNonNull(connectionPools);
+            if (connectionPools == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListener", "connectionPools");
+            }
+            this.connectionPools = connectionPools;
             return this;
         }
         public Builder connectionPools(GetVirtualNodeSpecListenerConnectionPool... connectionPools) {
@@ -78,7 +82,10 @@ public final class GetVirtualNodeSpecListener {
         }
         @CustomType.Setter
         public Builder healthChecks(List<GetVirtualNodeSpecListenerHealthCheck> healthChecks) {
-            this.healthChecks = Objects.requireNonNull(healthChecks);
+            if (healthChecks == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListener", "healthChecks");
+            }
+            this.healthChecks = healthChecks;
             return this;
         }
         public Builder healthChecks(GetVirtualNodeSpecListenerHealthCheck... healthChecks) {
@@ -86,7 +93,10 @@ public final class GetVirtualNodeSpecListener {
         }
         @CustomType.Setter
         public Builder outlierDetections(List<GetVirtualNodeSpecListenerOutlierDetection> outlierDetections) {
-            this.outlierDetections = Objects.requireNonNull(outlierDetections);
+            if (outlierDetections == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListener", "outlierDetections");
+            }
+            this.outlierDetections = outlierDetections;
             return this;
         }
         public Builder outlierDetections(GetVirtualNodeSpecListenerOutlierDetection... outlierDetections) {
@@ -94,7 +104,10 @@ public final class GetVirtualNodeSpecListener {
         }
         @CustomType.Setter
         public Builder portMappings(List<GetVirtualNodeSpecListenerPortMapping> portMappings) {
-            this.portMappings = Objects.requireNonNull(portMappings);
+            if (portMappings == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListener", "portMappings");
+            }
+            this.portMappings = portMappings;
             return this;
         }
         public Builder portMappings(GetVirtualNodeSpecListenerPortMapping... portMappings) {
@@ -102,7 +115,10 @@ public final class GetVirtualNodeSpecListener {
         }
         @CustomType.Setter
         public Builder timeouts(List<GetVirtualNodeSpecListenerTimeout> timeouts) {
-            this.timeouts = Objects.requireNonNull(timeouts);
+            if (timeouts == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListener", "timeouts");
+            }
+            this.timeouts = timeouts;
             return this;
         }
         public Builder timeouts(GetVirtualNodeSpecListenerTimeout... timeouts) {
@@ -110,7 +126,10 @@ public final class GetVirtualNodeSpecListener {
         }
         @CustomType.Setter
         public Builder tls(List<GetVirtualNodeSpecListenerTl> tls) {
-            this.tls = Objects.requireNonNull(tls);
+            if (tls == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListener", "tls");
+            }
+            this.tls = tls;
             return this;
         }
         public Builder tls(GetVirtualNodeSpecListenerTl... tls) {

@@ -6,6 +6,7 @@ package com.pulumi.aws.sfn;
 import com.pulumi.aws.sfn.inputs.AliasRoutingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -162,7 +163,9 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AliasArgs build() {
-            $.routingConfigurations = Objects.requireNonNull($.routingConfigurations, "expected parameter 'routingConfigurations' to be non-null");
+            if ($.routingConfigurations == null) {
+                throw new MissingRequiredPropertyException("AliasArgs", "routingConfigurations");
+            }
             return $;
         }
     }

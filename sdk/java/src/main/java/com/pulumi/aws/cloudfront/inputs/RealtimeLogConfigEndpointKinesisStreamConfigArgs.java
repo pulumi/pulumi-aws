@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -115,8 +116,12 @@ public final class RealtimeLogConfigEndpointKinesisStreamConfigArgs extends com.
         }
 
         public RealtimeLogConfigEndpointKinesisStreamConfigArgs build() {
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.streamArn = Objects.requireNonNull($.streamArn, "expected parameter 'streamArn' to be non-null");
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("RealtimeLogConfigEndpointKinesisStreamConfigArgs", "roleArn");
+            }
+            if ($.streamArn == null) {
+                throw new MissingRequiredPropertyException("RealtimeLogConfigEndpointKinesisStreamConfigArgs", "streamArn");
+            }
             return $;
         }
     }

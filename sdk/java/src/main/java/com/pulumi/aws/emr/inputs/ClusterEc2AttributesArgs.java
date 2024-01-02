@@ -5,6 +5,7 @@ package com.pulumi.aws.emr.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -393,7 +394,9 @@ public final class ClusterEc2AttributesArgs extends com.pulumi.resources.Resourc
         }
 
         public ClusterEc2AttributesArgs build() {
-            $.instanceProfile = Objects.requireNonNull($.instanceProfile, "expected parameter 'instanceProfile' to be non-null");
+            if ($.instanceProfile == null) {
+                throw new MissingRequiredPropertyException("ClusterEc2AttributesArgs", "instanceProfile");
+            }
             return $;
         }
     }

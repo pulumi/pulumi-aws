@@ -5,6 +5,7 @@ package com.pulumi.aws.amplify.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class AppCustomRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AppCustomRuleArgs build() {
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("AppCustomRuleArgs", "source");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("AppCustomRuleArgs", "target");
+            }
             return $;
         }
     }

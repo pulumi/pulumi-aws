@@ -6,6 +6,7 @@ package com.pulumi.aws.glue;
 import com.pulumi.aws.glue.inputs.PartitionIndexPartitionIndexArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,9 +189,15 @@ public final class PartitionIndexArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public PartitionIndexArgs build() {
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.partitionIndex = Objects.requireNonNull($.partitionIndex, "expected parameter 'partitionIndex' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("PartitionIndexArgs", "databaseName");
+            }
+            if ($.partitionIndex == null) {
+                throw new MissingRequiredPropertyException("PartitionIndexArgs", "partitionIndex");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("PartitionIndexArgs", "tableName");
+            }
             return $;
         }
     }

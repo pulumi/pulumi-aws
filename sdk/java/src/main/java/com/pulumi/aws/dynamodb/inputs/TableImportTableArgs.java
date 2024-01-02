@@ -7,6 +7,7 @@ import com.pulumi.aws.dynamodb.inputs.TableImportTableInputFormatOptionsArgs;
 import com.pulumi.aws.dynamodb.inputs.TableImportTableS3BucketSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -209,8 +210,12 @@ public final class TableImportTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         public TableImportTableArgs build() {
-            $.inputFormat = Objects.requireNonNull($.inputFormat, "expected parameter 'inputFormat' to be non-null");
-            $.s3BucketSource = Objects.requireNonNull($.s3BucketSource, "expected parameter 's3BucketSource' to be non-null");
+            if ($.inputFormat == null) {
+                throw new MissingRequiredPropertyException("TableImportTableArgs", "inputFormat");
+            }
+            if ($.s3BucketSource == null) {
+                throw new MissingRequiredPropertyException("TableImportTableArgs", "s3BucketSource");
+            }
             return $;
         }
     }

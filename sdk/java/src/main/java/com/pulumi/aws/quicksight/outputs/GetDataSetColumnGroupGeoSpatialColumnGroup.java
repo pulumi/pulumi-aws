@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -47,7 +48,10 @@ public final class GetDataSetColumnGroupGeoSpatialColumnGroup {
 
         @CustomType.Setter
         public Builder columns(List<String> columns) {
-            this.columns = Objects.requireNonNull(columns);
+            if (columns == null) {
+              throw new MissingRequiredPropertyException("GetDataSetColumnGroupGeoSpatialColumnGroup", "columns");
+            }
+            this.columns = columns;
             return this;
         }
         public Builder columns(String... columns) {
@@ -55,12 +59,18 @@ public final class GetDataSetColumnGroupGeoSpatialColumnGroup {
         }
         @CustomType.Setter
         public Builder countryCode(String countryCode) {
-            this.countryCode = Objects.requireNonNull(countryCode);
+            if (countryCode == null) {
+              throw new MissingRequiredPropertyException("GetDataSetColumnGroupGeoSpatialColumnGroup", "countryCode");
+            }
+            this.countryCode = countryCode;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDataSetColumnGroupGeoSpatialColumnGroup", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetDataSetColumnGroupGeoSpatialColumnGroup build() {

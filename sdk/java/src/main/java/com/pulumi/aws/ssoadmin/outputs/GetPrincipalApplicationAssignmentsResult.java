@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin.outputs;
 
 import com.pulumi.aws.ssoadmin.outputs.GetPrincipalApplicationAssignmentsApplicationAssignment;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,6 +86,7 @@ public final class GetPrincipalApplicationAssignmentsResult {
 
         @CustomType.Setter
         public Builder applicationAssignments(@Nullable List<GetPrincipalApplicationAssignmentsApplicationAssignment> applicationAssignments) {
+
             this.applicationAssignments = applicationAssignments;
             return this;
         }
@@ -93,22 +95,34 @@ public final class GetPrincipalApplicationAssignmentsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalApplicationAssignmentsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceArn(String instanceArn) {
-            this.instanceArn = Objects.requireNonNull(instanceArn);
+            if (instanceArn == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalApplicationAssignmentsResult", "instanceArn");
+            }
+            this.instanceArn = instanceArn;
             return this;
         }
         @CustomType.Setter
         public Builder principalId(String principalId) {
-            this.principalId = Objects.requireNonNull(principalId);
+            if (principalId == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalApplicationAssignmentsResult", "principalId");
+            }
+            this.principalId = principalId;
             return this;
         }
         @CustomType.Setter
         public Builder principalType(String principalType) {
-            this.principalType = Objects.requireNonNull(principalType);
+            if (principalType == null) {
+              throw new MissingRequiredPropertyException("GetPrincipalApplicationAssignmentsResult", "principalType");
+            }
+            this.principalType = principalType;
             return this;
         }
         public GetPrincipalApplicationAssignmentsResult build() {

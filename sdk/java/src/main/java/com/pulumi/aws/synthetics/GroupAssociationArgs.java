@@ -5,6 +5,7 @@ package com.pulumi.aws.synthetics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GroupAssociationArgs extends com.pulumi.resources.ResourceArg
         }
 
         public GroupAssociationArgs build() {
-            $.canaryArn = Objects.requireNonNull($.canaryArn, "expected parameter 'canaryArn' to be non-null");
-            $.groupName = Objects.requireNonNull($.groupName, "expected parameter 'groupName' to be non-null");
+            if ($.canaryArn == null) {
+                throw new MissingRequiredPropertyException("GroupAssociationArgs", "canaryArn");
+            }
+            if ($.groupName == null) {
+                throw new MissingRequiredPropertyException("GroupAssociationArgs", "groupName");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.alb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -47,17 +48,26 @@ public final class GetListenerMutualAuthentication {
 
         @CustomType.Setter
         public Builder ignoreClientCertificateExpiry(Boolean ignoreClientCertificateExpiry) {
-            this.ignoreClientCertificateExpiry = Objects.requireNonNull(ignoreClientCertificateExpiry);
+            if (ignoreClientCertificateExpiry == null) {
+              throw new MissingRequiredPropertyException("GetListenerMutualAuthentication", "ignoreClientCertificateExpiry");
+            }
+            this.ignoreClientCertificateExpiry = ignoreClientCertificateExpiry;
             return this;
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("GetListenerMutualAuthentication", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder trustStoreArn(String trustStoreArn) {
-            this.trustStoreArn = Objects.requireNonNull(trustStoreArn);
+            if (trustStoreArn == null) {
+              throw new MissingRequiredPropertyException("GetListenerMutualAuthentication", "trustStoreArn");
+            }
+            this.trustStoreArn = trustStoreArn;
             return this;
         }
         public GetListenerMutualAuthentication build() {

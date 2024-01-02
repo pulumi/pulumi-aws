@@ -5,6 +5,7 @@ package com.pulumi.aws.identitystore;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public GroupMembershipArgs build() {
-            $.groupId = Objects.requireNonNull($.groupId, "expected parameter 'groupId' to be non-null");
-            $.identityStoreId = Objects.requireNonNull($.identityStoreId, "expected parameter 'identityStoreId' to be non-null");
-            $.memberId = Objects.requireNonNull($.memberId, "expected parameter 'memberId' to be non-null");
+            if ($.groupId == null) {
+                throw new MissingRequiredPropertyException("GroupMembershipArgs", "groupId");
+            }
+            if ($.identityStoreId == null) {
+                throw new MissingRequiredPropertyException("GroupMembershipArgs", "identityStoreId");
+            }
+            if ($.memberId == null) {
+                throw new MissingRequiredPropertyException("GroupMembershipArgs", "memberId");
+            }
             return $;
         }
     }

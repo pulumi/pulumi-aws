@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -50,7 +51,10 @@ public final class ChannelEncoderSettingsAudioDescriptionRemixSettings {
 
         @CustomType.Setter
         public Builder channelMappings(List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping> channelMappings) {
-            this.channelMappings = Objects.requireNonNull(channelMappings);
+            if (channelMappings == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescriptionRemixSettings", "channelMappings");
+            }
+            this.channelMappings = channelMappings;
             return this;
         }
         public Builder channelMappings(ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping... channelMappings) {
@@ -58,11 +62,13 @@ public final class ChannelEncoderSettingsAudioDescriptionRemixSettings {
         }
         @CustomType.Setter
         public Builder channelsIn(@Nullable Integer channelsIn) {
+
             this.channelsIn = channelsIn;
             return this;
         }
         @CustomType.Setter
         public Builder channelsOut(@Nullable Integer channelsOut) {
+
             this.channelsOut = channelsOut;
             return this;
         }

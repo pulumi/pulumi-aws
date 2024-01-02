@@ -5,6 +5,7 @@ package com.pulumi.aws.codeartifact.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -110,7 +111,9 @@ public final class RepositoryExternalConnectionsArgs extends com.pulumi.resource
         }
 
         public RepositoryExternalConnectionsArgs build() {
-            $.externalConnectionName = Objects.requireNonNull($.externalConnectionName, "expected parameter 'externalConnectionName' to be non-null");
+            if ($.externalConnectionName == null) {
+                throw new MissingRequiredPropertyException("RepositoryExternalConnectionsArgs", "externalConnectionName");
+            }
             return $;
         }
     }

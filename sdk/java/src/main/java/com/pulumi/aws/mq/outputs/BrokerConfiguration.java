@@ -59,11 +59,13 @@ public final class BrokerConfiguration {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder revision(@Nullable Integer revision) {
+
             this.revision = revision;
             return this;
         }

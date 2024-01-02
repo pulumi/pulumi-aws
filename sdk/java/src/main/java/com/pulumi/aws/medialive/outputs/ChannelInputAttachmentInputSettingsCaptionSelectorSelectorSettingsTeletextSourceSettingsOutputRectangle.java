@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
         @CustomType.Setter
         public Builder height(Double height) {
-            this.height = Objects.requireNonNull(height);
+            if (height == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle", "height");
+            }
+            this.height = height;
             return this;
         }
         @CustomType.Setter
         public Builder leftOffset(Double leftOffset) {
-            this.leftOffset = Objects.requireNonNull(leftOffset);
+            if (leftOffset == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle", "leftOffset");
+            }
+            this.leftOffset = leftOffset;
             return this;
         }
         @CustomType.Setter
         public Builder topOffset(Double topOffset) {
-            this.topOffset = Objects.requireNonNull(topOffset);
+            if (topOffset == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle", "topOffset");
+            }
+            this.topOffset = topOffset;
             return this;
         }
         @CustomType.Setter
         public Builder width(Double width) {
-            this.width = Objects.requireNonNull(width);
+            if (width == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle", "width");
+            }
+            this.width = width;
             return this;
         }
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle build() {

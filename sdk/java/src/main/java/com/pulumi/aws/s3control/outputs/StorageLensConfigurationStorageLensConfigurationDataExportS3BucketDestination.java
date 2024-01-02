@@ -5,6 +5,7 @@ package com.pulumi.aws.s3control.outputs;
 
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -115,31 +116,45 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
 
         @CustomType.Setter
         public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder encryption(@Nullable StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption encryption) {
+
             this.encryption = encryption;
             return this;
         }
         @CustomType.Setter
         public Builder format(String format) {
-            this.format = Objects.requireNonNull(format);
+            if (format == null) {
+              throw new MissingRequiredPropertyException("StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination", "format");
+            }
+            this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder outputSchemaVersion(String outputSchemaVersion) {
-            this.outputSchemaVersion = Objects.requireNonNull(outputSchemaVersion);
+            if (outputSchemaVersion == null) {
+              throw new MissingRequiredPropertyException("StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination", "outputSchemaVersion");
+            }
+            this.outputSchemaVersion = outputSchemaVersion;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }

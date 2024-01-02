@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.inputs;
 import com.pulumi.aws.appmesh.inputs.RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -215,8 +216,12 @@ public final class RouteSpecHttp2RouteRetryPolicyArgs extends com.pulumi.resourc
         }
 
         public RouteSpecHttp2RouteRetryPolicyArgs build() {
-            $.maxRetries = Objects.requireNonNull($.maxRetries, "expected parameter 'maxRetries' to be non-null");
-            $.perRetryTimeout = Objects.requireNonNull($.perRetryTimeout, "expected parameter 'perRetryTimeout' to be non-null");
+            if ($.maxRetries == null) {
+                throw new MissingRequiredPropertyException("RouteSpecHttp2RouteRetryPolicyArgs", "maxRetries");
+            }
+            if ($.perRetryTimeout == null) {
+                throw new MissingRequiredPropertyException("RouteSpecHttp2RouteRetryPolicyArgs", "perRetryTimeout");
+            }
             return $;
         }
     }

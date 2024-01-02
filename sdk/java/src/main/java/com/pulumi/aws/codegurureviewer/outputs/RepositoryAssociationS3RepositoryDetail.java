@@ -52,11 +52,13 @@ public final class RepositoryAssociationS3RepositoryDetail {
 
         @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
+
             this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder codeArtifacts(@Nullable List<RepositoryAssociationS3RepositoryDetailCodeArtifact> codeArtifacts) {
+
             this.codeArtifacts = codeArtifacts;
             return this;
         }

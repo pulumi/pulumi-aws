@@ -4,6 +4,7 @@
 package com.pulumi.aws.emr.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -336,17 +337,39 @@ public final class GetSupportedInstanceTypesSupportedInstanceType extends com.pu
         }
 
         public GetSupportedInstanceTypesSupportedInstanceType build() {
-            $.architecture = Objects.requireNonNull($.architecture, "expected parameter 'architecture' to be non-null");
-            $.ebsOptimizedAvailable = Objects.requireNonNull($.ebsOptimizedAvailable, "expected parameter 'ebsOptimizedAvailable' to be non-null");
-            $.ebsOptimizedByDefault = Objects.requireNonNull($.ebsOptimizedByDefault, "expected parameter 'ebsOptimizedByDefault' to be non-null");
-            $.ebsStorageOnly = Objects.requireNonNull($.ebsStorageOnly, "expected parameter 'ebsStorageOnly' to be non-null");
-            $.instanceFamilyId = Objects.requireNonNull($.instanceFamilyId, "expected parameter 'instanceFamilyId' to be non-null");
-            $.is64BitsOnly = Objects.requireNonNull($.is64BitsOnly, "expected parameter 'is64BitsOnly' to be non-null");
-            $.memoryGb = Objects.requireNonNull($.memoryGb, "expected parameter 'memoryGb' to be non-null");
-            $.numberOfDisks = Objects.requireNonNull($.numberOfDisks, "expected parameter 'numberOfDisks' to be non-null");
-            $.storageGb = Objects.requireNonNull($.storageGb, "expected parameter 'storageGb' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.vcpu = Objects.requireNonNull($.vcpu, "expected parameter 'vcpu' to be non-null");
+            if ($.architecture == null) {
+                throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "architecture");
+            }
+            if ($.ebsOptimizedAvailable == null) {
+                throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "ebsOptimizedAvailable");
+            }
+            if ($.ebsOptimizedByDefault == null) {
+                throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "ebsOptimizedByDefault");
+            }
+            if ($.ebsStorageOnly == null) {
+                throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "ebsStorageOnly");
+            }
+            if ($.instanceFamilyId == null) {
+                throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "instanceFamilyId");
+            }
+            if ($.is64BitsOnly == null) {
+                throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "is64BitsOnly");
+            }
+            if ($.memoryGb == null) {
+                throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "memoryGb");
+            }
+            if ($.numberOfDisks == null) {
+                throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "numberOfDisks");
+            }
+            if ($.storageGb == null) {
+                throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "storageGb");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "type");
+            }
+            if ($.vcpu == null) {
+                throw new MissingRequiredPropertyException("GetSupportedInstanceTypesSupportedInstanceType", "vcpu");
+            }
             return $;
         }
     }

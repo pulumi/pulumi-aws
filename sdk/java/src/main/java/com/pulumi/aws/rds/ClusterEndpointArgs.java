@@ -5,6 +5,7 @@ package com.pulumi.aws.rds;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -283,9 +284,15 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ClusterEndpointArgs build() {
-            $.clusterEndpointIdentifier = Objects.requireNonNull($.clusterEndpointIdentifier, "expected parameter 'clusterEndpointIdentifier' to be non-null");
-            $.clusterIdentifier = Objects.requireNonNull($.clusterIdentifier, "expected parameter 'clusterIdentifier' to be non-null");
-            $.customEndpointType = Objects.requireNonNull($.customEndpointType, "expected parameter 'customEndpointType' to be non-null");
+            if ($.clusterEndpointIdentifier == null) {
+                throw new MissingRequiredPropertyException("ClusterEndpointArgs", "clusterEndpointIdentifier");
+            }
+            if ($.clusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("ClusterEndpointArgs", "clusterIdentifier");
+            }
+            if ($.customEndpointType == null) {
+                throw new MissingRequiredPropertyException("ClusterEndpointArgs", "customEndpointType");
+            }
             return $;
         }
     }

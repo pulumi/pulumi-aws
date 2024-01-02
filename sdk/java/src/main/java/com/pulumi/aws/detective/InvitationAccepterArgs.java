@@ -5,6 +5,7 @@ package com.pulumi.aws.detective;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class InvitationAccepterArgs extends com.pulumi.resources.ResourceA
         }
 
         public InvitationAccepterArgs build() {
-            $.graphArn = Objects.requireNonNull($.graphArn, "expected parameter 'graphArn' to be non-null");
+            if ($.graphArn == null) {
+                throw new MissingRequiredPropertyException("InvitationAccepterArgs", "graphArn");
+            }
             return $;
         }
     }

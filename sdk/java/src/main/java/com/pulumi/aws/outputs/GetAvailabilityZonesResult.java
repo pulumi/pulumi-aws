@@ -5,6 +5,7 @@ package com.pulumi.aws.outputs;
 
 import com.pulumi.aws.outputs.GetAvailabilityZonesFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -119,11 +120,13 @@ public final class GetAvailabilityZonesResult {
 
         @CustomType.Setter
         public Builder allAvailabilityZones(@Nullable Boolean allAvailabilityZones) {
+
             this.allAvailabilityZones = allAvailabilityZones;
             return this;
         }
         @CustomType.Setter
         public Builder excludeNames(@Nullable List<String> excludeNames) {
+
             this.excludeNames = excludeNames;
             return this;
         }
@@ -132,6 +135,7 @@ public final class GetAvailabilityZonesResult {
         }
         @CustomType.Setter
         public Builder excludeZoneIds(@Nullable List<String> excludeZoneIds) {
+
             this.excludeZoneIds = excludeZoneIds;
             return this;
         }
@@ -140,6 +144,7 @@ public final class GetAvailabilityZonesResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetAvailabilityZonesFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -148,7 +153,10 @@ public final class GetAvailabilityZonesResult {
         }
         @CustomType.Setter
         public Builder groupNames(List<String> groupNames) {
-            this.groupNames = Objects.requireNonNull(groupNames);
+            if (groupNames == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZonesResult", "groupNames");
+            }
+            this.groupNames = groupNames;
             return this;
         }
         public Builder groupNames(String... groupNames) {
@@ -156,12 +164,18 @@ public final class GetAvailabilityZonesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZonesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+            if (names == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZonesResult", "names");
+            }
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {
@@ -169,12 +183,16 @@ public final class GetAvailabilityZonesResult {
         }
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder zoneIds(List<String> zoneIds) {
-            this.zoneIds = Objects.requireNonNull(zoneIds);
+            if (zoneIds == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZonesResult", "zoneIds");
+            }
+            this.zoneIds = zoneIds;
             return this;
         }
         public Builder zoneIds(String... zoneIds) {

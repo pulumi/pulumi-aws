@@ -44,6 +44,7 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTagColum
 
         @CustomType.Setter
         public Builder text(@Nullable String text) {
+
             this.text = text;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.connect;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -414,9 +415,15 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public InstanceArgs build() {
-            $.identityManagementType = Objects.requireNonNull($.identityManagementType, "expected parameter 'identityManagementType' to be non-null");
-            $.inboundCallsEnabled = Objects.requireNonNull($.inboundCallsEnabled, "expected parameter 'inboundCallsEnabled' to be non-null");
-            $.outboundCallsEnabled = Objects.requireNonNull($.outboundCallsEnabled, "expected parameter 'outboundCallsEnabled' to be non-null");
+            if ($.identityManagementType == null) {
+                throw new MissingRequiredPropertyException("InstanceArgs", "identityManagementType");
+            }
+            if ($.inboundCallsEnabled == null) {
+                throw new MissingRequiredPropertyException("InstanceArgs", "inboundCallsEnabled");
+            }
+            if ($.outboundCallsEnabled == null) {
+                throw new MissingRequiredPropertyException("InstanceArgs", "outboundCallsEnabled");
+            }
             return $;
         }
     }

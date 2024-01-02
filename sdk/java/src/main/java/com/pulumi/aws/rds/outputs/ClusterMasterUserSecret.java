@@ -72,16 +72,19 @@ public final class ClusterMasterUserSecret {
 
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder secretArn(@Nullable String secretArn) {
+
             this.secretArn = secretArn;
             return this;
         }
         @CustomType.Setter
         public Builder secretStatus(@Nullable String secretStatus) {
+
             this.secretStatus = secretStatus;
             return this;
         }

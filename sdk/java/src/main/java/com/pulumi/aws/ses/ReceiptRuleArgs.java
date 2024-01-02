@@ -12,6 +12,7 @@ import com.pulumi.aws.ses.inputs.ReceiptRuleStopActionArgs;
 import com.pulumi.aws.ses.inputs.ReceiptRuleWorkmailActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -646,7 +647,9 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ReceiptRuleArgs build() {
-            $.ruleSetName = Objects.requireNonNull($.ruleSetName, "expected parameter 'ruleSetName' to be non-null");
+            if ($.ruleSetName == null) {
+                throw new MissingRequiredPropertyException("ReceiptRuleArgs", "ruleSetName");
+            }
             return $;
         }
     }

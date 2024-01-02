@@ -6,6 +6,7 @@ package com.pulumi.aws.datasync;
 import com.pulumi.aws.datasync.inputs.LocationSmbMountOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -348,11 +349,21 @@ public final class LocationSmbArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LocationSmbArgs build() {
-            $.agentArns = Objects.requireNonNull($.agentArns, "expected parameter 'agentArns' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.serverHostname = Objects.requireNonNull($.serverHostname, "expected parameter 'serverHostname' to be non-null");
-            $.subdirectory = Objects.requireNonNull($.subdirectory, "expected parameter 'subdirectory' to be non-null");
-            $.user = Objects.requireNonNull($.user, "expected parameter 'user' to be non-null");
+            if ($.agentArns == null) {
+                throw new MissingRequiredPropertyException("LocationSmbArgs", "agentArns");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("LocationSmbArgs", "password");
+            }
+            if ($.serverHostname == null) {
+                throw new MissingRequiredPropertyException("LocationSmbArgs", "serverHostname");
+            }
+            if ($.subdirectory == null) {
+                throw new MissingRequiredPropertyException("LocationSmbArgs", "subdirectory");
+            }
+            if ($.user == null) {
+                throw new MissingRequiredPropertyException("LocationSmbArgs", "user");
+            }
             return $;
         }
     }
