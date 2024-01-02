@@ -44,6 +44,7 @@ public final class EventEndpointRoutingConfigFailoverConfigPrimary {
 
         @CustomType.Setter
         public Builder healthCheck(@Nullable String healthCheck) {
+
             this.healthCheck = healthCheck;
             return this;
         }

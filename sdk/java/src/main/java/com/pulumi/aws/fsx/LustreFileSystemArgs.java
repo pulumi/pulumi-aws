@@ -7,6 +7,7 @@ import com.pulumi.aws.fsx.inputs.LustreFileSystemLogConfigurationArgs;
 import com.pulumi.aws.fsx.inputs.LustreFileSystemRootSquashConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -869,7 +870,9 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         }
 
         public LustreFileSystemArgs build() {
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("LustreFileSystemArgs", "subnetIds");
+            }
             return $;
         }
     }

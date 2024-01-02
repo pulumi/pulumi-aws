@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder apiSecretKey(String apiSecretKey) {
-            this.apiSecretKey = Objects.requireNonNull(apiSecretKey);
+            if (apiSecretKey == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro", "apiSecretKey");
+            }
+            this.apiSecretKey = apiSecretKey;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro build() {

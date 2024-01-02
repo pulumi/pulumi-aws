@@ -48,16 +48,19 @@ public final class SigningJobRevocationRecord {
 
         @CustomType.Setter
         public Builder reason(@Nullable String reason) {
+
             this.reason = reason;
             return this;
         }
         @CustomType.Setter
         public Builder revokedAt(@Nullable String revokedAt) {
+
             this.revokedAt = revokedAt;
             return this;
         }
         @CustomType.Setter
         public Builder revokedBy(@Nullable String revokedBy) {
+
             this.revokedBy = revokedBy;
             return this;
         }

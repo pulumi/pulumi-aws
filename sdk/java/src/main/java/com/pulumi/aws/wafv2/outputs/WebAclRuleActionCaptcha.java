@@ -44,6 +44,7 @@ public final class WebAclRuleActionCaptcha {
 
         @CustomType.Setter
         public Builder customRequestHandling(@Nullable WebAclRuleActionCaptchaCustomRequestHandling customRequestHandling) {
+
             this.customRequestHandling = customRequestHandling;
             return this;
         }

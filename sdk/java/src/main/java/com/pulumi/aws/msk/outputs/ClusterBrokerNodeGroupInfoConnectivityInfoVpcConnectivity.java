@@ -44,6 +44,7 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
 
         @CustomType.Setter
         public Builder clientAuthentication(@Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication clientAuthentication) {
+
             this.clientAuthentication = clientAuthentication;
             return this;
         }

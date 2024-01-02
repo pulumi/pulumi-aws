@@ -4,6 +4,7 @@
 package com.pulumi.aws.redshift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -102,26 +103,33 @@ public final class ScheduledActionTargetActionResizeCluster {
 
         @CustomType.Setter
         public Builder classic(@Nullable Boolean classic) {
+
             this.classic = classic;
             return this;
         }
         @CustomType.Setter
         public Builder clusterIdentifier(String clusterIdentifier) {
-            this.clusterIdentifier = Objects.requireNonNull(clusterIdentifier);
+            if (clusterIdentifier == null) {
+              throw new MissingRequiredPropertyException("ScheduledActionTargetActionResizeCluster", "clusterIdentifier");
+            }
+            this.clusterIdentifier = clusterIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder clusterType(@Nullable String clusterType) {
+
             this.clusterType = clusterType;
             return this;
         }
         @CustomType.Setter
         public Builder nodeType(@Nullable String nodeType) {
+
             this.nodeType = nodeType;
             return this;
         }
         @CustomType.Setter
         public Builder numberOfNodes(@Nullable Integer numberOfNodes) {
+
             this.numberOfNodes = numberOfNodes;
             return this;
         }

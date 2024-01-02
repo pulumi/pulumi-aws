@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -208,7 +209,9 @@ public final class NetworkInsightsAnalysisArgs extends com.pulumi.resources.Reso
         }
 
         public NetworkInsightsAnalysisArgs build() {
-            $.networkInsightsPathId = Objects.requireNonNull($.networkInsightsPathId, "expected parameter 'networkInsightsPathId' to be non-null");
+            if ($.networkInsightsPathId == null) {
+                throw new MissingRequiredPropertyException("NetworkInsightsAnalysisArgs", "networkInsightsPathId");
+            }
             return $;
         }
     }

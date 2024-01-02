@@ -59,11 +59,13 @@ public final class ClusterEncryptionInfo {
 
         @CustomType.Setter
         public Builder encryptionAtRestKmsKeyArn(@Nullable String encryptionAtRestKmsKeyArn) {
+
             this.encryptionAtRestKmsKeyArn = encryptionAtRestKmsKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionInTransit(@Nullable ClusterEncryptionInfoEncryptionInTransit encryptionInTransit) {
+
             this.encryptionInTransit = encryptionInTransit;
             return this;
         }

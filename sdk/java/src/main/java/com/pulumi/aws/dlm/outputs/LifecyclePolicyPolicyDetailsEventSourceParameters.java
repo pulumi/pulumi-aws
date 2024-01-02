@@ -4,6 +4,7 @@
 package com.pulumi.aws.dlm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class LifecyclePolicyPolicyDetailsEventSourceParameters {
 
         @CustomType.Setter
         public Builder descriptionRegex(String descriptionRegex) {
-            this.descriptionRegex = Objects.requireNonNull(descriptionRegex);
+            if (descriptionRegex == null) {
+              throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsEventSourceParameters", "descriptionRegex");
+            }
+            this.descriptionRegex = descriptionRegex;
             return this;
         }
         @CustomType.Setter
         public Builder eventType(String eventType) {
-            this.eventType = Objects.requireNonNull(eventType);
+            if (eventType == null) {
+              throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsEventSourceParameters", "eventType");
+            }
+            this.eventType = eventType;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotOwners(List<String> snapshotOwners) {
-            this.snapshotOwners = Objects.requireNonNull(snapshotOwners);
+            if (snapshotOwners == null) {
+              throw new MissingRequiredPropertyException("LifecyclePolicyPolicyDetailsEventSourceParameters", "snapshotOwners");
+            }
+            this.snapshotOwners = snapshotOwners;
             return this;
         }
         public Builder snapshotOwners(String... snapshotOwners) {

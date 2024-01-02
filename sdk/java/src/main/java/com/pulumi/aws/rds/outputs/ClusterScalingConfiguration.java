@@ -102,26 +102,31 @@ public final class ClusterScalingConfiguration {
 
         @CustomType.Setter
         public Builder autoPause(@Nullable Boolean autoPause) {
+
             this.autoPause = autoPause;
             return this;
         }
         @CustomType.Setter
         public Builder maxCapacity(@Nullable Integer maxCapacity) {
+
             this.maxCapacity = maxCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder minCapacity(@Nullable Integer minCapacity) {
+
             this.minCapacity = minCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder secondsUntilAutoPause(@Nullable Integer secondsUntilAutoPause) {
+
             this.secondsUntilAutoPause = secondsUntilAutoPause;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutAction(@Nullable String timeoutAction) {
+
             this.timeoutAction = timeoutAction;
             return this;
         }

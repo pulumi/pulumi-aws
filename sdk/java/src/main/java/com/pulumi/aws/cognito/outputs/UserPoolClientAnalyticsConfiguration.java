@@ -101,26 +101,31 @@ public final class UserPoolClientAnalyticsConfiguration {
 
         @CustomType.Setter
         public Builder applicationArn(@Nullable String applicationArn) {
+
             this.applicationArn = applicationArn;
             return this;
         }
         @CustomType.Setter
         public Builder applicationId(@Nullable String applicationId) {
+
             this.applicationId = applicationId;
             return this;
         }
         @CustomType.Setter
         public Builder externalId(@Nullable String externalId) {
+
             this.externalId = externalId;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(@Nullable String roleArn) {
+
             this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder userDataShared(@Nullable Boolean userDataShared) {
+
             this.userDataShared = userDataShared;
             return this;
         }

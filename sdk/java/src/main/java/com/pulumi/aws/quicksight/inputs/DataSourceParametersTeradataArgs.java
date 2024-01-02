@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class DataSourceParametersTeradataArgs extends com.pulumi.resources
         }
 
         public DataSourceParametersTeradataArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.host = Objects.requireNonNull($.host, "expected parameter 'host' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersTeradataArgs", "database");
+            }
+            if ($.host == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersTeradataArgs", "host");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersTeradataArgs", "port");
+            }
             return $;
         }
     }

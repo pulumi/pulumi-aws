@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.inputs;
 import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapCustomSqlColumnArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,9 +200,15 @@ public final class DataSetPhysicalTableMapCustomSqlArgs extends com.pulumi.resou
         }
 
         public DataSetPhysicalTableMapCustomSqlArgs build() {
-            $.dataSourceArn = Objects.requireNonNull($.dataSourceArn, "expected parameter 'dataSourceArn' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.sqlQuery = Objects.requireNonNull($.sqlQuery, "expected parameter 'sqlQuery' to be non-null");
+            if ($.dataSourceArn == null) {
+                throw new MissingRequiredPropertyException("DataSetPhysicalTableMapCustomSqlArgs", "dataSourceArn");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DataSetPhysicalTableMapCustomSqlArgs", "name");
+            }
+            if ($.sqlQuery == null) {
+                throw new MissingRequiredPropertyException("DataSetPhysicalTableMapCustomSqlArgs", "sqlQuery");
+            }
             return $;
         }
     }

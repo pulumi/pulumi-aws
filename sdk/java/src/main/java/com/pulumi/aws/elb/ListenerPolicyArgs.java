@@ -5,6 +5,7 @@ package com.pulumi.aws.elb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -200,8 +201,12 @@ public final class ListenerPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ListenerPolicyArgs build() {
-            $.loadBalancerName = Objects.requireNonNull($.loadBalancerName, "expected parameter 'loadBalancerName' to be non-null");
-            $.loadBalancerPort = Objects.requireNonNull($.loadBalancerPort, "expected parameter 'loadBalancerPort' to be non-null");
+            if ($.loadBalancerName == null) {
+                throw new MissingRequiredPropertyException("ListenerPolicyArgs", "loadBalancerName");
+            }
+            if ($.loadBalancerPort == null) {
+                throw new MissingRequiredPropertyException("ListenerPolicyArgs", "loadBalancerPort");
+            }
             return $;
         }
     }

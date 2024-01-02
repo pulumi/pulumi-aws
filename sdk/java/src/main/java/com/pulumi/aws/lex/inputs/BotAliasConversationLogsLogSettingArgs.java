@@ -5,6 +5,7 @@ package com.pulumi.aws.lex.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class BotAliasConversationLogsLogSettingArgs extends com.pulumi.res
         }
 
         public BotAliasConversationLogsLogSettingArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
-            $.logType = Objects.requireNonNull($.logType, "expected parameter 'logType' to be non-null");
-            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("BotAliasConversationLogsLogSettingArgs", "destination");
+            }
+            if ($.logType == null) {
+                throw new MissingRequiredPropertyException("BotAliasConversationLogsLogSettingArgs", "logType");
+            }
+            if ($.resourceArn == null) {
+                throw new MissingRequiredPropertyException("BotAliasConversationLogsLogSettingArgs", "resourceArn");
+            }
             return $;
         }
     }

@@ -44,6 +44,7 @@ public final class EndpointDeploymentConfigAutoRollbackConfiguration {
 
         @CustomType.Setter
         public Builder alarms(@Nullable List<EndpointDeploymentConfigAutoRollbackConfigurationAlarm> alarms) {
+
             this.alarms = alarms;
             return this;
         }

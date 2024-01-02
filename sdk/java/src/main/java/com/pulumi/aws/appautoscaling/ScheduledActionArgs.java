@@ -6,6 +6,7 @@ package com.pulumi.aws.appautoscaling;
 import com.pulumi.aws.appautoscaling.inputs.ScheduledActionScalableTargetActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -373,11 +374,21 @@ public final class ScheduledActionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ScheduledActionArgs build() {
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
-            $.scalableDimension = Objects.requireNonNull($.scalableDimension, "expected parameter 'scalableDimension' to be non-null");
-            $.scalableTargetAction = Objects.requireNonNull($.scalableTargetAction, "expected parameter 'scalableTargetAction' to be non-null");
-            $.schedule = Objects.requireNonNull($.schedule, "expected parameter 'schedule' to be non-null");
-            $.serviceNamespace = Objects.requireNonNull($.serviceNamespace, "expected parameter 'serviceNamespace' to be non-null");
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "resourceId");
+            }
+            if ($.scalableDimension == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "scalableDimension");
+            }
+            if ($.scalableTargetAction == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "scalableTargetAction");
+            }
+            if ($.schedule == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "schedule");
+            }
+            if ($.serviceNamespace == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "serviceNamespace");
+            }
             return $;
         }
     }

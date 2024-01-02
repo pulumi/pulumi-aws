@@ -5,6 +5,7 @@ package com.pulumi.aws.pipes.outputs;
 
 import com.pulumi.aws.pipes.outputs.PipeSourceParametersRabbitmqBrokerParametersCredentials;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -102,26 +103,35 @@ public final class PipeSourceParametersRabbitmqBrokerParameters {
 
         @CustomType.Setter
         public Builder batchSize(@Nullable Integer batchSize) {
+
             this.batchSize = batchSize;
             return this;
         }
         @CustomType.Setter
         public Builder credentials(PipeSourceParametersRabbitmqBrokerParametersCredentials credentials) {
-            this.credentials = Objects.requireNonNull(credentials);
+            if (credentials == null) {
+              throw new MissingRequiredPropertyException("PipeSourceParametersRabbitmqBrokerParameters", "credentials");
+            }
+            this.credentials = credentials;
             return this;
         }
         @CustomType.Setter
         public Builder maximumBatchingWindowInSeconds(@Nullable Integer maximumBatchingWindowInSeconds) {
+
             this.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder queueName(String queueName) {
-            this.queueName = Objects.requireNonNull(queueName);
+            if (queueName == null) {
+              throw new MissingRequiredPropertyException("PipeSourceParametersRabbitmqBrokerParameters", "queueName");
+            }
+            this.queueName = queueName;
             return this;
         }
         @CustomType.Setter
         public Builder virtualHost(@Nullable String virtualHost) {
+
             this.virtualHost = virtualHost;
             return this;
         }

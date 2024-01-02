@@ -7,6 +7,7 @@ import com.pulumi.aws.backup.inputs.SelectionConditionArgs;
 import com.pulumi.aws.backup.inputs.SelectionSelectionTagArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -341,8 +342,12 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SelectionArgs build() {
-            $.iamRoleArn = Objects.requireNonNull($.iamRoleArn, "expected parameter 'iamRoleArn' to be non-null");
-            $.planId = Objects.requireNonNull($.planId, "expected parameter 'planId' to be non-null");
+            if ($.iamRoleArn == null) {
+                throw new MissingRequiredPropertyException("SelectionArgs", "iamRoleArn");
+            }
+            if ($.planId == null) {
+                throw new MissingRequiredPropertyException("SelectionArgs", "planId");
+            }
             return $;
         }
     }

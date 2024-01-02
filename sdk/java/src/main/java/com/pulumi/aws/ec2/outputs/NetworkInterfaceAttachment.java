@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -65,17 +66,24 @@ public final class NetworkInterfaceAttachment {
 
         @CustomType.Setter
         public Builder attachmentId(@Nullable String attachmentId) {
+
             this.attachmentId = attachmentId;
             return this;
         }
         @CustomType.Setter
         public Builder deviceIndex(Integer deviceIndex) {
-            this.deviceIndex = Objects.requireNonNull(deviceIndex);
+            if (deviceIndex == null) {
+              throw new MissingRequiredPropertyException("NetworkInterfaceAttachment", "deviceIndex");
+            }
+            this.deviceIndex = deviceIndex;
             return this;
         }
         @CustomType.Setter
         public Builder instance(String instance) {
-            this.instance = Objects.requireNonNull(instance);
+            if (instance == null) {
+              throw new MissingRequiredPropertyException("NetworkInterfaceAttachment", "instance");
+            }
+            this.instance = instance;
             return this;
         }
         public NetworkInterfaceAttachment build() {

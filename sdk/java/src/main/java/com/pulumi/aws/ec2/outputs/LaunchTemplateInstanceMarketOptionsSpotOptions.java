@@ -103,26 +103,31 @@ public final class LaunchTemplateInstanceMarketOptionsSpotOptions {
 
         @CustomType.Setter
         public Builder blockDurationMinutes(@Nullable Integer blockDurationMinutes) {
+
             this.blockDurationMinutes = blockDurationMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder instanceInterruptionBehavior(@Nullable String instanceInterruptionBehavior) {
+
             this.instanceInterruptionBehavior = instanceInterruptionBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder maxPrice(@Nullable String maxPrice) {
+
             this.maxPrice = maxPrice;
             return this;
         }
         @CustomType.Setter
         public Builder spotInstanceType(@Nullable String spotInstanceType) {
+
             this.spotInstanceType = spotInstanceType;
             return this;
         }
         @CustomType.Setter
         public Builder validUntil(@Nullable String validUntil) {
+
             this.validUntil = validUntil;
             return this;
         }

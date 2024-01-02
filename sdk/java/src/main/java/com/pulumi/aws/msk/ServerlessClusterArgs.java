@@ -7,6 +7,7 @@ import com.pulumi.aws.msk.inputs.ServerlessClusterClientAuthenticationArgs;
 import com.pulumi.aws.msk.inputs.ServerlessClusterVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -201,8 +202,12 @@ public final class ServerlessClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ServerlessClusterArgs build() {
-            $.clientAuthentication = Objects.requireNonNull($.clientAuthentication, "expected parameter 'clientAuthentication' to be non-null");
-            $.vpcConfigs = Objects.requireNonNull($.vpcConfigs, "expected parameter 'vpcConfigs' to be non-null");
+            if ($.clientAuthentication == null) {
+                throw new MissingRequiredPropertyException("ServerlessClusterArgs", "clientAuthentication");
+            }
+            if ($.vpcConfigs == null) {
+                throw new MissingRequiredPropertyException("ServerlessClusterArgs", "vpcConfigs");
+            }
             return $;
         }
     }

@@ -44,6 +44,7 @@ public final class DataSetColumnGroup {
 
         @CustomType.Setter
         public Builder geoSpatialColumnGroup(@Nullable DataSetColumnGroupGeoSpatialColumnGroup geoSpatialColumnGroup) {
+
             this.geoSpatialColumnGroup = geoSpatialColumnGroup;
             return this;
         }

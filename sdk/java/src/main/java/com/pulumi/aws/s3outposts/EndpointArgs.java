@@ -5,6 +5,7 @@ package com.pulumi.aws.s3outposts;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EndpointArgs build() {
-            $.outpostId = Objects.requireNonNull($.outpostId, "expected parameter 'outpostId' to be non-null");
-            $.securityGroupId = Objects.requireNonNull($.securityGroupId, "expected parameter 'securityGroupId' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.outpostId == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "outpostId");
+            }
+            if ($.securityGroupId == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "securityGroupId");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "subnetId");
+            }
             return $;
         }
     }

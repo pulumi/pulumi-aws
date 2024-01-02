@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -59,7 +60,10 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
 
         @CustomType.Setter
         public Builder seedUrls(List<String> seedUrls) {
-            this.seedUrls = Objects.requireNonNull(seedUrls);
+            if (seedUrls == null) {
+              throw new MissingRequiredPropertyException("DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration", "seedUrls");
+            }
+            this.seedUrls = seedUrls;
             return this;
         }
         public Builder seedUrls(String... seedUrls) {
@@ -67,6 +71,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
         }
         @CustomType.Setter
         public Builder webCrawlerMode(@Nullable String webCrawlerMode) {
+
             this.webCrawlerMode = webCrawlerMode;
             return this;
         }

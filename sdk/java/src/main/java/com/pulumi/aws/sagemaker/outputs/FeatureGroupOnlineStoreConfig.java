@@ -89,21 +89,25 @@ public final class FeatureGroupOnlineStoreConfig {
 
         @CustomType.Setter
         public Builder enableOnlineStore(@Nullable Boolean enableOnlineStore) {
+
             this.enableOnlineStore = enableOnlineStore;
             return this;
         }
         @CustomType.Setter
         public Builder securityConfig(@Nullable FeatureGroupOnlineStoreConfigSecurityConfig securityConfig) {
+
             this.securityConfig = securityConfig;
             return this;
         }
         @CustomType.Setter
         public Builder storageType(@Nullable String storageType) {
+
             this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
         public Builder ttlDuration(@Nullable FeatureGroupOnlineStoreConfigTtlDuration ttlDuration) {
+
             this.ttlDuration = ttlDuration;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class AnalyticsApplicationOutputSchema {
 
         @CustomType.Setter
         public Builder recordFormatType(String recordFormatType) {
-            this.recordFormatType = Objects.requireNonNull(recordFormatType);
+            if (recordFormatType == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationOutputSchema", "recordFormatType");
+            }
+            this.recordFormatType = recordFormatType;
             return this;
         }
         public AnalyticsApplicationOutputSchema build() {

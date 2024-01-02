@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class SubnetCidrReservationArgs extends com.pulumi.resources.Resour
         }
 
         public SubnetCidrReservationArgs build() {
-            $.cidrBlock = Objects.requireNonNull($.cidrBlock, "expected parameter 'cidrBlock' to be non-null");
-            $.reservationType = Objects.requireNonNull($.reservationType, "expected parameter 'reservationType' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.cidrBlock == null) {
+                throw new MissingRequiredPropertyException("SubnetCidrReservationArgs", "cidrBlock");
+            }
+            if ($.reservationType == null) {
+                throw new MissingRequiredPropertyException("SubnetCidrReservationArgs", "reservationType");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("SubnetCidrReservationArgs", "subnetId");
+            }
             return $;
         }
     }

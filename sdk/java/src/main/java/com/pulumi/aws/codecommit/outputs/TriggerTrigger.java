@@ -4,6 +4,7 @@
 package com.pulumi.aws.codecommit.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -101,6 +102,7 @@ public final class TriggerTrigger {
 
         @CustomType.Setter
         public Builder branches(@Nullable List<String> branches) {
+
             this.branches = branches;
             return this;
         }
@@ -109,17 +111,24 @@ public final class TriggerTrigger {
         }
         @CustomType.Setter
         public Builder customData(@Nullable String customData) {
+
             this.customData = customData;
             return this;
         }
         @CustomType.Setter
         public Builder destinationArn(String destinationArn) {
-            this.destinationArn = Objects.requireNonNull(destinationArn);
+            if (destinationArn == null) {
+              throw new MissingRequiredPropertyException("TriggerTrigger", "destinationArn");
+            }
+            this.destinationArn = destinationArn;
             return this;
         }
         @CustomType.Setter
         public Builder events(List<String> events) {
-            this.events = Objects.requireNonNull(events);
+            if (events == null) {
+              throw new MissingRequiredPropertyException("TriggerTrigger", "events");
+            }
+            this.events = events;
             return this;
         }
         public Builder events(String... events) {
@@ -127,7 +136,10 @@ public final class TriggerTrigger {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("TriggerTrigger", "name");
+            }
+            this.name = name;
             return this;
         }
         public TriggerTrigger build() {

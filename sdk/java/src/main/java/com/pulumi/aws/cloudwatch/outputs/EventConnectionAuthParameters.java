@@ -89,21 +89,25 @@ public final class EventConnectionAuthParameters {
 
         @CustomType.Setter
         public Builder apiKey(@Nullable EventConnectionAuthParametersApiKey apiKey) {
+
             this.apiKey = apiKey;
             return this;
         }
         @CustomType.Setter
         public Builder basic(@Nullable EventConnectionAuthParametersBasic basic) {
+
             this.basic = basic;
             return this;
         }
         @CustomType.Setter
         public Builder invocationHttpParameters(@Nullable EventConnectionAuthParametersInvocationHttpParameters invocationHttpParameters) {
+
             this.invocationHttpParameters = invocationHttpParameters;
             return this;
         }
         @CustomType.Setter
         public Builder oauth(@Nullable EventConnectionAuthParametersOauth oauth) {
+
             this.oauth = oauth;
             return this;
         }

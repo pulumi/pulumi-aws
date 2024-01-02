@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,9 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs ex
         }
 
         public DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs build() {
-            $.forward = Objects.requireNonNull($.forward, "expected parameter 'forward' to be non-null");
+            if ($.forward == null) {
+                throw new MissingRequiredPropertyException("DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs", "forward");
+            }
             return $;
         }
     }

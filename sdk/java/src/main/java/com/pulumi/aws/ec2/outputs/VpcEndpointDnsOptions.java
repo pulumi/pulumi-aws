@@ -59,11 +59,13 @@ public final class VpcEndpointDnsOptions {
 
         @CustomType.Setter
         public Builder dnsRecordIpType(@Nullable String dnsRecordIpType) {
+
             this.dnsRecordIpType = dnsRecordIpType;
             return this;
         }
         @CustomType.Setter
         public Builder privateDnsOnlyForInboundResolverEndpoint(@Nullable Boolean privateDnsOnlyForInboundResolverEndpoint) {
+
             this.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
             return this;
         }

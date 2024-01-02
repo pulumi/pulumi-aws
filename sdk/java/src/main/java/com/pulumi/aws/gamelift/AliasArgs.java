@@ -6,6 +6,7 @@ package com.pulumi.aws.gamelift;
 import com.pulumi.aws.gamelift.inputs.AliasRoutingStrategyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -189,7 +190,9 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AliasArgs build() {
-            $.routingStrategy = Objects.requireNonNull($.routingStrategy, "expected parameter 'routingStrategy' to be non-null");
+            if ($.routingStrategy == null) {
+                throw new MissingRequiredPropertyException("AliasArgs", "routingStrategy");
+            }
             return $;
         }
     }

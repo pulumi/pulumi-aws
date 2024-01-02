@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize;
 import com.pulumi.aws.sagemaker.outputs.EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -88,22 +89,30 @@ public final class EndpointDeploymentConfigRollingUpdatePolicy {
 
         @CustomType.Setter
         public Builder maximumBatchSize(EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize maximumBatchSize) {
-            this.maximumBatchSize = Objects.requireNonNull(maximumBatchSize);
+            if (maximumBatchSize == null) {
+              throw new MissingRequiredPropertyException("EndpointDeploymentConfigRollingUpdatePolicy", "maximumBatchSize");
+            }
+            this.maximumBatchSize = maximumBatchSize;
             return this;
         }
         @CustomType.Setter
         public Builder maximumExecutionTimeoutInSeconds(@Nullable Integer maximumExecutionTimeoutInSeconds) {
+
             this.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder rollbackMaximumBatchSize(@Nullable EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize rollbackMaximumBatchSize) {
+
             this.rollbackMaximumBatchSize = rollbackMaximumBatchSize;
             return this;
         }
         @CustomType.Setter
         public Builder waitIntervalInSeconds(Integer waitIntervalInSeconds) {
-            this.waitIntervalInSeconds = Objects.requireNonNull(waitIntervalInSeconds);
+            if (waitIntervalInSeconds == null) {
+              throw new MissingRequiredPropertyException("EndpointDeploymentConfigRollingUpdatePolicy", "waitIntervalInSeconds");
+            }
+            this.waitIntervalInSeconds = waitIntervalInSeconds;
             return this;
         }
         public EndpointDeploymentConfigRollingUpdatePolicy build() {

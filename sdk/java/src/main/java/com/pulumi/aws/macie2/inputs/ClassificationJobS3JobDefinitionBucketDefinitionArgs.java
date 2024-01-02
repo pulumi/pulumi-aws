@@ -5,6 +5,7 @@ package com.pulumi.aws.macie2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class ClassificationJobS3JobDefinitionBucketDefinitionArgs extends 
         }
 
         public ClassificationJobS3JobDefinitionBucketDefinitionArgs build() {
-            $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
-            $.buckets = Objects.requireNonNull($.buckets, "expected parameter 'buckets' to be non-null");
+            if ($.accountId == null) {
+                throw new MissingRequiredPropertyException("ClassificationJobS3JobDefinitionBucketDefinitionArgs", "accountId");
+            }
+            if ($.buckets == null) {
+                throw new MissingRequiredPropertyException("ClassificationJobS3JobDefinitionBucketDefinitionArgs", "buckets");
+            }
             return $;
         }
     }

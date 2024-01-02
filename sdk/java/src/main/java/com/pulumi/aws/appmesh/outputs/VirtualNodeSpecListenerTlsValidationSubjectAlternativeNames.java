@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
 
         @CustomType.Setter
         public Builder match(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch match) {
-            this.match = Objects.requireNonNull(match);
+            if (match == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames", "match");
+            }
+            this.match = match;
             return this;
         }
         public VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames build() {

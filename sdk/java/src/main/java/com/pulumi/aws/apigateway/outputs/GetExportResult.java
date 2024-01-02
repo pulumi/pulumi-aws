@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -117,47 +118,70 @@ public final class GetExportResult {
 
         @CustomType.Setter
         public Builder accepts(@Nullable String accepts) {
+
             this.accepts = accepts;
             return this;
         }
         @CustomType.Setter
         public Builder body(String body) {
-            this.body = Objects.requireNonNull(body);
+            if (body == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "body");
+            }
+            this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder contentDisposition(String contentDisposition) {
-            this.contentDisposition = Objects.requireNonNull(contentDisposition);
+            if (contentDisposition == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "contentDisposition");
+            }
+            this.contentDisposition = contentDisposition;
             return this;
         }
         @CustomType.Setter
         public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+            if (contentType == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "contentType");
+            }
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder exportType(String exportType) {
-            this.exportType = Objects.requireNonNull(exportType);
+            if (exportType == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "exportType");
+            }
+            this.exportType = exportType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
+
             this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder restApiId(String restApiId) {
-            this.restApiId = Objects.requireNonNull(restApiId);
+            if (restApiId == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "restApiId");
+            }
+            this.restApiId = restApiId;
             return this;
         }
         @CustomType.Setter
         public Builder stageName(String stageName) {
-            this.stageName = Objects.requireNonNull(stageName);
+            if (stageName == null) {
+              throw new MissingRequiredPropertyException("GetExportResult", "stageName");
+            }
+            this.stageName = stageName;
             return this;
         }
         public GetExportResult build() {

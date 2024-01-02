@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class TopicRuleErrorActionCloudwatchAlarm {
 
         @CustomType.Setter
         public Builder alarmName(String alarmName) {
-            this.alarmName = Objects.requireNonNull(alarmName);
+            if (alarmName == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionCloudwatchAlarm", "alarmName");
+            }
+            this.alarmName = alarmName;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionCloudwatchAlarm", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder stateReason(String stateReason) {
-            this.stateReason = Objects.requireNonNull(stateReason);
+            if (stateReason == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionCloudwatchAlarm", "stateReason");
+            }
+            this.stateReason = stateReason;
             return this;
         }
         @CustomType.Setter
         public Builder stateValue(String stateValue) {
-            this.stateValue = Objects.requireNonNull(stateValue);
+            if (stateValue == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionCloudwatchAlarm", "stateValue");
+            }
+            this.stateValue = stateValue;
             return this;
         }
         public TopicRuleErrorActionCloudwatchAlarm build() {

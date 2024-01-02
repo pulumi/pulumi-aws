@@ -44,6 +44,7 @@ public final class IntegrationTlsConfig {
 
         @CustomType.Setter
         public Builder insecureSkipVerification(@Nullable Boolean insecureSkipVerification) {
+
             this.insecureSkipVerification = insecureSkipVerification;
             return this;
         }

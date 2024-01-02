@@ -7,6 +7,7 @@ import com.pulumi.aws.signer.inputs.SigningJobDestinationArgs;
 import com.pulumi.aws.signer.inputs.SigningJobSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -190,9 +191,15 @@ public final class SigningJobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SigningJobArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
-            $.profileName = Objects.requireNonNull($.profileName, "expected parameter 'profileName' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("SigningJobArgs", "destination");
+            }
+            if ($.profileName == null) {
+                throw new MissingRequiredPropertyException("SigningJobArgs", "profileName");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("SigningJobArgs", "source");
+            }
             return $;
         }
     }

@@ -101,26 +101,31 @@ public final class DirectoryWorkspaceCreationProperties {
 
         @CustomType.Setter
         public Builder customSecurityGroupId(@Nullable String customSecurityGroupId) {
+
             this.customSecurityGroupId = customSecurityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultOu(@Nullable String defaultOu) {
+
             this.defaultOu = defaultOu;
             return this;
         }
         @CustomType.Setter
         public Builder enableInternetAccess(@Nullable Boolean enableInternetAccess) {
+
             this.enableInternetAccess = enableInternetAccess;
             return this;
         }
         @CustomType.Setter
         public Builder enableMaintenanceMode(@Nullable Boolean enableMaintenanceMode) {
+
             this.enableMaintenanceMode = enableMaintenanceMode;
             return this;
         }
         @CustomType.Setter
         public Builder userEnabledAsLocalAdministrator(@Nullable Boolean userEnabledAsLocalAdministrator) {
+
             this.userEnabledAsLocalAdministrator = userEnabledAsLocalAdministrator;
             return this;
         }

@@ -58,11 +58,13 @@ public final class PipeTargetParametersEcsTaskParametersOverridesInferenceAccele
 
         @CustomType.Setter
         public Builder deviceName(@Nullable String deviceName) {
+
             this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder deviceType(@Nullable String deviceType) {
+
             this.deviceType = deviceType;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.datasync.outputs;
 
 import com.pulumi.aws.datasync.outputs.LocationFsxOntapFileSystemProtocolNfsMountOptions;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class LocationFsxOntapFileSystemProtocolNfs {
 
         @CustomType.Setter
         public Builder mountOptions(LocationFsxOntapFileSystemProtocolNfsMountOptions mountOptions) {
-            this.mountOptions = Objects.requireNonNull(mountOptions);
+            if (mountOptions == null) {
+              throw new MissingRequiredPropertyException("LocationFsxOntapFileSystemProtocolNfs", "mountOptions");
+            }
+            this.mountOptions = mountOptions;
             return this;
         }
         public LocationFsxOntapFileSystemProtocolNfs build() {

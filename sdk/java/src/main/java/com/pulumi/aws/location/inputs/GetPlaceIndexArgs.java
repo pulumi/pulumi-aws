@@ -5,6 +5,7 @@ package com.pulumi.aws.location.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class GetPlaceIndexArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetPlaceIndexArgs build() {
-            $.indexName = Objects.requireNonNull($.indexName, "expected parameter 'indexName' to be non-null");
+            if ($.indexName == null) {
+                throw new MissingRequiredPropertyException("GetPlaceIndexArgs", "indexName");
+            }
             return $;
         }
     }

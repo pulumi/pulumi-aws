@@ -5,6 +5,7 @@ package com.pulumi.aws.alb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class ListenerRuleActionForwardTargetGroupArgs extends com.pulumi.r
         }
 
         public ListenerRuleActionForwardTargetGroupArgs build() {
-            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("ListenerRuleActionForwardTargetGroupArgs", "arn");
+            }
             return $;
         }
     }

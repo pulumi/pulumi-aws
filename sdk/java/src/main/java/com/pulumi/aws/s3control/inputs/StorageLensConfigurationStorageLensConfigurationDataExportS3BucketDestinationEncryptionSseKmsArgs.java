@@ -5,6 +5,7 @@ package com.pulumi.aws.s3control.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         public StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs build() {
-            $.keyId = Objects.requireNonNull($.keyId, "expected parameter 'keyId' to be non-null");
+            if ($.keyId == null) {
+                throw new MissingRequiredPropertyException("StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs", "keyId");
+            }
             return $;
         }
     }

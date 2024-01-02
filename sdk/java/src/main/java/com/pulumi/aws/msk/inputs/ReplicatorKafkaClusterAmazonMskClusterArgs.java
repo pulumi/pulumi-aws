@@ -5,6 +5,7 @@ package com.pulumi.aws.msk.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ReplicatorKafkaClusterAmazonMskClusterArgs extends com.pulumi
         }
 
         public ReplicatorKafkaClusterAmazonMskClusterArgs build() {
-            $.mskClusterArn = Objects.requireNonNull($.mskClusterArn, "expected parameter 'mskClusterArn' to be non-null");
+            if ($.mskClusterArn == null) {
+                throw new MissingRequiredPropertyException("ReplicatorKafkaClusterAmazonMskClusterArgs", "mskClusterArn");
+            }
             return $;
         }
     }

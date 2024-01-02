@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCust
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementForwardedIpConfig;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -105,11 +106,13 @@ public final class RuleGroupRuleStatementRateBasedStatement {
 
         @CustomType.Setter
         public Builder aggregateKeyType(@Nullable String aggregateKeyType) {
+
             this.aggregateKeyType = aggregateKeyType;
             return this;
         }
         @CustomType.Setter
         public Builder customKeys(@Nullable List<RuleGroupRuleStatementRateBasedStatementCustomKey> customKeys) {
+
             this.customKeys = customKeys;
             return this;
         }
@@ -118,16 +121,21 @@ public final class RuleGroupRuleStatementRateBasedStatement {
         }
         @CustomType.Setter
         public Builder forwardedIpConfig(@Nullable RuleGroupRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig) {
+
             this.forwardedIpConfig = forwardedIpConfig;
             return this;
         }
         @CustomType.Setter
         public Builder limit(Integer limit) {
-            this.limit = Objects.requireNonNull(limit);
+            if (limit == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatement", "limit");
+            }
+            this.limit = limit;
             return this;
         }
         @CustomType.Setter
         public Builder scopeDownStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement) {
+
             this.scopeDownStatement = scopeDownStatement;
             return this;
         }

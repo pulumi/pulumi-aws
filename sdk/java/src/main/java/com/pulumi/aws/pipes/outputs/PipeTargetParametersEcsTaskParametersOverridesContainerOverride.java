@@ -147,6 +147,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
 
         @CustomType.Setter
         public Builder commands(@Nullable List<String> commands) {
+
             this.commands = commands;
             return this;
         }
@@ -155,11 +156,13 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
         @CustomType.Setter
         public Builder cpu(@Nullable Integer cpu) {
+
             this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
         public Builder environmentFiles(@Nullable List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile> environmentFiles) {
+
             this.environmentFiles = environmentFiles;
             return this;
         }
@@ -168,6 +171,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
         @CustomType.Setter
         public Builder environments(@Nullable List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment> environments) {
+
             this.environments = environments;
             return this;
         }
@@ -176,21 +180,25 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
         @CustomType.Setter
         public Builder memory(@Nullable Integer memory) {
+
             this.memory = memory;
             return this;
         }
         @CustomType.Setter
         public Builder memoryReservation(@Nullable Integer memoryReservation) {
+
             this.memoryReservation = memoryReservation;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceRequirements(@Nullable List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement> resourceRequirements) {
+
             this.resourceRequirements = resourceRequirements;
             return this;
         }

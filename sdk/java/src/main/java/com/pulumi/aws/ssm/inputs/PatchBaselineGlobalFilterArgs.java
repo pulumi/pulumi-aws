@@ -5,6 +5,7 @@ package com.pulumi.aws.ssm.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -76,8 +77,12 @@ public final class PatchBaselineGlobalFilterArgs extends com.pulumi.resources.Re
         }
 
         public PatchBaselineGlobalFilterArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.values = Objects.requireNonNull($.values, "expected parameter 'values' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("PatchBaselineGlobalFilterArgs", "key");
+            }
+            if ($.values == null) {
+                throw new MissingRequiredPropertyException("PatchBaselineGlobalFilterArgs", "values");
+            }
             return $;
         }
     }

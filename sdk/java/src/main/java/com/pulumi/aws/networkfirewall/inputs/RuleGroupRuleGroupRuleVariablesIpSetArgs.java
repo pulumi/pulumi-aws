@@ -6,6 +6,7 @@ package com.pulumi.aws.networkfirewall.inputs;
 import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class RuleGroupRuleGroupRuleVariablesIpSetArgs extends com.pulumi.r
         }
 
         public RuleGroupRuleGroupRuleVariablesIpSetArgs build() {
-            $.ipSet = Objects.requireNonNull($.ipSet, "expected parameter 'ipSet' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.ipSet == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRuleVariablesIpSetArgs", "ipSet");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupRuleVariablesIpSetArgs", "key");
+            }
             return $;
         }
     }

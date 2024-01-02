@@ -4,6 +4,7 @@
 package com.pulumi.aws.cfg.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -87,21 +88,27 @@ public final class RemediationConfigurationParameter {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("RemediationConfigurationParameter", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceValue(@Nullable String resourceValue) {
+
             this.resourceValue = resourceValue;
             return this;
         }
         @CustomType.Setter
         public Builder staticValue(@Nullable String staticValue) {
+
             this.staticValue = staticValue;
             return this;
         }
         @CustomType.Setter
         public Builder staticValues(@Nullable List<String> staticValues) {
+
             this.staticValues = staticValues;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.transfer;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -299,11 +300,21 @@ public final class AgreementArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AgreementArgs build() {
-            $.accessRole = Objects.requireNonNull($.accessRole, "expected parameter 'accessRole' to be non-null");
-            $.baseDirectory = Objects.requireNonNull($.baseDirectory, "expected parameter 'baseDirectory' to be non-null");
-            $.localProfileId = Objects.requireNonNull($.localProfileId, "expected parameter 'localProfileId' to be non-null");
-            $.partnerProfileId = Objects.requireNonNull($.partnerProfileId, "expected parameter 'partnerProfileId' to be non-null");
-            $.serverId = Objects.requireNonNull($.serverId, "expected parameter 'serverId' to be non-null");
+            if ($.accessRole == null) {
+                throw new MissingRequiredPropertyException("AgreementArgs", "accessRole");
+            }
+            if ($.baseDirectory == null) {
+                throw new MissingRequiredPropertyException("AgreementArgs", "baseDirectory");
+            }
+            if ($.localProfileId == null) {
+                throw new MissingRequiredPropertyException("AgreementArgs", "localProfileId");
+            }
+            if ($.partnerProfileId == null) {
+                throw new MissingRequiredPropertyException("AgreementArgs", "partnerProfileId");
+            }
+            if ($.serverId == null) {
+                throw new MissingRequiredPropertyException("AgreementArgs", "serverId");
+            }
             return $;
         }
     }

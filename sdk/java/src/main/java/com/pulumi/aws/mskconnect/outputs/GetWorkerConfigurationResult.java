@@ -4,6 +4,7 @@
 package com.pulumi.aws.mskconnect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -105,32 +106,50 @@ public final class GetWorkerConfigurationResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetWorkerConfigurationResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetWorkerConfigurationResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetWorkerConfigurationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder latestRevision(Integer latestRevision) {
-            this.latestRevision = Objects.requireNonNull(latestRevision);
+            if (latestRevision == null) {
+              throw new MissingRequiredPropertyException("GetWorkerConfigurationResult", "latestRevision");
+            }
+            this.latestRevision = latestRevision;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetWorkerConfigurationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder propertiesFileContent(String propertiesFileContent) {
-            this.propertiesFileContent = Objects.requireNonNull(propertiesFileContent);
+            if (propertiesFileContent == null) {
+              throw new MissingRequiredPropertyException("GetWorkerConfigurationResult", "propertiesFileContent");
+            }
+            this.propertiesFileContent = propertiesFileContent;
             return this;
         }
         public GetWorkerConfigurationResult build() {

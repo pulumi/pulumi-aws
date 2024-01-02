@@ -304,41 +304,49 @@ public final class LaunchTemplateNetworkInterface {
 
         @CustomType.Setter
         public Builder associateCarrierIpAddress(@Nullable String associateCarrierIpAddress) {
+
             this.associateCarrierIpAddress = associateCarrierIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder associatePublicIpAddress(@Nullable String associatePublicIpAddress) {
+
             this.associatePublicIpAddress = associatePublicIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder deleteOnTermination(@Nullable String deleteOnTermination) {
+
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder deviceIndex(@Nullable Integer deviceIndex) {
+
             this.deviceIndex = deviceIndex;
             return this;
         }
         @CustomType.Setter
         public Builder interfaceType(@Nullable String interfaceType) {
+
             this.interfaceType = interfaceType;
             return this;
         }
         @CustomType.Setter
         public Builder ipv4AddressCount(@Nullable Integer ipv4AddressCount) {
+
             this.ipv4AddressCount = ipv4AddressCount;
             return this;
         }
         @CustomType.Setter
         public Builder ipv4Addresses(@Nullable List<String> ipv4Addresses) {
+
             this.ipv4Addresses = ipv4Addresses;
             return this;
         }
@@ -347,11 +355,13 @@ public final class LaunchTemplateNetworkInterface {
         }
         @CustomType.Setter
         public Builder ipv4PrefixCount(@Nullable Integer ipv4PrefixCount) {
+
             this.ipv4PrefixCount = ipv4PrefixCount;
             return this;
         }
         @CustomType.Setter
         public Builder ipv4Prefixes(@Nullable List<String> ipv4Prefixes) {
+
             this.ipv4Prefixes = ipv4Prefixes;
             return this;
         }
@@ -360,11 +370,13 @@ public final class LaunchTemplateNetworkInterface {
         }
         @CustomType.Setter
         public Builder ipv6AddressCount(@Nullable Integer ipv6AddressCount) {
+
             this.ipv6AddressCount = ipv6AddressCount;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Addresses(@Nullable List<String> ipv6Addresses) {
+
             this.ipv6Addresses = ipv6Addresses;
             return this;
         }
@@ -373,11 +385,13 @@ public final class LaunchTemplateNetworkInterface {
         }
         @CustomType.Setter
         public Builder ipv6PrefixCount(@Nullable Integer ipv6PrefixCount) {
+
             this.ipv6PrefixCount = ipv6PrefixCount;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Prefixes(@Nullable List<String> ipv6Prefixes) {
+
             this.ipv6Prefixes = ipv6Prefixes;
             return this;
         }
@@ -386,21 +400,25 @@ public final class LaunchTemplateNetworkInterface {
         }
         @CustomType.Setter
         public Builder networkCardIndex(@Nullable Integer networkCardIndex) {
+
             this.networkCardIndex = networkCardIndex;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceId(@Nullable String networkInterfaceId) {
+
             this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
+
             this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
+
             this.securityGroups = securityGroups;
             return this;
         }
@@ -409,6 +427,7 @@ public final class LaunchTemplateNetworkInterface {
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }

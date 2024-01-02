@@ -7,6 +7,7 @@ import com.pulumi.aws.s3control.inputs.AccessGrantAccessGrantsLocationConfigurat
 import com.pulumi.aws.s3control.inputs.AccessGrantGranteeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -281,8 +282,12 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AccessGrantArgs build() {
-            $.accessGrantsLocationId = Objects.requireNonNull($.accessGrantsLocationId, "expected parameter 'accessGrantsLocationId' to be non-null");
-            $.permission = Objects.requireNonNull($.permission, "expected parameter 'permission' to be non-null");
+            if ($.accessGrantsLocationId == null) {
+                throw new MissingRequiredPropertyException("AccessGrantArgs", "accessGrantsLocationId");
+            }
+            if ($.permission == null) {
+                throw new MissingRequiredPropertyException("AccessGrantArgs", "permission");
+            }
             return $;
         }
     }

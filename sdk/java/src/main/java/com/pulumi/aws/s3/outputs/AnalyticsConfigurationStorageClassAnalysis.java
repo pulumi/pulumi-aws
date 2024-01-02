@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.AnalyticsConfigurationStorageClassAnalysisDataExport;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class AnalyticsConfigurationStorageClassAnalysis {
 
         @CustomType.Setter
         public Builder dataExport(AnalyticsConfigurationStorageClassAnalysisDataExport dataExport) {
-            this.dataExport = Objects.requireNonNull(dataExport);
+            if (dataExport == null) {
+              throw new MissingRequiredPropertyException("AnalyticsConfigurationStorageClassAnalysis", "dataExport");
+            }
+            this.dataExport = dataExport;
             return this;
         }
         public AnalyticsConfigurationStorageClassAnalysis build() {

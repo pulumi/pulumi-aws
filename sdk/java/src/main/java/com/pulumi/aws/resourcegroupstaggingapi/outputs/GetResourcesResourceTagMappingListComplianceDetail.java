@@ -4,6 +4,7 @@
 package com.pulumi.aws.resourcegroupstaggingapi.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -60,12 +61,18 @@ public final class GetResourcesResourceTagMappingListComplianceDetail {
 
         @CustomType.Setter
         public Builder complianceStatus(Boolean complianceStatus) {
-            this.complianceStatus = Objects.requireNonNull(complianceStatus);
+            if (complianceStatus == null) {
+              throw new MissingRequiredPropertyException("GetResourcesResourceTagMappingListComplianceDetail", "complianceStatus");
+            }
+            this.complianceStatus = complianceStatus;
             return this;
         }
         @CustomType.Setter
         public Builder keysWithNoncompliantValues(List<String> keysWithNoncompliantValues) {
-            this.keysWithNoncompliantValues = Objects.requireNonNull(keysWithNoncompliantValues);
+            if (keysWithNoncompliantValues == null) {
+              throw new MissingRequiredPropertyException("GetResourcesResourceTagMappingListComplianceDetail", "keysWithNoncompliantValues");
+            }
+            this.keysWithNoncompliantValues = keysWithNoncompliantValues;
             return this;
         }
         public Builder keysWithNoncompliantValues(String... keysWithNoncompliantValues) {
@@ -73,7 +80,10 @@ public final class GetResourcesResourceTagMappingListComplianceDetail {
         }
         @CustomType.Setter
         public Builder nonCompliantKeys(List<String> nonCompliantKeys) {
-            this.nonCompliantKeys = Objects.requireNonNull(nonCompliantKeys);
+            if (nonCompliantKeys == null) {
+              throw new MissingRequiredPropertyException("GetResourcesResourceTagMappingListComplianceDetail", "nonCompliantKeys");
+            }
+            this.nonCompliantKeys = nonCompliantKeys;
             return this;
         }
         public Builder nonCompliantKeys(String... nonCompliantKeys) {

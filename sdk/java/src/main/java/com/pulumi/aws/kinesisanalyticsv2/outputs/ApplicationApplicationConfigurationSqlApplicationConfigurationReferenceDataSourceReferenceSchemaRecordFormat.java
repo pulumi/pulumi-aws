@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesisanalyticsv2.outputs;
 
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,12 +58,18 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         @CustomType.Setter
         public Builder mappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters mappingParameters) {
-            this.mappingParameters = Objects.requireNonNull(mappingParameters);
+            if (mappingParameters == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat", "mappingParameters");
+            }
+            this.mappingParameters = mappingParameters;
             return this;
         }
         @CustomType.Setter
         public Builder recordFormatType(String recordFormatType) {
-            this.recordFormatType = Objects.requireNonNull(recordFormatType);
+            if (recordFormatType == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat", "recordFormatType");
+            }
+            this.recordFormatType = recordFormatType;
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat build() {

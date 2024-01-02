@@ -4,6 +4,7 @@
 package com.pulumi.aws.workspaces.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetBundleRootStorage {
 
         @CustomType.Setter
         public Builder capacity(String capacity) {
-            this.capacity = Objects.requireNonNull(capacity);
+            if (capacity == null) {
+              throw new MissingRequiredPropertyException("GetBundleRootStorage", "capacity");
+            }
+            this.capacity = capacity;
             return this;
         }
         public GetBundleRootStorage build() {

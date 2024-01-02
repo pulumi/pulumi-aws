@@ -12,6 +12,7 @@ import com.pulumi.aws.lex.inputs.IntentRejectionStatementArgs;
 import com.pulumi.aws.lex.inputs.IntentSlotArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -603,7 +604,9 @@ public final class IntentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IntentArgs build() {
-            $.fulfillmentActivity = Objects.requireNonNull($.fulfillmentActivity, "expected parameter 'fulfillmentActivity' to be non-null");
+            if ($.fulfillmentActivity == null) {
+                throw new MissingRequiredPropertyException("IntentArgs", "fulfillmentActivity");
+            }
             return $;
         }
     }

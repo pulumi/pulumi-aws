@@ -73,16 +73,19 @@ public final class ClusterConfigurationExecuteCommandConfiguration {
 
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder logConfiguration(@Nullable ClusterConfigurationExecuteCommandConfigurationLogConfiguration logConfiguration) {
+
             this.logConfiguration = logConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder logging(@Nullable String logging) {
+
             this.logging = logging;
             return this;
         }

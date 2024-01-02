@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlCertificate;
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecListenerTlValidation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -49,7 +50,10 @@ public final class GetVirtualGatewaySpecListenerTl {
 
         @CustomType.Setter
         public Builder certificates(List<GetVirtualGatewaySpecListenerTlCertificate> certificates) {
-            this.certificates = Objects.requireNonNull(certificates);
+            if (certificates == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerTl", "certificates");
+            }
+            this.certificates = certificates;
             return this;
         }
         public Builder certificates(GetVirtualGatewaySpecListenerTlCertificate... certificates) {
@@ -57,12 +61,18 @@ public final class GetVirtualGatewaySpecListenerTl {
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerTl", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder validations(List<GetVirtualGatewaySpecListenerTlValidation> validations) {
-            this.validations = Objects.requireNonNull(validations);
+            if (validations == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecListenerTl", "validations");
+            }
+            this.validations = validations;
             return this;
         }
         public Builder validations(GetVirtualGatewaySpecListenerTlValidation... validations) {

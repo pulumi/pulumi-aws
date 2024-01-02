@@ -4,6 +4,7 @@
 package com.pulumi.aws.outposts.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetAssetPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetAssetPlainArgs build() {
-            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
-            $.assetId = Objects.requireNonNull($.assetId, "expected parameter 'assetId' to be non-null");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("GetAssetPlainArgs", "arn");
+            }
+            if ($.assetId == null) {
+                throw new MissingRequiredPropertyException("GetAssetPlainArgs", "assetId");
+            }
             return $;
         }
     }

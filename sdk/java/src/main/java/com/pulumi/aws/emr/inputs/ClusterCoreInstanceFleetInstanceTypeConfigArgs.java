@@ -7,6 +7,7 @@ import com.pulumi.aws.emr.inputs.ClusterCoreInstanceFleetInstanceTypeConfigConfi
 import com.pulumi.aws.emr.inputs.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -286,7 +287,9 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigArgs extends com.pu
         }
 
         public ClusterCoreInstanceFleetInstanceTypeConfigArgs build() {
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
+            if ($.instanceType == null) {
+                throw new MissingRequiredPropertyException("ClusterCoreInstanceFleetInstanceTypeConfigArgs", "instanceType");
+            }
             return $;
         }
     }

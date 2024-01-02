@@ -5,6 +5,7 @@ package com.pulumi.aws.signer.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -54,7 +55,9 @@ public final class SigningProfileSigningMaterialArgs extends com.pulumi.resource
         }
 
         public SigningProfileSigningMaterialArgs build() {
-            $.certificateArn = Objects.requireNonNull($.certificateArn, "expected parameter 'certificateArn' to be non-null");
+            if ($.certificateArn == null) {
+                throw new MissingRequiredPropertyException("SigningProfileSigningMaterialArgs", "certificateArn");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.iam;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -189,7 +190,9 @@ public final class UserLoginProfileArgs extends com.pulumi.resources.ResourceArg
         }
 
         public UserLoginProfileArgs build() {
-            $.user = Objects.requireNonNull($.user, "expected parameter 'user' to be non-null");
+            if ($.user == null) {
+                throw new MissingRequiredPropertyException("UserLoginProfileArgs", "user");
+            }
             return $;
         }
     }

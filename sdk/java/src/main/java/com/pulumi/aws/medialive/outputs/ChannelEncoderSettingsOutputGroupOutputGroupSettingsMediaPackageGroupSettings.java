@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPack
 
         @CustomType.Setter
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings build() {

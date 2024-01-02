@@ -5,6 +5,7 @@ package com.pulumi.aws.codeartifact.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class GetAuthorizationTokenArgs extends com.pulumi.resources.Invoke
         }
 
         public GetAuthorizationTokenArgs build() {
-            $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");
+            if ($.domain == null) {
+                throw new MissingRequiredPropertyException("GetAuthorizationTokenArgs", "domain");
+            }
             return $;
         }
     }

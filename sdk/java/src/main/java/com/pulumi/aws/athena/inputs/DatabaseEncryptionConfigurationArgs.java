@@ -5,6 +5,7 @@ package com.pulumi.aws.athena.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class DatabaseEncryptionConfigurationArgs extends com.pulumi.resour
         }
 
         public DatabaseEncryptionConfigurationArgs build() {
-            $.encryptionOption = Objects.requireNonNull($.encryptionOption, "expected parameter 'encryptionOption' to be non-null");
+            if ($.encryptionOption == null) {
+                throw new MissingRequiredPropertyException("DatabaseEncryptionConfigurationArgs", "encryptionOption");
+            }
             return $;
         }
     }

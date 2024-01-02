@@ -7,6 +7,7 @@ import com.pulumi.aws.scheduler.inputs.ScheduleFlexibleTimeWindowArgs;
 import com.pulumi.aws.scheduler.inputs.ScheduleTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -493,9 +494,15 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ScheduleArgs build() {
-            $.flexibleTimeWindow = Objects.requireNonNull($.flexibleTimeWindow, "expected parameter 'flexibleTimeWindow' to be non-null");
-            $.scheduleExpression = Objects.requireNonNull($.scheduleExpression, "expected parameter 'scheduleExpression' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
+            if ($.flexibleTimeWindow == null) {
+                throw new MissingRequiredPropertyException("ScheduleArgs", "flexibleTimeWindow");
+            }
+            if ($.scheduleExpression == null) {
+                throw new MissingRequiredPropertyException("ScheduleArgs", "scheduleExpression");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("ScheduleArgs", "target");
+            }
             return $;
         }
     }

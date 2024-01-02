@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -85,22 +86,34 @@ public final class GetResponseHeadersPolicySecurityHeadersConfigXssProtection {
 
         @CustomType.Setter
         public Builder modeBlock(Boolean modeBlock) {
-            this.modeBlock = Objects.requireNonNull(modeBlock);
+            if (modeBlock == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicySecurityHeadersConfigXssProtection", "modeBlock");
+            }
+            this.modeBlock = modeBlock;
             return this;
         }
         @CustomType.Setter
         public Builder override(Boolean override) {
-            this.override = Objects.requireNonNull(override);
+            if (override == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicySecurityHeadersConfigXssProtection", "override");
+            }
+            this.override = override;
             return this;
         }
         @CustomType.Setter
         public Builder protection(Boolean protection) {
-            this.protection = Objects.requireNonNull(protection);
+            if (protection == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicySecurityHeadersConfigXssProtection", "protection");
+            }
+            this.protection = protection;
             return this;
         }
         @CustomType.Setter
         public Builder reportUri(String reportUri) {
-            this.reportUri = Objects.requireNonNull(reportUri);
+            if (reportUri == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicySecurityHeadersConfigXssProtection", "reportUri");
+            }
+            this.reportUri = reportUri;
             return this;
         }
         public GetResponseHeadersPolicySecurityHeadersConfigXssProtection build() {

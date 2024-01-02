@@ -7,6 +7,7 @@ import com.pulumi.aws.kendra.inputs.DataSourceConfigurationS3ConfigurationAccess
 import com.pulumi.aws.kendra.inputs.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -294,7 +295,9 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         public DataSourceConfigurationS3ConfigurationArgs build() {
-            $.bucketName = Objects.requireNonNull($.bucketName, "expected parameter 'bucketName' to be non-null");
+            if ($.bucketName == null) {
+                throw new MissingRequiredPropertyException("DataSourceConfigurationS3ConfigurationArgs", "bucketName");
+            }
             return $;
         }
     }

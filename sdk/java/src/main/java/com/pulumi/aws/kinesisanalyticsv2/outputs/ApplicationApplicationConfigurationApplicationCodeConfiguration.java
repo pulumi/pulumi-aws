@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesisanalyticsv2.outputs;
 
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,12 +60,16 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
 
         @CustomType.Setter
         public Builder codeContent(@Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent codeContent) {
+
             this.codeContent = codeContent;
             return this;
         }
         @CustomType.Setter
         public Builder codeContentType(String codeContentType) {
-            this.codeContentType = Objects.requireNonNull(codeContentType);
+            if (codeContentType == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationApplicationCodeConfiguration", "codeContentType");
+            }
+            this.codeContentType = codeContentType;
             return this;
         }
         public ApplicationApplicationConfigurationApplicationCodeConfiguration build() {

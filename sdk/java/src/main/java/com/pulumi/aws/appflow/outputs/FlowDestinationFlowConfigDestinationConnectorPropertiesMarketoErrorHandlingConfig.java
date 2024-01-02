@@ -73,16 +73,19 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesMarket
 
         @CustomType.Setter
         public Builder bucketName(@Nullable String bucketName) {
+
             this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
+
             this.bucketPrefix = bucketPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder failOnFirstDestinationError(@Nullable Boolean failOnFirstDestinationError) {
+
             this.failOnFirstDestinationError = failOnFirstDestinationError;
             return this;
         }

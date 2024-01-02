@@ -5,6 +5,7 @@ package com.pulumi.aws.eks.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -330,7 +331,9 @@ public final class ClusterVpcConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ClusterVpcConfigArgs build() {
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("ClusterVpcConfigArgs", "subnetIds");
+            }
             return $;
         }
     }

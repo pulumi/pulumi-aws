@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -57,12 +58,18 @@ public final class GetGatewayRouteSpecHttpRouteMatchHeader {
 
         @CustomType.Setter
         public Builder invert(Boolean invert) {
-            this.invert = Objects.requireNonNull(invert);
+            if (invert == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttpRouteMatchHeader", "invert");
+            }
+            this.invert = invert;
             return this;
         }
         @CustomType.Setter
         public Builder matches(List<GetGatewayRouteSpecHttpRouteMatchHeaderMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+            if (matches == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttpRouteMatchHeader", "matches");
+            }
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetGatewayRouteSpecHttpRouteMatchHeaderMatch... matches) {
@@ -70,7 +77,10 @@ public final class GetGatewayRouteSpecHttpRouteMatchHeader {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttpRouteMatchHeader", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetGatewayRouteSpecHttpRouteMatchHeader build() {

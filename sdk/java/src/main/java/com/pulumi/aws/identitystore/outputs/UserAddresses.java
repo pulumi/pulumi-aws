@@ -143,41 +143,49 @@ public final class UserAddresses {
 
         @CustomType.Setter
         public Builder country(@Nullable String country) {
+
             this.country = country;
             return this;
         }
         @CustomType.Setter
         public Builder formatted(@Nullable String formatted) {
+
             this.formatted = formatted;
             return this;
         }
         @CustomType.Setter
         public Builder locality(@Nullable String locality) {
+
             this.locality = locality;
             return this;
         }
         @CustomType.Setter
         public Builder postalCode(@Nullable String postalCode) {
+
             this.postalCode = postalCode;
             return this;
         }
         @CustomType.Setter
         public Builder primary(@Nullable Boolean primary) {
+
             this.primary = primary;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder streetAddress(@Nullable String streetAddress) {
+
             this.streetAddress = streetAddress;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

@@ -59,11 +59,13 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionCo
 
         @CustomType.Setter
         public Builder cmkArn(@Nullable String cmkArn) {
+
             this.cmkArn = cmkArn;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(@Nullable Boolean encrypted) {
+
             this.encrypted = encrypted;
             return this;
         }

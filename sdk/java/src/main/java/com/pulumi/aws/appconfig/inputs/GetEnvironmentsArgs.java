@@ -5,6 +5,7 @@ package com.pulumi.aws.appconfig.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetEnvironmentsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetEnvironmentsArgs build() {
-            $.applicationId = Objects.requireNonNull($.applicationId, "expected parameter 'applicationId' to be non-null");
+            if ($.applicationId == null) {
+                throw new MissingRequiredPropertyException("GetEnvironmentsArgs", "applicationId");
+            }
             return $;
         }
     }

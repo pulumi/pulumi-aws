@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.inputs;
 import com.pulumi.aws.sagemaker.inputs.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,7 +189,9 @@ public final class DomainDomainSettingsRStudioServerProDomainSettingsArgs extend
         }
 
         public DomainDomainSettingsRStudioServerProDomainSettingsArgs build() {
-            $.domainExecutionRoleArn = Objects.requireNonNull($.domainExecutionRoleArn, "expected parameter 'domainExecutionRoleArn' to be non-null");
+            if ($.domainExecutionRoleArn == null) {
+                throw new MissingRequiredPropertyException("DomainDomainSettingsRStudioServerProDomainSettingsArgs", "domainExecutionRoleArn");
+            }
             return $;
         }
     }

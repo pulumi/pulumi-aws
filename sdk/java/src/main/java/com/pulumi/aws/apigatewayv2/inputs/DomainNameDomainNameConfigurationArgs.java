@@ -5,6 +5,7 @@ package com.pulumi.aws.apigatewayv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,9 +262,15 @@ public final class DomainNameDomainNameConfigurationArgs extends com.pulumi.reso
         }
 
         public DomainNameDomainNameConfigurationArgs build() {
-            $.certificateArn = Objects.requireNonNull($.certificateArn, "expected parameter 'certificateArn' to be non-null");
-            $.endpointType = Objects.requireNonNull($.endpointType, "expected parameter 'endpointType' to be non-null");
-            $.securityPolicy = Objects.requireNonNull($.securityPolicy, "expected parameter 'securityPolicy' to be non-null");
+            if ($.certificateArn == null) {
+                throw new MissingRequiredPropertyException("DomainNameDomainNameConfigurationArgs", "certificateArn");
+            }
+            if ($.endpointType == null) {
+                throw new MissingRequiredPropertyException("DomainNameDomainNameConfigurationArgs", "endpointType");
+            }
+            if ($.securityPolicy == null) {
+                throw new MissingRequiredPropertyException("DomainNameDomainNameConfigurationArgs", "securityPolicy");
+            }
             return $;
         }
     }

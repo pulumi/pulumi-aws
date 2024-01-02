@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormat;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -42,7 +43,10 @@ public final class GetVirtualGatewaySpecLoggingAccessLogFile {
 
         @CustomType.Setter
         public Builder formats(List<GetVirtualGatewaySpecLoggingAccessLogFileFormat> formats) {
-            this.formats = Objects.requireNonNull(formats);
+            if (formats == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecLoggingAccessLogFile", "formats");
+            }
+            this.formats = formats;
             return this;
         }
         public Builder formats(GetVirtualGatewaySpecLoggingAccessLogFileFormat... formats) {
@@ -50,7 +54,10 @@ public final class GetVirtualGatewaySpecLoggingAccessLogFile {
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetVirtualGatewaySpecLoggingAccessLogFile", "path");
+            }
+            this.path = path;
             return this;
         }
         public GetVirtualGatewaySpecLoggingAccessLogFile build() {

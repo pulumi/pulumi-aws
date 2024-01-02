@@ -89,21 +89,25 @@ public final class ThemeConfiguration {
 
         @CustomType.Setter
         public Builder dataColorPalette(@Nullable ThemeConfigurationDataColorPalette dataColorPalette) {
+
             this.dataColorPalette = dataColorPalette;
             return this;
         }
         @CustomType.Setter
         public Builder sheet(@Nullable ThemeConfigurationSheet sheet) {
+
             this.sheet = sheet;
             return this;
         }
         @CustomType.Setter
         public Builder typography(@Nullable ThemeConfigurationTypography typography) {
+
             this.typography = typography;
             return this;
         }
         @CustomType.Setter
         public Builder uiColorPalette(@Nullable ThemeConfigurationUiColorPalette uiColorPalette) {
+
             this.uiColorPalette = uiColorPalette;
             return this;
         }

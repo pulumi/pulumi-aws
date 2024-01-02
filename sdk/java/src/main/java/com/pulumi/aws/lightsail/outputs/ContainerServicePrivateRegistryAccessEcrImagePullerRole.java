@@ -63,11 +63,13 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRole {
 
         @CustomType.Setter
         public Builder isActive(@Nullable Boolean isActive) {
+
             this.isActive = isActive;
             return this;
         }
         @CustomType.Setter
         public Builder principalArn(@Nullable String principalArn) {
+
             this.principalArn = principalArn;
             return this;
         }

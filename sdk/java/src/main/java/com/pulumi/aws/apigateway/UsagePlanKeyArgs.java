@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class UsagePlanKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UsagePlanKeyArgs build() {
-            $.keyId = Objects.requireNonNull($.keyId, "expected parameter 'keyId' to be non-null");
-            $.keyType = Objects.requireNonNull($.keyType, "expected parameter 'keyType' to be non-null");
-            $.usagePlanId = Objects.requireNonNull($.usagePlanId, "expected parameter 'usagePlanId' to be non-null");
+            if ($.keyId == null) {
+                throw new MissingRequiredPropertyException("UsagePlanKeyArgs", "keyId");
+            }
+            if ($.keyType == null) {
+                throw new MissingRequiredPropertyException("UsagePlanKeyArgs", "keyType");
+            }
+            if ($.usagePlanId == null) {
+                throw new MissingRequiredPropertyException("UsagePlanKeyArgs", "usagePlanId");
+            }
             return $;
         }
     }

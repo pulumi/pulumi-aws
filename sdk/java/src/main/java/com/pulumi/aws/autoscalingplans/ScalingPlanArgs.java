@@ -7,6 +7,7 @@ import com.pulumi.aws.autoscalingplans.inputs.ScalingPlanApplicationSourceArgs;
 import com.pulumi.aws.autoscalingplans.inputs.ScalingPlanScalingInstructionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -163,8 +164,12 @@ public final class ScalingPlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ScalingPlanArgs build() {
-            $.applicationSource = Objects.requireNonNull($.applicationSource, "expected parameter 'applicationSource' to be non-null");
-            $.scalingInstructions = Objects.requireNonNull($.scalingInstructions, "expected parameter 'scalingInstructions' to be non-null");
+            if ($.applicationSource == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanArgs", "applicationSource");
+            }
+            if ($.scalingInstructions == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanArgs", "scalingInstructions");
+            }
             return $;
         }
     }

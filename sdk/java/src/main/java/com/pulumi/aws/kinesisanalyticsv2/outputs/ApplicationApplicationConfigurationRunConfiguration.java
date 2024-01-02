@@ -59,11 +59,13 @@ public final class ApplicationApplicationConfigurationRunConfiguration {
 
         @CustomType.Setter
         public Builder applicationRestoreConfiguration(@Nullable ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration applicationRestoreConfiguration) {
+
             this.applicationRestoreConfiguration = applicationRestoreConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder flinkRunConfiguration(@Nullable ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration flinkRunConfiguration) {
+
             this.flinkRunConfiguration = flinkRunConfiguration;
             return this;
         }

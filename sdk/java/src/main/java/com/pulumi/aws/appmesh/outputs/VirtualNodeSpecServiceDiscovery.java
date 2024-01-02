@@ -59,11 +59,13 @@ public final class VirtualNodeSpecServiceDiscovery {
 
         @CustomType.Setter
         public Builder awsCloudMap(@Nullable VirtualNodeSpecServiceDiscoveryAwsCloudMap awsCloudMap) {
+
             this.awsCloudMap = awsCloudMap;
             return this;
         }
         @CustomType.Setter
         public Builder dns(@Nullable VirtualNodeSpecServiceDiscoveryDns dns) {
+
             this.dns = dns;
             return this;
         }

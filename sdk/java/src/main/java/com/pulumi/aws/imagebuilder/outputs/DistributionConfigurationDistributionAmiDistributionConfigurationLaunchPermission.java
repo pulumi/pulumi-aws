@@ -86,6 +86,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
 
         @CustomType.Setter
         public Builder organizationArns(@Nullable List<String> organizationArns) {
+
             this.organizationArns = organizationArns;
             return this;
         }
@@ -94,6 +95,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
         }
         @CustomType.Setter
         public Builder organizationalUnitArns(@Nullable List<String> organizationalUnitArns) {
+
             this.organizationalUnitArns = organizationalUnitArns;
             return this;
         }
@@ -102,6 +104,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
         }
         @CustomType.Setter
         public Builder userGroups(@Nullable List<String> userGroups) {
+
             this.userGroups = userGroups;
             return this;
         }
@@ -110,6 +113,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
         }
         @CustomType.Setter
         public Builder userIds(@Nullable List<String> userIds) {
+
             this.userIds = userIds;
             return this;
         }

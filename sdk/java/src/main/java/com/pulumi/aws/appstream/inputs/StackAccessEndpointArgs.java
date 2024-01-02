@@ -5,6 +5,7 @@ package com.pulumi.aws.appstream.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -117,7 +118,9 @@ public final class StackAccessEndpointArgs extends com.pulumi.resources.Resource
         }
 
         public StackAccessEndpointArgs build() {
-            $.endpointType = Objects.requireNonNull($.endpointType, "expected parameter 'endpointType' to be non-null");
+            if ($.endpointType == null) {
+                throw new MissingRequiredPropertyException("StackAccessEndpointArgs", "endpointType");
+            }
             return $;
         }
     }

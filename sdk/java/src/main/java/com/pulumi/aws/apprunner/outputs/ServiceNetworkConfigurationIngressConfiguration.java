@@ -44,6 +44,7 @@ public final class ServiceNetworkConfigurationIngressConfiguration {
 
         @CustomType.Setter
         public Builder isPubliclyAccessible(@Nullable Boolean isPubliclyAccessible) {
+
             this.isPubliclyAccessible = isPubliclyAccessible;
             return this;
         }

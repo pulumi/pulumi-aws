@@ -5,6 +5,7 @@ package com.pulumi.aws.inspector2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class OrganizationConfigurationAutoEnableArgs extends com.pulumi.re
         }
 
         public OrganizationConfigurationAutoEnableArgs build() {
-            $.ec2 = Objects.requireNonNull($.ec2, "expected parameter 'ec2' to be non-null");
-            $.ecr = Objects.requireNonNull($.ecr, "expected parameter 'ecr' to be non-null");
+            if ($.ec2 == null) {
+                throw new MissingRequiredPropertyException("OrganizationConfigurationAutoEnableArgs", "ec2");
+            }
+            if ($.ecr == null) {
+                throw new MissingRequiredPropertyException("OrganizationConfigurationAutoEnableArgs", "ecr");
+            }
             return $;
         }
     }

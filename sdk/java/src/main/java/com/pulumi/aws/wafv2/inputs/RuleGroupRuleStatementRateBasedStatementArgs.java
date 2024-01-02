@@ -8,6 +8,7 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementForwa
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -239,7 +240,9 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
         }
 
         public RuleGroupRuleStatementRateBasedStatementArgs build() {
-            $.limit = Objects.requireNonNull($.limit, "expected parameter 'limit' to be non-null");
+            if ($.limit == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleStatementRateBasedStatementArgs", "limit");
+            }
             return $;
         }
     }

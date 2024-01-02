@@ -5,6 +5,7 @@ package com.pulumi.aws.datasync.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class LocationAzureBlobSasConfigurationArgs extends com.pulumi.reso
         }
 
         public LocationAzureBlobSasConfigurationArgs build() {
-            $.token = Objects.requireNonNull($.token, "expected parameter 'token' to be non-null");
+            if ($.token == null) {
+                throw new MissingRequiredPropertyException("LocationAzureBlobSasConfigurationArgs", "token");
+            }
             return $;
         }
     }

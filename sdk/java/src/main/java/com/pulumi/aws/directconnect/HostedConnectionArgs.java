@@ -5,6 +5,7 @@ package com.pulumi.aws.directconnect;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,10 +226,18 @@ public final class HostedConnectionArgs extends com.pulumi.resources.ResourceArg
         }
 
         public HostedConnectionArgs build() {
-            $.bandwidth = Objects.requireNonNull($.bandwidth, "expected parameter 'bandwidth' to be non-null");
-            $.connectionId = Objects.requireNonNull($.connectionId, "expected parameter 'connectionId' to be non-null");
-            $.ownerAccountId = Objects.requireNonNull($.ownerAccountId, "expected parameter 'ownerAccountId' to be non-null");
-            $.vlan = Objects.requireNonNull($.vlan, "expected parameter 'vlan' to be non-null");
+            if ($.bandwidth == null) {
+                throw new MissingRequiredPropertyException("HostedConnectionArgs", "bandwidth");
+            }
+            if ($.connectionId == null) {
+                throw new MissingRequiredPropertyException("HostedConnectionArgs", "connectionId");
+            }
+            if ($.ownerAccountId == null) {
+                throw new MissingRequiredPropertyException("HostedConnectionArgs", "ownerAccountId");
+            }
+            if ($.vlan == null) {
+                throw new MissingRequiredPropertyException("HostedConnectionArgs", "vlan");
+            }
             return $;
         }
     }

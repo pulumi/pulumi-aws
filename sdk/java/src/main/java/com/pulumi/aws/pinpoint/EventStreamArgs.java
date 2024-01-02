@@ -5,6 +5,7 @@ package com.pulumi.aws.pinpoint;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class EventStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EventStreamArgs build() {
-            $.applicationId = Objects.requireNonNull($.applicationId, "expected parameter 'applicationId' to be non-null");
-            $.destinationStreamArn = Objects.requireNonNull($.destinationStreamArn, "expected parameter 'destinationStreamArn' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.applicationId == null) {
+                throw new MissingRequiredPropertyException("EventStreamArgs", "applicationId");
+            }
+            if ($.destinationStreamArn == null) {
+                throw new MissingRequiredPropertyException("EventStreamArgs", "destinationStreamArn");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("EventStreamArgs", "roleArn");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class PipelinePipelineDefinitionS3LocationArgs extends com.pulumi.r
         }
 
         public PipelinePipelineDefinitionS3LocationArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.objectKey = Objects.requireNonNull($.objectKey, "expected parameter 'objectKey' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("PipelinePipelineDefinitionS3LocationArgs", "bucket");
+            }
+            if ($.objectKey == null) {
+                throw new MissingRequiredPropertyException("PipelinePipelineDefinitionS3LocationArgs", "objectKey");
+            }
             return $;
         }
     }

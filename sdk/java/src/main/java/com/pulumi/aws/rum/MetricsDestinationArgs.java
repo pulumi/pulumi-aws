@@ -5,6 +5,7 @@ package com.pulumi.aws.rum;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class MetricsDestinationArgs extends com.pulumi.resources.ResourceA
         }
 
         public MetricsDestinationArgs build() {
-            $.appMonitorName = Objects.requireNonNull($.appMonitorName, "expected parameter 'appMonitorName' to be non-null");
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
+            if ($.appMonitorName == null) {
+                throw new MissingRequiredPropertyException("MetricsDestinationArgs", "appMonitorName");
+            }
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("MetricsDestinationArgs", "destination");
+            }
             return $;
         }
     }

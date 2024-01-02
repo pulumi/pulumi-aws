@@ -8,6 +8,7 @@ import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoTargetGro
 import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -163,8 +164,12 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs extend
         }
 
         public DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs build() {
-            $.prodTrafficRoute = Objects.requireNonNull($.prodTrafficRoute, "expected parameter 'prodTrafficRoute' to be non-null");
-            $.targetGroups = Objects.requireNonNull($.targetGroups, "expected parameter 'targetGroups' to be non-null");
+            if ($.prodTrafficRoute == null) {
+                throw new MissingRequiredPropertyException("DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs", "prodTrafficRoute");
+            }
+            if ($.targetGroups == null) {
+                throw new MissingRequiredPropertyException("DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs", "targetGroups");
+            }
             return $;
         }
     }

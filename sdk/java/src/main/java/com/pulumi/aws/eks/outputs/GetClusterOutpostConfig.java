@@ -5,6 +5,7 @@ package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.aws.eks.outputs.GetClusterOutpostConfigControlPlanePlacement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,12 +73,18 @@ public final class GetClusterOutpostConfig {
 
         @CustomType.Setter
         public Builder controlPlaneInstanceType(String controlPlaneInstanceType) {
-            this.controlPlaneInstanceType = Objects.requireNonNull(controlPlaneInstanceType);
+            if (controlPlaneInstanceType == null) {
+              throw new MissingRequiredPropertyException("GetClusterOutpostConfig", "controlPlaneInstanceType");
+            }
+            this.controlPlaneInstanceType = controlPlaneInstanceType;
             return this;
         }
         @CustomType.Setter
         public Builder controlPlanePlacements(List<GetClusterOutpostConfigControlPlanePlacement> controlPlanePlacements) {
-            this.controlPlanePlacements = Objects.requireNonNull(controlPlanePlacements);
+            if (controlPlanePlacements == null) {
+              throw new MissingRequiredPropertyException("GetClusterOutpostConfig", "controlPlanePlacements");
+            }
+            this.controlPlanePlacements = controlPlanePlacements;
             return this;
         }
         public Builder controlPlanePlacements(GetClusterOutpostConfigControlPlanePlacement... controlPlanePlacements) {
@@ -85,7 +92,10 @@ public final class GetClusterOutpostConfig {
         }
         @CustomType.Setter
         public Builder outpostArns(List<String> outpostArns) {
-            this.outpostArns = Objects.requireNonNull(outpostArns);
+            if (outpostArns == null) {
+              throw new MissingRequiredPropertyException("GetClusterOutpostConfig", "outpostArns");
+            }
+            this.outpostArns = outpostArns;
             return this;
         }
         public Builder outpostArns(String... outpostArns) {

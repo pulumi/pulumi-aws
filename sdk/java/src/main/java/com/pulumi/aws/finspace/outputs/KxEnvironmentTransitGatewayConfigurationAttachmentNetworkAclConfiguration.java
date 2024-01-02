@@ -6,6 +6,7 @@ package com.pulumi.aws.finspace.outputs;
 import com.pulumi.aws.finspace.outputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode;
 import com.pulumi.aws.finspace.outputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -117,32 +118,46 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
 
         @CustomType.Setter
         public Builder cidrBlock(String cidrBlock) {
-            this.cidrBlock = Objects.requireNonNull(cidrBlock);
+            if (cidrBlock == null) {
+              throw new MissingRequiredPropertyException("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration", "cidrBlock");
+            }
+            this.cidrBlock = cidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder icmpTypeCode(@Nullable KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode icmpTypeCode) {
+
             this.icmpTypeCode = icmpTypeCode;
             return this;
         }
         @CustomType.Setter
         public Builder portRange(@Nullable KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange portRange) {
+
             this.portRange = portRange;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder ruleAction(String ruleAction) {
-            this.ruleAction = Objects.requireNonNull(ruleAction);
+            if (ruleAction == null) {
+              throw new MissingRequiredPropertyException("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration", "ruleAction");
+            }
+            this.ruleAction = ruleAction;
             return this;
         }
         @CustomType.Setter
         public Builder ruleNumber(Integer ruleNumber) {
-            this.ruleNumber = Objects.requireNonNull(ruleNumber);
+            if (ruleNumber == null) {
+              throw new MissingRequiredPropertyException("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration", "ruleNumber");
+            }
+            this.ruleNumber = ruleNumber;
             return this;
         }
         public KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration build() {

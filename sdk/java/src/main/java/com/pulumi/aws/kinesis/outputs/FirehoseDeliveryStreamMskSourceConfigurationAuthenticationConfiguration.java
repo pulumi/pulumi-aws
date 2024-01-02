@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationAuthenticationCon
 
         @CustomType.Setter
         public Builder connectivity(String connectivity) {
-            this.connectivity = Objects.requireNonNull(connectivity);
+            if (connectivity == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration", "connectivity");
+            }
+            this.connectivity = connectivity;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         public FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration build() {

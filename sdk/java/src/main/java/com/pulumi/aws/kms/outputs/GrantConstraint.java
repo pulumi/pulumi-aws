@@ -58,11 +58,13 @@ public final class GrantConstraint {
 
         @CustomType.Setter
         public Builder encryptionContextEquals(@Nullable Map<String,String> encryptionContextEquals) {
+
             this.encryptionContextEquals = encryptionContextEquals;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionContextSubset(@Nullable Map<String,String> encryptionContextSubset) {
+
             this.encryptionContextSubset = encryptionContextSubset;
             return this;
         }

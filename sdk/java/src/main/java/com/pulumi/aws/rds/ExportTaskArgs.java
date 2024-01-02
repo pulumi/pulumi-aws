@@ -6,6 +6,7 @@ package com.pulumi.aws.rds;
 import com.pulumi.aws.rds.inputs.ExportTaskTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -335,11 +336,21 @@ public final class ExportTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ExportTaskArgs build() {
-            $.exportTaskIdentifier = Objects.requireNonNull($.exportTaskIdentifier, "expected parameter 'exportTaskIdentifier' to be non-null");
-            $.iamRoleArn = Objects.requireNonNull($.iamRoleArn, "expected parameter 'iamRoleArn' to be non-null");
-            $.kmsKeyId = Objects.requireNonNull($.kmsKeyId, "expected parameter 'kmsKeyId' to be non-null");
-            $.s3BucketName = Objects.requireNonNull($.s3BucketName, "expected parameter 's3BucketName' to be non-null");
-            $.sourceArn = Objects.requireNonNull($.sourceArn, "expected parameter 'sourceArn' to be non-null");
+            if ($.exportTaskIdentifier == null) {
+                throw new MissingRequiredPropertyException("ExportTaskArgs", "exportTaskIdentifier");
+            }
+            if ($.iamRoleArn == null) {
+                throw new MissingRequiredPropertyException("ExportTaskArgs", "iamRoleArn");
+            }
+            if ($.kmsKeyId == null) {
+                throw new MissingRequiredPropertyException("ExportTaskArgs", "kmsKeyId");
+            }
+            if ($.s3BucketName == null) {
+                throw new MissingRequiredPropertyException("ExportTaskArgs", "s3BucketName");
+            }
+            if ($.sourceArn == null) {
+                throw new MissingRequiredPropertyException("ExportTaskArgs", "sourceArn");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudsearch;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DomainServiceAccessPolicyArgs extends com.pulumi.resources.Re
         }
 
         public DomainServiceAccessPolicyArgs build() {
-            $.accessPolicy = Objects.requireNonNull($.accessPolicy, "expected parameter 'accessPolicy' to be non-null");
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
+            if ($.accessPolicy == null) {
+                throw new MissingRequiredPropertyException("DomainServiceAccessPolicyArgs", "accessPolicy");
+            }
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("DomainServiceAccessPolicyArgs", "domainName");
+            }
             return $;
         }
     }

@@ -75,6 +75,7 @@ public final class DomainDefaultSpaceSettingsJupyterServerAppSettings {
 
         @CustomType.Setter
         public Builder codeRepositories(@Nullable List<DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository> codeRepositories) {
+
             this.codeRepositories = codeRepositories;
             return this;
         }
@@ -83,11 +84,13 @@ public final class DomainDefaultSpaceSettingsJupyterServerAppSettings {
         }
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec) {
+
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycleConfigArns(@Nullable List<String> lifecycleConfigArns) {
+
             this.lifecycleConfigArns = lifecycleConfigArns;
             return this;
         }

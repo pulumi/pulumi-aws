@@ -6,6 +6,7 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.aws.kendra.outputs.GetIndexDocumentMetadataConfigurationUpdateRelevance;
 import com.pulumi.aws.kendra.outputs.GetIndexDocumentMetadataConfigurationUpdateSearch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -87,12 +88,18 @@ public final class GetIndexDocumentMetadataConfigurationUpdate {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetIndexDocumentMetadataConfigurationUpdate", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder relevances(List<GetIndexDocumentMetadataConfigurationUpdateRelevance> relevances) {
-            this.relevances = Objects.requireNonNull(relevances);
+            if (relevances == null) {
+              throw new MissingRequiredPropertyException("GetIndexDocumentMetadataConfigurationUpdate", "relevances");
+            }
+            this.relevances = relevances;
             return this;
         }
         public Builder relevances(GetIndexDocumentMetadataConfigurationUpdateRelevance... relevances) {
@@ -100,7 +107,10 @@ public final class GetIndexDocumentMetadataConfigurationUpdate {
         }
         @CustomType.Setter
         public Builder searches(List<GetIndexDocumentMetadataConfigurationUpdateSearch> searches) {
-            this.searches = Objects.requireNonNull(searches);
+            if (searches == null) {
+              throw new MissingRequiredPropertyException("GetIndexDocumentMetadataConfigurationUpdate", "searches");
+            }
+            this.searches = searches;
             return this;
         }
         public Builder searches(GetIndexDocumentMetadataConfigurationUpdateSearch... searches) {
@@ -108,7 +118,10 @@ public final class GetIndexDocumentMetadataConfigurationUpdate {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetIndexDocumentMetadataConfigurationUpdate", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetIndexDocumentMetadataConfigurationUpdate build() {

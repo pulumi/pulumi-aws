@@ -44,6 +44,7 @@ public final class InventoryFilter {
 
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }

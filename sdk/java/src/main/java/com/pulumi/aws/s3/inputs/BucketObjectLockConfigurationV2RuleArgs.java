@@ -6,6 +6,7 @@ package com.pulumi.aws.s3.inputs;
 import com.pulumi.aws.s3.inputs.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class BucketObjectLockConfigurationV2RuleArgs extends com.pulumi.re
         }
 
         public BucketObjectLockConfigurationV2RuleArgs build() {
-            $.defaultRetention = Objects.requireNonNull($.defaultRetention, "expected parameter 'defaultRetention' to be non-null");
+            if ($.defaultRetention == null) {
+                throw new MissingRequiredPropertyException("BucketObjectLockConfigurationV2RuleArgs", "defaultRetention");
+            }
             return $;
         }
     }

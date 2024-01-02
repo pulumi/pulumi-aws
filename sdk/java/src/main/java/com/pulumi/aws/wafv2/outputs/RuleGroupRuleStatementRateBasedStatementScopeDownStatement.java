@@ -209,61 +209,73 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatement {
 
         @CustomType.Setter
         public Builder andStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement andStatement) {
+
             this.andStatement = andStatement;
             return this;
         }
         @CustomType.Setter
         public Builder byteMatchStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement byteMatchStatement) {
+
             this.byteMatchStatement = byteMatchStatement;
             return this;
         }
         @CustomType.Setter
         public Builder geoMatchStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement geoMatchStatement) {
+
             this.geoMatchStatement = geoMatchStatement;
             return this;
         }
         @CustomType.Setter
         public Builder ipSetReferenceStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement ipSetReferenceStatement) {
+
             this.ipSetReferenceStatement = ipSetReferenceStatement;
             return this;
         }
         @CustomType.Setter
         public Builder labelMatchStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement labelMatchStatement) {
+
             this.labelMatchStatement = labelMatchStatement;
             return this;
         }
         @CustomType.Setter
         public Builder notStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement notStatement) {
+
             this.notStatement = notStatement;
             return this;
         }
         @CustomType.Setter
         public Builder orStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement orStatement) {
+
             this.orStatement = orStatement;
             return this;
         }
         @CustomType.Setter
         public Builder regexMatchStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement regexMatchStatement) {
+
             this.regexMatchStatement = regexMatchStatement;
             return this;
         }
         @CustomType.Setter
         public Builder regexPatternSetReferenceStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement) {
+
             this.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             return this;
         }
         @CustomType.Setter
         public Builder sizeConstraintStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement sizeConstraintStatement) {
+
             this.sizeConstraintStatement = sizeConstraintStatement;
             return this;
         }
         @CustomType.Setter
         public Builder sqliMatchStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement sqliMatchStatement) {
+
             this.sqliMatchStatement = sqliMatchStatement;
             return this;
         }
         @CustomType.Setter
         public Builder xssMatchStatement(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement xssMatchStatement) {
+
             this.xssMatchStatement = xssMatchStatement;
             return this;
         }

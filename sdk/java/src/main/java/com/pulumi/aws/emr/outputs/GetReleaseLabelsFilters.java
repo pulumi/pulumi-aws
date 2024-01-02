@@ -58,11 +58,13 @@ public final class GetReleaseLabelsFilters {
 
         @CustomType.Setter
         public Builder application(@Nullable String application) {
+
             this.application = application;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }

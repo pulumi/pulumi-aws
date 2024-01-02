@@ -44,6 +44,7 @@ public final class UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings 
 
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }

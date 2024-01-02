@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class VpnGatewayRoutePropagationArgs extends com.pulumi.resources.R
         }
 
         public VpnGatewayRoutePropagationArgs build() {
-            $.routeTableId = Objects.requireNonNull($.routeTableId, "expected parameter 'routeTableId' to be non-null");
-            $.vpnGatewayId = Objects.requireNonNull($.vpnGatewayId, "expected parameter 'vpnGatewayId' to be non-null");
+            if ($.routeTableId == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayRoutePropagationArgs", "routeTableId");
+            }
+            if ($.vpnGatewayId == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayRoutePropagationArgs", "vpnGatewayId");
+            }
             return $;
         }
     }

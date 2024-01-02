@@ -4,6 +4,7 @@
 package com.pulumi.aws.pipes.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class PipeTargetParametersEcsTaskParametersOverridesEphemeralStorag
 
         @CustomType.Setter
         public Builder sizeInGib(Integer sizeInGib) {
-            this.sizeInGib = Objects.requireNonNull(sizeInGib);
+            if (sizeInGib == null) {
+              throw new MissingRequiredPropertyException("PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage", "sizeInGib");
+            }
+            this.sizeInGib = sizeInGib;
             return this;
         }
         public PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage build() {

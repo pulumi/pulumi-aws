@@ -5,6 +5,7 @@ package com.pulumi.aws.shield;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ProtectionHealthCheckAssociationArgs extends com.pulumi.resou
         }
 
         public ProtectionHealthCheckAssociationArgs build() {
-            $.healthCheckArn = Objects.requireNonNull($.healthCheckArn, "expected parameter 'healthCheckArn' to be non-null");
-            $.shieldProtectionId = Objects.requireNonNull($.shieldProtectionId, "expected parameter 'shieldProtectionId' to be non-null");
+            if ($.healthCheckArn == null) {
+                throw new MissingRequiredPropertyException("ProtectionHealthCheckAssociationArgs", "healthCheckArn");
+            }
+            if ($.shieldProtectionId == null) {
+                throw new MissingRequiredPropertyException("ProtectionHealthCheckAssociationArgs", "shieldProtectionId");
+            }
             return $;
         }
     }

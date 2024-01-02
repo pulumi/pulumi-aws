@@ -4,6 +4,7 @@
 package com.pulumi.aws.backup.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -97,27 +98,42 @@ public final class GetSelectionResult {
 
         @CustomType.Setter
         public Builder iamRoleArn(String iamRoleArn) {
-            this.iamRoleArn = Objects.requireNonNull(iamRoleArn);
+            if (iamRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetSelectionResult", "iamRoleArn");
+            }
+            this.iamRoleArn = iamRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSelectionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSelectionResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder planId(String planId) {
-            this.planId = Objects.requireNonNull(planId);
+            if (planId == null) {
+              throw new MissingRequiredPropertyException("GetSelectionResult", "planId");
+            }
+            this.planId = planId;
             return this;
         }
         @CustomType.Setter
         public Builder resources(List<String> resources) {
-            this.resources = Objects.requireNonNull(resources);
+            if (resources == null) {
+              throw new MissingRequiredPropertyException("GetSelectionResult", "resources");
+            }
+            this.resources = resources;
             return this;
         }
         public Builder resources(String... resources) {
@@ -125,7 +141,10 @@ public final class GetSelectionResult {
         }
         @CustomType.Setter
         public Builder selectionId(String selectionId) {
-            this.selectionId = Objects.requireNonNull(selectionId);
+            if (selectionId == null) {
+              throw new MissingRequiredPropertyException("GetSelectionResult", "selectionId");
+            }
+            this.selectionId = selectionId;
             return this;
         }
         public GetSelectionResult build() {

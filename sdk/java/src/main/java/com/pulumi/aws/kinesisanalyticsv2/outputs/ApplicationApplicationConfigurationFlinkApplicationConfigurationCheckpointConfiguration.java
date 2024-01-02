@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesisanalyticsv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -94,21 +95,27 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
 
         @CustomType.Setter
         public Builder checkpointInterval(@Nullable Integer checkpointInterval) {
+
             this.checkpointInterval = checkpointInterval;
             return this;
         }
         @CustomType.Setter
         public Builder checkpointingEnabled(@Nullable Boolean checkpointingEnabled) {
+
             this.checkpointingEnabled = checkpointingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder configurationType(String configurationType) {
-            this.configurationType = Objects.requireNonNull(configurationType);
+            if (configurationType == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration", "configurationType");
+            }
+            this.configurationType = configurationType;
             return this;
         }
         @CustomType.Setter
         public Builder minPauseBetweenCheckpoints(@Nullable Integer minPauseBetweenCheckpoints) {
+
             this.minPauseBetweenCheckpoints = minPauseBetweenCheckpoints;
             return this;
         }

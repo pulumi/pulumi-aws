@@ -10,6 +10,7 @@ import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleFilterArgs;
 import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleSourceSelectionCriteriaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -394,8 +395,12 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         public BucketReplicationConfigRuleArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("BucketReplicationConfigRuleArgs", "destination");
+            }
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("BucketReplicationConfigRuleArgs", "status");
+            }
             return $;
         }
     }

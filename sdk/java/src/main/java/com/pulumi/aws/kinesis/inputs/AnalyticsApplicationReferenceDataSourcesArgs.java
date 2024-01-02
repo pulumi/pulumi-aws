@@ -7,6 +7,7 @@ import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationReferenceDataSourcesS3A
 import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationReferenceDataSourcesSchemaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -189,9 +190,15 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs extends com.pulu
         }
 
         public AnalyticsApplicationReferenceDataSourcesArgs build() {
-            $.s3 = Objects.requireNonNull($.s3, "expected parameter 's3' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.s3 == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSourcesArgs", "s3");
+            }
+            if ($.schema == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSourcesArgs", "schema");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSourcesArgs", "tableName");
+            }
             return $;
         }
     }

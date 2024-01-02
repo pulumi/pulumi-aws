@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOrigin;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -129,42 +130,62 @@ public final class GetCachePolicyResult {
 
         @CustomType.Setter
         public Builder comment(String comment) {
-            this.comment = Objects.requireNonNull(comment);
+            if (comment == null) {
+              throw new MissingRequiredPropertyException("GetCachePolicyResult", "comment");
+            }
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder defaultTtl(Integer defaultTtl) {
-            this.defaultTtl = Objects.requireNonNull(defaultTtl);
+            if (defaultTtl == null) {
+              throw new MissingRequiredPropertyException("GetCachePolicyResult", "defaultTtl");
+            }
+            this.defaultTtl = defaultTtl;
             return this;
         }
         @CustomType.Setter
         public Builder etag(String etag) {
-            this.etag = Objects.requireNonNull(etag);
+            if (etag == null) {
+              throw new MissingRequiredPropertyException("GetCachePolicyResult", "etag");
+            }
+            this.etag = etag;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder maxTtl(Integer maxTtl) {
-            this.maxTtl = Objects.requireNonNull(maxTtl);
+            if (maxTtl == null) {
+              throw new MissingRequiredPropertyException("GetCachePolicyResult", "maxTtl");
+            }
+            this.maxTtl = maxTtl;
             return this;
         }
         @CustomType.Setter
         public Builder minTtl(Integer minTtl) {
-            this.minTtl = Objects.requireNonNull(minTtl);
+            if (minTtl == null) {
+              throw new MissingRequiredPropertyException("GetCachePolicyResult", "minTtl");
+            }
+            this.minTtl = minTtl;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder parametersInCacheKeyAndForwardedToOrigins(List<GetCachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigins) {
-            this.parametersInCacheKeyAndForwardedToOrigins = Objects.requireNonNull(parametersInCacheKeyAndForwardedToOrigins);
+            if (parametersInCacheKeyAndForwardedToOrigins == null) {
+              throw new MissingRequiredPropertyException("GetCachePolicyResult", "parametersInCacheKeyAndForwardedToOrigins");
+            }
+            this.parametersInCacheKeyAndForwardedToOrigins = parametersInCacheKeyAndForwardedToOrigins;
             return this;
         }
         public Builder parametersInCacheKeyAndForwardedToOrigins(GetCachePolicyParametersInCacheKeyAndForwardedToOrigin... parametersInCacheKeyAndForwardedToOrigins) {

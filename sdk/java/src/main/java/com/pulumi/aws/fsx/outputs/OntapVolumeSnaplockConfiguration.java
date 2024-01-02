@@ -6,6 +6,7 @@ package com.pulumi.aws.fsx.outputs;
 import com.pulumi.aws.fsx.outputs.OntapVolumeSnaplockConfigurationAutocommitPeriod;
 import com.pulumi.aws.fsx.outputs.OntapVolumeSnaplockConfigurationRetentionPeriod;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -117,31 +118,39 @@ public final class OntapVolumeSnaplockConfiguration {
 
         @CustomType.Setter
         public Builder auditLogVolume(@Nullable Boolean auditLogVolume) {
+
             this.auditLogVolume = auditLogVolume;
             return this;
         }
         @CustomType.Setter
         public Builder autocommitPeriod(@Nullable OntapVolumeSnaplockConfigurationAutocommitPeriod autocommitPeriod) {
+
             this.autocommitPeriod = autocommitPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder privilegedDelete(@Nullable String privilegedDelete) {
+
             this.privilegedDelete = privilegedDelete;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPeriod(@Nullable OntapVolumeSnaplockConfigurationRetentionPeriod retentionPeriod) {
+
             this.retentionPeriod = retentionPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder snaplockType(String snaplockType) {
-            this.snaplockType = Objects.requireNonNull(snaplockType);
+            if (snaplockType == null) {
+              throw new MissingRequiredPropertyException("OntapVolumeSnaplockConfiguration", "snaplockType");
+            }
+            this.snaplockType = snaplockType;
             return this;
         }
         @CustomType.Setter
         public Builder volumeAppendModeEnabled(@Nullable Boolean volumeAppendModeEnabled) {
+
             this.volumeAppendModeEnabled = volumeAppendModeEnabled;
             return this;
         }

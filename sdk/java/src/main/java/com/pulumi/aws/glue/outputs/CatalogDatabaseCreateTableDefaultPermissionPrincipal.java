@@ -44,6 +44,7 @@ public final class CatalogDatabaseCreateTableDefaultPermissionPrincipal {
 
         @CustomType.Setter
         public Builder dataLakePrincipalIdentifier(@Nullable String dataLakePrincipalIdentifier) {
+
             this.dataLakePrincipalIdentifier = dataLakePrincipalIdentifier;
             return this;
         }

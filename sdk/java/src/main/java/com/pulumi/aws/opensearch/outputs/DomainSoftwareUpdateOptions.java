@@ -44,6 +44,7 @@ public final class DomainSoftwareUpdateOptions {
 
         @CustomType.Setter
         public Builder autoSoftwareUpdateEnabled(@Nullable Boolean autoSoftwareUpdateEnabled) {
+
             this.autoSoftwareUpdateEnabled = autoSoftwareUpdateEnabled;
             return this;
         }

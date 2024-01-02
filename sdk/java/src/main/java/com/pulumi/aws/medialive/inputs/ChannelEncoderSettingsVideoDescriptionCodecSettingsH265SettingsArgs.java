@@ -8,6 +8,7 @@ import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsVideoDescriptionCod
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -1114,9 +1115,15 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs build() {
-            $.bitrate = Objects.requireNonNull($.bitrate, "expected parameter 'bitrate' to be non-null");
-            $.framerateDenominator = Objects.requireNonNull($.framerateDenominator, "expected parameter 'framerateDenominator' to be non-null");
-            $.framerateNumerator = Objects.requireNonNull($.framerateNumerator, "expected parameter 'framerateNumerator' to be non-null");
+            if ($.bitrate == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs", "bitrate");
+            }
+            if ($.framerateDenominator == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs", "framerateDenominator");
+            }
+            if ($.framerateNumerator == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs", "framerateNumerator");
+            }
             return $;
         }
     }

@@ -60,26 +60,31 @@ public final class ClusterClusterCertificate {
 
         @CustomType.Setter
         public Builder awsHardwareCertificate(@Nullable String awsHardwareCertificate) {
+
             this.awsHardwareCertificate = awsHardwareCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder clusterCertificate(@Nullable String clusterCertificate) {
+
             this.clusterCertificate = clusterCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder clusterCsr(@Nullable String clusterCsr) {
+
             this.clusterCsr = clusterCsr;
             return this;
         }
         @CustomType.Setter
         public Builder hsmCertificate(@Nullable String hsmCertificate) {
+
             this.hsmCertificate = hsmCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder manufacturerHardwareCertificate(@Nullable String manufacturerHardwareCertificate) {
+
             this.manufacturerHardwareCertificate = manufacturerHardwareCertificate;
             return this;
         }

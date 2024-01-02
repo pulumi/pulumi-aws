@@ -5,6 +5,7 @@ package com.pulumi.aws.ses.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,8 +226,12 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
         }
 
         public ReceiptRuleS3ActionArgs build() {
-            $.bucketName = Objects.requireNonNull($.bucketName, "expected parameter 'bucketName' to be non-null");
-            $.position = Objects.requireNonNull($.position, "expected parameter 'position' to be non-null");
+            if ($.bucketName == null) {
+                throw new MissingRequiredPropertyException("ReceiptRuleS3ActionArgs", "bucketName");
+            }
+            if ($.position == null) {
+                throw new MissingRequiredPropertyException("ReceiptRuleS3ActionArgs", "position");
+            }
             return $;
         }
     }

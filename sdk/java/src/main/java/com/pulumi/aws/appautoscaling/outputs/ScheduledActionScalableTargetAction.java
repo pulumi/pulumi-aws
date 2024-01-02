@@ -58,11 +58,13 @@ public final class ScheduledActionScalableTargetAction {
 
         @CustomType.Setter
         public Builder maxCapacity(@Nullable Integer maxCapacity) {
+
             this.maxCapacity = maxCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder minCapacity(@Nullable Integer minCapacity) {
+
             this.minCapacity = minCapacity;
             return this;
         }

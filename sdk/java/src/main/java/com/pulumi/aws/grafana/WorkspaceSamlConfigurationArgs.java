@@ -5,6 +5,7 @@ package com.pulumi.aws.grafana;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -560,8 +561,12 @@ public final class WorkspaceSamlConfigurationArgs extends com.pulumi.resources.R
         }
 
         public WorkspaceSamlConfigurationArgs build() {
-            $.editorRoleValues = Objects.requireNonNull($.editorRoleValues, "expected parameter 'editorRoleValues' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.editorRoleValues == null) {
+                throw new MissingRequiredPropertyException("WorkspaceSamlConfigurationArgs", "editorRoleValues");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceSamlConfigurationArgs", "workspaceId");
+            }
             return $;
         }
     }

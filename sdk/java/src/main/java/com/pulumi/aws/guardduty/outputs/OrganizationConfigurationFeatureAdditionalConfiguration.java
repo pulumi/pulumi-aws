@@ -4,6 +4,7 @@
 package com.pulumi.aws.guardduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class OrganizationConfigurationFeatureAdditionalConfiguration {
 
         @CustomType.Setter
         public Builder autoEnable(String autoEnable) {
-            this.autoEnable = Objects.requireNonNull(autoEnable);
+            if (autoEnable == null) {
+              throw new MissingRequiredPropertyException("OrganizationConfigurationFeatureAdditionalConfiguration", "autoEnable");
+            }
+            this.autoEnable = autoEnable;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("OrganizationConfigurationFeatureAdditionalConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         public OrganizationConfigurationFeatureAdditionalConfiguration build() {

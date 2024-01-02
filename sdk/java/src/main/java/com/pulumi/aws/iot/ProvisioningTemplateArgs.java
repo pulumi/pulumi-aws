@@ -6,6 +6,7 @@ package com.pulumi.aws.iot;
 import com.pulumi.aws.iot.inputs.ProvisioningTemplatePreProvisioningHookArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -338,8 +339,12 @@ public final class ProvisioningTemplateArgs extends com.pulumi.resources.Resourc
         }
 
         public ProvisioningTemplateArgs build() {
-            $.provisioningRoleArn = Objects.requireNonNull($.provisioningRoleArn, "expected parameter 'provisioningRoleArn' to be non-null");
-            $.templateBody = Objects.requireNonNull($.templateBody, "expected parameter 'templateBody' to be non-null");
+            if ($.provisioningRoleArn == null) {
+                throw new MissingRequiredPropertyException("ProvisioningTemplateArgs", "provisioningRoleArn");
+            }
+            if ($.templateBody == null) {
+                throw new MissingRequiredPropertyException("ProvisioningTemplateArgs", "templateBody");
+            }
             return $;
         }
     }

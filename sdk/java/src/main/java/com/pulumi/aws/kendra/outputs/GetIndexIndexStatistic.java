@@ -6,6 +6,7 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.aws.kendra.outputs.GetIndexIndexStatisticFaqStatistic;
 import com.pulumi.aws.kendra.outputs.GetIndexIndexStatisticTextDocumentStatistic;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetIndexIndexStatistic {
 
         @CustomType.Setter
         public Builder faqStatistics(List<GetIndexIndexStatisticFaqStatistic> faqStatistics) {
-            this.faqStatistics = Objects.requireNonNull(faqStatistics);
+            if (faqStatistics == null) {
+              throw new MissingRequiredPropertyException("GetIndexIndexStatistic", "faqStatistics");
+            }
+            this.faqStatistics = faqStatistics;
             return this;
         }
         public Builder faqStatistics(GetIndexIndexStatisticFaqStatistic... faqStatistics) {
@@ -66,7 +70,10 @@ public final class GetIndexIndexStatistic {
         }
         @CustomType.Setter
         public Builder textDocumentStatistics(List<GetIndexIndexStatisticTextDocumentStatistic> textDocumentStatistics) {
-            this.textDocumentStatistics = Objects.requireNonNull(textDocumentStatistics);
+            if (textDocumentStatistics == null) {
+              throw new MissingRequiredPropertyException("GetIndexIndexStatistic", "textDocumentStatistics");
+            }
+            this.textDocumentStatistics = textDocumentStatistics;
             return this;
         }
         public Builder textDocumentStatistics(GetIndexIndexStatisticTextDocumentStatistic... textDocumentStatistics) {

@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetAmiIdsFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -89,6 +90,7 @@ public final class GetAmiIdsResult {
 
         @CustomType.Setter
         public Builder executableUsers(@Nullable List<String> executableUsers) {
+
             this.executableUsers = executableUsers;
             return this;
         }
@@ -97,6 +99,7 @@ public final class GetAmiIdsResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetAmiIdsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -105,12 +108,18 @@ public final class GetAmiIdsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAmiIdsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetAmiIdsResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -118,17 +127,22 @@ public final class GetAmiIdsResult {
         }
         @CustomType.Setter
         public Builder includeDeprecated(@Nullable Boolean includeDeprecated) {
+
             this.includeDeprecated = includeDeprecated;
             return this;
         }
         @CustomType.Setter
         public Builder nameRegex(@Nullable String nameRegex) {
+
             this.nameRegex = nameRegex;
             return this;
         }
         @CustomType.Setter
         public Builder owners(List<String> owners) {
-            this.owners = Objects.requireNonNull(owners);
+            if (owners == null) {
+              throw new MissingRequiredPropertyException("GetAmiIdsResult", "owners");
+            }
+            this.owners = owners;
             return this;
         }
         public Builder owners(String... owners) {
@@ -136,6 +150,7 @@ public final class GetAmiIdsResult {
         }
         @CustomType.Setter
         public Builder sortAscending(@Nullable Boolean sortAscending) {
+
             this.sortAscending = sortAscending;
             return this;
         }

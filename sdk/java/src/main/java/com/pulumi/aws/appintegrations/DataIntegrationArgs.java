@@ -6,6 +6,7 @@ package com.pulumi.aws.appintegrations;
 import com.pulumi.aws.appintegrations.inputs.DataIntegrationScheduleConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -263,9 +264,15 @@ public final class DataIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public DataIntegrationArgs build() {
-            $.kmsKey = Objects.requireNonNull($.kmsKey, "expected parameter 'kmsKey' to be non-null");
-            $.scheduleConfig = Objects.requireNonNull($.scheduleConfig, "expected parameter 'scheduleConfig' to be non-null");
-            $.sourceUri = Objects.requireNonNull($.sourceUri, "expected parameter 'sourceUri' to be non-null");
+            if ($.kmsKey == null) {
+                throw new MissingRequiredPropertyException("DataIntegrationArgs", "kmsKey");
+            }
+            if ($.scheduleConfig == null) {
+                throw new MissingRequiredPropertyException("DataIntegrationArgs", "scheduleConfig");
+            }
+            if ($.sourceUri == null) {
+                throw new MissingRequiredPropertyException("DataIntegrationArgs", "sourceUri");
+            }
             return $;
         }
     }

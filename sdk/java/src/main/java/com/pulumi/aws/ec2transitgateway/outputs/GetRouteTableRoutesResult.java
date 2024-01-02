@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2transitgateway.outputs;
 import com.pulumi.aws.ec2transitgateway.outputs.GetRouteTableRoutesFilter;
 import com.pulumi.aws.ec2transitgateway.outputs.GetRouteTableRoutesRoute;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class GetRouteTableRoutesResult {
 
         @CustomType.Setter
         public Builder filters(List<GetRouteTableRoutesFilter> filters) {
-            this.filters = Objects.requireNonNull(filters);
+            if (filters == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoutesResult", "filters");
+            }
+            this.filters = filters;
             return this;
         }
         public Builder filters(GetRouteTableRoutesFilter... filters) {
@@ -79,12 +83,18 @@ public final class GetRouteTableRoutesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoutesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder routes(List<GetRouteTableRoutesRoute> routes) {
-            this.routes = Objects.requireNonNull(routes);
+            if (routes == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoutesResult", "routes");
+            }
+            this.routes = routes;
             return this;
         }
         public Builder routes(GetRouteTableRoutesRoute... routes) {
@@ -92,7 +102,10 @@ public final class GetRouteTableRoutesResult {
         }
         @CustomType.Setter
         public Builder transitGatewayRouteTableId(String transitGatewayRouteTableId) {
-            this.transitGatewayRouteTableId = Objects.requireNonNull(transitGatewayRouteTableId);
+            if (transitGatewayRouteTableId == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoutesResult", "transitGatewayRouteTableId");
+            }
+            this.transitGatewayRouteTableId = transitGatewayRouteTableId;
             return this;
         }
         public GetRouteTableRoutesResult build() {

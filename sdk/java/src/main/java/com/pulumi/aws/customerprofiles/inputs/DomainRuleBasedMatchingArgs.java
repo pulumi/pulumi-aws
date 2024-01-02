@@ -9,6 +9,7 @@ import com.pulumi.aws.customerprofiles.inputs.DomainRuleBasedMatchingExportingCo
 import com.pulumi.aws.customerprofiles.inputs.DomainRuleBasedMatchingMatchingRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -332,7 +333,9 @@ public final class DomainRuleBasedMatchingArgs extends com.pulumi.resources.Reso
         }
 
         public DomainRuleBasedMatchingArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("DomainRuleBasedMatchingArgs", "enabled");
+            }
             return $;
         }
     }

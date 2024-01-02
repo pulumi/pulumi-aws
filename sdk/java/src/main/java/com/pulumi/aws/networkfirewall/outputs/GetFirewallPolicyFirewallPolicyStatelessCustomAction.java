@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -42,7 +43,10 @@ public final class GetFirewallPolicyFirewallPolicyStatelessCustomAction {
 
         @CustomType.Setter
         public Builder actionDefinitions(List<GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition> actionDefinitions) {
-            this.actionDefinitions = Objects.requireNonNull(actionDefinitions);
+            if (actionDefinitions == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicyStatelessCustomAction", "actionDefinitions");
+            }
+            this.actionDefinitions = actionDefinitions;
             return this;
         }
         public Builder actionDefinitions(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition... actionDefinitions) {
@@ -50,7 +54,10 @@ public final class GetFirewallPolicyFirewallPolicyStatelessCustomAction {
         }
         @CustomType.Setter
         public Builder actionName(String actionName) {
-            this.actionName = Objects.requireNonNull(actionName);
+            if (actionName == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicyStatelessCustomAction", "actionName");
+            }
+            this.actionName = actionName;
             return this;
         }
         public GetFirewallPolicyFirewallPolicyStatelessCustomAction build() {

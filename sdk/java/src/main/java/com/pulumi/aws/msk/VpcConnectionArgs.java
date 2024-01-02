@@ -5,6 +5,7 @@ package com.pulumi.aws.msk;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -283,11 +284,21 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VpcConnectionArgs build() {
-            $.authentication = Objects.requireNonNull($.authentication, "expected parameter 'authentication' to be non-null");
-            $.clientSubnets = Objects.requireNonNull($.clientSubnets, "expected parameter 'clientSubnets' to be non-null");
-            $.securityGroups = Objects.requireNonNull($.securityGroups, "expected parameter 'securityGroups' to be non-null");
-            $.targetClusterArn = Objects.requireNonNull($.targetClusterArn, "expected parameter 'targetClusterArn' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.authentication == null) {
+                throw new MissingRequiredPropertyException("VpcConnectionArgs", "authentication");
+            }
+            if ($.clientSubnets == null) {
+                throw new MissingRequiredPropertyException("VpcConnectionArgs", "clientSubnets");
+            }
+            if ($.securityGroups == null) {
+                throw new MissingRequiredPropertyException("VpcConnectionArgs", "securityGroups");
+            }
+            if ($.targetClusterArn == null) {
+                throw new MissingRequiredPropertyException("VpcConnectionArgs", "targetClusterArn");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("VpcConnectionArgs", "vpcId");
+            }
             return $;
         }
     }

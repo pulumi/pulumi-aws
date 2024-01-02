@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class TransitGatewayConnectPeerAssociationArgs extends com.pulumi.r
         }
 
         public TransitGatewayConnectPeerAssociationArgs build() {
-            $.deviceId = Objects.requireNonNull($.deviceId, "expected parameter 'deviceId' to be non-null");
-            $.globalNetworkId = Objects.requireNonNull($.globalNetworkId, "expected parameter 'globalNetworkId' to be non-null");
-            $.transitGatewayConnectPeerArn = Objects.requireNonNull($.transitGatewayConnectPeerArn, "expected parameter 'transitGatewayConnectPeerArn' to be non-null");
+            if ($.deviceId == null) {
+                throw new MissingRequiredPropertyException("TransitGatewayConnectPeerAssociationArgs", "deviceId");
+            }
+            if ($.globalNetworkId == null) {
+                throw new MissingRequiredPropertyException("TransitGatewayConnectPeerAssociationArgs", "globalNetworkId");
+            }
+            if ($.transitGatewayConnectPeerArn == null) {
+                throw new MissingRequiredPropertyException("TransitGatewayConnectPeerAssociationArgs", "transitGatewayConnectPeerArn");
+            }
             return $;
         }
     }

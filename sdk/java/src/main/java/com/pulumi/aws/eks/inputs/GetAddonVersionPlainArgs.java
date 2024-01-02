@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class GetAddonVersionPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         public GetAddonVersionPlainArgs build() {
-            $.addonName = Objects.requireNonNull($.addonName, "expected parameter 'addonName' to be non-null");
-            $.kubernetesVersion = Objects.requireNonNull($.kubernetesVersion, "expected parameter 'kubernetesVersion' to be non-null");
+            if ($.addonName == null) {
+                throw new MissingRequiredPropertyException("GetAddonVersionPlainArgs", "addonName");
+            }
+            if ($.kubernetesVersion == null) {
+                throw new MissingRequiredPropertyException("GetAddonVersionPlainArgs", "kubernetesVersion");
+            }
             return $;
         }
     }

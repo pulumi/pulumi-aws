@@ -5,6 +5,7 @@ package com.pulumi.aws.emrcontainers.outputs;
 
 import com.pulumi.aws.emrcontainers.outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -74,11 +75,15 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesApplicationCo
 
         @CustomType.Setter
         public Builder classification(String classification) {
-            this.classification = Objects.requireNonNull(classification);
+            if (classification == null) {
+              throw new MissingRequiredPropertyException("JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration", "classification");
+            }
+            this.classification = classification;
             return this;
         }
         @CustomType.Setter
         public Builder configurations(@Nullable List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration> configurations) {
+
             this.configurations = configurations;
             return this;
         }
@@ -87,6 +92,7 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesApplicationCo
         }
         @CustomType.Setter
         public Builder properties(@Nullable Map<String,String> properties) {
+
             this.properties = properties;
             return this;
         }

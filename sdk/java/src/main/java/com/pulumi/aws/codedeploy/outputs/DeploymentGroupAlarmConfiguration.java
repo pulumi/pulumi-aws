@@ -74,6 +74,7 @@ public final class DeploymentGroupAlarmConfiguration {
 
         @CustomType.Setter
         public Builder alarms(@Nullable List<String> alarms) {
+
             this.alarms = alarms;
             return this;
         }
@@ -82,11 +83,13 @@ public final class DeploymentGroupAlarmConfiguration {
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder ignorePollAlarmFailure(@Nullable Boolean ignorePollAlarmFailure) {
+
             this.ignorePollAlarmFailure = ignorePollAlarmFailure;
             return this;
         }

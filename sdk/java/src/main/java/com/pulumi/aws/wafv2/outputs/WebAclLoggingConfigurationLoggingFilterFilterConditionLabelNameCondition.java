@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNa
 
         @CustomType.Setter
         public Builder labelName(String labelName) {
-            this.labelName = Objects.requireNonNull(labelName);
+            if (labelName == null) {
+              throw new MissingRequiredPropertyException("WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition", "labelName");
+            }
+            this.labelName = labelName;
             return this;
         }
         public WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class EndpointConfigurationShadowProductionVariantServerlessConfigA
         }
 
         public EndpointConfigurationShadowProductionVariantServerlessConfigArgs build() {
-            $.maxConcurrency = Objects.requireNonNull($.maxConcurrency, "expected parameter 'maxConcurrency' to be non-null");
-            $.memorySizeInMb = Objects.requireNonNull($.memorySizeInMb, "expected parameter 'memorySizeInMb' to be non-null");
+            if ($.maxConcurrency == null) {
+                throw new MissingRequiredPropertyException("EndpointConfigurationShadowProductionVariantServerlessConfigArgs", "maxConcurrency");
+            }
+            if ($.memorySizeInMb == null) {
+                throw new MissingRequiredPropertyException("EndpointConfigurationShadowProductionVariantServerlessConfigArgs", "memorySizeInMb");
+            }
             return $;
         }
     }

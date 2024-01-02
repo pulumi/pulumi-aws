@@ -5,6 +5,7 @@ package com.pulumi.aws.gamelift.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class GameSessionQueuePlayerLatencyPolicyArgs extends com.pulumi.re
         }
 
         public GameSessionQueuePlayerLatencyPolicyArgs build() {
-            $.maximumIndividualPlayerLatencyMilliseconds = Objects.requireNonNull($.maximumIndividualPlayerLatencyMilliseconds, "expected parameter 'maximumIndividualPlayerLatencyMilliseconds' to be non-null");
+            if ($.maximumIndividualPlayerLatencyMilliseconds == null) {
+                throw new MissingRequiredPropertyException("GameSessionQueuePlayerLatencyPolicyArgs", "maximumIndividualPlayerLatencyMilliseconds");
+            }
             return $;
         }
     }

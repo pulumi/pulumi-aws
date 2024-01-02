@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
         }
 
         public GetSecurityProfileArgs build() {
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("GetSecurityProfileArgs", "instanceId");
+            }
             return $;
         }
     }

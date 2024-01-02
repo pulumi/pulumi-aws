@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class CatalogTableStorageDescriptorSortColumnArgs extends com.pulum
         }
 
         public CatalogTableStorageDescriptorSortColumnArgs build() {
-            $.column = Objects.requireNonNull($.column, "expected parameter 'column' to be non-null");
-            $.sortOrder = Objects.requireNonNull($.sortOrder, "expected parameter 'sortOrder' to be non-null");
+            if ($.column == null) {
+                throw new MissingRequiredPropertyException("CatalogTableStorageDescriptorSortColumnArgs", "column");
+            }
+            if ($.sortOrder == null) {
+                throw new MissingRequiredPropertyException("CatalogTableStorageDescriptorSortColumnArgs", "sortOrder");
+            }
             return $;
         }
     }

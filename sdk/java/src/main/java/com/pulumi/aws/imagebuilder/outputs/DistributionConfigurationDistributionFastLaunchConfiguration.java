@@ -6,6 +6,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 import com.pulumi.aws.imagebuilder.outputs.DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate;
 import com.pulumi.aws.imagebuilder.outputs.DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -104,26 +105,35 @@ public final class DistributionConfigurationDistributionFastLaunchConfiguration 
 
         @CustomType.Setter
         public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("DistributionConfigurationDistributionFastLaunchConfiguration", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("DistributionConfigurationDistributionFastLaunchConfiguration", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder launchTemplate(@Nullable DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate launchTemplate) {
+
             this.launchTemplate = launchTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder maxParallelLaunches(@Nullable Integer maxParallelLaunches) {
+
             this.maxParallelLaunches = maxParallelLaunches;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotConfiguration(@Nullable DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration snapshotConfiguration) {
+
             this.snapshotConfiguration = snapshotConfiguration;
             return this;
         }

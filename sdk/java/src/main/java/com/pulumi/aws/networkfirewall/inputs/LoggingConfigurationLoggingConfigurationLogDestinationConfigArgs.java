@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -161,9 +162,15 @@ public final class LoggingConfigurationLoggingConfigurationLogDestinationConfigA
         }
 
         public LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs build() {
-            $.logDestination = Objects.requireNonNull($.logDestination, "expected parameter 'logDestination' to be non-null");
-            $.logDestinationType = Objects.requireNonNull($.logDestinationType, "expected parameter 'logDestinationType' to be non-null");
-            $.logType = Objects.requireNonNull($.logType, "expected parameter 'logType' to be non-null");
+            if ($.logDestination == null) {
+                throw new MissingRequiredPropertyException("LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs", "logDestination");
+            }
+            if ($.logDestinationType == null) {
+                throw new MissingRequiredPropertyException("LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs", "logDestinationType");
+            }
+            if ($.logType == null) {
+                throw new MissingRequiredPropertyException("LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs", "logType");
+            }
             return $;
         }
     }

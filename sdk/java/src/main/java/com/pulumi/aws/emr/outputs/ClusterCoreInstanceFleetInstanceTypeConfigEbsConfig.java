@@ -4,6 +4,7 @@
 package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,21 +88,29 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig {
 
         @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
+
             this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder size(Integer size) {
-            this.size = Objects.requireNonNull(size);
+            if (size == null) {
+              throw new MissingRequiredPropertyException("ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig", "size");
+            }
+            this.size = size;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder volumesPerInstance(@Nullable Integer volumesPerInstance) {
+
             this.volumesPerInstance = volumesPerInstance;
             return this;
         }

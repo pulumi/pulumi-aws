@@ -5,6 +5,7 @@ package com.pulumi.aws.devicefarm;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class UploadArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UploadArgs build() {
-            $.projectArn = Objects.requireNonNull($.projectArn, "expected parameter 'projectArn' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.projectArn == null) {
+                throw new MissingRequiredPropertyException("UploadArgs", "projectArn");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("UploadArgs", "type");
+            }
             return $;
         }
     }

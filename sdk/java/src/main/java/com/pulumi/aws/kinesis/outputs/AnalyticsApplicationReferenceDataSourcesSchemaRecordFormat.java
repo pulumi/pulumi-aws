@@ -61,11 +61,13 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat {
 
         @CustomType.Setter
         public Builder mappingParameters(@Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters mappingParameters) {
+
             this.mappingParameters = mappingParameters;
             return this;
         }
         @CustomType.Setter
         public Builder recordFormatType(@Nullable String recordFormatType) {
+
             this.recordFormatType = recordFormatType;
             return this;
         }

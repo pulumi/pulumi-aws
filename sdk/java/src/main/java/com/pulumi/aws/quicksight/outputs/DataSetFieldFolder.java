@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,6 +74,7 @@ public final class DataSetFieldFolder {
 
         @CustomType.Setter
         public Builder columns(@Nullable List<String> columns) {
+
             this.columns = columns;
             return this;
         }
@@ -81,12 +83,16 @@ public final class DataSetFieldFolder {
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder fieldFoldersId(String fieldFoldersId) {
-            this.fieldFoldersId = Objects.requireNonNull(fieldFoldersId);
+            if (fieldFoldersId == null) {
+              throw new MissingRequiredPropertyException("DataSetFieldFolder", "fieldFoldersId");
+            }
+            this.fieldFoldersId = fieldFoldersId;
             return this;
         }
         public DataSetFieldFolder build() {

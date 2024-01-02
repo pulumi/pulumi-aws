@@ -4,6 +4,7 @@
 package com.pulumi.aws.efs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -71,12 +72,18 @@ public final class GetAccessPointPosixUser {
 
         @CustomType.Setter
         public Builder gid(Integer gid) {
-            this.gid = Objects.requireNonNull(gid);
+            if (gid == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointPosixUser", "gid");
+            }
+            this.gid = gid;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryGids(List<Integer> secondaryGids) {
-            this.secondaryGids = Objects.requireNonNull(secondaryGids);
+            if (secondaryGids == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointPosixUser", "secondaryGids");
+            }
+            this.secondaryGids = secondaryGids;
             return this;
         }
         public Builder secondaryGids(Integer... secondaryGids) {
@@ -84,7 +91,10 @@ public final class GetAccessPointPosixUser {
         }
         @CustomType.Setter
         public Builder uid(Integer uid) {
-            this.uid = Objects.requireNonNull(uid);
+            if (uid == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointPosixUser", "uid");
+            }
+            this.uid = uid;
             return this;
         }
         public GetAccessPointPosixUser build() {

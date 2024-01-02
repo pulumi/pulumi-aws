@@ -5,6 +5,7 @@ package com.pulumi.aws.guardduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -195,9 +196,15 @@ public final class PublishingDestinationArgs extends com.pulumi.resources.Resour
         }
 
         public PublishingDestinationArgs build() {
-            $.destinationArn = Objects.requireNonNull($.destinationArn, "expected parameter 'destinationArn' to be non-null");
-            $.detectorId = Objects.requireNonNull($.detectorId, "expected parameter 'detectorId' to be non-null");
-            $.kmsKeyArn = Objects.requireNonNull($.kmsKeyArn, "expected parameter 'kmsKeyArn' to be non-null");
+            if ($.destinationArn == null) {
+                throw new MissingRequiredPropertyException("PublishingDestinationArgs", "destinationArn");
+            }
+            if ($.detectorId == null) {
+                throw new MissingRequiredPropertyException("PublishingDestinationArgs", "detectorId");
+            }
+            if ($.kmsKeyArn == null) {
+                throw new MissingRequiredPropertyException("PublishingDestinationArgs", "kmsKeyArn");
+            }
             return $;
         }
     }

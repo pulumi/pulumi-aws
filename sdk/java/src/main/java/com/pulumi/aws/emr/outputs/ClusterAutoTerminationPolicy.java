@@ -44,6 +44,7 @@ public final class ClusterAutoTerminationPolicy {
 
         @CustomType.Setter
         public Builder idleTimeout(@Nullable Integer idleTimeout) {
+
             this.idleTimeout = idleTimeout;
             return this;
         }

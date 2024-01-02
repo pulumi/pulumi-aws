@@ -12,6 +12,7 @@ import com.pulumi.aws.dms.outputs.GetEndpointRedisSetting;
 import com.pulumi.aws.dms.outputs.GetEndpointRedshiftSetting;
 import com.pulumi.aws.dms.outputs.GetEndpointS3Setting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -203,17 +204,26 @@ public final class GetEndpointResult {
 
         @CustomType.Setter
         public Builder certificateArn(String certificateArn) {
-            this.certificateArn = Objects.requireNonNull(certificateArn);
+            if (certificateArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "certificateArn");
+            }
+            this.certificateArn = certificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder elasticsearchSettings(List<GetEndpointElasticsearchSetting> elasticsearchSettings) {
-            this.elasticsearchSettings = Objects.requireNonNull(elasticsearchSettings);
+            if (elasticsearchSettings == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "elasticsearchSettings");
+            }
+            this.elasticsearchSettings = elasticsearchSettings;
             return this;
         }
         public Builder elasticsearchSettings(GetEndpointElasticsearchSetting... elasticsearchSettings) {
@@ -221,37 +231,58 @@ public final class GetEndpointResult {
         }
         @CustomType.Setter
         public Builder endpointArn(String endpointArn) {
-            this.endpointArn = Objects.requireNonNull(endpointArn);
+            if (endpointArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "endpointArn");
+            }
+            this.endpointArn = endpointArn;
             return this;
         }
         @CustomType.Setter
         public Builder endpointId(String endpointId) {
-            this.endpointId = Objects.requireNonNull(endpointId);
+            if (endpointId == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "endpointId");
+            }
+            this.endpointId = endpointId;
             return this;
         }
         @CustomType.Setter
         public Builder endpointType(String endpointType) {
-            this.endpointType = Objects.requireNonNull(endpointType);
+            if (endpointType == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "endpointType");
+            }
+            this.endpointType = endpointType;
             return this;
         }
         @CustomType.Setter
         public Builder engineName(String engineName) {
-            this.engineName = Objects.requireNonNull(engineName);
+            if (engineName == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "engineName");
+            }
+            this.engineName = engineName;
             return this;
         }
         @CustomType.Setter
         public Builder extraConnectionAttributes(String extraConnectionAttributes) {
-            this.extraConnectionAttributes = Objects.requireNonNull(extraConnectionAttributes);
+            if (extraConnectionAttributes == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "extraConnectionAttributes");
+            }
+            this.extraConnectionAttributes = extraConnectionAttributes;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kafkaSettings(List<GetEndpointKafkaSetting> kafkaSettings) {
-            this.kafkaSettings = Objects.requireNonNull(kafkaSettings);
+            if (kafkaSettings == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "kafkaSettings");
+            }
+            this.kafkaSettings = kafkaSettings;
             return this;
         }
         public Builder kafkaSettings(GetEndpointKafkaSetting... kafkaSettings) {
@@ -259,7 +290,10 @@ public final class GetEndpointResult {
         }
         @CustomType.Setter
         public Builder kinesisSettings(List<GetEndpointKinesisSetting> kinesisSettings) {
-            this.kinesisSettings = Objects.requireNonNull(kinesisSettings);
+            if (kinesisSettings == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "kinesisSettings");
+            }
+            this.kinesisSettings = kinesisSettings;
             return this;
         }
         public Builder kinesisSettings(GetEndpointKinesisSetting... kinesisSettings) {
@@ -267,12 +301,18 @@ public final class GetEndpointResult {
         }
         @CustomType.Setter
         public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+            if (kmsKeyArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "kmsKeyArn");
+            }
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder mongodbSettings(List<GetEndpointMongodbSetting> mongodbSettings) {
-            this.mongodbSettings = Objects.requireNonNull(mongodbSettings);
+            if (mongodbSettings == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "mongodbSettings");
+            }
+            this.mongodbSettings = mongodbSettings;
             return this;
         }
         public Builder mongodbSettings(GetEndpointMongodbSetting... mongodbSettings) {
@@ -280,17 +320,26 @@ public final class GetEndpointResult {
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder postgresSettings(List<GetEndpointPostgresSetting> postgresSettings) {
-            this.postgresSettings = Objects.requireNonNull(postgresSettings);
+            if (postgresSettings == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "postgresSettings");
+            }
+            this.postgresSettings = postgresSettings;
             return this;
         }
         public Builder postgresSettings(GetEndpointPostgresSetting... postgresSettings) {
@@ -298,7 +347,10 @@ public final class GetEndpointResult {
         }
         @CustomType.Setter
         public Builder redisSettings(List<GetEndpointRedisSetting> redisSettings) {
-            this.redisSettings = Objects.requireNonNull(redisSettings);
+            if (redisSettings == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "redisSettings");
+            }
+            this.redisSettings = redisSettings;
             return this;
         }
         public Builder redisSettings(GetEndpointRedisSetting... redisSettings) {
@@ -306,7 +358,10 @@ public final class GetEndpointResult {
         }
         @CustomType.Setter
         public Builder redshiftSettings(List<GetEndpointRedshiftSetting> redshiftSettings) {
-            this.redshiftSettings = Objects.requireNonNull(redshiftSettings);
+            if (redshiftSettings == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "redshiftSettings");
+            }
+            this.redshiftSettings = redshiftSettings;
             return this;
         }
         public Builder redshiftSettings(GetEndpointRedshiftSetting... redshiftSettings) {
@@ -314,7 +369,10 @@ public final class GetEndpointResult {
         }
         @CustomType.Setter
         public Builder s3Settings(List<GetEndpointS3Setting> s3Settings) {
-            this.s3Settings = Objects.requireNonNull(s3Settings);
+            if (s3Settings == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "s3Settings");
+            }
+            this.s3Settings = s3Settings;
             return this;
         }
         public Builder s3Settings(GetEndpointS3Setting... s3Settings) {
@@ -322,37 +380,58 @@ public final class GetEndpointResult {
         }
         @CustomType.Setter
         public Builder secretsManagerAccessRoleArn(String secretsManagerAccessRoleArn) {
-            this.secretsManagerAccessRoleArn = Objects.requireNonNull(secretsManagerAccessRoleArn);
+            if (secretsManagerAccessRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "secretsManagerAccessRoleArn");
+            }
+            this.secretsManagerAccessRoleArn = secretsManagerAccessRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder secretsManagerArn(String secretsManagerArn) {
-            this.secretsManagerArn = Objects.requireNonNull(secretsManagerArn);
+            if (secretsManagerArn == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "secretsManagerArn");
+            }
+            this.secretsManagerArn = secretsManagerArn;
             return this;
         }
         @CustomType.Setter
         public Builder serverName(String serverName) {
-            this.serverName = Objects.requireNonNull(serverName);
+            if (serverName == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "serverName");
+            }
+            this.serverName = serverName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccessRole(String serviceAccessRole) {
-            this.serviceAccessRole = Objects.requireNonNull(serviceAccessRole);
+            if (serviceAccessRole == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "serviceAccessRole");
+            }
+            this.serviceAccessRole = serviceAccessRole;
             return this;
         }
         @CustomType.Setter
         public Builder sslMode(String sslMode) {
-            this.sslMode = Objects.requireNonNull(sslMode);
+            if (sslMode == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "sslMode");
+            }
+            this.sslMode = sslMode;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "username");
+            }
+            this.username = username;
             return this;
         }
         public GetEndpointResult build() {

@@ -87,21 +87,25 @@ public final class SnapshotImportClientData {
 
         @CustomType.Setter
         public Builder comment(@Nullable String comment) {
+
             this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder uploadEnd(@Nullable String uploadEnd) {
+
             this.uploadEnd = uploadEnd;
             return this;
         }
         @CustomType.Setter
         public Builder uploadSize(@Nullable Double uploadSize) {
+
             this.uploadSize = uploadSize;
             return this;
         }
         @CustomType.Setter
         public Builder uploadStart(@Nullable String uploadStart) {
+
             this.uploadStart = uploadStart;
             return this;
         }

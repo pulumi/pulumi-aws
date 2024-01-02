@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -87,21 +88,27 @@ public final class DataQualityJobDefinitionDataQualityAppSpecification {
 
         @CustomType.Setter
         public Builder environment(@Nullable Map<String,String> environment) {
+
             this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder imageUri(String imageUri) {
-            this.imageUri = Objects.requireNonNull(imageUri);
+            if (imageUri == null) {
+              throw new MissingRequiredPropertyException("DataQualityJobDefinitionDataQualityAppSpecification", "imageUri");
+            }
+            this.imageUri = imageUri;
             return this;
         }
         @CustomType.Setter
         public Builder postAnalyticsProcessorSourceUri(@Nullable String postAnalyticsProcessorSourceUri) {
+
             this.postAnalyticsProcessorSourceUri = postAnalyticsProcessorSourceUri;
             return this;
         }
         @CustomType.Setter
         public Builder recordPreprocessorSourceUri(@Nullable String recordPreprocessorSourceUri) {
+
             this.recordPreprocessorSourceUri = recordPreprocessorSourceUri;
             return this;
         }

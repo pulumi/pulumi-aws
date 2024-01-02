@@ -60,11 +60,13 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagC
 
         @CustomType.Setter
         public Builder comparator(@Nullable String comparator) {
+
             this.comparator = comparator;
             return this;
         }
         @CustomType.Setter
         public Builder tagValues(@Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue> tagValues) {
+
             this.tagValues = tagValues;
             return this;
         }

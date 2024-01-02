@@ -5,6 +5,7 @@ package com.pulumi.aws.schemas;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class RegistryPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public RegistryPolicyArgs build() {
-            $.policy = Objects.requireNonNull($.policy, "expected parameter 'policy' to be non-null");
-            $.registryName = Objects.requireNonNull($.registryName, "expected parameter 'registryName' to be non-null");
+            if ($.policy == null) {
+                throw new MissingRequiredPropertyException("RegistryPolicyArgs", "policy");
+            }
+            if ($.registryName == null) {
+                throw new MissingRequiredPropertyException("RegistryPolicyArgs", "registryName");
+            }
             return $;
         }
     }

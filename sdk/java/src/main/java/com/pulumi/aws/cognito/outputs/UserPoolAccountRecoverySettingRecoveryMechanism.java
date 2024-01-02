@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -61,12 +62,18 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanism {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("UserPoolAccountRecoverySettingRecoveryMechanism", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("UserPoolAccountRecoverySettingRecoveryMechanism", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         public UserPoolAccountRecoverySettingRecoveryMechanism build() {

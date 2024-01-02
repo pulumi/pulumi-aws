@@ -7,6 +7,7 @@ import com.pulumi.aws.customerprofiles.outputs.DomainMatchingAutoMerging;
 import com.pulumi.aws.customerprofiles.outputs.DomainMatchingExportingConfig;
 import com.pulumi.aws.customerprofiles.outputs.DomainMatchingJobSchedule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -89,21 +90,27 @@ public final class DomainMatching {
 
         @CustomType.Setter
         public Builder autoMerging(@Nullable DomainMatchingAutoMerging autoMerging) {
+
             this.autoMerging = autoMerging;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("DomainMatching", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder exportingConfig(@Nullable DomainMatchingExportingConfig exportingConfig) {
+
             this.exportingConfig = exportingConfig;
             return this;
         }
         @CustomType.Setter
         public Builder jobSchedule(@Nullable DomainMatchingJobSchedule jobSchedule) {
+
             this.jobSchedule = jobSchedule;
             return this;
         }

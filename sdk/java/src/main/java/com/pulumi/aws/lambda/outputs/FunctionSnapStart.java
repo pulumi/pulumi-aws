@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -50,11 +51,15 @@ public final class FunctionSnapStart {
 
         @CustomType.Setter
         public Builder applyOn(String applyOn) {
-            this.applyOn = Objects.requireNonNull(applyOn);
+            if (applyOn == null) {
+              throw new MissingRequiredPropertyException("FunctionSnapStart", "applyOn");
+            }
+            this.applyOn = applyOn;
             return this;
         }
         @CustomType.Setter
         public Builder optimizationStatus(@Nullable String optimizationStatus) {
+
             this.optimizationStatus = optimizationStatus;
             return this;
         }

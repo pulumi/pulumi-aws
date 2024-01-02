@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class GetDomainNameEndpointConfiguration {
 
         @CustomType.Setter
         public Builder types(List<String> types) {
-            this.types = Objects.requireNonNull(types);
+            if (types == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameEndpointConfiguration", "types");
+            }
+            this.types = types;
             return this;
         }
         public Builder types(String... types) {

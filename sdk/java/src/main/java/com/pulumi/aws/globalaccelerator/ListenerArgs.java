@@ -6,6 +6,7 @@ package com.pulumi.aws.globalaccelerator;
 import com.pulumi.aws.globalaccelerator.inputs.ListenerPortRangeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,9 +200,15 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ListenerArgs build() {
-            $.acceleratorArn = Objects.requireNonNull($.acceleratorArn, "expected parameter 'acceleratorArn' to be non-null");
-            $.portRanges = Objects.requireNonNull($.portRanges, "expected parameter 'portRanges' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.acceleratorArn == null) {
+                throw new MissingRequiredPropertyException("ListenerArgs", "acceleratorArn");
+            }
+            if ($.portRanges == null) {
+                throw new MissingRequiredPropertyException("ListenerArgs", "portRanges");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("ListenerArgs", "protocol");
+            }
             return $;
         }
     }

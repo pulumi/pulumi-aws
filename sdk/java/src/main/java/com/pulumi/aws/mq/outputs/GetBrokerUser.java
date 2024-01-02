@@ -4,6 +4,7 @@
 package com.pulumi.aws.mq.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -54,12 +55,18 @@ public final class GetBrokerUser {
 
         @CustomType.Setter
         public Builder consoleAccess(Boolean consoleAccess) {
-            this.consoleAccess = Objects.requireNonNull(consoleAccess);
+            if (consoleAccess == null) {
+              throw new MissingRequiredPropertyException("GetBrokerUser", "consoleAccess");
+            }
+            this.consoleAccess = consoleAccess;
             return this;
         }
         @CustomType.Setter
         public Builder groups(List<String> groups) {
-            this.groups = Objects.requireNonNull(groups);
+            if (groups == null) {
+              throw new MissingRequiredPropertyException("GetBrokerUser", "groups");
+            }
+            this.groups = groups;
             return this;
         }
         public Builder groups(String... groups) {
@@ -67,12 +74,18 @@ public final class GetBrokerUser {
         }
         @CustomType.Setter
         public Builder replicationUser(Boolean replicationUser) {
-            this.replicationUser = Objects.requireNonNull(replicationUser);
+            if (replicationUser == null) {
+              throw new MissingRequiredPropertyException("GetBrokerUser", "replicationUser");
+            }
+            this.replicationUser = replicationUser;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("GetBrokerUser", "username");
+            }
+            this.username = username;
             return this;
         }
         public GetBrokerUser build() {

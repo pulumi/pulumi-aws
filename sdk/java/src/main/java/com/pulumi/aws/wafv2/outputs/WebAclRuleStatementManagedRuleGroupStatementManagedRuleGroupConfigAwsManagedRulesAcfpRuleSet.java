@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -103,26 +104,37 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         @CustomType.Setter
         public Builder creationPath(String creationPath) {
-            this.creationPath = Objects.requireNonNull(creationPath);
+            if (creationPath == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet", "creationPath");
+            }
+            this.creationPath = creationPath;
             return this;
         }
         @CustomType.Setter
         public Builder enableRegexInPath(@Nullable Boolean enableRegexInPath) {
+
             this.enableRegexInPath = enableRegexInPath;
             return this;
         }
         @CustomType.Setter
         public Builder registrationPagePath(String registrationPagePath) {
-            this.registrationPagePath = Objects.requireNonNull(registrationPagePath);
+            if (registrationPagePath == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet", "registrationPagePath");
+            }
+            this.registrationPagePath = registrationPagePath;
             return this;
         }
         @CustomType.Setter
         public Builder requestInspection(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection requestInspection) {
-            this.requestInspection = Objects.requireNonNull(requestInspection);
+            if (requestInspection == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet", "requestInspection");
+            }
+            this.requestInspection = requestInspection;
             return this;
         }
         @CustomType.Setter
         public Builder responseInspection(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection responseInspection) {
+
             this.responseInspection = responseInspection;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.chimesdkmediapipelines.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -162,8 +163,12 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
         }
 
         public MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs build() {
-            $.keywords = Objects.requireNonNull($.keywords, "expected parameter 'keywords' to be non-null");
-            $.ruleName = Objects.requireNonNull($.ruleName, "expected parameter 'ruleName' to be non-null");
+            if ($.keywords == null) {
+                throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs", "keywords");
+            }
+            if ($.ruleName == null) {
+                throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs", "ruleName");
+            }
             return $;
         }
     }

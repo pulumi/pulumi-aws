@@ -6,6 +6,7 @@ package com.pulumi.aws.connect;
 import com.pulumi.aws.connect.inputs.HoursOfOperationConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -274,9 +275,15 @@ public final class HoursOfOperationArgs extends com.pulumi.resources.ResourceArg
         }
 
         public HoursOfOperationArgs build() {
-            $.configs = Objects.requireNonNull($.configs, "expected parameter 'configs' to be non-null");
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
-            $.timeZone = Objects.requireNonNull($.timeZone, "expected parameter 'timeZone' to be non-null");
+            if ($.configs == null) {
+                throw new MissingRequiredPropertyException("HoursOfOperationArgs", "configs");
+            }
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("HoursOfOperationArgs", "instanceId");
+            }
+            if ($.timeZone == null) {
+                throw new MissingRequiredPropertyException("HoursOfOperationArgs", "timeZone");
+            }
             return $;
         }
     }

@@ -212,66 +212,79 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
 
         @CustomType.Setter
         public Builder commonName(@Nullable String commonName) {
+
             this.commonName = commonName;
             return this;
         }
         @CustomType.Setter
         public Builder country(@Nullable String country) {
+
             this.country = country;
             return this;
         }
         @CustomType.Setter
         public Builder distinguishedNameQualifier(@Nullable String distinguishedNameQualifier) {
+
             this.distinguishedNameQualifier = distinguishedNameQualifier;
             return this;
         }
         @CustomType.Setter
         public Builder generationQualifier(@Nullable String generationQualifier) {
+
             this.generationQualifier = generationQualifier;
             return this;
         }
         @CustomType.Setter
         public Builder givenName(@Nullable String givenName) {
+
             this.givenName = givenName;
             return this;
         }
         @CustomType.Setter
         public Builder initials(@Nullable String initials) {
+
             this.initials = initials;
             return this;
         }
         @CustomType.Setter
         public Builder locality(@Nullable String locality) {
+
             this.locality = locality;
             return this;
         }
         @CustomType.Setter
         public Builder organization(@Nullable String organization) {
+
             this.organization = organization;
             return this;
         }
         @CustomType.Setter
         public Builder organizationalUnit(@Nullable String organizationalUnit) {
+
             this.organizationalUnit = organizationalUnit;
             return this;
         }
         @CustomType.Setter
         public Builder pseudonym(@Nullable String pseudonym) {
+
             this.pseudonym = pseudonym;
             return this;
         }
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder surname(@Nullable String surname) {
+
             this.surname = surname;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }

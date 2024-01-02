@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -42,12 +43,18 @@ public final class GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail
 
         @CustomType.Setter
         public Builder additionalDetailType(String additionalDetailType) {
-            this.additionalDetailType = Objects.requireNonNull(additionalDetailType);
+            if (additionalDetailType == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail", "additionalDetailType");
+            }
+            this.additionalDetailType = additionalDetailType;
             return this;
         }
         @CustomType.Setter
         public Builder components(List<GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent> components) {
-            this.components = Objects.requireNonNull(components);
+            if (components == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetail", "components");
+            }
+            this.components = components;
             return this;
         }
         public Builder components(GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent... components) {

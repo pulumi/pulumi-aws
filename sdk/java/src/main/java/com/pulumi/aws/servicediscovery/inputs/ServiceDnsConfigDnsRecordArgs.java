@@ -5,6 +5,7 @@ package com.pulumi.aws.servicediscovery.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class ServiceDnsConfigDnsRecordArgs extends com.pulumi.resources.Re
         }
 
         public ServiceDnsConfigDnsRecordArgs build() {
-            $.ttl = Objects.requireNonNull($.ttl, "expected parameter 'ttl' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.ttl == null) {
+                throw new MissingRequiredPropertyException("ServiceDnsConfigDnsRecordArgs", "ttl");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ServiceDnsConfigDnsRecordArgs", "type");
+            }
             return $;
         }
     }

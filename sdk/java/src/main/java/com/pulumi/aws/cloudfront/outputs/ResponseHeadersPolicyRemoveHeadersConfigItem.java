@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class ResponseHeadersPolicyRemoveHeadersConfigItem {
 
         @CustomType.Setter
         public Builder header(String header) {
-            this.header = Objects.requireNonNull(header);
+            if (header == null) {
+              throw new MissingRequiredPropertyException("ResponseHeadersPolicyRemoveHeadersConfigItem", "header");
+            }
+            this.header = header;
             return this;
         }
         public ResponseHeadersPolicyRemoveHeadersConfigItem build() {

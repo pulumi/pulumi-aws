@@ -8,6 +8,7 @@ import com.pulumi.aws.cloudwatch.inputs.MetricStreamIncludeFilterArgs;
 import com.pulumi.aws.cloudwatch.inputs.MetricStreamStatisticsConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -453,9 +454,15 @@ public final class MetricStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MetricStreamArgs build() {
-            $.firehoseArn = Objects.requireNonNull($.firehoseArn, "expected parameter 'firehoseArn' to be non-null");
-            $.outputFormat = Objects.requireNonNull($.outputFormat, "expected parameter 'outputFormat' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.firehoseArn == null) {
+                throw new MissingRequiredPropertyException("MetricStreamArgs", "firehoseArn");
+            }
+            if ($.outputFormat == null) {
+                throw new MissingRequiredPropertyException("MetricStreamArgs", "outputFormat");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("MetricStreamArgs", "roleArn");
+            }
             return $;
         }
     }

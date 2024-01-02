@@ -46,6 +46,7 @@ public final class BucketV2ReplicationConfigurationRuleSourceSelectionCriteria {
 
         @CustomType.Setter
         public Builder sseKmsEncryptedObjects(@Nullable List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject> sseKmsEncryptedObjects) {
+
             this.sseKmsEncryptedObjects = sseKmsEncryptedObjects;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.emrserverless.outputs;
 
 import com.pulumi.aws.emrserverless.outputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,12 +60,16 @@ public final class ApplicationInitialCapacityInitialCapacityConfig {
 
         @CustomType.Setter
         public Builder workerConfiguration(@Nullable ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration workerConfiguration) {
+
             this.workerConfiguration = workerConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder workerCount(Integer workerCount) {
-            this.workerCount = Objects.requireNonNull(workerCount);
+            if (workerCount == null) {
+              throw new MissingRequiredPropertyException("ApplicationInitialCapacityInitialCapacityConfig", "workerCount");
+            }
+            this.workerCount = workerCount;
             return this;
         }
         public ApplicationInitialCapacityInitialCapacityConfig build() {

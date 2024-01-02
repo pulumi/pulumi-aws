@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNa
         }
 
         public WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs build() {
-            $.labelName = Objects.requireNonNull($.labelName, "expected parameter 'labelName' to be non-null");
+            if ($.labelName == null) {
+                throw new MissingRequiredPropertyException("WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs", "labelName");
+            }
             return $;
         }
     }

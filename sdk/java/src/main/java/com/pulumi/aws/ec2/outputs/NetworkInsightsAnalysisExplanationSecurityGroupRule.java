@@ -68,16 +68,19 @@ public final class NetworkInsightsAnalysisExplanationSecurityGroupRule {
 
         @CustomType.Setter
         public Builder cidr(@Nullable String cidr) {
+
             this.cidr = cidr;
             return this;
         }
         @CustomType.Setter
         public Builder direction(@Nullable String direction) {
+
             this.direction = direction;
             return this;
         }
         @CustomType.Setter
         public Builder portRanges(@Nullable List<NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange> portRanges) {
+
             this.portRanges = portRanges;
             return this;
         }
@@ -86,16 +89,19 @@ public final class NetworkInsightsAnalysisExplanationSecurityGroupRule {
         }
         @CustomType.Setter
         public Builder prefixListId(@Nullable String prefixListId) {
+
             this.prefixListId = prefixListId;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupId(@Nullable String securityGroupId) {
+
             this.securityGroupId = securityGroupId;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class TriggerEventBatchingCondition {
 
         @CustomType.Setter
         public Builder batchSize(Integer batchSize) {
-            this.batchSize = Objects.requireNonNull(batchSize);
+            if (batchSize == null) {
+              throw new MissingRequiredPropertyException("TriggerEventBatchingCondition", "batchSize");
+            }
+            this.batchSize = batchSize;
             return this;
         }
         @CustomType.Setter
         public Builder batchWindow(@Nullable Integer batchWindow) {
+
             this.batchWindow = batchWindow;
             return this;
         }

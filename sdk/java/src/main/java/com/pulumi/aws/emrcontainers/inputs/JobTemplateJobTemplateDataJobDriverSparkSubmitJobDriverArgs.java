@@ -5,6 +5,7 @@ package com.pulumi.aws.emrcontainers.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,7 +162,9 @@ public final class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs e
         }
 
         public JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs build() {
-            $.entryPoint = Objects.requireNonNull($.entryPoint, "expected parameter 'entryPoint' to be non-null");
+            if ($.entryPoint == null) {
+                throw new MissingRequiredPropertyException("JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs", "entryPoint");
+            }
             return $;
         }
     }

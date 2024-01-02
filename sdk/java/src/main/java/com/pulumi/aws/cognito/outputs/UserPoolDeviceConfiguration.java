@@ -58,11 +58,13 @@ public final class UserPoolDeviceConfiguration {
 
         @CustomType.Setter
         public Builder challengeRequiredOnNewDevice(@Nullable Boolean challengeRequiredOnNewDevice) {
+
             this.challengeRequiredOnNewDevice = challengeRequiredOnNewDevice;
             return this;
         }
         @CustomType.Setter
         public Builder deviceOnlyRememberedOnUserPrompt(@Nullable Boolean deviceOnlyRememberedOnUserPrompt) {
+
             this.deviceOnlyRememberedOnUserPrompt = deviceOnlyRememberedOnUserPrompt;
             return this;
         }

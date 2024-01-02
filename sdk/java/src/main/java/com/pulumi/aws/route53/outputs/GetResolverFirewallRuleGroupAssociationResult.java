@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -121,72 +122,114 @@ public final class GetResolverFirewallRuleGroupAssociationResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+            if (creationTime == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "creationTime");
+            }
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
         public Builder creatorRequestId(String creatorRequestId) {
-            this.creatorRequestId = Objects.requireNonNull(creatorRequestId);
+            if (creatorRequestId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "creatorRequestId");
+            }
+            this.creatorRequestId = creatorRequestId;
             return this;
         }
         @CustomType.Setter
         public Builder firewallRuleGroupAssociationId(String firewallRuleGroupAssociationId) {
-            this.firewallRuleGroupAssociationId = Objects.requireNonNull(firewallRuleGroupAssociationId);
+            if (firewallRuleGroupAssociationId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "firewallRuleGroupAssociationId");
+            }
+            this.firewallRuleGroupAssociationId = firewallRuleGroupAssociationId;
             return this;
         }
         @CustomType.Setter
         public Builder firewallRuleGroupId(String firewallRuleGroupId) {
-            this.firewallRuleGroupId = Objects.requireNonNull(firewallRuleGroupId);
+            if (firewallRuleGroupId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "firewallRuleGroupId");
+            }
+            this.firewallRuleGroupId = firewallRuleGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder managedOwnerName(String managedOwnerName) {
-            this.managedOwnerName = Objects.requireNonNull(managedOwnerName);
+            if (managedOwnerName == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "managedOwnerName");
+            }
+            this.managedOwnerName = managedOwnerName;
             return this;
         }
         @CustomType.Setter
         public Builder modificationTime(String modificationTime) {
-            this.modificationTime = Objects.requireNonNull(modificationTime);
+            if (modificationTime == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "modificationTime");
+            }
+            this.modificationTime = modificationTime;
             return this;
         }
         @CustomType.Setter
         public Builder mutationProtection(String mutationProtection) {
-            this.mutationProtection = Objects.requireNonNull(mutationProtection);
+            if (mutationProtection == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "mutationProtection");
+            }
+            this.mutationProtection = mutationProtection;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statusMessage(String statusMessage) {
-            this.statusMessage = Objects.requireNonNull(statusMessage);
+            if (statusMessage == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "statusMessage");
+            }
+            this.statusMessage = statusMessage;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetResolverFirewallRuleGroupAssociationResult build() {

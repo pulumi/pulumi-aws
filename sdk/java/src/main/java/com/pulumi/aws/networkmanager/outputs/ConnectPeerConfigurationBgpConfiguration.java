@@ -75,21 +75,25 @@ public final class ConnectPeerConfigurationBgpConfiguration {
 
         @CustomType.Setter
         public Builder coreNetworkAddress(@Nullable String coreNetworkAddress) {
+
             this.coreNetworkAddress = coreNetworkAddress;
             return this;
         }
         @CustomType.Setter
         public Builder coreNetworkAsn(@Nullable Integer coreNetworkAsn) {
+
             this.coreNetworkAsn = coreNetworkAsn;
             return this;
         }
         @CustomType.Setter
         public Builder peerAddress(@Nullable String peerAddress) {
+
             this.peerAddress = peerAddress;
             return this;
         }
         @CustomType.Setter
         public Builder peerAsn(@Nullable Integer peerAsn) {
+
             this.peerAsn = peerAsn;
             return this;
         }

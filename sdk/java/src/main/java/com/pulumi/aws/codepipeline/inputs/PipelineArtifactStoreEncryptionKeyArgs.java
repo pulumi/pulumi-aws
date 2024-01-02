@@ -5,6 +5,7 @@ package com.pulumi.aws.codepipeline.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class PipelineArtifactStoreEncryptionKeyArgs extends com.pulumi.res
         }
 
         public PipelineArtifactStoreEncryptionKeyArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("PipelineArtifactStoreEncryptionKeyArgs", "id");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("PipelineArtifactStoreEncryptionKeyArgs", "type");
+            }
             return $;
         }
     }

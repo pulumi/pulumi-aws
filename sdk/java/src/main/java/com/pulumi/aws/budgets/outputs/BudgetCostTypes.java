@@ -184,56 +184,67 @@ public final class BudgetCostTypes {
 
         @CustomType.Setter
         public Builder includeCredit(@Nullable Boolean includeCredit) {
+
             this.includeCredit = includeCredit;
             return this;
         }
         @CustomType.Setter
         public Builder includeDiscount(@Nullable Boolean includeDiscount) {
+
             this.includeDiscount = includeDiscount;
             return this;
         }
         @CustomType.Setter
         public Builder includeOtherSubscription(@Nullable Boolean includeOtherSubscription) {
+
             this.includeOtherSubscription = includeOtherSubscription;
             return this;
         }
         @CustomType.Setter
         public Builder includeRecurring(@Nullable Boolean includeRecurring) {
+
             this.includeRecurring = includeRecurring;
             return this;
         }
         @CustomType.Setter
         public Builder includeRefund(@Nullable Boolean includeRefund) {
+
             this.includeRefund = includeRefund;
             return this;
         }
         @CustomType.Setter
         public Builder includeSubscription(@Nullable Boolean includeSubscription) {
+
             this.includeSubscription = includeSubscription;
             return this;
         }
         @CustomType.Setter
         public Builder includeSupport(@Nullable Boolean includeSupport) {
+
             this.includeSupport = includeSupport;
             return this;
         }
         @CustomType.Setter
         public Builder includeTax(@Nullable Boolean includeTax) {
+
             this.includeTax = includeTax;
             return this;
         }
         @CustomType.Setter
         public Builder includeUpfront(@Nullable Boolean includeUpfront) {
+
             this.includeUpfront = includeUpfront;
             return this;
         }
         @CustomType.Setter
         public Builder useAmortized(@Nullable Boolean useAmortized) {
+
             this.useAmortized = useAmortized;
             return this;
         }
         @CustomType.Setter
         public Builder useBlended(@Nullable Boolean useBlended) {
+
             this.useBlended = useBlended;
             return this;
         }

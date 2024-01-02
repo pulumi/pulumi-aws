@@ -44,6 +44,7 @@ public final class ConfigurationSetSuppressionOptions {
 
         @CustomType.Setter
         public Builder suppressedReasons(@Nullable List<String> suppressedReasons) {
+
             this.suppressedReasons = suppressedReasons;
             return this;
         }

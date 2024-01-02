@@ -59,11 +59,13 @@ public final class LaunchTemplateCapacityReservationSpecification {
 
         @CustomType.Setter
         public Builder capacityReservationPreference(@Nullable String capacityReservationPreference) {
+
             this.capacityReservationPreference = capacityReservationPreference;
             return this;
         }
         @CustomType.Setter
         public Builder capacityReservationTarget(@Nullable LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget) {
+
             this.capacityReservationTarget = capacityReservationTarget;
             return this;
         }

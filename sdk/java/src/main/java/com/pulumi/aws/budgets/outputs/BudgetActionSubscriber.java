@@ -4,6 +4,7 @@
 package com.pulumi.aws.budgets.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class BudgetActionSubscriber {
 
         @CustomType.Setter
         public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+            if (address == null) {
+              throw new MissingRequiredPropertyException("BudgetActionSubscriber", "address");
+            }
+            this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder subscriptionType(String subscriptionType) {
-            this.subscriptionType = Objects.requireNonNull(subscriptionType);
+            if (subscriptionType == null) {
+              throw new MissingRequiredPropertyException("BudgetActionSubscriber", "subscriptionType");
+            }
+            this.subscriptionType = subscriptionType;
             return this;
         }
         public BudgetActionSubscriber build() {

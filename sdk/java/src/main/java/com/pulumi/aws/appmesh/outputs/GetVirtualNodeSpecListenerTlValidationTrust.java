@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTlValidationTrustFile;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecListenerTlValidationTrustSd;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetVirtualNodeSpecListenerTlValidationTrust {
 
         @CustomType.Setter
         public Builder files(List<GetVirtualNodeSpecListenerTlValidationTrustFile> files) {
-            this.files = Objects.requireNonNull(files);
+            if (files == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTlValidationTrust", "files");
+            }
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualNodeSpecListenerTlValidationTrustFile... files) {
@@ -50,7 +54,10 @@ public final class GetVirtualNodeSpecListenerTlValidationTrust {
         }
         @CustomType.Setter
         public Builder sds(List<GetVirtualNodeSpecListenerTlValidationTrustSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+            if (sds == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecListenerTlValidationTrust", "sds");
+            }
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualNodeSpecListenerTlValidationTrustSd... sds) {

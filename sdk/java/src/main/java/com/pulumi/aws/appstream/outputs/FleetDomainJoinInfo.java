@@ -58,11 +58,13 @@ public final class FleetDomainJoinInfo {
 
         @CustomType.Setter
         public Builder directoryName(@Nullable String directoryName) {
+
             this.directoryName = directoryName;
             return this;
         }
         @CustomType.Setter
         public Builder organizationalUnitDistinguishedName(@Nullable String organizationalUnitDistinguishedName) {
+
             this.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
             return this;
         }

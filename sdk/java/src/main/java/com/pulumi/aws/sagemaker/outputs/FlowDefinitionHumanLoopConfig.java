@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -159,31 +160,43 @@ public final class FlowDefinitionHumanLoopConfig {
 
         @CustomType.Setter
         public Builder humanTaskUiArn(String humanTaskUiArn) {
-            this.humanTaskUiArn = Objects.requireNonNull(humanTaskUiArn);
+            if (humanTaskUiArn == null) {
+              throw new MissingRequiredPropertyException("FlowDefinitionHumanLoopConfig", "humanTaskUiArn");
+            }
+            this.humanTaskUiArn = humanTaskUiArn;
             return this;
         }
         @CustomType.Setter
         public Builder publicWorkforceTaskPrice(@Nullable FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice publicWorkforceTaskPrice) {
+
             this.publicWorkforceTaskPrice = publicWorkforceTaskPrice;
             return this;
         }
         @CustomType.Setter
         public Builder taskAvailabilityLifetimeInSeconds(@Nullable Integer taskAvailabilityLifetimeInSeconds) {
+
             this.taskAvailabilityLifetimeInSeconds = taskAvailabilityLifetimeInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder taskCount(Integer taskCount) {
-            this.taskCount = Objects.requireNonNull(taskCount);
+            if (taskCount == null) {
+              throw new MissingRequiredPropertyException("FlowDefinitionHumanLoopConfig", "taskCount");
+            }
+            this.taskCount = taskCount;
             return this;
         }
         @CustomType.Setter
         public Builder taskDescription(String taskDescription) {
-            this.taskDescription = Objects.requireNonNull(taskDescription);
+            if (taskDescription == null) {
+              throw new MissingRequiredPropertyException("FlowDefinitionHumanLoopConfig", "taskDescription");
+            }
+            this.taskDescription = taskDescription;
             return this;
         }
         @CustomType.Setter
         public Builder taskKeywords(@Nullable List<String> taskKeywords) {
+
             this.taskKeywords = taskKeywords;
             return this;
         }
@@ -192,17 +205,24 @@ public final class FlowDefinitionHumanLoopConfig {
         }
         @CustomType.Setter
         public Builder taskTimeLimitInSeconds(@Nullable Integer taskTimeLimitInSeconds) {
+
             this.taskTimeLimitInSeconds = taskTimeLimitInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder taskTitle(String taskTitle) {
-            this.taskTitle = Objects.requireNonNull(taskTitle);
+            if (taskTitle == null) {
+              throw new MissingRequiredPropertyException("FlowDefinitionHumanLoopConfig", "taskTitle");
+            }
+            this.taskTitle = taskTitle;
             return this;
         }
         @CustomType.Setter
         public Builder workteamArn(String workteamArn) {
-            this.workteamArn = Objects.requireNonNull(workteamArn);
+            if (workteamArn == null) {
+              throw new MissingRequiredPropertyException("FlowDefinitionHumanLoopConfig", "workteamArn");
+            }
+            this.workteamArn = workteamArn;
             return this;
         }
         public FlowDefinitionHumanLoopConfig build() {

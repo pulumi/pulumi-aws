@@ -86,21 +86,25 @@ public final class CustomActionTypeSettings {
 
         @CustomType.Setter
         public Builder entityUrlTemplate(@Nullable String entityUrlTemplate) {
+
             this.entityUrlTemplate = entityUrlTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder executionUrlTemplate(@Nullable String executionUrlTemplate) {
+
             this.executionUrlTemplate = executionUrlTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder revisionUrlTemplate(@Nullable String revisionUrlTemplate) {
+
             this.revisionUrlTemplate = revisionUrlTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder thirdPartyConfigurationUrl(@Nullable String thirdPartyConfigurationUrl) {
+
             this.thirdPartyConfigurationUrl = thirdPartyConfigurationUrl;
             return this;
         }

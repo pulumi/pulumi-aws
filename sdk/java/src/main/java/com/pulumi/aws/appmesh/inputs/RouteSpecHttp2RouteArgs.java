@@ -9,6 +9,7 @@ import com.pulumi.aws.appmesh.inputs.RouteSpecHttp2RouteRetryPolicyArgs;
 import com.pulumi.aws.appmesh.inputs.RouteSpecHttp2RouteTimeoutArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -190,8 +191,12 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
         }
 
         public RouteSpecHttp2RouteArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.match = Objects.requireNonNull($.match, "expected parameter 'match' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("RouteSpecHttp2RouteArgs", "action");
+            }
+            if ($.match == null) {
+                throw new MissingRequiredPropertyException("RouteSpecHttp2RouteArgs", "match");
+            }
             return $;
         }
     }

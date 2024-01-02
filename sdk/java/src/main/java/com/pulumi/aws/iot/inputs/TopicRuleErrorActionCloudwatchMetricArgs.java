@@ -5,6 +5,7 @@ package com.pulumi.aws.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,11 +262,21 @@ public final class TopicRuleErrorActionCloudwatchMetricArgs extends com.pulumi.r
         }
 
         public TopicRuleErrorActionCloudwatchMetricArgs build() {
-            $.metricName = Objects.requireNonNull($.metricName, "expected parameter 'metricName' to be non-null");
-            $.metricNamespace = Objects.requireNonNull($.metricNamespace, "expected parameter 'metricNamespace' to be non-null");
-            $.metricUnit = Objects.requireNonNull($.metricUnit, "expected parameter 'metricUnit' to be non-null");
-            $.metricValue = Objects.requireNonNull($.metricValue, "expected parameter 'metricValue' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.metricName == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionCloudwatchMetricArgs", "metricName");
+            }
+            if ($.metricNamespace == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionCloudwatchMetricArgs", "metricNamespace");
+            }
+            if ($.metricUnit == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionCloudwatchMetricArgs", "metricUnit");
+            }
+            if ($.metricValue == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionCloudwatchMetricArgs", "metricValue");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("TopicRuleErrorActionCloudwatchMetricArgs", "roleArn");
+            }
             return $;
         }
     }

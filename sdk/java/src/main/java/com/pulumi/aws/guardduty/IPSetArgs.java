@@ -5,6 +5,7 @@ package com.pulumi.aws.guardduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -263,10 +264,18 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IPSetArgs build() {
-            $.activate = Objects.requireNonNull($.activate, "expected parameter 'activate' to be non-null");
-            $.detectorId = Objects.requireNonNull($.detectorId, "expected parameter 'detectorId' to be non-null");
-            $.format = Objects.requireNonNull($.format, "expected parameter 'format' to be non-null");
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
+            if ($.activate == null) {
+                throw new MissingRequiredPropertyException("IPSetArgs", "activate");
+            }
+            if ($.detectorId == null) {
+                throw new MissingRequiredPropertyException("IPSetArgs", "detectorId");
+            }
+            if ($.format == null) {
+                throw new MissingRequiredPropertyException("IPSetArgs", "format");
+            }
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("IPSetArgs", "location");
+            }
             return $;
         }
     }

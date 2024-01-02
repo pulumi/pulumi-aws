@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -341,7 +342,9 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         public VpcEndpointServiceArgs build() {
-            $.acceptanceRequired = Objects.requireNonNull($.acceptanceRequired, "expected parameter 'acceptanceRequired' to be non-null");
+            if ($.acceptanceRequired == null) {
+                throw new MissingRequiredPropertyException("VpcEndpointServiceArgs", "acceptanceRequired");
+            }
             return $;
         }
     }

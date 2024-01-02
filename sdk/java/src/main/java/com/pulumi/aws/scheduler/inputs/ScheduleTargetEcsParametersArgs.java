@@ -9,6 +9,7 @@ import com.pulumi.aws.scheduler.inputs.ScheduleTargetEcsParametersPlacementConst
 import com.pulumi.aws.scheduler.inputs.ScheduleTargetEcsParametersPlacementStrategyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -603,7 +604,9 @@ public final class ScheduleTargetEcsParametersArgs extends com.pulumi.resources.
         }
 
         public ScheduleTargetEcsParametersArgs build() {
-            $.taskDefinitionArn = Objects.requireNonNull($.taskDefinitionArn, "expected parameter 'taskDefinitionArn' to be non-null");
+            if ($.taskDefinitionArn == null) {
+                throw new MissingRequiredPropertyException("ScheduleTargetEcsParametersArgs", "taskDefinitionArn");
+            }
             return $;
         }
     }

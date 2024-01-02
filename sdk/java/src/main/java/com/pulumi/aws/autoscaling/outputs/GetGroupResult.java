@@ -10,6 +10,7 @@ import com.pulumi.aws.autoscaling.outputs.GetGroupTag;
 import com.pulumi.aws.autoscaling.outputs.GetGroupTrafficSource;
 import com.pulumi.aws.autoscaling.outputs.GetGroupWarmPool;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -455,12 +456,18 @@ public final class GetGroupResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZones(List<String> availabilityZones) {
-            this.availabilityZones = Objects.requireNonNull(availabilityZones);
+            if (availabilityZones == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "availabilityZones");
+            }
+            this.availabilityZones = availabilityZones;
             return this;
         }
         public Builder availabilityZones(String... availabilityZones) {
@@ -468,22 +475,34 @@ public final class GetGroupResult {
         }
         @CustomType.Setter
         public Builder defaultCooldown(Integer defaultCooldown) {
-            this.defaultCooldown = Objects.requireNonNull(defaultCooldown);
+            if (defaultCooldown == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "defaultCooldown");
+            }
+            this.defaultCooldown = defaultCooldown;
             return this;
         }
         @CustomType.Setter
         public Builder desiredCapacity(Integer desiredCapacity) {
-            this.desiredCapacity = Objects.requireNonNull(desiredCapacity);
+            if (desiredCapacity == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "desiredCapacity");
+            }
+            this.desiredCapacity = desiredCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder desiredCapacityType(String desiredCapacityType) {
-            this.desiredCapacityType = Objects.requireNonNull(desiredCapacityType);
+            if (desiredCapacityType == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "desiredCapacityType");
+            }
+            this.desiredCapacityType = desiredCapacityType;
             return this;
         }
         @CustomType.Setter
         public Builder enabledMetrics(List<String> enabledMetrics) {
-            this.enabledMetrics = Objects.requireNonNull(enabledMetrics);
+            if (enabledMetrics == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "enabledMetrics");
+            }
+            this.enabledMetrics = enabledMetrics;
             return this;
         }
         public Builder enabledMetrics(String... enabledMetrics) {
@@ -491,22 +510,34 @@ public final class GetGroupResult {
         }
         @CustomType.Setter
         public Builder healthCheckGracePeriod(Integer healthCheckGracePeriod) {
-            this.healthCheckGracePeriod = Objects.requireNonNull(healthCheckGracePeriod);
+            if (healthCheckGracePeriod == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "healthCheckGracePeriod");
+            }
+            this.healthCheckGracePeriod = healthCheckGracePeriod;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckType(String healthCheckType) {
-            this.healthCheckType = Objects.requireNonNull(healthCheckType);
+            if (healthCheckType == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "healthCheckType");
+            }
+            this.healthCheckType = healthCheckType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceMaintenancePolicies(List<GetGroupInstanceMaintenancePolicy> instanceMaintenancePolicies) {
-            this.instanceMaintenancePolicies = Objects.requireNonNull(instanceMaintenancePolicies);
+            if (instanceMaintenancePolicies == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "instanceMaintenancePolicies");
+            }
+            this.instanceMaintenancePolicies = instanceMaintenancePolicies;
             return this;
         }
         public Builder instanceMaintenancePolicies(GetGroupInstanceMaintenancePolicy... instanceMaintenancePolicies) {
@@ -514,12 +545,18 @@ public final class GetGroupResult {
         }
         @CustomType.Setter
         public Builder launchConfiguration(String launchConfiguration) {
-            this.launchConfiguration = Objects.requireNonNull(launchConfiguration);
+            if (launchConfiguration == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "launchConfiguration");
+            }
+            this.launchConfiguration = launchConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder launchTemplates(List<GetGroupLaunchTemplate> launchTemplates) {
-            this.launchTemplates = Objects.requireNonNull(launchTemplates);
+            if (launchTemplates == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "launchTemplates");
+            }
+            this.launchTemplates = launchTemplates;
             return this;
         }
         public Builder launchTemplates(GetGroupLaunchTemplate... launchTemplates) {
@@ -527,7 +564,10 @@ public final class GetGroupResult {
         }
         @CustomType.Setter
         public Builder loadBalancers(List<String> loadBalancers) {
-            this.loadBalancers = Objects.requireNonNull(loadBalancers);
+            if (loadBalancers == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "loadBalancers");
+            }
+            this.loadBalancers = loadBalancers;
             return this;
         }
         public Builder loadBalancers(String... loadBalancers) {
@@ -535,22 +575,34 @@ public final class GetGroupResult {
         }
         @CustomType.Setter
         public Builder maxInstanceLifetime(Integer maxInstanceLifetime) {
-            this.maxInstanceLifetime = Objects.requireNonNull(maxInstanceLifetime);
+            if (maxInstanceLifetime == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "maxInstanceLifetime");
+            }
+            this.maxInstanceLifetime = maxInstanceLifetime;
             return this;
         }
         @CustomType.Setter
         public Builder maxSize(Integer maxSize) {
-            this.maxSize = Objects.requireNonNull(maxSize);
+            if (maxSize == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "maxSize");
+            }
+            this.maxSize = maxSize;
             return this;
         }
         @CustomType.Setter
         public Builder minSize(Integer minSize) {
-            this.minSize = Objects.requireNonNull(minSize);
+            if (minSize == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "minSize");
+            }
+            this.minSize = minSize;
             return this;
         }
         @CustomType.Setter
         public Builder mixedInstancesPolicies(List<GetGroupMixedInstancesPolicy> mixedInstancesPolicies) {
-            this.mixedInstancesPolicies = Objects.requireNonNull(mixedInstancesPolicies);
+            if (mixedInstancesPolicies == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "mixedInstancesPolicies");
+            }
+            this.mixedInstancesPolicies = mixedInstancesPolicies;
             return this;
         }
         public Builder mixedInstancesPolicies(GetGroupMixedInstancesPolicy... mixedInstancesPolicies) {
@@ -558,37 +610,58 @@ public final class GetGroupResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder newInstancesProtectedFromScaleIn(Boolean newInstancesProtectedFromScaleIn) {
-            this.newInstancesProtectedFromScaleIn = Objects.requireNonNull(newInstancesProtectedFromScaleIn);
+            if (newInstancesProtectedFromScaleIn == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "newInstancesProtectedFromScaleIn");
+            }
+            this.newInstancesProtectedFromScaleIn = newInstancesProtectedFromScaleIn;
             return this;
         }
         @CustomType.Setter
         public Builder placementGroup(String placementGroup) {
-            this.placementGroup = Objects.requireNonNull(placementGroup);
+            if (placementGroup == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "placementGroup");
+            }
+            this.placementGroup = placementGroup;
             return this;
         }
         @CustomType.Setter
         public Builder predictedCapacity(Integer predictedCapacity) {
-            this.predictedCapacity = Objects.requireNonNull(predictedCapacity);
+            if (predictedCapacity == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "predictedCapacity");
+            }
+            this.predictedCapacity = predictedCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder serviceLinkedRoleArn(String serviceLinkedRoleArn) {
-            this.serviceLinkedRoleArn = Objects.requireNonNull(serviceLinkedRoleArn);
+            if (serviceLinkedRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "serviceLinkedRoleArn");
+            }
+            this.serviceLinkedRoleArn = serviceLinkedRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder suspendedProcesses(List<String> suspendedProcesses) {
-            this.suspendedProcesses = Objects.requireNonNull(suspendedProcesses);
+            if (suspendedProcesses == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "suspendedProcesses");
+            }
+            this.suspendedProcesses = suspendedProcesses;
             return this;
         }
         public Builder suspendedProcesses(String... suspendedProcesses) {
@@ -596,7 +669,10 @@ public final class GetGroupResult {
         }
         @CustomType.Setter
         public Builder tags(List<GetGroupTag> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public Builder tags(GetGroupTag... tags) {
@@ -604,7 +680,10 @@ public final class GetGroupResult {
         }
         @CustomType.Setter
         public Builder targetGroupArns(List<String> targetGroupArns) {
-            this.targetGroupArns = Objects.requireNonNull(targetGroupArns);
+            if (targetGroupArns == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "targetGroupArns");
+            }
+            this.targetGroupArns = targetGroupArns;
             return this;
         }
         public Builder targetGroupArns(String... targetGroupArns) {
@@ -612,7 +691,10 @@ public final class GetGroupResult {
         }
         @CustomType.Setter
         public Builder terminationPolicies(List<String> terminationPolicies) {
-            this.terminationPolicies = Objects.requireNonNull(terminationPolicies);
+            if (terminationPolicies == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "terminationPolicies");
+            }
+            this.terminationPolicies = terminationPolicies;
             return this;
         }
         public Builder terminationPolicies(String... terminationPolicies) {
@@ -620,7 +702,10 @@ public final class GetGroupResult {
         }
         @CustomType.Setter
         public Builder trafficSources(List<GetGroupTrafficSource> trafficSources) {
-            this.trafficSources = Objects.requireNonNull(trafficSources);
+            if (trafficSources == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "trafficSources");
+            }
+            this.trafficSources = trafficSources;
             return this;
         }
         public Builder trafficSources(GetGroupTrafficSource... trafficSources) {
@@ -628,17 +713,26 @@ public final class GetGroupResult {
         }
         @CustomType.Setter
         public Builder vpcZoneIdentifier(String vpcZoneIdentifier) {
-            this.vpcZoneIdentifier = Objects.requireNonNull(vpcZoneIdentifier);
+            if (vpcZoneIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "vpcZoneIdentifier");
+            }
+            this.vpcZoneIdentifier = vpcZoneIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder warmPoolSize(Integer warmPoolSize) {
-            this.warmPoolSize = Objects.requireNonNull(warmPoolSize);
+            if (warmPoolSize == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "warmPoolSize");
+            }
+            this.warmPoolSize = warmPoolSize;
             return this;
         }
         @CustomType.Setter
         public Builder warmPools(List<GetGroupWarmPool> warmPools) {
-            this.warmPools = Objects.requireNonNull(warmPools);
+            if (warmPools == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "warmPools");
+            }
+            this.warmPools = warmPools;
             return this;
         }
         public Builder warmPools(GetGroupWarmPool... warmPools) {

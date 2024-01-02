@@ -44,6 +44,7 @@ public final class WebAclAssociationConfig {
 
         @CustomType.Setter
         public Builder requestBodies(@Nullable List<WebAclAssociationConfigRequestBody> requestBodies) {
+
             this.requestBodies = requestBodies;
             return this;
         }

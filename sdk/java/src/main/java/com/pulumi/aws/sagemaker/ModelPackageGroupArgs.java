@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class ModelPackageGroupArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ModelPackageGroupArgs build() {
-            $.modelPackageGroupName = Objects.requireNonNull($.modelPackageGroupName, "expected parameter 'modelPackageGroupName' to be non-null");
+            if ($.modelPackageGroupName == null) {
+                throw new MissingRequiredPropertyException("ModelPackageGroupArgs", "modelPackageGroupName");
+            }
             return $;
         }
     }

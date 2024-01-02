@@ -13,6 +13,7 @@ import com.pulumi.aws.quicksight.outputs.GetDataSetPhysicalTableMap;
 import com.pulumi.aws.quicksight.outputs.GetDataSetRowLevelPermissionDataSet;
 import com.pulumi.aws.quicksight.outputs.GetDataSetRowLevelPermissionTagConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -162,17 +163,26 @@ public final class GetDataSetResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder awsAccountId(String awsAccountId) {
-            this.awsAccountId = Objects.requireNonNull(awsAccountId);
+            if (awsAccountId == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "awsAccountId");
+            }
+            this.awsAccountId = awsAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder columnGroups(List<GetDataSetColumnGroup> columnGroups) {
-            this.columnGroups = Objects.requireNonNull(columnGroups);
+            if (columnGroups == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "columnGroups");
+            }
+            this.columnGroups = columnGroups;
             return this;
         }
         public Builder columnGroups(GetDataSetColumnGroup... columnGroups) {
@@ -180,6 +190,7 @@ public final class GetDataSetResult {
         }
         @CustomType.Setter
         public Builder columnLevelPermissionRules(@Nullable List<GetDataSetColumnLevelPermissionRule> columnLevelPermissionRules) {
+
             this.columnLevelPermissionRules = columnLevelPermissionRules;
             return this;
         }
@@ -188,12 +199,18 @@ public final class GetDataSetResult {
         }
         @CustomType.Setter
         public Builder dataSetId(String dataSetId) {
-            this.dataSetId = Objects.requireNonNull(dataSetId);
+            if (dataSetId == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "dataSetId");
+            }
+            this.dataSetId = dataSetId;
             return this;
         }
         @CustomType.Setter
         public Builder dataSetUsageConfigurations(List<GetDataSetDataSetUsageConfiguration> dataSetUsageConfigurations) {
-            this.dataSetUsageConfigurations = Objects.requireNonNull(dataSetUsageConfigurations);
+            if (dataSetUsageConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "dataSetUsageConfigurations");
+            }
+            this.dataSetUsageConfigurations = dataSetUsageConfigurations;
             return this;
         }
         public Builder dataSetUsageConfigurations(GetDataSetDataSetUsageConfiguration... dataSetUsageConfigurations) {
@@ -201,7 +218,10 @@ public final class GetDataSetResult {
         }
         @CustomType.Setter
         public Builder fieldFolders(List<GetDataSetFieldFolder> fieldFolders) {
-            this.fieldFolders = Objects.requireNonNull(fieldFolders);
+            if (fieldFolders == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "fieldFolders");
+            }
+            this.fieldFolders = fieldFolders;
             return this;
         }
         public Builder fieldFolders(GetDataSetFieldFolder... fieldFolders) {
@@ -209,17 +229,26 @@ public final class GetDataSetResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder importMode(String importMode) {
-            this.importMode = Objects.requireNonNull(importMode);
+            if (importMode == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "importMode");
+            }
+            this.importMode = importMode;
             return this;
         }
         @CustomType.Setter
         public Builder logicalTableMaps(List<GetDataSetLogicalTableMap> logicalTableMaps) {
-            this.logicalTableMaps = Objects.requireNonNull(logicalTableMaps);
+            if (logicalTableMaps == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "logicalTableMaps");
+            }
+            this.logicalTableMaps = logicalTableMaps;
             return this;
         }
         public Builder logicalTableMaps(GetDataSetLogicalTableMap... logicalTableMaps) {
@@ -227,12 +256,18 @@ public final class GetDataSetResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder permissions(List<GetDataSetPermission> permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+            if (permissions == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "permissions");
+            }
+            this.permissions = permissions;
             return this;
         }
         public Builder permissions(GetDataSetPermission... permissions) {
@@ -240,7 +275,10 @@ public final class GetDataSetResult {
         }
         @CustomType.Setter
         public Builder physicalTableMaps(List<GetDataSetPhysicalTableMap> physicalTableMaps) {
-            this.physicalTableMaps = Objects.requireNonNull(physicalTableMaps);
+            if (physicalTableMaps == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "physicalTableMaps");
+            }
+            this.physicalTableMaps = physicalTableMaps;
             return this;
         }
         public Builder physicalTableMaps(GetDataSetPhysicalTableMap... physicalTableMaps) {
@@ -248,7 +286,10 @@ public final class GetDataSetResult {
         }
         @CustomType.Setter
         public Builder rowLevelPermissionDataSets(List<GetDataSetRowLevelPermissionDataSet> rowLevelPermissionDataSets) {
-            this.rowLevelPermissionDataSets = Objects.requireNonNull(rowLevelPermissionDataSets);
+            if (rowLevelPermissionDataSets == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "rowLevelPermissionDataSets");
+            }
+            this.rowLevelPermissionDataSets = rowLevelPermissionDataSets;
             return this;
         }
         public Builder rowLevelPermissionDataSets(GetDataSetRowLevelPermissionDataSet... rowLevelPermissionDataSets) {
@@ -256,7 +297,10 @@ public final class GetDataSetResult {
         }
         @CustomType.Setter
         public Builder rowLevelPermissionTagConfigurations(List<GetDataSetRowLevelPermissionTagConfiguration> rowLevelPermissionTagConfigurations) {
-            this.rowLevelPermissionTagConfigurations = Objects.requireNonNull(rowLevelPermissionTagConfigurations);
+            if (rowLevelPermissionTagConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "rowLevelPermissionTagConfigurations");
+            }
+            this.rowLevelPermissionTagConfigurations = rowLevelPermissionTagConfigurations;
             return this;
         }
         public Builder rowLevelPermissionTagConfigurations(GetDataSetRowLevelPermissionTagConfiguration... rowLevelPermissionTagConfigurations) {
@@ -264,12 +308,18 @@ public final class GetDataSetResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder tagsAll(Map<String,String> tagsAll) {
-            this.tagsAll = Objects.requireNonNull(tagsAll);
+            if (tagsAll == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "tagsAll");
+            }
+            this.tagsAll = tagsAll;
             return this;
         }
         public GetDataSetResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetCoipPoolsFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -72,6 +73,7 @@ public final class GetCoipPoolsResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetCoipPoolsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -80,12 +82,18 @@ public final class GetCoipPoolsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCoipPoolsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder poolIds(List<String> poolIds) {
-            this.poolIds = Objects.requireNonNull(poolIds);
+            if (poolIds == null) {
+              throw new MissingRequiredPropertyException("GetCoipPoolsResult", "poolIds");
+            }
+            this.poolIds = poolIds;
             return this;
         }
         public Builder poolIds(String... poolIds) {
@@ -93,7 +101,10 @@ public final class GetCoipPoolsResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetCoipPoolsResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetCoipPoolsResult build() {

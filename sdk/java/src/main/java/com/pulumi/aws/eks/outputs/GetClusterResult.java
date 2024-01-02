@@ -9,6 +9,7 @@ import com.pulumi.aws.eks.outputs.GetClusterKubernetesNetworkConfig;
 import com.pulumi.aws.eks.outputs.GetClusterOutpostConfig;
 import com.pulumi.aws.eks.outputs.GetClusterVpcConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -265,12 +266,18 @@ public final class GetClusterResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder certificateAuthorities(List<GetClusterCertificateAuthority> certificateAuthorities) {
-            this.certificateAuthorities = Objects.requireNonNull(certificateAuthorities);
+            if (certificateAuthorities == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "certificateAuthorities");
+            }
+            this.certificateAuthorities = certificateAuthorities;
             return this;
         }
         public Builder certificateAuthorities(GetClusterCertificateAuthority... certificateAuthorities) {
@@ -278,17 +285,26 @@ public final class GetClusterResult {
         }
         @CustomType.Setter
         public Builder clusterId(String clusterId) {
-            this.clusterId = Objects.requireNonNull(clusterId);
+            if (clusterId == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "clusterId");
+            }
+            this.clusterId = clusterId;
             return this;
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "createdAt");
+            }
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
         public Builder enabledClusterLogTypes(List<String> enabledClusterLogTypes) {
-            this.enabledClusterLogTypes = Objects.requireNonNull(enabledClusterLogTypes);
+            if (enabledClusterLogTypes == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "enabledClusterLogTypes");
+            }
+            this.enabledClusterLogTypes = enabledClusterLogTypes;
             return this;
         }
         public Builder enabledClusterLogTypes(String... enabledClusterLogTypes) {
@@ -296,17 +312,26 @@ public final class GetClusterResult {
         }
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "endpoint");
+            }
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetClusterIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetClusterIdentity... identities) {
@@ -314,7 +339,10 @@ public final class GetClusterResult {
         }
         @CustomType.Setter
         public Builder kubernetesNetworkConfigs(List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs) {
-            this.kubernetesNetworkConfigs = Objects.requireNonNull(kubernetesNetworkConfigs);
+            if (kubernetesNetworkConfigs == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "kubernetesNetworkConfigs");
+            }
+            this.kubernetesNetworkConfigs = kubernetesNetworkConfigs;
             return this;
         }
         public Builder kubernetesNetworkConfigs(GetClusterKubernetesNetworkConfig... kubernetesNetworkConfigs) {
@@ -322,12 +350,18 @@ public final class GetClusterResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder outpostConfigs(List<GetClusterOutpostConfig> outpostConfigs) {
-            this.outpostConfigs = Objects.requireNonNull(outpostConfigs);
+            if (outpostConfigs == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "outpostConfigs");
+            }
+            this.outpostConfigs = outpostConfigs;
             return this;
         }
         public Builder outpostConfigs(GetClusterOutpostConfig... outpostConfigs) {
@@ -335,32 +369,50 @@ public final class GetClusterResult {
         }
         @CustomType.Setter
         public Builder platformVersion(String platformVersion) {
-            this.platformVersion = Objects.requireNonNull(platformVersion);
+            if (platformVersion == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "platformVersion");
+            }
+            this.platformVersion = platformVersion;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "version");
+            }
+            this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder vpcConfig(GetClusterVpcConfig vpcConfig) {
-            this.vpcConfig = Objects.requireNonNull(vpcConfig);
+            if (vpcConfig == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "vpcConfig");
+            }
+            this.vpcConfig = vpcConfig;
             return this;
         }
         public GetClusterResult build() {

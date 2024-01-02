@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticache.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class ReplicationGroupLogDeliveryConfigurationArgs extends com.pulu
         }
 
         public ReplicationGroupLogDeliveryConfigurationArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
-            $.destinationType = Objects.requireNonNull($.destinationType, "expected parameter 'destinationType' to be non-null");
-            $.logFormat = Objects.requireNonNull($.logFormat, "expected parameter 'logFormat' to be non-null");
-            $.logType = Objects.requireNonNull($.logType, "expected parameter 'logType' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("ReplicationGroupLogDeliveryConfigurationArgs", "destination");
+            }
+            if ($.destinationType == null) {
+                throw new MissingRequiredPropertyException("ReplicationGroupLogDeliveryConfigurationArgs", "destinationType");
+            }
+            if ($.logFormat == null) {
+                throw new MissingRequiredPropertyException("ReplicationGroupLogDeliveryConfigurationArgs", "logFormat");
+            }
+            if ($.logType == null) {
+                throw new MissingRequiredPropertyException("ReplicationGroupLogDeliveryConfigurationArgs", "logType");
+            }
             return $;
         }
     }

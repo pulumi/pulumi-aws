@@ -115,31 +115,37 @@ public final class ServiceHealthCheckConfiguration {
 
         @CustomType.Setter
         public Builder healthyThreshold(@Nullable Integer healthyThreshold) {
+
             this.healthyThreshold = healthyThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
+
             this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(@Nullable Integer timeout) {
+
             this.timeout = timeout;
             return this;
         }
         @CustomType.Setter
         public Builder unhealthyThreshold(@Nullable Integer unhealthyThreshold) {
+
             this.unhealthyThreshold = unhealthyThreshold;
             return this;
         }

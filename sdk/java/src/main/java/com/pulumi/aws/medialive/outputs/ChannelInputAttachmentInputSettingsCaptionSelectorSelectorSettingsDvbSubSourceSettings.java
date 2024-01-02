@@ -59,11 +59,13 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
         @CustomType.Setter
         public Builder ocrLanguage(@Nullable String ocrLanguage) {
+
             this.ocrLanguage = ocrLanguage;
             return this;
         }
         @CustomType.Setter
         public Builder pid(@Nullable Integer pid) {
+
             this.pid = pid;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.GetImagePipelineImageScanningConfigurationEcrConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class GetImagePipelineImageScanningConfiguration {
 
         @CustomType.Setter
         public Builder ecrConfigurations(List<GetImagePipelineImageScanningConfigurationEcrConfiguration> ecrConfigurations) {
-            this.ecrConfigurations = Objects.requireNonNull(ecrConfigurations);
+            if (ecrConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineImageScanningConfiguration", "ecrConfigurations");
+            }
+            this.ecrConfigurations = ecrConfigurations;
             return this;
         }
         public Builder ecrConfigurations(GetImagePipelineImageScanningConfigurationEcrConfiguration... ecrConfigurations) {
@@ -66,7 +70,10 @@ public final class GetImagePipelineImageScanningConfiguration {
         }
         @CustomType.Setter
         public Builder imageScanningEnabled(Boolean imageScanningEnabled) {
-            this.imageScanningEnabled = Objects.requireNonNull(imageScanningEnabled);
+            if (imageScanningEnabled == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineImageScanningConfiguration", "imageScanningEnabled");
+            }
+            this.imageScanningEnabled = imageScanningEnabled;
             return this;
         }
         public GetImagePipelineImageScanningConfiguration build() {

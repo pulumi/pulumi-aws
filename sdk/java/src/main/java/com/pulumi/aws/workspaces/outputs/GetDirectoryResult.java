@@ -7,6 +7,7 @@ import com.pulumi.aws.workspaces.outputs.GetDirectorySelfServicePermission;
 import com.pulumi.aws.workspaces.outputs.GetDirectoryWorkspaceAccessProperty;
 import com.pulumi.aws.workspaces.outputs.GetDirectoryWorkspaceCreationProperty;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -250,32 +251,50 @@ public final class GetDirectoryResult {
 
         @CustomType.Setter
         public Builder alias(String alias) {
-            this.alias = Objects.requireNonNull(alias);
+            if (alias == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "alias");
+            }
+            this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder customerUserName(String customerUserName) {
-            this.customerUserName = Objects.requireNonNull(customerUserName);
+            if (customerUserName == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "customerUserName");
+            }
+            this.customerUserName = customerUserName;
             return this;
         }
         @CustomType.Setter
         public Builder directoryId(String directoryId) {
-            this.directoryId = Objects.requireNonNull(directoryId);
+            if (directoryId == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "directoryId");
+            }
+            this.directoryId = directoryId;
             return this;
         }
         @CustomType.Setter
         public Builder directoryName(String directoryName) {
-            this.directoryName = Objects.requireNonNull(directoryName);
+            if (directoryName == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "directoryName");
+            }
+            this.directoryName = directoryName;
             return this;
         }
         @CustomType.Setter
         public Builder directoryType(String directoryType) {
-            this.directoryType = Objects.requireNonNull(directoryType);
+            if (directoryType == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "directoryType");
+            }
+            this.directoryType = directoryType;
             return this;
         }
         @CustomType.Setter
         public Builder dnsIpAddresses(List<String> dnsIpAddresses) {
-            this.dnsIpAddresses = Objects.requireNonNull(dnsIpAddresses);
+            if (dnsIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "dnsIpAddresses");
+            }
+            this.dnsIpAddresses = dnsIpAddresses;
             return this;
         }
         public Builder dnsIpAddresses(String... dnsIpAddresses) {
@@ -283,17 +302,26 @@ public final class GetDirectoryResult {
         }
         @CustomType.Setter
         public Builder iamRoleId(String iamRoleId) {
-            this.iamRoleId = Objects.requireNonNull(iamRoleId);
+            if (iamRoleId == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "iamRoleId");
+            }
+            this.iamRoleId = iamRoleId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipGroupIds(List<String> ipGroupIds) {
-            this.ipGroupIds = Objects.requireNonNull(ipGroupIds);
+            if (ipGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "ipGroupIds");
+            }
+            this.ipGroupIds = ipGroupIds;
             return this;
         }
         public Builder ipGroupIds(String... ipGroupIds) {
@@ -301,12 +329,18 @@ public final class GetDirectoryResult {
         }
         @CustomType.Setter
         public Builder registrationCode(String registrationCode) {
-            this.registrationCode = Objects.requireNonNull(registrationCode);
+            if (registrationCode == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "registrationCode");
+            }
+            this.registrationCode = registrationCode;
             return this;
         }
         @CustomType.Setter
         public Builder selfServicePermissions(List<GetDirectorySelfServicePermission> selfServicePermissions) {
-            this.selfServicePermissions = Objects.requireNonNull(selfServicePermissions);
+            if (selfServicePermissions == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "selfServicePermissions");
+            }
+            this.selfServicePermissions = selfServicePermissions;
             return this;
         }
         public Builder selfServicePermissions(GetDirectorySelfServicePermission... selfServicePermissions) {
@@ -314,7 +348,10 @@ public final class GetDirectoryResult {
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -322,12 +359,16 @@ public final class GetDirectoryResult {
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceAccessProperties(List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties) {
-            this.workspaceAccessProperties = Objects.requireNonNull(workspaceAccessProperties);
+            if (workspaceAccessProperties == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "workspaceAccessProperties");
+            }
+            this.workspaceAccessProperties = workspaceAccessProperties;
             return this;
         }
         public Builder workspaceAccessProperties(GetDirectoryWorkspaceAccessProperty... workspaceAccessProperties) {
@@ -335,7 +376,10 @@ public final class GetDirectoryResult {
         }
         @CustomType.Setter
         public Builder workspaceCreationProperties(List<GetDirectoryWorkspaceCreationProperty> workspaceCreationProperties) {
-            this.workspaceCreationProperties = Objects.requireNonNull(workspaceCreationProperties);
+            if (workspaceCreationProperties == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "workspaceCreationProperties");
+            }
+            this.workspaceCreationProperties = workspaceCreationProperties;
             return this;
         }
         public Builder workspaceCreationProperties(GetDirectoryWorkspaceCreationProperty... workspaceCreationProperties) {
@@ -343,7 +387,10 @@ public final class GetDirectoryResult {
         }
         @CustomType.Setter
         public Builder workspaceSecurityGroupId(String workspaceSecurityGroupId) {
-            this.workspaceSecurityGroupId = Objects.requireNonNull(workspaceSecurityGroupId);
+            if (workspaceSecurityGroupId == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "workspaceSecurityGroupId");
+            }
+            this.workspaceSecurityGroupId = workspaceSecurityGroupId;
             return this;
         }
         public GetDirectoryResult build() {

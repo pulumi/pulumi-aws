@@ -5,6 +5,7 @@ package com.pulumi.aws.codedeploy.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTraffic
         }
 
         public DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs build() {
-            $.listenerArns = Objects.requireNonNull($.listenerArns, "expected parameter 'listenerArns' to be non-null");
+            if ($.listenerArns == null) {
+                throw new MissingRequiredPropertyException("DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs", "listenerArns");
+            }
             return $;
         }
     }

@@ -44,11 +44,13 @@ public final class NetworkInsightsAnalysisForwardPathComponentAdditionalDetail {
 
         @CustomType.Setter
         public Builder additionalDetailType(@Nullable String additionalDetailType) {
+
             this.additionalDetailType = additionalDetailType;
             return this;
         }
         @CustomType.Setter
         public Builder components(@Nullable List<NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent> components) {
+
             this.components = components;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -110,37 +111,58 @@ public final class GetAliasResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder functionName(String functionName) {
-            this.functionName = Objects.requireNonNull(functionName);
+            if (functionName == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "functionName");
+            }
+            this.functionName = functionName;
             return this;
         }
         @CustomType.Setter
         public Builder functionVersion(String functionVersion) {
-            this.functionVersion = Objects.requireNonNull(functionVersion);
+            if (functionVersion == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "functionVersion");
+            }
+            this.functionVersion = functionVersion;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder invokeArn(String invokeArn) {
-            this.invokeArn = Objects.requireNonNull(invokeArn);
+            if (invokeArn == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "invokeArn");
+            }
+            this.invokeArn = invokeArn;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAliasResult", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetAliasResult build() {

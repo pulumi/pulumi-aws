@@ -4,6 +4,7 @@
 package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,22 +88,32 @@ public final class InstanceFleetLaunchSpecificationsSpotSpecification {
 
         @CustomType.Setter
         public Builder allocationStrategy(String allocationStrategy) {
-            this.allocationStrategy = Objects.requireNonNull(allocationStrategy);
+            if (allocationStrategy == null) {
+              throw new MissingRequiredPropertyException("InstanceFleetLaunchSpecificationsSpotSpecification", "allocationStrategy");
+            }
+            this.allocationStrategy = allocationStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder blockDurationMinutes(@Nullable Integer blockDurationMinutes) {
+
             this.blockDurationMinutes = blockDurationMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutAction(String timeoutAction) {
-            this.timeoutAction = Objects.requireNonNull(timeoutAction);
+            if (timeoutAction == null) {
+              throw new MissingRequiredPropertyException("InstanceFleetLaunchSpecificationsSpotSpecification", "timeoutAction");
+            }
+            this.timeoutAction = timeoutAction;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutDurationMinutes(Integer timeoutDurationMinutes) {
-            this.timeoutDurationMinutes = Objects.requireNonNull(timeoutDurationMinutes);
+            if (timeoutDurationMinutes == null) {
+              throw new MissingRequiredPropertyException("InstanceFleetLaunchSpecificationsSpotSpecification", "timeoutDurationMinutes");
+            }
+            this.timeoutDurationMinutes = timeoutDurationMinutes;
             return this;
         }
         public InstanceFleetLaunchSpecificationsSpotSpecification build() {

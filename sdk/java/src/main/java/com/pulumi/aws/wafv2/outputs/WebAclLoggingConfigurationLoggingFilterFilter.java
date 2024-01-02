@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclLoggingConfigurationLoggingFilterFilterCondition;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,12 +73,18 @@ public final class WebAclLoggingConfigurationLoggingFilterFilter {
 
         @CustomType.Setter
         public Builder behavior(String behavior) {
-            this.behavior = Objects.requireNonNull(behavior);
+            if (behavior == null) {
+              throw new MissingRequiredPropertyException("WebAclLoggingConfigurationLoggingFilterFilter", "behavior");
+            }
+            this.behavior = behavior;
             return this;
         }
         @CustomType.Setter
         public Builder conditions(List<WebAclLoggingConfigurationLoggingFilterFilterCondition> conditions) {
-            this.conditions = Objects.requireNonNull(conditions);
+            if (conditions == null) {
+              throw new MissingRequiredPropertyException("WebAclLoggingConfigurationLoggingFilterFilter", "conditions");
+            }
+            this.conditions = conditions;
             return this;
         }
         public Builder conditions(WebAclLoggingConfigurationLoggingFilterFilterCondition... conditions) {
@@ -85,7 +92,10 @@ public final class WebAclLoggingConfigurationLoggingFilterFilter {
         }
         @CustomType.Setter
         public Builder requirement(String requirement) {
-            this.requirement = Objects.requireNonNull(requirement);
+            if (requirement == null) {
+              throw new MissingRequiredPropertyException("WebAclLoggingConfigurationLoggingFilterFilter", "requirement");
+            }
+            this.requirement = requirement;
             return this;
         }
         public WebAclLoggingConfigurationLoggingFilterFilter build() {

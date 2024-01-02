@@ -6,6 +6,7 @@ package com.pulumi.aws.route53;
 import com.pulumi.aws.route53.inputs.ResolverRuleTargetIpArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -283,8 +284,12 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ResolverRuleArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.ruleType = Objects.requireNonNull($.ruleType, "expected parameter 'ruleType' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("ResolverRuleArgs", "domainName");
+            }
+            if ($.ruleType == null) {
+                throw new MissingRequiredPropertyException("ResolverRuleArgs", "ruleType");
+            }
             return $;
         }
     }

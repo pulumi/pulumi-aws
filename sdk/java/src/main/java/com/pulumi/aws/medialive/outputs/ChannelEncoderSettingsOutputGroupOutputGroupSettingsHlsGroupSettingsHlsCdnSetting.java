@@ -64,26 +64,31 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
         @CustomType.Setter
         public Builder hlsAkamaiSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings hlsAkamaiSettings) {
+
             this.hlsAkamaiSettings = hlsAkamaiSettings;
             return this;
         }
         @CustomType.Setter
         public Builder hlsBasicPutSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings hlsBasicPutSettings) {
+
             this.hlsBasicPutSettings = hlsBasicPutSettings;
             return this;
         }
         @CustomType.Setter
         public Builder hlsMediaStoreSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings hlsMediaStoreSettings) {
+
             this.hlsMediaStoreSettings = hlsMediaStoreSettings;
             return this;
         }
         @CustomType.Setter
         public Builder hlsS3Settings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings hlsS3Settings) {
+
             this.hlsS3Settings = hlsS3Settings;
             return this;
         }
         @CustomType.Setter
         public Builder hlsWebdavSettings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings hlsWebdavSettings) {
+
             this.hlsWebdavSettings = hlsWebdavSettings;
             return this;
         }

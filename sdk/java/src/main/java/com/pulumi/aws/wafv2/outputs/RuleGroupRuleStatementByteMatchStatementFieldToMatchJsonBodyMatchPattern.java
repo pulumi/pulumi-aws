@@ -52,11 +52,13 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyM
 
         @CustomType.Setter
         public Builder all(@Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll all) {
+
             this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder includedPaths(@Nullable List<String> includedPaths) {
+
             this.includedPaths = includedPaths;
             return this;
         }

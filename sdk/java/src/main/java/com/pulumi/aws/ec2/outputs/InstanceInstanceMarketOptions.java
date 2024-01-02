@@ -59,11 +59,13 @@ public final class InstanceInstanceMarketOptions {
 
         @CustomType.Setter
         public Builder marketType(@Nullable String marketType) {
+
             this.marketType = marketType;
             return this;
         }
         @CustomType.Setter
         public Builder spotOptions(@Nullable InstanceInstanceMarketOptionsSpotOptions spotOptions) {
+
             this.spotOptions = spotOptions;
             return this;
         }

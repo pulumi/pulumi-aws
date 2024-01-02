@@ -7,6 +7,7 @@ import com.pulumi.aws.kendra.outputs.DataSourceConfigurationWebCrawlerConfigurat
 import com.pulumi.aws.kendra.outputs.DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration;
 import com.pulumi.aws.kendra.outputs.DataSourceConfigurationWebCrawlerConfigurationUrls;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -162,36 +163,43 @@ public final class DataSourceConfigurationWebCrawlerConfiguration {
 
         @CustomType.Setter
         public Builder authenticationConfiguration(@Nullable DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration authenticationConfiguration) {
+
             this.authenticationConfiguration = authenticationConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder crawlDepth(@Nullable Integer crawlDepth) {
+
             this.crawlDepth = crawlDepth;
             return this;
         }
         @CustomType.Setter
         public Builder maxContentSizePerPageInMegaBytes(@Nullable Double maxContentSizePerPageInMegaBytes) {
+
             this.maxContentSizePerPageInMegaBytes = maxContentSizePerPageInMegaBytes;
             return this;
         }
         @CustomType.Setter
         public Builder maxLinksPerPage(@Nullable Integer maxLinksPerPage) {
+
             this.maxLinksPerPage = maxLinksPerPage;
             return this;
         }
         @CustomType.Setter
         public Builder maxUrlsPerMinuteCrawlRate(@Nullable Integer maxUrlsPerMinuteCrawlRate) {
+
             this.maxUrlsPerMinuteCrawlRate = maxUrlsPerMinuteCrawlRate;
             return this;
         }
         @CustomType.Setter
         public Builder proxyConfiguration(@Nullable DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration proxyConfiguration) {
+
             this.proxyConfiguration = proxyConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder urlExclusionPatterns(@Nullable List<String> urlExclusionPatterns) {
+
             this.urlExclusionPatterns = urlExclusionPatterns;
             return this;
         }
@@ -200,6 +208,7 @@ public final class DataSourceConfigurationWebCrawlerConfiguration {
         }
         @CustomType.Setter
         public Builder urlInclusionPatterns(@Nullable List<String> urlInclusionPatterns) {
+
             this.urlInclusionPatterns = urlInclusionPatterns;
             return this;
         }
@@ -208,7 +217,10 @@ public final class DataSourceConfigurationWebCrawlerConfiguration {
         }
         @CustomType.Setter
         public Builder urls(DataSourceConfigurationWebCrawlerConfigurationUrls urls) {
-            this.urls = Objects.requireNonNull(urls);
+            if (urls == null) {
+              throw new MissingRequiredPropertyException("DataSourceConfigurationWebCrawlerConfiguration", "urls");
+            }
+            this.urls = urls;
             return this;
         }
         public DataSourceConfigurationWebCrawlerConfiguration build() {

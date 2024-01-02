@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationLoggingFilterFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class WebAclLoggingConfigurationLoggingFilterArgs extends com.pulum
         }
 
         public WebAclLoggingConfigurationLoggingFilterArgs build() {
-            $.defaultBehavior = Objects.requireNonNull($.defaultBehavior, "expected parameter 'defaultBehavior' to be non-null");
-            $.filters = Objects.requireNonNull($.filters, "expected parameter 'filters' to be non-null");
+            if ($.defaultBehavior == null) {
+                throw new MissingRequiredPropertyException("WebAclLoggingConfigurationLoggingFilterArgs", "defaultBehavior");
+            }
+            if ($.filters == null) {
+                throw new MissingRequiredPropertyException("WebAclLoggingConfigurationLoggingFilterArgs", "filters");
+            }
             return $;
         }
     }

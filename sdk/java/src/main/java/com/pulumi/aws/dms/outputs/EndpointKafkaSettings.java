@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -284,91 +285,111 @@ public final class EndpointKafkaSettings {
 
         @CustomType.Setter
         public Builder broker(String broker) {
-            this.broker = Objects.requireNonNull(broker);
+            if (broker == null) {
+              throw new MissingRequiredPropertyException("EndpointKafkaSettings", "broker");
+            }
+            this.broker = broker;
             return this;
         }
         @CustomType.Setter
         public Builder includeControlDetails(@Nullable Boolean includeControlDetails) {
+
             this.includeControlDetails = includeControlDetails;
             return this;
         }
         @CustomType.Setter
         public Builder includeNullAndEmpty(@Nullable Boolean includeNullAndEmpty) {
+
             this.includeNullAndEmpty = includeNullAndEmpty;
             return this;
         }
         @CustomType.Setter
         public Builder includePartitionValue(@Nullable Boolean includePartitionValue) {
+
             this.includePartitionValue = includePartitionValue;
             return this;
         }
         @CustomType.Setter
         public Builder includeTableAlterOperations(@Nullable Boolean includeTableAlterOperations) {
+
             this.includeTableAlterOperations = includeTableAlterOperations;
             return this;
         }
         @CustomType.Setter
         public Builder includeTransactionDetails(@Nullable Boolean includeTransactionDetails) {
+
             this.includeTransactionDetails = includeTransactionDetails;
             return this;
         }
         @CustomType.Setter
         public Builder messageFormat(@Nullable String messageFormat) {
+
             this.messageFormat = messageFormat;
             return this;
         }
         @CustomType.Setter
         public Builder messageMaxBytes(@Nullable Integer messageMaxBytes) {
+
             this.messageMaxBytes = messageMaxBytes;
             return this;
         }
         @CustomType.Setter
         public Builder noHexPrefix(@Nullable Boolean noHexPrefix) {
+
             this.noHexPrefix = noHexPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder partitionIncludeSchemaTable(@Nullable Boolean partitionIncludeSchemaTable) {
+
             this.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
             return this;
         }
         @CustomType.Setter
         public Builder saslPassword(@Nullable String saslPassword) {
+
             this.saslPassword = saslPassword;
             return this;
         }
         @CustomType.Setter
         public Builder saslUsername(@Nullable String saslUsername) {
+
             this.saslUsername = saslUsername;
             return this;
         }
         @CustomType.Setter
         public Builder securityProtocol(@Nullable String securityProtocol) {
+
             this.securityProtocol = securityProtocol;
             return this;
         }
         @CustomType.Setter
         public Builder sslCaCertificateArn(@Nullable String sslCaCertificateArn) {
+
             this.sslCaCertificateArn = sslCaCertificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder sslClientCertificateArn(@Nullable String sslClientCertificateArn) {
+
             this.sslClientCertificateArn = sslClientCertificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder sslClientKeyArn(@Nullable String sslClientKeyArn) {
+
             this.sslClientKeyArn = sslClientKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder sslClientKeyPassword(@Nullable String sslClientKeyPassword) {
+
             this.sslClientKeyPassword = sslClientKeyPassword;
             return this;
         }
         @CustomType.Setter
         public Builder topic(@Nullable String topic) {
+
             this.topic = topic;
             return this;
         }

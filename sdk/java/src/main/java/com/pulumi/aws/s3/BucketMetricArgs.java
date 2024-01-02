@@ -6,6 +6,7 @@ package com.pulumi.aws.s3;
 import com.pulumi.aws.s3.inputs.BucketMetricFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -151,7 +152,9 @@ public final class BucketMetricArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BucketMetricArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("BucketMetricArgs", "bucket");
+            }
             return $;
         }
     }

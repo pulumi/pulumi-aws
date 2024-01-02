@@ -5,6 +5,7 @@ package com.pulumi.aws.transcribe;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -196,9 +197,15 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
         }
 
         public MedicalVocabularyArgs build() {
-            $.languageCode = Objects.requireNonNull($.languageCode, "expected parameter 'languageCode' to be non-null");
-            $.vocabularyFileUri = Objects.requireNonNull($.vocabularyFileUri, "expected parameter 'vocabularyFileUri' to be non-null");
-            $.vocabularyName = Objects.requireNonNull($.vocabularyName, "expected parameter 'vocabularyName' to be non-null");
+            if ($.languageCode == null) {
+                throw new MissingRequiredPropertyException("MedicalVocabularyArgs", "languageCode");
+            }
+            if ($.vocabularyFileUri == null) {
+                throw new MissingRequiredPropertyException("MedicalVocabularyArgs", "vocabularyFileUri");
+            }
+            if ($.vocabularyName == null) {
+                throw new MissingRequiredPropertyException("MedicalVocabularyArgs", "vocabularyName");
+            }
             return $;
         }
     }

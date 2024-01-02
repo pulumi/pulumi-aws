@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class UserPoolDomainArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public UserPoolDomainArgs build() {
-            $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");
-            $.userPoolId = Objects.requireNonNull($.userPoolId, "expected parameter 'userPoolId' to be non-null");
+            if ($.domain == null) {
+                throw new MissingRequiredPropertyException("UserPoolDomainArgs", "domain");
+            }
+            if ($.userPoolId == null) {
+                throw new MissingRequiredPropertyException("UserPoolDomainArgs", "userPoolId");
+            }
             return $;
         }
     }

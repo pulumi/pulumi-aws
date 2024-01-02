@@ -5,6 +5,7 @@ package com.pulumi.aws.licensemanager;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class LicenseGrantAccepterArgs extends com.pulumi.resources.Resourc
         }
 
         public LicenseGrantAccepterArgs build() {
-            $.grantArn = Objects.requireNonNull($.grantArn, "expected parameter 'grantArn' to be non-null");
+            if ($.grantArn == null) {
+                throw new MissingRequiredPropertyException("LicenseGrantAccepterArgs", "grantArn");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -58,12 +59,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
         @CustomType.Setter
         public Builder credentialsMap(@Nullable Map<String,String> credentialsMap) {
+
             this.credentialsMap = credentialsMap;
             return this;
         }
         @CustomType.Setter
         public Builder customAuthenticationType(String customAuthenticationType) {
-            this.customAuthenticationType = Objects.requireNonNull(customAuthenticationType);
+            if (customAuthenticationType == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom", "customAuthenticationType");
+            }
+            this.customAuthenticationType = customAuthenticationType;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom build() {

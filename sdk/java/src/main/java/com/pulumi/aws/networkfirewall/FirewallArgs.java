@@ -7,6 +7,7 @@ import com.pulumi.aws.networkfirewall.inputs.FirewallEncryptionConfigurationArgs
 import com.pulumi.aws.networkfirewall.inputs.FirewallSubnetMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -424,9 +425,15 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FirewallArgs build() {
-            $.firewallPolicyArn = Objects.requireNonNull($.firewallPolicyArn, "expected parameter 'firewallPolicyArn' to be non-null");
-            $.subnetMappings = Objects.requireNonNull($.subnetMappings, "expected parameter 'subnetMappings' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.firewallPolicyArn == null) {
+                throw new MissingRequiredPropertyException("FirewallArgs", "firewallPolicyArn");
+            }
+            if ($.subnetMappings == null) {
+                throw new MissingRequiredPropertyException("FirewallArgs", "subnetMappings");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("FirewallArgs", "vpcId");
+            }
             return $;
         }
     }

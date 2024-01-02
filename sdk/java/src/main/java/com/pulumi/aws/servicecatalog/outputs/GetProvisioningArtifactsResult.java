@@ -5,6 +5,7 @@ package com.pulumi.aws.servicecatalog.outputs;
 
 import com.pulumi.aws.servicecatalog.outputs.GetProvisioningArtifactsProvisioningArtifactDetail;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,22 +73,32 @@ public final class GetProvisioningArtifactsResult {
 
         @CustomType.Setter
         public Builder acceptLanguage(@Nullable String acceptLanguage) {
+
             this.acceptLanguage = acceptLanguage;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetProvisioningArtifactsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder productId(String productId) {
-            this.productId = Objects.requireNonNull(productId);
+            if (productId == null) {
+              throw new MissingRequiredPropertyException("GetProvisioningArtifactsResult", "productId");
+            }
+            this.productId = productId;
             return this;
         }
         @CustomType.Setter
         public Builder provisioningArtifactDetails(List<GetProvisioningArtifactsProvisioningArtifactDetail> provisioningArtifactDetails) {
-            this.provisioningArtifactDetails = Objects.requireNonNull(provisioningArtifactDetails);
+            if (provisioningArtifactDetails == null) {
+              throw new MissingRequiredPropertyException("GetProvisioningArtifactsResult", "provisioningArtifactDetails");
+            }
+            this.provisioningArtifactDetails = provisioningArtifactDetails;
             return this;
         }
         public Builder provisioningArtifactDetails(GetProvisioningArtifactsProvisioningArtifactDetail... provisioningArtifactDetails) {

@@ -5,6 +5,7 @@ package com.pulumi.aws.globalaccelerator.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class EndpointGroupPortOverrideArgs extends com.pulumi.resources.Re
         }
 
         public EndpointGroupPortOverrideArgs build() {
-            $.endpointPort = Objects.requireNonNull($.endpointPort, "expected parameter 'endpointPort' to be non-null");
-            $.listenerPort = Objects.requireNonNull($.listenerPort, "expected parameter 'listenerPort' to be non-null");
+            if ($.endpointPort == null) {
+                throw new MissingRequiredPropertyException("EndpointGroupPortOverrideArgs", "endpointPort");
+            }
+            if ($.listenerPort == null) {
+                throw new MissingRequiredPropertyException("EndpointGroupPortOverrideArgs", "listenerPort");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.sqs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -65,17 +66,24 @@ public final class GetQueuesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetQueuesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder queueNamePrefix(@Nullable String queueNamePrefix) {
+
             this.queueNamePrefix = queueNamePrefix;
             return this;
         }
         @CustomType.Setter
         public Builder queueUrls(List<String> queueUrls) {
-            this.queueUrls = Objects.requireNonNull(queueUrls);
+            if (queueUrls == null) {
+              throw new MissingRequiredPropertyException("GetQueuesResult", "queueUrls");
+            }
+            this.queueUrls = queueUrls;
             return this;
         }
         public Builder queueUrls(String... queueUrls) {

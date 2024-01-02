@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -71,8 +72,12 @@ public final class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMap
         }
 
         public ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs build() {
-            $.gain = Objects.requireNonNull($.gain, "expected parameter 'gain' to be non-null");
-            $.inputChannel = Objects.requireNonNull($.inputChannel, "expected parameter 'inputChannel' to be non-null");
+            if ($.gain == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs", "gain");
+            }
+            if ($.inputChannel == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs", "inputChannel");
+            }
             return $;
         }
     }

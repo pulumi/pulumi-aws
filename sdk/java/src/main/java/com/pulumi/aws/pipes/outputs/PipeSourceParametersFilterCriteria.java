@@ -44,6 +44,7 @@ public final class PipeSourceParametersFilterCriteria {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<PipeSourceParametersFilterCriteriaFilter> filters) {
+
             this.filters = filters;
             return this;
         }

@@ -44,6 +44,7 @@ public final class InstanceMaintenanceOptions {
 
         @CustomType.Setter
         public Builder autoRecovery(@Nullable String autoRecovery) {
+
             this.autoRecovery = autoRecovery;
             return this;
         }

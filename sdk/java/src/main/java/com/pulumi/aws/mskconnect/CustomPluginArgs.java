@@ -6,6 +6,7 @@ package com.pulumi.aws.mskconnect;
 import com.pulumi.aws.mskconnect.inputs.CustomPluginLocationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -196,8 +197,12 @@ public final class CustomPluginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CustomPluginArgs build() {
-            $.contentType = Objects.requireNonNull($.contentType, "expected parameter 'contentType' to be non-null");
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
+            if ($.contentType == null) {
+                throw new MissingRequiredPropertyException("CustomPluginArgs", "contentType");
+            }
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("CustomPluginArgs", "location");
+            }
             return $;
         }
     }

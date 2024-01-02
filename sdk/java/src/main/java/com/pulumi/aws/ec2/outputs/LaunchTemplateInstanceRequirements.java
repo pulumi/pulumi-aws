@@ -13,6 +13,7 @@ import com.pulumi.aws.ec2.outputs.LaunchTemplateInstanceRequirementsNetworkInter
 import com.pulumi.aws.ec2.outputs.LaunchTemplateInstanceRequirementsTotalLocalStorageGb;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateInstanceRequirementsVcpuCount;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -648,11 +649,13 @@ public final class LaunchTemplateInstanceRequirements {
 
         @CustomType.Setter
         public Builder acceleratorCount(@Nullable LaunchTemplateInstanceRequirementsAcceleratorCount acceleratorCount) {
+
             this.acceleratorCount = acceleratorCount;
             return this;
         }
         @CustomType.Setter
         public Builder acceleratorManufacturers(@Nullable List<String> acceleratorManufacturers) {
+
             this.acceleratorManufacturers = acceleratorManufacturers;
             return this;
         }
@@ -661,6 +664,7 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder acceleratorNames(@Nullable List<String> acceleratorNames) {
+
             this.acceleratorNames = acceleratorNames;
             return this;
         }
@@ -669,11 +673,13 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder acceleratorTotalMemoryMib(@Nullable LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib) {
+
             this.acceleratorTotalMemoryMib = acceleratorTotalMemoryMib;
             return this;
         }
         @CustomType.Setter
         public Builder acceleratorTypes(@Nullable List<String> acceleratorTypes) {
+
             this.acceleratorTypes = acceleratorTypes;
             return this;
         }
@@ -682,6 +688,7 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder allowedInstanceTypes(@Nullable List<String> allowedInstanceTypes) {
+
             this.allowedInstanceTypes = allowedInstanceTypes;
             return this;
         }
@@ -690,21 +697,25 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder bareMetal(@Nullable String bareMetal) {
+
             this.bareMetal = bareMetal;
             return this;
         }
         @CustomType.Setter
         public Builder baselineEbsBandwidthMbps(@Nullable LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps baselineEbsBandwidthMbps) {
+
             this.baselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
             return this;
         }
         @CustomType.Setter
         public Builder burstablePerformance(@Nullable String burstablePerformance) {
+
             this.burstablePerformance = burstablePerformance;
             return this;
         }
         @CustomType.Setter
         public Builder cpuManufacturers(@Nullable List<String> cpuManufacturers) {
+
             this.cpuManufacturers = cpuManufacturers;
             return this;
         }
@@ -713,6 +724,7 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder excludedInstanceTypes(@Nullable List<String> excludedInstanceTypes) {
+
             this.excludedInstanceTypes = excludedInstanceTypes;
             return this;
         }
@@ -721,6 +733,7 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder instanceGenerations(@Nullable List<String> instanceGenerations) {
+
             this.instanceGenerations = instanceGenerations;
             return this;
         }
@@ -729,11 +742,13 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder localStorage(@Nullable String localStorage) {
+
             this.localStorage = localStorage;
             return this;
         }
         @CustomType.Setter
         public Builder localStorageTypes(@Nullable List<String> localStorageTypes) {
+
             this.localStorageTypes = localStorageTypes;
             return this;
         }
@@ -742,47 +757,60 @@ public final class LaunchTemplateInstanceRequirements {
         }
         @CustomType.Setter
         public Builder memoryGibPerVcpu(@Nullable LaunchTemplateInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu) {
+
             this.memoryGibPerVcpu = memoryGibPerVcpu;
             return this;
         }
         @CustomType.Setter
         public Builder memoryMib(LaunchTemplateInstanceRequirementsMemoryMib memoryMib) {
-            this.memoryMib = Objects.requireNonNull(memoryMib);
+            if (memoryMib == null) {
+              throw new MissingRequiredPropertyException("LaunchTemplateInstanceRequirements", "memoryMib");
+            }
+            this.memoryMib = memoryMib;
             return this;
         }
         @CustomType.Setter
         public Builder networkBandwidthGbps(@Nullable LaunchTemplateInstanceRequirementsNetworkBandwidthGbps networkBandwidthGbps) {
+
             this.networkBandwidthGbps = networkBandwidthGbps;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceCount(@Nullable LaunchTemplateInstanceRequirementsNetworkInterfaceCount networkInterfaceCount) {
+
             this.networkInterfaceCount = networkInterfaceCount;
             return this;
         }
         @CustomType.Setter
         public Builder onDemandMaxPricePercentageOverLowestPrice(@Nullable Integer onDemandMaxPricePercentageOverLowestPrice) {
+
             this.onDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             return this;
         }
         @CustomType.Setter
         public Builder requireHibernateSupport(@Nullable Boolean requireHibernateSupport) {
+
             this.requireHibernateSupport = requireHibernateSupport;
             return this;
         }
         @CustomType.Setter
         public Builder spotMaxPricePercentageOverLowestPrice(@Nullable Integer spotMaxPricePercentageOverLowestPrice) {
+
             this.spotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
             return this;
         }
         @CustomType.Setter
         public Builder totalLocalStorageGb(@Nullable LaunchTemplateInstanceRequirementsTotalLocalStorageGb totalLocalStorageGb) {
+
             this.totalLocalStorageGb = totalLocalStorageGb;
             return this;
         }
         @CustomType.Setter
         public Builder vcpuCount(LaunchTemplateInstanceRequirementsVcpuCount vcpuCount) {
-            this.vcpuCount = Objects.requireNonNull(vcpuCount);
+            if (vcpuCount == null) {
+              throw new MissingRequiredPropertyException("LaunchTemplateInstanceRequirements", "vcpuCount");
+            }
+            this.vcpuCount = vcpuCount;
             return this;
         }
         public LaunchTemplateInstanceRequirements build() {

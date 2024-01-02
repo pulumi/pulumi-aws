@@ -5,6 +5,7 @@ package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.aws.lex.outputs.IntentSlotValueElicitationPrompt;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -177,26 +178,33 @@ public final class IntentSlot {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("IntentSlot", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder responseCard(@Nullable String responseCard) {
+
             this.responseCard = responseCard;
             return this;
         }
         @CustomType.Setter
         public Builder sampleUtterances(@Nullable List<String> sampleUtterances) {
+
             this.sampleUtterances = sampleUtterances;
             return this;
         }
@@ -205,21 +213,29 @@ public final class IntentSlot {
         }
         @CustomType.Setter
         public Builder slotConstraint(String slotConstraint) {
-            this.slotConstraint = Objects.requireNonNull(slotConstraint);
+            if (slotConstraint == null) {
+              throw new MissingRequiredPropertyException("IntentSlot", "slotConstraint");
+            }
+            this.slotConstraint = slotConstraint;
             return this;
         }
         @CustomType.Setter
         public Builder slotType(String slotType) {
-            this.slotType = Objects.requireNonNull(slotType);
+            if (slotType == null) {
+              throw new MissingRequiredPropertyException("IntentSlot", "slotType");
+            }
+            this.slotType = slotType;
             return this;
         }
         @CustomType.Setter
         public Builder slotTypeVersion(@Nullable String slotTypeVersion) {
+
             this.slotTypeVersion = slotTypeVersion;
             return this;
         }
         @CustomType.Setter
         public Builder valueElicitationPrompt(@Nullable IntentSlotValueElicitationPrompt valueElicitationPrompt) {
+
             this.valueElicitationPrompt = valueElicitationPrompt;
             return this;
         }

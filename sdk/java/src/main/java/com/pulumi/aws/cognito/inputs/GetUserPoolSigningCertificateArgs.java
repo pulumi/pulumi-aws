@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetUserPoolSigningCertificateArgs extends com.pulumi.resource
         }
 
         public GetUserPoolSigningCertificateArgs build() {
-            $.userPoolId = Objects.requireNonNull($.userPoolId, "expected parameter 'userPoolId' to be non-null");
+            if ($.userPoolId == null) {
+                throw new MissingRequiredPropertyException("GetUserPoolSigningCertificateArgs", "userPoolId");
+            }
             return $;
         }
     }

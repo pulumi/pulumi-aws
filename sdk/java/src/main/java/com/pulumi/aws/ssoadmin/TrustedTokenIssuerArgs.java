@@ -6,6 +6,7 @@ package com.pulumi.aws.ssoadmin;
 import com.pulumi.aws.ssoadmin.inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -271,8 +272,12 @@ public final class TrustedTokenIssuerArgs extends com.pulumi.resources.ResourceA
         }
 
         public TrustedTokenIssuerArgs build() {
-            $.instanceArn = Objects.requireNonNull($.instanceArn, "expected parameter 'instanceArn' to be non-null");
-            $.trustedTokenIssuerType = Objects.requireNonNull($.trustedTokenIssuerType, "expected parameter 'trustedTokenIssuerType' to be non-null");
+            if ($.instanceArn == null) {
+                throw new MissingRequiredPropertyException("TrustedTokenIssuerArgs", "instanceArn");
+            }
+            if ($.trustedTokenIssuerType == null) {
+                throw new MissingRequiredPropertyException("TrustedTokenIssuerArgs", "trustedTokenIssuerType");
+            }
             return $;
         }
     }

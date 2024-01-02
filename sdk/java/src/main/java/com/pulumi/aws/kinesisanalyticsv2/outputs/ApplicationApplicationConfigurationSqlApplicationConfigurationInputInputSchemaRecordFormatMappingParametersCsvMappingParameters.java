@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesisanalyticsv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         @CustomType.Setter
         public Builder recordColumnDelimiter(String recordColumnDelimiter) {
-            this.recordColumnDelimiter = Objects.requireNonNull(recordColumnDelimiter);
+            if (recordColumnDelimiter == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters", "recordColumnDelimiter");
+            }
+            this.recordColumnDelimiter = recordColumnDelimiter;
             return this;
         }
         @CustomType.Setter
         public Builder recordRowDelimiter(String recordRowDelimiter) {
-            this.recordRowDelimiter = Objects.requireNonNull(recordRowDelimiter);
+            if (recordRowDelimiter == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters", "recordRowDelimiter");
+            }
+            this.recordRowDelimiter = recordRowDelimiter;
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters build() {

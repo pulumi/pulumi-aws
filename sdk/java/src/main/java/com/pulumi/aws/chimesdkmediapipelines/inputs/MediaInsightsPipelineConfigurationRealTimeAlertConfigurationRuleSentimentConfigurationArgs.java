@@ -5,6 +5,7 @@ package com.pulumi.aws.chimesdkmediapipelines.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
         }
 
         public MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs build() {
-            $.ruleName = Objects.requireNonNull($.ruleName, "expected parameter 'ruleName' to be non-null");
-            $.sentimentType = Objects.requireNonNull($.sentimentType, "expected parameter 'sentimentType' to be non-null");
-            $.timePeriod = Objects.requireNonNull($.timePeriod, "expected parameter 'timePeriod' to be non-null");
+            if ($.ruleName == null) {
+                throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs", "ruleName");
+            }
+            if ($.sentimentType == null) {
+                throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs", "sentimentType");
+            }
+            if ($.timePeriod == null) {
+                throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs", "timePeriod");
+            }
             return $;
         }
     }

@@ -44,6 +44,7 @@ public final class RuleGroupRuleCaptchaConfigImmunityTimeProperty {
 
         @CustomType.Setter
         public Builder immunityTime(@Nullable Integer immunityTime) {
+
             this.immunityTime = immunityTime;
             return this;
         }

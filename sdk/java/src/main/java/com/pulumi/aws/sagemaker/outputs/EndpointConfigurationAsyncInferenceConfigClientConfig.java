@@ -44,6 +44,7 @@ public final class EndpointConfigurationAsyncInferenceConfigClientConfig {
 
         @CustomType.Setter
         public Builder maxConcurrentInvocationsPerInstance(@Nullable Integer maxConcurrentInvocationsPerInstance) {
+
             this.maxConcurrentInvocationsPerInstance = maxConcurrentInvocationsPerInstance;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.ivschat.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class LoggingConfigurationDestinationConfigurationFirehoseArgs exte
         }
 
         public LoggingConfigurationDestinationConfigurationFirehoseArgs build() {
-            $.deliveryStreamName = Objects.requireNonNull($.deliveryStreamName, "expected parameter 'deliveryStreamName' to be non-null");
+            if ($.deliveryStreamName == null) {
+                throw new MissingRequiredPropertyException("LoggingConfigurationDestinationConfigurationFirehoseArgs", "deliveryStreamName");
+            }
             return $;
         }
     }

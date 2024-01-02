@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.DashboardSourceEntitySourceTemplateDataSetReference;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,12 +59,18 @@ public final class DashboardSourceEntitySourceTemplate {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("DashboardSourceEntitySourceTemplate", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder dataSetReferences(List<DashboardSourceEntitySourceTemplateDataSetReference> dataSetReferences) {
-            this.dataSetReferences = Objects.requireNonNull(dataSetReferences);
+            if (dataSetReferences == null) {
+              throw new MissingRequiredPropertyException("DashboardSourceEntitySourceTemplate", "dataSetReferences");
+            }
+            this.dataSetReferences = dataSetReferences;
             return this;
         }
         public Builder dataSetReferences(DashboardSourceEntitySourceTemplateDataSetReference... dataSetReferences) {

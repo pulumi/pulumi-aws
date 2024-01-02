@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -333,14 +334,30 @@ public final class WorkforceOidcConfigArgs extends com.pulumi.resources.Resource
         }
 
         public WorkforceOidcConfigArgs build() {
-            $.authorizationEndpoint = Objects.requireNonNull($.authorizationEndpoint, "expected parameter 'authorizationEndpoint' to be non-null");
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
-            $.issuer = Objects.requireNonNull($.issuer, "expected parameter 'issuer' to be non-null");
-            $.jwksUri = Objects.requireNonNull($.jwksUri, "expected parameter 'jwksUri' to be non-null");
-            $.logoutEndpoint = Objects.requireNonNull($.logoutEndpoint, "expected parameter 'logoutEndpoint' to be non-null");
-            $.tokenEndpoint = Objects.requireNonNull($.tokenEndpoint, "expected parameter 'tokenEndpoint' to be non-null");
-            $.userInfoEndpoint = Objects.requireNonNull($.userInfoEndpoint, "expected parameter 'userInfoEndpoint' to be non-null");
+            if ($.authorizationEndpoint == null) {
+                throw new MissingRequiredPropertyException("WorkforceOidcConfigArgs", "authorizationEndpoint");
+            }
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("WorkforceOidcConfigArgs", "clientId");
+            }
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("WorkforceOidcConfigArgs", "clientSecret");
+            }
+            if ($.issuer == null) {
+                throw new MissingRequiredPropertyException("WorkforceOidcConfigArgs", "issuer");
+            }
+            if ($.jwksUri == null) {
+                throw new MissingRequiredPropertyException("WorkforceOidcConfigArgs", "jwksUri");
+            }
+            if ($.logoutEndpoint == null) {
+                throw new MissingRequiredPropertyException("WorkforceOidcConfigArgs", "logoutEndpoint");
+            }
+            if ($.tokenEndpoint == null) {
+                throw new MissingRequiredPropertyException("WorkforceOidcConfigArgs", "tokenEndpoint");
+            }
+            if ($.userInfoEndpoint == null) {
+                throw new MissingRequiredPropertyException("WorkforceOidcConfigArgs", "userInfoEndpoint");
+            }
             return $;
         }
     }

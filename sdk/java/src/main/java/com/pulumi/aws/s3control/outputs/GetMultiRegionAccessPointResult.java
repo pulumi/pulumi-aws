@@ -6,6 +6,7 @@ package com.pulumi.aws.s3control.outputs;
 import com.pulumi.aws.s3control.outputs.GetMultiRegionAccessPointPublicAccessBlock;
 import com.pulumi.aws.s3control.outputs.GetMultiRegionAccessPointRegion;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -155,42 +156,66 @@ public final class GetMultiRegionAccessPointResult {
 
         @CustomType.Setter
         public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointResult", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder alias(String alias) {
-            this.alias = Objects.requireNonNull(alias);
+            if (alias == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointResult", "alias");
+            }
+            this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
-            this.createdAt = Objects.requireNonNull(createdAt);
+            if (createdAt == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointResult", "createdAt");
+            }
+            this.createdAt = createdAt;
             return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointResult", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder publicAccessBlocks(List<GetMultiRegionAccessPointPublicAccessBlock> publicAccessBlocks) {
-            this.publicAccessBlocks = Objects.requireNonNull(publicAccessBlocks);
+            if (publicAccessBlocks == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointResult", "publicAccessBlocks");
+            }
+            this.publicAccessBlocks = publicAccessBlocks;
             return this;
         }
         public Builder publicAccessBlocks(GetMultiRegionAccessPointPublicAccessBlock... publicAccessBlocks) {
@@ -198,7 +223,10 @@ public final class GetMultiRegionAccessPointResult {
         }
         @CustomType.Setter
         public Builder regions(List<GetMultiRegionAccessPointRegion> regions) {
-            this.regions = Objects.requireNonNull(regions);
+            if (regions == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointResult", "regions");
+            }
+            this.regions = regions;
             return this;
         }
         public Builder regions(GetMultiRegionAccessPointRegion... regions) {
@@ -206,7 +234,10 @@ public final class GetMultiRegionAccessPointResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointResult", "status");
+            }
+            this.status = status;
             return this;
         }
         public GetMultiRegionAccessPointResult build() {

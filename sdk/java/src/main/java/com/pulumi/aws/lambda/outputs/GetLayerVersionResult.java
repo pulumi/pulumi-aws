@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -232,17 +233,24 @@ public final class GetLayerVersionResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder compatibleArchitecture(@Nullable String compatibleArchitecture) {
+
             this.compatibleArchitecture = compatibleArchitecture;
             return this;
         }
         @CustomType.Setter
         public Builder compatibleArchitectures(List<String> compatibleArchitectures) {
-            this.compatibleArchitectures = Objects.requireNonNull(compatibleArchitectures);
+            if (compatibleArchitectures == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "compatibleArchitectures");
+            }
+            this.compatibleArchitectures = compatibleArchitectures;
             return this;
         }
         public Builder compatibleArchitectures(String... compatibleArchitectures) {
@@ -250,12 +258,16 @@ public final class GetLayerVersionResult {
         }
         @CustomType.Setter
         public Builder compatibleRuntime(@Nullable String compatibleRuntime) {
+
             this.compatibleRuntime = compatibleRuntime;
             return this;
         }
         @CustomType.Setter
         public Builder compatibleRuntimes(List<String> compatibleRuntimes) {
-            this.compatibleRuntimes = Objects.requireNonNull(compatibleRuntimes);
+            if (compatibleRuntimes == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "compatibleRuntimes");
+            }
+            this.compatibleRuntimes = compatibleRuntimes;
             return this;
         }
         public Builder compatibleRuntimes(String... compatibleRuntimes) {
@@ -263,57 +275,90 @@ public final class GetLayerVersionResult {
         }
         @CustomType.Setter
         public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+            if (createdDate == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "createdDate");
+            }
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder layerArn(String layerArn) {
-            this.layerArn = Objects.requireNonNull(layerArn);
+            if (layerArn == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "layerArn");
+            }
+            this.layerArn = layerArn;
             return this;
         }
         @CustomType.Setter
         public Builder layerName(String layerName) {
-            this.layerName = Objects.requireNonNull(layerName);
+            if (layerName == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "layerName");
+            }
+            this.layerName = layerName;
             return this;
         }
         @CustomType.Setter
         public Builder licenseInfo(String licenseInfo) {
-            this.licenseInfo = Objects.requireNonNull(licenseInfo);
+            if (licenseInfo == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "licenseInfo");
+            }
+            this.licenseInfo = licenseInfo;
             return this;
         }
         @CustomType.Setter
         public Builder signingJobArn(String signingJobArn) {
-            this.signingJobArn = Objects.requireNonNull(signingJobArn);
+            if (signingJobArn == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "signingJobArn");
+            }
+            this.signingJobArn = signingJobArn;
             return this;
         }
         @CustomType.Setter
         public Builder signingProfileVersionArn(String signingProfileVersionArn) {
-            this.signingProfileVersionArn = Objects.requireNonNull(signingProfileVersionArn);
+            if (signingProfileVersionArn == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "signingProfileVersionArn");
+            }
+            this.signingProfileVersionArn = signingProfileVersionArn;
             return this;
         }
         @CustomType.Setter
         public Builder sourceCodeHash(String sourceCodeHash) {
-            this.sourceCodeHash = Objects.requireNonNull(sourceCodeHash);
+            if (sourceCodeHash == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "sourceCodeHash");
+            }
+            this.sourceCodeHash = sourceCodeHash;
             return this;
         }
         @CustomType.Setter
         public Builder sourceCodeSize(Integer sourceCodeSize) {
-            this.sourceCodeSize = Objects.requireNonNull(sourceCodeSize);
+            if (sourceCodeSize == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "sourceCodeSize");
+            }
+            this.sourceCodeSize = sourceCodeSize;
             return this;
         }
         @CustomType.Setter
         public Builder version(Integer version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetLayerVersionResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetLayerVersionResult build() {

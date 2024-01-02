@@ -5,6 +5,7 @@ package com.pulumi.aws.secretsmanager;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -159,8 +160,12 @@ public final class SecretPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SecretPolicyArgs build() {
-            $.policy = Objects.requireNonNull($.policy, "expected parameter 'policy' to be non-null");
-            $.secretArn = Objects.requireNonNull($.secretArn, "expected parameter 'secretArn' to be non-null");
+            if ($.policy == null) {
+                throw new MissingRequiredPropertyException("SecretPolicyArgs", "policy");
+            }
+            if ($.secretArn == null) {
+                throw new MissingRequiredPropertyException("SecretPolicyArgs", "secretArn");
+            }
             return $;
         }
     }

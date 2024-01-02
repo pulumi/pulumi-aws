@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetMeshSpecEgressFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,7 +36,10 @@ public final class GetMeshSpec {
 
         @CustomType.Setter
         public Builder egressFilters(List<GetMeshSpecEgressFilter> egressFilters) {
-            this.egressFilters = Objects.requireNonNull(egressFilters);
+            if (egressFilters == null) {
+              throw new MissingRequiredPropertyException("GetMeshSpec", "egressFilters");
+            }
+            this.egressFilters = egressFilters;
             return this;
         }
         public Builder egressFilters(GetMeshSpecEgressFilter... egressFilters) {

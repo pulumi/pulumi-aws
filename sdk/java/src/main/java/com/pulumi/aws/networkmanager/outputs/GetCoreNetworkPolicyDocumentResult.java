@@ -8,6 +8,7 @@ import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentCoreNet
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentSegment;
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentSegmentAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -93,6 +94,7 @@ public final class GetCoreNetworkPolicyDocumentResult {
 
         @CustomType.Setter
         public Builder attachmentPolicies(@Nullable List<GetCoreNetworkPolicyDocumentAttachmentPolicy> attachmentPolicies) {
+
             this.attachmentPolicies = attachmentPolicies;
             return this;
         }
@@ -101,7 +103,10 @@ public final class GetCoreNetworkPolicyDocumentResult {
         }
         @CustomType.Setter
         public Builder coreNetworkConfigurations(List<GetCoreNetworkPolicyDocumentCoreNetworkConfiguration> coreNetworkConfigurations) {
-            this.coreNetworkConfigurations = Objects.requireNonNull(coreNetworkConfigurations);
+            if (coreNetworkConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentResult", "coreNetworkConfigurations");
+            }
+            this.coreNetworkConfigurations = coreNetworkConfigurations;
             return this;
         }
         public Builder coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfiguration... coreNetworkConfigurations) {
@@ -109,16 +114,23 @@ public final class GetCoreNetworkPolicyDocumentResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder json(String json) {
-            this.json = Objects.requireNonNull(json);
+            if (json == null) {
+              throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentResult", "json");
+            }
+            this.json = json;
             return this;
         }
         @CustomType.Setter
         public Builder segmentActions(@Nullable List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions) {
+
             this.segmentActions = segmentActions;
             return this;
         }
@@ -127,7 +139,10 @@ public final class GetCoreNetworkPolicyDocumentResult {
         }
         @CustomType.Setter
         public Builder segments(List<GetCoreNetworkPolicyDocumentSegment> segments) {
-            this.segments = Objects.requireNonNull(segments);
+            if (segments == null) {
+              throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentResult", "segments");
+            }
+            this.segments = segments;
             return this;
         }
         public Builder segments(GetCoreNetworkPolicyDocumentSegment... segments) {
@@ -135,6 +150,7 @@ public final class GetCoreNetworkPolicyDocumentResult {
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }

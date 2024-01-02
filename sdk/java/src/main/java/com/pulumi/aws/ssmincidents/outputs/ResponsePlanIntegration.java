@@ -44,6 +44,7 @@ public final class ResponsePlanIntegration {
 
         @CustomType.Setter
         public Builder pagerduties(@Nullable List<ResponsePlanIntegrationPagerduty> pagerduties) {
+
             this.pagerduties = pagerduties;
             return this;
         }

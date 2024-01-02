@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -150,9 +151,15 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.ResourceA
         }
 
         public LbStickinessPolicyArgs build() {
-            $.cookieDuration = Objects.requireNonNull($.cookieDuration, "expected parameter 'cookieDuration' to be non-null");
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.lbName = Objects.requireNonNull($.lbName, "expected parameter 'lbName' to be non-null");
+            if ($.cookieDuration == null) {
+                throw new MissingRequiredPropertyException("LbStickinessPolicyArgs", "cookieDuration");
+            }
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("LbStickinessPolicyArgs", "enabled");
+            }
+            if ($.lbName == null) {
+                throw new MissingRequiredPropertyException("LbStickinessPolicyArgs", "lbName");
+            }
             return $;
         }
     }

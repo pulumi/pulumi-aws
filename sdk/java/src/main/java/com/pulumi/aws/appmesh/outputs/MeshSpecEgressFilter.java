@@ -46,6 +46,7 @@ public final class MeshSpecEgressFilter {
 
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

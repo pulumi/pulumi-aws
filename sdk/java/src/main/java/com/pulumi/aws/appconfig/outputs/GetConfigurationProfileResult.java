@@ -5,6 +5,7 @@ package com.pulumi.aws.appconfig.outputs;
 
 import com.pulumi.aws.appconfig.outputs.GetConfigurationProfileValidator;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -175,62 +176,98 @@ public final class GetConfigurationProfileResult {
 
         @CustomType.Setter
         public Builder applicationId(String applicationId) {
-            this.applicationId = Objects.requireNonNull(applicationId);
+            if (applicationId == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfileResult", "applicationId");
+            }
+            this.applicationId = applicationId;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfileResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder configurationProfileId(String configurationProfileId) {
-            this.configurationProfileId = Objects.requireNonNull(configurationProfileId);
+            if (configurationProfileId == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfileResult", "configurationProfileId");
+            }
+            this.configurationProfileId = configurationProfileId;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfileResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfileResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyIdentifier(String kmsKeyIdentifier) {
-            this.kmsKeyIdentifier = Objects.requireNonNull(kmsKeyIdentifier);
+            if (kmsKeyIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfileResult", "kmsKeyIdentifier");
+            }
+            this.kmsKeyIdentifier = kmsKeyIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder locationUri(String locationUri) {
-            this.locationUri = Objects.requireNonNull(locationUri);
+            if (locationUri == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfileResult", "locationUri");
+            }
+            this.locationUri = locationUri;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfileResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder retrievalRoleArn(String retrievalRoleArn) {
-            this.retrievalRoleArn = Objects.requireNonNull(retrievalRoleArn);
+            if (retrievalRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfileResult", "retrievalRoleArn");
+            }
+            this.retrievalRoleArn = retrievalRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfileResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfileResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder validators(List<GetConfigurationProfileValidator> validators) {
-            this.validators = Objects.requireNonNull(validators);
+            if (validators == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProfileResult", "validators");
+            }
+            this.validators = validators;
             return this;
         }
         public Builder validators(GetConfigurationProfileValidator... validators) {

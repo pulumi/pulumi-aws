@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -119,32 +120,48 @@ public final class GetImageResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder imageDigest(String imageDigest) {
-            this.imageDigest = Objects.requireNonNull(imageDigest);
+            if (imageDigest == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "imageDigest");
+            }
+            this.imageDigest = imageDigest;
             return this;
         }
         @CustomType.Setter
         public Builder imagePushedAt(Integer imagePushedAt) {
-            this.imagePushedAt = Objects.requireNonNull(imagePushedAt);
+            if (imagePushedAt == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "imagePushedAt");
+            }
+            this.imagePushedAt = imagePushedAt;
             return this;
         }
         @CustomType.Setter
         public Builder imageSizeInBytes(Integer imageSizeInBytes) {
-            this.imageSizeInBytes = Objects.requireNonNull(imageSizeInBytes);
+            if (imageSizeInBytes == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "imageSizeInBytes");
+            }
+            this.imageSizeInBytes = imageSizeInBytes;
             return this;
         }
         @CustomType.Setter
         public Builder imageTag(@Nullable String imageTag) {
+
             this.imageTag = imageTag;
             return this;
         }
         @CustomType.Setter
         public Builder imageTags(List<String> imageTags) {
-            this.imageTags = Objects.requireNonNull(imageTags);
+            if (imageTags == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "imageTags");
+            }
+            this.imageTags = imageTags;
             return this;
         }
         public Builder imageTags(String... imageTags) {
@@ -152,17 +169,24 @@ public final class GetImageResult {
         }
         @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
+
             this.mostRecent = mostRecent;
             return this;
         }
         @CustomType.Setter
         public Builder registryId(String registryId) {
-            this.registryId = Objects.requireNonNull(registryId);
+            if (registryId == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "registryId");
+            }
+            this.registryId = registryId;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
-            this.repositoryName = Objects.requireNonNull(repositoryName);
+            if (repositoryName == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "repositoryName");
+            }
+            this.repositoryName = repositoryName;
             return this;
         }
         public GetImageResult build() {

@@ -80,16 +80,19 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
 
         @CustomType.Setter
         public Builder dateValue(@Nullable String dateValue) {
+
             this.dateValue = dateValue;
             return this;
         }
         @CustomType.Setter
         public Builder longValue(@Nullable Integer longValue) {
+
             this.longValue = longValue;
             return this;
         }
         @CustomType.Setter
         public Builder stringListValues(@Nullable List<String> stringListValues) {
+
             this.stringListValues = stringListValues;
             return this;
         }
@@ -98,6 +101,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
         }
         @CustomType.Setter
         public Builder stringValue(@Nullable String stringValue) {
+
             this.stringValue = stringValue;
             return this;
         }

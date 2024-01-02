@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -74,16 +75,21 @@ public final class CrawlerDynamodbTarget {
 
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("CrawlerDynamodbTarget", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder scanAll(@Nullable Boolean scanAll) {
+
             this.scanAll = scanAll;
             return this;
         }
         @CustomType.Setter
         public Builder scanRate(@Nullable Double scanRate) {
+
             this.scanRate = scanRate;
             return this;
         }

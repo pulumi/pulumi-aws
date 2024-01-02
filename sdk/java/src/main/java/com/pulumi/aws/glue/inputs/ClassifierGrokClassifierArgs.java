@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class ClassifierGrokClassifierArgs extends com.pulumi.resources.Res
         }
 
         public ClassifierGrokClassifierArgs build() {
-            $.classification = Objects.requireNonNull($.classification, "expected parameter 'classification' to be non-null");
-            $.grokPattern = Objects.requireNonNull($.grokPattern, "expected parameter 'grokPattern' to be non-null");
+            if ($.classification == null) {
+                throw new MissingRequiredPropertyException("ClassifierGrokClassifierArgs", "classification");
+            }
+            if ($.grokPattern == null) {
+                throw new MissingRequiredPropertyException("ClassifierGrokClassifierArgs", "grokPattern");
+            }
             return $;
         }
     }

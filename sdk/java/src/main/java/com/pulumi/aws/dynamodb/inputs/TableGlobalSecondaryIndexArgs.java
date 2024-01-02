@@ -5,6 +5,7 @@ package com.pulumi.aws.dynamodb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -310,9 +311,15 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         public TableGlobalSecondaryIndexArgs build() {
-            $.hashKey = Objects.requireNonNull($.hashKey, "expected parameter 'hashKey' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.projectionType = Objects.requireNonNull($.projectionType, "expected parameter 'projectionType' to be non-null");
+            if ($.hashKey == null) {
+                throw new MissingRequiredPropertyException("TableGlobalSecondaryIndexArgs", "hashKey");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("TableGlobalSecondaryIndexArgs", "name");
+            }
+            if ($.projectionType == null) {
+                throw new MissingRequiredPropertyException("TableGlobalSecondaryIndexArgs", "projectionType");
+            }
             return $;
         }
     }

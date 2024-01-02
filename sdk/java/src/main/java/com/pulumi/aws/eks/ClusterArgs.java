@@ -9,6 +9,7 @@ import com.pulumi.aws.eks.inputs.ClusterOutpostConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -417,8 +418,12 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.vpcConfig = Objects.requireNonNull($.vpcConfig, "expected parameter 'vpcConfig' to be non-null");
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "roleArn");
+            }
+            if ($.vpcConfig == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "vpcConfig");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class WorkteamMemberDefinitionCognitoMemberDefinitionArgs extends c
         }
 
         public WorkteamMemberDefinitionCognitoMemberDefinitionArgs build() {
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.userGroup = Objects.requireNonNull($.userGroup, "expected parameter 'userGroup' to be non-null");
-            $.userPool = Objects.requireNonNull($.userPool, "expected parameter 'userPool' to be non-null");
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("WorkteamMemberDefinitionCognitoMemberDefinitionArgs", "clientId");
+            }
+            if ($.userGroup == null) {
+                throw new MissingRequiredPropertyException("WorkteamMemberDefinitionCognitoMemberDefinitionArgs", "userGroup");
+            }
+            if ($.userPool == null) {
+                throw new MissingRequiredPropertyException("WorkteamMemberDefinitionCognitoMemberDefinitionArgs", "userPool");
+            }
             return $;
         }
     }

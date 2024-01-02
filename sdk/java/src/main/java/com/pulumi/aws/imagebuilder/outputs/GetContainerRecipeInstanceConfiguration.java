@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMapping;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class GetContainerRecipeInstanceConfiguration {
 
         @CustomType.Setter
         public Builder blockDeviceMappings(List<GetContainerRecipeInstanceConfigurationBlockDeviceMapping> blockDeviceMappings) {
-            this.blockDeviceMappings = Objects.requireNonNull(blockDeviceMappings);
+            if (blockDeviceMappings == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeInstanceConfiguration", "blockDeviceMappings");
+            }
+            this.blockDeviceMappings = blockDeviceMappings;
             return this;
         }
         public Builder blockDeviceMappings(GetContainerRecipeInstanceConfigurationBlockDeviceMapping... blockDeviceMappings) {
@@ -66,7 +70,10 @@ public final class GetContainerRecipeInstanceConfiguration {
         }
         @CustomType.Setter
         public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+            if (image == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeInstanceConfiguration", "image");
+            }
+            this.image = image;
             return this;
         }
         public GetContainerRecipeInstanceConfiguration build() {

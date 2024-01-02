@@ -6,6 +6,7 @@ package com.pulumi.aws.codecatalyst.inputs;
 import com.pulumi.aws.codecatalyst.inputs.GetDevEnvironmentRepositoryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -291,9 +292,15 @@ public final class GetDevEnvironmentArgs extends com.pulumi.resources.InvokeArgs
         }
 
         public GetDevEnvironmentArgs build() {
-            $.envId = Objects.requireNonNull($.envId, "expected parameter 'envId' to be non-null");
-            $.projectName = Objects.requireNonNull($.projectName, "expected parameter 'projectName' to be non-null");
-            $.spaceName = Objects.requireNonNull($.spaceName, "expected parameter 'spaceName' to be non-null");
+            if ($.envId == null) {
+                throw new MissingRequiredPropertyException("GetDevEnvironmentArgs", "envId");
+            }
+            if ($.projectName == null) {
+                throw new MissingRequiredPropertyException("GetDevEnvironmentArgs", "projectName");
+            }
+            if ($.spaceName == null) {
+                throw new MissingRequiredPropertyException("GetDevEnvironmentArgs", "spaceName");
+            }
             return $;
         }
     }

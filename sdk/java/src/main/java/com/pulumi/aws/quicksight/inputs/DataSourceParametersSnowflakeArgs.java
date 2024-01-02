@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class DataSourceParametersSnowflakeArgs extends com.pulumi.resource
         }
 
         public DataSourceParametersSnowflakeArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.host = Objects.requireNonNull($.host, "expected parameter 'host' to be non-null");
-            $.warehouse = Objects.requireNonNull($.warehouse, "expected parameter 'warehouse' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersSnowflakeArgs", "database");
+            }
+            if ($.host == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersSnowflakeArgs", "host");
+            }
+            if ($.warehouse == null) {
+                throw new MissingRequiredPropertyException("DataSourceParametersSnowflakeArgs", "warehouse");
+            }
             return $;
         }
     }

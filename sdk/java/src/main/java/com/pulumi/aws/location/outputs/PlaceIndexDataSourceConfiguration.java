@@ -44,6 +44,7 @@ public final class PlaceIndexDataSourceConfiguration {
 
         @CustomType.Setter
         public Builder intendedUse(@Nullable String intendedUse) {
+
             this.intendedUse = intendedUse;
             return this;
         }

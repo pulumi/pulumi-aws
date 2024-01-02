@@ -172,51 +172,61 @@ public final class AppAutoBranchCreationConfig {
 
         @CustomType.Setter
         public Builder basicAuthCredentials(@Nullable String basicAuthCredentials) {
+
             this.basicAuthCredentials = basicAuthCredentials;
             return this;
         }
         @CustomType.Setter
         public Builder buildSpec(@Nullable String buildSpec) {
+
             this.buildSpec = buildSpec;
             return this;
         }
         @CustomType.Setter
         public Builder enableAutoBuild(@Nullable Boolean enableAutoBuild) {
+
             this.enableAutoBuild = enableAutoBuild;
             return this;
         }
         @CustomType.Setter
         public Builder enableBasicAuth(@Nullable Boolean enableBasicAuth) {
+
             this.enableBasicAuth = enableBasicAuth;
             return this;
         }
         @CustomType.Setter
         public Builder enablePerformanceMode(@Nullable Boolean enablePerformanceMode) {
+
             this.enablePerformanceMode = enablePerformanceMode;
             return this;
         }
         @CustomType.Setter
         public Builder enablePullRequestPreview(@Nullable Boolean enablePullRequestPreview) {
+
             this.enablePullRequestPreview = enablePullRequestPreview;
             return this;
         }
         @CustomType.Setter
         public Builder environmentVariables(@Nullable Map<String,String> environmentVariables) {
+
             this.environmentVariables = environmentVariables;
             return this;
         }
         @CustomType.Setter
         public Builder framework(@Nullable String framework) {
+
             this.framework = framework;
             return this;
         }
         @CustomType.Setter
         public Builder pullRequestEnvironmentName(@Nullable String pullRequestEnvironmentName) {
+
             this.pullRequestEnvironmentName = pullRequestEnvironmentName;
             return this;
         }
         @CustomType.Setter
         public Builder stage(@Nullable String stage) {
+
             this.stage = stage;
             return this;
         }

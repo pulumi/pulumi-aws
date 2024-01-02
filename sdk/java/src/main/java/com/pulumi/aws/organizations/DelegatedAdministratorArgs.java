@@ -5,6 +5,7 @@ package com.pulumi.aws.organizations;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DelegatedAdministratorArgs extends com.pulumi.resources.Resou
         }
 
         public DelegatedAdministratorArgs build() {
-            $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
-            $.servicePrincipal = Objects.requireNonNull($.servicePrincipal, "expected parameter 'servicePrincipal' to be non-null");
+            if ($.accountId == null) {
+                throw new MissingRequiredPropertyException("DelegatedAdministratorArgs", "accountId");
+            }
+            if ($.servicePrincipal == null) {
+                throw new MissingRequiredPropertyException("DelegatedAdministratorArgs", "servicePrincipal");
+            }
             return $;
         }
     }

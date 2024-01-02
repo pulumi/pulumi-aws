@@ -59,11 +59,13 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
 
         @CustomType.Setter
         public Builder provisionedThroughput(@Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput provisionedThroughput) {
+
             this.provisionedThroughput = provisionedThroughput;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
+
             this.volumeSize = volumeSize;
             return this;
         }

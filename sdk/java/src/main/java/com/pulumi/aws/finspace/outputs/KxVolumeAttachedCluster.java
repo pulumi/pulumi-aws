@@ -4,6 +4,7 @@
 package com.pulumi.aws.finspace.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,17 +47,26 @@ public final class KxVolumeAttachedCluster {
 
         @CustomType.Setter
         public Builder clusterName(String clusterName) {
-            this.clusterName = Objects.requireNonNull(clusterName);
+            if (clusterName == null) {
+              throw new MissingRequiredPropertyException("KxVolumeAttachedCluster", "clusterName");
+            }
+            this.clusterName = clusterName;
             return this;
         }
         @CustomType.Setter
         public Builder clusterStatus(String clusterStatus) {
-            this.clusterStatus = Objects.requireNonNull(clusterStatus);
+            if (clusterStatus == null) {
+              throw new MissingRequiredPropertyException("KxVolumeAttachedCluster", "clusterStatus");
+            }
+            this.clusterStatus = clusterStatus;
             return this;
         }
         @CustomType.Setter
         public Builder clusterType(String clusterType) {
-            this.clusterType = Objects.requireNonNull(clusterType);
+            if (clusterType == null) {
+              throw new MissingRequiredPropertyException("KxVolumeAttachedCluster", "clusterType");
+            }
+            this.clusterType = clusterType;
             return this;
         }
         public KxVolumeAttachedCluster build() {

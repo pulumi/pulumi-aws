@@ -5,6 +5,7 @@ package com.pulumi.aws.redshift;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ResourcePolicyArgs build() {
-            $.policy = Objects.requireNonNull($.policy, "expected parameter 'policy' to be non-null");
-            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
+            if ($.policy == null) {
+                throw new MissingRequiredPropertyException("ResourcePolicyArgs", "policy");
+            }
+            if ($.resourceArn == null) {
+                throw new MissingRequiredPropertyException("ResourcePolicyArgs", "resourceArn");
+            }
             return $;
         }
     }

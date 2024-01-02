@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
         }
 
         public DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs build() {
-            $.columnName = Objects.requireNonNull($.columnName, "expected parameter 'columnName' to be non-null");
-            $.size = Objects.requireNonNull($.size, "expected parameter 'size' to be non-null");
-            $.sizeUnit = Objects.requireNonNull($.sizeUnit, "expected parameter 'sizeUnit' to be non-null");
+            if ($.columnName == null) {
+                throw new MissingRequiredPropertyException("DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs", "columnName");
+            }
+            if ($.size == null) {
+                throw new MissingRequiredPropertyException("DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs", "size");
+            }
+            if ($.sizeUnit == null) {
+                throw new MissingRequiredPropertyException("DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs", "sizeUnit");
+            }
             return $;
         }
     }

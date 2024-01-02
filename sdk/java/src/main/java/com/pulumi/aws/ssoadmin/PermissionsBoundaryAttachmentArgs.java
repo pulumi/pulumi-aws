@@ -6,6 +6,7 @@ package com.pulumi.aws.ssoadmin;
 import com.pulumi.aws.ssoadmin.inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -149,9 +150,15 @@ public final class PermissionsBoundaryAttachmentArgs extends com.pulumi.resource
         }
 
         public PermissionsBoundaryAttachmentArgs build() {
-            $.instanceArn = Objects.requireNonNull($.instanceArn, "expected parameter 'instanceArn' to be non-null");
-            $.permissionSetArn = Objects.requireNonNull($.permissionSetArn, "expected parameter 'permissionSetArn' to be non-null");
-            $.permissionsBoundary = Objects.requireNonNull($.permissionsBoundary, "expected parameter 'permissionsBoundary' to be non-null");
+            if ($.instanceArn == null) {
+                throw new MissingRequiredPropertyException("PermissionsBoundaryAttachmentArgs", "instanceArn");
+            }
+            if ($.permissionSetArn == null) {
+                throw new MissingRequiredPropertyException("PermissionsBoundaryAttachmentArgs", "permissionSetArn");
+            }
+            if ($.permissionsBoundary == null) {
+                throw new MissingRequiredPropertyException("PermissionsBoundaryAttachmentArgs", "permissionsBoundary");
+            }
             return $;
         }
     }

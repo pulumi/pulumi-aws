@@ -5,6 +5,7 @@ package com.pulumi.aws.dataexchange;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DataSetArgs build() {
-            $.assetType = Objects.requireNonNull($.assetType, "expected parameter 'assetType' to be non-null");
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
+            if ($.assetType == null) {
+                throw new MissingRequiredPropertyException("DataSetArgs", "assetType");
+            }
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("DataSetArgs", "description");
+            }
             return $;
         }
     }

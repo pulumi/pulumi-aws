@@ -63,11 +63,13 @@ public final class AnalyticsApplicationInputsSchemaRecordFormatMappingParameters
 
         @CustomType.Setter
         public Builder csv(@Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv csv) {
+
             this.csv = csv;
             return this;
         }
         @CustomType.Setter
         public Builder json(@Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson json) {
+
             this.json = json;
             return this;
         }

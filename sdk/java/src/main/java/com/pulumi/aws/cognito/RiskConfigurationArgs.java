@@ -8,6 +8,7 @@ import com.pulumi.aws.cognito.inputs.RiskConfigurationCompromisedCredentialsRisk
 import com.pulumi.aws.cognito.inputs.RiskConfigurationRiskExceptionConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -227,7 +228,9 @@ public final class RiskConfigurationArgs extends com.pulumi.resources.ResourceAr
         }
 
         public RiskConfigurationArgs build() {
-            $.userPoolId = Objects.requireNonNull($.userPoolId, "expected parameter 'userPoolId' to be non-null");
+            if ($.userPoolId == null) {
+                throw new MissingRequiredPropertyException("RiskConfigurationArgs", "userPoolId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DistributionDefaultCacheBehaviorFunctionAssociationArgs exten
         }
 
         public DistributionDefaultCacheBehaviorFunctionAssociationArgs build() {
-            $.eventType = Objects.requireNonNull($.eventType, "expected parameter 'eventType' to be non-null");
-            $.functionArn = Objects.requireNonNull($.functionArn, "expected parameter 'functionArn' to be non-null");
+            if ($.eventType == null) {
+                throw new MissingRequiredPropertyException("DistributionDefaultCacheBehaviorFunctionAssociationArgs", "eventType");
+            }
+            if ($.functionArn == null) {
+                throw new MissingRequiredPropertyException("DistributionDefaultCacheBehaviorFunctionAssociationArgs", "functionArn");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class GetInfrastructureConfigurationArgs extends com.pulumi.resourc
         }
 
         public GetInfrastructureConfigurationArgs build() {
-            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("GetInfrastructureConfigurationArgs", "arn");
+            }
             return $;
         }
     }

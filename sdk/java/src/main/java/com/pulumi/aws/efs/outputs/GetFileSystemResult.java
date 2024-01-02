@@ -5,6 +5,7 @@ package com.pulumi.aws.efs.outputs;
 
 import com.pulumi.aws.efs.outputs.GetFileSystemLifecyclePolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -241,82 +242,130 @@ public final class GetFileSystemResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZoneId(String availabilityZoneId) {
-            this.availabilityZoneId = Objects.requireNonNull(availabilityZoneId);
+            if (availabilityZoneId == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "availabilityZoneId");
+            }
+            this.availabilityZoneId = availabilityZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZoneName(String availabilityZoneName) {
-            this.availabilityZoneName = Objects.requireNonNull(availabilityZoneName);
+            if (availabilityZoneName == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "availabilityZoneName");
+            }
+            this.availabilityZoneName = availabilityZoneName;
             return this;
         }
         @CustomType.Setter
         public Builder creationToken(String creationToken) {
-            this.creationToken = Objects.requireNonNull(creationToken);
+            if (creationToken == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "creationToken");
+            }
+            this.creationToken = creationToken;
             return this;
         }
         @CustomType.Setter
         public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+            if (dnsName == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "dnsName");
+            }
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+            if (encrypted == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "encrypted");
+            }
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemId(String fileSystemId) {
-            this.fileSystemId = Objects.requireNonNull(fileSystemId);
+            if (fileSystemId == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "fileSystemId");
+            }
+            this.fileSystemId = fileSystemId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder lifecyclePolicy(GetFileSystemLifecyclePolicy lifecyclePolicy) {
-            this.lifecyclePolicy = Objects.requireNonNull(lifecyclePolicy);
+            if (lifecyclePolicy == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "lifecyclePolicy");
+            }
+            this.lifecyclePolicy = lifecyclePolicy;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder performanceMode(String performanceMode) {
-            this.performanceMode = Objects.requireNonNull(performanceMode);
+            if (performanceMode == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "performanceMode");
+            }
+            this.performanceMode = performanceMode;
             return this;
         }
         @CustomType.Setter
         public Builder provisionedThroughputInMibps(Double provisionedThroughputInMibps) {
-            this.provisionedThroughputInMibps = Objects.requireNonNull(provisionedThroughputInMibps);
+            if (provisionedThroughputInMibps == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "provisionedThroughputInMibps");
+            }
+            this.provisionedThroughputInMibps = provisionedThroughputInMibps;
             return this;
         }
         @CustomType.Setter
         public Builder sizeInBytes(Integer sizeInBytes) {
-            this.sizeInBytes = Objects.requireNonNull(sizeInBytes);
+            if (sizeInBytes == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "sizeInBytes");
+            }
+            this.sizeInBytes = sizeInBytes;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder throughputMode(String throughputMode) {
-            this.throughputMode = Objects.requireNonNull(throughputMode);
+            if (throughputMode == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "throughputMode");
+            }
+            this.throughputMode = throughputMode;
             return this;
         }
         public GetFileSystemResult build() {

@@ -44,6 +44,7 @@ public final class DataQualityJobDefinitionStoppingCondition {
 
         @CustomType.Setter
         public Builder maxRuntimeInSeconds(@Nullable Integer maxRuntimeInSeconds) {
+
             this.maxRuntimeInSeconds = maxRuntimeInSeconds;
             return this;
         }

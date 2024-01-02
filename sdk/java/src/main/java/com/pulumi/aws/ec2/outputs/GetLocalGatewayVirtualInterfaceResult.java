@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetLocalGatewayVirtualInterfaceFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -141,6 +142,7 @@ public final class GetLocalGatewayVirtualInterfaceResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetLocalGatewayVirtualInterfaceFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -149,27 +151,42 @@ public final class GetLocalGatewayVirtualInterfaceResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder localAddress(String localAddress) {
-            this.localAddress = Objects.requireNonNull(localAddress);
+            if (localAddress == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceResult", "localAddress");
+            }
+            this.localAddress = localAddress;
             return this;
         }
         @CustomType.Setter
         public Builder localBgpAsn(Integer localBgpAsn) {
-            this.localBgpAsn = Objects.requireNonNull(localBgpAsn);
+            if (localBgpAsn == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceResult", "localBgpAsn");
+            }
+            this.localBgpAsn = localBgpAsn;
             return this;
         }
         @CustomType.Setter
         public Builder localGatewayId(String localGatewayId) {
-            this.localGatewayId = Objects.requireNonNull(localGatewayId);
+            if (localGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceResult", "localGatewayId");
+            }
+            this.localGatewayId = localGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder localGatewayVirtualInterfaceIds(List<String> localGatewayVirtualInterfaceIds) {
-            this.localGatewayVirtualInterfaceIds = Objects.requireNonNull(localGatewayVirtualInterfaceIds);
+            if (localGatewayVirtualInterfaceIds == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceResult", "localGatewayVirtualInterfaceIds");
+            }
+            this.localGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
             return this;
         }
         public Builder localGatewayVirtualInterfaceIds(String... localGatewayVirtualInterfaceIds) {
@@ -177,22 +194,34 @@ public final class GetLocalGatewayVirtualInterfaceResult {
         }
         @CustomType.Setter
         public Builder peerAddress(String peerAddress) {
-            this.peerAddress = Objects.requireNonNull(peerAddress);
+            if (peerAddress == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceResult", "peerAddress");
+            }
+            this.peerAddress = peerAddress;
             return this;
         }
         @CustomType.Setter
         public Builder peerBgpAsn(Integer peerBgpAsn) {
-            this.peerBgpAsn = Objects.requireNonNull(peerBgpAsn);
+            if (peerBgpAsn == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceResult", "peerBgpAsn");
+            }
+            this.peerBgpAsn = peerBgpAsn;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vlan(Integer vlan) {
-            this.vlan = Objects.requireNonNull(vlan);
+            if (vlan == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceResult", "vlan");
+            }
+            this.vlan = vlan;
             return this;
         }
         public GetLocalGatewayVirtualInterfaceResult build() {

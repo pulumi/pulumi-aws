@@ -7,6 +7,7 @@ import com.pulumi.aws.ecr.inputs.ReplicationConfigurationReplicationConfiguratio
 import com.pulumi.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -135,7 +136,9 @@ public final class ReplicationConfigurationReplicationConfigurationRuleArgs exte
         }
 
         public ReplicationConfigurationReplicationConfigurationRuleArgs build() {
-            $.destinations = Objects.requireNonNull($.destinations, "expected parameter 'destinations' to be non-null");
+            if ($.destinations == null) {
+                throw new MissingRequiredPropertyException("ReplicationConfigurationReplicationConfigurationRuleArgs", "destinations");
+            }
             return $;
         }
     }

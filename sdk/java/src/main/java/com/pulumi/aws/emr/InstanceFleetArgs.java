@@ -7,6 +7,7 @@ import com.pulumi.aws.emr.inputs.InstanceFleetInstanceTypeConfigArgs;
 import com.pulumi.aws.emr.inputs.InstanceFleetLaunchSpecificationsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -275,7 +276,9 @@ public final class InstanceFleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public InstanceFleetArgs build() {
-            $.clusterId = Objects.requireNonNull($.clusterId, "expected parameter 'clusterId' to be non-null");
+            if ($.clusterId == null) {
+                throw new MissingRequiredPropertyException("InstanceFleetArgs", "clusterId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.codebuild.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,24 @@ public final class WebhookFilterGroupFilter {
 
         @CustomType.Setter
         public Builder excludeMatchedPattern(@Nullable Boolean excludeMatchedPattern) {
+
             this.excludeMatchedPattern = excludeMatchedPattern;
             return this;
         }
         @CustomType.Setter
         public Builder pattern(String pattern) {
-            this.pattern = Objects.requireNonNull(pattern);
+            if (pattern == null) {
+              throw new MissingRequiredPropertyException("WebhookFilterGroupFilter", "pattern");
+            }
+            this.pattern = pattern;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("WebhookFilterGroupFilter", "type");
+            }
+            this.type = type;
             return this;
         }
         public WebhookFilterGroupFilter build() {

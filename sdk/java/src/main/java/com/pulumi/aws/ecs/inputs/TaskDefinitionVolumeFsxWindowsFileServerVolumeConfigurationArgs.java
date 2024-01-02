@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs.inputs;
 import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -149,9 +150,15 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAr
         }
 
         public TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs build() {
-            $.authorizationConfig = Objects.requireNonNull($.authorizationConfig, "expected parameter 'authorizationConfig' to be non-null");
-            $.fileSystemId = Objects.requireNonNull($.fileSystemId, "expected parameter 'fileSystemId' to be non-null");
-            $.rootDirectory = Objects.requireNonNull($.rootDirectory, "expected parameter 'rootDirectory' to be non-null");
+            if ($.authorizationConfig == null) {
+                throw new MissingRequiredPropertyException("TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs", "authorizationConfig");
+            }
+            if ($.fileSystemId == null) {
+                throw new MissingRequiredPropertyException("TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs", "fileSystemId");
+            }
+            if ($.rootDirectory == null) {
+                throw new MissingRequiredPropertyException("TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs", "rootDirectory");
+            }
             return $;
         }
     }

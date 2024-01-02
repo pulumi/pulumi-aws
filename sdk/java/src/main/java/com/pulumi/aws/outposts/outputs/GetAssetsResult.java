@@ -4,6 +4,7 @@
 package com.pulumi.aws.outposts.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -76,12 +77,18 @@ public final class GetAssetsResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetAssetsResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder assetIds(List<String> assetIds) {
-            this.assetIds = Objects.requireNonNull(assetIds);
+            if (assetIds == null) {
+              throw new MissingRequiredPropertyException("GetAssetsResult", "assetIds");
+            }
+            this.assetIds = assetIds;
             return this;
         }
         public Builder assetIds(String... assetIds) {
@@ -89,6 +96,7 @@ public final class GetAssetsResult {
         }
         @CustomType.Setter
         public Builder hostIdFilters(@Nullable List<String> hostIdFilters) {
+
             this.hostIdFilters = hostIdFilters;
             return this;
         }
@@ -97,11 +105,15 @@ public final class GetAssetsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAssetsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder statusIdFilters(@Nullable List<String> statusIdFilters) {
+
             this.statusIdFilters = statusIdFilters;
             return this;
         }

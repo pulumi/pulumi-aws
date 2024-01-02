@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
         }
 
         public FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs build() {
-            $.profileId = Objects.requireNonNull($.profileId, "expected parameter 'profileId' to be non-null");
-            $.queryArg = Objects.requireNonNull($.queryArg, "expected parameter 'queryArg' to be non-null");
+            if ($.profileId == null) {
+                throw new MissingRequiredPropertyException("FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs", "profileId");
+            }
+            if ($.queryArg == null) {
+                throw new MissingRequiredPropertyException("FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs", "queryArg");
+            }
             return $;
         }
     }

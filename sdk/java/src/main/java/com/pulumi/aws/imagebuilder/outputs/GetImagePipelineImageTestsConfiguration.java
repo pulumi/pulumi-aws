@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class GetImagePipelineImageTestsConfiguration {
 
         @CustomType.Setter
         public Builder imageTestsEnabled(Boolean imageTestsEnabled) {
-            this.imageTestsEnabled = Objects.requireNonNull(imageTestsEnabled);
+            if (imageTestsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineImageTestsConfiguration", "imageTestsEnabled");
+            }
+            this.imageTestsEnabled = imageTestsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutMinutes(Integer timeoutMinutes) {
-            this.timeoutMinutes = Objects.requireNonNull(timeoutMinutes);
+            if (timeoutMinutes == null) {
+              throw new MissingRequiredPropertyException("GetImagePipelineImageTestsConfiguration", "timeoutMinutes");
+            }
+            this.timeoutMinutes = timeoutMinutes;
             return this;
         }
         public GetImagePipelineImageTestsConfiguration build() {

@@ -11,6 +11,7 @@ import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMet
 import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.util.Objects;
 import java.util.Optional;
@@ -304,7 +305,9 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs e
         }
 
         public PolicyPredictiveScalingConfigurationMetricSpecificationArgs build() {
-            $.targetValue = Objects.requireNonNull($.targetValue, "expected parameter 'targetValue' to be non-null");
+            if ($.targetValue == null) {
+                throw new MissingRequiredPropertyException("PolicyPredictiveScalingConfigurationMetricSpecificationArgs", "targetValue");
+            }
             return $;
         }
     }

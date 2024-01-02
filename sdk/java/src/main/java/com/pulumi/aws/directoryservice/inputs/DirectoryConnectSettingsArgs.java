@@ -5,6 +5,7 @@ package com.pulumi.aws.directoryservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -276,10 +277,18 @@ public final class DirectoryConnectSettingsArgs extends com.pulumi.resources.Res
         }
 
         public DirectoryConnectSettingsArgs build() {
-            $.customerDnsIps = Objects.requireNonNull($.customerDnsIps, "expected parameter 'customerDnsIps' to be non-null");
-            $.customerUsername = Objects.requireNonNull($.customerUsername, "expected parameter 'customerUsername' to be non-null");
-            $.subnetIds = Objects.requireNonNull($.subnetIds, "expected parameter 'subnetIds' to be non-null");
-            $.vpcId = Objects.requireNonNull($.vpcId, "expected parameter 'vpcId' to be non-null");
+            if ($.customerDnsIps == null) {
+                throw new MissingRequiredPropertyException("DirectoryConnectSettingsArgs", "customerDnsIps");
+            }
+            if ($.customerUsername == null) {
+                throw new MissingRequiredPropertyException("DirectoryConnectSettingsArgs", "customerUsername");
+            }
+            if ($.subnetIds == null) {
+                throw new MissingRequiredPropertyException("DirectoryConnectSettingsArgs", "subnetIds");
+            }
+            if ($.vpcId == null) {
+                throw new MissingRequiredPropertyException("DirectoryConnectSettingsArgs", "vpcId");
+            }
             return $;
         }
     }

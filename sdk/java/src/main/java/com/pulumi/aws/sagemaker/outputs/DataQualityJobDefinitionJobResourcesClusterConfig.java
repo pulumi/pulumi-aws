@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,22 +88,32 @@ public final class DataQualityJobDefinitionJobResourcesClusterConfig {
 
         @CustomType.Setter
         public Builder instanceCount(Integer instanceCount) {
-            this.instanceCount = Objects.requireNonNull(instanceCount);
+            if (instanceCount == null) {
+              throw new MissingRequiredPropertyException("DataQualityJobDefinitionJobResourcesClusterConfig", "instanceCount");
+            }
+            this.instanceCount = instanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("DataQualityJobDefinitionJobResourcesClusterConfig", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder volumeKmsKeyId(@Nullable String volumeKmsKeyId) {
+
             this.volumeKmsKeyId = volumeKmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSizeInGb(Integer volumeSizeInGb) {
-            this.volumeSizeInGb = Objects.requireNonNull(volumeSizeInGb);
+            if (volumeSizeInGb == null) {
+              throw new MissingRequiredPropertyException("DataQualityJobDefinitionJobResourcesClusterConfig", "volumeSizeInGb");
+            }
+            this.volumeSizeInGb = volumeSizeInGb;
             return this;
         }
         public DataQualityJobDefinitionJobResourcesClusterConfig build() {

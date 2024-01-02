@@ -7,6 +7,7 @@ import com.pulumi.aws.glue.inputs.MLTransformInputRecordTableArgs;
 import com.pulumi.aws.glue.inputs.MLTransformParametersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -499,9 +500,15 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MLTransformArgs build() {
-            $.inputRecordTables = Objects.requireNonNull($.inputRecordTables, "expected parameter 'inputRecordTables' to be non-null");
-            $.parameters = Objects.requireNonNull($.parameters, "expected parameter 'parameters' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.inputRecordTables == null) {
+                throw new MissingRequiredPropertyException("MLTransformArgs", "inputRecordTables");
+            }
+            if ($.parameters == null) {
+                throw new MissingRequiredPropertyException("MLTransformArgs", "parameters");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("MLTransformArgs", "roleArn");
+            }
             return $;
         }
     }

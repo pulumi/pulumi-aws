@@ -5,6 +5,7 @@ package com.pulumi.aws.lambda.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class EventSourceMappingDocumentDbEventSourceConfigArgs extends com
         }
 
         public EventSourceMappingDocumentDbEventSourceConfigArgs build() {
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("EventSourceMappingDocumentDbEventSourceConfigArgs", "databaseName");
+            }
             return $;
         }
     }

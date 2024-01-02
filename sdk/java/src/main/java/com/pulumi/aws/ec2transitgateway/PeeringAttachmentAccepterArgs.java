@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class PeeringAttachmentAccepterArgs extends com.pulumi.resources.Re
         }
 
         public PeeringAttachmentAccepterArgs build() {
-            $.transitGatewayAttachmentId = Objects.requireNonNull($.transitGatewayAttachmentId, "expected parameter 'transitGatewayAttachmentId' to be non-null");
+            if ($.transitGatewayAttachmentId == null) {
+                throw new MissingRequiredPropertyException("PeeringAttachmentAccepterArgs", "transitGatewayAttachmentId");
+            }
             return $;
         }
     }

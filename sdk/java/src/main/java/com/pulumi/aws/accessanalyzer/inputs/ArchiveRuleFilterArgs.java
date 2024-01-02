@@ -5,6 +5,7 @@ package com.pulumi.aws.accessanalyzer.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -255,7 +256,9 @@ public final class ArchiveRuleFilterArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ArchiveRuleFilterArgs build() {
-            $.criteria = Objects.requireNonNull($.criteria, "expected parameter 'criteria' to be non-null");
+            if ($.criteria == null) {
+                throw new MissingRequiredPropertyException("ArchiveRuleFilterArgs", "criteria");
+            }
             return $;
         }
     }

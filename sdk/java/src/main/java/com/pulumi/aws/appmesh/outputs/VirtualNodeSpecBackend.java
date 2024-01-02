@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecBackendVirtualService;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class VirtualNodeSpecBackend {
 
         @CustomType.Setter
         public Builder virtualService(VirtualNodeSpecBackendVirtualService virtualService) {
-            this.virtualService = Objects.requireNonNull(virtualService);
+            if (virtualService == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecBackend", "virtualService");
+            }
+            this.virtualService = virtualService;
             return this;
         }
         public VirtualNodeSpecBackend build() {

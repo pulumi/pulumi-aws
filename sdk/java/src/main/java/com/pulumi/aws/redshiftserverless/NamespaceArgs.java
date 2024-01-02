@@ -5,6 +5,7 @@ package com.pulumi.aws.redshiftserverless;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -394,7 +395,9 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NamespaceArgs build() {
-            $.namespaceName = Objects.requireNonNull($.namespaceName, "expected parameter 'namespaceName' to be non-null");
+            if ($.namespaceName == null) {
+                throw new MissingRequiredPropertyException("NamespaceArgs", "namespaceName");
+            }
             return $;
         }
     }

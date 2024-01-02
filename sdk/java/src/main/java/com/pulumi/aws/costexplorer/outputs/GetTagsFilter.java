@@ -120,6 +120,7 @@ public final class GetTagsFilter {
 
         @CustomType.Setter
         public Builder ands(@Nullable List<GetTagsFilterAnd> ands) {
+
             this.ands = ands;
             return this;
         }
@@ -128,21 +129,25 @@ public final class GetTagsFilter {
         }
         @CustomType.Setter
         public Builder costCategory(@Nullable GetTagsFilterCostCategory costCategory) {
+
             this.costCategory = costCategory;
             return this;
         }
         @CustomType.Setter
         public Builder dimension(@Nullable GetTagsFilterDimension dimension) {
+
             this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder not(@Nullable GetTagsFilterNot not) {
+
             this.not = not;
             return this;
         }
         @CustomType.Setter
         public Builder ors(@Nullable List<GetTagsFilterOr> ors) {
+
             this.ors = ors;
             return this;
         }
@@ -151,6 +156,7 @@ public final class GetTagsFilter {
         }
         @CustomType.Setter
         public Builder tags(@Nullable GetTagsFilterTags tags) {
+
             this.tags = tags;
             return this;
         }

@@ -63,11 +63,13 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperation {
 
         @CustomType.Setter
         public Builder audit(@Nullable GetLogDataProtectionPolicyDocumentStatementOperationAudit audit) {
+
             this.audit = audit;
             return this;
         }
         @CustomType.Setter
         public Builder deidentify(@Nullable GetLogDataProtectionPolicyDocumentStatementOperationDeidentify deidentify) {
+
             this.deidentify = deidentify;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.vpclattice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class AuthPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AuthPolicyArgs build() {
-            $.policy = Objects.requireNonNull($.policy, "expected parameter 'policy' to be non-null");
-            $.resourceIdentifier = Objects.requireNonNull($.resourceIdentifier, "expected parameter 'resourceIdentifier' to be non-null");
+            if ($.policy == null) {
+                throw new MissingRequiredPropertyException("AuthPolicyArgs", "policy");
+            }
+            if ($.resourceIdentifier == null) {
+                throw new MissingRequiredPropertyException("AuthPolicyArgs", "resourceIdentifier");
+            }
             return $;
         }
     }

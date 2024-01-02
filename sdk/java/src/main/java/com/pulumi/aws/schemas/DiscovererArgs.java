@@ -5,6 +5,7 @@ package com.pulumi.aws.schemas;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class DiscovererArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DiscovererArgs build() {
-            $.sourceArn = Objects.requireNonNull($.sourceArn, "expected parameter 'sourceArn' to be non-null");
+            if ($.sourceArn == null) {
+                throw new MissingRequiredPropertyException("DiscovererArgs", "sourceArn");
+            }
             return $;
         }
     }

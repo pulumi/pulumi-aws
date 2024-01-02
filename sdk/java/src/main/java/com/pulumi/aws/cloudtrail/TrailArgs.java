@@ -8,6 +8,7 @@ import com.pulumi.aws.cloudtrail.inputs.TrailEventSelectorArgs;
 import com.pulumi.aws.cloudtrail.inputs.TrailInsightSelectorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -675,7 +676,9 @@ public final class TrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TrailArgs build() {
-            $.s3BucketName = Objects.requireNonNull($.s3BucketName, "expected parameter 's3BucketName' to be non-null");
+            if ($.s3BucketName == null) {
+                throw new MissingRequiredPropertyException("TrailArgs", "s3BucketName");
+            }
             return $;
         }
     }

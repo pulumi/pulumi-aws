@@ -5,6 +5,7 @@ package com.pulumi.aws.route53;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ResolverQueryLogConfigAssociationArgs extends com.pulumi.reso
         }
 
         public ResolverQueryLogConfigAssociationArgs build() {
-            $.resolverQueryLogConfigId = Objects.requireNonNull($.resolverQueryLogConfigId, "expected parameter 'resolverQueryLogConfigId' to be non-null");
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
+            if ($.resolverQueryLogConfigId == null) {
+                throw new MissingRequiredPropertyException("ResolverQueryLogConfigAssociationArgs", "resolverQueryLogConfigId");
+            }
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("ResolverQueryLogConfigAssociationArgs", "resourceId");
+            }
             return $;
         }
     }

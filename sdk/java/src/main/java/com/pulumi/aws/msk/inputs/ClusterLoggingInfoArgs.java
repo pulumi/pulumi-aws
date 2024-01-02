@@ -6,6 +6,7 @@ package com.pulumi.aws.msk.inputs;
 import com.pulumi.aws.msk.inputs.ClusterLoggingInfoBrokerLogsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class ClusterLoggingInfoArgs extends com.pulumi.resources.ResourceA
         }
 
         public ClusterLoggingInfoArgs build() {
-            $.brokerLogs = Objects.requireNonNull($.brokerLogs, "expected parameter 'brokerLogs' to be non-null");
+            if ($.brokerLogs == null) {
+                throw new MissingRequiredPropertyException("ClusterLoggingInfoArgs", "brokerLogs");
+            }
             return $;
         }
     }

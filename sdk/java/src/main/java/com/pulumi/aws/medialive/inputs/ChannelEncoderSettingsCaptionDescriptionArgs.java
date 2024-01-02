@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive.inputs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -262,8 +263,12 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs extends com.pulu
         }
 
         public ChannelEncoderSettingsCaptionDescriptionArgs build() {
-            $.captionSelectorName = Objects.requireNonNull($.captionSelectorName, "expected parameter 'captionSelectorName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.captionSelectorName == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsCaptionDescriptionArgs", "captionSelectorName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsCaptionDescriptionArgs", "name");
+            }
             return $;
         }
     }

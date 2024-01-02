@@ -59,11 +59,13 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
         @CustomType.Setter
         public Builder outputRectangle(@Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle outputRectangle) {
+
             this.outputRectangle = outputRectangle;
             return this;
         }
         @CustomType.Setter
         public Builder pageNumber(@Nullable String pageNumber) {
+
             this.pageNumber = pageNumber;
             return this;
         }

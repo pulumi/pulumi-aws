@@ -6,6 +6,7 @@ package com.pulumi.aws.opensearch.inputs;
 import com.pulumi.aws.opensearch.inputs.GetDomainOffPeakWindowOptionsOffPeakWindowArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -97,8 +98,12 @@ public final class GetDomainOffPeakWindowOptionsArgs extends com.pulumi.resource
         }
 
         public GetDomainOffPeakWindowOptionsArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.offPeakWindows = Objects.requireNonNull($.offPeakWindows, "expected parameter 'offPeakWindows' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("GetDomainOffPeakWindowOptionsArgs", "enabled");
+            }
+            if ($.offPeakWindows == null) {
+                throw new MissingRequiredPropertyException("GetDomainOffPeakWindowOptionsArgs", "offPeakWindows");
+            }
             return $;
         }
     }

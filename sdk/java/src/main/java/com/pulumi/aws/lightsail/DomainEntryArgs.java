@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -225,9 +226,15 @@ public final class DomainEntryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DomainEntryArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("DomainEntryArgs", "domainName");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("DomainEntryArgs", "target");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("DomainEntryArgs", "type");
+            }
             return $;
         }
     }

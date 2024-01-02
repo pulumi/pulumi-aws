@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.inputs.MysqlLayerEbsVolumeArgs;
 import com.pulumi.aws.opsworks.inputs.MysqlLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -897,7 +898,9 @@ public final class MysqlLayerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MysqlLayerArgs build() {
-            $.stackId = Objects.requireNonNull($.stackId, "expected parameter 'stackId' to be non-null");
+            if ($.stackId == null) {
+                throw new MissingRequiredPropertyException("MysqlLayerArgs", "stackId");
+            }
             return $;
         }
     }

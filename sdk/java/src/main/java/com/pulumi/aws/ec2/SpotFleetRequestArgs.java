@@ -8,6 +8,7 @@ import com.pulumi.aws.ec2.inputs.SpotFleetRequestLaunchTemplateConfigArgs;
 import com.pulumi.aws.ec2.inputs.SpotFleetRequestSpotMaintenanceStrategiesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1131,8 +1132,12 @@ public final class SpotFleetRequestArgs extends com.pulumi.resources.ResourceArg
         }
 
         public SpotFleetRequestArgs build() {
-            $.iamFleetRole = Objects.requireNonNull($.iamFleetRole, "expected parameter 'iamFleetRole' to be non-null");
-            $.targetCapacity = Objects.requireNonNull($.targetCapacity, "expected parameter 'targetCapacity' to be non-null");
+            if ($.iamFleetRole == null) {
+                throw new MissingRequiredPropertyException("SpotFleetRequestArgs", "iamFleetRole");
+            }
+            if ($.targetCapacity == null) {
+                throw new MissingRequiredPropertyException("SpotFleetRequestArgs", "targetCapacity");
+            }
             return $;
         }
     }

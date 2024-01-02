@@ -89,11 +89,13 @@ public final class ClusterShard {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nodes(@Nullable List<ClusterShardNode> nodes) {
+
             this.nodes = nodes;
             return this;
         }
@@ -102,11 +104,13 @@ public final class ClusterShard {
         }
         @CustomType.Setter
         public Builder numNodes(@Nullable Integer numNodes) {
+
             this.numNodes = numNodes;
             return this;
         }
         @CustomType.Setter
         public Builder slots(@Nullable String slots) {
+
             this.slots = slots;
             return this;
         }

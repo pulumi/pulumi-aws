@@ -59,11 +59,13 @@ public final class VirtualNodeSpecListenerTlsValidationTrust {
 
         @CustomType.Setter
         public Builder file(@Nullable VirtualNodeSpecListenerTlsValidationTrustFile file) {
+
             this.file = file;
             return this;
         }
         @CustomType.Setter
         public Builder sds(@Nullable VirtualNodeSpecListenerTlsValidationTrustSds sds) {
+
             this.sds = sds;
             return this;
         }

@@ -58,11 +58,13 @@ public final class WebhookAuthenticationConfiguration {
 
         @CustomType.Setter
         public Builder allowedIpRange(@Nullable String allowedIpRange) {
+
             this.allowedIpRange = allowedIpRange;
             return this;
         }
         @CustomType.Setter
         public Builder secretToken(@Nullable String secretToken) {
+
             this.secretToken = secretToken;
             return this;
         }

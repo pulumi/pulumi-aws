@@ -4,6 +4,7 @@
 package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,17 +47,26 @@ public final class GetClusterMasterUserSecret {
 
         @CustomType.Setter
         public Builder kmsKeyId(String kmsKeyId) {
-            this.kmsKeyId = Objects.requireNonNull(kmsKeyId);
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetClusterMasterUserSecret", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder secretArn(String secretArn) {
-            this.secretArn = Objects.requireNonNull(secretArn);
+            if (secretArn == null) {
+              throw new MissingRequiredPropertyException("GetClusterMasterUserSecret", "secretArn");
+            }
+            this.secretArn = secretArn;
             return this;
         }
         @CustomType.Setter
         public Builder secretStatus(String secretStatus) {
-            this.secretStatus = Objects.requireNonNull(secretStatus);
+            if (secretStatus == null) {
+              throw new MissingRequiredPropertyException("GetClusterMasterUserSecret", "secretStatus");
+            }
+            this.secretStatus = secretStatus;
             return this;
         }
         public GetClusterMasterUserSecret build() {

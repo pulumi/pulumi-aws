@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive;
 import com.pulumi.aws.medialive.inputs.InputSecurityGroupWhitelistRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -136,7 +137,9 @@ public final class InputSecurityGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         public InputSecurityGroupArgs build() {
-            $.whitelistRules = Objects.requireNonNull($.whitelistRules, "expected parameter 'whitelistRules' to be non-null");
+            if ($.whitelistRules == null) {
+                throw new MissingRequiredPropertyException("InputSecurityGroupArgs", "whitelistRules");
+            }
             return $;
         }
     }

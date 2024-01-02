@@ -44,6 +44,7 @@ public final class DomainClusterConfigZoneAwarenessConfig {
 
         @CustomType.Setter
         public Builder availabilityZoneCount(@Nullable Integer availabilityZoneCount) {
+
             this.availabilityZoneCount = availabilityZoneCount;
             return this;
         }

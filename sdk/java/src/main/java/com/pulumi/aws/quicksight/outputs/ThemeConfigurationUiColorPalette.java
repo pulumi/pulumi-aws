@@ -254,81 +254,97 @@ public final class ThemeConfigurationUiColorPalette {
 
         @CustomType.Setter
         public Builder accent(@Nullable String accent) {
+
             this.accent = accent;
             return this;
         }
         @CustomType.Setter
         public Builder accentForeground(@Nullable String accentForeground) {
+
             this.accentForeground = accentForeground;
             return this;
         }
         @CustomType.Setter
         public Builder danger(@Nullable String danger) {
+
             this.danger = danger;
             return this;
         }
         @CustomType.Setter
         public Builder dangerForeground(@Nullable String dangerForeground) {
+
             this.dangerForeground = dangerForeground;
             return this;
         }
         @CustomType.Setter
         public Builder dimension(@Nullable String dimension) {
+
             this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder dimensionForeground(@Nullable String dimensionForeground) {
+
             this.dimensionForeground = dimensionForeground;
             return this;
         }
         @CustomType.Setter
         public Builder measure(@Nullable String measure) {
+
             this.measure = measure;
             return this;
         }
         @CustomType.Setter
         public Builder measureForeground(@Nullable String measureForeground) {
+
             this.measureForeground = measureForeground;
             return this;
         }
         @CustomType.Setter
         public Builder primaryBackground(@Nullable String primaryBackground) {
+
             this.primaryBackground = primaryBackground;
             return this;
         }
         @CustomType.Setter
         public Builder primaryForeground(@Nullable String primaryForeground) {
+
             this.primaryForeground = primaryForeground;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryBackground(@Nullable String secondaryBackground) {
+
             this.secondaryBackground = secondaryBackground;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryForeground(@Nullable String secondaryForeground) {
+
             this.secondaryForeground = secondaryForeground;
             return this;
         }
         @CustomType.Setter
         public Builder success(@Nullable String success) {
+
             this.success = success;
             return this;
         }
         @CustomType.Setter
         public Builder successForeground(@Nullable String successForeground) {
+
             this.successForeground = successForeground;
             return this;
         }
         @CustomType.Setter
         public Builder warning(@Nullable String warning) {
+
             this.warning = warning;
             return this;
         }
         @CustomType.Setter
         public Builder warningForeground(@Nullable String warningForeground) {
+
             this.warningForeground = warningForeground;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.opensearch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class OutboundConnectionRemoteDomainInfoArgs extends com.pulumi.res
         }
 
         public OutboundConnectionRemoteDomainInfoArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.ownerId = Objects.requireNonNull($.ownerId, "expected parameter 'ownerId' to be non-null");
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("OutboundConnectionRemoteDomainInfoArgs", "domainName");
+            }
+            if ($.ownerId == null) {
+                throw new MissingRequiredPropertyException("OutboundConnectionRemoteDomainInfoArgs", "ownerId");
+            }
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("OutboundConnectionRemoteDomainInfoArgs", "region");
+            }
             return $;
         }
     }

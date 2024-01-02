@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetConfigurationSetSendingOption {
 
         @CustomType.Setter
         public Builder sendingEnabled(Boolean sendingEnabled) {
-            this.sendingEnabled = Objects.requireNonNull(sendingEnabled);
+            if (sendingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetSendingOption", "sendingEnabled");
+            }
+            this.sendingEnabled = sendingEnabled;
             return this;
         }
         public GetConfigurationSetSendingOption build() {

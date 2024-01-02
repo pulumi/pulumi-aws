@@ -130,36 +130,43 @@ public final class FleetLaunchTemplateConfigOverride {
 
         @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
+
             this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder instanceRequirements(@Nullable FleetLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements) {
+
             this.instanceRequirements = instanceRequirements;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
+
             this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder maxPrice(@Nullable String maxPrice) {
+
             this.maxPrice = maxPrice;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Double priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder weightedCapacity(@Nullable Double weightedCapacity) {
+
             this.weightedCapacity = weightedCapacity;
             return this;
         }

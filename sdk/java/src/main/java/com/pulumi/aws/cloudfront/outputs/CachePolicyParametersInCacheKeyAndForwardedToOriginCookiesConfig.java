@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,11 +60,15 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesCon
 
         @CustomType.Setter
         public Builder cookieBehavior(String cookieBehavior) {
-            this.cookieBehavior = Objects.requireNonNull(cookieBehavior);
+            if (cookieBehavior == null) {
+              throw new MissingRequiredPropertyException("CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig", "cookieBehavior");
+            }
+            this.cookieBehavior = cookieBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder cookies(@Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies cookies) {
+
             this.cookies = cookies;
             return this;
         }

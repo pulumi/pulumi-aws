@@ -7,6 +7,7 @@ import com.pulumi.aws.storagegateway.inputs.NfsFileShareCacheAttributesArgs;
 import com.pulumi.aws.storagegateway.inputs.NfsFileShareNfsFileShareDefaultsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -794,10 +795,18 @@ public final class NfsFileShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NfsFileShareArgs build() {
-            $.clientLists = Objects.requireNonNull($.clientLists, "expected parameter 'clientLists' to be non-null");
-            $.gatewayArn = Objects.requireNonNull($.gatewayArn, "expected parameter 'gatewayArn' to be non-null");
-            $.locationArn = Objects.requireNonNull($.locationArn, "expected parameter 'locationArn' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.clientLists == null) {
+                throw new MissingRequiredPropertyException("NfsFileShareArgs", "clientLists");
+            }
+            if ($.gatewayArn == null) {
+                throw new MissingRequiredPropertyException("NfsFileShareArgs", "gatewayArn");
+            }
+            if ($.locationArn == null) {
+                throw new MissingRequiredPropertyException("NfsFileShareArgs", "locationArn");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("NfsFileShareArgs", "roleArn");
+            }
             return $;
         }
     }

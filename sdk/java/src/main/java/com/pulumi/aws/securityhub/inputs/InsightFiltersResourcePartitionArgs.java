@@ -5,6 +5,7 @@ package com.pulumi.aws.securityhub.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class InsightFiltersResourcePartitionArgs extends com.pulumi.resour
         }
 
         public InsightFiltersResourcePartitionArgs build() {
-            $.comparison = Objects.requireNonNull($.comparison, "expected parameter 'comparison' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.comparison == null) {
+                throw new MissingRequiredPropertyException("InsightFiltersResourcePartitionArgs", "comparison");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("InsightFiltersResourcePartitionArgs", "value");
+            }
             return $;
         }
     }

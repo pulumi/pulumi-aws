@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudtrail.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class TrailInsightSelectorArgs extends com.pulumi.resources.Resourc
         }
 
         public TrailInsightSelectorArgs build() {
-            $.insightType = Objects.requireNonNull($.insightType, "expected parameter 'insightType' to be non-null");
+            if ($.insightType == null) {
+                throw new MissingRequiredPropertyException("TrailInsightSelectorArgs", "insightType");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.chimesdkmediapipelines.inputs;
 import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -533,7 +534,9 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
         }
 
         public MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs build() {
-            $.languageCode = Objects.requireNonNull($.languageCode, "expected parameter 'languageCode' to be non-null");
+            if ($.languageCode == null) {
+                throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs", "languageCode");
+            }
             return $;
         }
     }

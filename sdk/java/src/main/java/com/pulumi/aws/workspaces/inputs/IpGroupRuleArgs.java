@@ -5,6 +5,7 @@ package com.pulumi.aws.workspaces.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class IpGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IpGroupRuleArgs build() {
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("IpGroupRuleArgs", "source");
+            }
             return $;
         }
     }

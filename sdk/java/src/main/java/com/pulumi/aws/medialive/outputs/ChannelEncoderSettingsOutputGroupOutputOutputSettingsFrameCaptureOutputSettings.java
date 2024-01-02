@@ -44,6 +44,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCap
 
         @CustomType.Setter
         public Builder nameModifier(@Nullable String nameModifier) {
+
             this.nameModifier = nameModifier;
             return this;
         }

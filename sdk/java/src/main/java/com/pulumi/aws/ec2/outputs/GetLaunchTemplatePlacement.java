@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -77,42 +78,66 @@ public final class GetLaunchTemplatePlacement {
 
         @CustomType.Setter
         public Builder affinity(String affinity) {
-            this.affinity = Objects.requireNonNull(affinity);
+            if (affinity == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplatePlacement", "affinity");
+            }
+            this.affinity = affinity;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+            if (availabilityZone == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplatePlacement", "availabilityZone");
+            }
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder groupName(String groupName) {
-            this.groupName = Objects.requireNonNull(groupName);
+            if (groupName == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplatePlacement", "groupName");
+            }
+            this.groupName = groupName;
             return this;
         }
         @CustomType.Setter
         public Builder hostId(String hostId) {
-            this.hostId = Objects.requireNonNull(hostId);
+            if (hostId == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplatePlacement", "hostId");
+            }
+            this.hostId = hostId;
             return this;
         }
         @CustomType.Setter
         public Builder hostResourceGroupArn(String hostResourceGroupArn) {
-            this.hostResourceGroupArn = Objects.requireNonNull(hostResourceGroupArn);
+            if (hostResourceGroupArn == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplatePlacement", "hostResourceGroupArn");
+            }
+            this.hostResourceGroupArn = hostResourceGroupArn;
             return this;
         }
         @CustomType.Setter
         public Builder partitionNumber(Integer partitionNumber) {
-            this.partitionNumber = Objects.requireNonNull(partitionNumber);
+            if (partitionNumber == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplatePlacement", "partitionNumber");
+            }
+            this.partitionNumber = partitionNumber;
             return this;
         }
         @CustomType.Setter
         public Builder spreadDomain(String spreadDomain) {
-            this.spreadDomain = Objects.requireNonNull(spreadDomain);
+            if (spreadDomain == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplatePlacement", "spreadDomain");
+            }
+            this.spreadDomain = spreadDomain;
             return this;
         }
         @CustomType.Setter
         public Builder tenancy(String tenancy) {
-            this.tenancy = Objects.requireNonNull(tenancy);
+            if (tenancy == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplatePlacement", "tenancy");
+            }
+            this.tenancy = tenancy;
             return this;
         }
         public GetLaunchTemplatePlacement build() {

@@ -8,6 +8,7 @@ import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorFunction
 import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -808,10 +809,18 @@ public final class DistributionDefaultCacheBehaviorArgs extends com.pulumi.resou
         }
 
         public DistributionDefaultCacheBehaviorArgs build() {
-            $.allowedMethods = Objects.requireNonNull($.allowedMethods, "expected parameter 'allowedMethods' to be non-null");
-            $.cachedMethods = Objects.requireNonNull($.cachedMethods, "expected parameter 'cachedMethods' to be non-null");
-            $.targetOriginId = Objects.requireNonNull($.targetOriginId, "expected parameter 'targetOriginId' to be non-null");
-            $.viewerProtocolPolicy = Objects.requireNonNull($.viewerProtocolPolicy, "expected parameter 'viewerProtocolPolicy' to be non-null");
+            if ($.allowedMethods == null) {
+                throw new MissingRequiredPropertyException("DistributionDefaultCacheBehaviorArgs", "allowedMethods");
+            }
+            if ($.cachedMethods == null) {
+                throw new MissingRequiredPropertyException("DistributionDefaultCacheBehaviorArgs", "cachedMethods");
+            }
+            if ($.targetOriginId == null) {
+                throw new MissingRequiredPropertyException("DistributionDefaultCacheBehaviorArgs", "targetOriginId");
+            }
+            if ($.viewerProtocolPolicy == null) {
+                throw new MissingRequiredPropertyException("DistributionDefaultCacheBehaviorArgs", "viewerProtocolPolicy");
+            }
             return $;
         }
     }

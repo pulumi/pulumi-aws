@@ -6,6 +6,7 @@ package com.pulumi.aws.location;
 import com.pulumi.aws.location.inputs.MapConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -197,8 +198,12 @@ public final class MapArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MapArgs build() {
-            $.configuration = Objects.requireNonNull($.configuration, "expected parameter 'configuration' to be non-null");
-            $.mapName = Objects.requireNonNull($.mapName, "expected parameter 'mapName' to be non-null");
+            if ($.configuration == null) {
+                throw new MissingRequiredPropertyException("MapArgs", "configuration");
+            }
+            if ($.mapName == null) {
+                throw new MissingRequiredPropertyException("MapArgs", "mapName");
+            }
             return $;
         }
     }

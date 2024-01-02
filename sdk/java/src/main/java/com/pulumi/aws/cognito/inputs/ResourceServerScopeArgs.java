@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ResourceServerScopeArgs extends com.pulumi.resources.Resource
         }
 
         public ResourceServerScopeArgs build() {
-            $.scopeDescription = Objects.requireNonNull($.scopeDescription, "expected parameter 'scopeDescription' to be non-null");
-            $.scopeName = Objects.requireNonNull($.scopeName, "expected parameter 'scopeName' to be non-null");
+            if ($.scopeDescription == null) {
+                throw new MissingRequiredPropertyException("ResourceServerScopeArgs", "scopeDescription");
+            }
+            if ($.scopeName == null) {
+                throw new MissingRequiredPropertyException("ResourceServerScopeArgs", "scopeName");
+            }
             return $;
         }
     }

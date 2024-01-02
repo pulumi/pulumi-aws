@@ -6,6 +6,7 @@ package com.pulumi.aws.auditmanager.inputs;
 import com.pulumi.aws.auditmanager.inputs.GetFrameworkControlSetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -116,8 +117,12 @@ public final class GetFrameworkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetFrameworkArgs build() {
-            $.frameworkType = Objects.requireNonNull($.frameworkType, "expected parameter 'frameworkType' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.frameworkType == null) {
+                throw new MissingRequiredPropertyException("GetFrameworkArgs", "frameworkType");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetFrameworkArgs", "name");
+            }
             return $;
         }
     }

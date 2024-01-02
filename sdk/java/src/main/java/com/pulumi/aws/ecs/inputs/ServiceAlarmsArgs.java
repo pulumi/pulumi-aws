@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -160,9 +161,15 @@ public final class ServiceAlarmsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServiceAlarmsArgs build() {
-            $.alarmNames = Objects.requireNonNull($.alarmNames, "expected parameter 'alarmNames' to be non-null");
-            $.enable = Objects.requireNonNull($.enable, "expected parameter 'enable' to be non-null");
-            $.rollback = Objects.requireNonNull($.rollback, "expected parameter 'rollback' to be non-null");
+            if ($.alarmNames == null) {
+                throw new MissingRequiredPropertyException("ServiceAlarmsArgs", "alarmNames");
+            }
+            if ($.enable == null) {
+                throw new MissingRequiredPropertyException("ServiceAlarmsArgs", "enable");
+            }
+            if ($.rollback == null) {
+                throw new MissingRequiredPropertyException("ServiceAlarmsArgs", "rollback");
+            }
             return $;
         }
     }

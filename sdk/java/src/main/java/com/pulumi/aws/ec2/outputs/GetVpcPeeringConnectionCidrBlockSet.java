@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetVpcPeeringConnectionCidrBlockSet {
 
         @CustomType.Setter
         public Builder cidrBlock(String cidrBlock) {
-            this.cidrBlock = Objects.requireNonNull(cidrBlock);
+            if (cidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionCidrBlockSet", "cidrBlock");
+            }
+            this.cidrBlock = cidrBlock;
             return this;
         }
         public GetVpcPeeringConnectionCidrBlockSet build() {

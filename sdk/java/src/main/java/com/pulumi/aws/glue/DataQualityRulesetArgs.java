@@ -6,6 +6,7 @@ package com.pulumi.aws.glue;
 import com.pulumi.aws.glue.inputs.DataQualityRulesetTargetTableArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -226,7 +227,9 @@ public final class DataQualityRulesetArgs extends com.pulumi.resources.ResourceA
         }
 
         public DataQualityRulesetArgs build() {
-            $.ruleset = Objects.requireNonNull($.ruleset, "expected parameter 'ruleset' to be non-null");
+            if ($.ruleset == null) {
+                throw new MissingRequiredPropertyException("DataQualityRulesetArgs", "ruleset");
+            }
             return $;
         }
     }

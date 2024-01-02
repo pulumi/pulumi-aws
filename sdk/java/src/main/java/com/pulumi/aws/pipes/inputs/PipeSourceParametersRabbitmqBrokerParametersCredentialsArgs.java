@@ -5,6 +5,7 @@ package com.pulumi.aws.pipes.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs e
         }
 
         public PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs build() {
-            $.basicAuth = Objects.requireNonNull($.basicAuth, "expected parameter 'basicAuth' to be non-null");
+            if ($.basicAuth == null) {
+                throw new MissingRequiredPropertyException("PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs", "basicAuth");
+            }
             return $;
         }
     }

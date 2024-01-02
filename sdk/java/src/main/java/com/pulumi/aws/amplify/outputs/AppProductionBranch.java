@@ -86,21 +86,25 @@ public final class AppProductionBranch {
 
         @CustomType.Setter
         public Builder branchName(@Nullable String branchName) {
+
             this.branchName = branchName;
             return this;
         }
         @CustomType.Setter
         public Builder lastDeployTime(@Nullable String lastDeployTime) {
+
             this.lastDeployTime = lastDeployTime;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder thumbnailUrl(@Nullable String thumbnailUrl) {
+
             this.thumbnailUrl = thumbnailUrl;
             return this;
         }

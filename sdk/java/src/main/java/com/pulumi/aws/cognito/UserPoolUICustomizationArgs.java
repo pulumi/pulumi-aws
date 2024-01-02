@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class UserPoolUICustomizationArgs extends com.pulumi.resources.Reso
         }
 
         public UserPoolUICustomizationArgs build() {
-            $.userPoolId = Objects.requireNonNull($.userPoolId, "expected parameter 'userPoolId' to be non-null");
+            if ($.userPoolId == null) {
+                throw new MissingRequiredPropertyException("UserPoolUICustomizationArgs", "userPoolId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.dynamodb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -83,32 +84,46 @@ public final class GetTableItemResult {
 
         @CustomType.Setter
         public Builder expressionAttributeNames(@Nullable Map<String,String> expressionAttributeNames) {
+
             this.expressionAttributeNames = expressionAttributeNames;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTableItemResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder item(String item) {
-            this.item = Objects.requireNonNull(item);
+            if (item == null) {
+              throw new MissingRequiredPropertyException("GetTableItemResult", "item");
+            }
+            this.item = item;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GetTableItemResult", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder projectionExpression(@Nullable String projectionExpression) {
+
             this.projectionExpression = projectionExpression;
             return this;
         }
         @CustomType.Setter
         public Builder tableName(String tableName) {
-            this.tableName = Objects.requireNonNull(tableName);
+            if (tableName == null) {
+              throw new MissingRequiredPropertyException("GetTableItemResult", "tableName");
+            }
+            this.tableName = tableName;
             return this;
         }
         public GetTableItemResult build() {

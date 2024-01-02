@@ -7,6 +7,7 @@ import com.pulumi.aws.fis.inputs.ExperimentTemplateLogConfigurationCloudwatchLog
 import com.pulumi.aws.fis.inputs.ExperimentTemplateLogConfigurationS3ConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -152,7 +153,9 @@ public final class ExperimentTemplateLogConfigurationArgs extends com.pulumi.res
         }
 
         public ExperimentTemplateLogConfigurationArgs build() {
-            $.logSchemaVersion = Objects.requireNonNull($.logSchemaVersion, "expected parameter 'logSchemaVersion' to be non-null");
+            if ($.logSchemaVersion == null) {
+                throw new MissingRequiredPropertyException("ExperimentTemplateLogConfigurationArgs", "logSchemaVersion");
+            }
             return $;
         }
     }

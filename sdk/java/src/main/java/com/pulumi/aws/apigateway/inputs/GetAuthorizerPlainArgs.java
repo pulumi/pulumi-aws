@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetAuthorizerPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         public GetAuthorizerPlainArgs build() {
-            $.authorizerId = Objects.requireNonNull($.authorizerId, "expected parameter 'authorizerId' to be non-null");
-            $.restApiId = Objects.requireNonNull($.restApiId, "expected parameter 'restApiId' to be non-null");
+            if ($.authorizerId == null) {
+                throw new MissingRequiredPropertyException("GetAuthorizerPlainArgs", "authorizerId");
+            }
+            if ($.restApiId == null) {
+                throw new MissingRequiredPropertyException("GetAuthorizerPlainArgs", "restApiId");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.codebuild.inputs;
 import com.pulumi.aws.codebuild.inputs.ReportGroupExportConfigS3DestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class ReportGroupExportConfigArgs extends com.pulumi.resources.Reso
         }
 
         public ReportGroupExportConfigArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ReportGroupExportConfigArgs", "type");
+            }
             return $;
         }
     }

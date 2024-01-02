@@ -6,6 +6,7 @@ package com.pulumi.aws.datasync;
 import com.pulumi.aws.datasync.inputs.FsxOpenZfsFileSystemProtocolArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -237,9 +238,15 @@ public final class FsxOpenZfsFileSystemArgs extends com.pulumi.resources.Resourc
         }
 
         public FsxOpenZfsFileSystemArgs build() {
-            $.fsxFilesystemArn = Objects.requireNonNull($.fsxFilesystemArn, "expected parameter 'fsxFilesystemArn' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.securityGroupArns = Objects.requireNonNull($.securityGroupArns, "expected parameter 'securityGroupArns' to be non-null");
+            if ($.fsxFilesystemArn == null) {
+                throw new MissingRequiredPropertyException("FsxOpenZfsFileSystemArgs", "fsxFilesystemArn");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("FsxOpenZfsFileSystemArgs", "protocol");
+            }
+            if ($.securityGroupArns == null) {
+                throw new MissingRequiredPropertyException("FsxOpenZfsFileSystemArgs", "securityGroupArns");
+            }
             return $;
         }
     }

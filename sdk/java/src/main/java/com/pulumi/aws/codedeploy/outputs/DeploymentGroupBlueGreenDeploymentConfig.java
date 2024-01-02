@@ -78,16 +78,19 @@ public final class DeploymentGroupBlueGreenDeploymentConfig {
 
         @CustomType.Setter
         public Builder deploymentReadyOption(@Nullable DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption deploymentReadyOption) {
+
             this.deploymentReadyOption = deploymentReadyOption;
             return this;
         }
         @CustomType.Setter
         public Builder greenFleetProvisioningOption(@Nullable DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption greenFleetProvisioningOption) {
+
             this.greenFleetProvisioningOption = greenFleetProvisioningOption;
             return this;
         }
         @CustomType.Setter
         public Builder terminateBlueInstancesOnDeploymentSuccess(@Nullable DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess terminateBlueInstancesOnDeploymentSuccess) {
+
             this.terminateBlueInstancesOnDeploymentSuccess = terminateBlueInstancesOnDeploymentSuccess;
             return this;
         }

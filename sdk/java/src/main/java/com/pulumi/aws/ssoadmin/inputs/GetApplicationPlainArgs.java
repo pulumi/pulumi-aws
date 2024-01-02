@@ -5,6 +5,7 @@ package com.pulumi.aws.ssoadmin.inputs;
 
 import com.pulumi.aws.ssoadmin.inputs.GetApplicationPortalOption;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -104,7 +105,9 @@ public final class GetApplicationPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         public GetApplicationPlainArgs build() {
-            $.applicationArn = Objects.requireNonNull($.applicationArn, "expected parameter 'applicationArn' to be non-null");
+            if ($.applicationArn == null) {
+                throw new MissingRequiredPropertyException("GetApplicationPlainArgs", "applicationArn");
+            }
             return $;
         }
     }

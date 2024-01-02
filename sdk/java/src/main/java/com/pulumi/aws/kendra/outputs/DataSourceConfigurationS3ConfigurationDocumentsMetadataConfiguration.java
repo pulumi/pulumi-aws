@@ -44,6 +44,7 @@ public final class DataSourceConfigurationS3ConfigurationDocumentsMetadataConfig
 
         @CustomType.Setter
         public Builder s3Prefix(@Nullable String s3Prefix) {
+
             this.s3Prefix = s3Prefix;
             return this;
         }

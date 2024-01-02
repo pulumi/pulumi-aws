@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class WebAclVisibilityConfig {
 
         @CustomType.Setter
         public Builder cloudwatchMetricsEnabled(Boolean cloudwatchMetricsEnabled) {
-            this.cloudwatchMetricsEnabled = Objects.requireNonNull(cloudwatchMetricsEnabled);
+            if (cloudwatchMetricsEnabled == null) {
+              throw new MissingRequiredPropertyException("WebAclVisibilityConfig", "cloudwatchMetricsEnabled");
+            }
+            this.cloudwatchMetricsEnabled = cloudwatchMetricsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder metricName(String metricName) {
-            this.metricName = Objects.requireNonNull(metricName);
+            if (metricName == null) {
+              throw new MissingRequiredPropertyException("WebAclVisibilityConfig", "metricName");
+            }
+            this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
         public Builder sampledRequestsEnabled(Boolean sampledRequestsEnabled) {
-            this.sampledRequestsEnabled = Objects.requireNonNull(sampledRequestsEnabled);
+            if (sampledRequestsEnabled == null) {
+              throw new MissingRequiredPropertyException("WebAclVisibilityConfig", "sampledRequestsEnabled");
+            }
+            this.sampledRequestsEnabled = sampledRequestsEnabled;
             return this;
         }
         public WebAclVisibilityConfig build() {

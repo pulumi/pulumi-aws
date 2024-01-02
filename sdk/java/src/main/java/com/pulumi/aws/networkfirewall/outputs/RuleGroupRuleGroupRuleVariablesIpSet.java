@@ -5,6 +5,7 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.RuleGroupRuleGroupRuleVariablesIpSetIpSet;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,12 +58,18 @@ public final class RuleGroupRuleGroupRuleVariablesIpSet {
 
         @CustomType.Setter
         public Builder ipSet(RuleGroupRuleGroupRuleVariablesIpSetIpSet ipSet) {
-            this.ipSet = Objects.requireNonNull(ipSet);
+            if (ipSet == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRuleVariablesIpSet", "ipSet");
+            }
+            this.ipSet = ipSet;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRuleVariablesIpSet", "key");
+            }
+            this.key = key;
             return this;
         }
         public RuleGroupRuleGroupRuleVariablesIpSet build() {

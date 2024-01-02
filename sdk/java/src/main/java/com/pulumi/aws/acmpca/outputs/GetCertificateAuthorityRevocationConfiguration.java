@@ -6,6 +6,7 @@ package com.pulumi.aws.acmpca.outputs;
 import com.pulumi.aws.acmpca.outputs.GetCertificateAuthorityRevocationConfigurationCrlConfiguration;
 import com.pulumi.aws.acmpca.outputs.GetCertificateAuthorityRevocationConfigurationOcspConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetCertificateAuthorityRevocationConfiguration {
 
         @CustomType.Setter
         public Builder crlConfigurations(List<GetCertificateAuthorityRevocationConfigurationCrlConfiguration> crlConfigurations) {
-            this.crlConfigurations = Objects.requireNonNull(crlConfigurations);
+            if (crlConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetCertificateAuthorityRevocationConfiguration", "crlConfigurations");
+            }
+            this.crlConfigurations = crlConfigurations;
             return this;
         }
         public Builder crlConfigurations(GetCertificateAuthorityRevocationConfigurationCrlConfiguration... crlConfigurations) {
@@ -50,7 +54,10 @@ public final class GetCertificateAuthorityRevocationConfiguration {
         }
         @CustomType.Setter
         public Builder ocspConfigurations(List<GetCertificateAuthorityRevocationConfigurationOcspConfiguration> ocspConfigurations) {
-            this.ocspConfigurations = Objects.requireNonNull(ocspConfigurations);
+            if (ocspConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetCertificateAuthorityRevocationConfiguration", "ocspConfigurations");
+            }
+            this.ocspConfigurations = ocspConfigurations;
             return this;
         }
         public Builder ocspConfigurations(GetCertificateAuthorityRevocationConfigurationOcspConfiguration... ocspConfigurations) {

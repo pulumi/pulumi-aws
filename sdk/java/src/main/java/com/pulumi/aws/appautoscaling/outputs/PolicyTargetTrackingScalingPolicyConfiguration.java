@@ -6,6 +6,7 @@ package com.pulumi.aws.appautoscaling.outputs;
 import com.pulumi.aws.appautoscaling.outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification;
 import com.pulumi.aws.appautoscaling.outputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -118,32 +119,40 @@ public final class PolicyTargetTrackingScalingPolicyConfiguration {
 
         @CustomType.Setter
         public Builder customizedMetricSpecification(@Nullable PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification customizedMetricSpecification) {
+
             this.customizedMetricSpecification = customizedMetricSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder disableScaleIn(@Nullable Boolean disableScaleIn) {
+
             this.disableScaleIn = disableScaleIn;
             return this;
         }
         @CustomType.Setter
         public Builder predefinedMetricSpecification(@Nullable PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification predefinedMetricSpecification) {
+
             this.predefinedMetricSpecification = predefinedMetricSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder scaleInCooldown(@Nullable Integer scaleInCooldown) {
+
             this.scaleInCooldown = scaleInCooldown;
             return this;
         }
         @CustomType.Setter
         public Builder scaleOutCooldown(@Nullable Integer scaleOutCooldown) {
+
             this.scaleOutCooldown = scaleOutCooldown;
             return this;
         }
         @CustomType.Setter
         public Builder targetValue(Double targetValue) {
-            this.targetValue = Objects.requireNonNull(targetValue);
+            if (targetValue == null) {
+              throw new MissingRequiredPropertyException("PolicyTargetTrackingScalingPolicyConfiguration", "targetValue");
+            }
+            this.targetValue = targetValue;
             return this;
         }
         public PolicyTargetTrackingScalingPolicyConfiguration build() {

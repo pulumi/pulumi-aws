@@ -4,6 +4,7 @@
 package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,6 +59,7 @@ public final class SlotTypeEnumerationValue {
 
         @CustomType.Setter
         public Builder synonyms(@Nullable List<String> synonyms) {
+
             this.synonyms = synonyms;
             return this;
         }
@@ -66,7 +68,10 @@ public final class SlotTypeEnumerationValue {
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("SlotTypeEnumerationValue", "value");
+            }
+            this.value = value;
             return this;
         }
         public SlotTypeEnumerationValue build() {

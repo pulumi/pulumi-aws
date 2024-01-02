@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -189,8 +190,12 @@ public final class SpotInstanceRequestNetworkInterfaceArgs extends com.pulumi.re
         }
 
         public SpotInstanceRequestNetworkInterfaceArgs build() {
-            $.deviceIndex = Objects.requireNonNull($.deviceIndex, "expected parameter 'deviceIndex' to be non-null");
-            $.networkInterfaceId = Objects.requireNonNull($.networkInterfaceId, "expected parameter 'networkInterfaceId' to be non-null");
+            if ($.deviceIndex == null) {
+                throw new MissingRequiredPropertyException("SpotInstanceRequestNetworkInterfaceArgs", "deviceIndex");
+            }
+            if ($.networkInterfaceId == null) {
+                throw new MissingRequiredPropertyException("SpotInstanceRequestNetworkInterfaceArgs", "networkInterfaceId");
+            }
             return $;
         }
     }

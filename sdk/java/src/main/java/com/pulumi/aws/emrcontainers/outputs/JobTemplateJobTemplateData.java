@@ -6,6 +6,7 @@ package com.pulumi.aws.emrcontainers.outputs;
 import com.pulumi.aws.emrcontainers.outputs.JobTemplateJobTemplateDataConfigurationOverrides;
 import com.pulumi.aws.emrcontainers.outputs.JobTemplateJobTemplateDataJobDriver;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -103,27 +104,38 @@ public final class JobTemplateJobTemplateData {
 
         @CustomType.Setter
         public Builder configurationOverrides(@Nullable JobTemplateJobTemplateDataConfigurationOverrides configurationOverrides) {
+
             this.configurationOverrides = configurationOverrides;
             return this;
         }
         @CustomType.Setter
         public Builder executionRoleArn(String executionRoleArn) {
-            this.executionRoleArn = Objects.requireNonNull(executionRoleArn);
+            if (executionRoleArn == null) {
+              throw new MissingRequiredPropertyException("JobTemplateJobTemplateData", "executionRoleArn");
+            }
+            this.executionRoleArn = executionRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder jobDriver(JobTemplateJobTemplateDataJobDriver jobDriver) {
-            this.jobDriver = Objects.requireNonNull(jobDriver);
+            if (jobDriver == null) {
+              throw new MissingRequiredPropertyException("JobTemplateJobTemplateData", "jobDriver");
+            }
+            this.jobDriver = jobDriver;
             return this;
         }
         @CustomType.Setter
         public Builder jobTags(@Nullable Map<String,String> jobTags) {
+
             this.jobTags = jobTags;
             return this;
         }
         @CustomType.Setter
         public Builder releaseLabel(String releaseLabel) {
-            this.releaseLabel = Objects.requireNonNull(releaseLabel);
+            if (releaseLabel == null) {
+              throw new MissingRequiredPropertyException("JobTemplateJobTemplateData", "releaseLabel");
+            }
+            this.releaseLabel = releaseLabel;
             return this;
         }
         public JobTemplateJobTemplateData build() {

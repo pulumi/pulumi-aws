@@ -70,16 +70,19 @@ public final class NetworkInsightsAnalysisReturnPathComponentAclRule {
 
         @CustomType.Setter
         public Builder cidr(@Nullable String cidr) {
+
             this.cidr = cidr;
             return this;
         }
         @CustomType.Setter
         public Builder egress(@Nullable Boolean egress) {
+
             this.egress = egress;
             return this;
         }
         @CustomType.Setter
         public Builder portRanges(@Nullable List<NetworkInsightsAnalysisReturnPathComponentAclRulePortRange> portRanges) {
+
             this.portRanges = portRanges;
             return this;
         }
@@ -88,16 +91,19 @@ public final class NetworkInsightsAnalysisReturnPathComponentAclRule {
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder ruleAction(@Nullable String ruleAction) {
+
             this.ruleAction = ruleAction;
             return this;
         }
         @CustomType.Setter
         public Builder ruleNumber(@Nullable Integer ruleNumber) {
+
             this.ruleNumber = ruleNumber;
             return this;
         }

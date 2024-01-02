@@ -72,16 +72,19 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplate {
 
         @CustomType.Setter
         public Builder emailMessage(@Nullable String emailMessage) {
+
             this.emailMessage = emailMessage;
             return this;
         }
         @CustomType.Setter
         public Builder emailSubject(@Nullable String emailSubject) {
+
             this.emailSubject = emailSubject;
             return this;
         }
         @CustomType.Setter
         public Builder smsMessage(@Nullable String smsMessage) {
+
             this.smsMessage = smsMessage;
             return this;
         }

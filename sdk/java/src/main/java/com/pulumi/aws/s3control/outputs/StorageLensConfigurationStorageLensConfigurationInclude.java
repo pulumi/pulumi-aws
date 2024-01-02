@@ -58,6 +58,7 @@ public final class StorageLensConfigurationStorageLensConfigurationInclude {
 
         @CustomType.Setter
         public Builder buckets(@Nullable List<String> buckets) {
+
             this.buckets = buckets;
             return this;
         }
@@ -66,6 +67,7 @@ public final class StorageLensConfigurationStorageLensConfigurationInclude {
         }
         @CustomType.Setter
         public Builder regions(@Nullable List<String> regions) {
+
             this.regions = regions;
             return this;
         }

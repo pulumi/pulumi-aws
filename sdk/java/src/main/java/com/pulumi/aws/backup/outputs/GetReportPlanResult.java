@@ -6,6 +6,7 @@ package com.pulumi.aws.backup.outputs;
 import com.pulumi.aws.backup.outputs.GetReportPlanReportDeliveryChannel;
 import com.pulumi.aws.backup.outputs.GetReportPlanReportSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -150,37 +151,58 @@ public final class GetReportPlanResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+            if (creationTime == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanResult", "creationTime");
+            }
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
         public Builder deploymentStatus(String deploymentStatus) {
-            this.deploymentStatus = Objects.requireNonNull(deploymentStatus);
+            if (deploymentStatus == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanResult", "deploymentStatus");
+            }
+            this.deploymentStatus = deploymentStatus;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder reportDeliveryChannels(List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels) {
-            this.reportDeliveryChannels = Objects.requireNonNull(reportDeliveryChannels);
+            if (reportDeliveryChannels == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanResult", "reportDeliveryChannels");
+            }
+            this.reportDeliveryChannels = reportDeliveryChannels;
             return this;
         }
         public Builder reportDeliveryChannels(GetReportPlanReportDeliveryChannel... reportDeliveryChannels) {
@@ -188,7 +210,10 @@ public final class GetReportPlanResult {
         }
         @CustomType.Setter
         public Builder reportSettings(List<GetReportPlanReportSetting> reportSettings) {
-            this.reportSettings = Objects.requireNonNull(reportSettings);
+            if (reportSettings == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanResult", "reportSettings");
+            }
+            this.reportSettings = reportSettings;
             return this;
         }
         public Builder reportSettings(GetReportPlanReportSetting... reportSettings) {
@@ -196,7 +221,10 @@ public final class GetReportPlanResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetReportPlanResult build() {

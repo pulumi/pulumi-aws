@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class LbHttpsRedirectionPolicyArgs extends com.pulumi.resources.Res
         }
 
         public LbHttpsRedirectionPolicyArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.lbName = Objects.requireNonNull($.lbName, "expected parameter 'lbName' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("LbHttpsRedirectionPolicyArgs", "enabled");
+            }
+            if ($.lbName == null) {
+                throw new MissingRequiredPropertyException("LbHttpsRedirectionPolicyArgs", "lbName");
+            }
             return $;
         }
     }

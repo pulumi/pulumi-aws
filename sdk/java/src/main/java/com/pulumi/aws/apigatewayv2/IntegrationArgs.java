@@ -7,6 +7,7 @@ import com.pulumi.aws.apigatewayv2.inputs.IntegrationResponseParameterArgs;
 import com.pulumi.aws.apigatewayv2.inputs.IntegrationTlsConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -752,8 +753,12 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IntegrationArgs build() {
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
-            $.integrationType = Objects.requireNonNull($.integrationType, "expected parameter 'integrationType' to be non-null");
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("IntegrationArgs", "apiId");
+            }
+            if ($.integrationType == null) {
+                throw new MissingRequiredPropertyException("IntegrationArgs", "integrationType");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.opensearch;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class InboundConnectionAccepterArgs extends com.pulumi.resources.Re
         }
 
         public InboundConnectionAccepterArgs build() {
-            $.connectionId = Objects.requireNonNull($.connectionId, "expected parameter 'connectionId' to be non-null");
+            if ($.connectionId == null) {
+                throw new MissingRequiredPropertyException("InboundConnectionAccepterArgs", "connectionId");
+            }
             return $;
         }
     }

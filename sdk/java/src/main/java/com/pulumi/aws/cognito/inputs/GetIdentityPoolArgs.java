@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class GetIdentityPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetIdentityPoolArgs build() {
-            $.identityPoolName = Objects.requireNonNull($.identityPoolName, "expected parameter 'identityPoolName' to be non-null");
+            if ($.identityPoolName == null) {
+                throw new MissingRequiredPropertyException("GetIdentityPoolArgs", "identityPoolName");
+            }
             return $;
         }
     }

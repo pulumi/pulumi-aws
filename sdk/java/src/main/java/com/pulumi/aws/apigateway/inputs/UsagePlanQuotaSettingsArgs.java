@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class UsagePlanQuotaSettingsArgs extends com.pulumi.resources.Resou
         }
 
         public UsagePlanQuotaSettingsArgs build() {
-            $.limit = Objects.requireNonNull($.limit, "expected parameter 'limit' to be non-null");
-            $.period = Objects.requireNonNull($.period, "expected parameter 'period' to be non-null");
+            if ($.limit == null) {
+                throw new MissingRequiredPropertyException("UsagePlanQuotaSettingsArgs", "limit");
+            }
+            if ($.period == null) {
+                throw new MissingRequiredPropertyException("UsagePlanQuotaSettingsArgs", "period");
+            }
             return $;
         }
     }

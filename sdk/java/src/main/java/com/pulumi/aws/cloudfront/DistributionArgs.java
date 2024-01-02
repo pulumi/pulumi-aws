@@ -13,6 +13,7 @@ import com.pulumi.aws.cloudfront.inputs.DistributionRestrictionsArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionViewerCertificateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -877,11 +878,21 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DistributionArgs build() {
-            $.defaultCacheBehavior = Objects.requireNonNull($.defaultCacheBehavior, "expected parameter 'defaultCacheBehavior' to be non-null");
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.origins = Objects.requireNonNull($.origins, "expected parameter 'origins' to be non-null");
-            $.restrictions = Objects.requireNonNull($.restrictions, "expected parameter 'restrictions' to be non-null");
-            $.viewerCertificate = Objects.requireNonNull($.viewerCertificate, "expected parameter 'viewerCertificate' to be non-null");
+            if ($.defaultCacheBehavior == null) {
+                throw new MissingRequiredPropertyException("DistributionArgs", "defaultCacheBehavior");
+            }
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("DistributionArgs", "enabled");
+            }
+            if ($.origins == null) {
+                throw new MissingRequiredPropertyException("DistributionArgs", "origins");
+            }
+            if ($.restrictions == null) {
+                throw new MissingRequiredPropertyException("DistributionArgs", "restrictions");
+            }
+            if ($.viewerCertificate == null) {
+                throw new MissingRequiredPropertyException("DistributionArgs", "viewerCertificate");
+            }
             return $;
         }
     }

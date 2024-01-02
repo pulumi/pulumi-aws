@@ -44,6 +44,7 @@ public final class WorkteamNotificationConfiguration {
 
         @CustomType.Setter
         public Builder notificationTopicArn(@Nullable String notificationTopicArn) {
+
             this.notificationTopicArn = notificationTopicArn;
             return this;
         }

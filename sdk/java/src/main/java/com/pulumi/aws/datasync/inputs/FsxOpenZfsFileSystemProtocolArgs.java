@@ -6,6 +6,7 @@ package com.pulumi.aws.datasync.inputs;
 import com.pulumi.aws.datasync.inputs.FsxOpenZfsFileSystemProtocolNfsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class FsxOpenZfsFileSystemProtocolArgs extends com.pulumi.resources
         }
 
         public FsxOpenZfsFileSystemProtocolArgs build() {
-            $.nfs = Objects.requireNonNull($.nfs, "expected parameter 'nfs' to be non-null");
+            if ($.nfs == null) {
+                throw new MissingRequiredPropertyException("FsxOpenZfsFileSystemProtocolArgs", "nfs");
+            }
             return $;
         }
     }

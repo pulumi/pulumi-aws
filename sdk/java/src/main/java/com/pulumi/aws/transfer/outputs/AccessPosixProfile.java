@@ -4,6 +4,7 @@
 package com.pulumi.aws.transfer.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -72,11 +73,15 @@ public final class AccessPosixProfile {
 
         @CustomType.Setter
         public Builder gid(Integer gid) {
-            this.gid = Objects.requireNonNull(gid);
+            if (gid == null) {
+              throw new MissingRequiredPropertyException("AccessPosixProfile", "gid");
+            }
+            this.gid = gid;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryGids(@Nullable List<Integer> secondaryGids) {
+
             this.secondaryGids = secondaryGids;
             return this;
         }
@@ -85,7 +90,10 @@ public final class AccessPosixProfile {
         }
         @CustomType.Setter
         public Builder uid(Integer uid) {
-            this.uid = Objects.requireNonNull(uid);
+            if (uid == null) {
+              throw new MissingRequiredPropertyException("AccessPosixProfile", "uid");
+            }
+            this.uid = uid;
             return this;
         }
         public AccessPosixProfile build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.oam.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -94,7 +95,9 @@ public final class GetLinkArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetLinkArgs build() {
-            $.linkIdentifier = Objects.requireNonNull($.linkIdentifier, "expected parameter 'linkIdentifier' to be non-null");
+            if ($.linkIdentifier == null) {
+                throw new MissingRequiredPropertyException("GetLinkArgs", "linkIdentifier");
+            }
             return $;
         }
     }

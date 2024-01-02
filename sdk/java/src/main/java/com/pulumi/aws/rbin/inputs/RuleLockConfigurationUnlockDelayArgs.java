@@ -5,6 +5,7 @@ package com.pulumi.aws.rbin.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class RuleLockConfigurationUnlockDelayArgs extends com.pulumi.resou
         }
 
         public RuleLockConfigurationUnlockDelayArgs build() {
-            $.unlockDelayUnit = Objects.requireNonNull($.unlockDelayUnit, "expected parameter 'unlockDelayUnit' to be non-null");
-            $.unlockDelayValue = Objects.requireNonNull($.unlockDelayValue, "expected parameter 'unlockDelayValue' to be non-null");
+            if ($.unlockDelayUnit == null) {
+                throw new MissingRequiredPropertyException("RuleLockConfigurationUnlockDelayArgs", "unlockDelayUnit");
+            }
+            if ($.unlockDelayValue == null) {
+                throw new MissingRequiredPropertyException("RuleLockConfigurationUnlockDelayArgs", "unlockDelayValue");
+            }
             return $;
         }
     }

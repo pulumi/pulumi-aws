@@ -5,6 +5,7 @@ package com.pulumi.aws.chime;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -197,7 +198,9 @@ public final class VoiceConnectorArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public VoiceConnectorArgs build() {
-            $.requireEncryption = Objects.requireNonNull($.requireEncryption, "expected parameter 'requireEncryption' to be non-null");
+            if ($.requireEncryption == null) {
+                throw new MissingRequiredPropertyException("VoiceConnectorArgs", "requireEncryption");
+            }
             return $;
         }
     }

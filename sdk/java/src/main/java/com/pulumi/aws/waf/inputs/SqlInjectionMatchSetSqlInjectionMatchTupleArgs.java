@@ -6,6 +6,7 @@ package com.pulumi.aws.waf.inputs;
 import com.pulumi.aws.waf.inputs.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -128,8 +129,12 @@ public final class SqlInjectionMatchSetSqlInjectionMatchTupleArgs extends com.pu
         }
 
         public SqlInjectionMatchSetSqlInjectionMatchTupleArgs build() {
-            $.fieldToMatch = Objects.requireNonNull($.fieldToMatch, "expected parameter 'fieldToMatch' to be non-null");
-            $.textTransformation = Objects.requireNonNull($.textTransformation, "expected parameter 'textTransformation' to be non-null");
+            if ($.fieldToMatch == null) {
+                throw new MissingRequiredPropertyException("SqlInjectionMatchSetSqlInjectionMatchTupleArgs", "fieldToMatch");
+            }
+            if ($.textTransformation == null) {
+                throw new MissingRequiredPropertyException("SqlInjectionMatchSetSqlInjectionMatchTupleArgs", "textTransformation");
+            }
             return $;
         }
     }

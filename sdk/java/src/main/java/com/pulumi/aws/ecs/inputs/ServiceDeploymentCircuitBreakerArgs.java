@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ServiceDeploymentCircuitBreakerArgs extends com.pulumi.resour
         }
 
         public ServiceDeploymentCircuitBreakerArgs build() {
-            $.enable = Objects.requireNonNull($.enable, "expected parameter 'enable' to be non-null");
-            $.rollback = Objects.requireNonNull($.rollback, "expected parameter 'rollback' to be non-null");
+            if ($.enable == null) {
+                throw new MissingRequiredPropertyException("ServiceDeploymentCircuitBreakerArgs", "enable");
+            }
+            if ($.rollback == null) {
+                throw new MissingRequiredPropertyException("ServiceDeploymentCircuitBreakerArgs", "rollback");
+            }
             return $;
         }
     }

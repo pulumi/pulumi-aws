@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -60,22 +61,34 @@ public final class GetResolverFirewallConfigResult {
 
         @CustomType.Setter
         public Builder firewallFailOpen(String firewallFailOpen) {
-            this.firewallFailOpen = Objects.requireNonNull(firewallFailOpen);
+            if (firewallFailOpen == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallConfigResult", "firewallFailOpen");
+            }
+            this.firewallFailOpen = firewallFailOpen;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallConfigResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallConfigResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+            if (resourceId == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallConfigResult", "resourceId");
+            }
+            this.resourceId = resourceId;
             return this;
         }
         public GetResolverFirewallConfigResult build() {

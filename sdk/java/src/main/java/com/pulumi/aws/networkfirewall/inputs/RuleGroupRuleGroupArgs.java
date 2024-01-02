@@ -9,6 +9,7 @@ import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
 import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupStatefulRuleOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -190,7 +191,9 @@ public final class RuleGroupRuleGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         public RuleGroupRuleGroupArgs build() {
-            $.rulesSource = Objects.requireNonNull($.rulesSource, "expected parameter 'rulesSource' to be non-null");
+            if ($.rulesSource == null) {
+                throw new MissingRequiredPropertyException("RuleGroupRuleGroupArgs", "rulesSource");
+            }
             return $;
         }
     }

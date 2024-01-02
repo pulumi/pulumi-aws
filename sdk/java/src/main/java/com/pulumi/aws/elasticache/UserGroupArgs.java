@@ -5,6 +5,7 @@ package com.pulumi.aws.elasticache;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -207,8 +208,12 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserGroupArgs build() {
-            $.engine = Objects.requireNonNull($.engine, "expected parameter 'engine' to be non-null");
-            $.userGroupId = Objects.requireNonNull($.userGroupId, "expected parameter 'userGroupId' to be non-null");
+            if ($.engine == null) {
+                throw new MissingRequiredPropertyException("UserGroupArgs", "engine");
+            }
+            if ($.userGroupId == null) {
+                throw new MissingRequiredPropertyException("UserGroupArgs", "userGroupId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.licensemanager.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetReceivedLicensePlainArgs extends com.pulumi.resources.Invo
         }
 
         public GetReceivedLicensePlainArgs build() {
-            $.licenseArn = Objects.requireNonNull($.licenseArn, "expected parameter 'licenseArn' to be non-null");
+            if ($.licenseArn == null) {
+                throw new MissingRequiredPropertyException("GetReceivedLicensePlainArgs", "licenseArn");
+            }
             return $;
         }
     }

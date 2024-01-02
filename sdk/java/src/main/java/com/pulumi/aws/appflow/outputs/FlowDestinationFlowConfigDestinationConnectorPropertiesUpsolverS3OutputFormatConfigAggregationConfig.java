@@ -44,6 +44,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
 
         @CustomType.Setter
         public Builder aggregationType(@Nullable String aggregationType) {
+
             this.aggregationType = aggregationType;
             return this;
         }

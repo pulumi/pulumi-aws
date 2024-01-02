@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetExperiencePlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         public GetExperiencePlainArgs build() {
-            $.experienceId = Objects.requireNonNull($.experienceId, "expected parameter 'experienceId' to be non-null");
-            $.indexId = Objects.requireNonNull($.indexId, "expected parameter 'indexId' to be non-null");
+            if ($.experienceId == null) {
+                throw new MissingRequiredPropertyException("GetExperiencePlainArgs", "experienceId");
+            }
+            if ($.indexId == null) {
+                throw new MissingRequiredPropertyException("GetExperiencePlainArgs", "indexId");
+            }
             return $;
         }
     }

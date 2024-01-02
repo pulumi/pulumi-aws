@@ -8,6 +8,7 @@ import com.pulumi.aws.appstream.inputs.FleetDomainJoinInfoArgs;
 import com.pulumi.aws.appstream.inputs.FleetVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -682,8 +683,12 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FleetArgs build() {
-            $.computeCapacity = Objects.requireNonNull($.computeCapacity, "expected parameter 'computeCapacity' to be non-null");
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
+            if ($.computeCapacity == null) {
+                throw new MissingRequiredPropertyException("FleetArgs", "computeCapacity");
+            }
+            if ($.instanceType == null) {
+                throw new MissingRequiredPropertyException("FleetArgs", "instanceType");
+            }
             return $;
         }
     }

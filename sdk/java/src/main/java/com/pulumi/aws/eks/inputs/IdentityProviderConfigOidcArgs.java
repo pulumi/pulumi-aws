@@ -5,6 +5,7 @@ package com.pulumi.aws.eks.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -336,9 +337,15 @@ public final class IdentityProviderConfigOidcArgs extends com.pulumi.resources.R
         }
 
         public IdentityProviderConfigOidcArgs build() {
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.identityProviderConfigName = Objects.requireNonNull($.identityProviderConfigName, "expected parameter 'identityProviderConfigName' to be non-null");
-            $.issuerUrl = Objects.requireNonNull($.issuerUrl, "expected parameter 'issuerUrl' to be non-null");
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderConfigOidcArgs", "clientId");
+            }
+            if ($.identityProviderConfigName == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderConfigOidcArgs", "identityProviderConfigName");
+            }
+            if ($.issuerUrl == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderConfigOidcArgs", "issuerUrl");
+            }
             return $;
         }
     }

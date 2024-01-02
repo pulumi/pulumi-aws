@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class ThemePermissionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ThemePermissionArgs build() {
-            $.actions = Objects.requireNonNull($.actions, "expected parameter 'actions' to be non-null");
-            $.principal = Objects.requireNonNull($.principal, "expected parameter 'principal' to be non-null");
+            if ($.actions == null) {
+                throw new MissingRequiredPropertyException("ThemePermissionArgs", "actions");
+            }
+            if ($.principal == null) {
+                throw new MissingRequiredPropertyException("ThemePermissionArgs", "principal");
+            }
             return $;
         }
     }

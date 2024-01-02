@@ -58,11 +58,13 @@ public final class DeploymentConfigTrafficRoutingConfigTimeBasedCanary {
 
         @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
+
             this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder percentage(@Nullable Integer percentage) {
+
             this.percentage = percentage;
             return this;
         }

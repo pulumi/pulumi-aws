@@ -5,6 +5,7 @@ package com.pulumi.aws.vpc;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -411,8 +412,12 @@ public final class SecurityGroupIngressRuleArgs extends com.pulumi.resources.Res
         }
 
         public SecurityGroupIngressRuleArgs build() {
-            $.ipProtocol = Objects.requireNonNull($.ipProtocol, "expected parameter 'ipProtocol' to be non-null");
-            $.securityGroupId = Objects.requireNonNull($.securityGroupId, "expected parameter 'securityGroupId' to be non-null");
+            if ($.ipProtocol == null) {
+                throw new MissingRequiredPropertyException("SecurityGroupIngressRuleArgs", "ipProtocol");
+            }
+            if ($.securityGroupId == null) {
+                throw new MissingRequiredPropertyException("SecurityGroupIngressRuleArgs", "securityGroupId");
+            }
             return $;
         }
     }

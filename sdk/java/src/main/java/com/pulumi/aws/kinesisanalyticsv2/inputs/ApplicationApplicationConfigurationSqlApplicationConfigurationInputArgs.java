@@ -11,6 +11,7 @@ import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurat
 import com.pulumi.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -357,8 +358,12 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs build() {
-            $.inputSchema = Objects.requireNonNull($.inputSchema, "expected parameter 'inputSchema' to be non-null");
-            $.namePrefix = Objects.requireNonNull($.namePrefix, "expected parameter 'namePrefix' to be non-null");
+            if ($.inputSchema == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs", "inputSchema");
+            }
+            if ($.namePrefix == null) {
+                throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs", "namePrefix");
+            }
             return $;
         }
     }

@@ -74,16 +74,19 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
 
         @CustomType.Setter
         public Builder targetDocumentAttributeKey(@Nullable String targetDocumentAttributeKey) {
+
             this.targetDocumentAttributeKey = targetDocumentAttributeKey;
             return this;
         }
         @CustomType.Setter
         public Builder targetDocumentAttributeValue(@Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue targetDocumentAttributeValue) {
+
             this.targetDocumentAttributeValue = targetDocumentAttributeValue;
             return this;
         }
         @CustomType.Setter
         public Builder targetDocumentAttributeValueDeletion(@Nullable Boolean targetDocumentAttributeValueDeletion) {
+
             this.targetDocumentAttributeValueDeletion = targetDocumentAttributeValueDeletion;
             return this;
         }

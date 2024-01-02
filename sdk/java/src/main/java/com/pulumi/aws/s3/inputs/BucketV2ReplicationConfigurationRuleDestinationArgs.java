@@ -8,6 +8,7 @@ import com.pulumi.aws.s3.inputs.BucketV2ReplicationConfigurationRuleDestinationM
 import com.pulumi.aws.s3.inputs.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -336,7 +337,9 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
         }
 
         public BucketV2ReplicationConfigurationRuleDestinationArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("BucketV2ReplicationConfigurationRuleDestinationArgs", "bucket");
+            }
             return $;
         }
     }

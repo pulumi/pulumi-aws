@@ -59,6 +59,7 @@ public final class ImageImageScanningConfigurationEcrConfiguration {
 
         @CustomType.Setter
         public Builder containerTags(@Nullable List<String> containerTags) {
+
             this.containerTags = containerTags;
             return this;
         }
@@ -67,6 +68,7 @@ public final class ImageImageScanningConfigurationEcrConfiguration {
         }
         @CustomType.Setter
         public Builder repositoryName(@Nullable String repositoryName) {
+
             this.repositoryName = repositoryName;
             return this;
         }

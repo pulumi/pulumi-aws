@@ -72,16 +72,19 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatch {
 
         @CustomType.Setter
         public Builder contains(@Nullable String contains) {
+
             this.contains = contains;
             return this;
         }
         @CustomType.Setter
         public Builder exact(@Nullable String exact) {
+
             this.exact = exact;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }

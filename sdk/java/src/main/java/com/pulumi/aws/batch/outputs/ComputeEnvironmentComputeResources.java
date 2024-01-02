@@ -6,6 +6,7 @@ package com.pulumi.aws.batch.outputs;
 import com.pulumi.aws.batch.outputs.ComputeEnvironmentComputeResourcesEc2Configuration;
 import com.pulumi.aws.batch.outputs.ComputeEnvironmentComputeResourcesLaunchTemplate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -273,21 +274,25 @@ public final class ComputeEnvironmentComputeResources {
 
         @CustomType.Setter
         public Builder allocationStrategy(@Nullable String allocationStrategy) {
+
             this.allocationStrategy = allocationStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder bidPercentage(@Nullable Integer bidPercentage) {
+
             this.bidPercentage = bidPercentage;
             return this;
         }
         @CustomType.Setter
         public Builder desiredVcpus(@Nullable Integer desiredVcpus) {
+
             this.desiredVcpus = desiredVcpus;
             return this;
         }
         @CustomType.Setter
         public Builder ec2Configurations(@Nullable List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configurations) {
+
             this.ec2Configurations = ec2Configurations;
             return this;
         }
@@ -296,21 +301,25 @@ public final class ComputeEnvironmentComputeResources {
         }
         @CustomType.Setter
         public Builder ec2KeyPair(@Nullable String ec2KeyPair) {
+
             this.ec2KeyPair = ec2KeyPair;
             return this;
         }
         @CustomType.Setter
         public Builder imageId(@Nullable String imageId) {
+
             this.imageId = imageId;
             return this;
         }
         @CustomType.Setter
         public Builder instanceRole(@Nullable String instanceRole) {
+
             this.instanceRole = instanceRole;
             return this;
         }
         @CustomType.Setter
         public Builder instanceTypes(@Nullable List<String> instanceTypes) {
+
             this.instanceTypes = instanceTypes;
             return this;
         }
@@ -319,26 +328,33 @@ public final class ComputeEnvironmentComputeResources {
         }
         @CustomType.Setter
         public Builder launchTemplate(@Nullable ComputeEnvironmentComputeResourcesLaunchTemplate launchTemplate) {
+
             this.launchTemplate = launchTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder maxVcpus(Integer maxVcpus) {
-            this.maxVcpus = Objects.requireNonNull(maxVcpus);
+            if (maxVcpus == null) {
+              throw new MissingRequiredPropertyException("ComputeEnvironmentComputeResources", "maxVcpus");
+            }
+            this.maxVcpus = maxVcpus;
             return this;
         }
         @CustomType.Setter
         public Builder minVcpus(@Nullable Integer minVcpus) {
+
             this.minVcpus = minVcpus;
             return this;
         }
         @CustomType.Setter
         public Builder placementGroup(@Nullable String placementGroup) {
+
             this.placementGroup = placementGroup;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
+
             this.securityGroupIds = securityGroupIds;
             return this;
         }
@@ -347,12 +363,16 @@ public final class ComputeEnvironmentComputeResources {
         }
         @CustomType.Setter
         public Builder spotIamFleetRole(@Nullable String spotIamFleetRole) {
+
             this.spotIamFleetRole = spotIamFleetRole;
             return this;
         }
         @CustomType.Setter
         public Builder subnets(List<String> subnets) {
-            this.subnets = Objects.requireNonNull(subnets);
+            if (subnets == null) {
+              throw new MissingRequiredPropertyException("ComputeEnvironmentComputeResources", "subnets");
+            }
+            this.subnets = subnets;
             return this;
         }
         public Builder subnets(String... subnets) {
@@ -360,12 +380,16 @@ public final class ComputeEnvironmentComputeResources {
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ComputeEnvironmentComputeResources", "type");
+            }
+            this.type = type;
             return this;
         }
         public ComputeEnvironmentComputeResources build() {

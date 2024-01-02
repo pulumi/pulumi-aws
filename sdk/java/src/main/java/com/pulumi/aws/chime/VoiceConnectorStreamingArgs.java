@@ -6,6 +6,7 @@ package com.pulumi.aws.chime;
 import com.pulumi.aws.chime.inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -238,8 +239,12 @@ public final class VoiceConnectorStreamingArgs extends com.pulumi.resources.Reso
         }
 
         public VoiceConnectorStreamingArgs build() {
-            $.dataRetention = Objects.requireNonNull($.dataRetention, "expected parameter 'dataRetention' to be non-null");
-            $.voiceConnectorId = Objects.requireNonNull($.voiceConnectorId, "expected parameter 'voiceConnectorId' to be non-null");
+            if ($.dataRetention == null) {
+                throw new MissingRequiredPropertyException("VoiceConnectorStreamingArgs", "dataRetention");
+            }
+            if ($.voiceConnectorId == null) {
+                throw new MissingRequiredPropertyException("VoiceConnectorStreamingArgs", "voiceConnectorId");
+            }
             return $;
         }
     }

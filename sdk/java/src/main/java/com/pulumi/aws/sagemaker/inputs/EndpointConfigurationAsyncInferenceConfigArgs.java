@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationAsyncInferenceConfig
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationAsyncInferenceConfigOutputConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -114,7 +115,9 @@ public final class EndpointConfigurationAsyncInferenceConfigArgs extends com.pul
         }
 
         public EndpointConfigurationAsyncInferenceConfigArgs build() {
-            $.outputConfig = Objects.requireNonNull($.outputConfig, "expected parameter 'outputConfig' to be non-null");
+            if ($.outputConfig == null) {
+                throw new MissingRequiredPropertyException("EndpointConfigurationAsyncInferenceConfigArgs", "outputConfig");
+            }
             return $;
         }
     }

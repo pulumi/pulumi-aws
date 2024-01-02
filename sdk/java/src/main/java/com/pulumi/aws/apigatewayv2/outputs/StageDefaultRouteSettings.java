@@ -107,26 +107,31 @@ public final class StageDefaultRouteSettings {
 
         @CustomType.Setter
         public Builder dataTraceEnabled(@Nullable Boolean dataTraceEnabled) {
+
             this.dataTraceEnabled = dataTraceEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder detailedMetricsEnabled(@Nullable Boolean detailedMetricsEnabled) {
+
             this.detailedMetricsEnabled = detailedMetricsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder loggingLevel(@Nullable String loggingLevel) {
+
             this.loggingLevel = loggingLevel;
             return this;
         }
         @CustomType.Setter
         public Builder throttlingBurstLimit(@Nullable Integer throttlingBurstLimit) {
+
             this.throttlingBurstLimit = throttlingBurstLimit;
             return this;
         }
         @CustomType.Setter
         public Builder throttlingRateLimit(@Nullable Double throttlingRateLimit) {
+
             this.throttlingRateLimit = throttlingRateLimit;
             return this;
         }

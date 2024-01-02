@@ -4,6 +4,7 @@
 package com.pulumi.aws.codedeploy.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTraffic
 
         @CustomType.Setter
         public Builder listenerArns(List<String> listenerArns) {
-            this.listenerArns = Objects.requireNonNull(listenerArns);
+            if (listenerArns == null) {
+              throw new MissingRequiredPropertyException("DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute", "listenerArns");
+            }
+            this.listenerArns = listenerArns;
             return this;
         }
         public Builder listenerArns(String... listenerArns) {

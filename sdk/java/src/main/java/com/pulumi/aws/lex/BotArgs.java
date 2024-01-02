@@ -8,6 +8,7 @@ import com.pulumi.aws.lex.inputs.BotClarificationPromptArgs;
 import com.pulumi.aws.lex.inputs.BotIntentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -574,9 +575,15 @@ public final class BotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BotArgs build() {
-            $.abortStatement = Objects.requireNonNull($.abortStatement, "expected parameter 'abortStatement' to be non-null");
-            $.childDirected = Objects.requireNonNull($.childDirected, "expected parameter 'childDirected' to be non-null");
-            $.intents = Objects.requireNonNull($.intents, "expected parameter 'intents' to be non-null");
+            if ($.abortStatement == null) {
+                throw new MissingRequiredPropertyException("BotArgs", "abortStatement");
+            }
+            if ($.childDirected == null) {
+                throw new MissingRequiredPropertyException("BotArgs", "childDirected");
+            }
+            if ($.intents == null) {
+                throw new MissingRequiredPropertyException("BotArgs", "intents");
+            }
             return $;
         }
     }

@@ -44,6 +44,7 @@ public final class ConnectorKafkaClusterEncryptionInTransit {
 
         @CustomType.Setter
         public Builder encryptionType(@Nullable String encryptionType) {
+
             this.encryptionType = encryptionType;
             return this;
         }

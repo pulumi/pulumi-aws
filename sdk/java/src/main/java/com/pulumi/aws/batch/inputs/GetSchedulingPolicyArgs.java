@@ -5,6 +5,7 @@ package com.pulumi.aws.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class GetSchedulingPolicyArgs extends com.pulumi.resources.InvokeAr
         }
 
         public GetSchedulingPolicyArgs build() {
-            $.arn = Objects.requireNonNull($.arn, "expected parameter 'arn' to be non-null");
+            if ($.arn == null) {
+                throw new MissingRequiredPropertyException("GetSchedulingPolicyArgs", "arn");
+            }
             return $;
         }
     }

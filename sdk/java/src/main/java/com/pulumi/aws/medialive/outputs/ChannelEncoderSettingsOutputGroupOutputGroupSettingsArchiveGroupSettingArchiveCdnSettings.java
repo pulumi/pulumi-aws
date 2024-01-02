@@ -44,6 +44,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
 
         @CustomType.Setter
         public Builder archiveS3Settings(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings archiveS3Settings) {
+
             this.archiveS3Settings = archiveS3Settings;
             return this;
         }

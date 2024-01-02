@@ -5,6 +5,7 @@ package com.pulumi.aws.transfer;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -262,8 +263,12 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CertificateArgs build() {
-            $.certificate = Objects.requireNonNull($.certificate, "expected parameter 'certificate' to be non-null");
-            $.usage = Objects.requireNonNull($.usage, "expected parameter 'usage' to be non-null");
+            if ($.certificate == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "certificate");
+            }
+            if ($.usage == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "usage");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.ssmincidents.outputs;
 
 import com.pulumi.aws.ssmincidents.outputs.GetResponsePlanIntegrationPagerduty;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class GetResponsePlanIntegration {
 
         @CustomType.Setter
         public Builder pagerduties(List<GetResponsePlanIntegrationPagerduty> pagerduties) {
-            this.pagerduties = Objects.requireNonNull(pagerduties);
+            if (pagerduties == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanIntegration", "pagerduties");
+            }
+            this.pagerduties = pagerduties;
             return this;
         }
         public Builder pagerduties(GetResponsePlanIntegrationPagerduty... pagerduties) {

@@ -5,6 +5,7 @@ package com.pulumi.aws.codecatalyst;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,8 +159,12 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProjectArgs build() {
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.spaceName = Objects.requireNonNull($.spaceName, "expected parameter 'spaceName' to be non-null");
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("ProjectArgs", "displayName");
+            }
+            if ($.spaceName == null) {
+                throw new MissingRequiredPropertyException("ProjectArgs", "spaceName");
+            }
             return $;
         }
     }

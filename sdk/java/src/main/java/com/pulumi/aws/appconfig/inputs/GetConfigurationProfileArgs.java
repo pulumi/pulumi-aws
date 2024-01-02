@@ -5,6 +5,7 @@ package com.pulumi.aws.appconfig.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class GetConfigurationProfileArgs extends com.pulumi.resources.Invo
         }
 
         public GetConfigurationProfileArgs build() {
-            $.applicationId = Objects.requireNonNull($.applicationId, "expected parameter 'applicationId' to be non-null");
-            $.configurationProfileId = Objects.requireNonNull($.configurationProfileId, "expected parameter 'configurationProfileId' to be non-null");
+            if ($.applicationId == null) {
+                throw new MissingRequiredPropertyException("GetConfigurationProfileArgs", "applicationId");
+            }
+            if ($.configurationProfileId == null) {
+                throw new MissingRequiredPropertyException("GetConfigurationProfileArgs", "configurationProfileId");
+            }
             return $;
         }
     }

@@ -16,6 +16,7 @@ import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsSharingSettings
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsSpaceStorageSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsTensorBoardAppSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -267,16 +268,19 @@ public final class DomainDefaultUserSettings {
 
         @CustomType.Setter
         public Builder canvasAppSettings(@Nullable DomainDefaultUserSettingsCanvasAppSettings canvasAppSettings) {
+
             this.canvasAppSettings = canvasAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder codeEditorAppSettings(@Nullable DomainDefaultUserSettingsCodeEditorAppSettings codeEditorAppSettings) {
+
             this.codeEditorAppSettings = codeEditorAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder customFileSystemConfigs(@Nullable List<DomainDefaultUserSettingsCustomFileSystemConfig> customFileSystemConfigs) {
+
             this.customFileSystemConfigs = customFileSystemConfigs;
             return this;
         }
@@ -285,46 +289,57 @@ public final class DomainDefaultUserSettings {
         }
         @CustomType.Setter
         public Builder customPosixUserConfig(@Nullable DomainDefaultUserSettingsCustomPosixUserConfig customPosixUserConfig) {
+
             this.customPosixUserConfig = customPosixUserConfig;
             return this;
         }
         @CustomType.Setter
         public Builder defaultLandingUri(@Nullable String defaultLandingUri) {
+
             this.defaultLandingUri = defaultLandingUri;
             return this;
         }
         @CustomType.Setter
         public Builder executionRole(String executionRole) {
-            this.executionRole = Objects.requireNonNull(executionRole);
+            if (executionRole == null) {
+              throw new MissingRequiredPropertyException("DomainDefaultUserSettings", "executionRole");
+            }
+            this.executionRole = executionRole;
             return this;
         }
         @CustomType.Setter
         public Builder jupyterLabAppSettings(@Nullable DomainDefaultUserSettingsJupyterLabAppSettings jupyterLabAppSettings) {
+
             this.jupyterLabAppSettings = jupyterLabAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder jupyterServerAppSettings(@Nullable DomainDefaultUserSettingsJupyterServerAppSettings jupyterServerAppSettings) {
+
             this.jupyterServerAppSettings = jupyterServerAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder kernelGatewayAppSettings(@Nullable DomainDefaultUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings) {
+
             this.kernelGatewayAppSettings = kernelGatewayAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder rSessionAppSettings(@Nullable DomainDefaultUserSettingsRSessionAppSettings rSessionAppSettings) {
+
             this.rSessionAppSettings = rSessionAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder rStudioServerProAppSettings(@Nullable DomainDefaultUserSettingsRStudioServerProAppSettings rStudioServerProAppSettings) {
+
             this.rStudioServerProAppSettings = rStudioServerProAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
+
             this.securityGroups = securityGroups;
             return this;
         }
@@ -333,21 +348,25 @@ public final class DomainDefaultUserSettings {
         }
         @CustomType.Setter
         public Builder sharingSettings(@Nullable DomainDefaultUserSettingsSharingSettings sharingSettings) {
+
             this.sharingSettings = sharingSettings;
             return this;
         }
         @CustomType.Setter
         public Builder spaceStorageSettings(@Nullable DomainDefaultUserSettingsSpaceStorageSettings spaceStorageSettings) {
+
             this.spaceStorageSettings = spaceStorageSettings;
             return this;
         }
         @CustomType.Setter
         public Builder studioWebPortal(@Nullable String studioWebPortal) {
+
             this.studioWebPortal = studioWebPortal;
             return this;
         }
         @CustomType.Setter
         public Builder tensorBoardAppSettings(@Nullable DomainDefaultUserSettingsTensorBoardAppSettings tensorBoardAppSettings) {
+
             this.tensorBoardAppSettings = tensorBoardAppSettings;
             return this;
         }

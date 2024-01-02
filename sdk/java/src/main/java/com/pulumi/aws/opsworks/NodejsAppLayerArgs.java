@@ -8,6 +8,7 @@ import com.pulumi.aws.opsworks.inputs.NodejsAppLayerEbsVolumeArgs;
 import com.pulumi.aws.opsworks.inputs.NodejsAppLayerLoadBasedAutoScalingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -860,7 +861,9 @@ public final class NodejsAppLayerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public NodejsAppLayerArgs build() {
-            $.stackId = Objects.requireNonNull($.stackId, "expected parameter 'stackId' to be non-null");
+            if ($.stackId == null) {
+                throw new MissingRequiredPropertyException("NodejsAppLayerArgs", "stackId");
+            }
             return $;
         }
     }

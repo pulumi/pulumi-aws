@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -88,9 +89,15 @@ public final class ChannelInputSpecificationArgs extends com.pulumi.resources.Re
         }
 
         public ChannelInputSpecificationArgs build() {
-            $.codec = Objects.requireNonNull($.codec, "expected parameter 'codec' to be non-null");
-            $.inputResolution = Objects.requireNonNull($.inputResolution, "expected parameter 'inputResolution' to be non-null");
-            $.maximumBitrate = Objects.requireNonNull($.maximumBitrate, "expected parameter 'maximumBitrate' to be non-null");
+            if ($.codec == null) {
+                throw new MissingRequiredPropertyException("ChannelInputSpecificationArgs", "codec");
+            }
+            if ($.inputResolution == null) {
+                throw new MissingRequiredPropertyException("ChannelInputSpecificationArgs", "inputResolution");
+            }
+            if ($.maximumBitrate == null) {
+                throw new MissingRequiredPropertyException("ChannelInputSpecificationArgs", "maximumBitrate");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetSubnetFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -304,66 +305,103 @@ public final class GetSubnetResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder assignIpv6AddressOnCreation(Boolean assignIpv6AddressOnCreation) {
-            this.assignIpv6AddressOnCreation = Objects.requireNonNull(assignIpv6AddressOnCreation);
+            if (assignIpv6AddressOnCreation == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "assignIpv6AddressOnCreation");
+            }
+            this.assignIpv6AddressOnCreation = assignIpv6AddressOnCreation;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZone(String availabilityZone) {
-            this.availabilityZone = Objects.requireNonNull(availabilityZone);
+            if (availabilityZone == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "availabilityZone");
+            }
+            this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZoneId(String availabilityZoneId) {
-            this.availabilityZoneId = Objects.requireNonNull(availabilityZoneId);
+            if (availabilityZoneId == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "availabilityZoneId");
+            }
+            this.availabilityZoneId = availabilityZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder availableIpAddressCount(Integer availableIpAddressCount) {
-            this.availableIpAddressCount = Objects.requireNonNull(availableIpAddressCount);
+            if (availableIpAddressCount == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "availableIpAddressCount");
+            }
+            this.availableIpAddressCount = availableIpAddressCount;
             return this;
         }
         @CustomType.Setter
         public Builder cidrBlock(String cidrBlock) {
-            this.cidrBlock = Objects.requireNonNull(cidrBlock);
+            if (cidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "cidrBlock");
+            }
+            this.cidrBlock = cidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder customerOwnedIpv4Pool(String customerOwnedIpv4Pool) {
-            this.customerOwnedIpv4Pool = Objects.requireNonNull(customerOwnedIpv4Pool);
+            if (customerOwnedIpv4Pool == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "customerOwnedIpv4Pool");
+            }
+            this.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
             return this;
         }
         @CustomType.Setter
         public Builder defaultForAz(Boolean defaultForAz) {
-            this.defaultForAz = Objects.requireNonNull(defaultForAz);
+            if (defaultForAz == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "defaultForAz");
+            }
+            this.defaultForAz = defaultForAz;
             return this;
         }
         @CustomType.Setter
         public Builder enableDns64(Boolean enableDns64) {
-            this.enableDns64 = Objects.requireNonNull(enableDns64);
+            if (enableDns64 == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "enableDns64");
+            }
+            this.enableDns64 = enableDns64;
             return this;
         }
         @CustomType.Setter
         public Builder enableLniAtDeviceIndex(Integer enableLniAtDeviceIndex) {
-            this.enableLniAtDeviceIndex = Objects.requireNonNull(enableLniAtDeviceIndex);
+            if (enableLniAtDeviceIndex == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "enableLniAtDeviceIndex");
+            }
+            this.enableLniAtDeviceIndex = enableLniAtDeviceIndex;
             return this;
         }
         @CustomType.Setter
         public Builder enableResourceNameDnsARecordOnLaunch(Boolean enableResourceNameDnsARecordOnLaunch) {
-            this.enableResourceNameDnsARecordOnLaunch = Objects.requireNonNull(enableResourceNameDnsARecordOnLaunch);
+            if (enableResourceNameDnsARecordOnLaunch == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "enableResourceNameDnsARecordOnLaunch");
+            }
+            this.enableResourceNameDnsARecordOnLaunch = enableResourceNameDnsARecordOnLaunch;
             return this;
         }
         @CustomType.Setter
         public Builder enableResourceNameDnsAaaaRecordOnLaunch(Boolean enableResourceNameDnsAaaaRecordOnLaunch) {
-            this.enableResourceNameDnsAaaaRecordOnLaunch = Objects.requireNonNull(enableResourceNameDnsAaaaRecordOnLaunch);
+            if (enableResourceNameDnsAaaaRecordOnLaunch == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "enableResourceNameDnsAaaaRecordOnLaunch");
+            }
+            this.enableResourceNameDnsAaaaRecordOnLaunch = enableResourceNameDnsAaaaRecordOnLaunch;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetSubnetFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -372,62 +410,98 @@ public final class GetSubnetResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6CidrBlock(String ipv6CidrBlock) {
-            this.ipv6CidrBlock = Objects.requireNonNull(ipv6CidrBlock);
+            if (ipv6CidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "ipv6CidrBlock");
+            }
+            this.ipv6CidrBlock = ipv6CidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6CidrBlockAssociationId(String ipv6CidrBlockAssociationId) {
-            this.ipv6CidrBlockAssociationId = Objects.requireNonNull(ipv6CidrBlockAssociationId);
+            if (ipv6CidrBlockAssociationId == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "ipv6CidrBlockAssociationId");
+            }
+            this.ipv6CidrBlockAssociationId = ipv6CidrBlockAssociationId;
             return this;
         }
         @CustomType.Setter
         public Builder ipv6Native(Boolean ipv6Native) {
-            this.ipv6Native = Objects.requireNonNull(ipv6Native);
+            if (ipv6Native == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "ipv6Native");
+            }
+            this.ipv6Native = ipv6Native;
             return this;
         }
         @CustomType.Setter
         public Builder mapCustomerOwnedIpOnLaunch(Boolean mapCustomerOwnedIpOnLaunch) {
-            this.mapCustomerOwnedIpOnLaunch = Objects.requireNonNull(mapCustomerOwnedIpOnLaunch);
+            if (mapCustomerOwnedIpOnLaunch == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "mapCustomerOwnedIpOnLaunch");
+            }
+            this.mapCustomerOwnedIpOnLaunch = mapCustomerOwnedIpOnLaunch;
             return this;
         }
         @CustomType.Setter
         public Builder mapPublicIpOnLaunch(Boolean mapPublicIpOnLaunch) {
-            this.mapPublicIpOnLaunch = Objects.requireNonNull(mapPublicIpOnLaunch);
+            if (mapPublicIpOnLaunch == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "mapPublicIpOnLaunch");
+            }
+            this.mapPublicIpOnLaunch = mapPublicIpOnLaunch;
             return this;
         }
         @CustomType.Setter
         public Builder outpostArn(String outpostArn) {
-            this.outpostArn = Objects.requireNonNull(outpostArn);
+            if (outpostArn == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "outpostArn");
+            }
+            this.outpostArn = outpostArn;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder privateDnsHostnameTypeOnLaunch(String privateDnsHostnameTypeOnLaunch) {
-            this.privateDnsHostnameTypeOnLaunch = Objects.requireNonNull(privateDnsHostnameTypeOnLaunch);
+            if (privateDnsHostnameTypeOnLaunch == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "privateDnsHostnameTypeOnLaunch");
+            }
+            this.privateDnsHostnameTypeOnLaunch = privateDnsHostnameTypeOnLaunch;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetSubnetResult build() {

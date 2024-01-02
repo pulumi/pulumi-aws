@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs.outputs;
 import com.pulumi.aws.ecs.outputs.ServiceServiceConnectConfigurationLogConfiguration;
 import com.pulumi.aws.ecs.outputs.ServiceServiceConnectConfigurationService;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -90,21 +91,27 @@ public final class ServiceServiceConnectConfiguration {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("ServiceServiceConnectConfiguration", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder logConfiguration(@Nullable ServiceServiceConnectConfigurationLogConfiguration logConfiguration) {
+
             this.logConfiguration = logConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder namespace(@Nullable String namespace) {
+
             this.namespace = namespace;
             return this;
         }
         @CustomType.Setter
         public Builder services(@Nullable List<ServiceServiceConnectConfigurationService> services) {
+
             this.services = services;
             return this;
         }

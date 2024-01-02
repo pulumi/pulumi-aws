@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentStatementOperationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -162,8 +163,12 @@ public final class GetLogDataProtectionPolicyDocumentStatementArgs extends com.p
         }
 
         public GetLogDataProtectionPolicyDocumentStatementArgs build() {
-            $.dataIdentifiers = Objects.requireNonNull($.dataIdentifiers, "expected parameter 'dataIdentifiers' to be non-null");
-            $.operation = Objects.requireNonNull($.operation, "expected parameter 'operation' to be non-null");
+            if ($.dataIdentifiers == null) {
+                throw new MissingRequiredPropertyException("GetLogDataProtectionPolicyDocumentStatementArgs", "dataIdentifiers");
+            }
+            if ($.operation == null) {
+                throw new MissingRequiredPropertyException("GetLogDataProtectionPolicyDocumentStatementArgs", "operation");
+            }
             return $;
         }
     }

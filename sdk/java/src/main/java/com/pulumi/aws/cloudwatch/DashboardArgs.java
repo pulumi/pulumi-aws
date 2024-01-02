@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DashboardArgs build() {
-            $.dashboardBody = Objects.requireNonNull($.dashboardBody, "expected parameter 'dashboardBody' to be non-null");
-            $.dashboardName = Objects.requireNonNull($.dashboardName, "expected parameter 'dashboardName' to be non-null");
+            if ($.dashboardBody == null) {
+                throw new MissingRequiredPropertyException("DashboardArgs", "dashboardBody");
+            }
+            if ($.dashboardName == null) {
+                throw new MissingRequiredPropertyException("DashboardArgs", "dashboardName");
+            }
             return $;
         }
     }

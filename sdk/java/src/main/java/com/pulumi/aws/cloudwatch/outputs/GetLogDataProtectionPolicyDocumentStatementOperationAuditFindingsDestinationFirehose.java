@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
 
         @CustomType.Setter
         public Builder deliveryStream(String deliveryStream) {
-            this.deliveryStream = Objects.requireNonNull(deliveryStream);
+            if (deliveryStream == null) {
+              throw new MissingRequiredPropertyException("GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose", "deliveryStream");
+            }
+            this.deliveryStream = deliveryStream;
             return this;
         }
         public GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose build() {

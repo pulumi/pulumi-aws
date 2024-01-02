@@ -5,6 +5,7 @@ package com.pulumi.aws.codepipeline.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class CustomActionTypeOutputArtifactDetailsArgs extends com.pulumi.
         }
 
         public CustomActionTypeOutputArtifactDetailsArgs build() {
-            $.maximumCount = Objects.requireNonNull($.maximumCount, "expected parameter 'maximumCount' to be non-null");
-            $.minimumCount = Objects.requireNonNull($.minimumCount, "expected parameter 'minimumCount' to be non-null");
+            if ($.maximumCount == null) {
+                throw new MissingRequiredPropertyException("CustomActionTypeOutputArtifactDetailsArgs", "maximumCount");
+            }
+            if ($.minimumCount == null) {
+                throw new MissingRequiredPropertyException("CustomActionTypeOutputArtifactDetailsArgs", "minimumCount");
+            }
             return $;
         }
     }

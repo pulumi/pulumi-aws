@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssmcontacts.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -49,12 +50,18 @@ public final class GetPlanStageTargetContactTargetInfo {
 
         @CustomType.Setter
         public Builder contactId(String contactId) {
-            this.contactId = Objects.requireNonNull(contactId);
+            if (contactId == null) {
+              throw new MissingRequiredPropertyException("GetPlanStageTargetContactTargetInfo", "contactId");
+            }
+            this.contactId = contactId;
             return this;
         }
         @CustomType.Setter
         public Builder isEssential(Boolean isEssential) {
-            this.isEssential = Objects.requireNonNull(isEssential);
+            if (isEssential == null) {
+              throw new MissingRequiredPropertyException("GetPlanStageTargetContactTargetInfo", "isEssential");
+            }
+            this.isEssential = isEssential;
             return this;
         }
         public GetPlanStageTargetContactTargetInfo build() {

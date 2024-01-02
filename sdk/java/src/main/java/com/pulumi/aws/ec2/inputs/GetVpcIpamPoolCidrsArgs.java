@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2.inputs;
 import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolCidrsFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class GetVpcIpamPoolCidrsArgs extends com.pulumi.resources.InvokeAr
         }
 
         public GetVpcIpamPoolCidrsArgs build() {
-            $.ipamPoolId = Objects.requireNonNull($.ipamPoolId, "expected parameter 'ipamPoolId' to be non-null");
+            if ($.ipamPoolId == null) {
+                throw new MissingRequiredPropertyException("GetVpcIpamPoolCidrsArgs", "ipamPoolId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.auditmanager.outputs;
 
 import com.pulumi.aws.auditmanager.outputs.ControlControlMappingSourceSourceKeyword;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -139,41 +140,55 @@ public final class ControlControlMappingSource {
 
         @CustomType.Setter
         public Builder sourceDescription(@Nullable String sourceDescription) {
+
             this.sourceDescription = sourceDescription;
             return this;
         }
         @CustomType.Setter
         public Builder sourceFrequency(@Nullable String sourceFrequency) {
+
             this.sourceFrequency = sourceFrequency;
             return this;
         }
         @CustomType.Setter
         public Builder sourceId(@Nullable String sourceId) {
+
             this.sourceId = sourceId;
             return this;
         }
         @CustomType.Setter
         public Builder sourceKeyword(@Nullable ControlControlMappingSourceSourceKeyword sourceKeyword) {
+
             this.sourceKeyword = sourceKeyword;
             return this;
         }
         @CustomType.Setter
         public Builder sourceName(String sourceName) {
-            this.sourceName = Objects.requireNonNull(sourceName);
+            if (sourceName == null) {
+              throw new MissingRequiredPropertyException("ControlControlMappingSource", "sourceName");
+            }
+            this.sourceName = sourceName;
             return this;
         }
         @CustomType.Setter
         public Builder sourceSetUpOption(String sourceSetUpOption) {
-            this.sourceSetUpOption = Objects.requireNonNull(sourceSetUpOption);
+            if (sourceSetUpOption == null) {
+              throw new MissingRequiredPropertyException("ControlControlMappingSource", "sourceSetUpOption");
+            }
+            this.sourceSetUpOption = sourceSetUpOption;
             return this;
         }
         @CustomType.Setter
         public Builder sourceType(String sourceType) {
-            this.sourceType = Objects.requireNonNull(sourceType);
+            if (sourceType == null) {
+              throw new MissingRequiredPropertyException("ControlControlMappingSource", "sourceType");
+            }
+            this.sourceType = sourceType;
             return this;
         }
         @CustomType.Setter
         public Builder troubleshootingText(@Nullable String troubleshootingText) {
+
             this.troubleshootingText = troubleshootingText;
             return this;
         }

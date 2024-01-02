@@ -74,16 +74,19 @@ public final class BucketReplicationConfigRuleFilter {
 
         @CustomType.Setter
         public Builder and(@Nullable BucketReplicationConfigRuleFilterAnd and) {
+
             this.and = and;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder tag(@Nullable BucketReplicationConfigRuleFilterTag tag) {
+
             this.tag = tag;
             return this;
         }

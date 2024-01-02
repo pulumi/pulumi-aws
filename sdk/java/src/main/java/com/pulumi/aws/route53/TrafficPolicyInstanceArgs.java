@@ -5,6 +5,7 @@ package com.pulumi.aws.route53;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,10 +226,18 @@ public final class TrafficPolicyInstanceArgs extends com.pulumi.resources.Resour
         }
 
         public TrafficPolicyInstanceArgs build() {
-            $.hostedZoneId = Objects.requireNonNull($.hostedZoneId, "expected parameter 'hostedZoneId' to be non-null");
-            $.trafficPolicyId = Objects.requireNonNull($.trafficPolicyId, "expected parameter 'trafficPolicyId' to be non-null");
-            $.trafficPolicyVersion = Objects.requireNonNull($.trafficPolicyVersion, "expected parameter 'trafficPolicyVersion' to be non-null");
-            $.ttl = Objects.requireNonNull($.ttl, "expected parameter 'ttl' to be non-null");
+            if ($.hostedZoneId == null) {
+                throw new MissingRequiredPropertyException("TrafficPolicyInstanceArgs", "hostedZoneId");
+            }
+            if ($.trafficPolicyId == null) {
+                throw new MissingRequiredPropertyException("TrafficPolicyInstanceArgs", "trafficPolicyId");
+            }
+            if ($.trafficPolicyVersion == null) {
+                throw new MissingRequiredPropertyException("TrafficPolicyInstanceArgs", "trafficPolicyVersion");
+            }
+            if ($.ttl == null) {
+                throw new MissingRequiredPropertyException("TrafficPolicyInstanceArgs", "ttl");
+            }
             return $;
         }
     }

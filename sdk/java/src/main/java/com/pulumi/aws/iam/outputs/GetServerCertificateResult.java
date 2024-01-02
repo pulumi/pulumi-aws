@@ -4,6 +4,7 @@
 package com.pulumi.aws.iam.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -153,57 +154,84 @@ public final class GetServerCertificateResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetServerCertificateResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder certificateBody(String certificateBody) {
-            this.certificateBody = Objects.requireNonNull(certificateBody);
+            if (certificateBody == null) {
+              throw new MissingRequiredPropertyException("GetServerCertificateResult", "certificateBody");
+            }
+            this.certificateBody = certificateBody;
             return this;
         }
         @CustomType.Setter
         public Builder certificateChain(String certificateChain) {
-            this.certificateChain = Objects.requireNonNull(certificateChain);
+            if (certificateChain == null) {
+              throw new MissingRequiredPropertyException("GetServerCertificateResult", "certificateChain");
+            }
+            this.certificateChain = certificateChain;
             return this;
         }
         @CustomType.Setter
         public Builder expirationDate(String expirationDate) {
-            this.expirationDate = Objects.requireNonNull(expirationDate);
+            if (expirationDate == null) {
+              throw new MissingRequiredPropertyException("GetServerCertificateResult", "expirationDate");
+            }
+            this.expirationDate = expirationDate;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServerCertificateResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder latest(@Nullable Boolean latest) {
+
             this.latest = latest;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServerCertificateResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namePrefix(@Nullable String namePrefix) {
+
             this.namePrefix = namePrefix;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetServerCertificateResult", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder pathPrefix(@Nullable String pathPrefix) {
+
             this.pathPrefix = pathPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder uploadDate(String uploadDate) {
-            this.uploadDate = Objects.requireNonNull(uploadDate);
+            if (uploadDate == null) {
+              throw new MissingRequiredPropertyException("GetServerCertificateResult", "uploadDate");
+            }
+            this.uploadDate = uploadDate;
             return this;
         }
         public GetServerCertificateResult build() {

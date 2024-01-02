@@ -6,6 +6,7 @@ package com.pulumi.aws.iot.inputs;
 import com.pulumi.aws.iot.inputs.TopicRuleDynamodbv2PutItemArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class TopicRuleDynamodbv2Args extends com.pulumi.resources.Resource
         }
 
         public TopicRuleDynamodbv2Args build() {
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("TopicRuleDynamodbv2Args", "roleArn");
+            }
             return $;
         }
     }

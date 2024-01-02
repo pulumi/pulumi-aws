@@ -58,11 +58,13 @@ public final class ExperienceEndpoint {
 
         @CustomType.Setter
         public Builder endpoint(@Nullable String endpoint) {
+
             this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
         public Builder endpointType(@Nullable String endpointType) {
+
             this.endpointType = endpointType;
             return this;
         }

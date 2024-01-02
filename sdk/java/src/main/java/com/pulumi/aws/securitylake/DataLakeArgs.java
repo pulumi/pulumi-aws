@@ -7,6 +7,7 @@ import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationArgs;
 import com.pulumi.aws.securitylake.inputs.DataLakeTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -170,7 +171,9 @@ public final class DataLakeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DataLakeArgs build() {
-            $.metaStoreManagerRoleArn = Objects.requireNonNull($.metaStoreManagerRoleArn, "expected parameter 'metaStoreManagerRoleArn' to be non-null");
+            if ($.metaStoreManagerRoleArn == null) {
+                throw new MissingRequiredPropertyException("DataLakeArgs", "metaStoreManagerRoleArn");
+            }
             return $;
         }
     }

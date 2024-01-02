@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -199,8 +200,12 @@ public final class CrawlerDeltaTargetArgs extends com.pulumi.resources.ResourceA
         }
 
         public CrawlerDeltaTargetArgs build() {
-            $.deltaTables = Objects.requireNonNull($.deltaTables, "expected parameter 'deltaTables' to be non-null");
-            $.writeManifest = Objects.requireNonNull($.writeManifest, "expected parameter 'writeManifest' to be non-null");
+            if ($.deltaTables == null) {
+                throw new MissingRequiredPropertyException("CrawlerDeltaTargetArgs", "deltaTables");
+            }
+            if ($.writeManifest == null) {
+                throw new MissingRequiredPropertyException("CrawlerDeltaTargetArgs", "writeManifest");
+            }
             return $;
         }
     }

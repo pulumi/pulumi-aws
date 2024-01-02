@@ -5,6 +5,7 @@ package com.pulumi.aws.evidently.outputs;
 
 import com.pulumi.aws.evidently.outputs.LaunchScheduledSplitsConfigStep;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class LaunchScheduledSplitsConfig {
 
         @CustomType.Setter
         public Builder steps(List<LaunchScheduledSplitsConfigStep> steps) {
-            this.steps = Objects.requireNonNull(steps);
+            if (steps == null) {
+              throw new MissingRequiredPropertyException("LaunchScheduledSplitsConfig", "steps");
+            }
+            this.steps = steps;
             return this;
         }
         public Builder steps(LaunchScheduledSplitsConfigStep... steps) {

@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2RouteActionRewrite
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2RouteActionRewritePath;
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2RouteActionRewritePrefix;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,7 +50,10 @@ public final class GetGatewayRouteSpecHttp2RouteActionRewrite {
 
         @CustomType.Setter
         public Builder hostnames(List<GetGatewayRouteSpecHttp2RouteActionRewriteHostname> hostnames) {
-            this.hostnames = Objects.requireNonNull(hostnames);
+            if (hostnames == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttp2RouteActionRewrite", "hostnames");
+            }
+            this.hostnames = hostnames;
             return this;
         }
         public Builder hostnames(GetGatewayRouteSpecHttp2RouteActionRewriteHostname... hostnames) {
@@ -57,7 +61,10 @@ public final class GetGatewayRouteSpecHttp2RouteActionRewrite {
         }
         @CustomType.Setter
         public Builder paths(List<GetGatewayRouteSpecHttp2RouteActionRewritePath> paths) {
-            this.paths = Objects.requireNonNull(paths);
+            if (paths == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttp2RouteActionRewrite", "paths");
+            }
+            this.paths = paths;
             return this;
         }
         public Builder paths(GetGatewayRouteSpecHttp2RouteActionRewritePath... paths) {
@@ -65,7 +72,10 @@ public final class GetGatewayRouteSpecHttp2RouteActionRewrite {
         }
         @CustomType.Setter
         public Builder prefixes(List<GetGatewayRouteSpecHttp2RouteActionRewritePrefix> prefixes) {
-            this.prefixes = Objects.requireNonNull(prefixes);
+            if (prefixes == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttp2RouteActionRewrite", "prefixes");
+            }
+            this.prefixes = prefixes;
             return this;
         }
         public Builder prefixes(GetGatewayRouteSpecHttp2RouteActionRewritePrefix... prefixes) {

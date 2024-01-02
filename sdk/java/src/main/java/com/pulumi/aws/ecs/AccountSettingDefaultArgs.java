@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class AccountSettingDefaultArgs extends com.pulumi.resources.Resour
         }
 
         public AccountSettingDefaultArgs build() {
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("AccountSettingDefaultArgs", "value");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,7 +36,10 @@ public final class GetVirtualNodeSpecBackendDefault {
 
         @CustomType.Setter
         public Builder clientPolicies(List<GetVirtualNodeSpecBackendDefaultClientPolicy> clientPolicies) {
-            this.clientPolicies = Objects.requireNonNull(clientPolicies);
+            if (clientPolicies == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendDefault", "clientPolicies");
+            }
+            this.clientPolicies = clientPolicies;
             return this;
         }
         public Builder clientPolicies(GetVirtualNodeSpecBackendDefaultClientPolicy... clientPolicies) {

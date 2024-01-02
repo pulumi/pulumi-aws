@@ -11,6 +11,7 @@ import com.pulumi.aws.rds.inputs.InstanceS3ImportArgs;
 import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -2742,7 +2743,9 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public InstanceArgs build() {
-            $.instanceClass = Objects.requireNonNull($.instanceClass, "expected parameter 'instanceClass' to be non-null");
+            if ($.instanceClass == null) {
+                throw new MissingRequiredPropertyException("InstanceArgs", "instanceClass");
+            }
             return $;
         }
     }

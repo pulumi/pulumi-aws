@@ -4,6 +4,7 @@
 package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -133,32 +134,50 @@ public final class GetSubnetGroupResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetSubnetGroupResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetSubnetGroupResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSubnetGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSubnetGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetSubnetGroupResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("GetSubnetGroupResult", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -166,7 +185,10 @@ public final class GetSubnetGroupResult {
         }
         @CustomType.Setter
         public Builder supportedNetworkTypes(List<String> supportedNetworkTypes) {
-            this.supportedNetworkTypes = Objects.requireNonNull(supportedNetworkTypes);
+            if (supportedNetworkTypes == null) {
+              throw new MissingRequiredPropertyException("GetSubnetGroupResult", "supportedNetworkTypes");
+            }
+            this.supportedNetworkTypes = supportedNetworkTypes;
             return this;
         }
         public Builder supportedNetworkTypes(String... supportedNetworkTypes) {
@@ -174,7 +196,10 @@ public final class GetSubnetGroupResult {
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetSubnetGroupResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetSubnetGroupResult build() {

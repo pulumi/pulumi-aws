@@ -5,6 +5,7 @@ package com.pulumi.aws.servicediscovery;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public InstanceArgs build() {
-            $.attributes = Objects.requireNonNull($.attributes, "expected parameter 'attributes' to be non-null");
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
-            $.serviceId = Objects.requireNonNull($.serviceId, "expected parameter 'serviceId' to be non-null");
+            if ($.attributes == null) {
+                throw new MissingRequiredPropertyException("InstanceArgs", "attributes");
+            }
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("InstanceArgs", "instanceId");
+            }
+            if ($.serviceId == null) {
+                throw new MissingRequiredPropertyException("InstanceArgs", "serviceId");
+            }
             return $;
         }
     }

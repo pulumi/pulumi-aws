@@ -6,6 +6,7 @@ package com.pulumi.aws.gamelift.inputs;
 import com.pulumi.aws.gamelift.inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -106,7 +107,9 @@ public final class GameServerGroupAutoScalingPolicyArgs extends com.pulumi.resou
         }
 
         public GameServerGroupAutoScalingPolicyArgs build() {
-            $.targetTrackingConfiguration = Objects.requireNonNull($.targetTrackingConfiguration, "expected parameter 'targetTrackingConfiguration' to be non-null");
+            if ($.targetTrackingConfiguration == null) {
+                throw new MissingRequiredPropertyException("GameServerGroupAutoScalingPolicyArgs", "targetTrackingConfiguration");
+            }
             return $;
         }
     }

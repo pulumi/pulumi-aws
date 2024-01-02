@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendDefaultsClientPolicyT
 import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -114,7 +115,9 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs e
         }
 
         public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs build() {
-            $.trust = Objects.requireNonNull($.trust, "expected parameter 'trust' to be non-null");
+            if ($.trust == null) {
+                throw new MissingRequiredPropertyException("VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs", "trust");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class LaunchTemplateLicenseSpecificationArgs extends com.pulumi.res
         }
 
         public LaunchTemplateLicenseSpecificationArgs build() {
-            $.licenseConfigurationArn = Objects.requireNonNull($.licenseConfigurationArn, "expected parameter 'licenseConfigurationArn' to be non-null");
+            if ($.licenseConfigurationArn == null) {
+                throw new MissingRequiredPropertyException("LaunchTemplateLicenseSpecificationArgs", "licenseConfigurationArn");
+            }
             return $;
         }
     }

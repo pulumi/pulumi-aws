@@ -5,6 +5,7 @@ package com.pulumi.aws.appconfig.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class GetEnvironmentArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetEnvironmentArgs build() {
-            $.applicationId = Objects.requireNonNull($.applicationId, "expected parameter 'applicationId' to be non-null");
-            $.environmentId = Objects.requireNonNull($.environmentId, "expected parameter 'environmentId' to be non-null");
+            if ($.applicationId == null) {
+                throw new MissingRequiredPropertyException("GetEnvironmentArgs", "applicationId");
+            }
+            if ($.environmentId == null) {
+                throw new MissingRequiredPropertyException("GetEnvironmentArgs", "environmentId");
+            }
             return $;
         }
     }

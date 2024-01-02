@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetNetworkInsightsPathFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -199,31 +200,47 @@ public final class GetNetworkInsightsPathResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder destination(String destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder destinationArn(String destinationArn) {
-            this.destinationArn = Objects.requireNonNull(destinationArn);
+            if (destinationArn == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "destinationArn");
+            }
+            this.destinationArn = destinationArn;
             return this;
         }
         @CustomType.Setter
         public Builder destinationIp(String destinationIp) {
-            this.destinationIp = Objects.requireNonNull(destinationIp);
+            if (destinationIp == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "destinationIp");
+            }
+            this.destinationIp = destinationIp;
             return this;
         }
         @CustomType.Setter
         public Builder destinationPort(Integer destinationPort) {
-            this.destinationPort = Objects.requireNonNull(destinationPort);
+            if (destinationPort == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "destinationPort");
+            }
+            this.destinationPort = destinationPort;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetNetworkInsightsPathFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -232,37 +249,58 @@ public final class GetNetworkInsightsPathResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder networkInsightsPathId(String networkInsightsPathId) {
-            this.networkInsightsPathId = Objects.requireNonNull(networkInsightsPathId);
+            if (networkInsightsPathId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "networkInsightsPathId");
+            }
+            this.networkInsightsPathId = networkInsightsPathId;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder source(String source) {
-            this.source = Objects.requireNonNull(source);
+            if (source == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "source");
+            }
+            this.source = source;
             return this;
         }
         @CustomType.Setter
         public Builder sourceArn(String sourceArn) {
-            this.sourceArn = Objects.requireNonNull(sourceArn);
+            if (sourceArn == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "sourceArn");
+            }
+            this.sourceArn = sourceArn;
             return this;
         }
         @CustomType.Setter
         public Builder sourceIp(String sourceIp) {
-            this.sourceIp = Objects.requireNonNull(sourceIp);
+            if (sourceIp == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "sourceIp");
+            }
+            this.sourceIp = sourceIp;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetNetworkInsightsPathResult build() {

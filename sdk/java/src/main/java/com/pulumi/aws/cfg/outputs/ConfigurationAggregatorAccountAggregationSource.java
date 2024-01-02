@@ -4,6 +4,7 @@
 package com.pulumi.aws.cfg.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -78,7 +79,10 @@ public final class ConfigurationAggregatorAccountAggregationSource {
 
         @CustomType.Setter
         public Builder accountIds(List<String> accountIds) {
-            this.accountIds = Objects.requireNonNull(accountIds);
+            if (accountIds == null) {
+              throw new MissingRequiredPropertyException("ConfigurationAggregatorAccountAggregationSource", "accountIds");
+            }
+            this.accountIds = accountIds;
             return this;
         }
         public Builder accountIds(String... accountIds) {
@@ -86,11 +90,13 @@ public final class ConfigurationAggregatorAccountAggregationSource {
         }
         @CustomType.Setter
         public Builder allRegions(@Nullable Boolean allRegions) {
+
             this.allRegions = allRegions;
             return this;
         }
         @CustomType.Setter
         public Builder regions(@Nullable List<String> regions) {
+
             this.regions = regions;
             return this;
         }

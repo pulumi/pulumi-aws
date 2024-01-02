@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -91,21 +92,29 @@ public final class ServiceLoadBalancer {
 
         @CustomType.Setter
         public Builder containerName(String containerName) {
-            this.containerName = Objects.requireNonNull(containerName);
+            if (containerName == null) {
+              throw new MissingRequiredPropertyException("ServiceLoadBalancer", "containerName");
+            }
+            this.containerName = containerName;
             return this;
         }
         @CustomType.Setter
         public Builder containerPort(Integer containerPort) {
-            this.containerPort = Objects.requireNonNull(containerPort);
+            if (containerPort == null) {
+              throw new MissingRequiredPropertyException("ServiceLoadBalancer", "containerPort");
+            }
+            this.containerPort = containerPort;
             return this;
         }
         @CustomType.Setter
         public Builder elbName(@Nullable String elbName) {
+
             this.elbName = elbName;
             return this;
         }
         @CustomType.Setter
         public Builder targetGroupArn(@Nullable String targetGroupArn) {
+
             this.targetGroupArn = targetGroupArn;
             return this;
         }

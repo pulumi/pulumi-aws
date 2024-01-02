@@ -44,6 +44,7 @@ public final class ServiceHealthCheckCustomConfig {
 
         @CustomType.Setter
         public Builder failureThreshold(@Nullable Integer failureThreshold) {
+
             this.failureThreshold = failureThreshold;
             return this;
         }

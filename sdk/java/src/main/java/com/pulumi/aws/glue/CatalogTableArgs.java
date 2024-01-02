@@ -10,6 +10,7 @@ import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorArgs;
 import com.pulumi.aws.glue.inputs.CatalogTableTargetTableArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -630,7 +631,9 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CatalogTableArgs build() {
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("CatalogTableArgs", "databaseName");
+            }
             return $;
         }
     }

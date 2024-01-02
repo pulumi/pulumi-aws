@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -87,21 +88,27 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
 
         @CustomType.Setter
         public Builder associationMethod(String associationMethod) {
-            this.associationMethod = Objects.requireNonNull(associationMethod);
+            if (associationMethod == null) {
+              throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentAttachmentPolicyAction", "associationMethod");
+            }
+            this.associationMethod = associationMethod;
             return this;
         }
         @CustomType.Setter
         public Builder requireAcceptance(@Nullable Boolean requireAcceptance) {
+
             this.requireAcceptance = requireAcceptance;
             return this;
         }
         @CustomType.Setter
         public Builder segment(@Nullable String segment) {
+
             this.segment = segment;
             return this;
         }
         @CustomType.Setter
         public Builder tagValueOfKey(@Nullable String tagValueOfKey) {
+
             this.tagValueOfKey = tagValueOfKey;
             return this;
         }

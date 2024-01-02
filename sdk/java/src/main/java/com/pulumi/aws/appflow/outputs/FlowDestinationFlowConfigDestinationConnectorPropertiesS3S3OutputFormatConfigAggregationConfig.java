@@ -44,6 +44,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
 
         @CustomType.Setter
         public Builder aggregationType(@Nullable String aggregationType) {
+
             this.aggregationType = aggregationType;
             return this;
         }

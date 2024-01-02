@@ -6,6 +6,7 @@ package com.pulumi.aws.redshiftserverless;
 import com.pulumi.aws.redshiftserverless.inputs.WorkgroupConfigParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -415,8 +416,12 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkgroupArgs build() {
-            $.namespaceName = Objects.requireNonNull($.namespaceName, "expected parameter 'namespaceName' to be non-null");
-            $.workgroupName = Objects.requireNonNull($.workgroupName, "expected parameter 'workgroupName' to be non-null");
+            if ($.namespaceName == null) {
+                throw new MissingRequiredPropertyException("WorkgroupArgs", "namespaceName");
+            }
+            if ($.workgroupName == null) {
+                throw new MissingRequiredPropertyException("WorkgroupArgs", "workgroupName");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.directoryservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -106,6 +107,7 @@ public final class DirectoryConnectSettings {
 
         @CustomType.Setter
         public Builder availabilityZones(@Nullable List<String> availabilityZones) {
+
             this.availabilityZones = availabilityZones;
             return this;
         }
@@ -114,6 +116,7 @@ public final class DirectoryConnectSettings {
         }
         @CustomType.Setter
         public Builder connectIps(@Nullable List<String> connectIps) {
+
             this.connectIps = connectIps;
             return this;
         }
@@ -122,7 +125,10 @@ public final class DirectoryConnectSettings {
         }
         @CustomType.Setter
         public Builder customerDnsIps(List<String> customerDnsIps) {
-            this.customerDnsIps = Objects.requireNonNull(customerDnsIps);
+            if (customerDnsIps == null) {
+              throw new MissingRequiredPropertyException("DirectoryConnectSettings", "customerDnsIps");
+            }
+            this.customerDnsIps = customerDnsIps;
             return this;
         }
         public Builder customerDnsIps(String... customerDnsIps) {
@@ -130,12 +136,18 @@ public final class DirectoryConnectSettings {
         }
         @CustomType.Setter
         public Builder customerUsername(String customerUsername) {
-            this.customerUsername = Objects.requireNonNull(customerUsername);
+            if (customerUsername == null) {
+              throw new MissingRequiredPropertyException("DirectoryConnectSettings", "customerUsername");
+            }
+            this.customerUsername = customerUsername;
             return this;
         }
         @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
-            this.subnetIds = Objects.requireNonNull(subnetIds);
+            if (subnetIds == null) {
+              throw new MissingRequiredPropertyException("DirectoryConnectSettings", "subnetIds");
+            }
+            this.subnetIds = subnetIds;
             return this;
         }
         public Builder subnetIds(String... subnetIds) {
@@ -143,7 +155,10 @@ public final class DirectoryConnectSettings {
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("DirectoryConnectSettings", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public DirectoryConnectSettings build() {

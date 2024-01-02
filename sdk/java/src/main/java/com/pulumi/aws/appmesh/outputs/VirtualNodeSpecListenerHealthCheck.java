@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -129,37 +130,54 @@ public final class VirtualNodeSpecListenerHealthCheck {
 
         @CustomType.Setter
         public Builder healthyThreshold(Integer healthyThreshold) {
-            this.healthyThreshold = Objects.requireNonNull(healthyThreshold);
+            if (healthyThreshold == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecListenerHealthCheck", "healthyThreshold");
+            }
+            this.healthyThreshold = healthyThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder intervalMillis(Integer intervalMillis) {
-            this.intervalMillis = Objects.requireNonNull(intervalMillis);
+            if (intervalMillis == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecListenerHealthCheck", "intervalMillis");
+            }
+            this.intervalMillis = intervalMillis;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecListenerHealthCheck", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutMillis(Integer timeoutMillis) {
-            this.timeoutMillis = Objects.requireNonNull(timeoutMillis);
+            if (timeoutMillis == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecListenerHealthCheck", "timeoutMillis");
+            }
+            this.timeoutMillis = timeoutMillis;
             return this;
         }
         @CustomType.Setter
         public Builder unhealthyThreshold(Integer unhealthyThreshold) {
-            this.unhealthyThreshold = Objects.requireNonNull(unhealthyThreshold);
+            if (unhealthyThreshold == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecListenerHealthCheck", "unhealthyThreshold");
+            }
+            this.unhealthyThreshold = unhealthyThreshold;
             return this;
         }
         public VirtualNodeSpecListenerHealthCheck build() {

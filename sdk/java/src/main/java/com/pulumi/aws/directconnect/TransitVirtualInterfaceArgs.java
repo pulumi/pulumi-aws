@@ -5,6 +5,7 @@ package com.pulumi.aws.directconnect;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -490,11 +491,21 @@ public final class TransitVirtualInterfaceArgs extends com.pulumi.resources.Reso
         }
 
         public TransitVirtualInterfaceArgs build() {
-            $.addressFamily = Objects.requireNonNull($.addressFamily, "expected parameter 'addressFamily' to be non-null");
-            $.bgpAsn = Objects.requireNonNull($.bgpAsn, "expected parameter 'bgpAsn' to be non-null");
-            $.connectionId = Objects.requireNonNull($.connectionId, "expected parameter 'connectionId' to be non-null");
-            $.dxGatewayId = Objects.requireNonNull($.dxGatewayId, "expected parameter 'dxGatewayId' to be non-null");
-            $.vlan = Objects.requireNonNull($.vlan, "expected parameter 'vlan' to be non-null");
+            if ($.addressFamily == null) {
+                throw new MissingRequiredPropertyException("TransitVirtualInterfaceArgs", "addressFamily");
+            }
+            if ($.bgpAsn == null) {
+                throw new MissingRequiredPropertyException("TransitVirtualInterfaceArgs", "bgpAsn");
+            }
+            if ($.connectionId == null) {
+                throw new MissingRequiredPropertyException("TransitVirtualInterfaceArgs", "connectionId");
+            }
+            if ($.dxGatewayId == null) {
+                throw new MissingRequiredPropertyException("TransitVirtualInterfaceArgs", "dxGatewayId");
+            }
+            if ($.vlan == null) {
+                throw new MissingRequiredPropertyException("TransitVirtualInterfaceArgs", "vlan");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.inputs;
 import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsProcessingConfigurationLambdaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class AnalyticsApplicationInputsProcessingConfigurationArgs extends
         }
 
         public AnalyticsApplicationInputsProcessingConfigurationArgs build() {
-            $.lambda = Objects.requireNonNull($.lambda, "expected parameter 'lambda' to be non-null");
+            if ($.lambda == null) {
+                throw new MissingRequiredPropertyException("AnalyticsApplicationInputsProcessingConfigurationArgs", "lambda");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.batch;
 import com.pulumi.aws.batch.inputs.JobQueueTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -301,9 +302,15 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public JobQueueArgs build() {
-            $.computeEnvironments = Objects.requireNonNull($.computeEnvironments, "expected parameter 'computeEnvironments' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.state = Objects.requireNonNull($.state, "expected parameter 'state' to be non-null");
+            if ($.computeEnvironments == null) {
+                throw new MissingRequiredPropertyException("JobQueueArgs", "computeEnvironments");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("JobQueueArgs", "priority");
+            }
+            if ($.state == null) {
+                throw new MissingRequiredPropertyException("JobQueueArgs", "state");
+            }
             return $;
         }
     }

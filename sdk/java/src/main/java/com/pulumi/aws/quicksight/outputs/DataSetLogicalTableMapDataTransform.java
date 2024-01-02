@@ -134,36 +134,43 @@ public final class DataSetLogicalTableMapDataTransform {
 
         @CustomType.Setter
         public Builder castColumnTypeOperation(@Nullable DataSetLogicalTableMapDataTransformCastColumnTypeOperation castColumnTypeOperation) {
+
             this.castColumnTypeOperation = castColumnTypeOperation;
             return this;
         }
         @CustomType.Setter
         public Builder createColumnsOperation(@Nullable DataSetLogicalTableMapDataTransformCreateColumnsOperation createColumnsOperation) {
+
             this.createColumnsOperation = createColumnsOperation;
             return this;
         }
         @CustomType.Setter
         public Builder filterOperation(@Nullable DataSetLogicalTableMapDataTransformFilterOperation filterOperation) {
+
             this.filterOperation = filterOperation;
             return this;
         }
         @CustomType.Setter
         public Builder projectOperation(@Nullable DataSetLogicalTableMapDataTransformProjectOperation projectOperation) {
+
             this.projectOperation = projectOperation;
             return this;
         }
         @CustomType.Setter
         public Builder renameColumnOperation(@Nullable DataSetLogicalTableMapDataTransformRenameColumnOperation renameColumnOperation) {
+
             this.renameColumnOperation = renameColumnOperation;
             return this;
         }
         @CustomType.Setter
         public Builder tagColumnOperation(@Nullable DataSetLogicalTableMapDataTransformTagColumnOperation tagColumnOperation) {
+
             this.tagColumnOperation = tagColumnOperation;
             return this;
         }
         @CustomType.Setter
         public Builder untagColumnOperation(@Nullable DataSetLogicalTableMapDataTransformUntagColumnOperation untagColumnOperation) {
+
             this.untagColumnOperation = untagColumnOperation;
             return this;
         }

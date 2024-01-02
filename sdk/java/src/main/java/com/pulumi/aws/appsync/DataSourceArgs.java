@@ -12,6 +12,7 @@ import com.pulumi.aws.appsync.inputs.DataSourceOpensearchserviceConfigArgs;
 import com.pulumi.aws.appsync.inputs.DataSourceRelationalDatabaseConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -490,8 +491,12 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DataSourceArgs build() {
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("DataSourceArgs", "apiId");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("DataSourceArgs", "type");
+            }
             return $;
         }
     }

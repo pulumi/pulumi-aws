@@ -4,6 +4,7 @@
 package com.pulumi.aws.ses.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -115,31 +116,45 @@ public final class ReceiptRuleBounceAction {
 
         @CustomType.Setter
         public Builder message(String message) {
-            this.message = Objects.requireNonNull(message);
+            if (message == null) {
+              throw new MissingRequiredPropertyException("ReceiptRuleBounceAction", "message");
+            }
+            this.message = message;
             return this;
         }
         @CustomType.Setter
         public Builder position(Integer position) {
-            this.position = Objects.requireNonNull(position);
+            if (position == null) {
+              throw new MissingRequiredPropertyException("ReceiptRuleBounceAction", "position");
+            }
+            this.position = position;
             return this;
         }
         @CustomType.Setter
         public Builder sender(String sender) {
-            this.sender = Objects.requireNonNull(sender);
+            if (sender == null) {
+              throw new MissingRequiredPropertyException("ReceiptRuleBounceAction", "sender");
+            }
+            this.sender = sender;
             return this;
         }
         @CustomType.Setter
         public Builder smtpReplyCode(String smtpReplyCode) {
-            this.smtpReplyCode = Objects.requireNonNull(smtpReplyCode);
+            if (smtpReplyCode == null) {
+              throw new MissingRequiredPropertyException("ReceiptRuleBounceAction", "smtpReplyCode");
+            }
+            this.smtpReplyCode = smtpReplyCode;
             return this;
         }
         @CustomType.Setter
         public Builder statusCode(@Nullable String statusCode) {
+
             this.statusCode = statusCode;
             return this;
         }
         @CustomType.Setter
         public Builder topicArn(@Nullable String topicArn) {
+
             this.topicArn = topicArn;
             return this;
         }

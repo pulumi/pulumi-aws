@@ -143,41 +143,49 @@ public final class LaunchTemplatePlacement {
 
         @CustomType.Setter
         public Builder affinity(@Nullable String affinity) {
+
             this.affinity = affinity;
             return this;
         }
         @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
+
             this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder groupName(@Nullable String groupName) {
+
             this.groupName = groupName;
             return this;
         }
         @CustomType.Setter
         public Builder hostId(@Nullable String hostId) {
+
             this.hostId = hostId;
             return this;
         }
         @CustomType.Setter
         public Builder hostResourceGroupArn(@Nullable String hostResourceGroupArn) {
+
             this.hostResourceGroupArn = hostResourceGroupArn;
             return this;
         }
         @CustomType.Setter
         public Builder partitionNumber(@Nullable Integer partitionNumber) {
+
             this.partitionNumber = partitionNumber;
             return this;
         }
         @CustomType.Setter
         public Builder spreadDomain(@Nullable String spreadDomain) {
+
             this.spreadDomain = spreadDomain;
             return this;
         }
         @CustomType.Setter
         public Builder tenancy(@Nullable String tenancy) {
+
             this.tenancy = tenancy;
             return this;
         }

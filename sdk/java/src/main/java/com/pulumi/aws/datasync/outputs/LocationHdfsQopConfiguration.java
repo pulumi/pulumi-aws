@@ -58,11 +58,13 @@ public final class LocationHdfsQopConfiguration {
 
         @CustomType.Setter
         public Builder dataTransferProtection(@Nullable String dataTransferProtection) {
+
             this.dataTransferProtection = dataTransferProtection;
             return this;
         }
         @CustomType.Setter
         public Builder rpcProtection(@Nullable String rpcProtection) {
+
             this.rpcProtection = rpcProtection;
             return this;
         }

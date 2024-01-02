@@ -73,16 +73,19 @@ public final class CaCertificateRegistrationConfig {
 
         @CustomType.Setter
         public Builder roleArn(@Nullable Boolean roleArn) {
+
             this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder templateBody(@Nullable String templateBody) {
+
             this.templateBody = templateBody;
             return this;
         }
         @CustomType.Setter
         public Builder templateName(@Nullable String templateName) {
+
             this.templateName = templateName;
             return this;
         }

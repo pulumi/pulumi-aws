@@ -4,6 +4,7 @@
 package com.pulumi.aws.finspace.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class KxDataviewSegmentConfiguration {
 
         @CustomType.Setter
         public Builder dbPaths(List<String> dbPaths) {
-            this.dbPaths = Objects.requireNonNull(dbPaths);
+            if (dbPaths == null) {
+              throw new MissingRequiredPropertyException("KxDataviewSegmentConfiguration", "dbPaths");
+            }
+            this.dbPaths = dbPaths;
             return this;
         }
         public Builder dbPaths(String... dbPaths) {
@@ -65,7 +69,10 @@ public final class KxDataviewSegmentConfiguration {
         }
         @CustomType.Setter
         public Builder volumeName(String volumeName) {
-            this.volumeName = Objects.requireNonNull(volumeName);
+            if (volumeName == null) {
+              throw new MissingRequiredPropertyException("KxDataviewSegmentConfiguration", "volumeName");
+            }
+            this.volumeName = volumeName;
             return this;
         }
         public KxDataviewSegmentConfiguration build() {

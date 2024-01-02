@@ -6,6 +6,7 @@ package com.pulumi.aws.rbin.inputs;
 import com.pulumi.aws.rbin.inputs.RuleLockConfigurationUnlockDelayArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class RuleLockConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         public RuleLockConfigurationArgs build() {
-            $.unlockDelay = Objects.requireNonNull($.unlockDelay, "expected parameter 'unlockDelay' to be non-null");
+            if ($.unlockDelay == null) {
+                throw new MissingRequiredPropertyException("RuleLockConfigurationArgs", "unlockDelay");
+            }
             return $;
         }
     }

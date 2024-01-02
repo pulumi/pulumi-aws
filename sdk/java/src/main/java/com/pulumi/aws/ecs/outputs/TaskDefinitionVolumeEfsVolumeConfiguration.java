@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.aws.ecs.outputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -102,26 +103,33 @@ public final class TaskDefinitionVolumeEfsVolumeConfiguration {
 
         @CustomType.Setter
         public Builder authorizationConfig(@Nullable TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig authorizationConfig) {
+
             this.authorizationConfig = authorizationConfig;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemId(String fileSystemId) {
-            this.fileSystemId = Objects.requireNonNull(fileSystemId);
+            if (fileSystemId == null) {
+              throw new MissingRequiredPropertyException("TaskDefinitionVolumeEfsVolumeConfiguration", "fileSystemId");
+            }
+            this.fileSystemId = fileSystemId;
             return this;
         }
         @CustomType.Setter
         public Builder rootDirectory(@Nullable String rootDirectory) {
+
             this.rootDirectory = rootDirectory;
             return this;
         }
         @CustomType.Setter
         public Builder transitEncryption(@Nullable String transitEncryption) {
+
             this.transitEncryption = transitEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder transitEncryptionPort(@Nullable Integer transitEncryptionPort) {
+
             this.transitEncryptionPort = transitEncryptionPort;
             return this;
         }

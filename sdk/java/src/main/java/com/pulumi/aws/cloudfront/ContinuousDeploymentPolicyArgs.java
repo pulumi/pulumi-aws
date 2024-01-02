@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyStagingDistrib
 import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -152,7 +153,9 @@ public final class ContinuousDeploymentPolicyArgs extends com.pulumi.resources.R
         }
 
         public ContinuousDeploymentPolicyArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("ContinuousDeploymentPolicyArgs", "enabled");
+            }
             return $;
         }
     }

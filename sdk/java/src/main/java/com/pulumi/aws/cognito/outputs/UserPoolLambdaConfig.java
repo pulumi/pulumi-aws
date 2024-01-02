@@ -214,66 +214,79 @@ public final class UserPoolLambdaConfig {
 
         @CustomType.Setter
         public Builder createAuthChallenge(@Nullable String createAuthChallenge) {
+
             this.createAuthChallenge = createAuthChallenge;
             return this;
         }
         @CustomType.Setter
         public Builder customEmailSender(@Nullable UserPoolLambdaConfigCustomEmailSender customEmailSender) {
+
             this.customEmailSender = customEmailSender;
             return this;
         }
         @CustomType.Setter
         public Builder customMessage(@Nullable String customMessage) {
+
             this.customMessage = customMessage;
             return this;
         }
         @CustomType.Setter
         public Builder customSmsSender(@Nullable UserPoolLambdaConfigCustomSmsSender customSmsSender) {
+
             this.customSmsSender = customSmsSender;
             return this;
         }
         @CustomType.Setter
         public Builder defineAuthChallenge(@Nullable String defineAuthChallenge) {
+
             this.defineAuthChallenge = defineAuthChallenge;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder postAuthentication(@Nullable String postAuthentication) {
+
             this.postAuthentication = postAuthentication;
             return this;
         }
         @CustomType.Setter
         public Builder postConfirmation(@Nullable String postConfirmation) {
+
             this.postConfirmation = postConfirmation;
             return this;
         }
         @CustomType.Setter
         public Builder preAuthentication(@Nullable String preAuthentication) {
+
             this.preAuthentication = preAuthentication;
             return this;
         }
         @CustomType.Setter
         public Builder preSignUp(@Nullable String preSignUp) {
+
             this.preSignUp = preSignUp;
             return this;
         }
         @CustomType.Setter
         public Builder preTokenGeneration(@Nullable String preTokenGeneration) {
+
             this.preTokenGeneration = preTokenGeneration;
             return this;
         }
         @CustomType.Setter
         public Builder userMigration(@Nullable String userMigration) {
+
             this.userMigration = userMigration;
             return this;
         }
         @CustomType.Setter
         public Builder verifyAuthChallengeResponse(@Nullable String verifyAuthChallengeResponse) {
+
             this.verifyAuthChallengeResponse = verifyAuthChallengeResponse;
             return this;
         }

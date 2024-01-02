@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArg
         }
 
         public InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs build() {
-            $.encryptionType = Objects.requireNonNull($.encryptionType, "expected parameter 'encryptionType' to be non-null");
-            $.keyId = Objects.requireNonNull($.keyId, "expected parameter 'keyId' to be non-null");
+            if ($.encryptionType == null) {
+                throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs", "encryptionType");
+            }
+            if ($.keyId == null) {
+                throw new MissingRequiredPropertyException("InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs", "keyId");
+            }
             return $;
         }
     }

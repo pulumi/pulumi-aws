@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class DataSourceParametersPresto {
 
         @CustomType.Setter
         public Builder catalog(String catalog) {
-            this.catalog = Objects.requireNonNull(catalog);
+            if (catalog == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersPresto", "catalog");
+            }
+            this.catalog = catalog;
             return this;
         }
         @CustomType.Setter
         public Builder host(String host) {
-            this.host = Objects.requireNonNull(host);
+            if (host == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersPresto", "host");
+            }
+            this.host = host;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersPresto", "port");
+            }
+            this.port = port;
             return this;
         }
         public DataSourceParametersPresto build() {

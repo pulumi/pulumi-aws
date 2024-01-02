@@ -7,6 +7,7 @@ import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPoli
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile;
 import com.pulumi.aws.appmesh.outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,7 +50,10 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust
 
         @CustomType.Setter
         public Builder acms(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm> acms) {
-            this.acms = Objects.requireNonNull(acms);
+            if (acms == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust", "acms");
+            }
+            this.acms = acms;
             return this;
         }
         public Builder acms(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcm... acms) {
@@ -57,7 +61,10 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust
         }
         @CustomType.Setter
         public Builder files(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile> files) {
-            this.files = Objects.requireNonNull(files);
+            if (files == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust", "files");
+            }
+            this.files = files;
             return this;
         }
         public Builder files(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFile... files) {
@@ -65,7 +72,10 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust
         }
         @CustomType.Setter
         public Builder sds(List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd> sds) {
-            this.sds = Objects.requireNonNull(sds);
+            if (sds == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrust", "sds");
+            }
+            this.sds = sds;
             return this;
         }
         public Builder sds(GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd... sds) {

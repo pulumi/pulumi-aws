@@ -5,6 +5,7 @@ package com.pulumi.aws.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs extends com.pulu
         }
 
         public JobDefinitionRetryStrategyEvaluateOnExitArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("JobDefinitionRetryStrategyEvaluateOnExitArgs", "action");
+            }
             return $;
         }
     }

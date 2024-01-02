@@ -6,6 +6,7 @@ package com.pulumi.aws.cognito.outputs;
 import com.pulumi.aws.cognito.outputs.UserPoolSchemaNumberAttributeConstraints;
 import com.pulumi.aws.cognito.outputs.UserPoolSchemaStringAttributeConstraints;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -131,36 +132,47 @@ public final class UserPoolSchema {
 
         @CustomType.Setter
         public Builder attributeDataType(String attributeDataType) {
-            this.attributeDataType = Objects.requireNonNull(attributeDataType);
+            if (attributeDataType == null) {
+              throw new MissingRequiredPropertyException("UserPoolSchema", "attributeDataType");
+            }
+            this.attributeDataType = attributeDataType;
             return this;
         }
         @CustomType.Setter
         public Builder developerOnlyAttribute(@Nullable Boolean developerOnlyAttribute) {
+
             this.developerOnlyAttribute = developerOnlyAttribute;
             return this;
         }
         @CustomType.Setter
         public Builder mutable(@Nullable Boolean mutable) {
+
             this.mutable = mutable;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("UserPoolSchema", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder numberAttributeConstraints(@Nullable UserPoolSchemaNumberAttributeConstraints numberAttributeConstraints) {
+
             this.numberAttributeConstraints = numberAttributeConstraints;
             return this;
         }
         @CustomType.Setter
         public Builder required(@Nullable Boolean required) {
+
             this.required = required;
             return this;
         }
         @CustomType.Setter
         public Builder stringAttributeConstraints(@Nullable UserPoolSchemaStringAttributeConstraints stringAttributeConstraints) {
+
             this.stringAttributeConstraints = stringAttributeConstraints;
             return this;
         }

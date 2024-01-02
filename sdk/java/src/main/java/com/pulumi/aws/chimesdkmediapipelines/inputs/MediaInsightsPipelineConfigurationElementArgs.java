@@ -13,6 +13,7 @@ import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigu
 import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -380,7 +381,9 @@ public final class MediaInsightsPipelineConfigurationElementArgs extends com.pul
         }
 
         public MediaInsightsPipelineConfigurationElementArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("MediaInsightsPipelineConfigurationElementArgs", "type");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.aws.servicecatalog;
 import com.pulumi.aws.servicecatalog.inputs.ServiceActionDefinitionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -196,7 +197,9 @@ public final class ServiceActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServiceActionArgs build() {
-            $.definition = Objects.requireNonNull($.definition, "expected parameter 'definition' to be non-null");
+            if ($.definition == null) {
+                throw new MissingRequiredPropertyException("ServiceActionArgs", "definition");
+            }
             return $;
         }
     }

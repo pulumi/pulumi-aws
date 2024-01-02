@@ -4,6 +4,7 @@
 package com.pulumi.aws.appstream.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class DirectoryConfigServiceAccountCredentials {
 
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("DirectoryConfigServiceAccountCredentials", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder accountPassword(String accountPassword) {
-            this.accountPassword = Objects.requireNonNull(accountPassword);
+            if (accountPassword == null) {
+              throw new MissingRequiredPropertyException("DirectoryConfigServiceAccountCredentials", "accountPassword");
+            }
+            this.accountPassword = accountPassword;
             return this;
         }
         public DirectoryConfigServiceAccountCredentials build() {

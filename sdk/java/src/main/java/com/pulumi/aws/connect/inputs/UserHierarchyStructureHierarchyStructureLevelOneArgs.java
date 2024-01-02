@@ -5,6 +5,7 @@ package com.pulumi.aws.connect.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class UserHierarchyStructureHierarchyStructureLevelOneArgs extends 
         }
 
         public UserHierarchyStructureHierarchyStructureLevelOneArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("UserHierarchyStructureHierarchyStructureLevelOneArgs", "name");
+            }
             return $;
         }
     }

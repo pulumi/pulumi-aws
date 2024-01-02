@@ -89,6 +89,7 @@ public final class AnalysisParameters {
 
         @CustomType.Setter
         public Builder dateTimeParameters(@Nullable List<AnalysisParametersDateTimeParameter> dateTimeParameters) {
+
             this.dateTimeParameters = dateTimeParameters;
             return this;
         }
@@ -97,6 +98,7 @@ public final class AnalysisParameters {
         }
         @CustomType.Setter
         public Builder decimalParameters(@Nullable List<AnalysisParametersDecimalParameter> decimalParameters) {
+
             this.decimalParameters = decimalParameters;
             return this;
         }
@@ -105,6 +107,7 @@ public final class AnalysisParameters {
         }
         @CustomType.Setter
         public Builder integerParameters(@Nullable List<AnalysisParametersIntegerParameter> integerParameters) {
+
             this.integerParameters = integerParameters;
             return this;
         }
@@ -113,6 +116,7 @@ public final class AnalysisParameters {
         }
         @CustomType.Setter
         public Builder stringParameters(@Nullable List<AnalysisParametersStringParameter> stringParameters) {
+
             this.stringParameters = stringParameters;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.aws.appsync.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class DataSourceDynamodbConfigDeltaSyncConfigArgs extends com.pulum
         }
 
         public DataSourceDynamodbConfigDeltaSyncConfigArgs build() {
-            $.deltaSyncTableName = Objects.requireNonNull($.deltaSyncTableName, "expected parameter 'deltaSyncTableName' to be non-null");
+            if ($.deltaSyncTableName == null) {
+                throw new MissingRequiredPropertyException("DataSourceDynamodbConfigDeltaSyncConfigArgs", "deltaSyncTableName");
+            }
             return $;
         }
     }

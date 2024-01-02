@@ -44,6 +44,7 @@ public final class DashboardDashboardPublishOptionsDataPointDrillUpDownOption {
 
         @CustomType.Setter
         public Builder availabilityStatus(@Nullable String availabilityStatus) {
+
             this.availabilityStatus = availabilityStatus;
             return this;
         }

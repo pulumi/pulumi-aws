@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateBlockDeviceMappingEb;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -54,12 +55,18 @@ public final class GetLaunchTemplateBlockDeviceMapping {
 
         @CustomType.Setter
         public Builder deviceName(String deviceName) {
-            this.deviceName = Objects.requireNonNull(deviceName);
+            if (deviceName == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateBlockDeviceMapping", "deviceName");
+            }
+            this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder ebs(List<GetLaunchTemplateBlockDeviceMappingEb> ebs) {
-            this.ebs = Objects.requireNonNull(ebs);
+            if (ebs == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateBlockDeviceMapping", "ebs");
+            }
+            this.ebs = ebs;
             return this;
         }
         public Builder ebs(GetLaunchTemplateBlockDeviceMappingEb... ebs) {
@@ -67,12 +74,18 @@ public final class GetLaunchTemplateBlockDeviceMapping {
         }
         @CustomType.Setter
         public Builder noDevice(String noDevice) {
-            this.noDevice = Objects.requireNonNull(noDevice);
+            if (noDevice == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateBlockDeviceMapping", "noDevice");
+            }
+            this.noDevice = noDevice;
             return this;
         }
         @CustomType.Setter
         public Builder virtualName(String virtualName) {
-            this.virtualName = Objects.requireNonNull(virtualName);
+            if (virtualName == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateBlockDeviceMapping", "virtualName");
+            }
+            this.virtualName = virtualName;
             return this;
         }
         public GetLaunchTemplateBlockDeviceMapping build() {

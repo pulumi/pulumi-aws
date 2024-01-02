@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomK
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementForwardedIpConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatement;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -105,11 +106,13 @@ public final class WebAclRuleStatementRateBasedStatement {
 
         @CustomType.Setter
         public Builder aggregateKeyType(@Nullable String aggregateKeyType) {
+
             this.aggregateKeyType = aggregateKeyType;
             return this;
         }
         @CustomType.Setter
         public Builder customKeys(@Nullable List<WebAclRuleStatementRateBasedStatementCustomKey> customKeys) {
+
             this.customKeys = customKeys;
             return this;
         }
@@ -118,16 +121,21 @@ public final class WebAclRuleStatementRateBasedStatement {
         }
         @CustomType.Setter
         public Builder forwardedIpConfig(@Nullable WebAclRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig) {
+
             this.forwardedIpConfig = forwardedIpConfig;
             return this;
         }
         @CustomType.Setter
         public Builder limit(Integer limit) {
-            this.limit = Objects.requireNonNull(limit);
+            if (limit == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatement", "limit");
+            }
+            this.limit = limit;
             return this;
         }
         @CustomType.Setter
         public Builder scopeDownStatement(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement) {
+
             this.scopeDownStatement = scopeDownStatement;
             return this;
         }

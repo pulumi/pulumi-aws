@@ -59,11 +59,13 @@ public final class SpaceSpaceSettings {
 
         @CustomType.Setter
         public Builder jupyterServerAppSettings(@Nullable SpaceSpaceSettingsJupyterServerAppSettings jupyterServerAppSettings) {
+
             this.jupyterServerAppSettings = jupyterServerAppSettings;
             return this;
         }
         @CustomType.Setter
         public Builder kernelGatewayAppSettings(@Nullable SpaceSpaceSettingsKernelGatewayAppSettings kernelGatewayAppSettings) {
+
             this.kernelGatewayAppSettings = kernelGatewayAppSettings;
             return this;
         }

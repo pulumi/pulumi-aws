@@ -6,6 +6,7 @@ package com.pulumi.aws.devicefarm;
 import com.pulumi.aws.devicefarm.inputs.DevicePoolRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -275,8 +276,12 @@ public final class DevicePoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DevicePoolArgs build() {
-            $.projectArn = Objects.requireNonNull($.projectArn, "expected parameter 'projectArn' to be non-null");
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
+            if ($.projectArn == null) {
+                throw new MissingRequiredPropertyException("DevicePoolArgs", "projectArn");
+            }
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("DevicePoolArgs", "rules");
+            }
             return $;
         }
     }

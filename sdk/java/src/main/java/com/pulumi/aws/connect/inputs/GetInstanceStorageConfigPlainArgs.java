@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -117,9 +118,15 @@ public final class GetInstanceStorageConfigPlainArgs extends com.pulumi.resource
         }
 
         public GetInstanceStorageConfigPlainArgs build() {
-            $.associationId = Objects.requireNonNull($.associationId, "expected parameter 'associationId' to be non-null");
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
-            $.resourceType = Objects.requireNonNull($.resourceType, "expected parameter 'resourceType' to be non-null");
+            if ($.associationId == null) {
+                throw new MissingRequiredPropertyException("GetInstanceStorageConfigPlainArgs", "associationId");
+            }
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("GetInstanceStorageConfigPlainArgs", "instanceId");
+            }
+            if ($.resourceType == null) {
+                throw new MissingRequiredPropertyException("GetInstanceStorageConfigPlainArgs", "resourceType");
+            }
             return $;
         }
     }

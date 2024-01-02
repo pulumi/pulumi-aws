@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -72,7 +73,10 @@ public final class GetCatalogTableStorageDescriptorSkewedInfo {
 
         @CustomType.Setter
         public Builder skewedColumnNames(List<String> skewedColumnNames) {
-            this.skewedColumnNames = Objects.requireNonNull(skewedColumnNames);
+            if (skewedColumnNames == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptorSkewedInfo", "skewedColumnNames");
+            }
+            this.skewedColumnNames = skewedColumnNames;
             return this;
         }
         public Builder skewedColumnNames(String... skewedColumnNames) {
@@ -80,12 +84,18 @@ public final class GetCatalogTableStorageDescriptorSkewedInfo {
         }
         @CustomType.Setter
         public Builder skewedColumnValueLocationMaps(Map<String,String> skewedColumnValueLocationMaps) {
-            this.skewedColumnValueLocationMaps = Objects.requireNonNull(skewedColumnValueLocationMaps);
+            if (skewedColumnValueLocationMaps == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptorSkewedInfo", "skewedColumnValueLocationMaps");
+            }
+            this.skewedColumnValueLocationMaps = skewedColumnValueLocationMaps;
             return this;
         }
         @CustomType.Setter
         public Builder skewedColumnValues(List<String> skewedColumnValues) {
-            this.skewedColumnValues = Objects.requireNonNull(skewedColumnValues);
+            if (skewedColumnValues == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptorSkewedInfo", "skewedColumnValues");
+            }
+            this.skewedColumnValues = skewedColumnValues;
             return this;
         }
         public Builder skewedColumnValues(String... skewedColumnValues) {

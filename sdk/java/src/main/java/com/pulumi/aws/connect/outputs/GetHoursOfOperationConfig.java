@@ -6,6 +6,7 @@ package com.pulumi.aws.connect.outputs;
 import com.pulumi.aws.connect.outputs.GetHoursOfOperationConfigEndTime;
 import com.pulumi.aws.connect.outputs.GetHoursOfOperationConfigStartTime;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,12 +74,18 @@ public final class GetHoursOfOperationConfig {
 
         @CustomType.Setter
         public Builder day(String day) {
-            this.day = Objects.requireNonNull(day);
+            if (day == null) {
+              throw new MissingRequiredPropertyException("GetHoursOfOperationConfig", "day");
+            }
+            this.day = day;
             return this;
         }
         @CustomType.Setter
         public Builder endTimes(List<GetHoursOfOperationConfigEndTime> endTimes) {
-            this.endTimes = Objects.requireNonNull(endTimes);
+            if (endTimes == null) {
+              throw new MissingRequiredPropertyException("GetHoursOfOperationConfig", "endTimes");
+            }
+            this.endTimes = endTimes;
             return this;
         }
         public Builder endTimes(GetHoursOfOperationConfigEndTime... endTimes) {
@@ -86,7 +93,10 @@ public final class GetHoursOfOperationConfig {
         }
         @CustomType.Setter
         public Builder startTimes(List<GetHoursOfOperationConfigStartTime> startTimes) {
-            this.startTimes = Objects.requireNonNull(startTimes);
+            if (startTimes == null) {
+              throw new MissingRequiredPropertyException("GetHoursOfOperationConfig", "startTimes");
+            }
+            this.startTimes = startTimes;
             return this;
         }
         public Builder startTimes(GetHoursOfOperationConfigStartTime... startTimes) {

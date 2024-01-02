@@ -58,11 +58,13 @@ public final class ComputeEnvironmentComputeResourcesEc2Configuration {
 
         @CustomType.Setter
         public Builder imageIdOverride(@Nullable String imageIdOverride) {
+
             this.imageIdOverride = imageIdOverride;
             return this;
         }
         @CustomType.Setter
         public Builder imageType(@Nullable String imageType) {
+
             this.imageType = imageType;
             return this;
         }

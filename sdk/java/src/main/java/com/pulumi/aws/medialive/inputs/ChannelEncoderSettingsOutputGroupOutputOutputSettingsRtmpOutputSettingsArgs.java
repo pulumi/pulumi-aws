@@ -6,6 +6,7 @@ package com.pulumi.aws.medialive.inputs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -189,7 +190,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
         }
 
         public ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs", "destination");
+            }
             return $;
         }
     }

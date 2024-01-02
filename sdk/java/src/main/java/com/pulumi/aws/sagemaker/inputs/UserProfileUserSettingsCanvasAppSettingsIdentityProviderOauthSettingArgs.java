@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauth
         }
 
         public UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs build() {
-            $.secretArn = Objects.requireNonNull($.secretArn, "expected parameter 'secretArn' to be non-null");
+            if ($.secretArn == null) {
+                throw new MissingRequiredPropertyException("UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs", "secretArn");
+            }
             return $;
         }
     }

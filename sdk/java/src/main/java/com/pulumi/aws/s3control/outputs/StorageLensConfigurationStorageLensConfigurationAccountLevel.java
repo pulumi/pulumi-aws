@@ -9,6 +9,7 @@ import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfi
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel;
 import com.pulumi.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -104,26 +105,33 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevel 
 
         @CustomType.Setter
         public Builder activityMetrics(@Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics activityMetrics) {
+
             this.activityMetrics = activityMetrics;
             return this;
         }
         @CustomType.Setter
         public Builder advancedCostOptimizationMetrics(@Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics advancedCostOptimizationMetrics) {
+
             this.advancedCostOptimizationMetrics = advancedCostOptimizationMetrics;
             return this;
         }
         @CustomType.Setter
         public Builder advancedDataProtectionMetrics(@Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics advancedDataProtectionMetrics) {
+
             this.advancedDataProtectionMetrics = advancedDataProtectionMetrics;
             return this;
         }
         @CustomType.Setter
         public Builder bucketLevel(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel bucketLevel) {
-            this.bucketLevel = Objects.requireNonNull(bucketLevel);
+            if (bucketLevel == null) {
+              throw new MissingRequiredPropertyException("StorageLensConfigurationStorageLensConfigurationAccountLevel", "bucketLevel");
+            }
+            this.bucketLevel = bucketLevel;
             return this;
         }
         @CustomType.Setter
         public Builder detailedStatusCodeMetrics(@Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics detailedStatusCodeMetrics) {
+
             this.detailedStatusCodeMetrics = detailedStatusCodeMetrics;
             return this;
         }

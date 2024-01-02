@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -196,7 +197,9 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
         }
 
         public TaskSetLoadBalancerArgs build() {
-            $.containerName = Objects.requireNonNull($.containerName, "expected parameter 'containerName' to be non-null");
+            if ($.containerName == null) {
+                throw new MissingRequiredPropertyException("TaskSetLoadBalancerArgs", "containerName");
+            }
             return $;
         }
     }

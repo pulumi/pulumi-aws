@@ -6,6 +6,7 @@ package com.pulumi.aws.s3control;
 import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -189,8 +190,12 @@ public final class StorageLensConfigurationArgs extends com.pulumi.resources.Res
         }
 
         public StorageLensConfigurationArgs build() {
-            $.configId = Objects.requireNonNull($.configId, "expected parameter 'configId' to be non-null");
-            $.storageLensConfiguration = Objects.requireNonNull($.storageLensConfiguration, "expected parameter 'storageLensConfiguration' to be non-null");
+            if ($.configId == null) {
+                throw new MissingRequiredPropertyException("StorageLensConfigurationArgs", "configId");
+            }
+            if ($.storageLensConfiguration == null) {
+                throw new MissingRequiredPropertyException("StorageLensConfigurationArgs", "storageLensConfiguration");
+            }
             return $;
         }
     }

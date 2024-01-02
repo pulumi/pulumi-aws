@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class InputSecurityGroupWhitelistRuleArgs extends com.pulumi.resour
         }
 
         public InputSecurityGroupWhitelistRuleArgs build() {
-            $.cidr = Objects.requireNonNull($.cidr, "expected parameter 'cidr' to be non-null");
+            if ($.cidr == null) {
+                throw new MissingRequiredPropertyException("InputSecurityGroupWhitelistRuleArgs", "cidr");
+            }
             return $;
         }
     }

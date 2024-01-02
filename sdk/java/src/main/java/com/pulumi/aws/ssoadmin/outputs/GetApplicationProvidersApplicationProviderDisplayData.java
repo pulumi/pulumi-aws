@@ -4,6 +4,7 @@
 package com.pulumi.aws.ssoadmin.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetApplicationProvidersApplicationProviderDisplayData {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetApplicationProvidersApplicationProviderDisplayData", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationProvidersApplicationProviderDisplayData", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder iconUrl(String iconUrl) {
-            this.iconUrl = Objects.requireNonNull(iconUrl);
+            if (iconUrl == null) {
+              throw new MissingRequiredPropertyException("GetApplicationProvidersApplicationProviderDisplayData", "iconUrl");
+            }
+            this.iconUrl = iconUrl;
             return this;
         }
         public GetApplicationProvidersApplicationProviderDisplayData build() {

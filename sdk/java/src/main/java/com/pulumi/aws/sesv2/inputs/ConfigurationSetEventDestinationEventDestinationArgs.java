@@ -9,6 +9,7 @@ import com.pulumi.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinat
 import com.pulumi.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -287,7 +288,9 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         }
 
         public ConfigurationSetEventDestinationEventDestinationArgs build() {
-            $.matchingEventTypes = Objects.requireNonNull($.matchingEventTypes, "expected parameter 'matchingEventTypes' to be non-null");
+            if ($.matchingEventTypes == null) {
+                throw new MissingRequiredPropertyException("ConfigurationSetEventDestinationEventDestinationArgs", "matchingEventTypes");
+            }
             return $;
         }
     }

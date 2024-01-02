@@ -5,6 +5,7 @@ package com.pulumi.aws.glacier.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class VaultNotificationArgs extends com.pulumi.resources.ResourceAr
         }
 
         public VaultNotificationArgs build() {
-            $.events = Objects.requireNonNull($.events, "expected parameter 'events' to be non-null");
-            $.snsTopic = Objects.requireNonNull($.snsTopic, "expected parameter 'snsTopic' to be non-null");
+            if ($.events == null) {
+                throw new MissingRequiredPropertyException("VaultNotificationArgs", "events");
+            }
+            if ($.snsTopic == null) {
+                throw new MissingRequiredPropertyException("VaultNotificationArgs", "snsTopic");
+            }
             return $;
         }
     }

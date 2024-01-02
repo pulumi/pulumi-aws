@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -147,7 +148,9 @@ public final class GetQuickConnectPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         public GetQuickConnectPlainArgs build() {
-            $.instanceId = Objects.requireNonNull($.instanceId, "expected parameter 'instanceId' to be non-null");
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("GetQuickConnectPlainArgs", "instanceId");
+            }
             return $;
         }
     }

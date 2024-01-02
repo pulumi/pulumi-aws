@@ -5,6 +5,7 @@ package com.pulumi.aws.location.outputs;
 
 import com.pulumi.aws.location.outputs.GetMapConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -135,7 +136,10 @@ public final class GetMapResult {
 
         @CustomType.Setter
         public Builder configurations(List<GetMapConfiguration> configurations) {
-            this.configurations = Objects.requireNonNull(configurations);
+            if (configurations == null) {
+              throw new MissingRequiredPropertyException("GetMapResult", "configurations");
+            }
+            this.configurations = configurations;
             return this;
         }
         public Builder configurations(GetMapConfiguration... configurations) {
@@ -143,37 +147,58 @@ public final class GetMapResult {
         }
         @CustomType.Setter
         public Builder createTime(String createTime) {
-            this.createTime = Objects.requireNonNull(createTime);
+            if (createTime == null) {
+              throw new MissingRequiredPropertyException("GetMapResult", "createTime");
+            }
+            this.createTime = createTime;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetMapResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetMapResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder mapArn(String mapArn) {
-            this.mapArn = Objects.requireNonNull(mapArn);
+            if (mapArn == null) {
+              throw new MissingRequiredPropertyException("GetMapResult", "mapArn");
+            }
+            this.mapArn = mapArn;
             return this;
         }
         @CustomType.Setter
         public Builder mapName(String mapName) {
-            this.mapName = Objects.requireNonNull(mapName);
+            if (mapName == null) {
+              throw new MissingRequiredPropertyException("GetMapResult", "mapName");
+            }
+            this.mapName = mapName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetMapResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder updateTime(String updateTime) {
-            this.updateTime = Objects.requireNonNull(updateTime);
+            if (updateTime == null) {
+              throw new MissingRequiredPropertyException("GetMapResult", "updateTime");
+            }
+            this.updateTime = updateTime;
             return this;
         }
         public GetMapResult build() {

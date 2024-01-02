@@ -4,6 +4,7 @@
 package com.pulumi.aws.ses.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetActiveReceiptRuleSetResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetActiveReceiptRuleSetResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetActiveReceiptRuleSetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ruleSetName(String ruleSetName) {
-            this.ruleSetName = Objects.requireNonNull(ruleSetName);
+            if (ruleSetName == null) {
+              throw new MissingRequiredPropertyException("GetActiveReceiptRuleSetResult", "ruleSetName");
+            }
+            this.ruleSetName = ruleSetName;
             return this;
         }
         public GetActiveReceiptRuleSetResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -63,11 +64,15 @@ public final class ChannelInputAttachmentInputSettingsAudioSelector {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ChannelInputAttachmentInputSettingsAudioSelector", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder selectorSettings(@Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings selectorSettings) {
+
             this.selectorSettings = selectorSettings;
             return this;
         }

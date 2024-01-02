@@ -4,6 +4,7 @@
 package com.pulumi.aws.workspaces.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -110,37 +111,58 @@ public final class GetImageResult {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder imageId(String imageId) {
-            this.imageId = Objects.requireNonNull(imageId);
+            if (imageId == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "imageId");
+            }
+            this.imageId = imageId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder operatingSystemType(String operatingSystemType) {
-            this.operatingSystemType = Objects.requireNonNull(operatingSystemType);
+            if (operatingSystemType == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "operatingSystemType");
+            }
+            this.operatingSystemType = operatingSystemType;
             return this;
         }
         @CustomType.Setter
         public Builder requiredTenancy(String requiredTenancy) {
-            this.requiredTenancy = Objects.requireNonNull(requiredTenancy);
+            if (requiredTenancy == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "requiredTenancy");
+            }
+            this.requiredTenancy = requiredTenancy;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "state");
+            }
+            this.state = state;
             return this;
         }
         public GetImageResult build() {

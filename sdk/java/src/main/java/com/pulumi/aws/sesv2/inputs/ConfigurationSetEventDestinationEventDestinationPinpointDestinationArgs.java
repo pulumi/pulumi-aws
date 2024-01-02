@@ -5,6 +5,7 @@ package com.pulumi.aws.sesv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -54,7 +55,9 @@ public final class ConfigurationSetEventDestinationEventDestinationPinpointDesti
         }
 
         public ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs build() {
-            $.applicationArn = Objects.requireNonNull($.applicationArn, "expected parameter 'applicationArn' to be non-null");
+            if ($.applicationArn == null) {
+                throw new MissingRequiredPropertyException("ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs", "applicationArn");
+            }
             return $;
         }
     }

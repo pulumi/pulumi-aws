@@ -5,6 +5,7 @@ package com.pulumi.aws.route53recoveryreadiness;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -159,8 +160,12 @@ public final class ReadinessCheckArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ReadinessCheckArgs build() {
-            $.readinessCheckName = Objects.requireNonNull($.readinessCheckName, "expected parameter 'readinessCheckName' to be non-null");
-            $.resourceSetName = Objects.requireNonNull($.resourceSetName, "expected parameter 'resourceSetName' to be non-null");
+            if ($.readinessCheckName == null) {
+                throw new MissingRequiredPropertyException("ReadinessCheckArgs", "readinessCheckName");
+            }
+            if ($.resourceSetName == null) {
+                throw new MissingRequiredPropertyException("ReadinessCheckArgs", "resourceSetName");
+            }
             return $;
         }
     }

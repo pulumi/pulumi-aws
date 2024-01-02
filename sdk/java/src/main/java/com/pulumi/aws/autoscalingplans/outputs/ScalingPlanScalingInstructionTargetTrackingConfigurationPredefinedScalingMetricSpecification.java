@@ -4,6 +4,7 @@
 package com.pulumi.aws.autoscalingplans.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationPrede
 
         @CustomType.Setter
         public Builder predefinedScalingMetricType(String predefinedScalingMetricType) {
-            this.predefinedScalingMetricType = Objects.requireNonNull(predefinedScalingMetricType);
+            if (predefinedScalingMetricType == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification", "predefinedScalingMetricType");
+            }
+            this.predefinedScalingMetricType = predefinedScalingMetricType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceLabel(@Nullable String resourceLabel) {
+
             this.resourceLabel = resourceLabel;
             return this;
         }
