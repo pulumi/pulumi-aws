@@ -44,7 +44,7 @@ env:
 jobs:
   upgrade_provider:
     name: upgrade-provider
-    runs-on: pulumi-ubuntu-8core
+    runs-on: ubuntu-latest
     steps:
     - name: Call upgrade provider action
       if: github.event_name == 'workflow_dispatch'
