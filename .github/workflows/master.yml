@@ -178,7 +178,7 @@ jobs:
     - name: Echo Coverage Output Dir
       run: 'echo "Coverage output directory: ${{ env.COVERAGE_OUTPUT_DIR }}"'
     - name: Generate Coverage Data
-      run: make tfgen
+      run: PULUMI_MISSING_DOCS_ERROR=true make tfgen
     - name: Summarize Provider Coverage Results
       run: cat ${{ env.COVERAGE_OUTPUT_DIR }}/shortSummary.txt
     - name: Upload coverage data to S3
