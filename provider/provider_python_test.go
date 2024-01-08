@@ -27,6 +27,10 @@ func TestRegress3196(t *testing.T) {
 }
 
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	t.Helper()
+	if testing.Short() {
+		t.Skipf("Skipping test in -short mode because it needs cloud credentials")
+	}
 	envRegion := getEnvRegion(t)
 	pythonBase := integration.ProgramTestOptions{
 		Config: map[string]string{
