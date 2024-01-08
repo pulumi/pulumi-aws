@@ -62,19 +62,3 @@ index 98ebd87d5d..adc13a9f58 100644
  
  	if err != nil {
  		return sdkdiag.AppendErrorf(diags, "creating SNS Topic (%s): %s", name, err)
-@@ -440,7 +472,6 @@ func putTopicAttributes(ctx context.Context, conn *sns.Client, arn string, attri
- 		}
- 
- 		err := putTopicAttribute(ctx, conn, arn, name, value)
--
- 		if err != nil {
- 			return err
- 		}
-@@ -462,7 +493,6 @@ func putTopicAttribute(ctx context.Context, conn *sns.Client, arn string, name,
- 	_, err := tfresource.RetryWhenIsA[*types.InvalidParameterException](ctx, timeout, func() (interface{}, error) {
- 		return conn.SetTopicAttributes(ctx, input)
- 	})
--
- 	if err != nil {
- 		return fmt.Errorf("setting SNS Topic (%s) attribute (%s): %w", arn, name, err)
- 	}
