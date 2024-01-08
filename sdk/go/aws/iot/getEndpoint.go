@@ -21,7 +21,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
-//	"github.com/pulumi/pulumi-kubernetes/sdk/v1/go/kubernetes"
+//	"github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -32,7 +32,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = index.NewKubernetes_pod(ctx, "agent", &index.Kubernetes_podArgs{
+//			_, err = kubernetes.NewKubernetes_pod(ctx, "agent", &kubernetes.Kubernetes_podArgs{
 //				Metadata: []map[string]interface{}{
 //					map[string]interface{}{
 //						"name": "my-device",
