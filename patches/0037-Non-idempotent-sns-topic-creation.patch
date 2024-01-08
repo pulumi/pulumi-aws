@@ -1,0 +1,80 @@
+diff --git a/internal/service/sns/topic.go b/internal/service/sns/topic.go
+index 98ebd87d5d..adc13a9f58 100644
+--- a/internal/service/sns/topic.go
++++ b/internal/service/sns/topic.go
+@@ -9,6 +9,7 @@ import (
+ 	"fmt"
+ 	"log"
+ 	"regexp"
++	"sync"
+ 	"time"
+ 
+ 	"github.com/YakDriver/regexache"
+@@ -259,6 +260,8 @@ func resourceTopic() *schema.Resource {
+ 	}
+ }
+ 
++var snsGlobalMutex sync.Mutex
++
+ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	var diags diag.Diagnostics
+ 	conn := meta.(*conns.AWSClient).SNSClient(ctx)
+@@ -283,6 +286,34 @@ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta inter
+ 		delete(attributes, topicAttributeNameFIFOTopic)
+ 	}
+ 
++	// Look up if the topic already exists
++	snsGlobalMutex.Lock()
++	var next_token *string = nil
++	for done := false; !done; {
++		output, err := conn.ListTopics(ctx, &sns.ListTopicsInput{
++			NextToken: next_token,
++		})
++		if err != nil {
++			return diag.FromErr(err)
++		}
++
++		for _, topic := range output.Topics {
++			// split the topic arn to get the name
++			arn, err := arn.Parse(*topic.TopicArn)
++			if err != nil {
++				return diag.FromErr(err)
++			}
++			if arn.Resource == name {
++				return diag.Errorf("SNS Topic (%s) already exists", name)
++			}
++		}
++
++		if output.NextToken == nil {
++			done = true
++		}
++		next_token = output.NextToken
++	}
++
+ 	output, err := conn.CreateTopic(ctx, input)
+ 
+ 	// Some partitions (e.g. ISO) may not support tag-on-create.
+@@ -291,6 +322,7 @@ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta inter
+ 
+ 		output, err = conn.CreateTopic(ctx, input)
+ 	}
++	snsGlobalMutex.Unlock()
+ 
+ 	if err != nil {
+ 		return sdkdiag.AppendErrorf(diags, "creating SNS Topic (%s): %s", name, err)
+@@ -440,7 +472,6 @@ func putTopicAttributes(ctx context.Context, conn *sns.Client, arn string, attri
+ 		}
+ 
+ 		err := putTopicAttribute(ctx, conn, arn, name, value)
+-
+ 		if err != nil {
+ 			return err
+ 		}
+@@ -462,7 +493,6 @@ func putTopicAttribute(ctx context.Context, conn *sns.Client, arn string, name,
+ 	_, err := tfresource.RetryWhenIsA[*types.InvalidParameterException](ctx, timeout, func() (interface{}, error) {
+ 		return conn.SetTopicAttributes(ctx, input)
+ 	})
+-
+ 	if err != nil {
+ 		return fmt.Errorf("setting SNS Topic (%s) attribute (%s): %w", arn, name, err)
+ 	}
