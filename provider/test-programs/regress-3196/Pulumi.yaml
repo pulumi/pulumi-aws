@@ -1,0 +1,5 @@
+name: regress-3196
+runtime:
+  name: python
+  options:
+    virtualenv: venv
