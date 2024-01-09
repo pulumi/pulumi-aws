@@ -5788,11 +5788,10 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":    "^3.0.0",
-				"mime":              "^2.0.0",
-				"builtin-modules":   "3.0.0",
-				"read-package-tree": "^5.2.1",
-				"resolve":           "^1.7.1",
+				"@pulumi/pulumi":  "^3.0.0",
+				"mime":            "^2.0.0",
+				"builtin-modules": "3.0.0",
+				"resolve":         "^1.7.1",
 			},
 			DevDependencies: map[string]string{
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
@@ -5917,16 +5916,12 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 				},
 			},
 		},
-		Python: (func() *tfbridge.PythonInfo {
-			i := &tfbridge.PythonInfo{
-				Requires: map[string]string{
-					"pulumi": ">=3.0.0,<4.0.0",
-				},
-			}
-			i.PyProject.Enabled = true
-			return i
-		})(),
-
+		Python: &tfbridge.PythonInfo{
+			Requires: map[string]string{
+				"pulumi": ">=3.0.0,<4.0.0",
+			},
+			PyProject: struct{ Enabled bool }{true},
+		},
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: filepath.Join(
 				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", awsPkg),
