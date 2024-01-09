@@ -195,6 +195,14 @@ namespace Pulumi.Aws.Ec2
         public static InstanceType G4dn_8XLarge { get; } = new InstanceType("g4dn.8xlarge");
         public static InstanceType G4dn_Metal { get; } = new InstanceType("g4dn.metal");
         public static InstanceType G4dn_XLarge { get; } = new InstanceType("g4dn.xlarge");
+        public static InstanceType G5_XLarge { get; } = new InstanceType("g5.xlarge");
+        public static InstanceType G5_2XLarge { get; } = new InstanceType("g5.2xlarge");
+        public static InstanceType G5_4XLarge { get; } = new InstanceType("g5.4xlarge");
+        public static InstanceType G5_8XLarge { get; } = new InstanceType("g5.8xlarge");
+        public static InstanceType G5_12XLarge { get; } = new InstanceType("g5.12xlarge");
+        public static InstanceType G5_16XLarge { get; } = new InstanceType("g5.16xlarge");
+        public static InstanceType G5_24XLarge { get; } = new InstanceType("g5.24xlarge");
+        public static InstanceType G5_48XLarge { get; } = new InstanceType("g5.48xlarge");
         public static InstanceType H1_16XLarge { get; } = new InstanceType("h1.16xlarge");
         public static InstanceType H1_2XLarge { get; } = new InstanceType("h1.2xlarge");
         public static InstanceType H1_4XLarge { get; } = new InstanceType("h1.4xlarge");
