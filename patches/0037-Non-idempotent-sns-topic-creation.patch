@@ -25,6 +25,7 @@ index 98ebd87d5d..adc13a9f58 100644
  
 +	// Look up if the topic already exists
 +	snsGlobalMutex.Lock()
++	defer snsGlobalMutex.Unlock()
 +	var next_token *string = nil
 +	for done := false; !done; {
 +		output, err := conn.ListTopics(ctx, &sns.ListTopicsInput{
