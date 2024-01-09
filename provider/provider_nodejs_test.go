@@ -7,7 +7,6 @@ package provider
 
 import (
 	"fmt"
-	"os"
 	"path/filepath"
 	"testing"
 
@@ -84,12 +83,4 @@ func simpleNodeTest(t *testing.T, dir string, opts ...providertest.Option) {
 		providertest.WithConfig("aws:region", envRegion),
 	)
 	test(t, dir, opts...)
-}
-
-func getEnvRegion(t *testing.T) string {
-	envRegion := os.Getenv("AWS_REGION")
-	if envRegion == "" {
-		envRegion = "us-west-2"
-	}
-	return envRegion
 }

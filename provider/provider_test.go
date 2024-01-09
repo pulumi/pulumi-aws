@@ -3,6 +3,7 @@ package provider
 
 import (
 	"context"
+	"os"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -46,4 +47,12 @@ func test(t *testing.T, dir string, opts ...providertest.Option) {
 
 func TestUpgradeCoverage(t *testing.T) {
 	providertest.ReportUpgradeCoverage(t)
+}
+
+func getEnvRegion(t *testing.T) string {
+	envRegion := os.Getenv("AWS_REGION")
+	if envRegion == "" {
+		envRegion = "us-west-2"
+	}
+	return envRegion
 }
