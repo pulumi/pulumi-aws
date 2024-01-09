@@ -88,6 +88,7 @@ The following configuration points are available:
   exponentially. If omitted, the default value is `25`.
 - `aws:allowedAccountIds` - (Optional)  List of allowed AWS account IDs to prevent you from mistakenly using an incorrect
   one. Conflicts with `aws:forbiddenAccountIds`.
+- `aws:endpoints` - (Optional) Configuration block for customizing service endpoints. See the Custom Service Endpoints Guide for more information about connecting to alternate AWS endpoints or AWS compatible solutions. See also `aws:useFipsEndpoint`.
 - `aws:forbiddenAccountIds` - (Optional) List of forbidden AWS account IDs to prevent you from mistakenly using the wrong
   one. Conflicts with `aws:allowedAccountIds`.
 - `aws:assumeRole` - (Optional) Supports the following (optional) arguments:
@@ -104,6 +105,7 @@ The following configuration points are available:
 - `aws:skipRequestionAccountId` - (Optional) Skip requesting the account ID. Useful for AWS API implementations that do not have the IAM, STS API, or metadata API. Default value is `false`. When specified, the use of ARNs is compromised as there is no accountID available to construct the ARN.
 - `aws:skipMetadataApiCheck` - (Optional) Skip the AWS Metadata API check. Useful for AWS API implementations that do not have a metadata API endpoint. This provider from authenticating via the Metadata API by default. You may need to use other authentication methods like static credentials, configuration variables, or environment variables. Default is `true`. Can be set via the environment variable `AWS_SKIP_METADATA_API_CHECK`.
 - `aws:s3UsePathStyle` - (Optional) Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing, `http://BUCKET.s3.amazonaws.com/KEY`, when possible. Specific to the Amazon S3 service. Default is `false`.
+- `aws:useFipsEndpoint` - (Optional) Force the provider to resolve endpoints with FIPS capability. Can also be set with the `AWS_USE_FIPS_ENDPOINT` environment variable.
 
 ### Authenticating pulumi-aws via EC2 Instance Metadata?
 
