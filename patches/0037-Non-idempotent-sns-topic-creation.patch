@@ -1,5 +1,5 @@
 diff --git a/internal/service/sns/topic.go b/internal/service/sns/topic.go
-index 98ebd87d5d..adc13a9f58 100644
+index 98ebd87d5d..60ff120be8 100644
 --- a/internal/service/sns/topic.go
 +++ b/internal/service/sns/topic.go
 @@ -9,6 +9,7 @@ import (
@@ -19,15 +19,15 @@ index 98ebd87d5d..adc13a9f58 100644
  func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
  	var diags diag.Diagnostics
  	conn := meta.(*conns.AWSClient).SNSClient(ctx)
-@@ -283,6 +286,34 @@ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta inter
+@@ -283,6 +286,35 @@ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta inter
  		delete(attributes, topicAttributeNameFIFOTopic)
  	}
  
 +	// Look up if the topic already exists
 +	snsGlobalMutex.Lock()
 +	defer snsGlobalMutex.Unlock()
-+	var next_token *string = nil
-+	for done := false; !done; {
++	var next_token *string
++	for {
 +		output, err := conn.ListTopics(ctx, &sns.ListTopicsInput{
 +			NextToken: next_token,
 +		})
@@ -47,7 +47,7 @@ index 98ebd87d5d..adc13a9f58 100644
 +		}
 +
 +		if output.NextToken == nil {
-+			done = true
++			break
 +		}
 +		next_token = output.NextToken
 +	}
@@ -55,11 +55,3 @@ index 98ebd87d5d..adc13a9f58 100644
  	output, err := conn.CreateTopic(ctx, input)
  
  	// Some partitions (e.g. ISO) may not support tag-on-create.
-@@ -291,6 +322,7 @@ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta inter
- 
- 		output, err = conn.CreateTopic(ctx, input)
- 	}
-+	snsGlobalMutex.Unlock()
- 
- 	if err != nil {
- 		return sdkdiag.AppendErrorf(diags, "creating SNS Topic (%s): %s", name, err)
