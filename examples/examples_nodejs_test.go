@@ -500,6 +500,16 @@ func TestRegress2818(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestRegress2868(t *tetsting.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "regress-2868"),
+		})
+	// Disable envRegion mangling
+	test.Config = nil
+	integration.ProgramTest(t, &test)
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	baseJS := integration.ProgramTestOptions{
