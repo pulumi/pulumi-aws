@@ -712,6 +712,31 @@ class Certificate(pulumi.CustomResource):
                 validation_domain="example.com",
             )])
         ```
+        ### Existing Certificate Body Import
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_tls as tls
+
+        example_private_key = tls.PrivateKey("examplePrivateKey", algorithm="RSA")
+        example_self_signed_cert = tls.SelfSignedCert("exampleSelfSignedCert",
+            key_algorithm="RSA",
+            private_key_pem=example_private_key.private_key_pem,
+            subject=tls.SelfSignedCertSubjectArgs(
+                common_name="example.com",
+                organization="ACME Examples, Inc",
+            ),
+            validity_period_hours=12,
+            allowed_uses=[
+                "key_encipherment",
+                "digital_signature",
+                "server_auth",
+            ])
+        cert = aws.acm.Certificate("cert",
+            private_key=example_private_key.private_key_pem,
+            certificate_body=example_self_signed_cert.cert_pem)
+        ```
         ### Referencing domain_validation_options With for_each Based Resources
 
         See the `acm.CertificateValidation` resource for a full example of performing DNS validation.
@@ -837,6 +862,31 @@ class Certificate(pulumi.CustomResource):
                 domain_name="testing.example.com",
                 validation_domain="example.com",
             )])
+        ```
+        ### Existing Certificate Body Import
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_tls as tls
+
+        example_private_key = tls.PrivateKey("examplePrivateKey", algorithm="RSA")
+        example_self_signed_cert = tls.SelfSignedCert("exampleSelfSignedCert",
+            key_algorithm="RSA",
+            private_key_pem=example_private_key.private_key_pem,
+            subject=tls.SelfSignedCertSubjectArgs(
+                common_name="example.com",
+                organization="ACME Examples, Inc",
+            ),
+            validity_period_hours=12,
+            allowed_uses=[
+                "key_encipherment",
+                "digital_signature",
+                "server_auth",
+            ])
+        cert = aws.acm.Certificate("cert",
+            private_key=example_private_key.private_key_pem,
+            certificate_body=example_self_signed_cert.cert_pem)
         ```
         ### Referencing domain_validation_options With for_each Based Resources
 

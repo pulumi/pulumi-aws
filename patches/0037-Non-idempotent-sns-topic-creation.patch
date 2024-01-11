@@ -1,5 +1,5 @@
 diff --git a/internal/service/sns/topic.go b/internal/service/sns/topic.go
-index 98ebd87d5d..60ff120be8 100644
+index 98ebd87d5d..fa76769358 100644
 --- a/internal/service/sns/topic.go
 +++ b/internal/service/sns/topic.go
 @@ -9,6 +9,7 @@ import (
@@ -10,46 +10,35 @@ index 98ebd87d5d..60ff120be8 100644
  	"time"
  
  	"github.com/YakDriver/regexache"
-@@ -259,6 +260,8 @@ func resourceTopic() *schema.Resource {
+@@ -259,6 +260,12 @@ func resourceTopic() *schema.Resource {
  	}
  }
  
++func constructTopicArn(client *sns.Client, account, region, snsTopicName string) string {
++	return fmt.Sprintf("arn:aws:sns:%s:%s:%s", region, account, snsTopicName)
++}
++
 +var snsGlobalMutex sync.Mutex
 +
  func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
  	var diags diag.Diagnostics
  	conn := meta.(*conns.AWSClient).SNSClient(ctx)
-@@ -283,6 +286,35 @@ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta inter
+@@ -283,6 +290,20 @@ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta inter
  		delete(attributes, topicAttributeNameFIFOTopic)
  	}
  
 +	// Look up if the topic already exists
 +	snsGlobalMutex.Lock()
 +	defer snsGlobalMutex.Unlock()
-+	var next_token *string
-+	for {
-+		output, err := conn.ListTopics(ctx, &sns.ListTopicsInput{
-+			NextToken: next_token,
-+		})
-+		if err != nil {
-+			return diag.FromErr(err)
-+		}
++	topicArn := constructTopicArn(conn, meta.(*conns.AWSClient).AccountID, meta.(*conns.AWSClient).Region, name)
 +
-+		for _, topic := range output.Topics {
-+			// split the topic arn to get the name
-+			arn, err := arn.Parse(*topic.TopicArn)
-+			if err != nil {
-+				return diag.FromErr(err)
-+			}
-+			if arn.Resource == name {
-+				return diag.Errorf("SNS Topic (%s) already exists", name)
-+			}
-+		}
++	_, err = findTopicAttributesWithValidAWSPrincipalsByARN(ctx, conn, topicArn)
 +
-+		if output.NextToken == nil {
-+			break
-+		}
-+		next_token = output.NextToken
++	if err == nil {
++		return diag.Errorf("SNS Topic (%s) already exists", name)
++	}
++	if !tfresource.NotFound(err) {
++		return diag.FromErr(err)
 +	}
 +
  	output, err := conn.CreateTopic(ctx, input)
