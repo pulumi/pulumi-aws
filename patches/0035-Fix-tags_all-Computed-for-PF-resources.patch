@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Thu, 14 Dec 2023 11:48:11 -0800
-Subject: [PATCH 36/36] Fix tags_all Computed for PF resources
+Subject: [PATCH 35/36] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/codeguruprofiler/profiling_group.go b/internal/service/codeguruprofiler/profiling_group.go
@@ -18,7 +18,7 @@ index 130998fa1b..dadc35736d 100644
  		Blocks: map[string]schema.Block{
  			"agent_orchestration_config": schema.ListNestedBlock{
 diff --git a/internal/service/securitylake/data_lake.go b/internal/service/securitylake/data_lake.go
-index 9549da2770..c80bb448be 100644
+index 4d66e5ef6d..08e6ebe091 100644
 --- a/internal/service/securitylake/data_lake.go
 +++ b/internal/service/securitylake/data_lake.go
 @@ -75,7 +75,7 @@ func (r *dataLakeResource) Schema(ctx context.Context, req resource.SchemaReques
@@ -31,7 +31,7 @@ index 9549da2770..c80bb448be 100644
  		Blocks: map[string]schema.Block{
  			"configuration": schema.ListNestedBlock{
 diff --git a/internal/service/ssoadmin/application.go b/internal/service/ssoadmin/application.go
-index bb22016446..22a3c3f977 100644
+index 0b54f3f5fe..5b44651943 100644
 --- a/internal/service/ssoadmin/application.go
 +++ b/internal/service/ssoadmin/application.go
 @@ -96,7 +96,7 @@ func (r *resourceApplication) Schema(ctx context.Context, req resource.SchemaReq

@@ -1,11 +1,11 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Mon, 25 Sep 2023 15:22:30 -0400
-Subject: [PATCH 27/36] Restore S3ConnURICleaningDisabled
+Subject: [PATCH 26/36] Restore S3ConnURICleaningDisabled
 
 
 diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
-index aa9e51412c..f45c64eed4 100644
+index 7ab67154ef..f29ee2f68f 100644
 --- a/internal/conns/awsclient.go
 +++ b/internal/conns/awsclient.go
 @@ -16,6 +16,7 @@ import (

@@ -14,7 +14,7 @@ scheme for registration: see
 https://github.com/hashicorp/terraform-provider-aws/pull/29717.
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 58adbcd531..97abd08352 100644
+index 670b34912f..5ada603fe3 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -13,6 +13,8 @@ import (
@@ -24,9 +24,9 @@ index 58adbcd531..97abd08352 100644
 +	"github.com/hashicorp/terraform-provider-aws/internal/service/s3legacy"
 +
  	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
- 	"github.com/aws/aws-sdk-go/aws/endpoints"
  	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
-@@ -249,7 +251,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
+ 	"github.com/hashicorp/terraform-plugin-log/tflog"
+@@ -248,7 +250,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
  		// should use the @SDKDataSource and @SDKResource function-level annotations
  		// rather than adding directly to these maps.
  		DataSourcesMap: make(map[string]*schema.Resource),

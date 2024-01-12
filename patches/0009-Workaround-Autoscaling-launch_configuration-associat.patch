@@ -7,7 +7,7 @@ Subject: [PATCH 09/36] Workaround Autoscaling launch_configuration
 - Disable computation of property until fixed.
 
 diff --git a/internal/service/autoscaling/launch_configuration.go b/internal/service/autoscaling/launch_configuration.go
-index 0cd504e232..74d309153f 100644
+index fcb1202480..c67d04f8f7 100644
 --- a/internal/service/autoscaling/launch_configuration.go
 +++ b/internal/service/autoscaling/launch_configuration.go
 @@ -48,7 +48,8 @@ func ResourceLaunchConfiguration() *schema.Resource {
