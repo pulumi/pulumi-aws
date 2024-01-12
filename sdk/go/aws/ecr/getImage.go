@@ -74,10 +74,12 @@ type GetImageResult struct {
 	ImageSizeInBytes int     `pulumi:"imageSizeInBytes"`
 	ImageTag         *string `pulumi:"imageTag"`
 	// List of tags associated with this image.
-	ImageTags      []string `pulumi:"imageTags"`
-	MostRecent     *bool    `pulumi:"mostRecent"`
-	RegistryId     string   `pulumi:"registryId"`
-	RepositoryName string   `pulumi:"repositoryName"`
+	ImageTags []string `pulumi:"imageTags"`
+	// The URI for the specific image version specified by `imageTag` or `imageDigest`.
+	ImageUri       string `pulumi:"imageUri"`
+	MostRecent     *bool  `pulumi:"mostRecent"`
+	RegistryId     string `pulumi:"registryId"`
+	RepositoryName string `pulumi:"repositoryName"`
 }
 
 func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi.InvokeOption) GetImageResultOutput {
@@ -152,6 +154,11 @@ func (o GetImageResultOutput) ImageTag() pulumi.StringPtrOutput {
 // List of tags associated with this image.
 func (o GetImageResultOutput) ImageTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetImageResult) []string { return v.ImageTags }).(pulumi.StringArrayOutput)
+}
+
+// The URI for the specific image version specified by `imageTag` or `imageDigest`.
+func (o GetImageResultOutput) ImageUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.ImageUri }).(pulumi.StringOutput)
 }
 
 func (o GetImageResultOutput) MostRecent() pulumi.BoolPtrOutput {

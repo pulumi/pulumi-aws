@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Efs.Inputs
     public sealed class FileSystemLifecyclePolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+        /// </summary>
+        [Input("transitionToArchive")]
+        public Input<string>? TransitionToArchive { get; set; }
+
+        /// <summary>
         /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
         /// </summary>
         [Input("transitionToIa")]

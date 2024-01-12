@@ -182,10 +182,16 @@ namespace Pulumi.Aws.LB
         public Output<bool?> LambdaMultiValueHeadersEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
         /// </summary>
         [Output("loadBalancingAlgorithmType")]
         public Output<string> LoadBalancingAlgorithmType { get; private set; } = null!;
+
+        /// <summary>
+        /// Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
+        /// </summary>
+        [Output("loadBalancingAnomalyMitigation")]
+        public Output<string> LoadBalancingAnomalyMitigation { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
@@ -381,10 +387,16 @@ namespace Pulumi.Aws.LB
         public Input<bool>? LambdaMultiValueHeadersEnabled { get; set; }
 
         /// <summary>
-        /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
         /// </summary>
         [Input("loadBalancingAlgorithmType")]
         public Input<string>? LoadBalancingAlgorithmType { get; set; }
+
+        /// <summary>
+        /// Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
+        /// </summary>
+        [Input("loadBalancingAnomalyMitigation")]
+        public Input<string>? LoadBalancingAnomalyMitigation { get; set; }
 
         /// <summary>
         /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
@@ -558,10 +570,16 @@ namespace Pulumi.Aws.LB
         public Input<bool>? LambdaMultiValueHeadersEnabled { get; set; }
 
         /// <summary>
-        /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
         /// </summary>
         [Input("loadBalancingAlgorithmType")]
         public Input<string>? LoadBalancingAlgorithmType { get; set; }
+
+        /// <summary>
+        /// Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
+        /// </summary>
+        [Input("loadBalancingAnomalyMitigation")]
+        public Input<string>? LoadBalancingAnomalyMitigation { get; set; }
 
         /// <summary>
         /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.

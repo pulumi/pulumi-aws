@@ -4,6 +4,7 @@
 package com.pulumi.aws.efs;
 
 import com.pulumi.aws.efs.inputs.FileSystemLifecyclePolicyArgs;
+import com.pulumi.aws.efs.inputs.FileSystemProtectionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -117,6 +118,21 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+     * 
+     */
+    @Import(name="protection")
+    private @Nullable Output<FileSystemProtectionArgs> protection;
+
+    /**
+     * @return A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+     * 
+     */
+    public Optional<Output<FileSystemProtectionArgs>> protection() {
+        return Optional.ofNullable(this.protection);
+    }
+
+    /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
      * 
      */
@@ -170,6 +186,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         this.kmsKeyId = $.kmsKeyId;
         this.lifecyclePolicies = $.lifecyclePolicies;
         this.performanceMode = $.performanceMode;
+        this.protection = $.protection;
         this.provisionedThroughputInMibps = $.provisionedThroughputInMibps;
         this.tags = $.tags;
         this.throughputMode = $.throughputMode;
@@ -333,6 +350,27 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder performanceMode(String performanceMode) {
             return performanceMode(Output.of(performanceMode));
+        }
+
+        /**
+         * @param protection A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protection(@Nullable Output<FileSystemProtectionArgs> protection) {
+            $.protection = protection;
+            return this;
+        }
+
+        /**
+         * @param protection A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protection(FileSystemProtectionArgs protection) {
+            return protection(Output.of(protection));
         }
 
         /**

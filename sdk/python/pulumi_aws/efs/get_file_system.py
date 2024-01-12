@@ -22,7 +22,7 @@ class GetFileSystemResult:
     """
     A collection of values returned by getFileSystem.
     """
-    def __init__(__self__, arn=None, availability_zone_id=None, availability_zone_name=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, id=None, kms_key_id=None, lifecycle_policy=None, name=None, performance_mode=None, provisioned_throughput_in_mibps=None, size_in_bytes=None, tags=None, throughput_mode=None):
+    def __init__(__self__, arn=None, availability_zone_id=None, availability_zone_name=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, id=None, kms_key_id=None, lifecycle_policy=None, name=None, performance_mode=None, protections=None, provisioned_throughput_in_mibps=None, size_in_bytes=None, tags=None, throughput_mode=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,6 +59,9 @@ class GetFileSystemResult:
         if performance_mode and not isinstance(performance_mode, str):
             raise TypeError("Expected argument 'performance_mode' to be a str")
         pulumi.set(__self__, "performance_mode", performance_mode)
+        if protections and not isinstance(protections, list):
+            raise TypeError("Expected argument 'protections' to be a list")
+        pulumi.set(__self__, "protections", protections)
         if provisioned_throughput_in_mibps and not isinstance(provisioned_throughput_in_mibps, float):
             raise TypeError("Expected argument 'provisioned_throughput_in_mibps' to be a float")
         pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
@@ -163,6 +166,11 @@ class GetFileSystemResult:
         return pulumi.get(self, "performance_mode")
 
     @property
+    @pulumi.getter
+    def protections(self) -> Sequence['outputs.GetFileSystemProtectionResult']:
+        return pulumi.get(self, "protections")
+
+    @property
     @pulumi.getter(name="provisionedThroughputInMibps")
     def provisioned_throughput_in_mibps(self) -> float:
         """
@@ -213,6 +221,7 @@ class AwaitableGetFileSystemResult(GetFileSystemResult):
             lifecycle_policy=self.lifecycle_policy,
             name=self.name,
             performance_mode=self.performance_mode,
+            protections=self.protections,
             provisioned_throughput_in_mibps=self.provisioned_throughput_in_mibps,
             size_in_bytes=self.size_in_bytes,
             tags=self.tags,
@@ -267,6 +276,7 @@ def get_file_system(creation_token: Optional[str] = None,
         lifecycle_policy=pulumi.get(__ret__, 'lifecycle_policy'),
         name=pulumi.get(__ret__, 'name'),
         performance_mode=pulumi.get(__ret__, 'performance_mode'),
+        protections=pulumi.get(__ret__, 'protections'),
         provisioned_throughput_in_mibps=pulumi.get(__ret__, 'provisioned_throughput_in_mibps'),
         size_in_bytes=pulumi.get(__ret__, 'size_in_bytes'),
         tags=pulumi.get(__ret__, 'tags'),

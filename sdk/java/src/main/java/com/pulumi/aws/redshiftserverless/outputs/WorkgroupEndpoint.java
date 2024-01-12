@@ -20,7 +20,7 @@ public final class WorkgroupEndpoint {
      */
     private @Nullable String address;
     /**
-     * @return The port that Amazon Redshift Serverless listens on.
+     * @return The port number on which the cluster accepts incoming connections.
      * 
      */
     private @Nullable Integer port;
@@ -39,7 +39,7 @@ public final class WorkgroupEndpoint {
         return Optional.ofNullable(this.address);
     }
     /**
-     * @return The port that Amazon Redshift Serverless listens on.
+     * @return The port number on which the cluster accepts incoming connections.
      * 
      */
     public Optional<Integer> port() {

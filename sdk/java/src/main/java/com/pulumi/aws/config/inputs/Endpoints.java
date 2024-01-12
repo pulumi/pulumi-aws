@@ -29,6 +29,7 @@ public final class Endpoints {
     private @Nullable String applicationautoscaling;
     private @Nullable String applicationinsights;
     private @Nullable String appmesh;
+    private @Nullable String appregistry;
     private @Nullable String apprunner;
     private @Nullable String appstream;
     private @Nullable String appsync;
@@ -136,6 +137,7 @@ public final class Endpoints {
     private @Nullable String glue;
     private @Nullable String grafana;
     private @Nullable String greengrass;
+    private @Nullable String groundstation;
     private @Nullable String guardduty;
     private @Nullable String healthlake;
     private @Nullable String iam;
@@ -161,6 +163,7 @@ public final class Endpoints {
     private @Nullable String kms;
     private @Nullable String lakeformation;
     private @Nullable String lambda;
+    private @Nullable String launchwizard;
     private @Nullable String lex;
     private @Nullable String lexmodelbuilding;
     private @Nullable String lexmodelbuildingservice;
@@ -197,12 +200,14 @@ public final class Endpoints {
     private @Nullable String organizations;
     private @Nullable String osis;
     private @Nullable String outposts;
+    private @Nullable String pcaconnectorad;
     private @Nullable String pinpoint;
     private @Nullable String pipes;
     private @Nullable String polly;
     private @Nullable String pricing;
     private @Nullable String prometheus;
     private @Nullable String prometheusservice;
+    private @Nullable String qbusiness;
     private @Nullable String qldb;
     private @Nullable String quicksight;
     private @Nullable String ram;
@@ -239,6 +244,7 @@ public final class Endpoints {
     private @Nullable String serverlessapprepo;
     private @Nullable String serverlessrepo;
     private @Nullable String servicecatalog;
+    private @Nullable String servicecatalogappregistry;
     private @Nullable String servicediscovery;
     private @Nullable String servicequotas;
     private @Nullable String ses;
@@ -252,6 +258,7 @@ public final class Endpoints {
     private @Nullable String ssm;
     private @Nullable String ssmcontacts;
     private @Nullable String ssmincidents;
+    private @Nullable String ssmsap;
     private @Nullable String sso;
     private @Nullable String ssoadmin;
     private @Nullable String stepfunctions;
@@ -268,6 +275,7 @@ public final class Endpoints {
     private @Nullable String waf;
     private @Nullable String wafregional;
     private @Nullable String wafv2;
+    private @Nullable String wellarchitected;
     private @Nullable String worklink;
     private @Nullable String workspaces;
     private @Nullable String xray;
@@ -326,6 +334,9 @@ public final class Endpoints {
     }
     public Optional<String> appmesh() {
         return Optional.ofNullable(this.appmesh);
+    }
+    public Optional<String> appregistry() {
+        return Optional.ofNullable(this.appregistry);
     }
     public Optional<String> apprunner() {
         return Optional.ofNullable(this.apprunner);
@@ -648,6 +659,9 @@ public final class Endpoints {
     public Optional<String> greengrass() {
         return Optional.ofNullable(this.greengrass);
     }
+    public Optional<String> groundstation() {
+        return Optional.ofNullable(this.groundstation);
+    }
     public Optional<String> guardduty() {
         return Optional.ofNullable(this.guardduty);
     }
@@ -722,6 +736,9 @@ public final class Endpoints {
     }
     public Optional<String> lambda() {
         return Optional.ofNullable(this.lambda);
+    }
+    public Optional<String> launchwizard() {
+        return Optional.ofNullable(this.launchwizard);
     }
     public Optional<String> lex() {
         return Optional.ofNullable(this.lex);
@@ -831,6 +848,9 @@ public final class Endpoints {
     public Optional<String> outposts() {
         return Optional.ofNullable(this.outposts);
     }
+    public Optional<String> pcaconnectorad() {
+        return Optional.ofNullable(this.pcaconnectorad);
+    }
     public Optional<String> pinpoint() {
         return Optional.ofNullable(this.pinpoint);
     }
@@ -848,6 +868,9 @@ public final class Endpoints {
     }
     public Optional<String> prometheusservice() {
         return Optional.ofNullable(this.prometheusservice);
+    }
+    public Optional<String> qbusiness() {
+        return Optional.ofNullable(this.qbusiness);
     }
     public Optional<String> qldb() {
         return Optional.ofNullable(this.qldb);
@@ -957,6 +980,9 @@ public final class Endpoints {
     public Optional<String> servicecatalog() {
         return Optional.ofNullable(this.servicecatalog);
     }
+    public Optional<String> servicecatalogappregistry() {
+        return Optional.ofNullable(this.servicecatalogappregistry);
+    }
     public Optional<String> servicediscovery() {
         return Optional.ofNullable(this.servicediscovery);
     }
@@ -995,6 +1021,9 @@ public final class Endpoints {
     }
     public Optional<String> ssmincidents() {
         return Optional.ofNullable(this.ssmincidents);
+    }
+    public Optional<String> ssmsap() {
+        return Optional.ofNullable(this.ssmsap);
     }
     public Optional<String> sso() {
         return Optional.ofNullable(this.sso);
@@ -1044,6 +1073,9 @@ public final class Endpoints {
     public Optional<String> wafv2() {
         return Optional.ofNullable(this.wafv2);
     }
+    public Optional<String> wellarchitected() {
+        return Optional.ofNullable(this.wellarchitected);
+    }
     public Optional<String> worklink() {
         return Optional.ofNullable(this.worklink);
     }
@@ -1081,6 +1113,7 @@ public final class Endpoints {
         private @Nullable String applicationautoscaling;
         private @Nullable String applicationinsights;
         private @Nullable String appmesh;
+        private @Nullable String appregistry;
         private @Nullable String apprunner;
         private @Nullable String appstream;
         private @Nullable String appsync;
@@ -1188,6 +1221,7 @@ public final class Endpoints {
         private @Nullable String glue;
         private @Nullable String grafana;
         private @Nullable String greengrass;
+        private @Nullable String groundstation;
         private @Nullable String guardduty;
         private @Nullable String healthlake;
         private @Nullable String iam;
@@ -1213,6 +1247,7 @@ public final class Endpoints {
         private @Nullable String kms;
         private @Nullable String lakeformation;
         private @Nullable String lambda;
+        private @Nullable String launchwizard;
         private @Nullable String lex;
         private @Nullable String lexmodelbuilding;
         private @Nullable String lexmodelbuildingservice;
@@ -1249,12 +1284,14 @@ public final class Endpoints {
         private @Nullable String organizations;
         private @Nullable String osis;
         private @Nullable String outposts;
+        private @Nullable String pcaconnectorad;
         private @Nullable String pinpoint;
         private @Nullable String pipes;
         private @Nullable String polly;
         private @Nullable String pricing;
         private @Nullable String prometheus;
         private @Nullable String prometheusservice;
+        private @Nullable String qbusiness;
         private @Nullable String qldb;
         private @Nullable String quicksight;
         private @Nullable String ram;
@@ -1291,6 +1328,7 @@ public final class Endpoints {
         private @Nullable String serverlessapprepo;
         private @Nullable String serverlessrepo;
         private @Nullable String servicecatalog;
+        private @Nullable String servicecatalogappregistry;
         private @Nullable String servicediscovery;
         private @Nullable String servicequotas;
         private @Nullable String ses;
@@ -1304,6 +1342,7 @@ public final class Endpoints {
         private @Nullable String ssm;
         private @Nullable String ssmcontacts;
         private @Nullable String ssmincidents;
+        private @Nullable String ssmsap;
         private @Nullable String sso;
         private @Nullable String ssoadmin;
         private @Nullable String stepfunctions;
@@ -1320,6 +1359,7 @@ public final class Endpoints {
         private @Nullable String waf;
         private @Nullable String wafregional;
         private @Nullable String wafv2;
+        private @Nullable String wellarchitected;
         private @Nullable String worklink;
         private @Nullable String workspaces;
         private @Nullable String xray;
@@ -1344,6 +1384,7 @@ public final class Endpoints {
     	      this.applicationautoscaling = defaults.applicationautoscaling;
     	      this.applicationinsights = defaults.applicationinsights;
     	      this.appmesh = defaults.appmesh;
+    	      this.appregistry = defaults.appregistry;
     	      this.apprunner = defaults.apprunner;
     	      this.appstream = defaults.appstream;
     	      this.appsync = defaults.appsync;
@@ -1451,6 +1492,7 @@ public final class Endpoints {
     	      this.glue = defaults.glue;
     	      this.grafana = defaults.grafana;
     	      this.greengrass = defaults.greengrass;
+    	      this.groundstation = defaults.groundstation;
     	      this.guardduty = defaults.guardduty;
     	      this.healthlake = defaults.healthlake;
     	      this.iam = defaults.iam;
@@ -1476,6 +1518,7 @@ public final class Endpoints {
     	      this.kms = defaults.kms;
     	      this.lakeformation = defaults.lakeformation;
     	      this.lambda = defaults.lambda;
+    	      this.launchwizard = defaults.launchwizard;
     	      this.lex = defaults.lex;
     	      this.lexmodelbuilding = defaults.lexmodelbuilding;
     	      this.lexmodelbuildingservice = defaults.lexmodelbuildingservice;
@@ -1512,12 +1555,14 @@ public final class Endpoints {
     	      this.organizations = defaults.organizations;
     	      this.osis = defaults.osis;
     	      this.outposts = defaults.outposts;
+    	      this.pcaconnectorad = defaults.pcaconnectorad;
     	      this.pinpoint = defaults.pinpoint;
     	      this.pipes = defaults.pipes;
     	      this.polly = defaults.polly;
     	      this.pricing = defaults.pricing;
     	      this.prometheus = defaults.prometheus;
     	      this.prometheusservice = defaults.prometheusservice;
+    	      this.qbusiness = defaults.qbusiness;
     	      this.qldb = defaults.qldb;
     	      this.quicksight = defaults.quicksight;
     	      this.ram = defaults.ram;
@@ -1554,6 +1599,7 @@ public final class Endpoints {
     	      this.serverlessapprepo = defaults.serverlessapprepo;
     	      this.serverlessrepo = defaults.serverlessrepo;
     	      this.servicecatalog = defaults.servicecatalog;
+    	      this.servicecatalogappregistry = defaults.servicecatalogappregistry;
     	      this.servicediscovery = defaults.servicediscovery;
     	      this.servicequotas = defaults.servicequotas;
     	      this.ses = defaults.ses;
@@ -1567,6 +1613,7 @@ public final class Endpoints {
     	      this.ssm = defaults.ssm;
     	      this.ssmcontacts = defaults.ssmcontacts;
     	      this.ssmincidents = defaults.ssmincidents;
+    	      this.ssmsap = defaults.ssmsap;
     	      this.sso = defaults.sso;
     	      this.ssoadmin = defaults.ssoadmin;
     	      this.stepfunctions = defaults.stepfunctions;
@@ -1583,6 +1630,7 @@ public final class Endpoints {
     	      this.waf = defaults.waf;
     	      this.wafregional = defaults.wafregional;
     	      this.wafv2 = defaults.wafv2;
+    	      this.wellarchitected = defaults.wellarchitected;
     	      this.worklink = defaults.worklink;
     	      this.workspaces = defaults.workspaces;
     	      this.xray = defaults.xray;
@@ -1694,6 +1742,12 @@ public final class Endpoints {
         public Builder appmesh(@Nullable String appmesh) {
 
             this.appmesh = appmesh;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder appregistry(@Nullable String appregistry) {
+
+            this.appregistry = appregistry;
             return this;
         }
         @CustomType.Setter
@@ -2339,6 +2393,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder groundstation(@Nullable String groundstation) {
+
+            this.groundstation = groundstation;
+            return this;
+        }
+        @CustomType.Setter
         public Builder guardduty(@Nullable String guardduty) {
 
             this.guardduty = guardduty;
@@ -2486,6 +2546,12 @@ public final class Endpoints {
         public Builder lambda(@Nullable String lambda) {
 
             this.lambda = lambda;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder launchwizard(@Nullable String launchwizard) {
+
+            this.launchwizard = launchwizard;
             return this;
         }
         @CustomType.Setter
@@ -2705,6 +2771,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder pcaconnectorad(@Nullable String pcaconnectorad) {
+
+            this.pcaconnectorad = pcaconnectorad;
+            return this;
+        }
+        @CustomType.Setter
         public Builder pinpoint(@Nullable String pinpoint) {
 
             this.pinpoint = pinpoint;
@@ -2738,6 +2810,12 @@ public final class Endpoints {
         public Builder prometheusservice(@Nullable String prometheusservice) {
 
             this.prometheusservice = prometheusservice;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder qbusiness(@Nullable String qbusiness) {
+
+            this.qbusiness = qbusiness;
             return this;
         }
         @CustomType.Setter
@@ -2957,6 +3035,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder servicecatalogappregistry(@Nullable String servicecatalogappregistry) {
+
+            this.servicecatalogappregistry = servicecatalogappregistry;
+            return this;
+        }
+        @CustomType.Setter
         public Builder servicediscovery(@Nullable String servicediscovery) {
 
             this.servicediscovery = servicediscovery;
@@ -3032,6 +3116,12 @@ public final class Endpoints {
         public Builder ssmincidents(@Nullable String ssmincidents) {
 
             this.ssmincidents = ssmincidents;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ssmsap(@Nullable String ssmsap) {
+
+            this.ssmsap = ssmsap;
             return this;
         }
         @CustomType.Setter
@@ -3131,6 +3221,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder wellarchitected(@Nullable String wellarchitected) {
+
+            this.wellarchitected = wellarchitected;
+            return this;
+        }
+        @CustomType.Setter
         public Builder worklink(@Nullable String worklink) {
 
             this.worklink = worklink;
@@ -3168,6 +3264,7 @@ public final class Endpoints {
             _resultValue.applicationautoscaling = applicationautoscaling;
             _resultValue.applicationinsights = applicationinsights;
             _resultValue.appmesh = appmesh;
+            _resultValue.appregistry = appregistry;
             _resultValue.apprunner = apprunner;
             _resultValue.appstream = appstream;
             _resultValue.appsync = appsync;
@@ -3275,6 +3372,7 @@ public final class Endpoints {
             _resultValue.glue = glue;
             _resultValue.grafana = grafana;
             _resultValue.greengrass = greengrass;
+            _resultValue.groundstation = groundstation;
             _resultValue.guardduty = guardduty;
             _resultValue.healthlake = healthlake;
             _resultValue.iam = iam;
@@ -3300,6 +3398,7 @@ public final class Endpoints {
             _resultValue.kms = kms;
             _resultValue.lakeformation = lakeformation;
             _resultValue.lambda = lambda;
+            _resultValue.launchwizard = launchwizard;
             _resultValue.lex = lex;
             _resultValue.lexmodelbuilding = lexmodelbuilding;
             _resultValue.lexmodelbuildingservice = lexmodelbuildingservice;
@@ -3336,12 +3435,14 @@ public final class Endpoints {
             _resultValue.organizations = organizations;
             _resultValue.osis = osis;
             _resultValue.outposts = outposts;
+            _resultValue.pcaconnectorad = pcaconnectorad;
             _resultValue.pinpoint = pinpoint;
             _resultValue.pipes = pipes;
             _resultValue.polly = polly;
             _resultValue.pricing = pricing;
             _resultValue.prometheus = prometheus;
             _resultValue.prometheusservice = prometheusservice;
+            _resultValue.qbusiness = qbusiness;
             _resultValue.qldb = qldb;
             _resultValue.quicksight = quicksight;
             _resultValue.ram = ram;
@@ -3378,6 +3479,7 @@ public final class Endpoints {
             _resultValue.serverlessapprepo = serverlessapprepo;
             _resultValue.serverlessrepo = serverlessrepo;
             _resultValue.servicecatalog = servicecatalog;
+            _resultValue.servicecatalogappregistry = servicecatalogappregistry;
             _resultValue.servicediscovery = servicediscovery;
             _resultValue.servicequotas = servicequotas;
             _resultValue.ses = ses;
@@ -3391,6 +3493,7 @@ public final class Endpoints {
             _resultValue.ssm = ssm;
             _resultValue.ssmcontacts = ssmcontacts;
             _resultValue.ssmincidents = ssmincidents;
+            _resultValue.ssmsap = ssmsap;
             _resultValue.sso = sso;
             _resultValue.ssoadmin = ssoadmin;
             _resultValue.stepfunctions = stepfunctions;
@@ -3407,6 +3510,7 @@ public final class Endpoints {
             _resultValue.waf = waf;
             _resultValue.wafregional = wafregional;
             _resultValue.wafv2 = wafv2;
+            _resultValue.wellarchitected = wellarchitected;
             _resultValue.worklink = worklink;
             _resultValue.workspaces = workspaces;
             _resultValue.xray = xray;

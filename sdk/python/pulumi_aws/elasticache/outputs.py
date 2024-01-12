@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ClusterCacheNode',
@@ -15,6 +16,10 @@ __all__ = [
     'GlobalReplicationGroupGlobalNodeGroup',
     'ParameterGroupParameter',
     'ReplicationGroupLogDeliveryConfiguration',
+    'ServerlessCacheCacheUsageLimits',
+    'ServerlessCacheCacheUsageLimitsDataStorage',
+    'ServerlessCacheCacheUsageLimitsEcpuPerSecond',
+    'ServerlessCacheTimeouts',
     'UserAuthenticationMode',
     'GetClusterCacheNodeResult',
     'GetClusterLogDeliveryConfigurationResult',
@@ -315,6 +320,132 @@ class ReplicationGroupLogDeliveryConfiguration(dict):
         Valid values are  `slow-log` or `engine-log`. Max 1 of each.
         """
         return pulumi.get(self, "log_type")
+
+
+@pulumi.output_type
+class ServerlessCacheCacheUsageLimits(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataStorage":
+            suggest = "data_storage"
+        elif key == "ecpuPerSeconds":
+            suggest = "ecpu_per_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessCacheCacheUsageLimits. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerlessCacheCacheUsageLimits.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerlessCacheCacheUsageLimits.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_storage: Optional['outputs.ServerlessCacheCacheUsageLimitsDataStorage'] = None,
+                 ecpu_per_seconds: Optional[Sequence['outputs.ServerlessCacheCacheUsageLimitsEcpuPerSecond']] = None):
+        """
+        :param 'ServerlessCacheCacheUsageLimitsDataStorageArgs' data_storage: The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+        :param Sequence['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs'] ecpu_per_seconds: The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+        """
+        if data_storage is not None:
+            pulumi.set(__self__, "data_storage", data_storage)
+        if ecpu_per_seconds is not None:
+            pulumi.set(__self__, "ecpu_per_seconds", ecpu_per_seconds)
+
+    @property
+    @pulumi.getter(name="dataStorage")
+    def data_storage(self) -> Optional['outputs.ServerlessCacheCacheUsageLimitsDataStorage']:
+        """
+        The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+        """
+        return pulumi.get(self, "data_storage")
+
+    @property
+    @pulumi.getter(name="ecpuPerSeconds")
+    def ecpu_per_seconds(self) -> Optional[Sequence['outputs.ServerlessCacheCacheUsageLimitsEcpuPerSecond']]:
+        """
+        The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+        """
+        return pulumi.get(self, "ecpu_per_seconds")
+
+
+@pulumi.output_type
+class ServerlessCacheCacheUsageLimitsDataStorage(dict):
+    def __init__(__self__, *,
+                 maximum: int,
+                 unit: str):
+        """
+        :param int maximum: The upper limit for data storage the cache is set to use. Set as Integer.
+        :param str unit: The unit that the storage is measured in, in GB.
+        """
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> int:
+        """
+        The upper limit for data storage the cache is set to use. Set as Integer.
+        """
+        return pulumi.get(self, "maximum")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit that the storage is measured in, in GB.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class ServerlessCacheCacheUsageLimitsEcpuPerSecond(dict):
+    def __init__(__self__, *,
+                 maximum: int):
+        """
+        :param int maximum: The upper limit for data storage the cache is set to use. Set as Integer.
+        """
+        pulumi.set(__self__, "maximum", maximum)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> int:
+        """
+        The upper limit for data storage the cache is set to use. Set as Integer.
+        """
+        return pulumi.get(self, "maximum")
+
+
+@pulumi.output_type
+class ServerlessCacheTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type

@@ -21,7 +21,7 @@ class GetImageResult:
     """
     A collection of values returned by getImage.
     """
-    def __init__(__self__, id=None, image_digest=None, image_pushed_at=None, image_size_in_bytes=None, image_tag=None, image_tags=None, most_recent=None, registry_id=None, repository_name=None):
+    def __init__(__self__, id=None, image_digest=None, image_pushed_at=None, image_size_in_bytes=None, image_tag=None, image_tags=None, image_uri=None, most_recent=None, registry_id=None, repository_name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +40,9 @@ class GetImageResult:
         if image_tags and not isinstance(image_tags, list):
             raise TypeError("Expected argument 'image_tags' to be a list")
         pulumi.set(__self__, "image_tags", image_tags)
+        if image_uri and not isinstance(image_uri, str):
+            raise TypeError("Expected argument 'image_uri' to be a str")
+        pulumi.set(__self__, "image_uri", image_uri)
         if most_recent and not isinstance(most_recent, bool):
             raise TypeError("Expected argument 'most_recent' to be a bool")
         pulumi.set(__self__, "most_recent", most_recent)
@@ -93,6 +96,14 @@ class GetImageResult:
         return pulumi.get(self, "image_tags")
 
     @property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> str:
+        """
+        The URI for the specific image version specified by `image_tag` or `image_digest`.
+        """
+        return pulumi.get(self, "image_uri")
+
+    @property
     @pulumi.getter(name="mostRecent")
     def most_recent(self) -> Optional[bool]:
         return pulumi.get(self, "most_recent")
@@ -120,6 +131,7 @@ class AwaitableGetImageResult(GetImageResult):
             image_size_in_bytes=self.image_size_in_bytes,
             image_tag=self.image_tag,
             image_tags=self.image_tags,
+            image_uri=self.image_uri,
             most_recent=self.most_recent,
             registry_id=self.registry_id,
             repository_name=self.repository_name)
@@ -167,6 +179,7 @@ def get_image(image_digest: Optional[str] = None,
         image_size_in_bytes=pulumi.get(__ret__, 'image_size_in_bytes'),
         image_tag=pulumi.get(__ret__, 'image_tag'),
         image_tags=pulumi.get(__ret__, 'image_tags'),
+        image_uri=pulumi.get(__ret__, 'image_uri'),
         most_recent=pulumi.get(__ret__, 'most_recent'),
         registry_id=pulumi.get(__ret__, 'registry_id'),
         repository_name=pulumi.get(__ret__, 'repository_name'))

@@ -353,6 +353,21 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Storage type associated with the cluster `standard/iopt1`.
+     * 
+     */
+    @Import(name="storageType")
+    private @Nullable Output<String> storageType;
+
+    /**
+     * @return Storage type associated with the cluster `standard/iopt1`.
+     * 
+     */
+    public Optional<Output<String>> storageType() {
+        return Optional.ofNullable(this.storageType);
+    }
+
+    /**
      * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -430,6 +445,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         this.promotionTier = $.promotionTier;
         this.publiclyAccessible = $.publiclyAccessible;
         this.storageEncrypted = $.storageEncrypted;
+        this.storageType = $.storageType;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.writer = $.writer;
@@ -917,6 +933,27 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
          */
         public Builder storageEncrypted(Boolean storageEncrypted) {
             return storageEncrypted(Output.of(storageEncrypted));
+        }
+
+        /**
+         * @param storageType Storage type associated with the cluster `standard/iopt1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageType(@Nullable Output<String> storageType) {
+            $.storageType = storageType;
+            return this;
+        }
+
+        /**
+         * @param storageType Storage type associated with the cluster `standard/iopt1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageType(String storageType) {
+            return storageType(Output.of(storageType));
         }
 
         /**

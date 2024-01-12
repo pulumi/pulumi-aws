@@ -21,7 +21,7 @@ class TrustStoreRevocationArgs:
         """
         The set of arguments for constructing a TrustStoreRevocation resource.
         :param pulumi.Input[str] revocations_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
-        :param pulumi.Input[str] revocations_s3_key: S3 Bucket name holding the client certificate CA bundle.
+        :param pulumi.Input[str] revocations_s3_key: S3 object key holding the client certificate CA bundle.
         :param pulumi.Input[str] trust_store_arn: Trust Store ARN.
         :param pulumi.Input[str] revocations_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         """
@@ -47,7 +47,7 @@ class TrustStoreRevocationArgs:
     @pulumi.getter(name="revocationsS3Key")
     def revocations_s3_key(self) -> pulumi.Input[str]:
         """
-        S3 Bucket name holding the client certificate CA bundle.
+        S3 object key holding the client certificate CA bundle.
         """
         return pulumi.get(self, "revocations_s3_key")
 
@@ -92,7 +92,7 @@ class _TrustStoreRevocationState:
         Input properties used for looking up and filtering TrustStoreRevocation resources.
         :param pulumi.Input[int] revocation_id: AWS assigned RevocationId, (number).
         :param pulumi.Input[str] revocations_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
-        :param pulumi.Input[str] revocations_s3_key: S3 Bucket name holding the client certificate CA bundle.
+        :param pulumi.Input[str] revocations_s3_key: S3 object key holding the client certificate CA bundle.
         :param pulumi.Input[str] revocations_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         :param pulumi.Input[str] trust_store_arn: Trust Store ARN.
         """
@@ -135,7 +135,7 @@ class _TrustStoreRevocationState:
     @pulumi.getter(name="revocationsS3Key")
     def revocations_s3_key(self) -> Optional[pulumi.Input[str]]:
         """
-        S3 Bucket name holding the client certificate CA bundle.
+        S3 object key holding the client certificate CA bundle.
         """
         return pulumi.get(self, "revocations_s3_key")
 
@@ -208,7 +208,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] revocations_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
-        :param pulumi.Input[str] revocations_s3_key: S3 Bucket name holding the client certificate CA bundle.
+        :param pulumi.Input[str] revocations_s3_key: S3 object key holding the client certificate CA bundle.
         :param pulumi.Input[str] revocations_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         :param pulumi.Input[str] trust_store_arn: Trust Store ARN.
         """
@@ -308,7 +308,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] revocation_id: AWS assigned RevocationId, (number).
         :param pulumi.Input[str] revocations_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
-        :param pulumi.Input[str] revocations_s3_key: S3 Bucket name holding the client certificate CA bundle.
+        :param pulumi.Input[str] revocations_s3_key: S3 object key holding the client certificate CA bundle.
         :param pulumi.Input[str] revocations_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         :param pulumi.Input[str] trust_store_arn: Trust Store ARN.
         """
@@ -343,7 +343,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
     @pulumi.getter(name="revocationsS3Key")
     def revocations_s3_key(self) -> pulumi.Output[str]:
         """
-        S3 Bucket name holding the client certificate CA bundle.
+        S3 object key holding the client certificate CA bundle.
         """
         return pulumi.get(self, "revocations_s3_key")
 

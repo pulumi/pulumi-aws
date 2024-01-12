@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Ses
     /// Provides an SES configuration set resource.
     /// 
     /// ## Example Usage
+    /// ### Basic Example
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -41,6 +42,26 @@ namespace Pulumi.Aws.Ses
     ///         DeliveryOptions = new Aws.Ses.Inputs.ConfigurationSetDeliveryOptionsArgs
     ///         {
     ///             TlsPolicy = "Require",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Tracking Options
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Ses.ConfigurationSet("test", new()
+    ///     {
+    ///         TrackingOptions = new Aws.Ses.Inputs.ConfigurationSetTrackingOptionsArgs
+    ///         {
+    ///             CustomRedirectDomain = "sub.example.com",
     ///         },
     ///     });
     /// 

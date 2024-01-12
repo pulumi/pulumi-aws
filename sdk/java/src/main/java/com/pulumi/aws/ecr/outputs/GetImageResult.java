@@ -37,6 +37,11 @@ public final class GetImageResult {
      * 
      */
     private List<String> imageTags;
+    /**
+     * @return The URI for the specific image version specified by `image_tag` or `image_digest`.
+     * 
+     */
+    private String imageUri;
     private @Nullable Boolean mostRecent;
     private String registryId;
     private String repositoryName;
@@ -76,6 +81,13 @@ public final class GetImageResult {
     public List<String> imageTags() {
         return this.imageTags;
     }
+    /**
+     * @return The URI for the specific image version specified by `image_tag` or `image_digest`.
+     * 
+     */
+    public String imageUri() {
+        return this.imageUri;
+    }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
@@ -101,6 +113,7 @@ public final class GetImageResult {
         private Integer imageSizeInBytes;
         private @Nullable String imageTag;
         private List<String> imageTags;
+        private String imageUri;
         private @Nullable Boolean mostRecent;
         private String registryId;
         private String repositoryName;
@@ -113,6 +126,7 @@ public final class GetImageResult {
     	      this.imageSizeInBytes = defaults.imageSizeInBytes;
     	      this.imageTag = defaults.imageTag;
     	      this.imageTags = defaults.imageTags;
+    	      this.imageUri = defaults.imageUri;
     	      this.mostRecent = defaults.mostRecent;
     	      this.registryId = defaults.registryId;
     	      this.repositoryName = defaults.repositoryName;
@@ -168,6 +182,14 @@ public final class GetImageResult {
             return imageTags(List.of(imageTags));
         }
         @CustomType.Setter
+        public Builder imageUri(String imageUri) {
+            if (imageUri == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "imageUri");
+            }
+            this.imageUri = imageUri;
+            return this;
+        }
+        @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
 
             this.mostRecent = mostRecent;
@@ -197,6 +219,7 @@ public final class GetImageResult {
             _resultValue.imageSizeInBytes = imageSizeInBytes;
             _resultValue.imageTag = imageTag;
             _resultValue.imageTags = imageTags;
+            _resultValue.imageUri = imageUri;
             _resultValue.mostRecent = mostRecent;
             _resultValue.registryId = registryId;
             _resultValue.repositoryName = repositoryName;

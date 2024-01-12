@@ -24,6 +24,7 @@ class GroupArgs:
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the verified access group.
+        :param pulumi.Input[str] policy_document: The policy document that is associated with this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "verifiedaccess_instance_id", verifiedaccess_instance_id)
@@ -63,6 +64,9 @@ class GroupArgs:
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy document that is associated with this resource.
+        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -103,6 +107,7 @@ class _GroupState:
         :param pulumi.Input[str] description: Description of the verified access group.
         :param pulumi.Input[str] last_updated_time: Timestamp when the access group was last updated.
         :param pulumi.Input[str] owner: AWS account number owning this resource.
+        :param pulumi.Input[str] policy_document: The policy document that is associated with this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] verifiedaccess_group_arn: ARN of this verified acess group.
         :param pulumi.Input[str] verifiedaccess_group_id: ID of this verified access group.
@@ -199,6 +204,9 @@ class _GroupState:
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy document that is associated with this resource.
+        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -294,6 +302,7 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the verified access group.
+        :param pulumi.Input[str] policy_document: The policy document that is associated with this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] verifiedaccess_instance_id: The id of the verified access instance this group is associated with.
                
@@ -394,6 +403,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the verified access group.
         :param pulumi.Input[str] last_updated_time: Timestamp when the access group was last updated.
         :param pulumi.Input[str] owner: AWS account number owning this resource.
+        :param pulumi.Input[str] policy_document: The policy document that is associated with this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] verifiedaccess_group_arn: ARN of this verified acess group.
         :param pulumi.Input[str] verifiedaccess_group_id: ID of this verified access group.
@@ -461,6 +471,9 @@ class Group(pulumi.CustomResource):
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[Optional[str]]:
+        """
+        The policy document that is associated with this resource.
+        """
         return pulumi.get(self, "policy_document")
 
     @property

@@ -146,6 +146,21 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
         return Optional.ofNullable(this.statelessRuleGroupReferences);
     }
 
+    /**
+     * The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. &#34;You can only add a TLS inspection configuration to a new policy, not to an existing policy.&#34;  This cannot be removed from a FW Policy.
+     * 
+     */
+    @Import(name="tlsInspectionConfigurationArn")
+    private @Nullable Output<String> tlsInspectionConfigurationArn;
+
+    /**
+     * @return The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. &#34;You can only add a TLS inspection configuration to a new policy, not to an existing policy.&#34;  This cannot be removed from a FW Policy.
+     * 
+     */
+    public Optional<Output<String>> tlsInspectionConfigurationArn() {
+        return Optional.ofNullable(this.tlsInspectionConfigurationArn);
+    }
+
     private FirewallPolicyFirewallPolicyArgs() {}
 
     private FirewallPolicyFirewallPolicyArgs(FirewallPolicyFirewallPolicyArgs $) {
@@ -157,6 +172,7 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
         this.statelessDefaultActions = $.statelessDefaultActions;
         this.statelessFragmentDefaultActions = $.statelessFragmentDefaultActions;
         this.statelessRuleGroupReferences = $.statelessRuleGroupReferences;
+        this.tlsInspectionConfigurationArn = $.tlsInspectionConfigurationArn;
     }
 
     public static Builder builder() {
@@ -409,6 +425,27 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
          */
         public Builder statelessRuleGroupReferences(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs... statelessRuleGroupReferences) {
             return statelessRuleGroupReferences(List.of(statelessRuleGroupReferences));
+        }
+
+        /**
+         * @param tlsInspectionConfigurationArn The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. &#34;You can only add a TLS inspection configuration to a new policy, not to an existing policy.&#34;  This cannot be removed from a FW Policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tlsInspectionConfigurationArn(@Nullable Output<String> tlsInspectionConfigurationArn) {
+            $.tlsInspectionConfigurationArn = tlsInspectionConfigurationArn;
+            return this;
+        }
+
+        /**
+         * @param tlsInspectionConfigurationArn The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. &#34;You can only add a TLS inspection configuration to a new policy, not to an existing policy.&#34;  This cannot be removed from a FW Policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tlsInspectionConfigurationArn(String tlsInspectionConfigurationArn) {
+            return tlsInspectionConfigurationArn(Output.of(tlsInspectionConfigurationArn));
         }
 
         public FirewallPolicyFirewallPolicyArgs build() {

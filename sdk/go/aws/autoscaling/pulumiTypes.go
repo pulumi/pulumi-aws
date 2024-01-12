@@ -518,6 +518,8 @@ type GroupInstanceRefreshPreferences struct {
 	CheckpointPercentages []int `pulumi:"checkpointPercentages"`
 	// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 	InstanceWarmup *string `pulumi:"instanceWarmup"`
+	// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+	MaxHealthyPercentage *int `pulumi:"maxHealthyPercentage"`
 	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 	MinHealthyPercentage *int `pulumi:"minHealthyPercentage"`
 	// Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
@@ -548,6 +550,8 @@ type GroupInstanceRefreshPreferencesArgs struct {
 	CheckpointPercentages pulumi.IntArrayInput `pulumi:"checkpointPercentages"`
 	// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 	InstanceWarmup pulumi.StringPtrInput `pulumi:"instanceWarmup"`
+	// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+	MaxHealthyPercentage pulumi.IntPtrInput `pulumi:"maxHealthyPercentage"`
 	// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 	MinHealthyPercentage pulumi.IntPtrInput `pulumi:"minHealthyPercentage"`
 	// Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
@@ -655,6 +659,11 @@ func (o GroupInstanceRefreshPreferencesOutput) InstanceWarmup() pulumi.StringPtr
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *string { return v.InstanceWarmup }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+func (o GroupInstanceRefreshPreferencesOutput) MaxHealthyPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *int { return v.MaxHealthyPercentage }).(pulumi.IntPtrOutput)
+}
+
 // Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
 func (o GroupInstanceRefreshPreferencesOutput) MinHealthyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *int { return v.MinHealthyPercentage }).(pulumi.IntPtrOutput)
@@ -737,6 +746,16 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) InstanceWarmup() pulumi.String
 		}
 		return v.InstanceWarmup
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+func (o GroupInstanceRefreshPreferencesPtrOutput) MaxHealthyPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxHealthyPercentage
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.

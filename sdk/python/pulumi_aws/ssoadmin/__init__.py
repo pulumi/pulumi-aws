@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .account_assignment import *
 from .application import *
+from .application_access_scope import *
 from .application_assignment import *
 from .application_assignment_configuration import *
 from .customer_managed_policy_attachment import *

@@ -18,6 +18,9 @@ namespace Pulumi.Aws.Efs.Inputs
         [Input("availabilityZoneName")]
         public Input<string>? AvailabilityZoneName { get; set; }
 
+        /// <summary>
+        /// The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
+        /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
 

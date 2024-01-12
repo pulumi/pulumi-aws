@@ -25,6 +25,11 @@ export type RuleGroupNamespace = import("./ruleGroupNamespace").RuleGroupNamespa
 export const RuleGroupNamespace: typeof import("./ruleGroupNamespace").RuleGroupNamespace = null as any;
 utilities.lazyLoad(exports, ["RuleGroupNamespace"], () => require("./ruleGroupNamespace"));
 
+export { ScraperArgs, ScraperState } from "./scraper";
+export type Scraper = import("./scraper").Scraper;
+export const Scraper: typeof import("./scraper").Scraper = null as any;
+utilities.lazyLoad(exports, ["Scraper"], () => require("./scraper"));
+
 export { WorkspaceArgs, WorkspaceState } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
@@ -39,6 +44,8 @@ const _module = {
                 return new AlertManagerDefinition(name, <any>undefined, { urn })
             case "aws:amp/ruleGroupNamespace:RuleGroupNamespace":
                 return new RuleGroupNamespace(name, <any>undefined, { urn })
+            case "aws:amp/scraper:Scraper":
+                return new Scraper(name, <any>undefined, { urn })
             case "aws:amp/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:
@@ -48,4 +55,5 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "amp/alertManagerDefinition", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/ruleGroupNamespace", _module)
+pulumi.runtime.registerResourceModule("aws", "amp/scraper", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/workspace", _module)

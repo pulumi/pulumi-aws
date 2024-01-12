@@ -25,7 +25,7 @@ namespace Pulumi.Aws.S3.Inputs
         }
 
         /// <summary>
-        /// Configuration block of the bucket owner's display name and ID. See below.
+        /// Configuration block for the bucket owner's display name and ID. See below.
         /// </summary>
         [Input("owner", required: true)]
         public Input<Inputs.BucketAclV2AccessControlPolicyOwnerGetArgs> Owner { get; set; } = null!;

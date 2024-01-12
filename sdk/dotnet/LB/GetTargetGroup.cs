@@ -97,6 +97,9 @@ namespace Pulumi.Aws.LB
         [Input("arn")]
         public string? Arn { get; set; }
 
+        [Input("loadBalancingAnomalyMitigation")]
+        public string? LoadBalancingAnomalyMitigation { get; set; }
+
         /// <summary>
         /// Unique name of the target group.
         /// </summary>
@@ -131,6 +134,9 @@ namespace Pulumi.Aws.LB
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        [Input("loadBalancingAnomalyMitigation")]
+        public Input<string>? LoadBalancingAnomalyMitigation { get; set; }
+
         /// <summary>
         /// Unique name of the target group.
         /// </summary>
@@ -164,7 +170,7 @@ namespace Pulumi.Aws.LB
         public readonly string Arn;
         public readonly string ArnSuffix;
         public readonly bool ConnectionTermination;
-        public readonly int DeregistrationDelay;
+        public readonly string DeregistrationDelay;
         public readonly Outputs.GetTargetGroupHealthCheckResult HealthCheck;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -172,6 +178,7 @@ namespace Pulumi.Aws.LB
         public readonly string Id;
         public readonly bool LambdaMultiValueHeadersEnabled;
         public readonly string LoadBalancingAlgorithmType;
+        public readonly string LoadBalancingAnomalyMitigation;
         public readonly string LoadBalancingCrossZoneEnabled;
         public readonly string Name;
         public readonly int Port;
@@ -193,7 +200,7 @@ namespace Pulumi.Aws.LB
 
             bool connectionTermination,
 
-            int deregistrationDelay,
+            string deregistrationDelay,
 
             Outputs.GetTargetGroupHealthCheckResult healthCheck,
 
@@ -202,6 +209,8 @@ namespace Pulumi.Aws.LB
             bool lambdaMultiValueHeadersEnabled,
 
             string loadBalancingAlgorithmType,
+
+            string loadBalancingAnomalyMitigation,
 
             string loadBalancingCrossZoneEnabled,
 
@@ -235,6 +244,7 @@ namespace Pulumi.Aws.LB
             Id = id;
             LambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
             LoadBalancingAlgorithmType = loadBalancingAlgorithmType;
+            LoadBalancingAnomalyMitigation = loadBalancingAnomalyMitigation;
             LoadBalancingCrossZoneEnabled = loadBalancingCrossZoneEnabled;
             Name = name;
             Port = port;

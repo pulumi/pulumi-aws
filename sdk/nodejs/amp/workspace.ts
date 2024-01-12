@@ -34,6 +34,21 @@ import * as utilities from "../utilities";
  *     logGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`,
  * }});
  * ```
+ * ### AWS KMS Customer Managed Keys (CMK)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleKey = new aws.kms.Key("exampleKey", {
+ *     description: "example",
+ *     deletionWindowInDays: 7,
+ * });
+ * const exampleWorkspace = new aws.amp.Workspace("exampleWorkspace", {
+ *     alias: "example",
+ *     kmsKeyArn: exampleKey.arn,
+ * });
+ * ```
  *
  * ## Import
  *
@@ -80,6 +95,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+     */
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    /**
      * Logging configuration for the workspace. See Logging Configuration below for details.
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.amp.WorkspaceLoggingConfiguration | undefined>;
@@ -113,6 +132,7 @@ export class Workspace extends pulumi.CustomResource {
             const state = argsOrState as WorkspaceState | undefined;
             resourceInputs["alias"] = state ? state.alias : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
             resourceInputs["prometheusEndpoint"] = state ? state.prometheusEndpoint : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -120,6 +140,7 @@ export class Workspace extends pulumi.CustomResource {
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
             resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -145,6 +166,10 @@ export interface WorkspaceState {
      * Amazon Resource Name (ARN) of the workspace.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+     */
+    kmsKeyArn?: pulumi.Input<string>;
     /**
      * Logging configuration for the workspace. See Logging Configuration below for details.
      */
@@ -173,6 +198,10 @@ export interface WorkspaceArgs {
      * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
      */
     alias?: pulumi.Input<string>;
+    /**
+     * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+     */
+    kmsKeyArn?: pulumi.Input<string>;
     /**
      * Logging configuration for the workspace. See Logging Configuration below for details.
      */

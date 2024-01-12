@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Iot.Outputs
         /// <summary>
         /// The ARN of the role.
         /// </summary>
-        public readonly bool? RoleArn;
+        public readonly string? RoleArn;
         /// <summary>
         /// The template body.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Iot.Outputs
 
         [OutputConstructor]
         private CaCertificateRegistrationConfig(
-            bool? roleArn,
+            string? roleArn,
 
             string? templateBody,
 

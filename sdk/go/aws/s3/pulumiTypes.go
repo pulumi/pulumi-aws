@@ -1173,7 +1173,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 type BucketAclV2AccessControlPolicy struct {
 	// Set of `grant` configuration blocks. See below.
 	Grants []BucketAclV2AccessControlPolicyGrant `pulumi:"grants"`
-	// Configuration block of the bucket owner's display name and ID. See below.
+	// Configuration block for the bucket owner's display name and ID. See below.
 	Owner BucketAclV2AccessControlPolicyOwner `pulumi:"owner"`
 }
 
@@ -1191,7 +1191,7 @@ type BucketAclV2AccessControlPolicyInput interface {
 type BucketAclV2AccessControlPolicyArgs struct {
 	// Set of `grant` configuration blocks. See below.
 	Grants BucketAclV2AccessControlPolicyGrantArrayInput `pulumi:"grants"`
-	// Configuration block of the bucket owner's display name and ID. See below.
+	// Configuration block for the bucket owner's display name and ID. See below.
 	Owner BucketAclV2AccessControlPolicyOwnerInput `pulumi:"owner"`
 }
 
@@ -1277,7 +1277,7 @@ func (o BucketAclV2AccessControlPolicyOutput) Grants() BucketAclV2AccessControlP
 	return o.ApplyT(func(v BucketAclV2AccessControlPolicy) []BucketAclV2AccessControlPolicyGrant { return v.Grants }).(BucketAclV2AccessControlPolicyGrantArrayOutput)
 }
 
-// Configuration block of the bucket owner's display name and ID. See below.
+// Configuration block for the bucket owner's display name and ID. See below.
 func (o BucketAclV2AccessControlPolicyOutput) Owner() BucketAclV2AccessControlPolicyOwnerOutput {
 	return o.ApplyT(func(v BucketAclV2AccessControlPolicy) BucketAclV2AccessControlPolicyOwner { return v.Owner }).(BucketAclV2AccessControlPolicyOwnerOutput)
 }
@@ -1316,7 +1316,7 @@ func (o BucketAclV2AccessControlPolicyPtrOutput) Grants() BucketAclV2AccessContr
 	}).(BucketAclV2AccessControlPolicyGrantArrayOutput)
 }
 
-// Configuration block of the bucket owner's display name and ID. See below.
+// Configuration block for the bucket owner's display name and ID. See below.
 func (o BucketAclV2AccessControlPolicyPtrOutput) Owner() BucketAclV2AccessControlPolicyOwnerPtrOutput {
 	return o.ApplyT(func(v *BucketAclV2AccessControlPolicy) *BucketAclV2AccessControlPolicyOwner {
 		if v == nil {
@@ -1329,7 +1329,7 @@ func (o BucketAclV2AccessControlPolicyPtrOutput) Owner() BucketAclV2AccessContro
 type BucketAclV2AccessControlPolicyGrant struct {
 	// Configuration block for the person being granted permissions. See below.
 	Grantee *BucketAclV2AccessControlPolicyGrantGrantee `pulumi:"grantee"`
-	// Logging permissions assigned to the grantee for the bucket.
+	// Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
 	Permission string `pulumi:"permission"`
 }
 
@@ -1347,7 +1347,7 @@ type BucketAclV2AccessControlPolicyGrantInput interface {
 type BucketAclV2AccessControlPolicyGrantArgs struct {
 	// Configuration block for the person being granted permissions. See below.
 	Grantee BucketAclV2AccessControlPolicyGrantGranteePtrInput `pulumi:"grantee"`
-	// Logging permissions assigned to the grantee for the bucket.
+	// Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
 	Permission pulumi.StringInput `pulumi:"permission"`
 }
 
@@ -1409,7 +1409,7 @@ func (o BucketAclV2AccessControlPolicyGrantOutput) Grantee() BucketAclV2AccessCo
 	}).(BucketAclV2AccessControlPolicyGrantGranteePtrOutput)
 }
 
-// Logging permissions assigned to the grantee for the bucket.
+// Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
 func (o BucketAclV2AccessControlPolicyGrantOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketAclV2AccessControlPolicyGrant) string { return v.Permission }).(pulumi.StringOutput)
 }

@@ -23,6 +23,7 @@ import javax.annotation.Nullable;
  * Provides an SES configuration set resource.
  * 
  * ## Example Usage
+ * ### Basic Example
  * ```java
  * package generated_program;
  * 
@@ -74,6 +75,38 @@ import javax.annotation.Nullable;
  *         var test = new ConfigurationSet(&#34;test&#34;, ConfigurationSetArgs.builder()        
  *             .deliveryOptions(ConfigurationSetDeliveryOptionsArgs.builder()
  *                 .tlsPolicy(&#34;Require&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Tracking Options
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ses.ConfigurationSet;
+ * import com.pulumi.aws.ses.ConfigurationSetArgs;
+ * import com.pulumi.aws.ses.inputs.ConfigurationSetTrackingOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new ConfigurationSet(&#34;test&#34;, ConfigurationSetArgs.builder()        
+ *             .trackingOptions(ConfigurationSetTrackingOptionsArgs.builder()
+ *                 .customRedirectDomain(&#34;sub.example.com&#34;)
  *                 .build())
  *             .build());
  * 

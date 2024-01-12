@@ -10,8 +10,159 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ScraperDestinationArgs',
+    'ScraperDestinationAmpArgs',
+    'ScraperSourceArgs',
+    'ScraperSourceEksArgs',
+    'ScraperTimeoutsArgs',
     'WorkspaceLoggingConfigurationArgs',
 ]
+
+@pulumi.input_type
+class ScraperDestinationArgs:
+    def __init__(__self__, *,
+                 amp: Optional[pulumi.Input['ScraperDestinationAmpArgs']] = None):
+        """
+        :param pulumi.Input['ScraperDestinationAmpArgs'] amp: Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+        """
+        if amp is not None:
+            pulumi.set(__self__, "amp", amp)
+
+    @property
+    @pulumi.getter
+    def amp(self) -> Optional[pulumi.Input['ScraperDestinationAmpArgs']]:
+        """
+        Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+        """
+        return pulumi.get(self, "amp")
+
+    @amp.setter
+    def amp(self, value: Optional[pulumi.Input['ScraperDestinationAmpArgs']]):
+        pulumi.set(self, "amp", value)
+
+
+@pulumi.input_type
+class ScraperDestinationAmpArgs:
+    def __init__(__self__, *,
+                 workspace_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] workspace_arn: The Amazon Resource Name (ARN) of the prometheus workspace.
+        """
+        pulumi.set(__self__, "workspace_arn", workspace_arn)
+
+    @property
+    @pulumi.getter(name="workspaceArn")
+    def workspace_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the prometheus workspace.
+        """
+        return pulumi.get(self, "workspace_arn")
+
+    @workspace_arn.setter
+    def workspace_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_arn", value)
+
+
+@pulumi.input_type
+class ScraperSourceArgs:
+    def __init__(__self__, *,
+                 eks: Optional[pulumi.Input['ScraperSourceEksArgs']] = None):
+        """
+        :param pulumi.Input['ScraperSourceEksArgs'] eks: Configuration block for an EKS cluster source. See `eks`.
+        """
+        if eks is not None:
+            pulumi.set(__self__, "eks", eks)
+
+    @property
+    @pulumi.getter
+    def eks(self) -> Optional[pulumi.Input['ScraperSourceEksArgs']]:
+        """
+        Configuration block for an EKS cluster source. See `eks`.
+        """
+        return pulumi.get(self, "eks")
+
+    @eks.setter
+    def eks(self, value: Optional[pulumi.Input['ScraperSourceEksArgs']]):
+        pulumi.set(self, "eks", value)
+
+
+@pulumi.input_type
+class ScraperSourceEksArgs:
+    def __init__(__self__, *,
+                 cluster_arn: pulumi.Input[str],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of subnet IDs. Must be in at least two different availability zones.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: List of the security group IDs for the Amazon EKS cluster VPC configuration.
+        """
+        pulumi.set(__self__, "cluster_arn", cluster_arn)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+
+    @property
+    @pulumi.getter(name="clusterArn")
+    def cluster_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "cluster_arn")
+
+    @cluster_arn.setter
+    def cluster_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_arn", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of subnet IDs. Must be in at least two different availability zones.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of the security group IDs for the Amazon EKS cluster VPC configuration.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+
+@pulumi.input_type
+class ScraperTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
 
 @pulumi.input_type
 class WorkspaceLoggingConfigurationArgs:

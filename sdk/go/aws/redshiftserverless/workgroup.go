@@ -65,6 +65,8 @@ type Workgroup struct {
 	EnhancedVpcRouting pulumi.BoolPtrOutput `pulumi:"enhancedVpcRouting"`
 	// The name of the namespace.
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
+	// The port number on which the cluster accepts incoming connections.
+	Port pulumi.IntOutput `pulumi:"port"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
@@ -137,6 +139,8 @@ type workgroupState struct {
 	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
 	// The name of the namespace.
 	NamespaceName *string `pulumi:"namespaceName"`
+	// The port number on which the cluster accepts incoming connections.
+	Port *int `pulumi:"port"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
@@ -170,6 +174,8 @@ type WorkgroupState struct {
 	EnhancedVpcRouting pulumi.BoolPtrInput
 	// The name of the namespace.
 	NamespaceName pulumi.StringPtrInput
+	// The port number on which the cluster accepts incoming connections.
+	Port pulumi.IntPtrInput
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// An array of security group IDs to associate with the workgroup.
@@ -203,6 +209,8 @@ type workgroupArgs struct {
 	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
 	// The name of the namespace.
 	NamespaceName string `pulumi:"namespaceName"`
+	// The port number on which the cluster accepts incoming connections.
+	Port *int `pulumi:"port"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
@@ -227,6 +235,8 @@ type WorkgroupArgs struct {
 	EnhancedVpcRouting pulumi.BoolPtrInput
 	// The name of the namespace.
 	NamespaceName pulumi.StringInput
+	// The port number on which the cluster accepts incoming connections.
+	Port pulumi.IntPtrInput
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// An array of security group IDs to associate with the workgroup.
@@ -356,6 +366,11 @@ func (o WorkgroupOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 // The name of the namespace.
 func (o WorkgroupOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.NamespaceName }).(pulumi.StringOutput)
+}
+
+// The port number on which the cluster accepts incoming connections.
+func (o WorkgroupOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v *Workgroup) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
 // A value that specifies whether the workgroup can be accessed from a public network.

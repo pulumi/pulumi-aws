@@ -5,6 +5,7 @@ package com.pulumi.aws.batch;
 
 import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesArgs;
 import com.pulumi.aws.batch.inputs.ComputeEnvironmentEksConfigurationArgs;
+import com.pulumi.aws.batch.inputs.ComputeEnvironmentUpdatePolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -139,6 +140,21 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         return this.type;
     }
 
+    /**
+     * Specifies the infrastructure update policy for the compute environment. See details below.
+     * 
+     */
+    @Import(name="updatePolicy")
+    private @Nullable Output<ComputeEnvironmentUpdatePolicyArgs> updatePolicy;
+
+    /**
+     * @return Specifies the infrastructure update policy for the compute environment. See details below.
+     * 
+     */
+    public Optional<Output<ComputeEnvironmentUpdatePolicyArgs>> updatePolicy() {
+        return Optional.ofNullable(this.updatePolicy);
+    }
+
     private ComputeEnvironmentArgs() {}
 
     private ComputeEnvironmentArgs(ComputeEnvironmentArgs $) {
@@ -150,6 +166,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         this.state = $.state;
         this.tags = $.tags;
         this.type = $.type;
+        this.updatePolicy = $.updatePolicy;
     }
 
     public static Builder builder() {
@@ -336,6 +353,27 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        /**
+         * @param updatePolicy Specifies the infrastructure update policy for the compute environment. See details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder updatePolicy(@Nullable Output<ComputeEnvironmentUpdatePolicyArgs> updatePolicy) {
+            $.updatePolicy = updatePolicy;
+            return this;
+        }
+
+        /**
+         * @param updatePolicy Specifies the infrastructure update policy for the compute environment. See details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder updatePolicy(ComputeEnvironmentUpdatePolicyArgs updatePolicy) {
+            return updatePolicy(Output.of(updatePolicy));
         }
 
         public ComputeEnvironmentArgs build() {

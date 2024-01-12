@@ -134,6 +134,8 @@ type Cluster struct {
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
+	// Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+	StorageType pulumi.StringOutput `pulumi:"storageType"`
 	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -244,6 +246,8 @@ type clusterState struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
+	// Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+	StorageType *string `pulumi:"storageType"`
 	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -321,6 +325,8 @@ type ClusterState struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrInput
+	// Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+	StorageType pulumi.StringPtrInput
 	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -390,6 +396,8 @@ type clusterArgs struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
+	// Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+	StorageType *string `pulumi:"storageType"`
 	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// List of VPC security groups to associate with the Cluster
@@ -452,6 +460,8 @@ type ClusterArgs struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrInput
+	// Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+	StorageType pulumi.StringPtrInput
 	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// List of VPC security groups to associate with the Cluster
@@ -710,6 +720,11 @@ func (o ClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
 // Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 func (o ClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+// Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+func (o ClusterOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.StorageType }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

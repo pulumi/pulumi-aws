@@ -141,6 +141,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.appmesh);
     }
 
+    @Import(name="appregistry")
+    private @Nullable Output<String> appregistry;
+
+    public Optional<Output<String>> appregistry() {
+        return Optional.ofNullable(this.appregistry);
+    }
+
     @Import(name="apprunner")
     private @Nullable Output<String> apprunner;
 
@@ -890,6 +897,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.greengrass);
     }
 
+    @Import(name="groundstation")
+    private @Nullable Output<String> groundstation;
+
+    public Optional<Output<String>> groundstation() {
+        return Optional.ofNullable(this.groundstation);
+    }
+
     @Import(name="guardduty")
     private @Nullable Output<String> guardduty;
 
@@ -1063,6 +1077,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> lambda() {
         return Optional.ofNullable(this.lambda);
+    }
+
+    @Import(name="launchwizard")
+    private @Nullable Output<String> launchwizard;
+
+    public Optional<Output<String>> launchwizard() {
+        return Optional.ofNullable(this.launchwizard);
     }
 
     @Import(name="lex")
@@ -1317,6 +1338,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.outposts);
     }
 
+    @Import(name="pcaconnectorad")
+    private @Nullable Output<String> pcaconnectorad;
+
+    public Optional<Output<String>> pcaconnectorad() {
+        return Optional.ofNullable(this.pcaconnectorad);
+    }
+
     @Import(name="pinpoint")
     private @Nullable Output<String> pinpoint;
 
@@ -1357,6 +1385,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> prometheusservice() {
         return Optional.ofNullable(this.prometheusservice);
+    }
+
+    @Import(name="qbusiness")
+    private @Nullable Output<String> qbusiness;
+
+    public Optional<Output<String>> qbusiness() {
+        return Optional.ofNullable(this.qbusiness);
     }
 
     @Import(name="qldb")
@@ -1611,6 +1646,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.servicecatalog);
     }
 
+    @Import(name="servicecatalogappregistry")
+    private @Nullable Output<String> servicecatalogappregistry;
+
+    public Optional<Output<String>> servicecatalogappregistry() {
+        return Optional.ofNullable(this.servicecatalogappregistry);
+    }
+
     @Import(name="servicediscovery")
     private @Nullable Output<String> servicediscovery;
 
@@ -1700,6 +1742,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> ssmincidents() {
         return Optional.ofNullable(this.ssmincidents);
+    }
+
+    @Import(name="ssmsap")
+    private @Nullable Output<String> ssmsap;
+
+    public Optional<Output<String>> ssmsap() {
+        return Optional.ofNullable(this.ssmsap);
     }
 
     @Import(name="sso")
@@ -1814,6 +1863,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.wafv2);
     }
 
+    @Import(name="wellarchitected")
+    private @Nullable Output<String> wellarchitected;
+
+    public Optional<Output<String>> wellarchitected() {
+        return Optional.ofNullable(this.wellarchitected);
+    }
+
     @Import(name="worklink")
     private @Nullable Output<String> worklink;
 
@@ -1856,6 +1912,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.applicationautoscaling = $.applicationautoscaling;
         this.applicationinsights = $.applicationinsights;
         this.appmesh = $.appmesh;
+        this.appregistry = $.appregistry;
         this.apprunner = $.apprunner;
         this.appstream = $.appstream;
         this.appsync = $.appsync;
@@ -1963,6 +2020,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.glue = $.glue;
         this.grafana = $.grafana;
         this.greengrass = $.greengrass;
+        this.groundstation = $.groundstation;
         this.guardduty = $.guardduty;
         this.healthlake = $.healthlake;
         this.iam = $.iam;
@@ -1988,6 +2046,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.kms = $.kms;
         this.lakeformation = $.lakeformation;
         this.lambda = $.lambda;
+        this.launchwizard = $.launchwizard;
         this.lex = $.lex;
         this.lexmodelbuilding = $.lexmodelbuilding;
         this.lexmodelbuildingservice = $.lexmodelbuildingservice;
@@ -2024,12 +2083,14 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.organizations = $.organizations;
         this.osis = $.osis;
         this.outposts = $.outposts;
+        this.pcaconnectorad = $.pcaconnectorad;
         this.pinpoint = $.pinpoint;
         this.pipes = $.pipes;
         this.polly = $.polly;
         this.pricing = $.pricing;
         this.prometheus = $.prometheus;
         this.prometheusservice = $.prometheusservice;
+        this.qbusiness = $.qbusiness;
         this.qldb = $.qldb;
         this.quicksight = $.quicksight;
         this.ram = $.ram;
@@ -2066,6 +2127,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.serverlessapprepo = $.serverlessapprepo;
         this.serverlessrepo = $.serverlessrepo;
         this.servicecatalog = $.servicecatalog;
+        this.servicecatalogappregistry = $.servicecatalogappregistry;
         this.servicediscovery = $.servicediscovery;
         this.servicequotas = $.servicequotas;
         this.ses = $.ses;
@@ -2079,6 +2141,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.ssm = $.ssm;
         this.ssmcontacts = $.ssmcontacts;
         this.ssmincidents = $.ssmincidents;
+        this.ssmsap = $.ssmsap;
         this.sso = $.sso;
         this.ssoadmin = $.ssoadmin;
         this.stepfunctions = $.stepfunctions;
@@ -2095,6 +2158,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.waf = $.waf;
         this.wafregional = $.wafregional;
         this.wafv2 = $.wafv2;
+        this.wellarchitected = $.wellarchitected;
         this.worklink = $.worklink;
         this.workspaces = $.workspaces;
         this.xray = $.xray;
@@ -2278,6 +2342,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder appmesh(String appmesh) {
             return appmesh(Output.of(appmesh));
+        }
+
+        public Builder appregistry(@Nullable Output<String> appregistry) {
+            $.appregistry = appregistry;
+            return this;
+        }
+
+        public Builder appregistry(String appregistry) {
+            return appregistry(Output.of(appregistry));
         }
 
         public Builder apprunner(@Nullable Output<String> apprunner) {
@@ -3243,6 +3316,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return greengrass(Output.of(greengrass));
         }
 
+        public Builder groundstation(@Nullable Output<String> groundstation) {
+            $.groundstation = groundstation;
+            return this;
+        }
+
+        public Builder groundstation(String groundstation) {
+            return groundstation(Output.of(groundstation));
+        }
+
         public Builder guardduty(@Nullable Output<String> guardduty) {
             $.guardduty = guardduty;
             return this;
@@ -3466,6 +3548,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder lambda(String lambda) {
             return lambda(Output.of(lambda));
+        }
+
+        public Builder launchwizard(@Nullable Output<String> launchwizard) {
+            $.launchwizard = launchwizard;
+            return this;
+        }
+
+        public Builder launchwizard(String launchwizard) {
+            return launchwizard(Output.of(launchwizard));
         }
 
         public Builder lex(@Nullable Output<String> lex) {
@@ -3792,6 +3883,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return outposts(Output.of(outposts));
         }
 
+        public Builder pcaconnectorad(@Nullable Output<String> pcaconnectorad) {
+            $.pcaconnectorad = pcaconnectorad;
+            return this;
+        }
+
+        public Builder pcaconnectorad(String pcaconnectorad) {
+            return pcaconnectorad(Output.of(pcaconnectorad));
+        }
+
         public Builder pinpoint(@Nullable Output<String> pinpoint) {
             $.pinpoint = pinpoint;
             return this;
@@ -3844,6 +3944,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder prometheusservice(String prometheusservice) {
             return prometheusservice(Output.of(prometheusservice));
+        }
+
+        public Builder qbusiness(@Nullable Output<String> qbusiness) {
+            $.qbusiness = qbusiness;
+            return this;
+        }
+
+        public Builder qbusiness(String qbusiness) {
+            return qbusiness(Output.of(qbusiness));
         }
 
         public Builder qldb(@Nullable Output<String> qldb) {
@@ -4170,6 +4279,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return servicecatalog(Output.of(servicecatalog));
         }
 
+        public Builder servicecatalogappregistry(@Nullable Output<String> servicecatalogappregistry) {
+            $.servicecatalogappregistry = servicecatalogappregistry;
+            return this;
+        }
+
+        public Builder servicecatalogappregistry(String servicecatalogappregistry) {
+            return servicecatalogappregistry(Output.of(servicecatalogappregistry));
+        }
+
         public Builder servicediscovery(@Nullable Output<String> servicediscovery) {
             $.servicediscovery = servicediscovery;
             return this;
@@ -4285,6 +4403,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder ssmincidents(String ssmincidents) {
             return ssmincidents(Output.of(ssmincidents));
+        }
+
+        public Builder ssmsap(@Nullable Output<String> ssmsap) {
+            $.ssmsap = ssmsap;
+            return this;
+        }
+
+        public Builder ssmsap(String ssmsap) {
+            return ssmsap(Output.of(ssmsap));
         }
 
         public Builder sso(@Nullable Output<String> sso) {
@@ -4429,6 +4556,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder wafv2(String wafv2) {
             return wafv2(Output.of(wafv2));
+        }
+
+        public Builder wellarchitected(@Nullable Output<String> wellarchitected) {
+            $.wellarchitected = wellarchitected;
+            return this;
+        }
+
+        public Builder wellarchitected(String wellarchitected) {
+            return wellarchitected(Output.of(wellarchitected));
         }
 
         public Builder worklink(@Nullable Output<String> worklink) {

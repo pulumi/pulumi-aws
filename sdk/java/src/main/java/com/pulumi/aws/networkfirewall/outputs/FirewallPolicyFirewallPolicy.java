@@ -60,6 +60,11 @@ public final class FirewallPolicyFirewallPolicy {
      * 
      */
     private @Nullable List<FirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences;
+    /**
+     * @return The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. &#34;You can only add a TLS inspection configuration to a new policy, not to an existing policy.&#34;  This cannot be removed from a FW Policy.
+     * 
+     */
+    private @Nullable String tlsInspectionConfigurationArn;
 
     private FirewallPolicyFirewallPolicy() {}
     /**
@@ -120,6 +125,13 @@ public final class FirewallPolicyFirewallPolicy {
     public List<FirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences() {
         return this.statelessRuleGroupReferences == null ? List.of() : this.statelessRuleGroupReferences;
     }
+    /**
+     * @return The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. &#34;You can only add a TLS inspection configuration to a new policy, not to an existing policy.&#34;  This cannot be removed from a FW Policy.
+     * 
+     */
+    public Optional<String> tlsInspectionConfigurationArn() {
+        return Optional.ofNullable(this.tlsInspectionConfigurationArn);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -138,6 +150,7 @@ public final class FirewallPolicyFirewallPolicy {
         private List<String> statelessDefaultActions;
         private List<String> statelessFragmentDefaultActions;
         private @Nullable List<FirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences;
+        private @Nullable String tlsInspectionConfigurationArn;
         public Builder() {}
         public Builder(FirewallPolicyFirewallPolicy defaults) {
     	      Objects.requireNonNull(defaults);
@@ -149,6 +162,7 @@ public final class FirewallPolicyFirewallPolicy {
     	      this.statelessDefaultActions = defaults.statelessDefaultActions;
     	      this.statelessFragmentDefaultActions = defaults.statelessFragmentDefaultActions;
     	      this.statelessRuleGroupReferences = defaults.statelessRuleGroupReferences;
+    	      this.tlsInspectionConfigurationArn = defaults.tlsInspectionConfigurationArn;
         }
 
         @CustomType.Setter
@@ -221,6 +235,12 @@ public final class FirewallPolicyFirewallPolicy {
         public Builder statelessRuleGroupReferences(FirewallPolicyFirewallPolicyStatelessRuleGroupReference... statelessRuleGroupReferences) {
             return statelessRuleGroupReferences(List.of(statelessRuleGroupReferences));
         }
+        @CustomType.Setter
+        public Builder tlsInspectionConfigurationArn(@Nullable String tlsInspectionConfigurationArn) {
+
+            this.tlsInspectionConfigurationArn = tlsInspectionConfigurationArn;
+            return this;
+        }
         public FirewallPolicyFirewallPolicy build() {
             final var _resultValue = new FirewallPolicyFirewallPolicy();
             _resultValue.policyVariables = policyVariables;
@@ -231,6 +251,7 @@ public final class FirewallPolicyFirewallPolicy {
             _resultValue.statelessDefaultActions = statelessDefaultActions;
             _resultValue.statelessFragmentDefaultActions = statelessFragmentDefaultActions;
             _resultValue.statelessRuleGroupReferences = statelessRuleGroupReferences;
+            _resultValue.tlsInspectionConfigurationArn = tlsInspectionConfigurationArn;
             return _resultValue;
         }
     }

@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ec2
     ///                 Name = "name",
     ///                 Values = new[]
     ///                 {
-    ///                     "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
+    ///                     "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*",
     ///                 },
     ///             },
     ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs

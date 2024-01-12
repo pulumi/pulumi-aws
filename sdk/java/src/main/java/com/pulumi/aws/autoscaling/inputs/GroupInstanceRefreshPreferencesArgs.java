@@ -79,6 +79,21 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
     }
 
     /**
+     * Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+     * 
+     */
+    @Import(name="maxHealthyPercentage")
+    private @Nullable Output<Integer> maxHealthyPercentage;
+
+    /**
+     * @return Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+     * 
+     */
+    public Optional<Output<Integer>> maxHealthyPercentage() {
+        return Optional.ofNullable(this.maxHealthyPercentage);
+    }
+
+    /**
      * Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
      * 
      */
@@ -145,6 +160,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         this.checkpointDelay = $.checkpointDelay;
         this.checkpointPercentages = $.checkpointPercentages;
         this.instanceWarmup = $.instanceWarmup;
+        this.maxHealthyPercentage = $.maxHealthyPercentage;
         this.minHealthyPercentage = $.minHealthyPercentage;
         this.scaleInProtectedInstances = $.scaleInProtectedInstances;
         this.skipMatching = $.skipMatching;
@@ -261,6 +277,27 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
          */
         public Builder instanceWarmup(String instanceWarmup) {
             return instanceWarmup(Output.of(instanceWarmup));
+        }
+
+        /**
+         * @param maxHealthyPercentage Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxHealthyPercentage(@Nullable Output<Integer> maxHealthyPercentage) {
+            $.maxHealthyPercentage = maxHealthyPercentage;
+            return this;
+        }
+
+        /**
+         * @param maxHealthyPercentage Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxHealthyPercentage(Integer maxHealthyPercentage) {
+            return maxHealthyPercentage(Output.of(maxHealthyPercentage));
         }
 
         /**

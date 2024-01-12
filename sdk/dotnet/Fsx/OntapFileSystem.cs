@@ -106,6 +106,12 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> FsxAdminPassword { get; private set; } = null!;
 
         /// <summary>
+        /// The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        /// </summary>
+        [Output("haPairs")]
+        public Output<int> HaPairs { get; private set; } = null!;
+
+        /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         /// </summary>
         [Output("kmsKeyId")]
@@ -154,7 +160,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+        /// A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -172,10 +178,16 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         /// </summary>
         [Output("throughputCapacity")]
-        public Output<int> ThroughputCapacity { get; private set; } = null!;
+        public Output<int?> ThroughputCapacity { get; private set; } = null!;
+
+        /// <summary>
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        /// </summary>
+        [Output("throughputCapacityPerHaPair")]
+        public Output<int?> ThroughputCapacityPerHaPair { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the Virtual Private Cloud for the file system.
@@ -287,6 +299,12 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
+        /// The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        /// </summary>
+        [Input("haPairs")]
+        public Input<int>? HaPairs { get; set; }
+
+        /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         /// </summary>
         [Input("kmsKeyId")]
@@ -338,7 +356,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+        /// A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -359,10 +377,16 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         /// </summary>
-        [Input("throughputCapacity", required: true)]
-        public Input<int> ThroughputCapacity { get; set; } = null!;
+        [Input("throughputCapacity")]
+        public Input<int>? ThroughputCapacity { get; set; }
+
+        /// <summary>
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        /// </summary>
+        [Input("throughputCapacityPerHaPair")]
+        public Input<int>? ThroughputCapacityPerHaPair { get; set; }
 
         /// <summary>
         /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
@@ -449,6 +473,12 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
+        /// The number of ha_pairs to deploy for the file system. Valid values are 1 through 6. Recommend only using this parameter for 2 or more ha pairs.
+        /// </summary>
+        [Input("haPairs")]
+        public Input<int>? HaPairs { get; set; }
+
+        /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         /// </summary>
         [Input("kmsKeyId")]
@@ -518,7 +548,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
+        /// A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -556,10 +586,16 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`.
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter should only be used when specifying not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         /// </summary>
         [Input("throughputCapacity")]
         public Input<int>? ThroughputCapacity { get; set; }
+
+        /// <summary>
+        /// Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `3072`,`6144`. This parameter should only be used when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+        /// </summary>
+        [Input("throughputCapacityPerHaPair")]
+        public Input<int>? ThroughputCapacityPerHaPair { get; set; }
 
         /// <summary>
         /// Identifier of the Virtual Private Cloud for the file system.

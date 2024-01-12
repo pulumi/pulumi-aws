@@ -30,6 +30,12 @@ namespace Pulumi.Aws.Glue.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region of the target table.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public CatalogTableTargetTableGetArgs()
         {
         }

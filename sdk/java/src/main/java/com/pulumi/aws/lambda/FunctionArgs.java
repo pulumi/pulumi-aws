@@ -10,6 +10,7 @@ import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
 import com.pulumi.aws.lambda.inputs.FunctionEphemeralStorageArgs;
 import com.pulumi.aws.lambda.inputs.FunctionFileSystemConfigArgs;
 import com.pulumi.aws.lambda.inputs.FunctionImageConfigArgs;
+import com.pulumi.aws.lambda.inputs.FunctionLoggingConfigArgs;
 import com.pulumi.aws.lambda.inputs.FunctionSnapStartArgs;
 import com.pulumi.aws.lambda.inputs.FunctionTracingConfigArgs;
 import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
@@ -224,6 +225,21 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<String>>> layers() {
         return Optional.ofNullable(this.layers);
+    }
+
+    /**
+     * Configuration block used to specify advanced logging settings. Detailed below.
+     * 
+     */
+    @Import(name="loggingConfig")
+    private @Nullable Output<FunctionLoggingConfigArgs> loggingConfig;
+
+    /**
+     * @return Configuration block used to specify advanced logging settings. Detailed below.
+     * 
+     */
+    public Optional<Output<FunctionLoggingConfigArgs>> loggingConfig() {
+        return Optional.ofNullable(this.loggingConfig);
     }
 
     /**
@@ -547,6 +563,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         this.imageUri = $.imageUri;
         this.kmsKeyArn = $.kmsKeyArn;
         this.layers = $.layers;
+        this.loggingConfig = $.loggingConfig;
         this.memorySize = $.memorySize;
         this.name = $.name;
         this.packageType = $.packageType;
@@ -877,6 +894,27 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder layers(String... layers) {
             return layers(List.of(layers));
+        }
+
+        /**
+         * @param loggingConfig Configuration block used to specify advanced logging settings. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loggingConfig(@Nullable Output<FunctionLoggingConfigArgs> loggingConfig) {
+            $.loggingConfig = loggingConfig;
+            return this;
+        }
+
+        /**
+         * @param loggingConfig Configuration block used to specify advanced logging settings. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loggingConfig(FunctionLoggingConfigArgs loggingConfig) {
+            return loggingConfig(Output.of(loggingConfig));
         }
 
         /**

@@ -81,7 +81,7 @@ export interface GetFirewallResult {
      */
     readonly arn: string;
     /**
-     * Boolean flag indicating whether it is possible to delete the firewall.
+     * A flag indicating whether the firewall is protected against deletion.
      */
     readonly deleteProtection: boolean;
     /**
@@ -97,7 +97,7 @@ export interface GetFirewallResult {
      */
     readonly firewallPolicyArn: string;
     /**
-     * A boolean flag indicating whether it is possible to change the associated firewall policy.
+     * A flag indicating whether the firewall is protected against a change to the firewall policy association.
      */
     readonly firewallPolicyChangeProtection: boolean;
     /**
@@ -113,7 +113,7 @@ export interface GetFirewallResult {
      */
     readonly name: string;
     /**
-     * A boolean flag indicating whether it is possible to change the associated subnet(s).
+     * A flag indicating whether the firewall is protected against changes to the subnet associations.
      */
     readonly subnetChangeProtection: boolean;
     /**

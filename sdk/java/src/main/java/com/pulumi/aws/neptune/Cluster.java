@@ -543,6 +543,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storageEncrypted);
     }
     /**
+     * Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+     * 
+     */
+    @Export(name="storageType", refs={String.class}, tree="[0]")
+    private Output<String> storageType;
+
+    /**
+     * @return Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+     * 
+     */
+    public Output<String> storageType() {
+        return this.storageType;
+    }
+    /**
      * A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

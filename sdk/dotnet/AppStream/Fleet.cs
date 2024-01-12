@@ -124,7 +124,7 @@ namespace Pulumi.Aws.AppStream
         public Output<string> IamRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+        /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
         /// </summary>
         [Output("idleDisconnectTimeoutInSeconds")]
         public Output<int?> IdleDisconnectTimeoutInSeconds { get; private set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? IamRoleArn { get; set; }
 
         /// <summary>
-        /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+        /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
         /// </summary>
         [Input("idleDisconnectTimeoutInSeconds")]
         public Input<int>? IdleDisconnectTimeoutInSeconds { get; set; }
@@ -417,7 +417,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? IamRoleArn { get; set; }
 
         /// <summary>
-        /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+        /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
         /// </summary>
         [Input("idleDisconnectTimeoutInSeconds")]
         public Input<int>? IdleDisconnectTimeoutInSeconds { get; set; }

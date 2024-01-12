@@ -67,31 +67,35 @@ public final class EnvironmentEC2Args extends com.pulumi.resources.ResourceArgs 
      * The identifier for the Amazon Machine Image (AMI) that&#39;s used to create the EC2 instance. Valid values are
      * * `amazonlinux-1-x86_64`
      * * `amazonlinux-2-x86_64`
+     * * `amazonlinux-2023-x86_64`
      * * `ubuntu-18.04-x86_64`
      * * `ubuntu-22.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
      * 
      */
-    @Import(name="imageId")
-    private @Nullable Output<String> imageId;
+    @Import(name="imageId", required=true)
+    private Output<String> imageId;
 
     /**
      * @return The identifier for the Amazon Machine Image (AMI) that&#39;s used to create the EC2 instance. Valid values are
      * * `amazonlinux-1-x86_64`
      * * `amazonlinux-2-x86_64`
+     * * `amazonlinux-2023-x86_64`
      * * `ubuntu-18.04-x86_64`
      * * `ubuntu-22.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
      * 
      */
-    public Optional<Output<String>> imageId() {
-        return Optional.ofNullable(this.imageId);
+    public Output<String> imageId() {
+        return this.imageId;
     }
 
     /**
@@ -268,17 +272,19 @@ public final class EnvironmentEC2Args extends com.pulumi.resources.ResourceArgs 
          * @param imageId The identifier for the Amazon Machine Image (AMI) that&#39;s used to create the EC2 instance. Valid values are
          * * `amazonlinux-1-x86_64`
          * * `amazonlinux-2-x86_64`
+         * * `amazonlinux-2023-x86_64`
          * * `ubuntu-18.04-x86_64`
          * * `ubuntu-22.04-x86_64`
          * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
          * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+         * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
          * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
          * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
          * 
          * @return builder
          * 
          */
-        public Builder imageId(@Nullable Output<String> imageId) {
+        public Builder imageId(Output<String> imageId) {
             $.imageId = imageId;
             return this;
         }
@@ -287,10 +293,12 @@ public final class EnvironmentEC2Args extends com.pulumi.resources.ResourceArgs 
          * @param imageId The identifier for the Amazon Machine Image (AMI) that&#39;s used to create the EC2 instance. Valid values are
          * * `amazonlinux-1-x86_64`
          * * `amazonlinux-2-x86_64`
+         * * `amazonlinux-2023-x86_64`
          * * `ubuntu-18.04-x86_64`
          * * `ubuntu-22.04-x86_64`
          * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
          * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+         * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
          * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
          * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
          * 
@@ -407,6 +415,9 @@ public final class EnvironmentEC2Args extends com.pulumi.resources.ResourceArgs 
         }
 
         public EnvironmentEC2Args build() {
+            if ($.imageId == null) {
+                throw new MissingRequiredPropertyException("EnvironmentEC2Args", "imageId");
+            }
             if ($.instanceType == null) {
                 throw new MissingRequiredPropertyException("EnvironmentEC2Args", "instanceType");
             }

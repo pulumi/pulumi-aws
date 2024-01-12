@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .filters(            
  *                 GetAmiFilterArgs.builder()
  *                     .name(&#34;name&#34;)
- *                     .values(&#34;ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*&#34;)
+ *                     .values(&#34;ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*&#34;)
  *                     .build(),
  *                 GetAmiFilterArgs.builder()
  *                     .name(&#34;virtualization-type&#34;)

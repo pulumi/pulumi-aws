@@ -1810,7 +1810,7 @@ class Instance(pulumi.CustomResource):
             filters=[
                 aws.ec2.GetAmiFilterArgs(
                     name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
+                    values=["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"],
                 ),
                 aws.ec2.GetAmiFilterArgs(
                     name="virtualization-type",
@@ -2026,7 +2026,7 @@ class Instance(pulumi.CustomResource):
             filters=[
                 aws.ec2.GetAmiFilterArgs(
                     name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
+                    values=["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"],
                 ),
                 aws.ec2.GetAmiFilterArgs(
                     name="virtualization-type",

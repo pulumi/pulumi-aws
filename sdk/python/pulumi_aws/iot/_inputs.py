@@ -124,11 +124,11 @@ class BillingGroupPropertiesArgs:
 @pulumi.input_type
 class CaCertificateRegistrationConfigArgs:
     def __init__(__self__, *,
-                 role_arn: Optional[pulumi.Input[bool]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] role_arn: The ARN of the role.
+        :param pulumi.Input[str] role_arn: The ARN of the role.
         :param pulumi.Input[str] template_body: The template body.
         :param pulumi.Input[str] template_name: The name of the provisioning template.
         """
@@ -141,14 +141,14 @@ class CaCertificateRegistrationConfigArgs:
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[bool]]:
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
         The ARN of the role.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[bool]]):
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_arn", value)
 
     @property

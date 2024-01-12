@@ -11,25 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS FinSpace Kx Dataview.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.finspace.KxDataview("example", {
- *     environmentId: aws_finspace_kx_environment.example.id,
- *     databaseName: aws_finspace_kx_database.example.name,
- *     availabilityZoneId: "use1-az2",
- *     description: "Terraform managed Kx Dataview",
- *     azMode: "SINGLE",
- *     autoUpdate: true,
- *     segmentConfigurations: [{
- *         volumeName: aws_finspace_kx_volume.example.name,
- *         dbPaths: ["/*"],
- *     }],
- * });
- * ```
  *
  * ## Import
  *

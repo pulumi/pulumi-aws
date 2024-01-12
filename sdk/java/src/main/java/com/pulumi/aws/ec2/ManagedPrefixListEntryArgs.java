@@ -47,14 +47,14 @@ public final class ManagedPrefixListEntryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * CIDR block of this entry.
+     * The ID of the prefix list.
      * 
      */
     @Import(name="prefixListId", required=true)
     private Output<String> prefixListId;
 
     /**
-     * @return CIDR block of this entry.
+     * @return The ID of the prefix list.
      * 
      */
     public Output<String> prefixListId() {
@@ -130,7 +130,7 @@ public final class ManagedPrefixListEntryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param prefixListId CIDR block of this entry.
+         * @param prefixListId The ID of the prefix list.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ManagedPrefixListEntryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param prefixListId CIDR block of this entry.
+         * @param prefixListId The ID of the prefix list.
          * 
          * @return builder
          * 

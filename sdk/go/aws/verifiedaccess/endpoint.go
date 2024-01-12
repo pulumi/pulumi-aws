@@ -129,6 +129,8 @@ type Endpoint struct {
 	LoadBalancerOptions EndpointLoadBalancerOptionsPtrOutput `pulumi:"loadBalancerOptions"`
 	// The network interface details. This parameter is required if the endpoint type is `network-interface`.
 	NetworkInterfaceOptions EndpointNetworkInterfaceOptionsPtrOutput `pulumi:"networkInterfaceOptions"`
+	// The policy document that is associated with this resource.
+	PolicyDocument pulumi.StringPtrOutput `pulumi:"policyDocument"`
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The options in use for server side encryption.
@@ -216,6 +218,8 @@ type endpointState struct {
 	LoadBalancerOptions *EndpointLoadBalancerOptions `pulumi:"loadBalancerOptions"`
 	// The network interface details. This parameter is required if the endpoint type is `network-interface`.
 	NetworkInterfaceOptions *EndpointNetworkInterfaceOptions `pulumi:"networkInterfaceOptions"`
+	// The policy document that is associated with this resource.
+	PolicyDocument *string `pulumi:"policyDocument"`
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The options in use for server side encryption.
@@ -252,6 +256,8 @@ type EndpointState struct {
 	LoadBalancerOptions EndpointLoadBalancerOptionsPtrInput
 	// The network interface details. This parameter is required if the endpoint type is `network-interface`.
 	NetworkInterfaceOptions EndpointNetworkInterfaceOptionsPtrInput
+	// The policy document that is associated with this resource.
+	PolicyDocument pulumi.StringPtrInput
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The options in use for server side encryption.
@@ -288,6 +294,8 @@ type endpointArgs struct {
 	LoadBalancerOptions *EndpointLoadBalancerOptions `pulumi:"loadBalancerOptions"`
 	// The network interface details. This parameter is required if the endpoint type is `network-interface`.
 	NetworkInterfaceOptions *EndpointNetworkInterfaceOptions `pulumi:"networkInterfaceOptions"`
+	// The policy document that is associated with this resource.
+	PolicyDocument *string `pulumi:"policyDocument"`
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The options in use for server side encryption.
@@ -318,6 +326,8 @@ type EndpointArgs struct {
 	LoadBalancerOptions EndpointLoadBalancerOptionsPtrInput
 	// The network interface details. This parameter is required if the endpoint type is `network-interface`.
 	NetworkInterfaceOptions EndpointNetworkInterfaceOptionsPtrInput
+	// The policy document that is associated with this resource.
+	PolicyDocument pulumi.StringPtrInput
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The options in use for server side encryption.
@@ -465,6 +475,11 @@ func (o EndpointOutput) LoadBalancerOptions() EndpointLoadBalancerOptionsPtrOutp
 // The network interface details. This parameter is required if the endpoint type is `network-interface`.
 func (o EndpointOutput) NetworkInterfaceOptions() EndpointNetworkInterfaceOptionsPtrOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointNetworkInterfaceOptionsPtrOutput { return v.NetworkInterfaceOptions }).(EndpointNetworkInterfaceOptionsPtrOutput)
+}
+
+// The policy document that is associated with this resource.
+func (o EndpointOutput) PolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.PolicyDocument }).(pulumi.StringPtrOutput)
 }
 
 // List of the the security groups IDs to associate with the Verified Access endpoint.

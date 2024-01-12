@@ -2265,6 +2265,8 @@ type CatalogTableTargetTable struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the target table.
 	Name string `pulumi:"name"`
+	// Region of the target table.
+	Region *string `pulumi:"region"`
 }
 
 // CatalogTableTargetTableInput is an input type that accepts CatalogTableTargetTableArgs and CatalogTableTargetTableOutput values.
@@ -2285,6 +2287,8 @@ type CatalogTableTargetTableArgs struct {
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the target table.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region of the target table.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (CatalogTableTargetTableArgs) ElementType() reflect.Type {
@@ -2379,6 +2383,11 @@ func (o CatalogTableTargetTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTableTargetTable) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region of the target table.
+func (o CatalogTableTargetTableOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableTargetTable) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
 type CatalogTableTargetTablePtrOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableTargetTablePtrOutput) ElementType() reflect.Type {
@@ -2433,6 +2442,16 @@ func (o CatalogTableTargetTablePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Region of the target table.
+func (o CatalogTableTargetTablePtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClassifierCsvClassifier struct {
 	// Enables the processing of files that contain only one column.
 	AllowSingleColumn *bool `pulumi:"allowSingleColumn"`
@@ -2450,6 +2469,7 @@ type ClassifierCsvClassifier struct {
 	Headers []string `pulumi:"headers"`
 	// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
 	QuoteSymbol *string `pulumi:"quoteSymbol"`
+	Serde       *string `pulumi:"serde"`
 }
 
 // ClassifierCsvClassifierInput is an input type that accepts ClassifierCsvClassifierArgs and ClassifierCsvClassifierOutput values.
@@ -2480,6 +2500,7 @@ type ClassifierCsvClassifierArgs struct {
 	Headers pulumi.StringArrayInput `pulumi:"headers"`
 	// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
 	QuoteSymbol pulumi.StringPtrInput `pulumi:"quoteSymbol"`
+	Serde       pulumi.StringPtrInput `pulumi:"serde"`
 }
 
 func (ClassifierCsvClassifierArgs) ElementType() reflect.Type {
@@ -2599,6 +2620,10 @@ func (o ClassifierCsvClassifierOutput) QuoteSymbol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.QuoteSymbol }).(pulumi.StringPtrOutput)
 }
 
+func (o ClassifierCsvClassifierOutput) Serde() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.Serde }).(pulumi.StringPtrOutput)
+}
+
 type ClassifierCsvClassifierPtrOutput struct{ *pulumi.OutputState }
 
 func (ClassifierCsvClassifierPtrOutput) ElementType() reflect.Type {
@@ -2700,6 +2725,15 @@ func (o ClassifierCsvClassifierPtrOutput) QuoteSymbol() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.QuoteSymbol
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClassifierCsvClassifierPtrOutput) Serde() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Serde
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10316,6 +10350,8 @@ type GetCatalogTableTargetTable struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the table.
 	Name string `pulumi:"name"`
+	// Region of the target table.
+	Region string `pulumi:"region"`
 }
 
 // GetCatalogTableTargetTableInput is an input type that accepts GetCatalogTableTargetTableArgs and GetCatalogTableTargetTableOutput values.
@@ -10336,6 +10372,8 @@ type GetCatalogTableTargetTableArgs struct {
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the table.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region of the target table.
+	Region pulumi.StringInput `pulumi:"region"`
 }
 
 func (GetCatalogTableTargetTableArgs) ElementType() reflect.Type {
@@ -10402,6 +10440,11 @@ func (o GetCatalogTableTargetTableOutput) DatabaseName() pulumi.StringOutput {
 // Name of the table.
 func (o GetCatalogTableTargetTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCatalogTableTargetTable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region of the target table.
+func (o GetCatalogTableTargetTableOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTableTargetTable) string { return v.Region }).(pulumi.StringOutput)
 }
 
 type GetCatalogTableTargetTableArrayOutput struct{ *pulumi.OutputState }

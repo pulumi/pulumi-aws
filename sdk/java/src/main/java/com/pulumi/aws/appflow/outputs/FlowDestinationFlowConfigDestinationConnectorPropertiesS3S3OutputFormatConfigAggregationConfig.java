@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,11 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
      * 
      */
     private @Nullable String aggregationType;
+    /**
+     * @return The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+     * 
+     */
+    private @Nullable Integer targetFileSize;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig() {}
     /**
@@ -24,6 +30,13 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
      */
     public Optional<String> aggregationType() {
         return Optional.ofNullable(this.aggregationType);
+    }
+    /**
+     * @return The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+     * 
+     */
+    public Optional<Integer> targetFileSize() {
+        return Optional.ofNullable(this.targetFileSize);
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String aggregationType;
+        private @Nullable Integer targetFileSize;
         public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregationType = defaults.aggregationType;
+    	      this.targetFileSize = defaults.targetFileSize;
         }
 
         @CustomType.Setter
@@ -48,9 +63,16 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
             this.aggregationType = aggregationType;
             return this;
         }
+        @CustomType.Setter
+        public Builder targetFileSize(@Nullable Integer targetFileSize) {
+
+            this.targetFileSize = targetFileSize;
+            return this;
+        }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig build() {
             final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig();
             _resultValue.aggregationType = aggregationType;
+            _resultValue.targetFileSize = targetFileSize;
             return _resultValue;
         }
     }

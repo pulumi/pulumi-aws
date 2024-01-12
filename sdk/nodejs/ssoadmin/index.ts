@@ -15,6 +15,11 @@ export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
 utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
+export { ApplicationAccessScopeArgs, ApplicationAccessScopeState } from "./applicationAccessScope";
+export type ApplicationAccessScope = import("./applicationAccessScope").ApplicationAccessScope;
+export const ApplicationAccessScope: typeof import("./applicationAccessScope").ApplicationAccessScope = null as any;
+utilities.lazyLoad(exports, ["ApplicationAccessScope"], () => require("./applicationAccessScope"));
+
 export { ApplicationAssignmentArgs, ApplicationAssignmentState } from "./applicationAssignment";
 export type ApplicationAssignment = import("./applicationAssignment").ApplicationAssignment;
 export const ApplicationAssignment: typeof import("./applicationAssignment").ApplicationAssignment = null as any;
@@ -99,6 +104,8 @@ const _module = {
                 return new AccountAssignment(name, <any>undefined, { urn })
             case "aws:ssoadmin/application:Application":
                 return new Application(name, <any>undefined, { urn })
+            case "aws:ssoadmin/applicationAccessScope:ApplicationAccessScope":
+                return new ApplicationAccessScope(name, <any>undefined, { urn })
             case "aws:ssoadmin/applicationAssignment:ApplicationAssignment":
                 return new ApplicationAssignment(name, <any>undefined, { urn })
             case "aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration":
@@ -124,6 +131,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/accountAssignment", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/application", _module)
+pulumi.runtime.registerResourceModule("aws", "ssoadmin/applicationAccessScope", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/applicationAssignment", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/applicationAssignmentConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/customerManagedPolicyAttachment", _module)

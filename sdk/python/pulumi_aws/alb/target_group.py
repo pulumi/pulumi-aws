@@ -22,6 +22,7 @@ class TargetGroupArgs:
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
+                 load_balancing_anomaly_mitigation: Optional[pulumi.Input[str]] = None,
                  load_balancing_cross_zone_enabled: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -44,7 +45,8 @@ class TargetGroupArgs:
         :param pulumi.Input['TargetGroupHealthCheckArgs'] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
-        :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
+        :param pulumi.Input[str] load_balancing_anomaly_mitigation: Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
         :param pulumi.Input[str] load_balancing_cross_zone_enabled: Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
         :param pulumi.Input[str] name: Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
@@ -86,6 +88,8 @@ class TargetGroupArgs:
             pulumi.set(__self__, "lambda_multi_value_headers_enabled", lambda_multi_value_headers_enabled)
         if load_balancing_algorithm_type is not None:
             pulumi.set(__self__, "load_balancing_algorithm_type", load_balancing_algorithm_type)
+        if load_balancing_anomaly_mitigation is not None:
+            pulumi.set(__self__, "load_balancing_anomaly_mitigation", load_balancing_anomaly_mitigation)
         if load_balancing_cross_zone_enabled is not None:
             pulumi.set(__self__, "load_balancing_cross_zone_enabled", load_balancing_cross_zone_enabled)
         if name is not None:
@@ -181,13 +185,25 @@ class TargetGroupArgs:
     @pulumi.getter(name="loadBalancingAlgorithmType")
     def load_balancing_algorithm_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
         """
         return pulumi.get(self, "load_balancing_algorithm_type")
 
     @load_balancing_algorithm_type.setter
     def load_balancing_algorithm_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "load_balancing_algorithm_type", value)
+
+    @property
+    @pulumi.getter(name="loadBalancingAnomalyMitigation")
+    def load_balancing_anomaly_mitigation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
+        """
+        return pulumi.get(self, "load_balancing_anomaly_mitigation")
+
+    @load_balancing_anomaly_mitigation.setter
+    def load_balancing_anomaly_mitigation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancing_anomaly_mitigation", value)
 
     @property
     @pulumi.getter(name="loadBalancingCrossZoneEnabled")
@@ -394,6 +410,7 @@ class _TargetGroupState:
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
+                 load_balancing_anomaly_mitigation: Optional[pulumi.Input[str]] = None,
                  load_balancing_cross_zone_enabled: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -419,7 +436,8 @@ class _TargetGroupState:
         :param pulumi.Input['TargetGroupHealthCheckArgs'] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
-        :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
+        :param pulumi.Input[str] load_balancing_anomaly_mitigation: Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
         :param pulumi.Input[str] load_balancing_cross_zone_enabled: Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
         :param pulumi.Input[str] name: Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
@@ -466,6 +484,8 @@ class _TargetGroupState:
             pulumi.set(__self__, "lambda_multi_value_headers_enabled", lambda_multi_value_headers_enabled)
         if load_balancing_algorithm_type is not None:
             pulumi.set(__self__, "load_balancing_algorithm_type", load_balancing_algorithm_type)
+        if load_balancing_anomaly_mitigation is not None:
+            pulumi.set(__self__, "load_balancing_anomaly_mitigation", load_balancing_anomaly_mitigation)
         if load_balancing_cross_zone_enabled is not None:
             pulumi.set(__self__, "load_balancing_cross_zone_enabled", load_balancing_cross_zone_enabled)
         if name is not None:
@@ -590,13 +610,25 @@ class _TargetGroupState:
     @pulumi.getter(name="loadBalancingAlgorithmType")
     def load_balancing_algorithm_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
         """
         return pulumi.get(self, "load_balancing_algorithm_type")
 
     @load_balancing_algorithm_type.setter
     def load_balancing_algorithm_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "load_balancing_algorithm_type", value)
+
+    @property
+    @pulumi.getter(name="loadBalancingAnomalyMitigation")
+    def load_balancing_anomaly_mitigation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
+        """
+        return pulumi.get(self, "load_balancing_anomaly_mitigation")
+
+    @load_balancing_anomaly_mitigation.setter
+    def load_balancing_anomaly_mitigation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancing_anomaly_mitigation", value)
 
     @property
     @pulumi.getter(name="loadBalancingCrossZoneEnabled")
@@ -818,6 +850,7 @@ class TargetGroup(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
+                 load_balancing_anomaly_mitigation: Optional[pulumi.Input[str]] = None,
                  load_balancing_cross_zone_enabled: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -915,7 +948,8 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
-        :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
+        :param pulumi.Input[str] load_balancing_anomaly_mitigation: Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
         :param pulumi.Input[str] load_balancing_cross_zone_enabled: Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
         :param pulumi.Input[str] name: Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
@@ -1046,6 +1080,7 @@ class TargetGroup(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
+                 load_balancing_anomaly_mitigation: Optional[pulumi.Input[str]] = None,
                  load_balancing_cross_zone_enabled: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -1076,6 +1111,7 @@ class TargetGroup(pulumi.CustomResource):
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["lambda_multi_value_headers_enabled"] = lambda_multi_value_headers_enabled
             __props__.__dict__["load_balancing_algorithm_type"] = load_balancing_algorithm_type
+            __props__.__dict__["load_balancing_anomaly_mitigation"] = load_balancing_anomaly_mitigation
             __props__.__dict__["load_balancing_cross_zone_enabled"] = load_balancing_cross_zone_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
@@ -1116,6 +1152,7 @@ class TargetGroup(pulumi.CustomResource):
             ip_address_type: Optional[pulumi.Input[str]] = None,
             lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
             load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
+            load_balancing_anomaly_mitigation: Optional[pulumi.Input[str]] = None,
             load_balancing_cross_zone_enabled: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
@@ -1146,7 +1183,8 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
-        :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
+        :param pulumi.Input[str] load_balancing_anomaly_mitigation: Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
         :param pulumi.Input[str] load_balancing_cross_zone_enabled: Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
         :param pulumi.Input[str] name: Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
@@ -1189,6 +1227,7 @@ class TargetGroup(pulumi.CustomResource):
         __props__.__dict__["ip_address_type"] = ip_address_type
         __props__.__dict__["lambda_multi_value_headers_enabled"] = lambda_multi_value_headers_enabled
         __props__.__dict__["load_balancing_algorithm_type"] = load_balancing_algorithm_type
+        __props__.__dict__["load_balancing_anomaly_mitigation"] = load_balancing_anomaly_mitigation
         __props__.__dict__["load_balancing_cross_zone_enabled"] = load_balancing_cross_zone_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
@@ -1267,9 +1306,17 @@ class TargetGroup(pulumi.CustomResource):
     @pulumi.getter(name="loadBalancingAlgorithmType")
     def load_balancing_algorithm_type(self) -> pulumi.Output[str]:
         """
-        Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
         """
         return pulumi.get(self, "load_balancing_algorithm_type")
+
+    @property
+    @pulumi.getter(name="loadBalancingAnomalyMitigation")
+    def load_balancing_anomaly_mitigation(self) -> pulumi.Output[str]:
+        """
+        Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
+        """
+        return pulumi.get(self, "load_balancing_anomaly_mitigation")
 
     @property
     @pulumi.getter(name="loadBalancingCrossZoneEnabled")

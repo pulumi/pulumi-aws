@@ -52,6 +52,7 @@ import javax.annotation.Nullable;
  *                     .priority(1)
  *                     .resourceArn(aws_networkfirewall_rule_group.example().arn())
  *                     .build())
+ *                 .tlsInspectionConfigurationArn(&#34;arn:aws:network-firewall:REGION:ACCT:tls-configuration/example&#34;)
  *                 .build())
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),

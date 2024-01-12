@@ -18,6 +18,12 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("aggregationType")]
         public Input<string>? AggregationType { get; set; }
 
+        /// <summary>
+        /// The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+        /// </summary>
+        [Input("targetFileSize")]
+        public Input<int>? TargetFileSize { get; set; }
+
         public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs()
         {
         }

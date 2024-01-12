@@ -5,6 +5,7 @@ package com.pulumi.aws.codepipeline.inputs;
 
 import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreArgs;
 import com.pulumi.aws.codepipeline.inputs.PipelineStageArgs;
+import com.pulumi.aws.codepipeline.inputs.PipelineVariableArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -62,6 +63,21 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+     * 
+     */
+    @Import(name="pipelineType")
+    private @Nullable Output<String> pipelineType;
+
+    /**
+     * @return Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+     * 
+     */
+    public Optional<Output<String>> pipelineType() {
+        return Optional.ofNullable(this.pipelineType);
     }
 
     /**
@@ -132,16 +148,33 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+     * 
+     */
+    @Import(name="variables")
+    private @Nullable Output<List<PipelineVariableArgs>> variables;
+
+    /**
+     * @return A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+     * 
+     */
+    public Optional<Output<List<PipelineVariableArgs>>> variables() {
+        return Optional.ofNullable(this.variables);
+    }
+
     private PipelineState() {}
 
     private PipelineState(PipelineState $) {
         this.arn = $.arn;
         this.artifactStores = $.artifactStores;
         this.name = $.name;
+        this.pipelineType = $.pipelineType;
         this.roleArn = $.roleArn;
         this.stages = $.stages;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.variables = $.variables;
     }
 
     public static Builder builder() {
@@ -233,6 +266,27 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param pipelineType Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipelineType(@Nullable Output<String> pipelineType) {
+            $.pipelineType = pipelineType;
+            return this;
+        }
+
+        /**
+         * @param pipelineType Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pipelineType(String pipelineType) {
+            return pipelineType(Output.of(pipelineType));
         }
 
         /**
@@ -335,6 +389,37 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param variables A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder variables(@Nullable Output<List<PipelineVariableArgs>> variables) {
+            $.variables = variables;
+            return this;
+        }
+
+        /**
+         * @param variables A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder variables(List<PipelineVariableArgs> variables) {
+            return variables(Output.of(variables));
+        }
+
+        /**
+         * @param variables A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder variables(PipelineVariableArgs... variables) {
+            return variables(List.of(variables));
         }
 
         public PipelineState build() {

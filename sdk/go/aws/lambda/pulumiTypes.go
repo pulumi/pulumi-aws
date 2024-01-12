@@ -2939,6 +2939,200 @@ func (o FunctionImageConfigPtrOutput) WorkingDirectory() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type FunctionLoggingConfig struct {
+	// for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+	ApplicationLogLevel *string `pulumi:"applicationLogLevel"`
+	// select between `Text` and structured `JSON` format for your function's logs.
+	LogFormat string `pulumi:"logFormat"`
+	// the CloudWatch log group your function sends logs to.
+	LogGroup *string `pulumi:"logGroup"`
+	// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+	SystemLogLevel *string `pulumi:"systemLogLevel"`
+}
+
+// FunctionLoggingConfigInput is an input type that accepts FunctionLoggingConfigArgs and FunctionLoggingConfigOutput values.
+// You can construct a concrete instance of `FunctionLoggingConfigInput` via:
+//
+//	FunctionLoggingConfigArgs{...}
+type FunctionLoggingConfigInput interface {
+	pulumi.Input
+
+	ToFunctionLoggingConfigOutput() FunctionLoggingConfigOutput
+	ToFunctionLoggingConfigOutputWithContext(context.Context) FunctionLoggingConfigOutput
+}
+
+type FunctionLoggingConfigArgs struct {
+	// for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+	ApplicationLogLevel pulumi.StringPtrInput `pulumi:"applicationLogLevel"`
+	// select between `Text` and structured `JSON` format for your function's logs.
+	LogFormat pulumi.StringInput `pulumi:"logFormat"`
+	// the CloudWatch log group your function sends logs to.
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+	// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+	SystemLogLevel pulumi.StringPtrInput `pulumi:"systemLogLevel"`
+}
+
+func (FunctionLoggingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionLoggingConfig)(nil)).Elem()
+}
+
+func (i FunctionLoggingConfigArgs) ToFunctionLoggingConfigOutput() FunctionLoggingConfigOutput {
+	return i.ToFunctionLoggingConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionLoggingConfigArgs) ToFunctionLoggingConfigOutputWithContext(ctx context.Context) FunctionLoggingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionLoggingConfigOutput)
+}
+
+func (i FunctionLoggingConfigArgs) ToFunctionLoggingConfigPtrOutput() FunctionLoggingConfigPtrOutput {
+	return i.ToFunctionLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionLoggingConfigArgs) ToFunctionLoggingConfigPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionLoggingConfigOutput).ToFunctionLoggingConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionLoggingConfigPtrInput is an input type that accepts FunctionLoggingConfigArgs, FunctionLoggingConfigPtr and FunctionLoggingConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionLoggingConfigPtrInput` via:
+//
+//	        FunctionLoggingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionLoggingConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionLoggingConfigPtrOutput() FunctionLoggingConfigPtrOutput
+	ToFunctionLoggingConfigPtrOutputWithContext(context.Context) FunctionLoggingConfigPtrOutput
+}
+
+type functionLoggingConfigPtrType FunctionLoggingConfigArgs
+
+func FunctionLoggingConfigPtr(v *FunctionLoggingConfigArgs) FunctionLoggingConfigPtrInput {
+	return (*functionLoggingConfigPtrType)(v)
+}
+
+func (*functionLoggingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionLoggingConfig)(nil)).Elem()
+}
+
+func (i *functionLoggingConfigPtrType) ToFunctionLoggingConfigPtrOutput() FunctionLoggingConfigPtrOutput {
+	return i.ToFunctionLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionLoggingConfigPtrType) ToFunctionLoggingConfigPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionLoggingConfigPtrOutput)
+}
+
+type FunctionLoggingConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionLoggingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionLoggingConfig)(nil)).Elem()
+}
+
+func (o FunctionLoggingConfigOutput) ToFunctionLoggingConfigOutput() FunctionLoggingConfigOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigOutput) ToFunctionLoggingConfigOutputWithContext(ctx context.Context) FunctionLoggingConfigOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigOutput) ToFunctionLoggingConfigPtrOutput() FunctionLoggingConfigPtrOutput {
+	return o.ToFunctionLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionLoggingConfigOutput) ToFunctionLoggingConfigPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionLoggingConfig) *FunctionLoggingConfig {
+		return &v
+	}).(FunctionLoggingConfigPtrOutput)
+}
+
+// for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+func (o FunctionLoggingConfigOutput) ApplicationLogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionLoggingConfig) *string { return v.ApplicationLogLevel }).(pulumi.StringPtrOutput)
+}
+
+// select between `Text` and structured `JSON` format for your function's logs.
+func (o FunctionLoggingConfigOutput) LogFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionLoggingConfig) string { return v.LogFormat }).(pulumi.StringOutput)
+}
+
+// the CloudWatch log group your function sends logs to.
+func (o FunctionLoggingConfigOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionLoggingConfig) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+func (o FunctionLoggingConfigOutput) SystemLogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionLoggingConfig) *string { return v.SystemLogLevel }).(pulumi.StringPtrOutput)
+}
+
+type FunctionLoggingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionLoggingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionLoggingConfig)(nil)).Elem()
+}
+
+func (o FunctionLoggingConfigPtrOutput) ToFunctionLoggingConfigPtrOutput() FunctionLoggingConfigPtrOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigPtrOutput) ToFunctionLoggingConfigPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigPtrOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigPtrOutput) Elem() FunctionLoggingConfigOutput {
+	return o.ApplyT(func(v *FunctionLoggingConfig) FunctionLoggingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionLoggingConfig
+		return ret
+	}).(FunctionLoggingConfigOutput)
+}
+
+// for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+func (o FunctionLoggingConfigPtrOutput) ApplicationLogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionLoggingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationLogLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+// select between `Text` and structured `JSON` format for your function's logs.
+func (o FunctionLoggingConfigPtrOutput) LogFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionLoggingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// the CloudWatch log group your function sends logs to.
+func (o FunctionLoggingConfigPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionLoggingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+func (o FunctionLoggingConfigPtrOutput) SystemLogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionLoggingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SystemLogLevel
+	}).(pulumi.StringPtrOutput)
+}
+
 type FunctionSnapStart struct {
 	// Conditions where snap start is enabled. Valid values are `PublishedVersions`.
 	ApplyOn            string  `pulumi:"applyOn"`
@@ -4139,6 +4333,118 @@ func (o GetFunctionFileSystemConfigArrayOutput) Index(i pulumi.IntInput) GetFunc
 	}).(GetFunctionFileSystemConfigOutput)
 }
 
+type GetFunctionLoggingConfig struct {
+	ApplicationLogLevel string `pulumi:"applicationLogLevel"`
+	LogFormat           string `pulumi:"logFormat"`
+	LogGroup            string `pulumi:"logGroup"`
+	SystemLogLevel      string `pulumi:"systemLogLevel"`
+}
+
+// GetFunctionLoggingConfigInput is an input type that accepts GetFunctionLoggingConfigArgs and GetFunctionLoggingConfigOutput values.
+// You can construct a concrete instance of `GetFunctionLoggingConfigInput` via:
+//
+//	GetFunctionLoggingConfigArgs{...}
+type GetFunctionLoggingConfigInput interface {
+	pulumi.Input
+
+	ToGetFunctionLoggingConfigOutput() GetFunctionLoggingConfigOutput
+	ToGetFunctionLoggingConfigOutputWithContext(context.Context) GetFunctionLoggingConfigOutput
+}
+
+type GetFunctionLoggingConfigArgs struct {
+	ApplicationLogLevel pulumi.StringInput `pulumi:"applicationLogLevel"`
+	LogFormat           pulumi.StringInput `pulumi:"logFormat"`
+	LogGroup            pulumi.StringInput `pulumi:"logGroup"`
+	SystemLogLevel      pulumi.StringInput `pulumi:"systemLogLevel"`
+}
+
+func (GetFunctionLoggingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionLoggingConfig)(nil)).Elem()
+}
+
+func (i GetFunctionLoggingConfigArgs) ToGetFunctionLoggingConfigOutput() GetFunctionLoggingConfigOutput {
+	return i.ToGetFunctionLoggingConfigOutputWithContext(context.Background())
+}
+
+func (i GetFunctionLoggingConfigArgs) ToGetFunctionLoggingConfigOutputWithContext(ctx context.Context) GetFunctionLoggingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionLoggingConfigOutput)
+}
+
+// GetFunctionLoggingConfigArrayInput is an input type that accepts GetFunctionLoggingConfigArray and GetFunctionLoggingConfigArrayOutput values.
+// You can construct a concrete instance of `GetFunctionLoggingConfigArrayInput` via:
+//
+//	GetFunctionLoggingConfigArray{ GetFunctionLoggingConfigArgs{...} }
+type GetFunctionLoggingConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionLoggingConfigArrayOutput() GetFunctionLoggingConfigArrayOutput
+	ToGetFunctionLoggingConfigArrayOutputWithContext(context.Context) GetFunctionLoggingConfigArrayOutput
+}
+
+type GetFunctionLoggingConfigArray []GetFunctionLoggingConfigInput
+
+func (GetFunctionLoggingConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionLoggingConfig)(nil)).Elem()
+}
+
+func (i GetFunctionLoggingConfigArray) ToGetFunctionLoggingConfigArrayOutput() GetFunctionLoggingConfigArrayOutput {
+	return i.ToGetFunctionLoggingConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionLoggingConfigArray) ToGetFunctionLoggingConfigArrayOutputWithContext(ctx context.Context) GetFunctionLoggingConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionLoggingConfigArrayOutput)
+}
+
+type GetFunctionLoggingConfigOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionLoggingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionLoggingConfig)(nil)).Elem()
+}
+
+func (o GetFunctionLoggingConfigOutput) ToGetFunctionLoggingConfigOutput() GetFunctionLoggingConfigOutput {
+	return o
+}
+
+func (o GetFunctionLoggingConfigOutput) ToGetFunctionLoggingConfigOutputWithContext(ctx context.Context) GetFunctionLoggingConfigOutput {
+	return o
+}
+
+func (o GetFunctionLoggingConfigOutput) ApplicationLogLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionLoggingConfig) string { return v.ApplicationLogLevel }).(pulumi.StringOutput)
+}
+
+func (o GetFunctionLoggingConfigOutput) LogFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionLoggingConfig) string { return v.LogFormat }).(pulumi.StringOutput)
+}
+
+func (o GetFunctionLoggingConfigOutput) LogGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionLoggingConfig) string { return v.LogGroup }).(pulumi.StringOutput)
+}
+
+func (o GetFunctionLoggingConfigOutput) SystemLogLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionLoggingConfig) string { return v.SystemLogLevel }).(pulumi.StringOutput)
+}
+
+type GetFunctionLoggingConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionLoggingConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionLoggingConfig)(nil)).Elem()
+}
+
+func (o GetFunctionLoggingConfigArrayOutput) ToGetFunctionLoggingConfigArrayOutput() GetFunctionLoggingConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionLoggingConfigArrayOutput) ToGetFunctionLoggingConfigArrayOutputWithContext(ctx context.Context) GetFunctionLoggingConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionLoggingConfigArrayOutput) Index(i pulumi.IntInput) GetFunctionLoggingConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionLoggingConfig {
+		return vs[0].([]GetFunctionLoggingConfig)[vs[1].(int)]
+	}).(GetFunctionLoggingConfigOutput)
+}
+
 type GetFunctionTracingConfig struct {
 	Mode string `pulumi:"mode"`
 }
@@ -4422,6 +4728,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionFileSystemConfigPtrInput)(nil)).Elem(), FunctionFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionImageConfigInput)(nil)).Elem(), FunctionImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionImageConfigPtrInput)(nil)).Elem(), FunctionImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigInput)(nil)).Elem(), FunctionLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigPtrInput)(nil)).Elem(), FunctionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartInput)(nil)).Elem(), FunctionSnapStartArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartPtrInput)(nil)).Elem(), FunctionSnapStartArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigInput)(nil)).Elem(), FunctionTracingConfigArgs{})
@@ -4440,6 +4748,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionEphemeralStorageArrayInput)(nil)).Elem(), GetFunctionEphemeralStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionFileSystemConfigInput)(nil)).Elem(), GetFunctionFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionFileSystemConfigArrayInput)(nil)).Elem(), GetFunctionFileSystemConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionLoggingConfigInput)(nil)).Elem(), GetFunctionLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionLoggingConfigArrayInput)(nil)).Elem(), GetFunctionLoggingConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionTracingConfigInput)(nil)).Elem(), GetFunctionTracingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionUrlCorInput)(nil)).Elem(), GetFunctionUrlCorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionUrlCorArrayInput)(nil)).Elem(), GetFunctionUrlCorArray{})
@@ -4486,6 +4796,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionFileSystemConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionImageConfigOutput{})
 	pulumi.RegisterOutputType(FunctionImageConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionLoggingConfigOutput{})
+	pulumi.RegisterOutputType(FunctionLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartPtrOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigOutput{})
@@ -4504,6 +4816,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFunctionEphemeralStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionFileSystemConfigOutput{})
 	pulumi.RegisterOutputType(GetFunctionFileSystemConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetFunctionLoggingConfigOutput{})
+	pulumi.RegisterOutputType(GetFunctionLoggingConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionTracingConfigOutput{})
 	pulumi.RegisterOutputType(GetFunctionUrlCorOutput{})
 	pulumi.RegisterOutputType(GetFunctionUrlCorArrayOutput{})

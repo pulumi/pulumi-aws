@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ImageRecipe{}
 	case "aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration":
 		r = &InfrastructureConfiguration{}
+	case "aws:imagebuilder/workflow:Workflow":
+		r = &Workflow{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -81,6 +83,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"imagebuilder/infrastructureConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"imagebuilder/workflow",
 		&module{version},
 	)
 }

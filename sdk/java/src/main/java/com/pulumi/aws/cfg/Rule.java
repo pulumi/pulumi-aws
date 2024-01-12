@@ -319,28 +319,28 @@ public class Rule extends com.pulumi.resources.CustomResource {
         return this.ruleId;
     }
     /**
-     * Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+     * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      * 
      */
     @Export(name="scope", refs={RuleScope.class}, tree="[0]")
     private Output</* @Nullable */ RuleScope> scope;
 
     /**
-     * @return Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+     * @return Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      * 
      */
     public Output<Optional<RuleScope>> scope() {
         return Codegen.optional(this.scope);
     }
     /**
-     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      * 
      */
     @Export(name="source", refs={RuleSource.class}, tree="[0]")
     private Output<RuleSource> source;
 
     /**
-     * @return Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+     * @return Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      * 
      */
     public Output<RuleSource> source() {

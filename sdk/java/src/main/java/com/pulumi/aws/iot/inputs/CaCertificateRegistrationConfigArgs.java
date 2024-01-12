@@ -5,7 +5,6 @@ package com.pulumi.aws.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,13 +20,13 @@ public final class CaCertificateRegistrationConfigArgs extends com.pulumi.resour
      * 
      */
     @Import(name="roleArn")
-    private @Nullable Output<Boolean> roleArn;
+    private @Nullable Output<String> roleArn;
 
     /**
      * @return The ARN of the role.
      * 
      */
-    public Optional<Output<Boolean>> roleArn() {
+    public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
 
@@ -93,7 +92,7 @@ public final class CaCertificateRegistrationConfigArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder roleArn(@Nullable Output<Boolean> roleArn) {
+        public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
@@ -104,7 +103,7 @@ public final class CaCertificateRegistrationConfigArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder roleArn(Boolean roleArn) {
+        public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 

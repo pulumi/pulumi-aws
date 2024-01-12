@@ -5931,7 +5931,7 @@ type DistributionViewerCertificate struct {
 	IamCertificateId *string `pulumi:"iamCertificateId"`
 	// Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Can only be set if `cloudfrontDefaultCertificate = false`. See all possible values in [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) table under "Security policy." Some examples include: `TLSv1.2_2019` and `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**: If you are using a custom certificate (specified with `acmCertificateArn` or `iamCertificateId`), and have specified `sni-only` in `sslSupportMethod`, `TLSv1` or later must be specified. If you have specified `vip` in `sslSupportMethod`, only `SSLv3` or `TLSv1` can be specified. If you have specified `cloudfrontDefaultCertificate`, `TLSv1` must be specified.
 	MinimumProtocolVersion *string `pulumi:"minimumProtocolVersion"`
-	// How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
+	// How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
 	SslSupportMethod *string `pulumi:"sslSupportMethod"`
 }
 
@@ -5955,7 +5955,7 @@ type DistributionViewerCertificateArgs struct {
 	IamCertificateId pulumi.StringPtrInput `pulumi:"iamCertificateId"`
 	// Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Can only be set if `cloudfrontDefaultCertificate = false`. See all possible values in [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) table under "Security policy." Some examples include: `TLSv1.2_2019` and `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**: If you are using a custom certificate (specified with `acmCertificateArn` or `iamCertificateId`), and have specified `sni-only` in `sslSupportMethod`, `TLSv1` or later must be specified. If you have specified `vip` in `sslSupportMethod`, only `SSLv3` or `TLSv1` can be specified. If you have specified `cloudfrontDefaultCertificate`, `TLSv1` must be specified.
 	MinimumProtocolVersion pulumi.StringPtrInput `pulumi:"minimumProtocolVersion"`
-	// How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
+	// How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
 	SslSupportMethod pulumi.StringPtrInput `pulumi:"sslSupportMethod"`
 }
 
@@ -6056,7 +6056,7 @@ func (o DistributionViewerCertificateOutput) MinimumProtocolVersion() pulumi.Str
 	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.MinimumProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
-// How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
+// How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
 func (o DistributionViewerCertificateOutput) SslSupportMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.SslSupportMethod }).(pulumi.StringPtrOutput)
 }
@@ -6125,7 +6125,7 @@ func (o DistributionViewerCertificatePtrOutput) MinimumProtocolVersion() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
+// How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
 func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionViewerCertificate) *string {
 		if v == nil {

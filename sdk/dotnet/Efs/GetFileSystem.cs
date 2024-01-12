@@ -199,6 +199,7 @@ namespace Pulumi.Aws.Efs
         /// File system performance mode.
         /// </summary>
         public readonly string PerformanceMode;
+        public readonly ImmutableArray<Outputs.GetFileSystemProtectionResult> Protections;
         /// <summary>
         /// The throughput, measured in MiB/s, that you want to provision for the file system.
         /// </summary>
@@ -242,6 +243,8 @@ namespace Pulumi.Aws.Efs
 
             string performanceMode,
 
+            ImmutableArray<Outputs.GetFileSystemProtectionResult> protections,
+
             double provisionedThroughputInMibps,
 
             int sizeInBytes,
@@ -262,6 +265,7 @@ namespace Pulumi.Aws.Efs
             LifecyclePolicy = lifecyclePolicy;
             Name = name;
             PerformanceMode = performanceMode;
+            Protections = protections;
             ProvisionedThroughputInMibps = provisionedThroughputInMibps;
             SizeInBytes = sizeInBytes;
             Tags = tags;

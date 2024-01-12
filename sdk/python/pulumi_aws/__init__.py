@@ -401,6 +401,8 @@ if typing.TYPE_CHECKING:
     transfer = __transfer
     import pulumi_aws.verifiedaccess as __verifiedaccess
     verifiedaccess = __verifiedaccess
+    import pulumi_aws.verifiedpermissions as __verifiedpermissions
+    verifiedpermissions = __verifiedpermissions
     import pulumi_aws.vpc as __vpc
     vpc = __vpc
     import pulumi_aws.vpclattice as __vpclattice
@@ -607,6 +609,7 @@ else:
     transcribe = _utilities.lazy_import('pulumi_aws.transcribe')
     transfer = _utilities.lazy_import('pulumi_aws.transfer')
     verifiedaccess = _utilities.lazy_import('pulumi_aws.verifiedaccess')
+    verifiedpermissions = _utilities.lazy_import('pulumi_aws.verifiedpermissions')
     vpc = _utilities.lazy_import('pulumi_aws.vpc')
     vpclattice = _utilities.lazy_import('pulumi_aws.vpclattice')
     waf = _utilities.lazy_import('pulumi_aws.waf')
@@ -769,6 +772,14 @@ _utilities.register(
   "fqn": "pulumi_aws.amp",
   "classes": {
    "aws:amp/ruleGroupNamespace:RuleGroupNamespace": "RuleGroupNamespace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "amp/scraper",
+  "fqn": "pulumi_aws.amp",
+  "classes": {
+   "aws:amp/scraper:Scraper": "Scraper"
   }
  },
  {
@@ -3613,6 +3624,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ebs/fastSnapshotRestore",
+  "fqn": "pulumi_aws.ebs",
+  "classes": {
+   "aws:ebs/fastSnapshotRestore:FastSnapshotRestore": "FastSnapshotRestore"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ebs/snapshot",
   "fqn": "pulumi_aws.ebs",
   "classes": {
@@ -4845,6 +4864,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "elasticache/serverlessCache",
+  "fqn": "pulumi_aws.elasticache",
+  "classes": {
+   "aws:elasticache/serverlessCache:ServerlessCache": "ServerlessCache"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "elasticache/subnetGroup",
   "fqn": "pulumi_aws.elasticache",
   "classes": {
@@ -6013,6 +6040,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "imagebuilder/workflow",
+  "fqn": "pulumi_aws.imagebuilder",
+  "classes": {
+   "aws:imagebuilder/workflow:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "inspector/assessmentTarget",
   "fqn": "pulumi_aws.inspector",
   "classes": {
@@ -6337,6 +6372,14 @@ _utilities.register(
   "fqn": "pulumi_aws.kinesis",
   "classes": {
    "aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream": "FirehoseDeliveryStream"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "kinesis/resourcePolicy",
+  "fqn": "pulumi_aws.kinesis",
+  "classes": {
+   "aws:kinesis/resourcePolicy:ResourcePolicy": "ResourcePolicy"
   }
  },
  {
@@ -9589,6 +9632,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "securitylake/awsLogSource",
+  "fqn": "pulumi_aws.securitylake",
+  "classes": {
+   "aws:securitylake/awsLogSource:AwsLogSource": "AwsLogSource"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "securitylake/dataLake",
   "fqn": "pulumi_aws.securitylake",
   "classes": {
@@ -10293,6 +10344,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ssoadmin/applicationAccessScope",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/applicationAccessScope:ApplicationAccessScope": "ApplicationAccessScope"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ssoadmin/applicationAssignment",
   "fqn": "pulumi_aws.ssoadmin",
   "classes": {
@@ -10649,6 +10708,30 @@ _utilities.register(
   "fqn": "pulumi_aws.verifiedaccess",
   "classes": {
    "aws:verifiedaccess/trustProvider:TrustProvider": "TrustProvider"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "verifiedpermissions/policyStore",
+  "fqn": "pulumi_aws.verifiedpermissions",
+  "classes": {
+   "aws:verifiedpermissions/policyStore:PolicyStore": "PolicyStore"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "verifiedpermissions/policyTemplate",
+  "fqn": "pulumi_aws.verifiedpermissions",
+  "classes": {
+   "aws:verifiedpermissions/policyTemplate:PolicyTemplate": "PolicyTemplate"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "verifiedpermissions/schema",
+  "fqn": "pulumi_aws.verifiedpermissions",
+  "classes": {
+   "aws:verifiedpermissions/schema:Schema": "Schema"
   }
  },
  {

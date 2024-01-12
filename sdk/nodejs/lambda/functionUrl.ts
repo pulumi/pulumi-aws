@@ -96,7 +96,7 @@ export class FunctionUrl extends pulumi.CustomResource {
      */
     public readonly functionName!: pulumi.Output<string>;
     /**
-     * The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+     * The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
      */
     public /*out*/ readonly functionUrl!: pulumi.Output<string>;
     /**
@@ -176,7 +176,7 @@ export interface FunctionUrlState {
      */
     functionName?: pulumi.Input<string>;
     /**
-     * The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+     * The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
      */
     functionUrl?: pulumi.Input<string>;
     /**

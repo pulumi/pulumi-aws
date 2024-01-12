@@ -170,13 +170,15 @@ namespace Pulumi.Aws.Dms
         public Output<Outputs.EndpointS3Settings?> S3Settings { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+        /// 
+        /// &gt; **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         /// </summary>
         [Output("secretsManagerAccessRoleArn")]
         public Output<string?> SecretsManagerAccessRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+        /// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         /// </summary>
         [Output("secretsManagerArn")]
         public Output<string?> SecretsManagerArn { get; private set; } = null!;
@@ -383,13 +385,15 @@ namespace Pulumi.Aws.Dms
         public Input<Inputs.EndpointS3SettingsArgs>? S3Settings { get; set; }
 
         /// <summary>
-        /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+        /// 
+        /// &gt; **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         /// </summary>
         [Input("secretsManagerAccessRoleArn")]
         public Input<string>? SecretsManagerAccessRoleArn { get; set; }
 
         /// <summary>
-        /// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+        /// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         /// </summary>
         [Input("secretsManagerArn")]
         public Input<string>? SecretsManagerArn { get; set; }
@@ -559,13 +563,15 @@ namespace Pulumi.Aws.Dms
         public Input<Inputs.EndpointS3SettingsGetArgs>? S3Settings { get; set; }
 
         /// <summary>
-        /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+        /// 
+        /// &gt; **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         /// </summary>
         [Input("secretsManagerAccessRoleArn")]
         public Input<string>? SecretsManagerAccessRoleArn { get; set; }
 
         /// <summary>
-        /// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+        /// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         /// </summary>
         [Input("secretsManagerArn")]
         public Input<string>? SecretsManagerArn { get; set; }

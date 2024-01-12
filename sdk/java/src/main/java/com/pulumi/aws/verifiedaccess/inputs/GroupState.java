@@ -91,9 +91,17 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.owner);
     }
 
+    /**
+     * The policy document that is associated with this resource.
+     * 
+     */
     @Import(name="policyDocument")
     private @Nullable Output<String> policyDocument;
 
+    /**
+     * @return The policy document that is associated with this resource.
+     * 
+     */
     public Optional<Output<String>> policyDocument() {
         return Optional.ofNullable(this.policyDocument);
     }
@@ -320,11 +328,23 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
             return owner(Output.of(owner));
         }
 
+        /**
+         * @param policyDocument The policy document that is associated with this resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyDocument(@Nullable Output<String> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
 
+        /**
+         * @param policyDocument The policy document that is associated with this resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
         }

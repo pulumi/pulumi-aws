@@ -8,6 +8,7 @@ import com.pulumi.aws.batch.ComputeEnvironmentArgs;
 import com.pulumi.aws.batch.inputs.ComputeEnvironmentState;
 import com.pulumi.aws.batch.outputs.ComputeEnvironmentComputeResources;
 import com.pulumi.aws.batch.outputs.ComputeEnvironmentEksConfiguration;
+import com.pulumi.aws.batch.outputs.ComputeEnvironmentUpdatePolicy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -193,6 +194,52 @@ import javax.annotation.Nullable;
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_iam_role_policy_attachment.aws_batch_service_role())
  *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Setting Update Policy
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.batch.ComputeEnvironment;
+ * import com.pulumi.aws.batch.ComputeEnvironmentArgs;
+ * import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesArgs;
+ * import com.pulumi.aws.batch.inputs.ComputeEnvironmentUpdatePolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var sample = new ComputeEnvironment(&#34;sample&#34;, ComputeEnvironmentArgs.builder()        
+ *             .computeEnvironmentName(&#34;sample&#34;)
+ *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
+ *                 .allocationStrategy(&#34;BEST_FIT_PROGRESSIVE&#34;)
+ *                 .instanceRole(aws_iam_instance_profile.ecs_instance().arn())
+ *                 .instanceTypes(&#34;optimal&#34;)
+ *                 .maxVcpus(4)
+ *                 .minVcpus(0)
+ *                 .securityGroupIds(aws_security_group.sample().id())
+ *                 .subnets(aws_subnet.sample().id())
+ *                 .type(&#34;EC2&#34;)
+ *                 .build())
+ *             .updatePolicy(ComputeEnvironmentUpdatePolicyArgs.builder()
+ *                 .jobExecutionTimeoutMinutes(30)
+ *                 .terminateJobsOnUpdate(false)
+ *                 .build())
+ *             .type(&#34;MANAGED&#34;)
+ *             .build());
  * 
  *     }
  * }
@@ -394,6 +441,20 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> type() {
         return this.type;
+    }
+    /**
+     * Specifies the infrastructure update policy for the compute environment. See details below.
+     * 
+     */
+    @Export(name="updatePolicy", refs={ComputeEnvironmentUpdatePolicy.class}, tree="[0]")
+    private Output</* @Nullable */ ComputeEnvironmentUpdatePolicy> updatePolicy;
+
+    /**
+     * @return Specifies the infrastructure update policy for the compute environment. See details below.
+     * 
+     */
+    public Output<Optional<ComputeEnvironmentUpdatePolicy>> updatePolicy() {
+        return Codegen.optional(this.updatePolicy);
     }
 
     /**

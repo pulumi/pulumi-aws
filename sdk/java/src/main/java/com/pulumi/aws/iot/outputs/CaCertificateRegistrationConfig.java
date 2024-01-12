@@ -4,7 +4,6 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,7 +15,7 @@ public final class CaCertificateRegistrationConfig {
      * @return The ARN of the role.
      * 
      */
-    private @Nullable Boolean roleArn;
+    private @Nullable String roleArn;
     /**
      * @return The template body.
      * 
@@ -33,7 +32,7 @@ public final class CaCertificateRegistrationConfig {
      * @return The ARN of the role.
      * 
      */
-    public Optional<Boolean> roleArn() {
+    public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
     /**
@@ -60,7 +59,7 @@ public final class CaCertificateRegistrationConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Boolean roleArn;
+        private @Nullable String roleArn;
         private @Nullable String templateBody;
         private @Nullable String templateName;
         public Builder() {}
@@ -72,7 +71,7 @@ public final class CaCertificateRegistrationConfig {
         }
 
         @CustomType.Setter
-        public Builder roleArn(@Nullable Boolean roleArn) {
+        public Builder roleArn(@Nullable String roleArn) {
 
             this.roleArn = roleArn;
             return this;

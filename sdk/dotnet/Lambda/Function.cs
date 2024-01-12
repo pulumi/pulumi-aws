@@ -310,6 +310,10 @@ namespace Pulumi.Aws.Lambda
     /// 
     ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
     ///     {
+    ///         LoggingConfig = new Aws.Lambda.Inputs.FunctionLoggingConfigArgs
+    ///         {
+    ///             LogFormat = "Text",
+    ///         },
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn = new[]
@@ -436,6 +440,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("layers")]
         public Output<ImmutableArray<string>> Layers { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block used to specify advanced logging settings. Detailed below.
+        /// </summary>
+        [Output("loggingConfig")]
+        public Output<Outputs.FunctionLoggingConfig> LoggingConfig { get; private set; } = null!;
 
         /// <summary>
         /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
@@ -738,6 +748,12 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
+        /// Configuration block used to specify advanced logging settings. Detailed below.
+        /// </summary>
+        [Input("loggingConfig")]
+        public Input<Inputs.FunctionLoggingConfigArgs>? LoggingConfig { get; set; }
+
+        /// <summary>
         /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         /// </summary>
         [Input("memorySize")]
@@ -981,6 +997,12 @@ namespace Pulumi.Aws.Lambda
             get => _layers ?? (_layers = new InputList<string>());
             set => _layers = value;
         }
+
+        /// <summary>
+        /// Configuration block used to specify advanced logging settings. Detailed below.
+        /// </summary>
+        [Input("loggingConfig")]
+        public Input<Inputs.FunctionLoggingConfigGetArgs>? LoggingConfig { get; set; }
 
         /// <summary>
         /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)

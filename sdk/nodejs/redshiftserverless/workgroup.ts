@@ -83,6 +83,10 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly namespaceName!: pulumi.Output<string>;
     /**
+     * The port number on which the cluster accepts incoming connections.
+     */
+    public readonly port!: pulumi.Output<number>;
+    /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
@@ -134,6 +138,7 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["endpoints"] = state ? state.endpoints : undefined;
             resourceInputs["enhancedVpcRouting"] = state ? state.enhancedVpcRouting : undefined;
             resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -153,6 +158,7 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["configParameters"] = args ? args.configParameters : undefined;
             resourceInputs["enhancedVpcRouting"] = args ? args.enhancedVpcRouting : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -198,6 +204,10 @@ export interface WorkgroupState {
      * The name of the namespace.
      */
     namespaceName?: pulumi.Input<string>;
+    /**
+     * The port number on which the cluster accepts incoming connections.
+     */
+    port?: pulumi.Input<number>;
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      */
@@ -252,6 +262,10 @@ export interface WorkgroupArgs {
      * The name of the namespace.
      */
     namespaceName: pulumi.Input<string>;
+    /**
+     * The port number on which the cluster accepts incoming connections.
+     */
+    port?: pulumi.Input<number>;
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      */

@@ -45,6 +45,11 @@ export type ReplicationGroup = import("./replicationGroup").ReplicationGroup;
 export const ReplicationGroup: typeof import("./replicationGroup").ReplicationGroup = null as any;
 utilities.lazyLoad(exports, ["ReplicationGroup"], () => require("./replicationGroup"));
 
+export { ServerlessCacheArgs, ServerlessCacheState } from "./serverlessCache";
+export type ServerlessCache = import("./serverlessCache").ServerlessCache;
+export const ServerlessCache: typeof import("./serverlessCache").ServerlessCache = null as any;
+utilities.lazyLoad(exports, ["ServerlessCache"], () => require("./serverlessCache"));
+
 export { SubnetGroupArgs, SubnetGroupState } from "./subnetGroup";
 export type SubnetGroup = import("./subnetGroup").SubnetGroup;
 export const SubnetGroup: typeof import("./subnetGroup").SubnetGroup = null as any;
@@ -78,6 +83,8 @@ const _module = {
                 return new ParameterGroup(name, <any>undefined, { urn })
             case "aws:elasticache/replicationGroup:ReplicationGroup":
                 return new ReplicationGroup(name, <any>undefined, { urn })
+            case "aws:elasticache/serverlessCache:ServerlessCache":
+                return new ServerlessCache(name, <any>undefined, { urn })
             case "aws:elasticache/subnetGroup:SubnetGroup":
                 return new SubnetGroup(name, <any>undefined, { urn })
             case "aws:elasticache/user:User":
@@ -95,6 +102,7 @@ pulumi.runtime.registerResourceModule("aws", "elasticache/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/globalReplicationGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/replicationGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "elasticache/serverlessCache", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/subnetGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/user", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/userGroup", _module)

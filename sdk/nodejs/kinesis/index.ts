@@ -31,6 +31,11 @@ export const getStreamConsumerOutput: typeof import("./getStreamConsumer").getSt
 utilities.lazyLoad(exports, ["getStreamConsumer","getStreamConsumerOutput"], () => require("./getStreamConsumer"));
 
 export * from "./kinesisMixins";
+export { ResourcePolicyArgs, ResourcePolicyState } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+
 export { StreamArgs, StreamState } from "./stream";
 export type Stream = import("./stream").Stream;
 export const Stream: typeof import("./stream").Stream = null as any;
@@ -55,6 +60,8 @@ const _module = {
                 return new AnalyticsApplication(name, <any>undefined, { urn })
             case "aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream":
                 return new FirehoseDeliveryStream(name, <any>undefined, { urn })
+            case "aws:kinesis/resourcePolicy:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws:kinesis/stream:Stream":
                 return new Stream(name, <any>undefined, { urn })
             case "aws:kinesis/streamConsumer:StreamConsumer":
@@ -68,6 +75,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "kinesis/analyticsApplication", _module)
 pulumi.runtime.registerResourceModule("aws", "kinesis/firehoseDeliveryStream", _module)
+pulumi.runtime.registerResourceModule("aws", "kinesis/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "kinesis/stream", _module)
 pulumi.runtime.registerResourceModule("aws", "kinesis/streamConsumer", _module)
 pulumi.runtime.registerResourceModule("aws", "kinesis/videoStream", _module)

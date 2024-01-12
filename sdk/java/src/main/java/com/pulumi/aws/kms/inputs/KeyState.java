@@ -254,6 +254,21 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * Identifies the external key that serves as key material for the KMS key in an external key store.
+     * 
+     */
+    @Import(name="xksKeyId")
+    private @Nullable Output<String> xksKeyId;
+
+    /**
+     * @return Identifies the external key that serves as key material for the KMS key in an external key store.
+     * 
+     */
+    public Optional<Output<String>> xksKeyId() {
+        return Optional.ofNullable(this.xksKeyId);
+    }
+
     private KeyState() {}
 
     private KeyState(KeyState $) {
@@ -271,6 +286,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
         this.policy = $.policy;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.xksKeyId = $.xksKeyId;
     }
 
     public static Builder builder() {
@@ -609,6 +625,27 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param xksKeyId Identifies the external key that serves as key material for the KMS key in an external key store.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder xksKeyId(@Nullable Output<String> xksKeyId) {
+            $.xksKeyId = xksKeyId;
+            return this;
+        }
+
+        /**
+         * @param xksKeyId Identifies the external key that serves as key material for the KMS key in an external key store.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder xksKeyId(String xksKeyId) {
+            return xksKeyId(Output.of(xksKeyId));
         }
 
         public KeyState build() {

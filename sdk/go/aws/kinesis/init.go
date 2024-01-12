@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AnalyticsApplication{}
 	case "aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream":
 		r = &FirehoseDeliveryStream{}
+	case "aws:kinesis/resourcePolicy:ResourcePolicy":
+		r = &ResourcePolicy{}
 	case "aws:kinesis/stream:Stream":
 		r = &Stream{}
 	case "aws:kinesis/streamConsumer:StreamConsumer":
@@ -52,6 +54,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"kinesis/firehoseDeliveryStream",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"kinesis/resourcePolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

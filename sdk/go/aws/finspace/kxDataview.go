@@ -15,44 +15,6 @@ import (
 // Resource for managing an AWS FinSpace Kx Dataview.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/finspace"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := finspace.NewKxDataview(ctx, "example", &finspace.KxDataviewArgs{
-//				EnvironmentId:      pulumi.Any(aws_finspace_kx_environment.Example.Id),
-//				DatabaseName:       pulumi.Any(aws_finspace_kx_database.Example.Name),
-//				AvailabilityZoneId: pulumi.String("use1-az2"),
-//				Description:        pulumi.String("Terraform managed Kx Dataview"),
-//				AzMode:             pulumi.String("SINGLE"),
-//				AutoUpdate:         pulumi.Bool(true),
-//				SegmentConfigurations: finspace.KxDataviewSegmentConfigurationArray{
-//					&finspace.KxDataviewSegmentConfigurationArgs{
-//						VolumeName: pulumi.Any(aws_finspace_kx_volume.Example.Name),
-//						DbPaths: pulumi.StringArray{
-//							pulumi.String("/*"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

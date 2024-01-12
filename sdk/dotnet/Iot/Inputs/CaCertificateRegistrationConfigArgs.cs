@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Iot.Inputs
         /// The ARN of the role.
         /// </summary>
         [Input("roleArn")]
-        public Input<bool>? RoleArn { get; set; }
+        public Input<string>? RoleArn { get; set; }
 
         /// <summary>
         /// The template body.

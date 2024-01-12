@@ -246,7 +246,7 @@ func (o BillingGroupPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 
 type CaCertificateRegistrationConfig struct {
 	// The ARN of the role.
-	RoleArn *bool `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
 	// The template body.
 	TemplateBody *string `pulumi:"templateBody"`
 	// The name of the provisioning template.
@@ -266,7 +266,7 @@ type CaCertificateRegistrationConfigInput interface {
 
 type CaCertificateRegistrationConfigArgs struct {
 	// The ARN of the role.
-	RoleArn pulumi.BoolPtrInput `pulumi:"roleArn"`
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// The template body.
 	TemplateBody pulumi.StringPtrInput `pulumi:"templateBody"`
 	// The name of the provisioning template.
@@ -351,8 +351,8 @@ func (o CaCertificateRegistrationConfigOutput) ToCaCertificateRegistrationConfig
 }
 
 // The ARN of the role.
-func (o CaCertificateRegistrationConfigOutput) RoleArn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CaCertificateRegistrationConfig) *bool { return v.RoleArn }).(pulumi.BoolPtrOutput)
+func (o CaCertificateRegistrationConfigOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CaCertificateRegistrationConfig) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The template body.
@@ -390,13 +390,13 @@ func (o CaCertificateRegistrationConfigPtrOutput) Elem() CaCertificateRegistrati
 }
 
 // The ARN of the role.
-func (o CaCertificateRegistrationConfigPtrOutput) RoleArn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CaCertificateRegistrationConfig) *bool {
+func (o CaCertificateRegistrationConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CaCertificateRegistrationConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return v.RoleArn
-	}).(pulumi.BoolPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The template body.

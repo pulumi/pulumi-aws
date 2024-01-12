@@ -12,37 +12,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// <summary>
     /// Provides an AWS Network Firewall Firewall Resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkFirewall.Firewall("example", new()
-    ///     {
-    ///         FirewallPolicyArn = aws_networkfirewall_firewall_policy.Example.Arn,
-    ///         VpcId = aws_vpc.Example.Id,
-    ///         SubnetMappings = new[]
-    ///         {
-    ///             new Aws.NetworkFirewall.Inputs.FirewallSubnetMappingArgs
-    ///             {
-    ///                 SubnetId = aws_subnet.Example.Id,
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Tag1", "Value1" },
-    ///             { "Tag2", "Value2" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:
@@ -61,7 +30,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Output("deleteProtection")]
         public Output<bool?> DeleteProtection { get; private set; } = null!;
@@ -85,7 +54,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string> FirewallPolicyArn { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Output("firewallPolicyChangeProtection")]
         public Output<bool?> FirewallPolicyChangeProtection { get; private set; } = null!;
@@ -103,7 +72,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Output("subnetChangeProtection")]
         public Output<bool?> SubnetChangeProtection { get; private set; } = null!;
@@ -189,7 +158,7 @@ namespace Pulumi.Aws.NetworkFirewall
     public sealed class FirewallArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -213,7 +182,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string> FirewallPolicyArn { get; set; } = null!;
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Input("firewallPolicyChangeProtection")]
         public Input<bool>? FirewallPolicyChangeProtection { get; set; }
@@ -225,7 +194,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Input("subnetChangeProtection")]
         public Input<bool>? SubnetChangeProtection { get; set; }
@@ -275,7 +244,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
@@ -299,7 +268,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? FirewallPolicyArn { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Input("firewallPolicyChangeProtection")]
         public Input<bool>? FirewallPolicyChangeProtection { get; set; }
@@ -323,7 +292,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+        /// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Input("subnetChangeProtection")]
         public Input<bool>? SubnetChangeProtection { get; set; }

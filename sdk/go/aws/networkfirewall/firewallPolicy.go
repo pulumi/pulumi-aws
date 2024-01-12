@@ -42,6 +42,7 @@ import (
 //							ResourceArn: pulumi.Any(aws_networkfirewall_rule_group.Example.Arn),
 //						},
 //					},
+//					TlsInspectionConfigurationArn: pulumi.String("arn:aws:network-firewall:REGION:ACCT:tls-configuration/example"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),

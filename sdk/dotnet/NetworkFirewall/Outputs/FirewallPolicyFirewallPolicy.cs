@@ -47,6 +47,10 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference> StatelessRuleGroupReferences;
+        /// <summary>
+        /// The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
+        /// </summary>
+        public readonly string? TlsInspectionConfigurationArn;
 
         [OutputConstructor]
         private FirewallPolicyFirewallPolicy(
@@ -64,7 +68,9 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
             ImmutableArray<string> statelessFragmentDefaultActions,
 
-            ImmutableArray<Outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences)
+            ImmutableArray<Outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences,
+
+            string? tlsInspectionConfigurationArn)
         {
             PolicyVariables = policyVariables;
             StatefulDefaultActions = statefulDefaultActions;
@@ -74,6 +80,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
             StatelessDefaultActions = statelessDefaultActions;
             StatelessFragmentDefaultActions = statelessFragmentDefaultActions;
             StatelessRuleGroupReferences = statelessRuleGroupReferences;
+            TlsInspectionConfigurationArn = tlsInspectionConfigurationArn;
         }
     }
 }

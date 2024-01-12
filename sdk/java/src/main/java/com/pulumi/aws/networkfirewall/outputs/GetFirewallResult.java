@@ -23,7 +23,7 @@ public final class GetFirewallResult {
      */
     private String arn;
     /**
-     * @return Boolean flag indicating whether it is possible to delete the firewall.
+     * @return A flag indicating whether the firewall is protected against deletion.
      * 
      */
     private Boolean deleteProtection;
@@ -43,7 +43,7 @@ public final class GetFirewallResult {
      */
     private String firewallPolicyArn;
     /**
-     * @return A boolean flag indicating whether it is possible to change the associated firewall policy.
+     * @return A flag indicating whether the firewall is protected against a change to the firewall policy association.
      * 
      */
     private Boolean firewallPolicyChangeProtection;
@@ -63,7 +63,7 @@ public final class GetFirewallResult {
      */
     private String name;
     /**
-     * @return A boolean flag indicating whether it is possible to change the associated subnet(s).
+     * @return A flag indicating whether the firewall is protected against changes to the subnet associations.
      * 
      */
     private Boolean subnetChangeProtection;
@@ -97,7 +97,7 @@ public final class GetFirewallResult {
         return this.arn;
     }
     /**
-     * @return Boolean flag indicating whether it is possible to delete the firewall.
+     * @return A flag indicating whether the firewall is protected against deletion.
      * 
      */
     public Boolean deleteProtection() {
@@ -125,7 +125,7 @@ public final class GetFirewallResult {
         return this.firewallPolicyArn;
     }
     /**
-     * @return A boolean flag indicating whether it is possible to change the associated firewall policy.
+     * @return A flag indicating whether the firewall is protected against a change to the firewall policy association.
      * 
      */
     public Boolean firewallPolicyChangeProtection() {
@@ -153,7 +153,7 @@ public final class GetFirewallResult {
         return this.name;
     }
     /**
-     * @return A boolean flag indicating whether it is possible to change the associated subnet(s).
+     * @return A flag indicating whether the firewall is protected against changes to the subnet associations.
      * 
      */
     public Boolean subnetChangeProtection() {

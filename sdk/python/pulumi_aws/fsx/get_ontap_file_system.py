@@ -22,7 +22,7 @@ class GetOntapFileSystemResult:
     """
     A collection of values returned by getOntapFileSystem.
     """
-    def __init__(__self__, arn=None, automatic_backup_retention_days=None, daily_automatic_backup_start_time=None, deployment_type=None, disk_iops_configurations=None, dns_name=None, endpoint_ip_address_range=None, endpoints=None, id=None, kms_key_id=None, network_interface_ids=None, owner_id=None, preferred_subnet_id=None, route_table_ids=None, storage_capacity=None, storage_type=None, subnet_ids=None, tags=None, throughput_capacity=None, vpc_id=None, weekly_maintenance_start_time=None):
+    def __init__(__self__, arn=None, automatic_backup_retention_days=None, daily_automatic_backup_start_time=None, deployment_type=None, disk_iops_configurations=None, dns_name=None, endpoint_ip_address_range=None, endpoints=None, ha_pairs=None, id=None, kms_key_id=None, network_interface_ids=None, owner_id=None, preferred_subnet_id=None, route_table_ids=None, storage_capacity=None, storage_type=None, subnet_ids=None, tags=None, throughput_capacity=None, throughput_capacity_per_ha_pair=None, vpc_id=None, weekly_maintenance_start_time=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,9 @@ class GetOntapFileSystemResult:
         if endpoints and not isinstance(endpoints, list):
             raise TypeError("Expected argument 'endpoints' to be a list")
         pulumi.set(__self__, "endpoints", endpoints)
+        if ha_pairs and not isinstance(ha_pairs, int):
+            raise TypeError("Expected argument 'ha_pairs' to be a int")
+        pulumi.set(__self__, "ha_pairs", ha_pairs)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -80,6 +83,9 @@ class GetOntapFileSystemResult:
         if throughput_capacity and not isinstance(throughput_capacity, int):
             raise TypeError("Expected argument 'throughput_capacity' to be a int")
         pulumi.set(__self__, "throughput_capacity", throughput_capacity)
+        if throughput_capacity_per_ha_pair and not isinstance(throughput_capacity_per_ha_pair, int):
+            raise TypeError("Expected argument 'throughput_capacity_per_ha_pair' to be a int")
+        pulumi.set(__self__, "throughput_capacity_per_ha_pair", throughput_capacity_per_ha_pair)
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -150,6 +156,14 @@ class GetOntapFileSystemResult:
         The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
         """
         return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter(name="haPairs")
+    def ha_pairs(self) -> int:
+        """
+        The number of HA pairs for the file system.
+        """
+        return pulumi.get(self, "ha_pairs")
 
     @property
     @pulumi.getter
@@ -235,9 +249,17 @@ class GetOntapFileSystemResult:
     @pulumi.getter(name="throughputCapacity")
     def throughput_capacity(self) -> int:
         """
-        The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps).
+        The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthput_capacity_per_ha_pair x ha_pairs
         """
         return pulumi.get(self, "throughput_capacity")
+
+    @property
+    @pulumi.getter(name="throughputCapacityPerHaPair")
+    def throughput_capacity_per_ha_pair(self) -> int:
+        """
+        The sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
+        """
+        return pulumi.get(self, "throughput_capacity_per_ha_pair")
 
     @property
     @pulumi.getter(name="vpcId")
@@ -270,6 +292,7 @@ class AwaitableGetOntapFileSystemResult(GetOntapFileSystemResult):
             dns_name=self.dns_name,
             endpoint_ip_address_range=self.endpoint_ip_address_range,
             endpoints=self.endpoints,
+            ha_pairs=self.ha_pairs,
             id=self.id,
             kms_key_id=self.kms_key_id,
             network_interface_ids=self.network_interface_ids,
@@ -281,6 +304,7 @@ class AwaitableGetOntapFileSystemResult(GetOntapFileSystemResult):
             subnet_ids=self.subnet_ids,
             tags=self.tags,
             throughput_capacity=self.throughput_capacity,
+            throughput_capacity_per_ha_pair=self.throughput_capacity_per_ha_pair,
             vpc_id=self.vpc_id,
             weekly_maintenance_start_time=self.weekly_maintenance_start_time)
 
@@ -320,6 +344,7 @@ def get_ontap_file_system(id: Optional[str] = None,
         dns_name=pulumi.get(__ret__, 'dns_name'),
         endpoint_ip_address_range=pulumi.get(__ret__, 'endpoint_ip_address_range'),
         endpoints=pulumi.get(__ret__, 'endpoints'),
+        ha_pairs=pulumi.get(__ret__, 'ha_pairs'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         network_interface_ids=pulumi.get(__ret__, 'network_interface_ids'),
@@ -331,6 +356,7 @@ def get_ontap_file_system(id: Optional[str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         throughput_capacity=pulumi.get(__ret__, 'throughput_capacity'),
+        throughput_capacity_per_ha_pair=pulumi.get(__ret__, 'throughput_capacity_per_ha_pair'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         weekly_maintenance_start_time=pulumi.get(__ret__, 'weekly_maintenance_start_time'))
 

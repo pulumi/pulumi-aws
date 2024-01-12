@@ -245,7 +245,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly buildBatchConfig!: pulumi.Output<outputs.codebuild.ProjectBuildBatchConfig | undefined>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
      */
     public readonly buildTimeout!: pulumi.Output<number | undefined>;
     /**
@@ -289,7 +289,7 @@ export class Project extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicProjectAlias!: pulumi.Output<string>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      */
     public readonly queuedTimeout!: pulumi.Output<number | undefined>;
     /**
@@ -451,7 +451,7 @@ export interface ProjectState {
      */
     buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
      */
     buildTimeout?: pulumi.Input<number>;
     /**
@@ -495,7 +495,7 @@ export interface ProjectState {
      */
     publicProjectAlias?: pulumi.Input<string>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      */
     queuedTimeout?: pulumi.Input<number>;
     /**
@@ -561,7 +561,7 @@ export interface ProjectArgs {
      */
     buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
      */
     buildTimeout?: pulumi.Input<number>;
     /**
@@ -601,7 +601,7 @@ export interface ProjectArgs {
      */
     projectVisibility?: pulumi.Input<string>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      */
     queuedTimeout?: pulumi.Input<number>;
     /**

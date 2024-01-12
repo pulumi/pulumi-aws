@@ -53,6 +53,7 @@ public final class ClassifierCsvClassifier {
      * 
      */
     private @Nullable String quoteSymbol;
+    private @Nullable String serde;
 
     private ClassifierCsvClassifier() {}
     /**
@@ -111,6 +112,9 @@ public final class ClassifierCsvClassifier {
     public Optional<String> quoteSymbol() {
         return Optional.ofNullable(this.quoteSymbol);
     }
+    public Optional<String> serde() {
+        return Optional.ofNullable(this.serde);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -129,6 +133,7 @@ public final class ClassifierCsvClassifier {
         private @Nullable Boolean disableValueTrimming;
         private @Nullable List<String> headers;
         private @Nullable String quoteSymbol;
+        private @Nullable String serde;
         public Builder() {}
         public Builder(ClassifierCsvClassifier defaults) {
     	      Objects.requireNonNull(defaults);
@@ -140,6 +145,7 @@ public final class ClassifierCsvClassifier {
     	      this.disableValueTrimming = defaults.disableValueTrimming;
     	      this.headers = defaults.headers;
     	      this.quoteSymbol = defaults.quoteSymbol;
+    	      this.serde = defaults.serde;
         }
 
         @CustomType.Setter
@@ -196,6 +202,12 @@ public final class ClassifierCsvClassifier {
             this.quoteSymbol = quoteSymbol;
             return this;
         }
+        @CustomType.Setter
+        public Builder serde(@Nullable String serde) {
+
+            this.serde = serde;
+            return this;
+        }
         public ClassifierCsvClassifier build() {
             final var _resultValue = new ClassifierCsvClassifier();
             _resultValue.allowSingleColumn = allowSingleColumn;
@@ -206,6 +218,7 @@ public final class ClassifierCsvClassifier {
             _resultValue.disableValueTrimming = disableValueTrimming;
             _resultValue.headers = headers;
             _resultValue.quoteSymbol = quoteSymbol;
+            _resultValue.serde = serde;
             return _resultValue;
         }
     }

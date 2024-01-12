@@ -33,14 +33,14 @@ public final class BucketAclV2AccessControlPolicyGrantArgs extends com.pulumi.re
     }
 
     /**
-     * Logging permissions assigned to the grantee for the bucket.
+     * Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
      * 
      */
     @Import(name="permission", required=true)
     private Output<String> permission;
 
     /**
-     * @return Logging permissions assigned to the grantee for the bucket.
+     * @return Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
      * 
      */
     public Output<String> permission() {
@@ -94,7 +94,7 @@ public final class BucketAclV2AccessControlPolicyGrantArgs extends com.pulumi.re
         }
 
         /**
-         * @param permission Logging permissions assigned to the grantee for the bucket.
+         * @param permission Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class BucketAclV2AccessControlPolicyGrantArgs extends com.pulumi.re
         }
 
         /**
-         * @param permission Logging permissions assigned to the grantee for the bucket.
+         * @param permission Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
          * 
          * @return builder
          * 

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.batch.inputs;
 
+import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesArgs;
 import com.pulumi.aws.batch.inputs.JobDefinitionRetryStrategyArgs;
 import com.pulumi.aws.batch.inputs.JobDefinitionTimeoutArgs;
 import com.pulumi.core.Output;
@@ -22,14 +23,14 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     public static final JobDefinitionState Empty = new JobDefinitionState();
 
     /**
-     * The Amazon Resource Name of the job definition.
+     * The Amazon Resource Name of the job definition, includes revision (`:#`).
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of the job definition.
+     * @return The Amazon Resource Name of the job definition, includes revision (`:#`).
      * 
      */
     public Optional<Output<String>> arn() {
@@ -37,8 +38,23 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The ARN without the revision number.
+     * 
+     */
+    @Import(name="arnPrefix")
+    private @Nullable Output<String> arnPrefix;
+
+    /**
+     * @return The ARN without the revision number.
+     * 
+     */
+    public Optional<Output<String>> arnPrefix() {
+        return Optional.ofNullable(this.arnPrefix);
+    }
+
+    /**
      * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+     * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     @Import(name="containerProperties")
@@ -46,11 +62,26 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
 
     /**
      * @return A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+     * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
     public Optional<Output<String>> containerProperties() {
         return Optional.ofNullable(this.containerProperties);
+    }
+
+    /**
+     * A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     * 
+     */
+    @Import(name="eksProperties")
+    private @Nullable Output<JobDefinitionEksPropertiesArgs> eksProperties;
+
+    /**
+     * @return A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+     * 
+     */
+    public Optional<Output<JobDefinitionEksPropertiesArgs>> eksProperties() {
+        return Optional.ofNullable(this.eksProperties);
     }
 
     /**
@@ -163,6 +194,21 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+     * 
+     */
+    @Import(name="schedulingPriority")
+    private @Nullable Output<Integer> schedulingPriority;
+
+    /**
+     * @return The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+     * 
+     */
+    public Optional<Output<Integer>> schedulingPriority() {
+        return Optional.ofNullable(this.schedulingPriority);
+    }
+
+    /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -238,7 +284,9 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
 
     private JobDefinitionState(JobDefinitionState $) {
         this.arn = $.arn;
+        this.arnPrefix = $.arnPrefix;
         this.containerProperties = $.containerProperties;
+        this.eksProperties = $.eksProperties;
         this.name = $.name;
         this.nodeProperties = $.nodeProperties;
         this.parameters = $.parameters;
@@ -246,6 +294,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         this.propagateTags = $.propagateTags;
         this.retryStrategy = $.retryStrategy;
         this.revision = $.revision;
+        this.schedulingPriority = $.schedulingPriority;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.timeout = $.timeout;
@@ -271,7 +320,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name of the job definition.
+         * @param arn The Amazon Resource Name of the job definition, includes revision (`:#`).
          * 
          * @return builder
          * 
@@ -282,7 +331,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name of the job definition.
+         * @param arn The Amazon Resource Name of the job definition, includes revision (`:#`).
          * 
          * @return builder
          * 
@@ -292,8 +341,29 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param arnPrefix The ARN without the revision number.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arnPrefix(@Nullable Output<String> arnPrefix) {
+            $.arnPrefix = arnPrefix;
+            return this;
+        }
+
+        /**
+         * @param arnPrefix The ARN without the revision number.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arnPrefix(String arnPrefix) {
+            return arnPrefix(Output.of(arnPrefix));
+        }
+
+        /**
          * @param containerProperties A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-         * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+         * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
          * 
          * @return builder
          * 
@@ -305,13 +375,34 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param containerProperties A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-         * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+         * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
          * 
          * @return builder
          * 
          */
         public Builder containerProperties(String containerProperties) {
             return containerProperties(Output.of(containerProperties));
+        }
+
+        /**
+         * @param eksProperties A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eksProperties(@Nullable Output<JobDefinitionEksPropertiesArgs> eksProperties) {
+            $.eksProperties = eksProperties;
+            return this;
+        }
+
+        /**
+         * @param eksProperties A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eksProperties(JobDefinitionEksPropertiesArgs eksProperties) {
+            return eksProperties(Output.of(eksProperties));
         }
 
         /**
@@ -473,6 +564,27 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder revision(Integer revision) {
             return revision(Output.of(revision));
+        }
+
+        /**
+         * @param schedulingPriority The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schedulingPriority(@Nullable Output<Integer> schedulingPriority) {
+            $.schedulingPriority = schedulingPriority;
+            return this;
+        }
+
+        /**
+         * @param schedulingPriority The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schedulingPriority(Integer schedulingPriority) {
+            return schedulingPriority(Output.of(schedulingPriority));
         }
 
         /**

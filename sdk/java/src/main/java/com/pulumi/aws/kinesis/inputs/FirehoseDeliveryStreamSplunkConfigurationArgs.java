@@ -21,6 +21,36 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     public static final FirehoseDeliveryStreamSplunkConfigurationArgs Empty = new FirehoseDeliveryStreamSplunkConfigurationArgs();
 
     /**
+     * Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+     * 
+     */
+    @Import(name="bufferingInterval")
+    private @Nullable Output<Integer> bufferingInterval;
+
+    /**
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+     * 
+     */
+    public Optional<Output<Integer>> bufferingInterval() {
+        return Optional.ofNullable(this.bufferingInterval);
+    }
+
+    /**
+     * Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+     * 
+     */
+    @Import(name="bufferingSize")
+    private @Nullable Output<Integer> bufferingSize;
+
+    /**
+     * @return Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+     * 
+     */
+    public Optional<Output<Integer>> bufferingSize() {
+        return Optional.ofNullable(this.bufferingSize);
+    }
+
+    /**
      * The CloudWatch Logging Options for the delivery stream. More details are given below.
      * 
      */
@@ -158,6 +188,8 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
     private FirehoseDeliveryStreamSplunkConfigurationArgs() {}
 
     private FirehoseDeliveryStreamSplunkConfigurationArgs(FirehoseDeliveryStreamSplunkConfigurationArgs $) {
+        this.bufferingInterval = $.bufferingInterval;
+        this.bufferingSize = $.bufferingSize;
         this.cloudwatchLoggingOptions = $.cloudwatchLoggingOptions;
         this.hecAcknowledgmentTimeout = $.hecAcknowledgmentTimeout;
         this.hecEndpoint = $.hecEndpoint;
@@ -185,6 +217,48 @@ public final class FirehoseDeliveryStreamSplunkConfigurationArgs extends com.pul
 
         public Builder(FirehoseDeliveryStreamSplunkConfigurationArgs defaults) {
             $ = new FirehoseDeliveryStreamSplunkConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bufferingInterval(@Nullable Output<Integer> bufferingInterval) {
+            $.bufferingInterval = bufferingInterval;
+            return this;
+        }
+
+        /**
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bufferingInterval(Integer bufferingInterval) {
+            return bufferingInterval(Output.of(bufferingInterval));
+        }
+
+        /**
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bufferingSize(@Nullable Output<Integer> bufferingSize) {
+            $.bufferingSize = bufferingSize;
+            return this;
+        }
+
+        /**
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bufferingSize(Integer bufferingSize) {
+            return bufferingSize(Output.of(bufferingSize));
         }
 
         /**

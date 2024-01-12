@@ -967,15 +967,19 @@ class CatalogTableTargetTable(dict):
     def __init__(__self__, *,
                  catalog_id: str,
                  database_name: str,
-                 name: str):
+                 name: str,
+                 region: Optional[str] = None):
         """
         :param str catalog_id: ID of the Data Catalog in which the table resides.
         :param str database_name: Name of the catalog database that contains the target table.
         :param str name: Name of the target table.
+        :param str region: Region of the target table.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -1000,6 +1004,14 @@ class CatalogTableTargetTable(dict):
         Name of the target table.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        Region of the target table.
+        """
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type
@@ -1039,7 +1051,8 @@ class ClassifierCsvClassifier(dict):
                  delimiter: Optional[str] = None,
                  disable_value_trimming: Optional[bool] = None,
                  headers: Optional[Sequence[str]] = None,
-                 quote_symbol: Optional[str] = None):
+                 quote_symbol: Optional[str] = None,
+                 serde: Optional[str] = None):
         """
         :param bool allow_single_column: Enables the processing of files that contain only one column.
         :param str contains_header: Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
@@ -1066,6 +1079,8 @@ class ClassifierCsvClassifier(dict):
             pulumi.set(__self__, "headers", headers)
         if quote_symbol is not None:
             pulumi.set(__self__, "quote_symbol", quote_symbol)
+        if serde is not None:
+            pulumi.set(__self__, "serde", serde)
 
     @property
     @pulumi.getter(name="allowSingleColumn")
@@ -1130,6 +1145,11 @@ class ClassifierCsvClassifier(dict):
         A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
         """
         return pulumi.get(self, "quote_symbol")
+
+    @property
+    @pulumi.getter
+    def serde(self) -> Optional[str]:
+        return pulumi.get(self, "serde")
 
 
 @pulumi.output_type
@@ -4209,15 +4229,18 @@ class GetCatalogTableTargetTableResult(dict):
     def __init__(__self__, *,
                  catalog_id: str,
                  database_name: str,
-                 name: str):
+                 name: str,
+                 region: str):
         """
         :param str catalog_id: ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
         :param str database_name: Name of the metadata database where the table metadata resides.
         :param str name: Name of the table.
+        :param str region: Region of the target table.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -4242,6 +4265,14 @@ class GetCatalogTableTargetTableResult(dict):
         Name of the table.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        Region of the target table.
+        """
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type

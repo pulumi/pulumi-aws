@@ -12,6 +12,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FileSystemLifecyclePolicy {
     /**
+     * @return Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+     * 
+     */
+    private @Nullable String transitionToArchive;
+    /**
      * @return Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
      * 
      */
@@ -23,6 +28,13 @@ public final class FileSystemLifecyclePolicy {
     private @Nullable String transitionToPrimaryStorageClass;
 
     private FileSystemLifecyclePolicy() {}
+    /**
+     * @return Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+     * 
+     */
+    public Optional<String> transitionToArchive() {
+        return Optional.ofNullable(this.transitionToArchive);
+    }
     /**
      * @return Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
      * 
@@ -47,15 +59,23 @@ public final class FileSystemLifecyclePolicy {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String transitionToArchive;
         private @Nullable String transitionToIa;
         private @Nullable String transitionToPrimaryStorageClass;
         public Builder() {}
         public Builder(FileSystemLifecyclePolicy defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.transitionToArchive = defaults.transitionToArchive;
     	      this.transitionToIa = defaults.transitionToIa;
     	      this.transitionToPrimaryStorageClass = defaults.transitionToPrimaryStorageClass;
         }
 
+        @CustomType.Setter
+        public Builder transitionToArchive(@Nullable String transitionToArchive) {
+
+            this.transitionToArchive = transitionToArchive;
+            return this;
+        }
         @CustomType.Setter
         public Builder transitionToIa(@Nullable String transitionToIa) {
 
@@ -70,6 +90,7 @@ public final class FileSystemLifecyclePolicy {
         }
         public FileSystemLifecyclePolicy build() {
             final var _resultValue = new FileSystemLifecyclePolicy();
+            _resultValue.transitionToArchive = transitionToArchive;
             _resultValue.transitionToIa = transitionToIa;
             _resultValue.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
             return _resultValue;

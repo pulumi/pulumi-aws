@@ -121,14 +121,14 @@ public class TrustStore extends com.pulumi.resources.CustomResource {
         return this.caCertificatesBundleS3Bucket;
     }
     /**
-     * S3 Bucket name holding the client certificate CA bundle.
+     * S3 object key holding the client certificate CA bundle.
      * 
      */
     @Export(name="caCertificatesBundleS3Key", refs={String.class}, tree="[0]")
     private Output<String> caCertificatesBundleS3Key;
 
     /**
-     * @return S3 Bucket name holding the client certificate CA bundle.
+     * @return S3 object key holding the client certificate CA bundle.
      * 
      */
     public Output<String> caCertificatesBundleS3Key() {

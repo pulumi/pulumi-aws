@@ -33,49 +33,48 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var allowTls = new Aws.Ec2.SecurityGroup("allowTls", new()
     ///     {
-    ///         Description = "Allow TLS inbound traffic",
+    ///         Description = "Allow TLS inbound traffic and all outbound traffic",
     ///         VpcId = aws_vpc.Main.Id,
-    ///         Ingress = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
-    ///             {
-    ///                 Description = "TLS from VPC",
-    ///                 FromPort = 443,
-    ///                 ToPort = 443,
-    ///                 Protocol = "tcp",
-    ///                 CidrBlocks = new[]
-    ///                 {
-    ///                     aws_vpc.Main.Cidr_block,
-    ///                 },
-    ///                 Ipv6CidrBlocks = new[]
-    ///                 {
-    ///                     aws_vpc.Main.Ipv6_cidr_block,
-    ///                 },
-    ///             },
-    ///         },
-    ///         Egress = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.SecurityGroupEgressArgs
-    ///             {
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
-    ///                 Protocol = "-1",
-    ///                 CidrBlocks = new[]
-    ///                 {
-    ///                     "0.0.0.0/0",
-    ///                 },
-    ///                 Ipv6CidrBlocks = new[]
-    ///                 {
-    ///                     "::/0",
-    ///                 },
-    ///             },
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "Name", "allow_tls" },
     ///         },
     ///     });
     /// 
+    ///     var allowTlsIpv4 = new Aws.Vpc.SecurityGroupIngressRule("allowTlsIpv4", new()
+    ///     {
+    ///         SecurityGroupId = allowTls.Id,
+    ///         CidrIpv4 = aws_vpc.Main.Cidr_block,
+    ///         FromPort = 443,
+    ///         IpProtocol = "tcp",
+    ///         ToPort = 443,
+    ///     });
+    /// 
+    ///     var allowTlsIpv6 = new Aws.Vpc.SecurityGroupIngressRule("allowTlsIpv6", new()
+    ///     {
+    ///         SecurityGroupId = allowTls.Id,
+    ///         CidrIpv6 = aws_vpc.Main.Ipv6_cidr_block,
+    ///         FromPort = 443,
+    ///         IpProtocol = "tcp",
+    ///         ToPort = 443,
+    ///     });
+    /// 
+    ///     var allowAllTrafficIpv4 = new Aws.Vpc.SecurityGroupEgressRule("allowAllTrafficIpv4", new()
+    ///     {
+    ///         SecurityGroupId = allowTls.Id,
+    ///         CidrIpv4 = "0.0.0.0/0",
+    ///         IpProtocol = "-1",
+    ///     });
+    /// 
+    ///     // semantically equivalent to all ports
+    ///     var allowAllTrafficIpv6 = new Aws.Vpc.SecurityGroupEgressRule("allowAllTrafficIpv6", new()
+    ///     {
+    ///         SecurityGroupId = allowTls.Id,
+    ///         CidrIpv6 = "::/0",
+    ///         IpProtocol = "-1",
+    ///     });
+    /// 
+    ///     // semantically equivalent to all ports
     /// });
     /// ```
     /// 

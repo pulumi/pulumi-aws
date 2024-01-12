@@ -264,14 +264,14 @@ public class BucketAclV2 extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.acl);
     }
     /**
-     * Name of the bucket.
+     * Bucket to which to apply the ACL.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return Name of the bucket.
+     * @return Bucket to which to apply the ACL.
      * 
      */
     public Output<String> bucket() {

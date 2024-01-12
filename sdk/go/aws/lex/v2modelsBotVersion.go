@@ -66,7 +66,7 @@ type V2modelsBotVersion struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
 	//
-	// The following arguments are optional:
+	// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
 	LocaleSpecification V2modelsBotVersionLocaleSpecificationMapOutput `pulumi:"localeSpecification"`
 	Timeouts            V2modelsBotVersionTimeoutsPtrOutput            `pulumi:"timeouts"`
 }
@@ -115,7 +115,7 @@ type v2modelsBotVersionState struct {
 	Description *string `pulumi:"description"`
 	// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
 	//
-	// The following arguments are optional:
+	// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
 	LocaleSpecification map[string]V2modelsBotVersionLocaleSpecification `pulumi:"localeSpecification"`
 	Timeouts            *V2modelsBotVersionTimeouts                      `pulumi:"timeouts"`
 }
@@ -129,7 +129,7 @@ type V2modelsBotVersionState struct {
 	Description pulumi.StringPtrInput
 	// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
 	//
-	// The following arguments are optional:
+	// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
 	LocaleSpecification V2modelsBotVersionLocaleSpecificationMapInput
 	Timeouts            V2modelsBotVersionTimeoutsPtrInput
 }
@@ -147,7 +147,7 @@ type v2modelsBotVersionArgs struct {
 	Description *string `pulumi:"description"`
 	// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
 	//
-	// The following arguments are optional:
+	// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
 	LocaleSpecification map[string]V2modelsBotVersionLocaleSpecification `pulumi:"localeSpecification"`
 	Timeouts            *V2modelsBotVersionTimeouts                      `pulumi:"timeouts"`
 }
@@ -162,7 +162,7 @@ type V2modelsBotVersionArgs struct {
 	Description pulumi.StringPtrInput
 	// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
 	//
-	// The following arguments are optional:
+	// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
 	LocaleSpecification V2modelsBotVersionLocaleSpecificationMapInput
 	Timeouts            V2modelsBotVersionTimeoutsPtrInput
 }
@@ -271,7 +271,7 @@ func (o V2modelsBotVersionOutput) Description() pulumi.StringPtrOutput {
 
 // Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
 //
-// The following arguments are optional:
+// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
 func (o V2modelsBotVersionOutput) LocaleSpecification() V2modelsBotVersionLocaleSpecificationMapOutput {
 	return o.ApplyT(func(v *V2modelsBotVersion) V2modelsBotVersionLocaleSpecificationMapOutput {
 		return v.LocaleSpecification

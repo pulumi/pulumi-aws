@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// CIDR block of this entry.
+        /// The ID of the prefix list.
         /// </summary>
         [Output("prefixListId")]
         public Output<string> PrefixListId { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// CIDR block of this entry.
+        /// The ID of the prefix list.
         /// </summary>
         [Input("prefixListId", required: true)]
         public Input<string> PrefixListId { get; set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// CIDR block of this entry.
+        /// The ID of the prefix list.
         /// </summary>
         [Input("prefixListId")]
         public Input<string>? PrefixListId { get; set; }

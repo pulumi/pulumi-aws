@@ -220,6 +220,20 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkInterfaceOptions);
     }
     /**
+     * The policy document that is associated with this resource.
+     * 
+     */
+    @Export(name="policyDocument", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> policyDocument;
+
+    /**
+     * @return The policy document that is associated with this resource.
+     * 
+     */
+    public Output<Optional<String>> policyDocument() {
+        return Codegen.optional(this.policyDocument);
+    }
+    /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      * 
      */

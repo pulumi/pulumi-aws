@@ -244,6 +244,7 @@ class ConfigurationSet(pulumi.CustomResource):
         Provides an SES configuration set resource.
 
         ## Example Usage
+        ### Basic Example
 
         ```python
         import pulumi
@@ -259,6 +260,16 @@ class ConfigurationSet(pulumi.CustomResource):
 
         test = aws.ses.ConfigurationSet("test", delivery_options=aws.ses.ConfigurationSetDeliveryOptionsArgs(
             tls_policy="Require",
+        ))
+        ```
+        ### Tracking Options
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ses.ConfigurationSet("test", tracking_options=aws.ses.ConfigurationSetTrackingOptionsArgs(
+            custom_redirect_domain="sub.example.com",
         ))
         ```
 
@@ -290,6 +301,7 @@ class ConfigurationSet(pulumi.CustomResource):
         Provides an SES configuration set resource.
 
         ## Example Usage
+        ### Basic Example
 
         ```python
         import pulumi
@@ -305,6 +317,16 @@ class ConfigurationSet(pulumi.CustomResource):
 
         test = aws.ses.ConfigurationSet("test", delivery_options=aws.ses.ConfigurationSetDeliveryOptionsArgs(
             tls_policy="Require",
+        ))
+        ```
+        ### Tracking Options
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ses.ConfigurationSet("test", tracking_options=aws.ses.ConfigurationSetTrackingOptionsArgs(
+            custom_redirect_domain="sub.example.com",
         ))
         ```
 

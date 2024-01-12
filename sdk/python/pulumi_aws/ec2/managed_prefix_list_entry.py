@@ -20,7 +20,7 @@ class ManagedPrefixListEntryInitArgs:
         """
         The set of arguments for constructing a ManagedPrefixListEntry resource.
         :param pulumi.Input[str] cidr: CIDR block of this entry.
-        :param pulumi.Input[str] prefix_list_id: CIDR block of this entry.
+        :param pulumi.Input[str] prefix_list_id: The ID of the prefix list.
         :param pulumi.Input[str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
         """
         pulumi.set(__self__, "cidr", cidr)
@@ -44,7 +44,7 @@ class ManagedPrefixListEntryInitArgs:
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> pulumi.Input[str]:
         """
-        CIDR block of this entry.
+        The ID of the prefix list.
         """
         return pulumi.get(self, "prefix_list_id")
 
@@ -75,7 +75,7 @@ class _ManagedPrefixListEntryState:
         Input properties used for looking up and filtering ManagedPrefixListEntry resources.
         :param pulumi.Input[str] cidr: CIDR block of this entry.
         :param pulumi.Input[str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        :param pulumi.Input[str] prefix_list_id: CIDR block of this entry.
+        :param pulumi.Input[str] prefix_list_id: The ID of the prefix list.
         """
         if cidr is not None:
             pulumi.set(__self__, "cidr", cidr)
@@ -112,7 +112,7 @@ class _ManagedPrefixListEntryState:
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> Optional[pulumi.Input[str]]:
         """
-        CIDR block of this entry.
+        The ID of the prefix list.
         """
         return pulumi.get(self, "prefix_list_id")
 
@@ -169,7 +169,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr: CIDR block of this entry.
         :param pulumi.Input[str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        :param pulumi.Input[str] prefix_list_id: CIDR block of this entry.
+        :param pulumi.Input[str] prefix_list_id: The ID of the prefix list.
         """
         ...
     @overload
@@ -268,7 +268,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr: CIDR block of this entry.
         :param pulumi.Input[str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
-        :param pulumi.Input[str] prefix_list_id: CIDR block of this entry.
+        :param pulumi.Input[str] prefix_list_id: The ID of the prefix list.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -299,7 +299,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> pulumi.Output[str]:
         """
-        CIDR block of this entry.
+        The ID of the prefix list.
         """
         return pulumi.get(self, "prefix_list_id")
 

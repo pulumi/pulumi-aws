@@ -165,10 +165,13 @@ namespace Pulumi.Aws.CodePipeline
     ///         },
     ///     });
     /// 
-    ///     var codepipelineBucketAcl = new Aws.S3.BucketAclV2("codepipelineBucketAcl", new()
+    ///     var codepipelineBucketPab = new Aws.S3.BucketPublicAccessBlock("codepipelineBucketPab", new()
     ///     {
     ///         Bucket = codepipelineBucket.Id,
-    ///         Acl = "private",
+    ///         BlockPublicAcls = true,
+    ///         BlockPublicPolicy = true,
+    ///         IgnorePublicAcls = true,
+    ///         RestrictPublicBuckets = true,
     ///     });
     /// 
     ///     var codepipelinePolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -259,6 +262,12 @@ namespace Pulumi.Aws.CodePipeline
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+        /// </summary>
+        [Output("pipelineType")]
+        public Output<string?> PipelineType { get; private set; } = null!;
+
+        /// <summary>
         /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         /// </summary>
         [Output("roleArn")]
@@ -281,6 +290,12 @@ namespace Pulumi.Aws.CodePipeline
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// </summary>
+        [Output("variables")]
+        public Output<ImmutableArray<Outputs.PipelineVariable>> Variables { get; private set; } = null!;
 
 
         /// <summary>
@@ -351,6 +366,12 @@ namespace Pulumi.Aws.CodePipeline
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+        /// </summary>
+        [Input("pipelineType")]
+        public Input<string>? PipelineType { get; set; }
+
+        /// <summary>
         /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -378,6 +399,18 @@ namespace Pulumi.Aws.CodePipeline
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("variables")]
+        private InputList<Inputs.PipelineVariableArgs>? _variables;
+
+        /// <summary>
+        /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// </summary>
+        public InputList<Inputs.PipelineVariableArgs> Variables
+        {
+            get => _variables ?? (_variables = new InputList<Inputs.PipelineVariableArgs>());
+            set => _variables = value;
         }
 
         public PipelineArgs()
@@ -411,6 +444,12 @@ namespace Pulumi.Aws.CodePipeline
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+        /// </summary>
+        [Input("pipelineType")]
+        public Input<string>? PipelineType { get; set; }
 
         /// <summary>
         /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -457,6 +496,18 @@ namespace Pulumi.Aws.CodePipeline
                 var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
                 _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
             }
+        }
+
+        [Input("variables")]
+        private InputList<Inputs.PipelineVariableGetArgs>? _variables;
+
+        /// <summary>
+        /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// </summary>
+        public InputList<Inputs.PipelineVariableGetArgs> Variables
+        {
+            get => _variables ?? (_variables = new InputList<Inputs.PipelineVariableGetArgs>());
+            set => _variables = value;
         }
 
         public PipelineState()

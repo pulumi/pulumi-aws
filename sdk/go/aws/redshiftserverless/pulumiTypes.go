@@ -363,7 +363,7 @@ func (o WorkgroupConfigParameterArrayOutput) Index(i pulumi.IntInput) WorkgroupC
 type WorkgroupEndpoint struct {
 	// The DNS address of the VPC endpoint.
 	Address *string `pulumi:"address"`
-	// The port that Amazon Redshift Serverless listens on.
+	// The port number on which the cluster accepts incoming connections.
 	Port *int `pulumi:"port"`
 	// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
 	VpcEndpoints []WorkgroupEndpointVpcEndpoint `pulumi:"vpcEndpoints"`
@@ -383,7 +383,7 @@ type WorkgroupEndpointInput interface {
 type WorkgroupEndpointArgs struct {
 	// The DNS address of the VPC endpoint.
 	Address pulumi.StringPtrInput `pulumi:"address"`
-	// The port that Amazon Redshift Serverless listens on.
+	// The port number on which the cluster accepts incoming connections.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 	// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
 	VpcEndpoints WorkgroupEndpointVpcEndpointArrayInput `pulumi:"vpcEndpoints"`
@@ -445,7 +445,7 @@ func (o WorkgroupEndpointOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// The port that Amazon Redshift Serverless listens on.
+// The port number on which the cluster accepts incoming connections.
 func (o WorkgroupEndpointOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkgroupEndpoint) *int { return v.Port }).(pulumi.IntPtrOutput)
 }

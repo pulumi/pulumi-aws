@@ -20,6 +20,11 @@ export type Configuration = import("./configuration").Configuration;
 export const Configuration: typeof import("./configuration").Configuration = null as any;
 utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
 
+export { GetBootstrapBrokersArgs, GetBootstrapBrokersResult, GetBootstrapBrokersOutputArgs } from "./getBootstrapBrokers";
+export const getBootstrapBrokers: typeof import("./getBootstrapBrokers").getBootstrapBrokers = null as any;
+export const getBootstrapBrokersOutput: typeof import("./getBootstrapBrokers").getBootstrapBrokersOutput = null as any;
+utilities.lazyLoad(exports, ["getBootstrapBrokers","getBootstrapBrokersOutput"], () => require("./getBootstrapBrokers"));
+
 export { GetBrokerNodesArgs, GetBrokerNodesResult, GetBrokerNodesOutputArgs } from "./getBrokerNodes";
 export const getBrokerNodes: typeof import("./getBrokerNodes").getBrokerNodes = null as any;
 export const getBrokerNodesOutput: typeof import("./getBrokerNodes").getBrokerNodesOutput = null as any;

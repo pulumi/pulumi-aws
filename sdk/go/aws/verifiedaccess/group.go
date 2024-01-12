@@ -52,7 +52,8 @@ type Group struct {
 	// Timestamp when the access group was last updated.
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// AWS account number owning this resource.
-	Owner          pulumi.StringOutput    `pulumi:"owner"`
+	Owner pulumi.StringOutput `pulumi:"owner"`
+	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrOutput `pulumi:"policyDocument"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -114,7 +115,8 @@ type groupState struct {
 	// Timestamp when the access group was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// AWS account number owning this resource.
-	Owner          *string `pulumi:"owner"`
+	Owner *string `pulumi:"owner"`
+	// The policy document that is associated with this resource.
 	PolicyDocument *string `pulumi:"policyDocument"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -140,7 +142,8 @@ type GroupState struct {
 	// Timestamp when the access group was last updated.
 	LastUpdatedTime pulumi.StringPtrInput
 	// AWS account number owning this resource.
-	Owner          pulumi.StringPtrInput
+	Owner pulumi.StringPtrInput
+	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -162,7 +165,8 @@ func (GroupState) ElementType() reflect.Type {
 
 type groupArgs struct {
 	// Description of the verified access group.
-	Description    *string `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The policy document that is associated with this resource.
 	PolicyDocument *string `pulumi:"policyDocument"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -175,7 +179,8 @@ type groupArgs struct {
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
 	// Description of the verified access group.
-	Description    pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -297,6 +302,7 @@ func (o GroupOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
+// The policy document that is associated with this resource.
 func (o GroupOutput) PolicyDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.PolicyDocument }).(pulumi.StringPtrOutput)
 }

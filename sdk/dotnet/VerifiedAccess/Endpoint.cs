@@ -158,6 +158,12 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<Outputs.EndpointNetworkInterfaceOptions?> NetworkInterfaceOptions { get; private set; } = null!;
 
         /// <summary>
+        /// The policy document that is associated with this resource.
+        /// </summary>
+        [Output("policyDocument")]
+        public Output<string?> PolicyDocument { get; private set; } = null!;
+
+        /// <summary>
         /// List of the the security groups IDs to associate with the Verified Access endpoint.
         /// </summary>
         [Output("securityGroupIds")]
@@ -287,6 +293,12 @@ namespace Pulumi.Aws.VerifiedAccess
         [Input("networkInterfaceOptions")]
         public Input<Inputs.EndpointNetworkInterfaceOptionsArgs>? NetworkInterfaceOptions { get; set; }
 
+        /// <summary>
+        /// The policy document that is associated with this resource.
+        /// </summary>
+        [Input("policyDocument")]
+        public Input<string>? PolicyDocument { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -392,6 +404,12 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Input("networkInterfaceOptions")]
         public Input<Inputs.EndpointNetworkInterfaceOptionsGetArgs>? NetworkInterfaceOptions { get; set; }
+
+        /// <summary>
+        /// The policy document that is associated with this resource.
+        /// </summary>
+        [Input("policyDocument")]
+        public Input<string>? PolicyDocument { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

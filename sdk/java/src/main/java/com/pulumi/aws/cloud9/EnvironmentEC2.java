@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EnvironmentEC2(&#34;example&#34;, EnvironmentEC2Args.builder()        
+ *             .imageId(&#34;amazonlinux-2023-x86_64&#34;)
  *             .instanceType(&#34;t2.micro&#34;)
  *             .build());
  * 
@@ -202,31 +203,35 @@ public class EnvironmentEC2 extends com.pulumi.resources.CustomResource {
      * The identifier for the Amazon Machine Image (AMI) that&#39;s used to create the EC2 instance. Valid values are
      * * `amazonlinux-1-x86_64`
      * * `amazonlinux-2-x86_64`
+     * * `amazonlinux-2023-x86_64`
      * * `ubuntu-18.04-x86_64`
      * * `ubuntu-22.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
      * 
      */
     @Export(name="imageId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> imageId;
+    private Output<String> imageId;
 
     /**
      * @return The identifier for the Amazon Machine Image (AMI) that&#39;s used to create the EC2 instance. Valid values are
      * * `amazonlinux-1-x86_64`
      * * `amazonlinux-2-x86_64`
+     * * `amazonlinux-2023-x86_64`
      * * `ubuntu-18.04-x86_64`
      * * `ubuntu-22.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
      * 
      */
-    public Output<Optional<String>> imageId() {
-        return Codegen.optional(this.imageId);
+    public Output<String> imageId() {
+        return this.imageId;
     }
     /**
      * The type of instance to connect to the environment, e.g., `t2.micro`.
@@ -317,14 +322,14 @@ public class EnvironmentEC2 extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The type of the environment (e.g., `ssh` or `ec2`)
+     * The type of the environment (e.g., `ssh` or `ec2`).
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of the environment (e.g., `ssh` or `ec2`)
+     * @return The type of the environment (e.g., `ssh` or `ec2`).
      * 
      */
     public Output<String> type() {

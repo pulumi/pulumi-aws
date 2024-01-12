@@ -78,6 +78,8 @@ type LookupComputeEnvironmentResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
 	Type string `pulumi:"type"`
+	// Specifies the infrastructure update policy for the compute environment.
+	UpdatePolicies []GetComputeEnvironmentUpdatePolicy `pulumi:"updatePolicies"`
 }
 
 func LookupComputeEnvironmentOutput(ctx *pulumi.Context, args LookupComputeEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupComputeEnvironmentResultOutput {
@@ -167,6 +169,11 @@ func (o LookupComputeEnvironmentResultOutput) Tags() pulumi.StringMapOutput {
 // Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
 func (o LookupComputeEnvironmentResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the infrastructure update policy for the compute environment.
+func (o LookupComputeEnvironmentResultOutput) UpdatePolicies() GetComputeEnvironmentUpdatePolicyArrayOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) []GetComputeEnvironmentUpdatePolicy { return v.UpdatePolicies }).(GetComputeEnvironmentUpdatePolicyArrayOutput)
 }
 
 func init() {

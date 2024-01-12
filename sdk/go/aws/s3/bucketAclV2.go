@@ -229,7 +229,7 @@ type BucketAclV2 struct {
 	AccessControlPolicy BucketAclV2AccessControlPolicyOutput `pulumi:"accessControlPolicy"`
 	// Canned ACL to apply to the bucket.
 	Acl pulumi.StringPtrOutput `pulumi:"acl"`
-	// Name of the bucket.
+	// Bucket to which to apply the ACL.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
@@ -272,7 +272,7 @@ type bucketAclV2State struct {
 	AccessControlPolicy *BucketAclV2AccessControlPolicy `pulumi:"accessControlPolicy"`
 	// Canned ACL to apply to the bucket.
 	Acl *string `pulumi:"acl"`
-	// Name of the bucket.
+	// Bucket to which to apply the ACL.
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
@@ -283,7 +283,7 @@ type BucketAclV2State struct {
 	AccessControlPolicy BucketAclV2AccessControlPolicyPtrInput
 	// Canned ACL to apply to the bucket.
 	Acl pulumi.StringPtrInput
-	// Name of the bucket.
+	// Bucket to which to apply the ACL.
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
@@ -298,7 +298,7 @@ type bucketAclV2Args struct {
 	AccessControlPolicy *BucketAclV2AccessControlPolicy `pulumi:"accessControlPolicy"`
 	// Canned ACL to apply to the bucket.
 	Acl *string `pulumi:"acl"`
-	// Name of the bucket.
+	// Bucket to which to apply the ACL.
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
@@ -310,7 +310,7 @@ type BucketAclV2Args struct {
 	AccessControlPolicy BucketAclV2AccessControlPolicyPtrInput
 	// Canned ACL to apply to the bucket.
 	Acl pulumi.StringPtrInput
-	// Name of the bucket.
+	// Bucket to which to apply the ACL.
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
@@ -413,7 +413,7 @@ func (o BucketAclV2Output) Acl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclV2) pulumi.StringPtrOutput { return v.Acl }).(pulumi.StringPtrOutput)
 }
 
-// Name of the bucket.
+// Bucket to which to apply the ACL.
 func (o BucketAclV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAclV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
