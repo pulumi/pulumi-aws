@@ -440,6 +440,7 @@ var moduleMap = map[string]string{
 	"transcribe":                      transcribeMod,
 	"transfer":                        transferMod,
 	"verifiedaccess":                  verifiedaccessMod,
+	"verifiedpermissions":             "VerifiedPermissions",
 	"vpclattice":                      vpclatticeMod,
 	"waf":                             wafMod,
 	"wafregional":                     wafregionalMod,
