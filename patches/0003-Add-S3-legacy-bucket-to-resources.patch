@@ -39,10 +39,10 @@ index 670b34912f..5ada603fe3 100644
  	provider.ConfigureContextFunc = func(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
 new file mode 100644
-index 0000000000..fd117b2971
+index 0000000000..388c02642e
 --- /dev/null
 +++ b/internal/service/s3legacy/bucket_legacy.go
-@@ -0,0 +1,3030 @@
+@@ -0,0 +1,3024 @@
 +package s3legacy
 +
 +import (
@@ -75,6 +75,7 @@ index 0000000000..fd117b2971
 +	"github.com/hashicorp/terraform-provider-aws/internal/flex"
 +	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
 +	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
++	"github.com/hashicorp/terraform-provider-aws/internal/types/option"
 +	"github.com/hashicorp/terraform-provider-aws/internal/verify"
 +)
 +
@@ -1436,15 +1437,8 @@ index 0000000000..fd117b2971
 +		return fmt.Errorf("error listing tags for S3 Bucket (%s): unable to convert tags", d.Id())
 +	}
 +
-+	tags = tags.IgnoreAWS().IgnoreConfig(ignoreTagsConfig)
-+
-+	//lintignore:AWSR002
-+	if err := d.Set("tags", tags.RemoveDefaultConfig(defaultTagsConfig).Map()); err != nil {
-+		return fmt.Errorf("error setting tags: %w", err)
-+	}
-+
-+	if err := d.Set("tags_all", tags.Map()); err != nil {
-+		return fmt.Errorf("error setting tags_all: %w", err)
++	if inContext, ok := tftags.FromContext(ctx); ok {
++		inContext.TagsOut = option.Some(tags)
 +	}
 +
 +	arn := arn.ARN{
