@@ -156,8 +156,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleQueueDeadletter = new Queue(&#34;exampleQueueDeadletter&#34;);
  * 
- *         var terraformQueueRedriveAllowPolicy = new RedriveAllowPolicy(&#34;terraformQueueRedriveAllowPolicy&#34;, RedriveAllowPolicyArgs.builder()        
- *             .queueUrl(aws_sqs_queue.terraform_queue_deadletter().id())
+ *         var pulumiQueueRedriveAllowPolicy = new RedriveAllowPolicy(&#34;pulumiQueueRedriveAllowPolicy&#34;, RedriveAllowPolicyArgs.builder()        
+ *             .queueUrl(aws_sqs_queue.pulumi_queue_deadletter().id())
  *             .redriveAllowPolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;redrivePermission&#34;, &#34;byQueue&#34;),

@@ -101,9 +101,9 @@ namespace Pulumi.Aws.Sqs
     /// 
     ///     var exampleQueueDeadletter = new Aws.Sqs.Queue("exampleQueueDeadletter");
     /// 
-    ///     var terraformQueueRedriveAllowPolicy = new Aws.Sqs.RedriveAllowPolicy("terraformQueueRedriveAllowPolicy", new()
+    ///     var pulumiQueueRedriveAllowPolicy = new Aws.Sqs.RedriveAllowPolicy("pulumiQueueRedriveAllowPolicy", new()
     ///     {
-    ///         QueueUrl = aws_sqs_queue.Terraform_queue_deadletter.Id,
+    ///         QueueUrl = aws_sqs_queue.Pulumi_queue_deadletter.Id,
     ///         RedriveAllowPolicyName = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["redrivePermission"] = "byQueue",

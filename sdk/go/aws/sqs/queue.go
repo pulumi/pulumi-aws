@@ -152,8 +152,8 @@ import (
 //				return err
 //			}
 //			json1 := string(tmpJSON1)
-//			_, err = sqs.NewRedriveAllowPolicy(ctx, "terraformQueueRedriveAllowPolicy", &sqs.RedriveAllowPolicyArgs{
-//				QueueUrl:           pulumi.Any(aws_sqs_queue.Terraform_queue_deadletter.Id),
+//			_, err = sqs.NewRedriveAllowPolicy(ctx, "pulumiQueueRedriveAllowPolicy", &sqs.RedriveAllowPolicyArgs{
+//				QueueUrl:           pulumi.Any(aws_sqs_queue.Pulumi_queue_deadletter.Id),
 //				RedriveAllowPolicy: pulumi.String(json1),
 //			})
 //			if err != nil {

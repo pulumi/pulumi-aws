@@ -94,9 +94,17 @@ public final class SecurityGroupEgressArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.prefixListIds);
     }
 
+    /**
+     * Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+     * 
+     */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
+    /**
+     * @return Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+     * 
+     */
     public Output<String> protocol() {
         return this.protocol;
     }
@@ -321,11 +329,23 @@ public final class SecurityGroupEgressArgs extends com.pulumi.resources.Resource
             return prefixListIds(List.of(prefixListIds));
         }
 
+        /**
+         * @param protocol Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
+        /**
+         * @param protocol Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }

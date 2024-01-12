@@ -1730,6 +1730,9 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
                  parameter_value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+        :param pulumi.Input[str] parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+               
+               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -1749,6 +1752,11 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
+        """
+        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+
+        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
@@ -3077,6 +3085,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
                  parameter_value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+        :param pulumi.Input[str] parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+               
+               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -3096,6 +3107,11 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
+        """
+        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+
+        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
@@ -3645,6 +3661,9 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProc
                  parameter_value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+        :param pulumi.Input[str] parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+               
+               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -3664,6 +3683,11 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProc
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
+        """
+        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+
+        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
@@ -4484,6 +4508,9 @@ class FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProces
                  parameter_value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+        :param pulumi.Input[str] parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+               
+               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -4503,6 +4530,11 @@ class FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProces
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
+        """
+        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+
+        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
@@ -5098,6 +5130,9 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigura
                  parameter_value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+        :param pulumi.Input[str] parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+               
+               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -5117,6 +5152,11 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigura
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
+        """
+        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+
+        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
@@ -5742,6 +5782,9 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
                  parameter_value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+        :param pulumi.Input[str] parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+               
+               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -5761,6 +5804,11 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
+        """
+        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+
+        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
@@ -6558,6 +6606,9 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorP
                  parameter_value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+        :param pulumi.Input[str] parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+               
+               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -6577,6 +6628,11 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorP
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
+        """
+        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+
+        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter

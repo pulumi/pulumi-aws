@@ -132,7 +132,6 @@ func applyReplacementsDotJSON() tfbridge.DocsEdit {
 		if !ok {
 			return content, nil
 		}
-		applied++
 		for _, r := range replacementPath {
 			// If no-one has fixed up the TODO, don't replace it. That way the
 			// text will show up as elided instead of including the TODO in
@@ -143,6 +142,7 @@ func applyReplacementsDotJSON() tfbridge.DocsEdit {
 
 			old, new := []byte(r.Old), []byte(r.New)
 
+			applied++
 			content = bytes.ReplaceAll(content, old, new)
 		}
 
@@ -185,6 +185,13 @@ func (r replacementFile) checkForTODOs(path string, content []byte) {
 		var start int
 		start, end = findLine(content, m[0])
 		line := string(content[start:end])
+
+		// Do not add duplicate replacements to requirements.json
+		for _, replacement := range r[path] {
+			if replacement.Old == line {
+				continue
+			}
+		}
 
 		r[path] = append(r[path], replacement{
 			Old:     line,

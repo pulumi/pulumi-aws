@@ -5092,7 +5092,10 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter struct {
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-	ParameterName  string `pulumi:"parameterName"`
+	ParameterName string `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -5109,7 +5112,10 @@ type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProc
 
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs struct {
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-	ParameterName  pulumi.StringInput `pulumi:"parameterName"`
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -5171,6 +5177,9 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 	}).(pulumi.StringOutput)
 }
 
+// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -8820,7 +8829,10 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter struct {
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-	ParameterName  string `pulumi:"parameterName"`
+	ParameterName string `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -8837,7 +8849,10 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcess
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs struct {
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-	ParameterName  pulumi.StringInput `pulumi:"parameterName"`
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -8899,6 +8914,9 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 	}).(pulumi.StringOutput)
 }
 
+// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -10214,7 +10232,10 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter struct {
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-	ParameterName  string `pulumi:"parameterName"`
+	ParameterName string `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -10231,7 +10252,10 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProce
 
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs struct {
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-	ParameterName  pulumi.StringInput `pulumi:"parameterName"`
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -10293,6 +10317,9 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 	}).(pulumi.StringOutput)
 }
 
+// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -12565,7 +12592,10 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 
 type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter struct {
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-	ParameterName  string `pulumi:"parameterName"`
+	ParameterName string `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -12582,7 +12612,10 @@ type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcess
 
 type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs struct {
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-	ParameterName  pulumi.StringInput `pulumi:"parameterName"`
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -12644,6 +12677,9 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 	}).(pulumi.StringOutput)
 }
 
+// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -14128,7 +14164,10 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigu
 
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter struct {
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-	ParameterName  string `pulumi:"parameterName"`
+	ParameterName string `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -14145,7 +14184,10 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurat
 
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs struct {
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-	ParameterName  pulumi.StringInput `pulumi:"parameterName"`
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -14207,6 +14249,9 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigu
 	}).(pulumi.StringOutput)
 }
 
+// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -15739,7 +15784,10 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter struct {
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-	ParameterName  string `pulumi:"parameterName"`
+	ParameterName string `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -15756,7 +15804,10 @@ type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor
 
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs struct {
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-	ParameterName  pulumi.StringInput `pulumi:"parameterName"`
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -15818,6 +15869,9 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 	}).(pulumi.StringOutput)
 }
 
+// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -17767,7 +17821,10 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter struct {
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-	ParameterName  string `pulumi:"parameterName"`
+	ParameterName string `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -17784,7 +17841,10 @@ type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorPa
 
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs struct {
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-	ParameterName  pulumi.StringInput `pulumi:"parameterName"`
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -17846,6 +17906,9 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 	}).(pulumi.StringOutput)
 }
 
+// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
