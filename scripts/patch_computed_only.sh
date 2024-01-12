@@ -11,7 +11,7 @@
 # maintainer has to do the following sequence of steps:
 #
 # - make upstream.rebase
-# - ./script/patch_computed_only.sh
+# - ./scripts/patch_computed_only.sh
 # - (cd upstream && git add . && git commit -m 'Fix tags_all Computed for PF resources')
 # - make upstream.finalize
 #
