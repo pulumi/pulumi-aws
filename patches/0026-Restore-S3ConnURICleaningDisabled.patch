@@ -30,3 +30,26 @@ index 7ab67154ef..f29ee2f68f 100644
  // SetHTTPClient sets the http.Client used for AWS API calls.
  // To have effect it must be called before the AWS SDK v1 Session is created.
  func (c *AWSClient) SetHTTPClient(httpClient *http.Client) {
+diff --git a/internal/conns/awsclient_gen.go b/internal/conns/awsclient_gen.go
+index 11687275f0..d61bfb71bc 100644
+--- a/internal/conns/awsclient_gen.go
++++ b/internal/conns/awsclient_gen.go
+@@ -214,6 +214,7 @@ import (
+ 	route53recoverycontrolconfig_sdkv1 "github.com/aws/aws-sdk-go/service/route53recoverycontrolconfig"
+ 	route53recoveryreadiness_sdkv1 "github.com/aws/aws-sdk-go/service/route53recoveryreadiness"
+ 	route53resolver_sdkv1 "github.com/aws/aws-sdk-go/service/route53resolver"
++	s3_sdkv1 "github.com/aws/aws-sdk-go/service/s3"
+ 	s3outposts_sdkv1 "github.com/aws/aws-sdk-go/service/s3outposts"
+ 	sagemaker_sdkv1 "github.com/aws/aws-sdk-go/service/sagemaker"
+ 	schemas_sdkv1 "github.com/aws/aws-sdk-go/service/schemas"
+@@ -982,6 +983,10 @@ func (c *AWSClient) S3Client(ctx context.Context) *s3_sdkv2.Client {
+ 	return errs.Must(client[*s3_sdkv2.Client](ctx, c, names.S3, make(map[string]any)))
+ }
+ 
++func (c *AWSClient) S3Conn(ctx context.Context) *s3_sdkv1.S3 {
++	return errs.Must(conn[*s3_sdkv1.S3](ctx, c, names.S3, make(map[string]any)))
++}
++
+ func (c *AWSClient) S3ControlClient(ctx context.Context) *s3control_sdkv2.Client {
+ 	return errs.Must(client[*s3control_sdkv2.Client](ctx, c, names.S3Control, make(map[string]any)))
+ }
