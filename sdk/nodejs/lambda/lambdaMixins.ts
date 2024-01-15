@@ -226,7 +226,7 @@ export type BaseCallbackFunctionArgs = utils.Overwrite<FunctionArgs, {
     /**
      * The Lambda runtime to use.  If not provided, will default to [NodeJS8d10Runtime]
      */
-    runtime?: Runtime;
+    runtime?: Runtime | string;
 
     /**
      * Options to control which paths/packages should be included or excluded in the zip file containing

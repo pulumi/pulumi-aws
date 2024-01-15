@@ -17,35 +17,49 @@ type Runtime string
 const (
 	// Deprecated: This runtime is now deprecated
 	RuntimeDotnetCore2d1 = Runtime("dotnetcore2.1")
+	// Deprecated: This runtime is now deprecated
 	RuntimeDotnetCore3d1 = Runtime("dotnetcore3.1")
-	RuntimeDotnet5d0     = Runtime("dotnet5.0")
-	RuntimeDotnet6       = Runtime("dotnet6")
-	RuntimeGo1dx         = Runtime("go1.x")
-	RuntimeJava8         = Runtime("java8")
-	RuntimeJava8AL2      = Runtime("java8.al2")
-	RuntimeJava11        = Runtime("java11")
-	RuntimeJava17        = Runtime("java17")
+	// Deprecated: This runtime is now deprecated
+	RuntimeDotnet5d0 = Runtime("dotnet5.0")
+	RuntimeDotnet6   = Runtime("dotnet6")
+	RuntimeDotnet7   = Runtime("dotnet7")
+	// Deprecated: This runtime is now deprecated
+	RuntimeGo1dx = Runtime("go1.x")
+	// Deprecated: This runtime is now deprecated
+	RuntimeJava8    = Runtime("java8")
+	RuntimeJava8AL2 = Runtime("java8.al2")
+	RuntimeJava11   = Runtime("java11")
+	RuntimeJava17   = Runtime("java17")
+	RuntimeJava21   = Runtime("java21")
 	// Deprecated: This runtime is now deprecated
 	RuntimeRuby2d5 = Runtime("ruby2.5")
+	// Deprecated: This runtime is now deprecated
 	RuntimeRuby2d7 = Runtime("ruby2.7")
 	RuntimeRuby3d2 = Runtime("ruby3.2")
 	// Deprecated: This runtime is now deprecated
 	RuntimeNodeJS10dX = Runtime("nodejs10.x")
+	// Deprecated: This runtime is now deprecated
 	RuntimeNodeJS12dX = Runtime("nodejs12.x")
+	// Deprecated: This runtime is now deprecated
 	RuntimeNodeJS14dX = Runtime("nodejs14.x")
 	RuntimeNodeJS16dX = Runtime("nodejs16.x")
 	RuntimeNodeJS18dX = Runtime("nodejs18.x")
+	RuntimeNodeJS20dX = Runtime("nodejs20.x")
 	// Deprecated: This runtime is now deprecated
 	RuntimePython2d7 = Runtime("python2.7")
 	// Deprecated: This runtime is now deprecated
-	RuntimePython3d6  = Runtime("python3.6")
+	RuntimePython3d6 = Runtime("python3.6")
+	// Deprecated: This runtime is now deprecated
 	RuntimePython3d7  = Runtime("python3.7")
 	RuntimePython3d8  = Runtime("python3.8")
 	RuntimePython3d9  = Runtime("python3.9")
 	RuntimePython3d10 = Runtime("python3.10")
 	RuntimePython3d11 = Runtime("python3.11")
-	RuntimeCustom     = Runtime("provided")
-	RuntimeCustomAL2  = Runtime("provided.al2")
+	RuntimePython3d12 = Runtime("python3.12")
+	// Deprecated: This runtime is now deprecated
+	RuntimeCustom       = Runtime("provided")
+	RuntimeCustomAL2    = Runtime("provided.al2")
+	RuntimeCustomAL2023 = Runtime("provided.al2023")
 )
 
 func (Runtime) ElementType() reflect.Type {
@@ -170,27 +184,23 @@ func (o RuntimePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // RuntimeInput is an input type that accepts values of the Runtime enum
 // A concrete instance of `RuntimeInput` can be one of the following:
 //
-//	RuntimeDotnetCore3d1
-//	RuntimeDotnet5d0
 //	RuntimeDotnet6
-//	RuntimeGo1dx
-//	RuntimeJava8
+//	RuntimeDotnet7
 //	RuntimeJava8AL2
 //	RuntimeJava11
 //	RuntimeJava17
-//	RuntimeRuby2d7
+//	RuntimeJava21
 //	RuntimeRuby3d2
-//	RuntimeNodeJS12dX
-//	RuntimeNodeJS14dX
 //	RuntimeNodeJS16dX
 //	RuntimeNodeJS18dX
-//	RuntimePython3d7
+//	RuntimeNodeJS20dX
 //	RuntimePython3d8
 //	RuntimePython3d9
 //	RuntimePython3d10
 //	RuntimePython3d11
-//	RuntimeCustom
+//	RuntimePython3d12
 //	RuntimeCustomAL2
+//	RuntimeCustomAL2023
 type RuntimeInput interface {
 	pulumi.Input
 
