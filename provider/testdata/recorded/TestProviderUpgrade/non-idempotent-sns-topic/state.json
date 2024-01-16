@@ -1,0 +1,169 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2024-01-08T13:37:41.617612-08:00",
+            "magic": "1c7bee3f57c8d621757e12febf05da234085ddfd4ef5c94d61087118355865f9",
+            "version": "v3.94.2"
+        },
+        "secrets_providers": {
+            "type": "passphrase",
+            "state": {
+                "salt": "v1:hFgc1pAcyuc=:v1:j0PWoXKe3+NKYjS7:9R2NfJOGEJV3WPBco2/Ztv7XLDpsoQ=="
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-non-idempo-dbcfcba3::aws_sns_topic_Topic_1::pulumi:pulumi:Stack::aws_sns_topic_Topic_1-p-it-venelins-m-non-idempo-dbcfcba3",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "created": "2024-01-08T21:37:39.80165Z",
+                "modified": "2024-01-08T21:37:39.80165Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-non-idempo-dbcfcba3::aws_sns_topic_Topic_1::pulumi:providers:aws::default",
+                "custom": true,
+                "id": "2fceb67c-ef4a-4411-9aae-6601507a8ada",
+                "type": "pulumi:providers:aws",
+                "inputs": {
+                    "region": "us-west-1",
+                    "skipCredentialsValidation": "false",
+                    "skipMetadataApiCheck": "true",
+                    "skipRegionValidation": "true"
+                },
+                "outputs": {
+                    "region": "us-west-1",
+                    "skipCredentialsValidation": "false",
+                    "skipMetadataApiCheck": "true",
+                    "skipRegionValidation": "true"
+                },
+                "created": "2024-01-08T21:37:40.623549Z",
+                "modified": "2024-01-08T21:37:40.623549Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-non-idempo-dbcfcba3::aws_sns_topic_Topic_1::aws:sns/topic:Topic::topic2",
+                "custom": true,
+                "id": "arn:aws:sns:us-west-1:616138583583:topic",
+                "type": "aws:sns/topic:Topic",
+                "inputs": {
+                    "__defaults": [
+                        "contentBasedDeduplication",
+                        "fifoTopic"
+                    ],
+                    "contentBasedDeduplication": false,
+                    "fifoTopic": false,
+                    "name": "topic"
+                },
+                "outputs": {
+                    "applicationFailureFeedbackRoleArn": "",
+                    "applicationSuccessFeedbackRoleArn": "",
+                    "applicationSuccessFeedbackSampleRate": 0,
+                    "archivePolicy": "",
+                    "arn": "arn:aws:sns:us-west-1:616138583583:topic",
+                    "beginningArchiveTime": "",
+                    "contentBasedDeduplication": false,
+                    "deliveryPolicy": "",
+                    "displayName": "",
+                    "fifoTopic": false,
+                    "firehoseFailureFeedbackRoleArn": "",
+                    "firehoseSuccessFeedbackRoleArn": "",
+                    "firehoseSuccessFeedbackSampleRate": 0,
+                    "httpFailureFeedbackRoleArn": "",
+                    "httpSuccessFeedbackRoleArn": "",
+                    "httpSuccessFeedbackSampleRate": 0,
+                    "id": "arn:aws:sns:us-west-1:616138583583:topic",
+                    "kmsMasterKeyId": "",
+                    "lambdaFailureFeedbackRoleArn": "",
+                    "lambdaSuccessFeedbackRoleArn": "",
+                    "lambdaSuccessFeedbackSampleRate": 0,
+                    "name": "topic",
+                    "namePrefix": "",
+                    "owner": "616138583583",
+                    "policy": "{\"Id\":\"__default_policy_ID\",\"Statement\":[{\"Action\":[\"SNS:GetTopicAttributes\",\"SNS:SetTopicAttributes\",\"SNS:AddPermission\",\"SNS:RemovePermission\",\"SNS:DeleteTopic\",\"SNS:Subscribe\",\"SNS:ListSubscriptionsByTopic\",\"SNS:Publish\"],\"Condition\":{\"StringEquals\":{\"AWS:SourceOwner\":\"616138583583\"}},\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sns:us-west-1:616138583583:topic\",\"Sid\":\"__default_statement_ID\"}],\"Version\":\"2008-10-17\"}",
+                    "signatureVersion": 0,
+                    "sqsFailureFeedbackRoleArn": "",
+                    "sqsSuccessFeedbackRoleArn": "",
+                    "sqsSuccessFeedbackSampleRate": 0,
+                    "tags": {},
+                    "tagsAll": {
+                        "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+                        "ciphertext": "v1:KEfiQ/i1aP8pS7Tc:odzsGqoBJvIM6p3/oXJn/Hfv"
+                    },
+                    "tracingConfig": ""
+                },
+                "parent": "urn:pulumi:p-it-venelins-m-non-idempo-dbcfcba3::aws_sns_topic_Topic_1::pulumi:pulumi:Stack::aws_sns_topic_Topic_1-p-it-venelins-m-non-idempo-dbcfcba3",
+                "provider": "urn:pulumi:p-it-venelins-m-non-idempo-dbcfcba3::aws_sns_topic_Topic_1::pulumi:providers:aws::default::2fceb67c-ef4a-4411-9aae-6601507a8ada",
+                "propertyDependencies": {
+                    "name": null
+                },
+                "additionalSecretOutputs": [
+                    "tagsAll"
+                ],
+                "created": "2024-01-08T21:37:41.606242Z",
+                "modified": "2024-01-08T21:37:41.606242Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-non-idempo-dbcfcba3::aws_sns_topic_Topic_1::aws:sns/topic:Topic::topic1",
+                "custom": true,
+                "id": "arn:aws:sns:us-west-1:616138583583:aepsgMbmIrBs",
+                "type": "aws:sns/topic:Topic",
+                "inputs": {
+                    "__defaults": [
+                        "contentBasedDeduplication",
+                        "fifoTopic"
+                    ],
+                    "contentBasedDeduplication": false,
+                    "fifoTopic": false,
+                    "name": "aepsgMbmIrBs"
+                },
+                "outputs": {
+                    "applicationFailureFeedbackRoleArn": "",
+                    "applicationSuccessFeedbackRoleArn": "",
+                    "applicationSuccessFeedbackSampleRate": 0,
+                    "archivePolicy": "",
+                    "arn": "arn:aws:sns:us-west-1:616138583583:aepsgMbmIrBs",
+                    "beginningArchiveTime": "",
+                    "contentBasedDeduplication": false,
+                    "deliveryPolicy": "",
+                    "displayName": "",
+                    "fifoTopic": false,
+                    "firehoseFailureFeedbackRoleArn": "",
+                    "firehoseSuccessFeedbackRoleArn": "",
+                    "firehoseSuccessFeedbackSampleRate": 0,
+                    "httpFailureFeedbackRoleArn": "",
+                    "httpSuccessFeedbackRoleArn": "",
+                    "httpSuccessFeedbackSampleRate": 0,
+                    "id": "arn:aws:sns:us-west-1:616138583583:aepsgMbmIrBs",
+                    "kmsMasterKeyId": "",
+                    "lambdaFailureFeedbackRoleArn": "",
+                    "lambdaSuccessFeedbackRoleArn": "",
+                    "lambdaSuccessFeedbackSampleRate": 0,
+                    "name": "aepsgMbmIrBs",
+                    "namePrefix": "",
+                    "owner": "616138583583",
+                    "policy": "{\"Id\":\"__default_policy_ID\",\"Statement\":[{\"Action\":[\"SNS:GetTopicAttributes\",\"SNS:SetTopicAttributes\",\"SNS:AddPermission\",\"SNS:RemovePermission\",\"SNS:DeleteTopic\",\"SNS:Subscribe\",\"SNS:ListSubscriptionsByTopic\",\"SNS:Publish\"],\"Condition\":{\"StringEquals\":{\"AWS:SourceOwner\":\"616138583583\"}},\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sns:us-west-1:616138583583:aepsgMbmIrBs\",\"Sid\":\"__default_statement_ID\"}],\"Version\":\"2008-10-17\"}",
+                    "signatureVersion": 0,
+                    "sqsFailureFeedbackRoleArn": "",
+                    "sqsSuccessFeedbackRoleArn": "",
+                    "sqsSuccessFeedbackSampleRate": 0,
+                    "tags": {},
+                    "tagsAll": {
+                        "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+                        "ciphertext": "v1:OvGi71S/xVH/LUvZ:h5bhYV/cfrNN05PF4MESNqJf"
+                    },
+                    "tracingConfig": ""
+                },
+                "parent": "urn:pulumi:p-it-venelins-m-non-idempo-dbcfcba3::aws_sns_topic_Topic_1::pulumi:pulumi:Stack::aws_sns_topic_Topic_1-p-it-venelins-m-non-idempo-dbcfcba3",
+                "provider": "urn:pulumi:p-it-venelins-m-non-idempo-dbcfcba3::aws_sns_topic_Topic_1::pulumi:providers:aws::default::2fceb67c-ef4a-4411-9aae-6601507a8ada",
+                "propertyDependencies": {
+                    "name": null
+                },
+                "additionalSecretOutputs": [
+                    "tagsAll"
+                ],
+                "created": "2024-01-08T21:37:41.61747Z",
+                "modified": "2024-01-08T21:37:41.61747Z"
+            }
+        ]
+    }
+}
