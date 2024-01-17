@@ -12,6 +12,7 @@ import (
 
 func TestSnsTopicReplacement(t *testing.T) {
 	ptest := pulumiTest(t, filepath.Join("test-programs", "sns-topic-replacement"))
+	ptest.InstallStack("test")
 
 	topicName := randSeq(12)
 	ptest.SetConfig("topicName", topicName)
@@ -25,6 +26,7 @@ func TestSnsTopicReplacement(t *testing.T) {
 	ptest.SetConfig("providerName", providerName)
 	ptest.Up()
 
-	res := ptest.Refresh()
-	require.Equal(t, 0, (*res.Summary.ResourceChanges)["replace"])
+	resRef := ptest.Refresh()
+
+	require.Equal(t, 0, (*resRef.Summary.ResourceChanges)["replace"])
 }

@@ -21,7 +21,13 @@ func main() {
 		topicName := conf.Require("topicName")
 
 		// Create an SNS Topic using the above created AWS provider
-		_, err = sns.NewTopic(ctx, topicName, &sns.TopicArgs{}, pulumi.Provider(provider))
+		_, err = sns.NewTopic(
+			ctx,
+			topicName,
+			&sns.TopicArgs{Name: pulumi.StringPtrFromPtr(&topicName)},
+			pulumi.Provider(provider),
+			// pulumi.DeleteBeforeReplace(true),
+		)
 		if err != nil {
 			return err
 		}
