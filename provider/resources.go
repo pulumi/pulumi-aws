@@ -3682,6 +3682,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						},
 					}),
 				},
+				DeleteBeforeReplace: true, // only a single topic with a given name can exist.
 			},
 			"aws_sns_topic_policy": {
 				Tok: awsResource(snsMod, "TopicPolicy"),
