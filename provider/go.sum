@@ -2417,8 +2417,8 @@ github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 h1:vkHw5I/plNdTr435
 github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231/go.mod h1:murToZ2N9hNJzewjHBgfFdXhZKjY3z5cYC1VXk+lbFE=
 github.com/pulumi/esc v0.6.2 h1:+z+l8cuwIauLSwXQS0uoI3rqB+YG4SzsZYtHfNoXBvw=
 github.com/pulumi/esc v0.6.2/go.mod h1:jNnYNjzsOgVTjCp0LL24NsCk8ZJxq4IoLQdCT0X7l8k=
-github.com/pulumi/providertest v0.0.5 h1:+NQXBudDWSGmSEU6zgh/Bb6sXzv4e8hDVp2n2Tu/GvM=
-github.com/pulumi/providertest v0.0.5/go.mod h1:fwGDI/khKruoumzTOisCLooJwJT20OvYHcKMkIsfTCk=
+github.com/pulumi/providertest v0.0.3 h1:DLcAvVGgeP4mHEi1Ftk5zTX9QHjcrO6u5w5GCZrF99s=
+github.com/pulumi/providertest v0.0.3/go.mod h1:kZYBA14iemv3X4G4xsBKaa72zVbn//IyL5HTYKpLuy0=
 github.com/pulumi/pulumi-java/pkg v0.9.8 h1:c8mYsalnRXA2Ibgvv6scefOn6mW1Vb0UT0mcDqjsivQ=
 github.com/pulumi/pulumi-java/pkg v0.9.8/go.mod h1:c6rSw/+q4O0IImgJ9axxoC6QesbPYWBaG5gimbHouUQ=
 github.com/pulumi/pulumi-terraform-bridge/pf v0.23.0 h1:j0rOtgpeGn2ZfyEVJtg5QhCEQEiMgz0rmFO6qWUFLzA=
