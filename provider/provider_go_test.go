@@ -29,4 +29,5 @@ func TestSnsTopicReplacement(t *testing.T) {
 	resRef := ptest.Refresh()
 
 	require.Equal(t, 0, (*resRef.Summary.ResourceChanges)["replace"])
+	require.Equal(t, 0, (*resRef.Summary.ResourceChanges)["delete"])
 }
