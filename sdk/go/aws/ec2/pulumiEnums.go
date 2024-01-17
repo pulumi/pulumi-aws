@@ -948,6 +948,14 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	InstanceType_G4dn_8XLarge
 //	InstanceType_G4dn_Metal
 //	InstanceType_G4dn_XLarge
+//	InstanceType_G5_XLarge
+//	InstanceType_G5_2XLarge
+//	InstanceType_G5_4XLarge
+//	InstanceType_G5_8XLarge
+//	InstanceType_G5_12XLarge
+//	InstanceType_G5_16XLarge
+//	InstanceType_G5_24XLarge
+//	InstanceType_G5_48XLarge
 //	InstanceType_H1_16XLarge
 //	InstanceType_H1_2XLarge
 //	InstanceType_H1_4XLarge
