@@ -5,8 +5,9 @@ package provider
 
 import (
 	"path/filepath"
-	"q"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestSnsTopicReplacement(t *testing.T) {
@@ -25,5 +26,5 @@ func TestSnsTopicReplacement(t *testing.T) {
 	ptest.Up()
 
 	res := ptest.Refresh()
-	q.Q(res.Summary.ResourceChanges)
+	require.Equal(t, 0, (*res.Summary.ResourceChanges)["replace"])
 }
