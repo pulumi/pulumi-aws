@@ -4638,6 +4638,7 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 					{Name: "R5dn_8XLarge", Value: "r5dn.8xlarge"},
 					{Name: "R5dn_Large", Value: "r5dn.large"},
 					{Name: "R5dn_XLarge", Value: "r5dn.xlarge"},
+					{Name: "R5dn_Metal", Value: "r5dn.metal"},
 					{Name: "R5n_12XLarge", Value: "r5n.12xlarge"},
 					{Name: "R5n_16XLarge", Value: "r5n.16xlarge"},
 					{Name: "R5n_24XLarge", Value: "r5n.24xlarge"},
