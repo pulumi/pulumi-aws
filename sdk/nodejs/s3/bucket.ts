@@ -15,6 +15,8 @@ import {RoutingRule} from "./index";
  *
  * > This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `aws.s3control.Bucket` resource.
  *
+ * > **NOTE:** Some feature of the pulumi-aws provider that worked with other cloud provider S3 integration might not work. Instead please have a look at the `aws.s3.BucketV2` resource.
+ *
  * ## Example Usage
  * ### Private Bucket w/ Tags
  *
