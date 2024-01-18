@@ -395,6 +395,7 @@ import java.util.StringJoiner;
         R5dn_8XLarge("r5dn.8xlarge"),
         R5dn_Large("r5dn.large"),
         R5dn_XLarge("r5dn.xlarge"),
+        R5dn_Metal("r5dn.metal"),
         R5n_12XLarge("r5n.12xlarge"),
         R5n_16XLarge("r5n.16xlarge"),
         R5n_24XLarge("r5n.24xlarge"),

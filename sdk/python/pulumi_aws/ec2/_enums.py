@@ -410,6 +410,7 @@ class InstanceType(str, Enum):
     R5DN_8_X_LARGE = "r5dn.8xlarge"
     R5DN_LARGE = "r5dn.large"
     R5DN_X_LARGE = "r5dn.xlarge"
+    R5DN_METAL = "r5dn.metal"
     R5N_12_X_LARGE = "r5n.12xlarge"
     R5N_16_X_LARGE = "r5n.16xlarge"
     R5N_24_X_LARGE = "r5n.24xlarge"

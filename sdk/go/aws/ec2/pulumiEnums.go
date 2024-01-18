@@ -582,6 +582,7 @@ const (
 	InstanceType_R5dn_8XLarge  = InstanceType("r5dn.8xlarge")
 	InstanceType_R5dn_Large    = InstanceType("r5dn.large")
 	InstanceType_R5dn_XLarge   = InstanceType("r5dn.xlarge")
+	InstanceType_R5dn_Metal    = InstanceType("r5dn.metal")
 	InstanceType_R5n_12XLarge  = InstanceType("r5n.12xlarge")
 	InstanceType_R5n_16XLarge  = InstanceType("r5n.16xlarge")
 	InstanceType_R5n_24XLarge  = InstanceType("r5n.24xlarge")
@@ -1189,6 +1190,7 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	InstanceType_R5dn_8XLarge
 //	InstanceType_R5dn_Large
 //	InstanceType_R5dn_XLarge
+//	InstanceType_R5dn_Metal
 //	InstanceType_R5n_12XLarge
 //	InstanceType_R5n_16XLarge
 //	InstanceType_R5n_24XLarge

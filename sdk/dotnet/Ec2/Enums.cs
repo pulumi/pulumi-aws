@@ -436,6 +436,7 @@ namespace Pulumi.Aws.Ec2
         public static InstanceType R5dn_8XLarge { get; } = new InstanceType("r5dn.8xlarge");
         public static InstanceType R5dn_Large { get; } = new InstanceType("r5dn.large");
         public static InstanceType R5dn_XLarge { get; } = new InstanceType("r5dn.xlarge");
+        public static InstanceType R5dn_Metal { get; } = new InstanceType("r5dn.metal");
         public static InstanceType R5n_12XLarge { get; } = new InstanceType("r5n.12xlarge");
         public static InstanceType R5n_16XLarge { get; } = new InstanceType("r5n.16xlarge");
         public static InstanceType R5n_24XLarge { get; } = new InstanceType("r5n.24xlarge");
