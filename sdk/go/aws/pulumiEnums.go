@@ -27,6 +27,7 @@ const (
 	RegionAPSoutheast3 = Region("ap-southeast-3")
 	RegionAPSoutheast4 = Region("ap-southeast-4")
 	RegionCACentral    = Region("ca-central-1")
+	RegionCAWest1      = Region("ca-west-1")
 	RegionCNNorth1     = Region("cn-north-1")
 	RegionCNNorthwest1 = Region("cn-northwest-1")
 	RegionEUCentral1   = Region("eu-central-1")
