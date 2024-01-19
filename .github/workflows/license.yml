@@ -66,6 +66,7 @@ jobs:
           github.com/cloudflare/circl,
           github.com/golang,
           github.com/gorhill/cronexpr,
+          github.com/in-toto/in-toto-golang,
           github.com/jmespath/go-jmespath,
           github.com/keybase/go-crypto,
           github.com/klauspost/compress,
