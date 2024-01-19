@@ -1,0 +1,30 @@
+diff --git a/internal/service/acm/service_package_gen.go b/internal/service/acm/service_package_gen.go
+index dbd2989c62..b34f7e2bf3 100644
+--- a/internal/service/acm/service_package_gen.go
++++ b/internal/service/acm/service_package_gen.go
+@@ -4,8 +4,10 @@ package acm
+ 
+ import (
+ 	"context"
++	"strings"
+ 
+ 	aws_sdkv2 "github.com/aws/aws-sdk-go-v2/aws"
++	retry_sdkv2 "github.com/aws/aws-sdk-go-v2/aws/retry"
+ 	acm_sdkv2 "github.com/aws/aws-sdk-go-v2/service/acm"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/types"
+@@ -60,6 +62,14 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
+ 		if endpoint := config["endpoint"].(string); endpoint != "" {
+ 			o.BaseEndpoint = aws_sdkv2.String(endpoint)
+ 		}
++
++		o.Retryer = conns.AddIsErrorRetryables(cfg.Retryer().(aws_sdkv2.RetryerV2), retry_sdkv2.IsErrorRetryableFunc(func(err error) aws_sdkv2.Ternary {
++			if strings.Contains(err.Error(), "You have imported the maximum number of") &&
++				strings.Contains(err.Error(), "certificates in the last year.") {
++				return aws_sdkv2.FalseTernary
++			}
++			return aws_sdkv2.UnknownTernary // Delegate to configured Retryer.
++		}))
+ 	}), nil
+ }
+ 
