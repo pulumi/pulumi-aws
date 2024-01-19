@@ -98,7 +98,7 @@ class GetFunctionUrlResult:
     @pulumi.getter(name="functionUrl")
     def function_url(self) -> str:
         """
-        HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+        HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
         """
         return pulumi.get(self, "function_url")
 

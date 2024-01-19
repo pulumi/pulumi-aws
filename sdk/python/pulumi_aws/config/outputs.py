@@ -189,6 +189,7 @@ class Endpoints(dict):
                  applicationautoscaling: Optional[str] = None,
                  applicationinsights: Optional[str] = None,
                  appmesh: Optional[str] = None,
+                 appregistry: Optional[str] = None,
                  apprunner: Optional[str] = None,
                  appstream: Optional[str] = None,
                  appsync: Optional[str] = None,
@@ -296,6 +297,7 @@ class Endpoints(dict):
                  glue: Optional[str] = None,
                  grafana: Optional[str] = None,
                  greengrass: Optional[str] = None,
+                 groundstation: Optional[str] = None,
                  guardduty: Optional[str] = None,
                  healthlake: Optional[str] = None,
                  iam: Optional[str] = None,
@@ -321,6 +323,7 @@ class Endpoints(dict):
                  kms: Optional[str] = None,
                  lakeformation: Optional[str] = None,
                  lambda_: Optional[str] = None,
+                 launchwizard: Optional[str] = None,
                  lex: Optional[str] = None,
                  lexmodelbuilding: Optional[str] = None,
                  lexmodelbuildingservice: Optional[str] = None,
@@ -357,12 +360,14 @@ class Endpoints(dict):
                  organizations: Optional[str] = None,
                  osis: Optional[str] = None,
                  outposts: Optional[str] = None,
+                 pcaconnectorad: Optional[str] = None,
                  pinpoint: Optional[str] = None,
                  pipes: Optional[str] = None,
                  polly: Optional[str] = None,
                  pricing: Optional[str] = None,
                  prometheus: Optional[str] = None,
                  prometheusservice: Optional[str] = None,
+                 qbusiness: Optional[str] = None,
                  qldb: Optional[str] = None,
                  quicksight: Optional[str] = None,
                  ram: Optional[str] = None,
@@ -399,6 +404,7 @@ class Endpoints(dict):
                  serverlessapprepo: Optional[str] = None,
                  serverlessrepo: Optional[str] = None,
                  servicecatalog: Optional[str] = None,
+                 servicecatalogappregistry: Optional[str] = None,
                  servicediscovery: Optional[str] = None,
                  servicequotas: Optional[str] = None,
                  ses: Optional[str] = None,
@@ -412,6 +418,7 @@ class Endpoints(dict):
                  ssm: Optional[str] = None,
                  ssmcontacts: Optional[str] = None,
                  ssmincidents: Optional[str] = None,
+                 ssmsap: Optional[str] = None,
                  sso: Optional[str] = None,
                  ssoadmin: Optional[str] = None,
                  stepfunctions: Optional[str] = None,
@@ -428,6 +435,7 @@ class Endpoints(dict):
                  waf: Optional[str] = None,
                  wafregional: Optional[str] = None,
                  wafv2: Optional[str] = None,
+                 wellarchitected: Optional[str] = None,
                  worklink: Optional[str] = None,
                  workspaces: Optional[str] = None,
                  xray: Optional[str] = None):
@@ -467,6 +475,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "applicationinsights", applicationinsights)
         if appmesh is not None:
             pulumi.set(__self__, "appmesh", appmesh)
+        if appregistry is not None:
+            pulumi.set(__self__, "appregistry", appregistry)
         if apprunner is not None:
             pulumi.set(__self__, "apprunner", apprunner)
         if appstream is not None:
@@ -681,6 +691,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "grafana", grafana)
         if greengrass is not None:
             pulumi.set(__self__, "greengrass", greengrass)
+        if groundstation is not None:
+            pulumi.set(__self__, "groundstation", groundstation)
         if guardduty is not None:
             pulumi.set(__self__, "guardduty", guardduty)
         if healthlake is not None:
@@ -731,6 +743,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "lakeformation", lakeformation)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+        if launchwizard is not None:
+            pulumi.set(__self__, "launchwizard", launchwizard)
         if lex is not None:
             pulumi.set(__self__, "lex", lex)
         if lexmodelbuilding is not None:
@@ -803,6 +817,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "osis", osis)
         if outposts is not None:
             pulumi.set(__self__, "outposts", outposts)
+        if pcaconnectorad is not None:
+            pulumi.set(__self__, "pcaconnectorad", pcaconnectorad)
         if pinpoint is not None:
             pulumi.set(__self__, "pinpoint", pinpoint)
         if pipes is not None:
@@ -815,6 +831,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "prometheus", prometheus)
         if prometheusservice is not None:
             pulumi.set(__self__, "prometheusservice", prometheusservice)
+        if qbusiness is not None:
+            pulumi.set(__self__, "qbusiness", qbusiness)
         if qldb is not None:
             pulumi.set(__self__, "qldb", qldb)
         if quicksight is not None:
@@ -887,6 +905,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "serverlessrepo", serverlessrepo)
         if servicecatalog is not None:
             pulumi.set(__self__, "servicecatalog", servicecatalog)
+        if servicecatalogappregistry is not None:
+            pulumi.set(__self__, "servicecatalogappregistry", servicecatalogappregistry)
         if servicediscovery is not None:
             pulumi.set(__self__, "servicediscovery", servicediscovery)
         if servicequotas is not None:
@@ -913,6 +933,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "ssmcontacts", ssmcontacts)
         if ssmincidents is not None:
             pulumi.set(__self__, "ssmincidents", ssmincidents)
+        if ssmsap is not None:
+            pulumi.set(__self__, "ssmsap", ssmsap)
         if sso is not None:
             pulumi.set(__self__, "sso", sso)
         if ssoadmin is not None:
@@ -945,6 +967,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "wafregional", wafregional)
         if wafv2 is not None:
             pulumi.set(__self__, "wafv2", wafv2)
+        if wellarchitected is not None:
+            pulumi.set(__self__, "wellarchitected", wellarchitected)
         if worklink is not None:
             pulumi.set(__self__, "worklink", worklink)
         if workspaces is not None:
@@ -1041,6 +1065,11 @@ class Endpoints(dict):
     @pulumi.getter
     def appmesh(self) -> Optional[str]:
         return pulumi.get(self, "appmesh")
+
+    @property
+    @pulumi.getter
+    def appregistry(self) -> Optional[str]:
+        return pulumi.get(self, "appregistry")
 
     @property
     @pulumi.getter
@@ -1579,6 +1608,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def groundstation(self) -> Optional[str]:
+        return pulumi.get(self, "groundstation")
+
+    @property
+    @pulumi.getter
     def guardduty(self) -> Optional[str]:
         return pulumi.get(self, "guardduty")
 
@@ -1701,6 +1735,11 @@ class Endpoints(dict):
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional[str]:
         return pulumi.get(self, "lambda_")
+
+    @property
+    @pulumi.getter
+    def launchwizard(self) -> Optional[str]:
+        return pulumi.get(self, "launchwizard")
 
     @property
     @pulumi.getter
@@ -1884,6 +1923,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def pcaconnectorad(self) -> Optional[str]:
+        return pulumi.get(self, "pcaconnectorad")
+
+    @property
+    @pulumi.getter
     def pinpoint(self) -> Optional[str]:
         return pulumi.get(self, "pinpoint")
 
@@ -1911,6 +1955,11 @@ class Endpoints(dict):
     @pulumi.getter
     def prometheusservice(self) -> Optional[str]:
         return pulumi.get(self, "prometheusservice")
+
+    @property
+    @pulumi.getter
+    def qbusiness(self) -> Optional[str]:
+        return pulumi.get(self, "qbusiness")
 
     @property
     @pulumi.getter
@@ -2094,6 +2143,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def servicecatalogappregistry(self) -> Optional[str]:
+        return pulumi.get(self, "servicecatalogappregistry")
+
+    @property
+    @pulumi.getter
     def servicediscovery(self) -> Optional[str]:
         return pulumi.get(self, "servicediscovery")
 
@@ -2156,6 +2210,11 @@ class Endpoints(dict):
     @pulumi.getter
     def ssmincidents(self) -> Optional[str]:
         return pulumi.get(self, "ssmincidents")
+
+    @property
+    @pulumi.getter
+    def ssmsap(self) -> Optional[str]:
+        return pulumi.get(self, "ssmsap")
 
     @property
     @pulumi.getter
@@ -2236,6 +2295,11 @@ class Endpoints(dict):
     @pulumi.getter
     def wafv2(self) -> Optional[str]:
         return pulumi.get(self, "wafv2")
+
+    @property
+    @pulumi.getter
+    def wellarchitected(self) -> Optional[str]:
+        return pulumi.get(self, "wellarchitected")
 
     @property
     @pulumi.getter

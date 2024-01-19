@@ -376,26 +376,33 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         allow_tls = aws.ec2.SecurityGroup("allowTls",
-            description="Allow TLS inbound traffic",
+            description="Allow TLS inbound traffic and all outbound traffic",
             vpc_id=aws_vpc["main"]["id"],
-            ingress=[aws.ec2.SecurityGroupIngressArgs(
-                description="TLS from VPC",
-                from_port=443,
-                to_port=443,
-                protocol="tcp",
-                cidr_blocks=[aws_vpc["main"]["cidr_block"]],
-                ipv6_cidr_blocks=[aws_vpc["main"]["ipv6_cidr_block"]],
-            )],
-            egress=[aws.ec2.SecurityGroupEgressArgs(
-                from_port=0,
-                to_port=0,
-                protocol="-1",
-                cidr_blocks=["0.0.0.0/0"],
-                ipv6_cidr_blocks=["::/0"],
-            )],
             tags={
                 "Name": "allow_tls",
             })
+        allow_tls_ipv4 = aws.vpc.SecurityGroupIngressRule("allowTlsIpv4",
+            security_group_id=allow_tls.id,
+            cidr_ipv4=aws_vpc["main"]["cidr_block"],
+            from_port=443,
+            ip_protocol="tcp",
+            to_port=443)
+        allow_tls_ipv6 = aws.vpc.SecurityGroupIngressRule("allowTlsIpv6",
+            security_group_id=allow_tls.id,
+            cidr_ipv6=aws_vpc["main"]["ipv6_cidr_block"],
+            from_port=443,
+            ip_protocol="tcp",
+            to_port=443)
+        allow_all_traffic_ipv4 = aws.vpc.SecurityGroupEgressRule("allowAllTrafficIpv4",
+            security_group_id=allow_tls.id,
+            cidr_ipv4="0.0.0.0/0",
+            ip_protocol="-1")
+        # semantically equivalent to all ports
+        allow_all_traffic_ipv6 = aws.vpc.SecurityGroupEgressRule("allowAllTrafficIpv6",
+            security_group_id=allow_tls.id,
+            cidr_ipv6="::/0",
+            ip_protocol="-1")
+        # semantically equivalent to all ports
         ```
 
         > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
@@ -544,26 +551,33 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         allow_tls = aws.ec2.SecurityGroup("allowTls",
-            description="Allow TLS inbound traffic",
+            description="Allow TLS inbound traffic and all outbound traffic",
             vpc_id=aws_vpc["main"]["id"],
-            ingress=[aws.ec2.SecurityGroupIngressArgs(
-                description="TLS from VPC",
-                from_port=443,
-                to_port=443,
-                protocol="tcp",
-                cidr_blocks=[aws_vpc["main"]["cidr_block"]],
-                ipv6_cidr_blocks=[aws_vpc["main"]["ipv6_cidr_block"]],
-            )],
-            egress=[aws.ec2.SecurityGroupEgressArgs(
-                from_port=0,
-                to_port=0,
-                protocol="-1",
-                cidr_blocks=["0.0.0.0/0"],
-                ipv6_cidr_blocks=["::/0"],
-            )],
             tags={
                 "Name": "allow_tls",
             })
+        allow_tls_ipv4 = aws.vpc.SecurityGroupIngressRule("allowTlsIpv4",
+            security_group_id=allow_tls.id,
+            cidr_ipv4=aws_vpc["main"]["cidr_block"],
+            from_port=443,
+            ip_protocol="tcp",
+            to_port=443)
+        allow_tls_ipv6 = aws.vpc.SecurityGroupIngressRule("allowTlsIpv6",
+            security_group_id=allow_tls.id,
+            cidr_ipv6=aws_vpc["main"]["ipv6_cidr_block"],
+            from_port=443,
+            ip_protocol="tcp",
+            to_port=443)
+        allow_all_traffic_ipv4 = aws.vpc.SecurityGroupEgressRule("allowAllTrafficIpv4",
+            security_group_id=allow_tls.id,
+            cidr_ipv4="0.0.0.0/0",
+            ip_protocol="-1")
+        # semantically equivalent to all ports
+        allow_all_traffic_ipv6 = aws.vpc.SecurityGroupEgressRule("allowAllTrafficIpv6",
+            security_group_id=allow_tls.id,
+            cidr_ipv6="::/0",
+            ip_protocol="-1")
+        # semantically equivalent to all ports
         ```
 
         > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:

@@ -328,6 +328,8 @@ class FirewallPolicyFirewallPolicy(dict):
             suggest = "stateless_custom_actions"
         elif key == "statelessRuleGroupReferences":
             suggest = "stateless_rule_group_references"
+        elif key == "tlsInspectionConfigurationArn":
+            suggest = "tls_inspection_configuration_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyFirewallPolicy. Access the value via the '{suggest}' property getter instead.")
@@ -348,7 +350,8 @@ class FirewallPolicyFirewallPolicy(dict):
                  stateful_engine_options: Optional['outputs.FirewallPolicyFirewallPolicyStatefulEngineOptions'] = None,
                  stateful_rule_group_references: Optional[Sequence['outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReference']] = None,
                  stateless_custom_actions: Optional[Sequence['outputs.FirewallPolicyFirewallPolicyStatelessCustomAction']] = None,
-                 stateless_rule_group_references: Optional[Sequence['outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference']] = None):
+                 stateless_rule_group_references: Optional[Sequence['outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference']] = None,
+                 tls_inspection_configuration_arn: Optional[str] = None):
         """
         :param Sequence[str] stateless_default_actions: Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
                In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
@@ -360,6 +363,7 @@ class FirewallPolicyFirewallPolicy(dict):
         :param Sequence['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs'] stateful_rule_group_references: Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
         :param Sequence['FirewallPolicyFirewallPolicyStatelessCustomActionArgs'] stateless_custom_actions: Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `stateless_default_actions`. See Stateless Custom Action below for details.
         :param Sequence['FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs'] stateless_rule_group_references: Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
+        :param str tls_inspection_configuration_arn: The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
         """
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
@@ -375,6 +379,8 @@ class FirewallPolicyFirewallPolicy(dict):
             pulumi.set(__self__, "stateless_custom_actions", stateless_custom_actions)
         if stateless_rule_group_references is not None:
             pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
+        if tls_inspection_configuration_arn is not None:
+            pulumi.set(__self__, "tls_inspection_configuration_arn", tls_inspection_configuration_arn)
 
     @property
     @pulumi.getter(name="statelessDefaultActions")
@@ -441,6 +447,14 @@ class FirewallPolicyFirewallPolicy(dict):
         Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
         """
         return pulumi.get(self, "stateless_rule_group_references")
+
+    @property
+    @pulumi.getter(name="tlsInspectionConfigurationArn")
+    def tls_inspection_configuration_arn(self) -> Optional[str]:
+        """
+        The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
+        """
+        return pulumi.get(self, "tls_inspection_configuration_arn")
 
 
 @pulumi.output_type
@@ -2535,7 +2549,8 @@ class GetFirewallPolicyFirewallPolicyResult(dict):
                  stateless_custom_actions: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionResult'],
                  stateless_default_actions: Sequence[str],
                  stateless_fragment_default_actions: Sequence[str],
-                 stateless_rule_group_references: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult']):
+                 stateless_rule_group_references: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult'],
+                 tls_inspection_configuration_arn: str):
         pulumi.set(__self__, "stateful_default_actions", stateful_default_actions)
         pulumi.set(__self__, "stateful_engine_options", stateful_engine_options)
         pulumi.set(__self__, "stateful_rule_group_references", stateful_rule_group_references)
@@ -2543,6 +2558,7 @@ class GetFirewallPolicyFirewallPolicyResult(dict):
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
         pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
+        pulumi.set(__self__, "tls_inspection_configuration_arn", tls_inspection_configuration_arn)
 
     @property
     @pulumi.getter(name="statefulDefaultActions")
@@ -2578,6 +2594,11 @@ class GetFirewallPolicyFirewallPolicyResult(dict):
     @pulumi.getter(name="statelessRuleGroupReferences")
     def stateless_rule_group_references(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult']:
         return pulumi.get(self, "stateless_rule_group_references")
+
+    @property
+    @pulumi.getter(name="tlsInspectionConfigurationArn")
+    def tls_inspection_configuration_arn(self) -> str:
+        return pulumi.get(self, "tls_inspection_configuration_arn")
 
 
 @pulumi.output_type

@@ -40,8 +40,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
- * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
- * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
+ * import com.pulumi.aws.vpc.SecurityGroupIngressRule;
+ * import com.pulumi.aws.vpc.SecurityGroupIngressRuleArgs;
+ * import com.pulumi.aws.vpc.SecurityGroupEgressRule;
+ * import com.pulumi.aws.vpc.SecurityGroupEgressRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,24 +58,37 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var allowTls = new SecurityGroup(&#34;allowTls&#34;, SecurityGroupArgs.builder()        
- *             .description(&#34;Allow TLS inbound traffic&#34;)
+ *             .description(&#34;Allow TLS inbound traffic and all outbound traffic&#34;)
  *             .vpcId(aws_vpc.main().id())
- *             .ingress(SecurityGroupIngressArgs.builder()
- *                 .description(&#34;TLS from VPC&#34;)
- *                 .fromPort(443)
- *                 .toPort(443)
- *                 .protocol(&#34;tcp&#34;)
- *                 .cidrBlocks(aws_vpc.main().cidr_block())
- *                 .ipv6CidrBlocks(aws_vpc.main().ipv6_cidr_block())
- *                 .build())
- *             .egress(SecurityGroupEgressArgs.builder()
- *                 .fromPort(0)
- *                 .toPort(0)
- *                 .protocol(&#34;-1&#34;)
- *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
- *                 .ipv6CidrBlocks(&#34;::/0&#34;)
- *                 .build())
  *             .tags(Map.of(&#34;Name&#34;, &#34;allow_tls&#34;))
+ *             .build());
+ * 
+ *         var allowTlsIpv4 = new SecurityGroupIngressRule(&#34;allowTlsIpv4&#34;, SecurityGroupIngressRuleArgs.builder()        
+ *             .securityGroupId(allowTls.id())
+ *             .cidrIpv4(aws_vpc.main().cidr_block())
+ *             .fromPort(443)
+ *             .ipProtocol(&#34;tcp&#34;)
+ *             .toPort(443)
+ *             .build());
+ * 
+ *         var allowTlsIpv6 = new SecurityGroupIngressRule(&#34;allowTlsIpv6&#34;, SecurityGroupIngressRuleArgs.builder()        
+ *             .securityGroupId(allowTls.id())
+ *             .cidrIpv6(aws_vpc.main().ipv6_cidr_block())
+ *             .fromPort(443)
+ *             .ipProtocol(&#34;tcp&#34;)
+ *             .toPort(443)
+ *             .build());
+ * 
+ *         var allowAllTrafficIpv4 = new SecurityGroupEgressRule(&#34;allowAllTrafficIpv4&#34;, SecurityGroupEgressRuleArgs.builder()        
+ *             .securityGroupId(allowTls.id())
+ *             .cidrIpv4(&#34;0.0.0.0/0&#34;)
+ *             .ipProtocol(&#34;-1&#34;)
+ *             .build());
+ * 
+ *         var allowAllTrafficIpv6 = new SecurityGroupEgressRule(&#34;allowAllTrafficIpv6&#34;, SecurityGroupEgressRuleArgs.builder()        
+ *             .securityGroupId(allowTls.id())
+ *             .cidrIpv6(&#34;::/0&#34;)
+ *             .ipProtocol(&#34;-1&#34;)
  *             .build());
  * 
  *     }

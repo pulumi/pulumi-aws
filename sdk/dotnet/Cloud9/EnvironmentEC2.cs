@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Cloud9
     /// {
     ///     var example = new Aws.Cloud9.EnvironmentEC2("example", new()
     ///     {
+    ///         ImageId = "amazonlinux-2023-x86_64",
     ///         InstanceType = "t2.micro",
     ///     });
     /// 
@@ -143,15 +144,17 @@ namespace Pulumi.Aws.Cloud9
         /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
         /// * `amazonlinux-1-x86_64`
         /// * `amazonlinux-2-x86_64`
+        /// * `amazonlinux-2023-x86_64`
         /// * `ubuntu-18.04-x86_64`
         /// * `ubuntu-22.04-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         /// </summary>
         [Output("imageId")]
-        public Output<string?> ImageId { get; private set; } = null!;
+        public Output<string> ImageId { get; private set; } = null!;
 
         /// <summary>
         /// The type of instance to connect to the environment, e.g., `t2.micro`.
@@ -190,7 +193,7 @@ namespace Pulumi.Aws.Cloud9
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the environment (e.g., `ssh` or `ec2`)
+        /// The type of the environment (e.g., `ssh` or `ec2`).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -267,15 +270,17 @@ namespace Pulumi.Aws.Cloud9
         /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
         /// * `amazonlinux-1-x86_64`
         /// * `amazonlinux-2-x86_64`
+        /// * `amazonlinux-2023-x86_64`
         /// * `ubuntu-18.04-x86_64`
         /// * `ubuntu-22.04-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         /// </summary>
-        [Input("imageId")]
-        public Input<string>? ImageId { get; set; }
+        [Input("imageId", required: true)]
+        public Input<string> ImageId { get; set; } = null!;
 
         /// <summary>
         /// The type of instance to connect to the environment, e.g., `t2.micro`.
@@ -349,10 +354,12 @@ namespace Pulumi.Aws.Cloud9
         /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
         /// * `amazonlinux-1-x86_64`
         /// * `amazonlinux-2-x86_64`
+        /// * `amazonlinux-2023-x86_64`
         /// * `ubuntu-18.04-x86_64`
         /// * `ubuntu-22.04-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         /// </summary>
@@ -413,7 +420,7 @@ namespace Pulumi.Aws.Cloud9
         }
 
         /// <summary>
-        /// The type of the environment (e.g., `ssh` or `ec2`)
+        /// The type of the environment (e.g., `ssh` or `ec2`).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

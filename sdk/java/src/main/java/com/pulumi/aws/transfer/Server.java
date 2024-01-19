@@ -546,14 +546,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.protocols;
     }
     /**
-     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04` and `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`. Default value is: `TransferSecurityPolicy-2018-11`.
      * 
      */
     @Export(name="securityPolicyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> securityPolicyName;
 
     /**
-     * @return Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * @return Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04` and `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`. Default value is: `TransferSecurityPolicy-2018-11`.
      * 
      */
     public Output<Optional<String>> securityPolicyName() {

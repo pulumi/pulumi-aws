@@ -246,13 +246,13 @@ namespace Pulumi.Aws.Cfg
         public Output<string> RuleId { get; private set; } = null!;
 
         /// <summary>
-        /// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        /// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         /// </summary>
         [Output("scope")]
         public Output<Outputs.RuleScope?> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         /// </summary>
         [Output("source")]
         public Output<Outputs.RuleSource> Source { get; private set; } = null!;
@@ -356,13 +356,13 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        /// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         /// </summary>
         [Input("scope")]
         public Input<Inputs.RuleScopeArgs>? Scope { get; set; }
 
         /// <summary>
-        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.RuleSourceArgs> Source { get; set; } = null!;
@@ -436,13 +436,13 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? RuleId { get; set; }
 
         /// <summary>
-        /// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        /// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         /// </summary>
         [Input("scope")]
         public Input<Inputs.RuleScopeGetArgs>? Scope { get; set; }
 
         /// <summary>
-        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         /// </summary>
         [Input("source")]
         public Input<Inputs.RuleSourceGetArgs>? Source { get; set; }

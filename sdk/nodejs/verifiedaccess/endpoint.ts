@@ -136,6 +136,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly networkInterfaceOptions!: pulumi.Output<outputs.verifiedaccess.EndpointNetworkInterfaceOptions | undefined>;
     /**
+     * The policy document that is associated with this resource.
+     */
+    public readonly policyDocument!: pulumi.Output<string | undefined>;
+    /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -182,6 +186,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["endpointType"] = state ? state.endpointType : undefined;
             resourceInputs["loadBalancerOptions"] = state ? state.loadBalancerOptions : undefined;
             resourceInputs["networkInterfaceOptions"] = state ? state.networkInterfaceOptions : undefined;
+            resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["sseSpecification"] = state ? state.sseSpecification : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -216,6 +221,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["endpointType"] = args ? args.endpointType : undefined;
             resourceInputs["loadBalancerOptions"] = args ? args.loadBalancerOptions : undefined;
             resourceInputs["networkInterfaceOptions"] = args ? args.networkInterfaceOptions : undefined;
+            resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -277,6 +283,10 @@ export interface EndpointState {
      */
     networkInterfaceOptions?: pulumi.Input<inputs.verifiedaccess.EndpointNetworkInterfaceOptions>;
     /**
+     * The policy document that is associated with this resource.
+     */
+    policyDocument?: pulumi.Input<string>;
+    /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -337,6 +347,10 @@ export interface EndpointArgs {
      * The network interface details. This parameter is required if the endpoint type is `network-interface`.
      */
     networkInterfaceOptions?: pulumi.Input<inputs.verifiedaccess.EndpointNetworkInterfaceOptions>;
+    /**
+     * The policy document that is associated with this resource.
+     */
+    policyDocument?: pulumi.Input<string>;
     /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */

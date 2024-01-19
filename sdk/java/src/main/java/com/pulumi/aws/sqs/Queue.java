@@ -130,6 +130,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sqs.Queue;
  * import com.pulumi.aws.sqs.QueueArgs;
+ * import com.pulumi.aws.sqs.RedriveAllowPolicy;
+ * import com.pulumi.aws.sqs.RedriveAllowPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -144,7 +146,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleQueueDeadletter = new Queue(&#34;exampleQueueDeadletter&#34;, QueueArgs.builder()        
+ *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
+ *             .redrivePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;deadLetterTargetArn&#34;, aws_sqs_queue.queue_deadletter().arn()),
+ *                     jsonProperty(&#34;maxReceiveCount&#34;, 4)
+ *                 )))
+ *             .build());
+ * 
+ *         var exampleQueueDeadletter = new Queue(&#34;exampleQueueDeadletter&#34;);
+ * 
+ *         var terraformQueueRedriveAllowPolicy = new RedriveAllowPolicy(&#34;terraformQueueRedriveAllowPolicy&#34;, RedriveAllowPolicyArgs.builder()        
+ *             .queueUrl(aws_sqs_queue.terraform_queue_deadletter().id())
  *             .redriveAllowPolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;redrivePermission&#34;, &#34;byQueue&#34;),

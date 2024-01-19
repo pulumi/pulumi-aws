@@ -32,6 +32,7 @@ __all__ = [
     'FunctionEventInvokeConfigDestinationConfigOnSuccessArgs',
     'FunctionFileSystemConfigArgs',
     'FunctionImageConfigArgs',
+    'FunctionLoggingConfigArgs',
     'FunctionSnapStartArgs',
     'FunctionTracingConfigArgs',
     'FunctionUrlCorsArgs',
@@ -619,6 +620,76 @@ class FunctionImageConfigArgs:
     @working_directory.setter
     def working_directory(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "working_directory", value)
+
+
+@pulumi.input_type
+class FunctionLoggingConfigArgs:
+    def __init__(__self__, *,
+                 log_format: pulumi.Input[str],
+                 application_log_level: Optional[pulumi.Input[str]] = None,
+                 log_group: Optional[pulumi.Input[str]] = None,
+                 system_log_level: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] log_format: select between `Text` and structured `JSON` format for your function's logs.
+        :param pulumi.Input[str] application_log_level: for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+        :param pulumi.Input[str] log_group: the CloudWatch log group your function sends logs to.
+        :param pulumi.Input[str] system_log_level: for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+        """
+        pulumi.set(__self__, "log_format", log_format)
+        if application_log_level is not None:
+            pulumi.set(__self__, "application_log_level", application_log_level)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+        if system_log_level is not None:
+            pulumi.set(__self__, "system_log_level", system_log_level)
+
+    @property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> pulumi.Input[str]:
+        """
+        select between `Text` and structured `JSON` format for your function's logs.
+        """
+        return pulumi.get(self, "log_format")
+
+    @log_format.setter
+    def log_format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_format", value)
+
+    @property
+    @pulumi.getter(name="applicationLogLevel")
+    def application_log_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+        """
+        return pulumi.get(self, "application_log_level")
+
+    @application_log_level.setter
+    def application_log_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_log_level", value)
+
+    @property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        the CloudWatch log group your function sends logs to.
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group", value)
+
+    @property
+    @pulumi.getter(name="systemLogLevel")
+    def system_log_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+        """
+        return pulumi.get(self, "system_log_level")
+
+    @system_log_level.setter
+    def system_log_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "system_log_level", value)
 
 
 @pulumi.input_type

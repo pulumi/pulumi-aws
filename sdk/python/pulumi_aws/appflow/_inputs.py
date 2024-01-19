@@ -4047,12 +4047,16 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs:
     def __init__(__self__, *,
-                 aggregation_type: Optional[pulumi.Input[str]] = None):
+                 aggregation_type: Optional[pulumi.Input[str]] = None,
+                 target_file_size: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] aggregation_type: Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+        :param pulumi.Input[int] target_file_size: The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
         """
         if aggregation_type is not None:
             pulumi.set(__self__, "aggregation_type", aggregation_type)
+        if target_file_size is not None:
+            pulumi.set(__self__, "target_file_size", target_file_size)
 
     @property
     @pulumi.getter(name="aggregationType")
@@ -4065,6 +4069,18 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
     @aggregation_type.setter
     def aggregation_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "aggregation_type", value)
+
+    @property
+    @pulumi.getter(name="targetFileSize")
+    def target_file_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+        """
+        return pulumi.get(self, "target_file_size")
+
+    @target_file_size.setter
+    def target_file_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "target_file_size", value)
 
 
 @pulumi.input_type

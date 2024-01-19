@@ -263,6 +263,7 @@ type Endpoints struct {
 	Applicationautoscaling               *string `pulumi:"applicationautoscaling"`
 	Applicationinsights                  *string `pulumi:"applicationinsights"`
 	Appmesh                              *string `pulumi:"appmesh"`
+	Appregistry                          *string `pulumi:"appregistry"`
 	Apprunner                            *string `pulumi:"apprunner"`
 	Appstream                            *string `pulumi:"appstream"`
 	Appsync                              *string `pulumi:"appsync"`
@@ -370,6 +371,7 @@ type Endpoints struct {
 	Glue                                 *string `pulumi:"glue"`
 	Grafana                              *string `pulumi:"grafana"`
 	Greengrass                           *string `pulumi:"greengrass"`
+	Groundstation                        *string `pulumi:"groundstation"`
 	Guardduty                            *string `pulumi:"guardduty"`
 	Healthlake                           *string `pulumi:"healthlake"`
 	Iam                                  *string `pulumi:"iam"`
@@ -395,6 +397,7 @@ type Endpoints struct {
 	Kms                                  *string `pulumi:"kms"`
 	Lakeformation                        *string `pulumi:"lakeformation"`
 	Lambda                               *string `pulumi:"lambda"`
+	Launchwizard                         *string `pulumi:"launchwizard"`
 	Lex                                  *string `pulumi:"lex"`
 	Lexmodelbuilding                     *string `pulumi:"lexmodelbuilding"`
 	Lexmodelbuildingservice              *string `pulumi:"lexmodelbuildingservice"`
@@ -431,12 +434,14 @@ type Endpoints struct {
 	Organizations                        *string `pulumi:"organizations"`
 	Osis                                 *string `pulumi:"osis"`
 	Outposts                             *string `pulumi:"outposts"`
+	Pcaconnectorad                       *string `pulumi:"pcaconnectorad"`
 	Pinpoint                             *string `pulumi:"pinpoint"`
 	Pipes                                *string `pulumi:"pipes"`
 	Polly                                *string `pulumi:"polly"`
 	Pricing                              *string `pulumi:"pricing"`
 	Prometheus                           *string `pulumi:"prometheus"`
 	Prometheusservice                    *string `pulumi:"prometheusservice"`
+	Qbusiness                            *string `pulumi:"qbusiness"`
 	Qldb                                 *string `pulumi:"qldb"`
 	Quicksight                           *string `pulumi:"quicksight"`
 	Ram                                  *string `pulumi:"ram"`
@@ -473,6 +478,7 @@ type Endpoints struct {
 	Serverlessapprepo                    *string `pulumi:"serverlessapprepo"`
 	Serverlessrepo                       *string `pulumi:"serverlessrepo"`
 	Servicecatalog                       *string `pulumi:"servicecatalog"`
+	Servicecatalogappregistry            *string `pulumi:"servicecatalogappregistry"`
 	Servicediscovery                     *string `pulumi:"servicediscovery"`
 	Servicequotas                        *string `pulumi:"servicequotas"`
 	Ses                                  *string `pulumi:"ses"`
@@ -486,6 +492,7 @@ type Endpoints struct {
 	Ssm                                  *string `pulumi:"ssm"`
 	Ssmcontacts                          *string `pulumi:"ssmcontacts"`
 	Ssmincidents                         *string `pulumi:"ssmincidents"`
+	Ssmsap                               *string `pulumi:"ssmsap"`
 	Sso                                  *string `pulumi:"sso"`
 	Ssoadmin                             *string `pulumi:"ssoadmin"`
 	Stepfunctions                        *string `pulumi:"stepfunctions"`
@@ -502,6 +509,7 @@ type Endpoints struct {
 	Waf                                  *string `pulumi:"waf"`
 	Wafregional                          *string `pulumi:"wafregional"`
 	Wafv2                                *string `pulumi:"wafv2"`
+	Wellarchitected                      *string `pulumi:"wellarchitected"`
 	Worklink                             *string `pulumi:"worklink"`
 	Workspaces                           *string `pulumi:"workspaces"`
 	Xray                                 *string `pulumi:"xray"`
@@ -537,6 +545,7 @@ type EndpointsArgs struct {
 	Applicationautoscaling               pulumi.StringPtrInput `pulumi:"applicationautoscaling"`
 	Applicationinsights                  pulumi.StringPtrInput `pulumi:"applicationinsights"`
 	Appmesh                              pulumi.StringPtrInput `pulumi:"appmesh"`
+	Appregistry                          pulumi.StringPtrInput `pulumi:"appregistry"`
 	Apprunner                            pulumi.StringPtrInput `pulumi:"apprunner"`
 	Appstream                            pulumi.StringPtrInput `pulumi:"appstream"`
 	Appsync                              pulumi.StringPtrInput `pulumi:"appsync"`
@@ -644,6 +653,7 @@ type EndpointsArgs struct {
 	Glue                                 pulumi.StringPtrInput `pulumi:"glue"`
 	Grafana                              pulumi.StringPtrInput `pulumi:"grafana"`
 	Greengrass                           pulumi.StringPtrInput `pulumi:"greengrass"`
+	Groundstation                        pulumi.StringPtrInput `pulumi:"groundstation"`
 	Guardduty                            pulumi.StringPtrInput `pulumi:"guardduty"`
 	Healthlake                           pulumi.StringPtrInput `pulumi:"healthlake"`
 	Iam                                  pulumi.StringPtrInput `pulumi:"iam"`
@@ -669,6 +679,7 @@ type EndpointsArgs struct {
 	Kms                                  pulumi.StringPtrInput `pulumi:"kms"`
 	Lakeformation                        pulumi.StringPtrInput `pulumi:"lakeformation"`
 	Lambda                               pulumi.StringPtrInput `pulumi:"lambda"`
+	Launchwizard                         pulumi.StringPtrInput `pulumi:"launchwizard"`
 	Lex                                  pulumi.StringPtrInput `pulumi:"lex"`
 	Lexmodelbuilding                     pulumi.StringPtrInput `pulumi:"lexmodelbuilding"`
 	Lexmodelbuildingservice              pulumi.StringPtrInput `pulumi:"lexmodelbuildingservice"`
@@ -705,12 +716,14 @@ type EndpointsArgs struct {
 	Organizations                        pulumi.StringPtrInput `pulumi:"organizations"`
 	Osis                                 pulumi.StringPtrInput `pulumi:"osis"`
 	Outposts                             pulumi.StringPtrInput `pulumi:"outposts"`
+	Pcaconnectorad                       pulumi.StringPtrInput `pulumi:"pcaconnectorad"`
 	Pinpoint                             pulumi.StringPtrInput `pulumi:"pinpoint"`
 	Pipes                                pulumi.StringPtrInput `pulumi:"pipes"`
 	Polly                                pulumi.StringPtrInput `pulumi:"polly"`
 	Pricing                              pulumi.StringPtrInput `pulumi:"pricing"`
 	Prometheus                           pulumi.StringPtrInput `pulumi:"prometheus"`
 	Prometheusservice                    pulumi.StringPtrInput `pulumi:"prometheusservice"`
+	Qbusiness                            pulumi.StringPtrInput `pulumi:"qbusiness"`
 	Qldb                                 pulumi.StringPtrInput `pulumi:"qldb"`
 	Quicksight                           pulumi.StringPtrInput `pulumi:"quicksight"`
 	Ram                                  pulumi.StringPtrInput `pulumi:"ram"`
@@ -747,6 +760,7 @@ type EndpointsArgs struct {
 	Serverlessapprepo                    pulumi.StringPtrInput `pulumi:"serverlessapprepo"`
 	Serverlessrepo                       pulumi.StringPtrInput `pulumi:"serverlessrepo"`
 	Servicecatalog                       pulumi.StringPtrInput `pulumi:"servicecatalog"`
+	Servicecatalogappregistry            pulumi.StringPtrInput `pulumi:"servicecatalogappregistry"`
 	Servicediscovery                     pulumi.StringPtrInput `pulumi:"servicediscovery"`
 	Servicequotas                        pulumi.StringPtrInput `pulumi:"servicequotas"`
 	Ses                                  pulumi.StringPtrInput `pulumi:"ses"`
@@ -760,6 +774,7 @@ type EndpointsArgs struct {
 	Ssm                                  pulumi.StringPtrInput `pulumi:"ssm"`
 	Ssmcontacts                          pulumi.StringPtrInput `pulumi:"ssmcontacts"`
 	Ssmincidents                         pulumi.StringPtrInput `pulumi:"ssmincidents"`
+	Ssmsap                               pulumi.StringPtrInput `pulumi:"ssmsap"`
 	Sso                                  pulumi.StringPtrInput `pulumi:"sso"`
 	Ssoadmin                             pulumi.StringPtrInput `pulumi:"ssoadmin"`
 	Stepfunctions                        pulumi.StringPtrInput `pulumi:"stepfunctions"`
@@ -776,6 +791,7 @@ type EndpointsArgs struct {
 	Waf                                  pulumi.StringPtrInput `pulumi:"waf"`
 	Wafregional                          pulumi.StringPtrInput `pulumi:"wafregional"`
 	Wafv2                                pulumi.StringPtrInput `pulumi:"wafv2"`
+	Wellarchitected                      pulumi.StringPtrInput `pulumi:"wellarchitected"`
 	Worklink                             pulumi.StringPtrInput `pulumi:"worklink"`
 	Workspaces                           pulumi.StringPtrInput `pulumi:"workspaces"`
 	Xray                                 pulumi.StringPtrInput `pulumi:"xray"`
@@ -902,6 +918,10 @@ func (o EndpointsOutput) Applicationinsights() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Appmesh() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Appmesh }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Appregistry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Appregistry }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Apprunner() pulumi.StringPtrOutput {
@@ -1332,6 +1352,10 @@ func (o EndpointsOutput) Greengrass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Greengrass }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointsOutput) Groundstation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Groundstation }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointsOutput) Guardduty() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Guardduty }).(pulumi.StringPtrOutput)
 }
@@ -1430,6 +1454,10 @@ func (o EndpointsOutput) Lakeformation() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Lambda() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Lambda }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Launchwizard() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Launchwizard }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Lex() pulumi.StringPtrOutput {
@@ -1576,6 +1604,10 @@ func (o EndpointsOutput) Outposts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Outposts }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointsOutput) Pcaconnectorad() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Pcaconnectorad }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointsOutput) Pinpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Pinpoint }).(pulumi.StringPtrOutput)
 }
@@ -1598,6 +1630,10 @@ func (o EndpointsOutput) Prometheus() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Prometheusservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Prometheusservice }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Qbusiness() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Qbusiness }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Qldb() pulumi.StringPtrOutput {
@@ -1744,6 +1780,10 @@ func (o EndpointsOutput) Servicecatalog() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Servicecatalog }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointsOutput) Servicecatalogappregistry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Servicecatalogappregistry }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointsOutput) Servicediscovery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Servicediscovery }).(pulumi.StringPtrOutput)
 }
@@ -1794,6 +1834,10 @@ func (o EndpointsOutput) Ssmcontacts() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Ssmincidents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ssmincidents }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Ssmsap() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Ssmsap }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Sso() pulumi.StringPtrOutput {
@@ -1858,6 +1902,10 @@ func (o EndpointsOutput) Wafregional() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Wafv2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Wafv2 }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Wellarchitected() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Wellarchitected }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Worklink() pulumi.StringPtrOutput {

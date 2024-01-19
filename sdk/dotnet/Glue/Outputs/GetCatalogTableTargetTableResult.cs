@@ -25,6 +25,10 @@ namespace Pulumi.Aws.Glue.Outputs
         /// Name of the table.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Region of the target table.
+        /// </summary>
+        public readonly string Region;
 
         [OutputConstructor]
         private GetCatalogTableTargetTableResult(
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.Glue.Outputs
 
             string databaseName,
 
-            string name)
+            string name,
+
+            string region)
         {
             CatalogId = catalogId;
             DatabaseName = databaseName;
             Name = name;
+            Region = region;
         }
     }
 }

@@ -13,6 +13,7 @@ from .get_user import *
 from .global_replication_group import *
 from .parameter_group import *
 from .replication_group import *
+from .serverless_cache import *
 from .subnet_group import *
 from .user import *
 from .user_group import *

@@ -114,6 +114,10 @@ export interface GetFunctionResult {
      */
     readonly layers: string[];
     /**
+     * Advanced logging settings.
+     */
+    readonly loggingConfigs: outputs.lambda.GetFunctionLoggingConfig[];
+    /**
      * Amount of memory in MB your Lambda Function can use at runtime.
      */
     readonly memorySize: number;

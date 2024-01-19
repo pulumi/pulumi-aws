@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> FunctionName { get; private set; } = null!;
 
         /// <summary>
-        /// The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+        /// The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
         /// </summary>
         [Output("functionUrl")]
         public Output<string> FunctionUrlResult { get; private set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? FunctionName { get; set; }
 
         /// <summary>
-        /// The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+        /// The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
         /// </summary>
         [Input("functionUrl")]
         public Input<string>? FunctionUrlResult { get; set; }

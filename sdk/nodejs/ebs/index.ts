@@ -15,6 +15,11 @@ export type EncryptionByDefault = import("./encryptionByDefault").EncryptionByDe
 export const EncryptionByDefault: typeof import("./encryptionByDefault").EncryptionByDefault = null as any;
 utilities.lazyLoad(exports, ["EncryptionByDefault"], () => require("./encryptionByDefault"));
 
+export { FastSnapshotRestoreArgs, FastSnapshotRestoreState } from "./fastSnapshotRestore";
+export type FastSnapshotRestore = import("./fastSnapshotRestore").FastSnapshotRestore;
+export const FastSnapshotRestore: typeof import("./fastSnapshotRestore").FastSnapshotRestore = null as any;
+utilities.lazyLoad(exports, ["FastSnapshotRestore"], () => require("./fastSnapshotRestore"));
+
 export { GetDefaultKmsKeyResult } from "./getDefaultKmsKey";
 export const getDefaultKmsKey: typeof import("./getDefaultKmsKey").getDefaultKmsKey = null as any;
 export const getDefaultKmsKeyOutput: typeof import("./getDefaultKmsKey").getDefaultKmsKeyOutput = null as any;
@@ -74,6 +79,8 @@ const _module = {
                 return new DefaultKmsKey(name, <any>undefined, { urn })
             case "aws:ebs/encryptionByDefault:EncryptionByDefault":
                 return new EncryptionByDefault(name, <any>undefined, { urn })
+            case "aws:ebs/fastSnapshotRestore:FastSnapshotRestore":
+                return new FastSnapshotRestore(name, <any>undefined, { urn })
             case "aws:ebs/snapshot:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
             case "aws:ebs/snapshotCopy:SnapshotCopy":
@@ -89,6 +96,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "ebs/defaultKmsKey", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/encryptionByDefault", _module)
+pulumi.runtime.registerResourceModule("aws", "ebs/fastSnapshotRestore", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/snapshot", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/snapshotCopy", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/snapshotImport", _module)

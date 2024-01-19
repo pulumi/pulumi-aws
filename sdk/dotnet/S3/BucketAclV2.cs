@@ -212,7 +212,7 @@ namespace Pulumi.Aws.S3
         public Output<string?> Acl { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the bucket.
+        /// Bucket to which to apply the ACL.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Acl { get; set; }
 
         /// <summary>
-        /// Name of the bucket.
+        /// Bucket to which to apply the ACL.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Acl { get; set; }
 
         /// <summary>
-        /// Name of the bucket.
+        /// Bucket to which to apply the ACL.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }

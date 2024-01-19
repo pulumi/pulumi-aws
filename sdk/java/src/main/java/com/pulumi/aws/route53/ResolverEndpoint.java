@@ -56,6 +56,9 @@ import javax.annotation.Nullable;
  *                     .subnetId(aws_subnet.sn2().id())
  *                     .ip(&#34;10.0.64.4&#34;)
  *                     .build())
+ *             .protocols(            
+ *                 &#34;Do53&#34;,
+ *                 &#34;DoH&#34;)
  *             .tags(Map.of(&#34;Environment&#34;, &#34;Prod&#34;))
  *             .build());
  * 
@@ -151,6 +154,34 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+     * 
+     */
+    @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> protocols;
+
+    /**
+     * @return The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+     * 
+     */
+    public Output<List<String>> protocols() {
+        return this.protocols;
+    }
+    /**
+     * The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+     * 
+     */
+    @Export(name="resolverEndpointType", refs={String.class}, tree="[0]")
+    private Output<String> resolverEndpointType;
+
+    /**
+     * @return The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+     * 
+     */
+    public Output<String> resolverEndpointType() {
+        return this.resolverEndpointType;
     }
     /**
      * The ID of one or more security groups that you want to use to control access to this VPC.

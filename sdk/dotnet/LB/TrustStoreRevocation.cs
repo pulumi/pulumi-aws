@@ -63,7 +63,7 @@ namespace Pulumi.Aws.LB
         public Output<string> RevocationsS3Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// S3 Bucket name holding the client certificate CA bundle.
+        /// S3 object key holding the client certificate CA bundle.
         /// </summary>
         [Output("revocationsS3Key")]
         public Output<string> RevocationsS3Key { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.LB
         public Input<string> RevocationsS3Bucket { get; set; } = null!;
 
         /// <summary>
-        /// S3 Bucket name holding the client certificate CA bundle.
+        /// S3 object key holding the client certificate CA bundle.
         /// </summary>
         [Input("revocationsS3Key", required: true)]
         public Input<string> RevocationsS3Key { get; set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? RevocationsS3Bucket { get; set; }
 
         /// <summary>
-        /// S3 Bucket name holding the client certificate CA bundle.
+        /// S3 object key holding the client certificate CA bundle.
         /// </summary>
         [Input("revocationsS3Key")]
         public Input<string>? RevocationsS3Key { get; set; }

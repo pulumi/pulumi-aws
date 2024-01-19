@@ -8,6 +8,7 @@ import com.pulumi.aws.codepipeline.PipelineArgs;
 import com.pulumi.aws.codepipeline.inputs.PipelineState;
 import com.pulumi.aws.codepipeline.outputs.PipelineArtifactStore;
 import com.pulumi.aws.codepipeline.outputs.PipelineStage;
+import com.pulumi.aws.codepipeline.outputs.PipelineVariable;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -42,8 +43,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreArgs;
  * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreEncryptionKeyArgs;
  * import com.pulumi.aws.codepipeline.inputs.PipelineStageArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketPublicAccessBlock;
+ * import com.pulumi.aws.s3.BucketPublicAccessBlockArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
  * import java.util.List;
@@ -144,9 +145,12 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var codepipelineBucketAcl = new BucketAclV2(&#34;codepipelineBucketAcl&#34;, BucketAclV2Args.builder()        
+ *         var codepipelineBucketPab = new BucketPublicAccessBlock(&#34;codepipelineBucketPab&#34;, BucketPublicAccessBlockArgs.builder()        
  *             .bucket(codepipelineBucket.id())
- *             .acl(&#34;private&#34;)
+ *             .blockPublicAcls(true)
+ *             .blockPublicPolicy(true)
+ *             .ignorePublicAcls(true)
+ *             .restrictPublicBuckets(true)
  *             .build());
  * 
  *         final var codepipelinePolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -240,6 +244,20 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+     * 
+     */
+    @Export(name="pipelineType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> pipelineType;
+
+    /**
+     * @return Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+     * 
+     */
+    public Output<Optional<String>> pipelineType() {
+        return Codegen.optional(this.pipelineType);
+    }
+    /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      * 
      */
@@ -298,6 +316,20 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+     * 
+     */
+    @Export(name="variables", refs={List.class,PipelineVariable.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<PipelineVariable>> variables;
+
+    /**
+     * @return A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+     * 
+     */
+    public Output<Optional<List<PipelineVariable>>> variables() {
+        return Codegen.optional(this.variables);
     }
 
     /**

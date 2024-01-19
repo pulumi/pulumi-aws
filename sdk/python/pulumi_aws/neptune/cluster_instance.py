@@ -318,6 +318,7 @@ class _ClusterInstanceState:
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  writer: Optional[pulumi.Input[bool]] = None):
@@ -347,6 +348,7 @@ class _ClusterInstanceState:
         :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the neptune cluster is encrypted.
+        :param pulumi.Input[str] storage_type: Storage type associated with the cluster `standard/iopt1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
@@ -395,6 +397,8 @@ class _ClusterInstanceState:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if storage_encrypted is not None:
             pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -672,6 +676,18 @@ class _ClusterInstanceState:
         pulumi.set(self, "storage_encrypted", value)
 
     @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Storage type associated with the cluster `standard/iopt1`.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @storage_type.setter
+    def storage_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_type", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -908,6 +924,7 @@ class ClusterInstance(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["kms_key_arn"] = None
             __props__.__dict__["storage_encrypted"] = None
+            __props__.__dict__["storage_type"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["writer"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
@@ -944,6 +961,7 @@ class ClusterInstance(pulumi.CustomResource):
             promotion_tier: Optional[pulumi.Input[int]] = None,
             publicly_accessible: Optional[pulumi.Input[bool]] = None,
             storage_encrypted: Optional[pulumi.Input[bool]] = None,
+            storage_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             writer: Optional[pulumi.Input[bool]] = None) -> 'ClusterInstance':
@@ -978,6 +996,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the neptune cluster is encrypted.
+        :param pulumi.Input[str] storage_type: Storage type associated with the cluster `standard/iopt1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
@@ -1008,6 +1027,7 @@ class ClusterInstance(pulumi.CustomResource):
         __props__.__dict__["promotion_tier"] = promotion_tier
         __props__.__dict__["publicly_accessible"] = publicly_accessible
         __props__.__dict__["storage_encrypted"] = storage_encrypted
+        __props__.__dict__["storage_type"] = storage_type
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["writer"] = writer
@@ -1190,6 +1210,14 @@ class ClusterInstance(pulumi.CustomResource):
         Specifies whether the neptune cluster is encrypted.
         """
         return pulumi.get(self, "storage_encrypted")
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> pulumi.Output[str]:
+        """
+        Storage type associated with the cluster `standard/iopt1`.
+        """
+        return pulumi.get(self, "storage_type")
 
     @property
     @pulumi.getter

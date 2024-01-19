@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,10 +31,26 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         return Optional.ofNullable(this.aggregationType);
     }
 
+    /**
+     * The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+     * 
+     */
+    @Import(name="targetFileSize")
+    private @Nullable Output<Integer> targetFileSize;
+
+    /**
+     * @return The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+     * 
+     */
+    public Optional<Output<Integer>> targetFileSize() {
+        return Optional.ofNullable(this.targetFileSize);
+    }
+
     private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs() {}
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs $) {
         this.aggregationType = $.aggregationType;
+        this.targetFileSize = $.targetFileSize;
     }
 
     public static Builder builder() {
@@ -73,6 +90,27 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
          */
         public Builder aggregationType(String aggregationType) {
             return aggregationType(Output.of(aggregationType));
+        }
+
+        /**
+         * @param targetFileSize The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetFileSize(@Nullable Output<Integer> targetFileSize) {
+            $.targetFileSize = targetFileSize;
+            return this;
+        }
+
+        /**
+         * @param targetFileSize The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetFileSize(Integer targetFileSize) {
+            return targetFileSize(Output.of(targetFileSize));
         }
 
         public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs build() {

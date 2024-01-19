@@ -79,6 +79,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> NamespaceName { get; private set; } = null!;
 
         /// <summary>
+        /// The port number on which the cluster accepts incoming connections.
+        /// </summary>
+        [Output("port")]
+        public Output<int> Port { get; private set; } = null!;
+
+        /// <summary>
         /// A value that specifies whether the workgroup can be accessed from a public network.
         /// </summary>
         [Output("publiclyAccessible")]
@@ -203,6 +209,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
+        /// The port number on which the cluster accepts incoming connections.
+        /// </summary>
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        /// <summary>
         /// A value that specifies whether the workgroup can be accessed from a public network.
         /// </summary>
         [Input("publiclyAccessible")]
@@ -307,6 +319,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
+
+        /// <summary>
+        /// The port number on which the cluster accepts incoming connections.
+        /// </summary>
+        [Input("port")]
+        public Input<int>? Port { get; set; }
 
         /// <summary>
         /// A value that specifies whether the workgroup can be accessed from a public network.

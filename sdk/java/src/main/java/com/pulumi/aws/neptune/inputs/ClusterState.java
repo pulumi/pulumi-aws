@@ -516,6 +516,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+     * 
+     */
+    @Import(name="storageType")
+    private @Nullable Output<String> storageType;
+
+    /**
+     * @return Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+     * 
+     */
+    public Optional<Output<String>> storageType() {
+        return Optional.ofNullable(this.storageType);
+    }
+
+    /**
      * A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -604,6 +619,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.snapshotIdentifier = $.snapshotIdentifier;
         this.storageEncrypted = $.storageEncrypted;
+        this.storageType = $.storageType;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.vpcSecurityGroupIds = $.vpcSecurityGroupIds;
@@ -1358,6 +1374,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder storageEncrypted(Boolean storageEncrypted) {
             return storageEncrypted(Output.of(storageEncrypted));
+        }
+
+        /**
+         * @param storageType Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageType(@Nullable Output<String> storageType) {
+            $.storageType = storageType;
+            return this;
+        }
+
+        /**
+         * @param storageType Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageType(String storageType) {
+            return storageType(Output.of(storageType));
         }
 
         /**

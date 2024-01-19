@@ -257,6 +257,12 @@ namespace Pulumi.Aws.Neptune
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
+        /// Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+        /// </summary>
+        [Output("storageType")]
+        public Output<string> StorageType { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -503,6 +509,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
+
+        /// <summary>
+        /// Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+        /// </summary>
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -757,6 +769,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
+
+        /// <summary>
+        /// Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+        /// </summary>
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

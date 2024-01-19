@@ -32,6 +32,11 @@ public final class GetWorkspaceResult {
      */
     private String id;
     /**
+     * @return ARN of the KMS key used to encrypt data in the Prometheus workspace.
+     * 
+     */
+    private String kmsKeyArn;
+    /**
      * @return Endpoint of the Prometheus workspace.
      * 
      */
@@ -78,6 +83,13 @@ public final class GetWorkspaceResult {
         return this.id;
     }
     /**
+     * @return ARN of the KMS key used to encrypt data in the Prometheus workspace.
+     * 
+     */
+    public String kmsKeyArn() {
+        return this.kmsKeyArn;
+    }
+    /**
      * @return Endpoint of the Prometheus workspace.
      * 
      */
@@ -115,6 +127,7 @@ public final class GetWorkspaceResult {
         private String arn;
         private String createdDate;
         private String id;
+        private String kmsKeyArn;
         private String prometheusEndpoint;
         private String status;
         private Map<String,String> tags;
@@ -126,6 +139,7 @@ public final class GetWorkspaceResult {
     	      this.arn = defaults.arn;
     	      this.createdDate = defaults.createdDate;
     	      this.id = defaults.id;
+    	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.prometheusEndpoint = defaults.prometheusEndpoint;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
@@ -162,6 +176,14 @@ public final class GetWorkspaceResult {
               throw new MissingRequiredPropertyException("GetWorkspaceResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder kmsKeyArn(String kmsKeyArn) {
+            if (kmsKeyArn == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "kmsKeyArn");
+            }
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
@@ -202,6 +224,7 @@ public final class GetWorkspaceResult {
             _resultValue.arn = arn;
             _resultValue.createdDate = createdDate;
             _resultValue.id = id;
+            _resultValue.kmsKeyArn = kmsKeyArn;
             _resultValue.prometheusEndpoint = prometheusEndpoint;
             _resultValue.status = status;
             _resultValue.tags = tags;

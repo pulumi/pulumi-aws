@@ -66,6 +66,9 @@ namespace Pulumi.Aws.Inputs
         [Input("appmesh")]
         public Input<string>? Appmesh { get; set; }
 
+        [Input("appregistry")]
+        public Input<string>? Appregistry { get; set; }
+
         [Input("apprunner")]
         public Input<string>? Apprunner { get; set; }
 
@@ -387,6 +390,9 @@ namespace Pulumi.Aws.Inputs
         [Input("greengrass")]
         public Input<string>? Greengrass { get; set; }
 
+        [Input("groundstation")]
+        public Input<string>? Groundstation { get; set; }
+
         [Input("guardduty")]
         public Input<string>? Guardduty { get; set; }
 
@@ -461,6 +467,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("lambda")]
         public Input<string>? Lambda { get; set; }
+
+        [Input("launchwizard")]
+        public Input<string>? Launchwizard { get; set; }
 
         [Input("lex")]
         public Input<string>? Lex { get; set; }
@@ -570,6 +579,9 @@ namespace Pulumi.Aws.Inputs
         [Input("outposts")]
         public Input<string>? Outposts { get; set; }
 
+        [Input("pcaconnectorad")]
+        public Input<string>? Pcaconnectorad { get; set; }
+
         [Input("pinpoint")]
         public Input<string>? Pinpoint { get; set; }
 
@@ -587,6 +599,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("prometheusservice")]
         public Input<string>? Prometheusservice { get; set; }
+
+        [Input("qbusiness")]
+        public Input<string>? Qbusiness { get; set; }
 
         [Input("qldb")]
         public Input<string>? Qldb { get; set; }
@@ -696,6 +711,9 @@ namespace Pulumi.Aws.Inputs
         [Input("servicecatalog")]
         public Input<string>? Servicecatalog { get; set; }
 
+        [Input("servicecatalogappregistry")]
+        public Input<string>? Servicecatalogappregistry { get; set; }
+
         [Input("servicediscovery")]
         public Input<string>? Servicediscovery { get; set; }
 
@@ -734,6 +752,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("ssmincidents")]
         public Input<string>? Ssmincidents { get; set; }
+
+        [Input("ssmsap")]
+        public Input<string>? Ssmsap { get; set; }
 
         [Input("sso")]
         public Input<string>? Sso { get; set; }
@@ -782,6 +803,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("wafv2")]
         public Input<string>? Wafv2 { get; set; }
+
+        [Input("wellarchitected")]
+        public Input<string>? Wellarchitected { get; set; }
 
         [Input("worklink")]
         public Input<string>? Worklink { get; set; }

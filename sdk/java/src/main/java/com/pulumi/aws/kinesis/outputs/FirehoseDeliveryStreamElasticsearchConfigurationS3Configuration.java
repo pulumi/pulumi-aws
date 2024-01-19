@@ -20,7 +20,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationS3Configurati
      */
     private String bucketArn;
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     private @Nullable Integer bufferingInterval;
@@ -70,7 +70,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationS3Configurati
         return this.bucketArn;
     }
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     public Optional<Integer> bufferingInterval() {

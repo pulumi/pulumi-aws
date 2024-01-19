@@ -7,6 +7,7 @@ import com.pulumi.aws.lambda.outputs.GetFunctionDeadLetterConfig;
 import com.pulumi.aws.lambda.outputs.GetFunctionEnvironment;
 import com.pulumi.aws.lambda.outputs.GetFunctionEphemeralStorage;
 import com.pulumi.aws.lambda.outputs.GetFunctionFileSystemConfig;
+import com.pulumi.aws.lambda.outputs.GetFunctionLoggingConfig;
 import com.pulumi.aws.lambda.outputs.GetFunctionTracingConfig;
 import com.pulumi.aws.lambda.outputs.GetFunctionVpcConfig;
 import com.pulumi.core.annotations.CustomType;
@@ -97,6 +98,11 @@ public final class GetFunctionResult {
      * 
      */
     private List<String> layers;
+    /**
+     * @return Advanced logging settings.
+     * 
+     */
+    private List<GetFunctionLoggingConfig> loggingConfigs;
     /**
      * @return Amount of memory in MB your Lambda Function can use at runtime.
      * 
@@ -280,6 +286,13 @@ public final class GetFunctionResult {
         return this.layers;
     }
     /**
+     * @return Advanced logging settings.
+     * 
+     */
+    public List<GetFunctionLoggingConfig> loggingConfigs() {
+        return this.loggingConfigs;
+    }
+    /**
      * @return Amount of memory in MB your Lambda Function can use at runtime.
      * 
      */
@@ -409,6 +422,7 @@ public final class GetFunctionResult {
         private String kmsKeyArn;
         private String lastModified;
         private List<String> layers;
+        private List<GetFunctionLoggingConfig> loggingConfigs;
         private Integer memorySize;
         private String qualifiedArn;
         private String qualifiedInvokeArn;
@@ -444,6 +458,7 @@ public final class GetFunctionResult {
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.lastModified = defaults.lastModified;
     	      this.layers = defaults.layers;
+    	      this.loggingConfigs = defaults.loggingConfigs;
     	      this.memorySize = defaults.memorySize;
     	      this.qualifiedArn = defaults.qualifiedArn;
     	      this.qualifiedInvokeArn = defaults.qualifiedInvokeArn;
@@ -603,6 +618,17 @@ public final class GetFunctionResult {
             return layers(List.of(layers));
         }
         @CustomType.Setter
+        public Builder loggingConfigs(List<GetFunctionLoggingConfig> loggingConfigs) {
+            if (loggingConfigs == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "loggingConfigs");
+            }
+            this.loggingConfigs = loggingConfigs;
+            return this;
+        }
+        public Builder loggingConfigs(GetFunctionLoggingConfig... loggingConfigs) {
+            return loggingConfigs(List.of(loggingConfigs));
+        }
+        @CustomType.Setter
         public Builder memorySize(Integer memorySize) {
             if (memorySize == null) {
               throw new MissingRequiredPropertyException("GetFunctionResult", "memorySize");
@@ -746,6 +772,7 @@ public final class GetFunctionResult {
             _resultValue.kmsKeyArn = kmsKeyArn;
             _resultValue.lastModified = lastModified;
             _resultValue.layers = layers;
+            _resultValue.loggingConfigs = loggingConfigs;
             _resultValue.memorySize = memorySize;
             _resultValue.qualifiedArn = qualifiedArn;
             _resultValue.qualifiedInvokeArn = qualifiedInvokeArn;

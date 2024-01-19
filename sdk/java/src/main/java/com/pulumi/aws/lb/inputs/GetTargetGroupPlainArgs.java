@@ -30,6 +30,13 @@ public final class GetTargetGroupPlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.arn);
     }
 
+    @Import(name="loadBalancingAnomalyMitigation")
+    private @Nullable String loadBalancingAnomalyMitigation;
+
+    public Optional<String> loadBalancingAnomalyMitigation() {
+        return Optional.ofNullable(this.loadBalancingAnomalyMitigation);
+    }
+
     /**
      * Unique name of the target group.
      * 
@@ -68,6 +75,7 @@ public final class GetTargetGroupPlainArgs extends com.pulumi.resources.InvokeAr
 
     private GetTargetGroupPlainArgs(GetTargetGroupPlainArgs $) {
         this.arn = $.arn;
+        this.loadBalancingAnomalyMitigation = $.loadBalancingAnomalyMitigation;
         this.name = $.name;
         this.tags = $.tags;
     }
@@ -98,6 +106,11 @@ public final class GetTargetGroupPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
+            return this;
+        }
+
+        public Builder loadBalancingAnomalyMitigation(@Nullable String loadBalancingAnomalyMitigation) {
+            $.loadBalancingAnomalyMitigation = loadBalancingAnomalyMitigation;
             return this;
         }
 

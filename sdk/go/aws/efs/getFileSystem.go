@@ -95,7 +95,8 @@ type LookupFileSystemResult struct {
 	// The value of the file system's `Name` tag.
 	Name string `pulumi:"name"`
 	// File system performance mode.
-	PerformanceMode string `pulumi:"performanceMode"`
+	PerformanceMode string                    `pulumi:"performanceMode"`
+	Protections     []GetFileSystemProtection `pulumi:"protections"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system.
 	ProvisionedThroughputInMibps float64 `pulumi:"provisionedThroughputInMibps"`
 	// Current byte count used by the file system.
@@ -204,6 +205,10 @@ func (o LookupFileSystemResultOutput) Name() pulumi.StringOutput {
 // File system performance mode.
 func (o LookupFileSystemResultOutput) PerformanceMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.PerformanceMode }).(pulumi.StringOutput)
+}
+
+func (o LookupFileSystemResultOutput) Protections() GetFileSystemProtectionArrayOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) []GetFileSystemProtection { return v.Protections }).(GetFileSystemProtectionArrayOutput)
 }
 
 // The throughput, measured in MiB/s, that you want to provision for the file system.

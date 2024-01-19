@@ -142,6 +142,21 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The policy document that is associated with this resource.
+     * 
+     */
+    @Import(name="policyDocument")
+    private @Nullable Output<String> policyDocument;
+
+    /**
+     * @return The policy document that is associated with this resource.
+     * 
+     */
+    public Optional<Output<String>> policyDocument() {
+        return Optional.ofNullable(this.policyDocument);
+    }
+
+    /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      * 
      */
@@ -216,6 +231,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         this.endpointType = $.endpointType;
         this.loadBalancerOptions = $.loadBalancerOptions;
         this.networkInterfaceOptions = $.networkInterfaceOptions;
+        this.policyDocument = $.policyDocument;
         this.securityGroupIds = $.securityGroupIds;
         this.sseSpecification = $.sseSpecification;
         this.tags = $.tags;
@@ -406,6 +422,27 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder networkInterfaceOptions(EndpointNetworkInterfaceOptionsArgs networkInterfaceOptions) {
             return networkInterfaceOptions(Output.of(networkInterfaceOptions));
+        }
+
+        /**
+         * @param policyDocument The policy document that is associated with this resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyDocument(@Nullable Output<String> policyDocument) {
+            $.policyDocument = policyDocument;
+            return this;
+        }
+
+        /**
+         * @param policyDocument The policy document that is associated with this resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyDocument(String policyDocument) {
+            return policyDocument(Output.of(policyDocument));
         }
 
         /**

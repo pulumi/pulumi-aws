@@ -30,6 +30,10 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly string? InstanceWarmup;
         /// <summary>
+        /// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+        /// </summary>
+        public readonly int? MaxHealthyPercentage;
+        /// <summary>
         /// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
         /// </summary>
         public readonly int? MinHealthyPercentage;
@@ -56,6 +60,8 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
             string? instanceWarmup,
 
+            int? maxHealthyPercentage,
+
             int? minHealthyPercentage,
 
             string? scaleInProtectedInstances,
@@ -68,6 +74,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
             CheckpointDelay = checkpointDelay;
             CheckpointPercentages = checkpointPercentages;
             InstanceWarmup = instanceWarmup;
+            MaxHealthyPercentage = maxHealthyPercentage;
             MinHealthyPercentage = minHealthyPercentage;
             ScaleInProtectedInstances = scaleInProtectedInstances;
             SkipMatching = skipMatching;

@@ -99,18 +99,33 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
      * 
      */
     @Import(name="loadBalancingAlgorithmType")
     private @Nullable Output<String> loadBalancingAlgorithmType;
 
     /**
-     * @return Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+     * @return Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
      * 
      */
     public Optional<Output<String>> loadBalancingAlgorithmType() {
         return Optional.ofNullable(this.loadBalancingAlgorithmType);
+    }
+
+    /**
+     * Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+     * 
+     */
+    @Import(name="loadBalancingAnomalyMitigation")
+    private @Nullable Output<String> loadBalancingAnomalyMitigation;
+
+    /**
+     * @return Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+     * 
+     */
+    public Optional<Output<String>> loadBalancingAnomalyMitigation() {
+        return Optional.ofNullable(this.loadBalancingAnomalyMitigation);
     }
 
     /**
@@ -373,6 +388,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         this.ipAddressType = $.ipAddressType;
         this.lambdaMultiValueHeadersEnabled = $.lambdaMultiValueHeadersEnabled;
         this.loadBalancingAlgorithmType = $.loadBalancingAlgorithmType;
+        this.loadBalancingAnomalyMitigation = $.loadBalancingAnomalyMitigation;
         this.loadBalancingCrossZoneEnabled = $.loadBalancingCrossZoneEnabled;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
@@ -514,7 +530,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancingAlgorithmType Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+         * @param loadBalancingAlgorithmType Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
          * 
          * @return builder
          * 
@@ -525,13 +541,34 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancingAlgorithmType Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+         * @param loadBalancingAlgorithmType Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
          * 
          * @return builder
          * 
          */
         public Builder loadBalancingAlgorithmType(String loadBalancingAlgorithmType) {
             return loadBalancingAlgorithmType(Output.of(loadBalancingAlgorithmType));
+        }
+
+        /**
+         * @param loadBalancingAnomalyMitigation Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancingAnomalyMitigation(@Nullable Output<String> loadBalancingAnomalyMitigation) {
+            $.loadBalancingAnomalyMitigation = loadBalancingAnomalyMitigation;
+            return this;
+        }
+
+        /**
+         * @param loadBalancingAnomalyMitigation Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancingAnomalyMitigation(String loadBalancingAnomalyMitigation) {
+            return loadBalancingAnomalyMitigation(Output.of(loadBalancingAnomalyMitigation));
         }
 
         /**

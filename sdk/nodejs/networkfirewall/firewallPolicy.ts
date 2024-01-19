@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *             priority: 1,
  *             resourceArn: aws_networkfirewall_rule_group.example.arn,
  *         }],
+ *         tlsInspectionConfigurationArn: "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
  *     },
  *     tags: {
  *         Tag1: "Value1",

@@ -15,7 +15,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Creates a replica of an existing EFS file system in the same or another region. Creating this resource causes the source EFS file system to be replicated to a new read-only destination EFS file system. Deleting this resource will cause the replication from source to destination to stop and the destination file system will no longer be read only.
+ * Creates a replica of an existing EFS file system in the same or another region. Creating this resource causes the source EFS file system to be replicated to a new read-only destination EFS file system (unless using the `destination.file_system_id` attribute). Deleting this resource will cause the replication from source to destination to stop and the destination file system will no longer be read only.
  * 
  * &gt; **NOTE:** Deleting this resource does **not** delete the destination file system that was created.
  * 
@@ -96,6 +96,44 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.efs.FileSystem;
+ * import com.pulumi.aws.efs.ReplicationConfiguration;
+ * import com.pulumi.aws.efs.ReplicationConfigurationArgs;
+ * import com.pulumi.aws.efs.inputs.ReplicationConfigurationDestinationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleFileSystem = new FileSystem(&#34;exampleFileSystem&#34;);
+ * 
+ *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
+ *             .sourceFileSystemId(exampleFileSystem.id())
+ *             .destination(ReplicationConfigurationDestinationArgs.builder()
+ *                 .fileSystemId(&#34;fs-1234567890&#34;)
+ *                 .region(&#34;us-west-2&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import EFS Replication Configurations using the file system ID of either the source or destination file system. When importing, the `availability_zone_name` and `kms_key_id` attributes must __not__ be set in the configuration. The AWS API does not return these values when querying the replication configuration and their presence will therefore show as a diff in a subsequent plan. For example:
@@ -109,6 +147,8 @@ import javax.annotation.Nullable;
 public class ReplicationConfiguration extends com.pulumi.resources.CustomResource {
     /**
      * When the replication configuration was created.
+     * * `destination[0].file_system_id` - The fs ID of the replica.
+     * * `destination[0].status` - The status of the replication.
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
@@ -116,6 +156,8 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
 
     /**
      * @return When the replication configuration was created.
+     * * `destination[0].file_system_id` - The fs ID of the replica.
+     * * `destination[0].status` - The status of the replication.
      * 
      */
     public Output<String> creationTime() {
@@ -179,8 +221,6 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
     }
     /**
      * The AWS Region in which the source Amazon EFS file system is located.
-     * * `destination[0].file_system_id` - The fs ID of the replica.
-     * * `destination[0].status` - The status of the replication.
      * 
      */
     @Export(name="sourceFileSystemRegion", refs={String.class}, tree="[0]")
@@ -188,8 +228,6 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
 
     /**
      * @return The AWS Region in which the source Amazon EFS file system is located.
-     * * `destination[0].file_system_id` - The fs ID of the replica.
-     * * `destination[0].status` - The status of the replication.
      * 
      */
     public Output<String> sourceFileSystemRegion() {

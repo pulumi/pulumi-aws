@@ -35,6 +35,11 @@ public final class GroupInstanceRefreshPreferences {
      */
     private @Nullable String instanceWarmup;
     /**
+     * @return Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+     * 
+     */
+    private @Nullable Integer maxHealthyPercentage;
+    /**
      * @return Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
      * 
      */
@@ -85,6 +90,13 @@ public final class GroupInstanceRefreshPreferences {
         return Optional.ofNullable(this.instanceWarmup);
     }
     /**
+     * @return Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+     * 
+     */
+    public Optional<Integer> maxHealthyPercentage() {
+        return Optional.ofNullable(this.maxHealthyPercentage);
+    }
+    /**
      * @return Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
      * 
      */
@@ -126,6 +138,7 @@ public final class GroupInstanceRefreshPreferences {
         private @Nullable String checkpointDelay;
         private @Nullable List<Integer> checkpointPercentages;
         private @Nullable String instanceWarmup;
+        private @Nullable Integer maxHealthyPercentage;
         private @Nullable Integer minHealthyPercentage;
         private @Nullable String scaleInProtectedInstances;
         private @Nullable Boolean skipMatching;
@@ -137,6 +150,7 @@ public final class GroupInstanceRefreshPreferences {
     	      this.checkpointDelay = defaults.checkpointDelay;
     	      this.checkpointPercentages = defaults.checkpointPercentages;
     	      this.instanceWarmup = defaults.instanceWarmup;
+    	      this.maxHealthyPercentage = defaults.maxHealthyPercentage;
     	      this.minHealthyPercentage = defaults.minHealthyPercentage;
     	      this.scaleInProtectedInstances = defaults.scaleInProtectedInstances;
     	      this.skipMatching = defaults.skipMatching;
@@ -171,6 +185,12 @@ public final class GroupInstanceRefreshPreferences {
             return this;
         }
         @CustomType.Setter
+        public Builder maxHealthyPercentage(@Nullable Integer maxHealthyPercentage) {
+
+            this.maxHealthyPercentage = maxHealthyPercentage;
+            return this;
+        }
+        @CustomType.Setter
         public Builder minHealthyPercentage(@Nullable Integer minHealthyPercentage) {
 
             this.minHealthyPercentage = minHealthyPercentage;
@@ -200,6 +220,7 @@ public final class GroupInstanceRefreshPreferences {
             _resultValue.checkpointDelay = checkpointDelay;
             _resultValue.checkpointPercentages = checkpointPercentages;
             _resultValue.instanceWarmup = instanceWarmup;
+            _resultValue.maxHealthyPercentage = maxHealthyPercentage;
             _resultValue.minHealthyPercentage = minHealthyPercentage;
             _resultValue.scaleInProtectedInstances = scaleInProtectedInstances;
             _resultValue.skipMatching = skipMatching;

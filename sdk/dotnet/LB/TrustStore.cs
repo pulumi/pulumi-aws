@@ -80,7 +80,7 @@ namespace Pulumi.Aws.LB
         public Output<string> CaCertificatesBundleS3Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// S3 Bucket name holding the client certificate CA bundle.
+        /// S3 object key holding the client certificate CA bundle.
         /// </summary>
         [Output("caCertificatesBundleS3Key")]
         public Output<string> CaCertificatesBundleS3Key { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.LB
         public Input<string> CaCertificatesBundleS3Bucket { get; set; } = null!;
 
         /// <summary>
-        /// S3 Bucket name holding the client certificate CA bundle.
+        /// S3 object key holding the client certificate CA bundle.
         /// </summary>
         [Input("caCertificatesBundleS3Key", required: true)]
         public Input<string> CaCertificatesBundleS3Key { get; set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? CaCertificatesBundleS3Bucket { get; set; }
 
         /// <summary>
-        /// S3 Bucket name holding the client certificate CA bundle.
+        /// S3 object key holding the client certificate CA bundle.
         /// </summary>
         [Input("caCertificatesBundleS3Key")]
         public Input<string>? CaCertificatesBundleS3Key { get; set; }

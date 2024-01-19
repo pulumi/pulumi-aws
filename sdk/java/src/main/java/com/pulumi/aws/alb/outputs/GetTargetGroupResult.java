@@ -18,7 +18,7 @@ public final class GetTargetGroupResult {
     private String arn;
     private String arnSuffix;
     private Boolean connectionTermination;
-    private Integer deregistrationDelay;
+    private String deregistrationDelay;
     private GetTargetGroupHealthCheck healthCheck;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -27,6 +27,7 @@ public final class GetTargetGroupResult {
     private String id;
     private Boolean lambdaMultiValueHeadersEnabled;
     private String loadBalancingAlgorithmType;
+    private String loadBalancingAnomalyMitigation;
     private String loadBalancingCrossZoneEnabled;
     private String name;
     private Integer port;
@@ -50,7 +51,7 @@ public final class GetTargetGroupResult {
     public Boolean connectionTermination() {
         return this.connectionTermination;
     }
-    public Integer deregistrationDelay() {
+    public String deregistrationDelay() {
         return this.deregistrationDelay;
     }
     public GetTargetGroupHealthCheck healthCheck() {
@@ -68,6 +69,9 @@ public final class GetTargetGroupResult {
     }
     public String loadBalancingAlgorithmType() {
         return this.loadBalancingAlgorithmType;
+    }
+    public String loadBalancingAnomalyMitigation() {
+        return this.loadBalancingAnomalyMitigation;
     }
     public String loadBalancingCrossZoneEnabled() {
         return this.loadBalancingCrossZoneEnabled;
@@ -118,11 +122,12 @@ public final class GetTargetGroupResult {
         private String arn;
         private String arnSuffix;
         private Boolean connectionTermination;
-        private Integer deregistrationDelay;
+        private String deregistrationDelay;
         private GetTargetGroupHealthCheck healthCheck;
         private String id;
         private Boolean lambdaMultiValueHeadersEnabled;
         private String loadBalancingAlgorithmType;
+        private String loadBalancingAnomalyMitigation;
         private String loadBalancingCrossZoneEnabled;
         private String name;
         private Integer port;
@@ -146,6 +151,7 @@ public final class GetTargetGroupResult {
     	      this.id = defaults.id;
     	      this.lambdaMultiValueHeadersEnabled = defaults.lambdaMultiValueHeadersEnabled;
     	      this.loadBalancingAlgorithmType = defaults.loadBalancingAlgorithmType;
+    	      this.loadBalancingAnomalyMitigation = defaults.loadBalancingAnomalyMitigation;
     	      this.loadBalancingCrossZoneEnabled = defaults.loadBalancingCrossZoneEnabled;
     	      this.name = defaults.name;
     	      this.port = defaults.port;
@@ -185,7 +191,7 @@ public final class GetTargetGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder deregistrationDelay(Integer deregistrationDelay) {
+        public Builder deregistrationDelay(String deregistrationDelay) {
             if (deregistrationDelay == null) {
               throw new MissingRequiredPropertyException("GetTargetGroupResult", "deregistrationDelay");
             }
@@ -222,6 +228,14 @@ public final class GetTargetGroupResult {
               throw new MissingRequiredPropertyException("GetTargetGroupResult", "loadBalancingAlgorithmType");
             }
             this.loadBalancingAlgorithmType = loadBalancingAlgorithmType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder loadBalancingAnomalyMitigation(String loadBalancingAnomalyMitigation) {
+            if (loadBalancingAnomalyMitigation == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "loadBalancingAnomalyMitigation");
+            }
+            this.loadBalancingAnomalyMitigation = loadBalancingAnomalyMitigation;
             return this;
         }
         @CustomType.Setter
@@ -330,6 +344,7 @@ public final class GetTargetGroupResult {
             _resultValue.id = id;
             _resultValue.lambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
             _resultValue.loadBalancingAlgorithmType = loadBalancingAlgorithmType;
+            _resultValue.loadBalancingAnomalyMitigation = loadBalancingAnomalyMitigation;
             _resultValue.loadBalancingCrossZoneEnabled = loadBalancingCrossZoneEnabled;
             _resultValue.name = name;
             _resultValue.port = port;

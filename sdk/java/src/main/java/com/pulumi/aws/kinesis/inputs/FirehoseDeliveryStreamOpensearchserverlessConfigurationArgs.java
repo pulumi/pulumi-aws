@@ -22,14 +22,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
     public static final FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs Empty = new FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs();
 
     /**
-     * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     @Import(name="bufferingInterval")
     private @Nullable Output<Integer> bufferingInterval;
 
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     public Optional<Output<Integer>> bufferingInterval() {
@@ -221,7 +221,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs e
         }
 
         /**
-         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          * 
          * @return builder
          * 

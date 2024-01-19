@@ -31,6 +31,7 @@ class FunctionArgs:
                  image_uri: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 logging_config: Optional[pulumi.Input['FunctionLoggingConfigArgs']] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
@@ -67,6 +68,7 @@ class FunctionArgs:
         :param pulumi.Input[str] image_uri: ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+        :param pulumi.Input['FunctionLoggingConfigArgs'] logging_config: Configuration block used to specify advanced logging settings. Detailed below.
         :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: Unique name for your Lambda Function.
         :param pulumi.Input[str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
@@ -113,6 +115,8 @@ class FunctionArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if layers is not None:
             pulumi.set(__self__, "layers", layers)
+        if logging_config is not None:
+            pulumi.set(__self__, "logging_config", logging_config)
         if memory_size is not None:
             pulumi.set(__self__, "memory_size", memory_size)
         if name is not None:
@@ -325,6 +329,18 @@ class FunctionArgs:
     @layers.setter
     def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "layers", value)
+
+    @property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> Optional[pulumi.Input['FunctionLoggingConfigArgs']]:
+        """
+        Configuration block used to specify advanced logging settings. Detailed below.
+        """
+        return pulumi.get(self, "logging_config")
+
+    @logging_config.setter
+    def logging_config(self, value: Optional[pulumi.Input['FunctionLoggingConfigArgs']]):
+        pulumi.set(self, "logging_config", value)
 
     @property
     @pulumi.getter(name="memorySize")
@@ -568,6 +584,7 @@ class _FunctionState:
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  last_modified: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 logging_config: Optional[pulumi.Input['FunctionLoggingConfigArgs']] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
@@ -612,6 +629,7 @@ class _FunctionState:
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         :param pulumi.Input[str] last_modified: Date this resource was last modified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+        :param pulumi.Input['FunctionLoggingConfigArgs'] logging_config: Configuration block used to specify advanced logging settings. Detailed below.
         :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: Unique name for your Lambda Function.
         :param pulumi.Input[str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
@@ -675,6 +693,8 @@ class _FunctionState:
             pulumi.set(__self__, "last_modified", last_modified)
         if layers is not None:
             pulumi.set(__self__, "layers", layers)
+        if logging_config is not None:
+            pulumi.set(__self__, "logging_config", logging_config)
         if memory_size is not None:
             pulumi.set(__self__, "memory_size", memory_size)
         if name is not None:
@@ -928,6 +948,18 @@ class _FunctionState:
     @layers.setter
     def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "layers", value)
+
+    @property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> Optional[pulumi.Input['FunctionLoggingConfigArgs']]:
+        """
+        Configuration block used to specify advanced logging settings. Detailed below.
+        """
+        return pulumi.get(self, "logging_config")
+
+    @logging_config.setter
+    def logging_config(self, value: Optional[pulumi.Input['FunctionLoggingConfigArgs']]):
+        pulumi.set(self, "logging_config", value)
 
     @property
     @pulumi.getter(name="memorySize")
@@ -1273,6 +1305,7 @@ class Function(pulumi.CustomResource):
                  image_uri: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 logging_config: Optional[pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
@@ -1450,7 +1483,10 @@ class Function(pulumi.CustomResource):
         lambda_logs = aws.iam.RolePolicyAttachment("lambdaLogs",
             role=aws_iam_role["iam_for_lambda"]["name"],
             policy_arn=lambda_logging_policy.arn)
-        test_lambda = aws.lambda_.Function("testLambda", opts=pulumi.ResourceOptions(depends_on=[
+        test_lambda = aws.lambda_.Function("testLambda", logging_config=aws.lambda_.FunctionLoggingConfigArgs(
+            log_format="Text",
+        ),
+        opts=pulumi.ResourceOptions(depends_on=[
                 lambda_logs,
                 example,
             ]))
@@ -1487,6 +1523,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] image_uri: ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+        :param pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']] logging_config: Configuration block used to specify advanced logging settings. Detailed below.
         :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: Unique name for your Lambda Function.
         :param pulumi.Input[str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
@@ -1672,7 +1709,10 @@ class Function(pulumi.CustomResource):
         lambda_logs = aws.iam.RolePolicyAttachment("lambdaLogs",
             role=aws_iam_role["iam_for_lambda"]["name"],
             policy_arn=lambda_logging_policy.arn)
-        test_lambda = aws.lambda_.Function("testLambda", opts=pulumi.ResourceOptions(depends_on=[
+        test_lambda = aws.lambda_.Function("testLambda", logging_config=aws.lambda_.FunctionLoggingConfigArgs(
+            log_format="Text",
+        ),
+        opts=pulumi.ResourceOptions(depends_on=[
                 lambda_logs,
                 example,
             ]))
@@ -1722,6 +1762,7 @@ class Function(pulumi.CustomResource):
                  image_uri: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 logging_config: Optional[pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
@@ -1763,6 +1804,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["image_uri"] = image_uri
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["layers"] = layers
+            __props__.__dict__["logging_config"] = logging_config
             __props__.__dict__["memory_size"] = memory_size
             __props__.__dict__["name"] = name
             __props__.__dict__["package_type"] = package_type
@@ -1822,6 +1864,7 @@ class Function(pulumi.CustomResource):
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             last_modified: Optional[pulumi.Input[str]] = None,
             layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            logging_config: Optional[pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']]] = None,
             memory_size: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
@@ -1871,6 +1914,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         :param pulumi.Input[str] last_modified: Date this resource was last modified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+        :param pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']] logging_config: Configuration block used to specify advanced logging settings. Detailed below.
         :param pulumi.Input[int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         :param pulumi.Input[str] name: Unique name for your Lambda Function.
         :param pulumi.Input[str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
@@ -1922,6 +1966,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["last_modified"] = last_modified
         __props__.__dict__["layers"] = layers
+        __props__.__dict__["logging_config"] = logging_config
         __props__.__dict__["memory_size"] = memory_size
         __props__.__dict__["name"] = name
         __props__.__dict__["package_type"] = package_type
@@ -2077,6 +2122,14 @@ class Function(pulumi.CustomResource):
         List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
         """
         return pulumi.get(self, "layers")
+
+    @property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> pulumi.Output['outputs.FunctionLoggingConfig']:
+        """
+        Configuration block used to specify advanced logging settings. Detailed below.
+        """
+        return pulumi.get(self, "logging_config")
 
     @property
     @pulumi.getter(name="memorySize")

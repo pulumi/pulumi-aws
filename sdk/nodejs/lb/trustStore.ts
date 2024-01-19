@@ -80,7 +80,7 @@ export class TrustStore extends pulumi.CustomResource {
      */
     public readonly caCertificatesBundleS3Bucket!: pulumi.Output<string>;
     /**
-     * S3 Bucket name holding the client certificate CA bundle.
+     * S3 object key holding the client certificate CA bundle.
      */
     public readonly caCertificatesBundleS3Key!: pulumi.Output<string>;
     /**
@@ -170,7 +170,7 @@ export interface TrustStoreState {
      */
     caCertificatesBundleS3Bucket?: pulumi.Input<string>;
     /**
-     * S3 Bucket name holding the client certificate CA bundle.
+     * S3 object key holding the client certificate CA bundle.
      */
     caCertificatesBundleS3Key?: pulumi.Input<string>;
     /**
@@ -206,7 +206,7 @@ export interface TrustStoreArgs {
      */
     caCertificatesBundleS3Bucket: pulumi.Input<string>;
     /**
-     * S3 Bucket name holding the client certificate CA bundle.
+     * S3 object key holding the client certificate CA bundle.
      */
     caCertificatesBundleS3Key: pulumi.Input<string>;
     /**

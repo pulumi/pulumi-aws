@@ -103,6 +103,7 @@ export interface GetFileSystemResult {
      * File system performance mode.
      */
     readonly performanceMode: string;
+    readonly protections: outputs.efs.GetFileSystemProtection[];
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system.
      */

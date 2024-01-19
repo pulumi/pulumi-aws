@@ -4385,6 +4385,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
         suggest = None
         if key == "aggregationType":
             suggest = "aggregation_type"
+        elif key == "targetFileSize":
+            suggest = "target_file_size"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig. Access the value via the '{suggest}' property getter instead.")
@@ -4398,12 +4400,16 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 aggregation_type: Optional[str] = None):
+                 aggregation_type: Optional[str] = None,
+                 target_file_size: Optional[int] = None):
         """
         :param str aggregation_type: Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+        :param int target_file_size: The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
         """
         if aggregation_type is not None:
             pulumi.set(__self__, "aggregation_type", aggregation_type)
+        if target_file_size is not None:
+            pulumi.set(__self__, "target_file_size", target_file_size)
 
     @property
     @pulumi.getter(name="aggregationType")
@@ -4412,6 +4418,14 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
         Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
         """
         return pulumi.get(self, "aggregation_type")
+
+    @property
+    @pulumi.getter(name="targetFileSize")
+    def target_file_size(self) -> Optional[int]:
+        """
+        The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+        """
+        return pulumi.get(self, "target_file_size")
 
 
 @pulumi.output_type

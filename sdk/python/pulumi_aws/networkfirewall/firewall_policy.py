@@ -270,6 +270,7 @@ class FirewallPolicy(pulumi.CustomResource):
                     priority=1,
                     resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
                 )],
+                tls_inspection_configuration_arn="arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
             ),
             tags={
                 "Tag1": "Value1",
@@ -347,6 +348,7 @@ class FirewallPolicy(pulumi.CustomResource):
                     priority=1,
                     resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
                 )],
+                tls_inspection_configuration_arn="arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
             ),
             tags={
                 "Tag1": "Value1",

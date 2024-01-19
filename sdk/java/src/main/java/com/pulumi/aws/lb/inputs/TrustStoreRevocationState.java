@@ -47,14 +47,14 @@ public final class TrustStoreRevocationState extends com.pulumi.resources.Resour
     }
 
     /**
-     * S3 Bucket name holding the client certificate CA bundle.
+     * S3 object key holding the client certificate CA bundle.
      * 
      */
     @Import(name="revocationsS3Key")
     private @Nullable Output<String> revocationsS3Key;
 
     /**
-     * @return S3 Bucket name holding the client certificate CA bundle.
+     * @return S3 object key holding the client certificate CA bundle.
      * 
      */
     public Optional<Output<String>> revocationsS3Key() {
@@ -162,7 +162,7 @@ public final class TrustStoreRevocationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param revocationsS3Key S3 Bucket name holding the client certificate CA bundle.
+         * @param revocationsS3Key S3 object key holding the client certificate CA bundle.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class TrustStoreRevocationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param revocationsS3Key S3 Bucket name holding the client certificate CA bundle.
+         * @param revocationsS3Key S3 object key holding the client certificate CA bundle.
          * 
          * @return builder
          * 

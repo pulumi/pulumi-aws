@@ -18,7 +18,7 @@ namespace Pulumi.Aws.RedshiftServerless.Outputs
         /// </summary>
         public readonly string? Address;
         /// <summary>
-        /// The port that Amazon Redshift Serverless listens on.
+        /// The port number on which the cluster accepts incoming connections.
         /// </summary>
         public readonly int? Port;
         /// <summary>

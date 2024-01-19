@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions;
+import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchConfigurationS3Configuration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchConfigurationVpcConfig;
@@ -18,7 +19,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamOpensearchConfiguration {
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     private @Nullable Integer bufferingInterval;
@@ -28,7 +29,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -37,6 +38,11 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
      * 
      */
     private @Nullable String clusterEndpoint;
+    /**
+     * @return The method for setting up document ID. More details are given below.
+     * 
+     */
+    private @Nullable FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions documentIdOptions;
     /**
      * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
      * 
@@ -53,7 +59,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
      */
     private @Nullable String indexRotationPeriod;
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration. More details are given below.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration processingConfiguration;
@@ -83,14 +89,14 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
      */
     private @Nullable String typeName;
     /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+     * @return The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchConfigurationVpcConfig vpcConfig;
 
     private FirehoseDeliveryStreamOpensearchConfiguration() {}
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     public Optional<Integer> bufferingInterval() {
@@ -104,7 +110,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -116,6 +122,13 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
      */
     public Optional<String> clusterEndpoint() {
         return Optional.ofNullable(this.clusterEndpoint);
+    }
+    /**
+     * @return The method for setting up document ID. More details are given below.
+     * 
+     */
+    public Optional<FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions> documentIdOptions() {
+        return Optional.ofNullable(this.documentIdOptions);
     }
     /**
      * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
@@ -139,7 +152,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
         return Optional.ofNullable(this.indexRotationPeriod);
     }
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration. More details are given below.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration> processingConfiguration() {
@@ -181,7 +194,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
         return Optional.ofNullable(this.typeName);
     }
     /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+     * @return The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchConfigurationVpcConfig> vpcConfig() {
@@ -201,6 +214,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
         private @Nullable Integer bufferingSize;
         private @Nullable FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
         private @Nullable String clusterEndpoint;
+        private @Nullable FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions documentIdOptions;
         private @Nullable String domainArn;
         private String indexName;
         private @Nullable String indexRotationPeriod;
@@ -218,6 +232,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
     	      this.bufferingSize = defaults.bufferingSize;
     	      this.cloudwatchLoggingOptions = defaults.cloudwatchLoggingOptions;
     	      this.clusterEndpoint = defaults.clusterEndpoint;
+    	      this.documentIdOptions = defaults.documentIdOptions;
     	      this.domainArn = defaults.domainArn;
     	      this.indexName = defaults.indexName;
     	      this.indexRotationPeriod = defaults.indexRotationPeriod;
@@ -252,6 +267,12 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
         public Builder clusterEndpoint(@Nullable String clusterEndpoint) {
 
             this.clusterEndpoint = clusterEndpoint;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder documentIdOptions(@Nullable FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions documentIdOptions) {
+
+            this.documentIdOptions = documentIdOptions;
             return this;
         }
         @CustomType.Setter
@@ -326,6 +347,7 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
             _resultValue.bufferingSize = bufferingSize;
             _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             _resultValue.clusterEndpoint = clusterEndpoint;
+            _resultValue.documentIdOptions = documentIdOptions;
             _resultValue.domainArn = domainArn;
             _resultValue.indexName = indexName;
             _resultValue.indexRotationPeriod = indexRotationPeriod;

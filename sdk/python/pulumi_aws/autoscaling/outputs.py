@@ -304,6 +304,8 @@ class GroupInstanceRefreshPreferences(dict):
             suggest = "checkpoint_percentages"
         elif key == "instanceWarmup":
             suggest = "instance_warmup"
+        elif key == "maxHealthyPercentage":
+            suggest = "max_healthy_percentage"
         elif key == "minHealthyPercentage":
             suggest = "min_healthy_percentage"
         elif key == "scaleInProtectedInstances":
@@ -329,6 +331,7 @@ class GroupInstanceRefreshPreferences(dict):
                  checkpoint_delay: Optional[str] = None,
                  checkpoint_percentages: Optional[Sequence[int]] = None,
                  instance_warmup: Optional[str] = None,
+                 max_healthy_percentage: Optional[int] = None,
                  min_healthy_percentage: Optional[int] = None,
                  scale_in_protected_instances: Optional[str] = None,
                  skip_matching: Optional[bool] = None,
@@ -338,6 +341,7 @@ class GroupInstanceRefreshPreferences(dict):
         :param str checkpoint_delay: Number of seconds to wait after a checkpoint. Defaults to `3600`.
         :param Sequence[int] checkpoint_percentages: List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
         :param str instance_warmup: Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
+        :param int max_healthy_percentage: Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
         :param int min_healthy_percentage: Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
         :param str scale_in_protected_instances: Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
         :param bool skip_matching: Replace instances that already have your desired configuration. Defaults to `false`.
@@ -351,6 +355,8 @@ class GroupInstanceRefreshPreferences(dict):
             pulumi.set(__self__, "checkpoint_percentages", checkpoint_percentages)
         if instance_warmup is not None:
             pulumi.set(__self__, "instance_warmup", instance_warmup)
+        if max_healthy_percentage is not None:
+            pulumi.set(__self__, "max_healthy_percentage", max_healthy_percentage)
         if min_healthy_percentage is not None:
             pulumi.set(__self__, "min_healthy_percentage", min_healthy_percentage)
         if scale_in_protected_instances is not None:
@@ -391,6 +397,14 @@ class GroupInstanceRefreshPreferences(dict):
         Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
         """
         return pulumi.get(self, "instance_warmup")
+
+    @property
+    @pulumi.getter(name="maxHealthyPercentage")
+    def max_healthy_percentage(self) -> Optional[int]:
+        """
+        Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+        """
+        return pulumi.get(self, "max_healthy_percentage")
 
     @property
     @pulumi.getter(name="minHealthyPercentage")

@@ -16,6 +16,10 @@ public final class ReplicationConfigurationDestination {
      * 
      */
     private @Nullable String availabilityZoneName;
+    /**
+     * @return The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
+     * 
+     */
     private @Nullable String fileSystemId;
     /**
      * @return The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
@@ -37,6 +41,10 @@ public final class ReplicationConfigurationDestination {
     public Optional<String> availabilityZoneName() {
         return Optional.ofNullable(this.availabilityZoneName);
     }
+    /**
+     * @return The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
+     * 
+     */
     public Optional<String> fileSystemId() {
         return Optional.ofNullable(this.fileSystemId);
     }

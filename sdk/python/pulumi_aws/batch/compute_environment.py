@@ -23,7 +23,8 @@ class ComputeEnvironmentArgs:
                  eks_configuration: Optional[pulumi.Input['ComputeEnvironmentEksConfigurationArgs']] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 update_policy: Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']] = None):
         """
         The set of arguments for constructing a ComputeEnvironment resource.
         :param pulumi.Input[str] type: The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
@@ -34,6 +35,7 @@ class ComputeEnvironmentArgs:
         :param pulumi.Input[str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['ComputeEnvironmentUpdatePolicyArgs'] update_policy: Specifies the infrastructure update policy for the compute environment. See details below.
         """
         pulumi.set(__self__, "type", type)
         if compute_environment_name is not None:
@@ -50,6 +52,8 @@ class ComputeEnvironmentArgs:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if update_policy is not None:
+            pulumi.set(__self__, "update_policy", update_policy)
 
     @property
     @pulumi.getter
@@ -147,6 +151,18 @@ class ComputeEnvironmentArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="updatePolicy")
+    def update_policy(self) -> Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']]:
+        """
+        Specifies the infrastructure update policy for the compute environment. See details below.
+        """
+        return pulumi.get(self, "update_policy")
+
+    @update_policy.setter
+    def update_policy(self, value: Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']]):
+        pulumi.set(self, "update_policy", value)
+
 
 @pulumi.input_type
 class _ComputeEnvironmentState:
@@ -163,7 +179,8 @@ class _ComputeEnvironmentState:
                  status_reason: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[str]] = None,
+                 update_policy: Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']] = None):
         """
         Input properties used for looking up and filtering ComputeEnvironment resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the compute environment.
@@ -179,6 +196,7 @@ class _ComputeEnvironmentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+        :param pulumi.Input['ComputeEnvironmentUpdatePolicyArgs'] update_policy: Specifies the infrastructure update policy for the compute environment. See details below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -209,6 +227,8 @@ class _ComputeEnvironmentState:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if update_policy is not None:
+            pulumi.set(__self__, "update_policy", update_policy)
 
     @property
     @pulumi.getter
@@ -369,6 +389,18 @@ class _ComputeEnvironmentState:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter(name="updatePolicy")
+    def update_policy(self) -> Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']]:
+        """
+        Specifies the infrastructure update policy for the compute environment. See details below.
+        """
+        return pulumi.get(self, "update_policy")
+
+    @update_policy.setter
+    def update_policy(self, value: Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']]):
+        pulumi.set(self, "update_policy", value)
+
 
 class ComputeEnvironment(pulumi.CustomResource):
     @overload
@@ -383,6 +415,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 update_policy: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']]] = None,
                  __props__=None):
         """
         Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
@@ -470,6 +503,30 @@ class ComputeEnvironment(pulumi.CustomResource):
             type="MANAGED",
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["aws_batch_service_role"]]))
         ```
+        ### Setting Update Policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sample = aws.batch.ComputeEnvironment("sample",
+            compute_environment_name="sample",
+            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
+                allocation_strategy="BEST_FIT_PROGRESSIVE",
+                instance_role=aws_iam_instance_profile["ecs_instance"]["arn"],
+                instance_types=["optimal"],
+                max_vcpus=4,
+                min_vcpus=0,
+                security_group_ids=[aws_security_group["sample"]["id"]],
+                subnets=[aws_subnet["sample"]["id"]],
+                type="EC2",
+            ),
+            update_policy=aws.batch.ComputeEnvironmentUpdatePolicyArgs(
+                job_execution_timeout_minutes=30,
+                terminate_jobs_on_update=False,
+            ),
+            type="MANAGED")
+        ```
 
         ## Import
 
@@ -489,6 +546,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+        :param pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']] update_policy: Specifies the infrastructure update policy for the compute environment. See details below.
         """
         ...
     @overload
@@ -582,6 +640,30 @@ class ComputeEnvironment(pulumi.CustomResource):
             type="MANAGED",
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["aws_batch_service_role"]]))
         ```
+        ### Setting Update Policy
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sample = aws.batch.ComputeEnvironment("sample",
+            compute_environment_name="sample",
+            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
+                allocation_strategy="BEST_FIT_PROGRESSIVE",
+                instance_role=aws_iam_instance_profile["ecs_instance"]["arn"],
+                instance_types=["optimal"],
+                max_vcpus=4,
+                min_vcpus=0,
+                security_group_ids=[aws_security_group["sample"]["id"]],
+                subnets=[aws_subnet["sample"]["id"]],
+                type="EC2",
+            ),
+            update_policy=aws.batch.ComputeEnvironmentUpdatePolicyArgs(
+                job_execution_timeout_minutes=30,
+                terminate_jobs_on_update=False,
+            ),
+            type="MANAGED")
+        ```
 
         ## Import
 
@@ -614,6 +696,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 update_policy: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -633,6 +716,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["update_policy"] = update_policy
             __props__.__dict__["arn"] = None
             __props__.__dict__["ecs_cluster_arn"] = None
             __props__.__dict__["status"] = None
@@ -662,7 +746,8 @@ class ComputeEnvironment(pulumi.CustomResource):
             status_reason: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            type: Optional[pulumi.Input[str]] = None) -> 'ComputeEnvironment':
+            type: Optional[pulumi.Input[str]] = None,
+            update_policy: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']]] = None) -> 'ComputeEnvironment':
         """
         Get an existing ComputeEnvironment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -683,6 +768,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+        :param pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']] update_policy: Specifies the infrastructure update policy for the compute environment. See details below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -701,6 +787,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
+        __props__.__dict__["update_policy"] = update_policy
         return ComputeEnvironment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -809,4 +896,12 @@ class ComputeEnvironment(pulumi.CustomResource):
         The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatePolicy")
+    def update_policy(self) -> pulumi.Output[Optional['outputs.ComputeEnvironmentUpdatePolicy']]:
+        """
+        Specifies the infrastructure update policy for the compute environment. See details below.
+        """
+        return pulumi.get(self, "update_policy")
 

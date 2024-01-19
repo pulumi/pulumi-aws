@@ -138,14 +138,14 @@ public class FunctionUrl extends com.pulumi.resources.CustomResource {
         return this.functionName;
     }
     /**
-     * The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+     * The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
     @Export(name="functionUrl", refs={String.class}, tree="[0]")
     private Output<String> functionUrl;
 
     /**
-     * @return The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+     * @return The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
     public Output<String> functionUrl() {

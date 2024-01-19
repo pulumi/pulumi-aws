@@ -139,6 +139,12 @@ namespace Pulumi.Aws.Kms
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifies the external key that serves as key material for the KMS key in an external key store.
+        /// </summary>
+        [Output("xksKeyId")]
+        public Output<string?> XksKeyId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Key resource with the given unique name, arguments, and options.
@@ -270,6 +276,12 @@ namespace Pulumi.Aws.Kms
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Identifies the external key that serves as key material for the KMS key in an external key store.
+        /// </summary>
+        [Input("xksKeyId")]
+        public Input<string>? XksKeyId { get; set; }
+
         public KeyArgs()
         {
         }
@@ -387,6 +399,12 @@ namespace Pulumi.Aws.Kms
                 _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
             }
         }
+
+        /// <summary>
+        /// Identifies the external key that serves as key material for the KMS key in an external key store.
+        /// </summary>
+        [Input("xksKeyId")]
+        public Input<string>? XksKeyId { get; set; }
 
         public KeyState()
         {

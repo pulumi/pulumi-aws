@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.inputs;
 
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs;
+import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs;
@@ -22,14 +23,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     public static final FirehoseDeliveryStreamOpensearchConfigurationArgs Empty = new FirehoseDeliveryStreamOpensearchConfigurationArgs();
 
     /**
-     * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     @Import(name="bufferingInterval")
     private @Nullable Output<Integer> bufferingInterval;
 
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
     public Optional<Output<Integer>> bufferingInterval() {
@@ -52,14 +53,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. More details are given below
+     * The CloudWatch Logging Options for the delivery stream. More details are given below.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -79,6 +80,21 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
      */
     public Optional<Output<String>> clusterEndpoint() {
         return Optional.ofNullable(this.clusterEndpoint);
+    }
+
+    /**
+     * The method for setting up document ID. More details are given below.
+     * 
+     */
+    @Import(name="documentIdOptions")
+    private @Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs> documentIdOptions;
+
+    /**
+     * @return The method for setting up document ID. More details are given below.
+     * 
+     */
+    public Optional<Output<FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs>> documentIdOptions() {
+        return Optional.ofNullable(this.documentIdOptions);
     }
 
     /**
@@ -127,14 +143,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The data processing configuration.  More details are given below.
+     * The data processing configuration. More details are given below.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration. More details are given below.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs>> processingConfiguration() {
@@ -217,14 +233,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+     * The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
      * 
      */
     @Import(name="vpcConfig")
     private @Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs> vpcConfig;
 
     /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+     * @return The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs>> vpcConfig() {
@@ -238,6 +254,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         this.bufferingSize = $.bufferingSize;
         this.cloudwatchLoggingOptions = $.cloudwatchLoggingOptions;
         this.clusterEndpoint = $.clusterEndpoint;
+        this.documentIdOptions = $.documentIdOptions;
         this.domainArn = $.domainArn;
         this.indexName = $.indexName;
         this.indexRotationPeriod = $.indexRotationPeriod;
@@ -269,7 +286,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          * 
          * @return builder
          * 
@@ -280,7 +297,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          * 
          * @return builder
          * 
@@ -311,7 +328,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below.
          * 
          * @return builder
          * 
@@ -322,7 +339,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
+         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below.
          * 
          * @return builder
          * 
@@ -350,6 +367,27 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
          */
         public Builder clusterEndpoint(String clusterEndpoint) {
             return clusterEndpoint(Output.of(clusterEndpoint));
+        }
+
+        /**
+         * @param documentIdOptions The method for setting up document ID. More details are given below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder documentIdOptions(@Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs> documentIdOptions) {
+            $.documentIdOptions = documentIdOptions;
+            return this;
+        }
+
+        /**
+         * @param documentIdOptions The method for setting up document ID. More details are given below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder documentIdOptions(FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs documentIdOptions) {
+            return documentIdOptions(Output.of(documentIdOptions));
         }
 
         /**
@@ -416,7 +454,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration. More details are given below.
          * 
          * @return builder
          * 
@@ -427,7 +465,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
+         * @param processingConfiguration The data processing configuration. More details are given below.
          * 
          * @return builder
          * 
@@ -542,7 +580,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
          * 
          * @return builder
          * 
@@ -553,7 +591,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+         * @param vpcConfig The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
          * 
          * @return builder
          * 

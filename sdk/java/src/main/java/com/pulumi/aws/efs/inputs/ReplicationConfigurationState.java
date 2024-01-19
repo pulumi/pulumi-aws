@@ -18,6 +18,8 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
 
     /**
      * When the replication configuration was created.
+     * * `destination[0].file_system_id` - The fs ID of the replica.
+     * * `destination[0].status` - The status of the replication.
      * 
      */
     @Import(name="creationTime")
@@ -25,6 +27,8 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
 
     /**
      * @return When the replication configuration was created.
+     * * `destination[0].file_system_id` - The fs ID of the replica.
+     * * `destination[0].status` - The status of the replication.
      * 
      */
     public Optional<Output<String>> creationTime() {
@@ -93,8 +97,6 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
 
     /**
      * The AWS Region in which the source Amazon EFS file system is located.
-     * * `destination[0].file_system_id` - The fs ID of the replica.
-     * * `destination[0].status` - The status of the replication.
      * 
      */
     @Import(name="sourceFileSystemRegion")
@@ -102,8 +104,6 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
 
     /**
      * @return The AWS Region in which the source Amazon EFS file system is located.
-     * * `destination[0].file_system_id` - The fs ID of the replica.
-     * * `destination[0].status` - The status of the replication.
      * 
      */
     public Optional<Output<String>> sourceFileSystemRegion() {
@@ -141,6 +141,8 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
 
         /**
          * @param creationTime When the replication configuration was created.
+         * * `destination[0].file_system_id` - The fs ID of the replica.
+         * * `destination[0].status` - The status of the replication.
          * 
          * @return builder
          * 
@@ -152,6 +154,8 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
 
         /**
          * @param creationTime When the replication configuration was created.
+         * * `destination[0].file_system_id` - The fs ID of the replica.
+         * * `destination[0].status` - The status of the replication.
          * 
          * @return builder
          * 
@@ -246,8 +250,6 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
 
         /**
          * @param sourceFileSystemRegion The AWS Region in which the source Amazon EFS file system is located.
-         * * `destination[0].file_system_id` - The fs ID of the replica.
-         * * `destination[0].status` - The status of the replication.
          * 
          * @return builder
          * 
@@ -259,8 +261,6 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
 
         /**
          * @param sourceFileSystemRegion The AWS Region in which the source Amazon EFS file system is located.
-         * * `destination[0].file_system_id` - The fs ID of the replica.
-         * * `destination[0].status` - The status of the replication.
          * 
          * @return builder
          * 

@@ -328,7 +328,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewFunction(ctx, "testLambda", nil, pulumi.DependsOn([]pulumi.Resource{
+//			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
+//				LoggingConfig: &lambda.FunctionLoggingConfigArgs{
+//					LogFormat: pulumi.String("Text"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
 //				lambdaLogs,
 //				example,
 //			}))
@@ -393,6 +397,8 @@ type Function struct {
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
 	Layers pulumi.StringArrayOutput `pulumi:"layers"`
+	// Configuration block used to specify advanced logging settings. Detailed below.
+	LoggingConfig FunctionLoggingConfigOutput `pulumi:"loggingConfig"`
 	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 	MemorySize pulumi.IntPtrOutput `pulumi:"memorySize"`
 	// Unique name for your Lambda Function.
@@ -526,6 +532,8 @@ type functionState struct {
 	LastModified *string `pulumi:"lastModified"`
 	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
 	Layers []string `pulumi:"layers"`
+	// Configuration block used to specify advanced logging settings. Detailed below.
+	LoggingConfig *FunctionLoggingConfig `pulumi:"loggingConfig"`
 	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 	MemorySize *int `pulumi:"memorySize"`
 	// Unique name for your Lambda Function.
@@ -623,6 +631,8 @@ type FunctionState struct {
 	LastModified pulumi.StringPtrInput
 	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
 	Layers pulumi.StringArrayInput
+	// Configuration block used to specify advanced logging settings. Detailed below.
+	LoggingConfig FunctionLoggingConfigPtrInput
 	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 	MemorySize pulumi.IntPtrInput
 	// Unique name for your Lambda Function.
@@ -718,6 +728,8 @@ type functionArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
 	Layers []string `pulumi:"layers"`
+	// Configuration block used to specify advanced logging settings. Detailed below.
+	LoggingConfig *FunctionLoggingConfig `pulumi:"loggingConfig"`
 	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 	MemorySize *int `pulumi:"memorySize"`
 	// Unique name for your Lambda Function.
@@ -792,6 +804,8 @@ type FunctionArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
 	Layers pulumi.StringArrayInput
+	// Configuration block used to specify advanced logging settings. Detailed below.
+	LoggingConfig FunctionLoggingConfigPtrInput
 	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 	MemorySize pulumi.IntPtrInput
 	// Unique name for your Lambda Function.
@@ -1003,6 +1017,11 @@ func (o FunctionOutput) LastModified() pulumi.StringOutput {
 // List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
 func (o FunctionOutput) Layers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringArrayOutput { return v.Layers }).(pulumi.StringArrayOutput)
+}
+
+// Configuration block used to specify advanced logging settings. Detailed below.
+func (o FunctionOutput) LoggingConfig() FunctionLoggingConfigOutput {
+	return o.ApplyT(func(v *Function) FunctionLoggingConfigOutput { return v.LoggingConfig }).(FunctionLoggingConfigOutput)
 }
 
 // Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)

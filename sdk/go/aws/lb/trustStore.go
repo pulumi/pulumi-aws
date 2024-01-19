@@ -76,7 +76,7 @@ type TrustStore struct {
 	ArnSuffix pulumi.StringOutput `pulumi:"arnSuffix"`
 	// S3 Bucket name holding the client certificate CA bundle.
 	CaCertificatesBundleS3Bucket pulumi.StringOutput `pulumi:"caCertificatesBundleS3Bucket"`
-	// S3 Bucket name holding the client certificate CA bundle.
+	// S3 object key holding the client certificate CA bundle.
 	CaCertificatesBundleS3Key pulumi.StringOutput `pulumi:"caCertificatesBundleS3Key"`
 	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 	CaCertificatesBundleS3ObjectVersion pulumi.StringPtrOutput `pulumi:"caCertificatesBundleS3ObjectVersion"`
@@ -138,7 +138,7 @@ type trustStoreState struct {
 	ArnSuffix *string `pulumi:"arnSuffix"`
 	// S3 Bucket name holding the client certificate CA bundle.
 	CaCertificatesBundleS3Bucket *string `pulumi:"caCertificatesBundleS3Bucket"`
-	// S3 Bucket name holding the client certificate CA bundle.
+	// S3 object key holding the client certificate CA bundle.
 	CaCertificatesBundleS3Key *string `pulumi:"caCertificatesBundleS3Key"`
 	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 	CaCertificatesBundleS3ObjectVersion *string `pulumi:"caCertificatesBundleS3ObjectVersion"`
@@ -161,7 +161,7 @@ type TrustStoreState struct {
 	ArnSuffix pulumi.StringPtrInput
 	// S3 Bucket name holding the client certificate CA bundle.
 	CaCertificatesBundleS3Bucket pulumi.StringPtrInput
-	// S3 Bucket name holding the client certificate CA bundle.
+	// S3 object key holding the client certificate CA bundle.
 	CaCertificatesBundleS3Key pulumi.StringPtrInput
 	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 	CaCertificatesBundleS3ObjectVersion pulumi.StringPtrInput
@@ -184,7 +184,7 @@ func (TrustStoreState) ElementType() reflect.Type {
 type trustStoreArgs struct {
 	// S3 Bucket name holding the client certificate CA bundle.
 	CaCertificatesBundleS3Bucket string `pulumi:"caCertificatesBundleS3Bucket"`
-	// S3 Bucket name holding the client certificate CA bundle.
+	// S3 object key holding the client certificate CA bundle.
 	CaCertificatesBundleS3Key string `pulumi:"caCertificatesBundleS3Key"`
 	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 	CaCertificatesBundleS3ObjectVersion *string `pulumi:"caCertificatesBundleS3ObjectVersion"`
@@ -200,7 +200,7 @@ type trustStoreArgs struct {
 type TrustStoreArgs struct {
 	// S3 Bucket name holding the client certificate CA bundle.
 	CaCertificatesBundleS3Bucket pulumi.StringInput
-	// S3 Bucket name holding the client certificate CA bundle.
+	// S3 object key holding the client certificate CA bundle.
 	CaCertificatesBundleS3Key pulumi.StringInput
 	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 	CaCertificatesBundleS3ObjectVersion pulumi.StringPtrInput
@@ -314,7 +314,7 @@ func (o TrustStoreOutput) CaCertificatesBundleS3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.CaCertificatesBundleS3Bucket }).(pulumi.StringOutput)
 }
 
-// S3 Bucket name holding the client certificate CA bundle.
+// S3 object key holding the client certificate CA bundle.
 func (o TrustStoreOutput) CaCertificatesBundleS3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.CaCertificatesBundleS3Key }).(pulumi.StringOutput)
 }

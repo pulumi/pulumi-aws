@@ -491,7 +491,7 @@ class BucketAclV2AccessControlPolicy(dict):
                  owner: 'outputs.BucketAclV2AccessControlPolicyOwner',
                  grants: Optional[Sequence['outputs.BucketAclV2AccessControlPolicyGrant']] = None):
         """
-        :param 'BucketAclV2AccessControlPolicyOwnerArgs' owner: Configuration block of the bucket owner's display name and ID. See below.
+        :param 'BucketAclV2AccessControlPolicyOwnerArgs' owner: Configuration block for the bucket owner's display name and ID. See below.
         :param Sequence['BucketAclV2AccessControlPolicyGrantArgs'] grants: Set of `grant` configuration blocks. See below.
         """
         pulumi.set(__self__, "owner", owner)
@@ -502,7 +502,7 @@ class BucketAclV2AccessControlPolicy(dict):
     @pulumi.getter
     def owner(self) -> 'outputs.BucketAclV2AccessControlPolicyOwner':
         """
-        Configuration block of the bucket owner's display name and ID. See below.
+        Configuration block for the bucket owner's display name and ID. See below.
         """
         return pulumi.get(self, "owner")
 
@@ -521,7 +521,7 @@ class BucketAclV2AccessControlPolicyGrant(dict):
                  permission: str,
                  grantee: Optional['outputs.BucketAclV2AccessControlPolicyGrantGrantee'] = None):
         """
-        :param str permission: Logging permissions assigned to the grantee for the bucket.
+        :param str permission: Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
         :param 'BucketAclV2AccessControlPolicyGrantGranteeArgs' grantee: Configuration block for the person being granted permissions. See below.
         """
         pulumi.set(__self__, "permission", permission)
@@ -532,7 +532,7 @@ class BucketAclV2AccessControlPolicyGrant(dict):
     @pulumi.getter
     def permission(self) -> str:
         """
-        Logging permissions assigned to the grantee for the bucket.
+        Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
         """
         return pulumi.get(self, "permission")
 

@@ -76,7 +76,9 @@ export interface GetResolverEndpointResult {
     readonly id: string;
     readonly ipAddresses: string[];
     readonly name: string;
+    readonly protocols: string[];
     readonly resolverEndpointId?: string;
+    readonly resolverEndpointType: string;
     readonly status: string;
     readonly vpcId: string;
 }

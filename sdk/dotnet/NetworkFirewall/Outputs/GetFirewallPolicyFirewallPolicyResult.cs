@@ -20,6 +20,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         public readonly ImmutableArray<string> StatelessDefaultActions;
         public readonly ImmutableArray<string> StatelessFragmentDefaultActions;
         public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult> StatelessRuleGroupReferences;
+        public readonly string TlsInspectionConfigurationArn;
 
         [OutputConstructor]
         private GetFirewallPolicyFirewallPolicyResult(
@@ -35,7 +36,9 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
             ImmutableArray<string> statelessFragmentDefaultActions,
 
-            ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult> statelessRuleGroupReferences)
+            ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult> statelessRuleGroupReferences,
+
+            string tlsInspectionConfigurationArn)
         {
             StatefulDefaultActions = statefulDefaultActions;
             StatefulEngineOptions = statefulEngineOptions;
@@ -44,6 +47,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
             StatelessDefaultActions = statelessDefaultActions;
             StatelessFragmentDefaultActions = statelessFragmentDefaultActions;
             StatelessRuleGroupReferences = statelessRuleGroupReferences;
+            TlsInspectionConfigurationArn = tlsInspectionConfigurationArn;
         }
     }
 }

@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ReplicationTask(&#34;test&#34;, ReplicationTaskArgs.builder()        
- *             .cdcStartTime(1484346880)
+ *             .cdcStartTime(&#34;1993-05-21T05:50:00Z&#34;)
  *             .migrationType(&#34;full-load&#34;)
  *             .replicationInstanceArn(aws_dms_replication_instance.test-dms-replication-instance-tf().replication_instance_arn())
  *             .replicationTaskId(&#34;test-dms-replication-task-tf&#34;)
@@ -72,28 +72,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:dms/replicationTask:ReplicationTask")
 public class ReplicationTask extends com.pulumi.resources.CustomResource {
     /**
-     * Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+     * Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      * 
      */
     @Export(name="cdcStartPosition", refs={String.class}, tree="[0]")
     private Output<String> cdcStartPosition;
 
     /**
-     * @return Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+     * @return Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      * 
      */
     public Output<String> cdcStartPosition() {
         return this.cdcStartPosition;
     }
     /**
-     * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+     * RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
      * 
      */
     @Export(name="cdcStartTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cdcStartTime;
 
     /**
-     * @return The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+     * @return RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
      * 
      */
     public Output<Optional<String>> cdcStartTime() {

@@ -119,6 +119,7 @@ export interface ProviderEndpoint {
     applicationautoscaling?: pulumi.Input<string>;
     applicationinsights?: pulumi.Input<string>;
     appmesh?: pulumi.Input<string>;
+    appregistry?: pulumi.Input<string>;
     apprunner?: pulumi.Input<string>;
     appstream?: pulumi.Input<string>;
     appsync?: pulumi.Input<string>;
@@ -226,6 +227,7 @@ export interface ProviderEndpoint {
     glue?: pulumi.Input<string>;
     grafana?: pulumi.Input<string>;
     greengrass?: pulumi.Input<string>;
+    groundstation?: pulumi.Input<string>;
     guardduty?: pulumi.Input<string>;
     healthlake?: pulumi.Input<string>;
     iam?: pulumi.Input<string>;
@@ -251,6 +253,7 @@ export interface ProviderEndpoint {
     kms?: pulumi.Input<string>;
     lakeformation?: pulumi.Input<string>;
     lambda?: pulumi.Input<string>;
+    launchwizard?: pulumi.Input<string>;
     lex?: pulumi.Input<string>;
     lexmodelbuilding?: pulumi.Input<string>;
     lexmodelbuildingservice?: pulumi.Input<string>;
@@ -287,12 +290,14 @@ export interface ProviderEndpoint {
     organizations?: pulumi.Input<string>;
     osis?: pulumi.Input<string>;
     outposts?: pulumi.Input<string>;
+    pcaconnectorad?: pulumi.Input<string>;
     pinpoint?: pulumi.Input<string>;
     pipes?: pulumi.Input<string>;
     polly?: pulumi.Input<string>;
     pricing?: pulumi.Input<string>;
     prometheus?: pulumi.Input<string>;
     prometheusservice?: pulumi.Input<string>;
+    qbusiness?: pulumi.Input<string>;
     qldb?: pulumi.Input<string>;
     quicksight?: pulumi.Input<string>;
     ram?: pulumi.Input<string>;
@@ -329,6 +334,7 @@ export interface ProviderEndpoint {
     serverlessapprepo?: pulumi.Input<string>;
     serverlessrepo?: pulumi.Input<string>;
     servicecatalog?: pulumi.Input<string>;
+    servicecatalogappregistry?: pulumi.Input<string>;
     servicediscovery?: pulumi.Input<string>;
     servicequotas?: pulumi.Input<string>;
     ses?: pulumi.Input<string>;
@@ -342,6 +348,7 @@ export interface ProviderEndpoint {
     ssm?: pulumi.Input<string>;
     ssmcontacts?: pulumi.Input<string>;
     ssmincidents?: pulumi.Input<string>;
+    ssmsap?: pulumi.Input<string>;
     sso?: pulumi.Input<string>;
     ssoadmin?: pulumi.Input<string>;
     stepfunctions?: pulumi.Input<string>;
@@ -358,6 +365,7 @@ export interface ProviderEndpoint {
     waf?: pulumi.Input<string>;
     wafregional?: pulumi.Input<string>;
     wafv2?: pulumi.Input<string>;
+    wellarchitected?: pulumi.Input<string>;
     worklink?: pulumi.Input<string>;
     workspaces?: pulumi.Input<string>;
     xray?: pulumi.Input<string>;
@@ -1207,6 +1215,44 @@ export namespace alb {
 }
 
 export namespace amp {
+    export interface ScraperDestination {
+        /**
+         * Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+         */
+        amp?: pulumi.Input<inputs.amp.ScraperDestinationAmp>;
+    }
+
+    export interface ScraperDestinationAmp {
+        /**
+         * The Amazon Resource Name (ARN) of the prometheus workspace.
+         */
+        workspaceArn: pulumi.Input<string>;
+    }
+
+    export interface ScraperSource {
+        /**
+         * Configuration block for an EKS cluster source. See `eks`.
+         */
+        eks?: pulumi.Input<inputs.amp.ScraperSourceEks>;
+    }
+
+    export interface ScraperSourceEks {
+        clusterArn: pulumi.Input<string>;
+        /**
+         * List of the security group IDs for the Amazon EKS cluster VPC configuration.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of subnet IDs. Must be in at least two different availability zones.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ScraperTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
+    }
+
     export interface WorkspaceLoggingConfiguration {
         /**
          * The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
@@ -3068,6 +3114,10 @@ export namespace appflow {
          * Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
          */
         aggregationType?: pulumi.Input<string>;
+        /**
+         * The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+         */
+        targetFileSize?: pulumi.Input<number>;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig {
@@ -7238,6 +7288,10 @@ export namespace autoscaling {
          */
         instanceWarmup?: pulumi.Input<string>;
         /**
+         * Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+         */
+        maxHealthyPercentage?: pulumi.Input<number>;
+        /**
          * Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
          */
         minHealthyPercentage?: pulumi.Input<number>;
@@ -8678,6 +8732,166 @@ export namespace batch {
          * The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
          */
         kubernetesNamespace: pulumi.Input<string>;
+    }
+
+    export interface ComputeEnvironmentUpdatePolicy {
+        /**
+         * Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
+         */
+        jobExecutionTimeoutMinutes: pulumi.Input<number>;
+        /**
+         * Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+         */
+        terminateJobsOnUpdate: pulumi.Input<boolean>;
+    }
+
+    export interface JobDefinitionEksProperties {
+        /**
+         * The properties for the Kubernetes pod resources of a job. See `podProperties` below.
+         */
+        podProperties: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodProperties>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodProperties {
+        /**
+         * The properties of the container that's used on the Amazon EKS pod. See containers below.
+         */
+        containers: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesContainers>;
+        /**
+         * The DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
+         */
+        dnsPolicy?: pulumi.Input<string>;
+        /**
+         * Indicates if the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+         */
+        hostNetwork?: pulumi.Input<boolean>;
+        /**
+         * Metadata about the Kubernetes pod.
+         */
+        metadata?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesMetadata>;
+        /**
+         * The name of the service account that's used to run the pod.
+         */
+        serviceAccountName?: pulumi.Input<string>;
+        /**
+         * Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+         */
+        volumes?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesVolume>[]>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesContainers {
+        /**
+         * An array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+         */
+        args?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+         */
+        commands?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The environment variables to pass to a container. See EKS Environment below.
+         */
+        envs?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersEnv>[]>;
+        /**
+         * The Docker image used to start the container.
+         */
+        image: pulumi.Input<string>;
+        /**
+         * The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+         */
+        imagePullPolicy?: pulumi.Input<string>;
+        /**
+         * The name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+         */
+        resources?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersResources>;
+        /**
+         * The security context for a job.
+         */
+        securityContext?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext>;
+        /**
+         * The volume mounts for the container.
+         */
+        volumeMounts?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount>[]>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesContainersEnv {
+        /**
+         * Specifies the name of the job definition.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the environment variable.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesContainersResources {
+        limits?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        requests?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext {
+        privileged?: pulumi.Input<boolean>;
+        readOnlyRootFileSystem?: pulumi.Input<boolean>;
+        runAsGroup?: pulumi.Input<number>;
+        runAsNonRoot?: pulumi.Input<boolean>;
+        runAsUser?: pulumi.Input<number>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount {
+        mountPath: pulumi.Input<string>;
+        /**
+         * Specifies the name of the job definition.
+         */
+        name: pulumi.Input<string>;
+        readOnly?: pulumi.Input<boolean>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesMetadata {
+        labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesVolume {
+        emptyDir?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir>;
+        hostPath?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesVolumeHostPath>;
+        /**
+         * Specifies the name of the job definition.
+         */
+        name?: pulumi.Input<string>;
+        secret?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesVolumeSecret>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir {
+        /**
+         * The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+         */
+        medium?: pulumi.Input<string>;
+        /**
+         * The maximum size of the volume. By default, there's no maximum size defined.
+         */
+        sizeLimit: pulumi.Input<string>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesVolumeHostPath {
+        /**
+         * The path of the file or directory on the host to mount into containers on the pod.
+         */
+        path: pulumi.Input<string>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesVolumeSecret {
+        /**
+         * Specifies whether the secret or the secret's keys must be defined.
+         */
+        optional?: pulumi.Input<boolean>;
+        /**
+         * The name of the secret. The name must be allowed as a DNS subdomain name.
+         */
+        secretName: pulumi.Input<string>;
     }
 
     export interface JobDefinitionRetryStrategy {
@@ -10446,7 +10660,7 @@ export namespace cloudfront {
          */
         minimumProtocolVersion?: pulumi.Input<string>;
         /**
-         * How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
+         * How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
          */
         sslSupportMethod?: pulumi.Input<string>;
     }
@@ -11941,7 +12155,7 @@ export namespace codebuild {
          */
         certificate?: pulumi.Input<string>;
         /**
-         * Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`.
+         * Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`, `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `computeType` must be `BUILD_LAMBDA_XGB`.`
          */
         computeType: pulumi.Input<string>;
         /**
@@ -12879,8 +13093,6 @@ export namespace codepipeline {
         name: pulumi.Input<string>;
         /**
          * The namespace all output variables will be accessed from.
-         *
-         * > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
          */
         namespace?: pulumi.Input<string>;
         /**
@@ -12911,6 +13123,23 @@ export namespace codepipeline {
          * A string that identifies the action type.
          */
         version: pulumi.Input<string>;
+    }
+
+    export interface PipelineVariable {
+        /**
+         * The default value of a pipeline-level variable.
+         */
+        defaultValue?: pulumi.Input<string>;
+        /**
+         * The description of a pipeline-level variable.
+         *
+         * > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The name of a pipeline-level variable.
+         */
+        name: pulumi.Input<string>;
     }
 
     export interface WebhookAuthenticationConfiguration {
@@ -17275,6 +17504,11 @@ export namespace dynamodb {
 }
 
 export namespace ebs {
+    export interface FastSnapshotRestoreTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
+    }
+
     export interface GetEbsVolumesFilter {
         /**
          * Name of the field to filter by, as defined by
@@ -21394,9 +21628,6 @@ export namespace ec2 {
          * List of Prefix List IDs.
          */
         prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
-         */
         protocol: pulumi.Input<string>;
         /**
          * List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
@@ -21437,13 +21668,6 @@ export namespace ec2 {
          * List of Prefix List IDs.
          */
         prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
-         *
-         * The following arguments are optional:
-         *
-         * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `securityGroups` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
-         */
         protocol: pulumi.Input<string>;
         /**
          * List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
@@ -23735,6 +23959,10 @@ export namespace efs {
 
     export interface FileSystemLifecyclePolicy {
         /**
+         * Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+         */
+        transitionToArchive?: pulumi.Input<string>;
+        /**
          * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
          */
         transitionToIa?: pulumi.Input<string>;
@@ -23742,6 +23970,13 @@ export namespace efs {
          * Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
          */
         transitionToPrimaryStorageClass?: pulumi.Input<string>;
+    }
+
+    export interface FileSystemProtection {
+        /**
+         * Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
+         */
+        replicationOverwrite?: pulumi.Input<string>;
     }
 
     export interface FileSystemSizeInByte {
@@ -23764,6 +23999,9 @@ export namespace efs {
          * The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
          */
         availabilityZoneName?: pulumi.Input<string>;
+        /**
+         * The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
+         */
         fileSystemId?: pulumi.Input<string>;
         /**
          * The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
@@ -24114,6 +24352,41 @@ export namespace elasticache {
          * Valid values are  `slow-log` or `engine-log`. Max 1 of each.
          */
         logType: pulumi.Input<string>;
+    }
+
+    export interface ServerlessCacheCacheUsageLimits {
+        /**
+         * The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+         */
+        dataStorage?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimitsDataStorage>;
+        /**
+         * The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+         */
+        ecpuPerSeconds?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecond>[]>;
+    }
+
+    export interface ServerlessCacheCacheUsageLimitsDataStorage {
+        /**
+         * The upper limit for data storage the cache is set to use. Set as Integer.
+         */
+        maximum: pulumi.Input<number>;
+        /**
+         * The unit that the storage is measured in, in GB.
+         */
+        unit: pulumi.Input<string>;
+    }
+
+    export interface ServerlessCacheCacheUsageLimitsEcpuPerSecond {
+        /**
+         * The upper limit for data storage the cache is set to use. Set as Integer.
+         */
+        maximum: pulumi.Input<number>;
+    }
+
+    export interface ServerlessCacheTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
+        update?: pulumi.Input<string>;
     }
 
     export interface UserAuthenticationMode {
@@ -26045,6 +26318,7 @@ export namespace finspace {
          * * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
          * * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
          * * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
+         * * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
          */
         type: pulumi.Input<string>;
     }
@@ -27646,6 +27920,10 @@ export namespace glue {
          * Name of the target table.
          */
         name: pulumi.Input<string>;
+        /**
+         * Region of the target table.
+         */
+        region?: pulumi.Input<string>;
     }
 
     export interface ClassifierCsvClassifier {
@@ -27681,6 +27959,7 @@ export namespace glue {
          * A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
          */
         quoteSymbol?: pulumi.Input<string>;
+        serde?: pulumi.Input<string>;
     }
 
     export interface ClassifierGrokClassifier {
@@ -32023,7 +32302,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamElasticsearchConfiguration {
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: pulumi.Input<number>;
         /**
@@ -32122,11 +32401,6 @@ export namespace kinesis {
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: pulumi.Input<string>;
-        /**
-         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         *
-         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-         */
         parameterValue: pulumi.Input<string>;
     }
 
@@ -32136,7 +32410,7 @@ export namespace kinesis {
          */
         bucketArn: pulumi.Input<string>;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: pulumi.Input<number>;
         /**
@@ -32207,7 +32481,7 @@ export namespace kinesis {
          */
         bucketArn: pulumi.Input<string>;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: pulumi.Input<number>;
         /**
@@ -32490,11 +32764,6 @@ export namespace kinesis {
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: pulumi.Input<string>;
-        /**
-         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         *
-         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-         */
         parameterValue: pulumi.Input<string>;
     }
 
@@ -32504,7 +32773,7 @@ export namespace kinesis {
          */
         bucketArn: pulumi.Input<string>;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: pulumi.Input<number>;
         /**
@@ -32646,11 +32915,6 @@ export namespace kinesis {
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: pulumi.Input<string>;
-        /**
-         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         *
-         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-         */
         parameterValue: pulumi.Input<string>;
     }
 
@@ -32682,7 +32946,7 @@ export namespace kinesis {
          */
         bucketArn: pulumi.Input<string>;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: pulumi.Input<number>;
         /**
@@ -32770,7 +33034,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamOpensearchConfiguration {
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: pulumi.Input<number>;
         /**
@@ -32778,13 +33042,17 @@ export namespace kinesis {
          */
         bufferingSize?: pulumi.Input<number>;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         * The CloudWatch Logging Options for the delivery stream. More details are given below.
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions>;
         /**
          * The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
          */
         clusterEndpoint?: pulumi.Input<string>;
+        /**
+         * The method for setting up document ID. More details are given below.
+         */
+        documentIdOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions>;
         /**
          * The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
          */
@@ -32798,7 +33066,7 @@ export namespace kinesis {
          */
         indexRotationPeriod?: pulumi.Input<string>;
         /**
-         * The data processing configuration.  More details are given below.
+         * The data processing configuration. More details are given below.
          */
         processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration>;
         /**
@@ -32822,7 +33090,7 @@ export namespace kinesis {
          */
         typeName?: pulumi.Input<string>;
         /**
-         * The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+         * The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
          */
         vpcConfig?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationVpcConfig>;
     }
@@ -32840,6 +33108,13 @@ export namespace kinesis {
          * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions {
+        /**
+         * The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
+         */
+        defaultDocumentIdFormat: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration {
@@ -32869,11 +33144,6 @@ export namespace kinesis {
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: pulumi.Input<string>;
-        /**
-         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         *
-         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-         */
         parameterValue: pulumi.Input<string>;
     }
 
@@ -32883,7 +33153,7 @@ export namespace kinesis {
          */
         bucketArn: pulumi.Input<string>;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: pulumi.Input<number>;
         /**
@@ -32950,7 +33220,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamOpensearchserverlessConfiguration {
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: pulumi.Input<number>;
         /**
@@ -33037,11 +33307,6 @@ export namespace kinesis {
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: pulumi.Input<string>;
-        /**
-         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         *
-         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-         */
         parameterValue: pulumi.Input<string>;
     }
 
@@ -33051,7 +33316,7 @@ export namespace kinesis {
          */
         bucketArn: pulumi.Input<string>;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: pulumi.Input<number>;
         /**
@@ -33213,11 +33478,6 @@ export namespace kinesis {
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: pulumi.Input<string>;
-        /**
-         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         *
-         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-         */
         parameterValue: pulumi.Input<string>;
     }
 
@@ -33227,7 +33487,7 @@ export namespace kinesis {
          */
         bucketArn: pulumi.Input<string>;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: pulumi.Input<number>;
         /**
@@ -33282,7 +33542,7 @@ export namespace kinesis {
          */
         bucketArn: pulumi.Input<string>;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: pulumi.Input<number>;
         /**
@@ -33349,6 +33609,14 @@ export namespace kinesis {
     }
 
     export interface FirehoseDeliveryStreamSplunkConfiguration {
+        /**
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+         */
+        bufferingInterval?: pulumi.Input<number>;
+        /**
+         * Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+         */
+        bufferingSize?: pulumi.Input<number>;
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below.
          */
@@ -33429,11 +33697,6 @@ export namespace kinesis {
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: pulumi.Input<string>;
-        /**
-         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         *
-         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-         */
         parameterValue: pulumi.Input<string>;
     }
 
@@ -33443,7 +33706,7 @@ export namespace kinesis {
          */
         bucketArn: pulumi.Input<string>;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: pulumi.Input<number>;
         /**
@@ -34758,6 +35021,25 @@ export namespace lambda {
          * Working directory.
          */
         workingDirectory?: pulumi.Input<string>;
+    }
+
+    export interface FunctionLoggingConfig {
+        /**
+         * for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+         */
+        applicationLogLevel?: pulumi.Input<string>;
+        /**
+         * select between `Text` and structured `JSON` format for your function's logs.
+         */
+        logFormat: pulumi.Input<string>;
+        /**
+         * the CloudWatch log group your function sends logs to.
+         */
+        logGroup?: pulumi.Input<string>;
+        /**
+         * for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+         */
+        systemLogLevel?: pulumi.Input<string>;
     }
 
     export interface FunctionSnapStart {
@@ -40467,6 +40749,10 @@ export namespace networkfirewall {
          * Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
          */
         statelessRuleGroupReferences?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReference>[]>;
+        /**
+         * The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
+         */
+        tlsInspectionConfigurationArn?: pulumi.Input<string>;
     }
 
     export interface FirewallPolicyFirewallPolicyPolicyVariables {
@@ -46200,7 +46486,7 @@ export namespace redshiftserverless {
          */
         address?: pulumi.Input<string>;
         /**
-         * The port that Amazon Redshift Serverless listens on.
+         * The port number on which the cluster accepts incoming connections.
          */
         port?: pulumi.Input<number>;
         /**
@@ -47294,7 +47580,7 @@ export namespace s3 {
          */
         grants?: pulumi.Input<pulumi.Input<inputs.s3.BucketAclV2AccessControlPolicyGrant>[]>;
         /**
-         * Configuration block of the bucket owner's display name and ID. See below.
+         * Configuration block for the bucket owner's display name and ID. See below.
          */
         owner: pulumi.Input<inputs.s3.BucketAclV2AccessControlPolicyOwner>;
     }
@@ -47305,7 +47591,7 @@ export namespace s3 {
          */
         grantee?: pulumi.Input<inputs.s3.BucketAclV2AccessControlPolicyGrantGrantee>;
         /**
-         * Logging permissions assigned to the grantee for the bucket.
+         * Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
          */
         permission: pulumi.Input<string>;
     }
@@ -53679,6 +53965,25 @@ export namespace securityhub {
 }
 
 export namespace securitylake {
+    export interface AwsLogSourceSource {
+        /**
+         * Specify the AWS account information where you want to enable Security Lake.
+         */
+        accounts?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify the Regions where you want to enable Security Lake.
+         */
+        regions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+         */
+        sourceName: pulumi.Input<string>;
+        /**
+         * The version for a AWS source. This must be a Regionally unique value.
+         */
+        sourceVersion?: pulumi.Input<string>;
+    }
+
     export interface DataLakeConfiguration {
         /**
          * Provides encryption details of Amazon Security Lake object.
@@ -56269,6 +56574,24 @@ export namespace verifiedaccess {
         scope?: pulumi.Input<string>;
         tokenEndpoint?: pulumi.Input<string>;
         userInfoEndpoint?: pulumi.Input<string>;
+    }
+}
+
+export namespace verifiedpermissions {
+    export interface PolicyStoreValidationSettings {
+        /**
+         * The mode for the validation settings. Valid values: `OFF`, `STRICT`.
+         *
+         * The following arguments are optional:
+         */
+        mode: pulumi.Input<string>;
+    }
+
+    export interface SchemaDefinition {
+        /**
+         * A JSON string representation of the schema.
+         */
+        value: pulumi.Input<string>;
     }
 }
 

@@ -14,6 +14,7 @@ import (
 // Provides an SES configuration set resource.
 //
 // ## Example Usage
+// ### Basic Example
 //
 // ```go
 // package main
@@ -53,6 +54,33 @@ import (
 //			_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
 //				DeliveryOptions: &ses.ConfigurationSetDeliveryOptionsArgs{
 //					TlsPolicy: pulumi.String("Require"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Tracking Options
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
+//				TrackingOptions: &ses.ConfigurationSetTrackingOptionsArgs{
+//					CustomRedirectDomain: pulumi.String("sub.example.com"),
 //				},
 //			})
 //			if err != nil {

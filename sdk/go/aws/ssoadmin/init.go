@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccountAssignment{}
 	case "aws:ssoadmin/application:Application":
 		r = &Application{}
+	case "aws:ssoadmin/applicationAccessScope:ApplicationAccessScope":
+		r = &ApplicationAccessScope{}
 	case "aws:ssoadmin/applicationAssignment:ApplicationAssignment":
 		r = &ApplicationAssignment{}
 	case "aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration":
@@ -64,6 +66,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ssoadmin/application",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ssoadmin/applicationAccessScope",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

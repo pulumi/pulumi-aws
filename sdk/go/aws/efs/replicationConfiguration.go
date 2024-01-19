@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a replica of an existing EFS file system in the same or another region. Creating this resource causes the source EFS file system to be replicated to a new read-only destination EFS file system. Deleting this resource will cause the replication from source to destination to stop and the destination file system will no longer be read only.
+// Creates a replica of an existing EFS file system in the same or another region. Creating this resource causes the source EFS file system to be replicated to a new read-only destination EFS file system (unless using the `destination.file_system_id` attribute). Deleting this resource will cause the replication from source to destination to stop and the destination file system will no longer be read only.
 //
 // > **NOTE:** Deleting this resource does **not** delete the destination file system that was created.
 //
@@ -85,6 +85,40 @@ import (
 //
 // ```
 //
+// Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleFileSystem, err := efs.NewFileSystem(ctx, "exampleFileSystem", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = efs.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs.ReplicationConfigurationArgs{
+//				SourceFileSystemId: exampleFileSystem.ID(),
+//				Destination: &efs.ReplicationConfigurationDestinationArgs{
+//					FileSystemId: pulumi.String("fs-1234567890"),
+//					Region:       pulumi.String("us-west-2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import EFS Replication Configurations using the file system ID of either the source or destination file system. When importing, the `availability_zone_name` and `kms_key_id` attributes must __not__ be set in the configuration. The AWS API does not return these values when querying the replication configuration and their presence will therefore show as a diff in a subsequent plan. For example:
@@ -98,6 +132,8 @@ type ReplicationConfiguration struct {
 	pulumi.CustomResourceState
 
 	// When the replication configuration was created.
+	// * `destination[0].file_system_id` - The fs ID of the replica.
+	// * `destination[0].status` - The status of the replication.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// A destination configuration block (documented below).
 	Destination ReplicationConfigurationDestinationOutput `pulumi:"destination"`
@@ -108,8 +144,6 @@ type ReplicationConfiguration struct {
 	// The ID of the file system that is to be replicated.
 	SourceFileSystemId pulumi.StringOutput `pulumi:"sourceFileSystemId"`
 	// The AWS Region in which the source Amazon EFS file system is located.
-	// * `destination[0].file_system_id` - The fs ID of the replica.
-	// * `destination[0].status` - The status of the replication.
 	SourceFileSystemRegion pulumi.StringOutput `pulumi:"sourceFileSystemRegion"`
 }
 
@@ -150,6 +184,8 @@ func GetReplicationConfiguration(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ReplicationConfiguration resources.
 type replicationConfigurationState struct {
 	// When the replication configuration was created.
+	// * `destination[0].file_system_id` - The fs ID of the replica.
+	// * `destination[0].status` - The status of the replication.
 	CreationTime *string `pulumi:"creationTime"`
 	// A destination configuration block (documented below).
 	Destination *ReplicationConfigurationDestination `pulumi:"destination"`
@@ -160,13 +196,13 @@ type replicationConfigurationState struct {
 	// The ID of the file system that is to be replicated.
 	SourceFileSystemId *string `pulumi:"sourceFileSystemId"`
 	// The AWS Region in which the source Amazon EFS file system is located.
-	// * `destination[0].file_system_id` - The fs ID of the replica.
-	// * `destination[0].status` - The status of the replication.
 	SourceFileSystemRegion *string `pulumi:"sourceFileSystemRegion"`
 }
 
 type ReplicationConfigurationState struct {
 	// When the replication configuration was created.
+	// * `destination[0].file_system_id` - The fs ID of the replica.
+	// * `destination[0].status` - The status of the replication.
 	CreationTime pulumi.StringPtrInput
 	// A destination configuration block (documented below).
 	Destination ReplicationConfigurationDestinationPtrInput
@@ -177,8 +213,6 @@ type ReplicationConfigurationState struct {
 	// The ID of the file system that is to be replicated.
 	SourceFileSystemId pulumi.StringPtrInput
 	// The AWS Region in which the source Amazon EFS file system is located.
-	// * `destination[0].file_system_id` - The fs ID of the replica.
-	// * `destination[0].status` - The status of the replication.
 	SourceFileSystemRegion pulumi.StringPtrInput
 }
 
@@ -289,6 +323,8 @@ func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutputWithCont
 }
 
 // When the replication configuration was created.
+// * `destination[0].file_system_id` - The fs ID of the replica.
+// * `destination[0].status` - The status of the replication.
 func (o ReplicationConfigurationOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
@@ -314,8 +350,6 @@ func (o ReplicationConfigurationOutput) SourceFileSystemId() pulumi.StringOutput
 }
 
 // The AWS Region in which the source Amazon EFS file system is located.
-// * `destination[0].file_system_id` - The fs ID of the replica.
-// * `destination[0].status` - The status of the replication.
 func (o ReplicationConfigurationOutput) SourceFileSystemRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.SourceFileSystemRegion }).(pulumi.StringOutput)
 }

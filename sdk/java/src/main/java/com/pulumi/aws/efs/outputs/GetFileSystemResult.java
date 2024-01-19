@@ -4,12 +4,14 @@
 package com.pulumi.aws.efs.outputs;
 
 import com.pulumi.aws.efs.outputs.GetFileSystemLifecyclePolicy;
+import com.pulumi.aws.efs.outputs.GetFileSystemProtection;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -67,6 +69,7 @@ public final class GetFileSystemResult {
      * 
      */
     private String performanceMode;
+    private List<GetFileSystemProtection> protections;
     /**
      * @return The throughput, measured in MiB/s, that you want to provision for the file system.
      * 
@@ -165,6 +168,9 @@ public final class GetFileSystemResult {
     public String performanceMode() {
         return this.performanceMode;
     }
+    public List<GetFileSystemProtection> protections() {
+        return this.protections;
+    }
     /**
      * @return The throughput, measured in MiB/s, that you want to provision for the file system.
      * 
@@ -215,6 +221,7 @@ public final class GetFileSystemResult {
         private GetFileSystemLifecyclePolicy lifecyclePolicy;
         private String name;
         private String performanceMode;
+        private List<GetFileSystemProtection> protections;
         private Double provisionedThroughputInMibps;
         private Integer sizeInBytes;
         private Map<String,String> tags;
@@ -234,6 +241,7 @@ public final class GetFileSystemResult {
     	      this.lifecyclePolicy = defaults.lifecyclePolicy;
     	      this.name = defaults.name;
     	      this.performanceMode = defaults.performanceMode;
+    	      this.protections = defaults.protections;
     	      this.provisionedThroughputInMibps = defaults.provisionedThroughputInMibps;
     	      this.sizeInBytes = defaults.sizeInBytes;
     	      this.tags = defaults.tags;
@@ -337,6 +345,17 @@ public final class GetFileSystemResult {
             return this;
         }
         @CustomType.Setter
+        public Builder protections(List<GetFileSystemProtection> protections) {
+            if (protections == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "protections");
+            }
+            this.protections = protections;
+            return this;
+        }
+        public Builder protections(GetFileSystemProtection... protections) {
+            return protections(List.of(protections));
+        }
+        @CustomType.Setter
         public Builder provisionedThroughputInMibps(Double provisionedThroughputInMibps) {
             if (provisionedThroughputInMibps == null) {
               throw new MissingRequiredPropertyException("GetFileSystemResult", "provisionedThroughputInMibps");
@@ -382,6 +401,7 @@ public final class GetFileSystemResult {
             _resultValue.lifecyclePolicy = lifecyclePolicy;
             _resultValue.name = name;
             _resultValue.performanceMode = performanceMode;
+            _resultValue.protections = protections;
             _resultValue.provisionedThroughputInMibps = provisionedThroughputInMibps;
             _resultValue.sizeInBytes = sizeInBytes;
             _resultValue.tags = tags;

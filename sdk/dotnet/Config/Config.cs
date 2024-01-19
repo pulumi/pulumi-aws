@@ -402,6 +402,7 @@ namespace Pulumi.Aws
                 public string? Applicationautoscaling { get; set; } = null!;
                 public string? Applicationinsights { get; set; } = null!;
                 public string? Appmesh { get; set; } = null!;
+                public string? Appregistry { get; set; } = null!;
                 public string? Apprunner { get; set; } = null!;
                 public string? Appstream { get; set; } = null!;
                 public string? Appsync { get; set; } = null!;
@@ -509,6 +510,7 @@ namespace Pulumi.Aws
                 public string? Glue { get; set; } = null!;
                 public string? Grafana { get; set; } = null!;
                 public string? Greengrass { get; set; } = null!;
+                public string? Groundstation { get; set; } = null!;
                 public string? Guardduty { get; set; } = null!;
                 public string? Healthlake { get; set; } = null!;
                 public string? Iam { get; set; } = null!;
@@ -534,6 +536,7 @@ namespace Pulumi.Aws
                 public string? Kms { get; set; } = null!;
                 public string? Lakeformation { get; set; } = null!;
                 public string? Lambda { get; set; } = null!;
+                public string? Launchwizard { get; set; } = null!;
                 public string? Lex { get; set; } = null!;
                 public string? Lexmodelbuilding { get; set; } = null!;
                 public string? Lexmodelbuildingservice { get; set; } = null!;
@@ -570,12 +573,14 @@ namespace Pulumi.Aws
                 public string? Organizations { get; set; } = null!;
                 public string? Osis { get; set; } = null!;
                 public string? Outposts { get; set; } = null!;
+                public string? Pcaconnectorad { get; set; } = null!;
                 public string? Pinpoint { get; set; } = null!;
                 public string? Pipes { get; set; } = null!;
                 public string? Polly { get; set; } = null!;
                 public string? Pricing { get; set; } = null!;
                 public string? Prometheus { get; set; } = null!;
                 public string? Prometheusservice { get; set; } = null!;
+                public string? Qbusiness { get; set; } = null!;
                 public string? Qldb { get; set; } = null!;
                 public string? Quicksight { get; set; } = null!;
                 public string? Ram { get; set; } = null!;
@@ -612,6 +617,7 @@ namespace Pulumi.Aws
                 public string? Serverlessapprepo { get; set; } = null!;
                 public string? Serverlessrepo { get; set; } = null!;
                 public string? Servicecatalog { get; set; } = null!;
+                public string? Servicecatalogappregistry { get; set; } = null!;
                 public string? Servicediscovery { get; set; } = null!;
                 public string? Servicequotas { get; set; } = null!;
                 public string? Ses { get; set; } = null!;
@@ -625,6 +631,7 @@ namespace Pulumi.Aws
                 public string? Ssm { get; set; } = null!;
                 public string? Ssmcontacts { get; set; } = null!;
                 public string? Ssmincidents { get; set; } = null!;
+                public string? Ssmsap { get; set; } = null!;
                 public string? Sso { get; set; } = null!;
                 public string? Ssoadmin { get; set; } = null!;
                 public string? Stepfunctions { get; set; } = null!;
@@ -641,6 +648,7 @@ namespace Pulumi.Aws
                 public string? Waf { get; set; } = null!;
                 public string? Wafregional { get; set; } = null!;
                 public string? Wafv2 { get; set; } = null!;
+                public string? Wellarchitected { get; set; } = null!;
                 public string? Worklink { get; set; } = null!;
                 public string? Workspaces { get; set; } = null!;
                 public string? Xray { get; set; } = null!;

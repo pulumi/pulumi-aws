@@ -120,6 +120,10 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public readonly performanceMode!: pulumi.Output<string>;
     /**
+     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+     */
+    public readonly protection!: pulumi.Output<outputs.efs.FileSystemProtection>;
+    /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
      */
     public readonly provisionedThroughputInMibps!: pulumi.Output<number | undefined>;
@@ -167,6 +171,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["numberOfMountTargets"] = state ? state.numberOfMountTargets : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["performanceMode"] = state ? state.performanceMode : undefined;
+            resourceInputs["protection"] = state ? state.protection : undefined;
             resourceInputs["provisionedThroughputInMibps"] = state ? state.provisionedThroughputInMibps : undefined;
             resourceInputs["sizeInBytes"] = state ? state.sizeInBytes : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -180,6 +185,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["lifecyclePolicies"] = args ? args.lifecyclePolicies : undefined;
             resourceInputs["performanceMode"] = args ? args.performanceMode : undefined;
+            resourceInputs["protection"] = args ? args.protection : undefined;
             resourceInputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["throughputMode"] = args ? args.throughputMode : undefined;
@@ -255,6 +261,10 @@ export interface FileSystemState {
      */
     performanceMode?: pulumi.Input<string>;
     /**
+     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+     */
+    protection?: pulumi.Input<inputs.efs.FileSystemProtection>;
+    /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
      */
     provisionedThroughputInMibps?: pulumi.Input<number>;
@@ -309,6 +319,10 @@ export interface FileSystemArgs {
      * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */
     performanceMode?: pulumi.Input<string>;
+    /**
+     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+     */
+    protection?: pulumi.Input<inputs.efs.FileSystemProtection>;
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
      */

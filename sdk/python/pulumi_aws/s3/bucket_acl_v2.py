@@ -22,7 +22,7 @@ class BucketAclV2Args:
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BucketAclV2 resource.
-        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] bucket: Bucket to which to apply the ACL.
         :param pulumi.Input['BucketAclV2AccessControlPolicyArgs'] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
         :param pulumi.Input[str] acl: Canned ACL to apply to the bucket.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
@@ -39,7 +39,7 @@ class BucketAclV2Args:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        Name of the bucket.
+        Bucket to which to apply the ACL.
         """
         return pulumi.get(self, "bucket")
 
@@ -95,7 +95,7 @@ class _BucketAclV2State:
         Input properties used for looking up and filtering BucketAclV2 resources.
         :param pulumi.Input['BucketAclV2AccessControlPolicyArgs'] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
         :param pulumi.Input[str] acl: Canned ACL to apply to the bucket.
-        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] bucket: Bucket to which to apply the ACL.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
         if access_control_policy is not None:
@@ -135,7 +135,7 @@ class _BucketAclV2State:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the bucket.
+        Bucket to which to apply the ACL.
         """
         return pulumi.get(self, "bucket")
 
@@ -294,7 +294,7 @@ class BucketAclV2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BucketAclV2AccessControlPolicyArgs']] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
         :param pulumi.Input[str] acl: Canned ACL to apply to the bucket.
-        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] bucket: Bucket to which to apply the ACL.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
         ...
@@ -484,7 +484,7 @@ class BucketAclV2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BucketAclV2AccessControlPolicyArgs']] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
         :param pulumi.Input[str] acl: Canned ACL to apply to the bucket.
-        :param pulumi.Input[str] bucket: Name of the bucket.
+        :param pulumi.Input[str] bucket: Bucket to which to apply the ACL.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -517,7 +517,7 @@ class BucketAclV2(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
-        Name of the bucket.
+        Bucket to which to apply the ACL.
         """
         return pulumi.get(self, "bucket")
 

@@ -222,7 +222,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Boolean flag indicating whether it is possible to delete the firewall.
+        /// A flag indicating whether the firewall is protected against deletion.
         /// </summary>
         public readonly bool DeleteProtection;
         /// <summary>
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly string FirewallPolicyArn;
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated firewall policy.
+        /// A flag indicating whether the firewall is protected against a change to the firewall policy association.
         /// </summary>
         public readonly bool FirewallPolicyChangeProtection;
         /// <summary>
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated subnet(s).
+        /// A flag indicating whether the firewall is protected against changes to the subnet associations.
         /// </summary>
         public readonly bool SubnetChangeProtection;
         /// <summary>

@@ -23,6 +23,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Usage
+ * 
  * ```java
  * package generated_program;
  * 
@@ -56,6 +57,7 @@ import javax.annotation.Nullable;
  *                 .volumeName(aws_finspace_kx_volume.example().name())
  *                 .dbPaths(&#34;/*&#34;)
  *                 .build())
+ *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

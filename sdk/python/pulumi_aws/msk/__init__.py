@@ -8,6 +8,7 @@ import typing
 from .cluster import *
 from .cluster_policy import *
 from .configuration import *
+from .get_bootstrap_brokers import *
 from .get_broker_nodes import *
 from .get_cluster import *
 from .get_configuration import *

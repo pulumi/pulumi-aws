@@ -142,9 +142,13 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly lambdaMultiValueHeadersEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
+     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin`, `leastOutstandingRequests`, or `weightedRandom`. The default is `roundRobin`.
      */
     public readonly loadBalancingAlgorithmType!: pulumi.Output<string>;
+    /**
+     * Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weightedRandom` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
+     */
+    public readonly loadBalancingAnomalyMitigation!: pulumi.Output<string>;
     /**
      * Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"useLoadBalancerConfiguration"`. The default is `"useLoadBalancerConfiguration"`.
      */
@@ -246,6 +250,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["lambdaMultiValueHeadersEnabled"] = state ? state.lambdaMultiValueHeadersEnabled : undefined;
             resourceInputs["loadBalancingAlgorithmType"] = state ? state.loadBalancingAlgorithmType : undefined;
+            resourceInputs["loadBalancingAnomalyMitigation"] = state ? state.loadBalancingAnomalyMitigation : undefined;
             resourceInputs["loadBalancingCrossZoneEnabled"] = state ? state.loadBalancingCrossZoneEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
@@ -270,6 +275,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["lambdaMultiValueHeadersEnabled"] = args ? args.lambdaMultiValueHeadersEnabled : undefined;
             resourceInputs["loadBalancingAlgorithmType"] = args ? args.loadBalancingAlgorithmType : undefined;
+            resourceInputs["loadBalancingAnomalyMitigation"] = args ? args.loadBalancingAnomalyMitigation : undefined;
             resourceInputs["loadBalancingCrossZoneEnabled"] = args ? args.loadBalancingCrossZoneEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
@@ -331,9 +337,13 @@ export interface TargetGroupState {
      */
     lambdaMultiValueHeadersEnabled?: pulumi.Input<boolean>;
     /**
-     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
+     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin`, `leastOutstandingRequests`, or `weightedRandom`. The default is `roundRobin`.
      */
     loadBalancingAlgorithmType?: pulumi.Input<string>;
+    /**
+     * Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weightedRandom` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
+     */
+    loadBalancingAnomalyMitigation?: pulumi.Input<string>;
     /**
      * Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"useLoadBalancerConfiguration"`. The default is `"useLoadBalancerConfiguration"`.
      */
@@ -440,9 +450,13 @@ export interface TargetGroupArgs {
      */
     lambdaMultiValueHeadersEnabled?: pulumi.Input<boolean>;
     /**
-     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
+     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin`, `leastOutstandingRequests`, or `weightedRandom`. The default is `roundRobin`.
      */
     loadBalancingAlgorithmType?: pulumi.Input<string>;
+    /**
+     * Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weightedRandom` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
+     */
+    loadBalancingAnomalyMitigation?: pulumi.Input<string>;
     /**
      * Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"useLoadBalancerConfiguration"`. The default is `"useLoadBalancerConfiguration"`.
      */

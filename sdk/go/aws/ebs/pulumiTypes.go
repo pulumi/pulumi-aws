@@ -13,6 +13,154 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type FastSnapshotRestoreTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+}
+
+// FastSnapshotRestoreTimeoutsInput is an input type that accepts FastSnapshotRestoreTimeoutsArgs and FastSnapshotRestoreTimeoutsOutput values.
+// You can construct a concrete instance of `FastSnapshotRestoreTimeoutsInput` via:
+//
+//	FastSnapshotRestoreTimeoutsArgs{...}
+type FastSnapshotRestoreTimeoutsInput interface {
+	pulumi.Input
+
+	ToFastSnapshotRestoreTimeoutsOutput() FastSnapshotRestoreTimeoutsOutput
+	ToFastSnapshotRestoreTimeoutsOutputWithContext(context.Context) FastSnapshotRestoreTimeoutsOutput
+}
+
+type FastSnapshotRestoreTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (FastSnapshotRestoreTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastSnapshotRestoreTimeouts)(nil)).Elem()
+}
+
+func (i FastSnapshotRestoreTimeoutsArgs) ToFastSnapshotRestoreTimeoutsOutput() FastSnapshotRestoreTimeoutsOutput {
+	return i.ToFastSnapshotRestoreTimeoutsOutputWithContext(context.Background())
+}
+
+func (i FastSnapshotRestoreTimeoutsArgs) ToFastSnapshotRestoreTimeoutsOutputWithContext(ctx context.Context) FastSnapshotRestoreTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastSnapshotRestoreTimeoutsOutput)
+}
+
+func (i FastSnapshotRestoreTimeoutsArgs) ToFastSnapshotRestoreTimeoutsPtrOutput() FastSnapshotRestoreTimeoutsPtrOutput {
+	return i.ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i FastSnapshotRestoreTimeoutsArgs) ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(ctx context.Context) FastSnapshotRestoreTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastSnapshotRestoreTimeoutsOutput).ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(ctx)
+}
+
+// FastSnapshotRestoreTimeoutsPtrInput is an input type that accepts FastSnapshotRestoreTimeoutsArgs, FastSnapshotRestoreTimeoutsPtr and FastSnapshotRestoreTimeoutsPtrOutput values.
+// You can construct a concrete instance of `FastSnapshotRestoreTimeoutsPtrInput` via:
+//
+//	        FastSnapshotRestoreTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FastSnapshotRestoreTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToFastSnapshotRestoreTimeoutsPtrOutput() FastSnapshotRestoreTimeoutsPtrOutput
+	ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(context.Context) FastSnapshotRestoreTimeoutsPtrOutput
+}
+
+type fastSnapshotRestoreTimeoutsPtrType FastSnapshotRestoreTimeoutsArgs
+
+func FastSnapshotRestoreTimeoutsPtr(v *FastSnapshotRestoreTimeoutsArgs) FastSnapshotRestoreTimeoutsPtrInput {
+	return (*fastSnapshotRestoreTimeoutsPtrType)(v)
+}
+
+func (*fastSnapshotRestoreTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastSnapshotRestoreTimeouts)(nil)).Elem()
+}
+
+func (i *fastSnapshotRestoreTimeoutsPtrType) ToFastSnapshotRestoreTimeoutsPtrOutput() FastSnapshotRestoreTimeoutsPtrOutput {
+	return i.ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *fastSnapshotRestoreTimeoutsPtrType) ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(ctx context.Context) FastSnapshotRestoreTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastSnapshotRestoreTimeoutsPtrOutput)
+}
+
+type FastSnapshotRestoreTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (FastSnapshotRestoreTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastSnapshotRestoreTimeouts)(nil)).Elem()
+}
+
+func (o FastSnapshotRestoreTimeoutsOutput) ToFastSnapshotRestoreTimeoutsOutput() FastSnapshotRestoreTimeoutsOutput {
+	return o
+}
+
+func (o FastSnapshotRestoreTimeoutsOutput) ToFastSnapshotRestoreTimeoutsOutputWithContext(ctx context.Context) FastSnapshotRestoreTimeoutsOutput {
+	return o
+}
+
+func (o FastSnapshotRestoreTimeoutsOutput) ToFastSnapshotRestoreTimeoutsPtrOutput() FastSnapshotRestoreTimeoutsPtrOutput {
+	return o.ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o FastSnapshotRestoreTimeoutsOutput) ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(ctx context.Context) FastSnapshotRestoreTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastSnapshotRestoreTimeouts) *FastSnapshotRestoreTimeouts {
+		return &v
+	}).(FastSnapshotRestoreTimeoutsPtrOutput)
+}
+
+func (o FastSnapshotRestoreTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastSnapshotRestoreTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o FastSnapshotRestoreTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastSnapshotRestoreTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type FastSnapshotRestoreTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (FastSnapshotRestoreTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastSnapshotRestoreTimeouts)(nil)).Elem()
+}
+
+func (o FastSnapshotRestoreTimeoutsPtrOutput) ToFastSnapshotRestoreTimeoutsPtrOutput() FastSnapshotRestoreTimeoutsPtrOutput {
+	return o
+}
+
+func (o FastSnapshotRestoreTimeoutsPtrOutput) ToFastSnapshotRestoreTimeoutsPtrOutputWithContext(ctx context.Context) FastSnapshotRestoreTimeoutsPtrOutput {
+	return o
+}
+
+func (o FastSnapshotRestoreTimeoutsPtrOutput) Elem() FastSnapshotRestoreTimeoutsOutput {
+	return o.ApplyT(func(v *FastSnapshotRestoreTimeouts) FastSnapshotRestoreTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret FastSnapshotRestoreTimeouts
+		return ret
+	}).(FastSnapshotRestoreTimeoutsOutput)
+}
+
+func (o FastSnapshotRestoreTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastSnapshotRestoreTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FastSnapshotRestoreTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastSnapshotRestoreTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type SnapshotImportClientData struct {
 	// A user-defined comment about the disk upload.
 	Comment *string `pulumi:"comment"`
@@ -1063,6 +1211,8 @@ func (o GetVolumeFilterArrayOutput) Index(i pulumi.IntInput) GetVolumeFilterOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FastSnapshotRestoreTimeoutsInput)(nil)).Elem(), FastSnapshotRestoreTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastSnapshotRestoreTimeoutsPtrInput)(nil)).Elem(), FastSnapshotRestoreTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportClientDataInput)(nil)).Elem(), SnapshotImportClientDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportClientDataPtrInput)(nil)).Elem(), SnapshotImportClientDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportDiskContainerInput)(nil)).Elem(), SnapshotImportDiskContainerArgs{})
@@ -1077,6 +1227,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotIdsFilterArrayInput)(nil)).Elem(), GetSnapshotIdsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeFilterInput)(nil)).Elem(), GetVolumeFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeFilterArrayInput)(nil)).Elem(), GetVolumeFilterArray{})
+	pulumi.RegisterOutputType(FastSnapshotRestoreTimeoutsOutput{})
+	pulumi.RegisterOutputType(FastSnapshotRestoreTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotImportClientDataOutput{})
 	pulumi.RegisterOutputType(SnapshotImportClientDataPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotImportDiskContainerOutput{})

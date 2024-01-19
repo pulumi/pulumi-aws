@@ -4,6 +4,8 @@
 package com.pulumi.aws.msk;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.msk.inputs.GetBootstrapBrokersArgs;
+import com.pulumi.aws.msk.inputs.GetBootstrapBrokersPlainArgs;
 import com.pulumi.aws.msk.inputs.GetBrokerNodesArgs;
 import com.pulumi.aws.msk.inputs.GetBrokerNodesPlainArgs;
 import com.pulumi.aws.msk.inputs.GetClusterArgs;
@@ -14,6 +16,7 @@ import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
 import com.pulumi.aws.msk.inputs.GetKafkaVersionPlainArgs;
 import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
 import com.pulumi.aws.msk.inputs.GetVpcConnectionPlainArgs;
+import com.pulumi.aws.msk.outputs.GetBootstrapBrokersResult;
 import com.pulumi.aws.msk.outputs.GetBrokerNodesResult;
 import com.pulumi.aws.msk.outputs.GetClusterResult;
 import com.pulumi.aws.msk.outputs.GetConfigurationResult;
@@ -26,6 +29,158 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class MskFunctions {
+    /**
+     * Get a list of brokers that a client application can use to bootstrap.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
+     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetBootstrapBrokersResult> getBootstrapBrokers(GetBootstrapBrokersArgs args) {
+        return getBootstrapBrokers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a list of brokers that a client application can use to bootstrap.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
+     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetBootstrapBrokersResult> getBootstrapBrokersPlain(GetBootstrapBrokersPlainArgs args) {
+        return getBootstrapBrokersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a list of brokers that a client application can use to bootstrap.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
+     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetBootstrapBrokersResult> getBootstrapBrokers(GetBootstrapBrokersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:msk/getBootstrapBrokers:getBootstrapBrokers", TypeShape.of(GetBootstrapBrokersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a list of brokers that a client application can use to bootstrap.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
+     *             .clusterArn(aws_msk_cluster.example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetBootstrapBrokersResult> getBootstrapBrokersPlain(GetBootstrapBrokersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:msk/getBootstrapBrokers:getBootstrapBrokers", TypeShape.of(GetBootstrapBrokersResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Get information on an Amazon MSK Broker Nodes.
      * 

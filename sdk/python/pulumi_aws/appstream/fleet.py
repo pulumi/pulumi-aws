@@ -44,7 +44,7 @@ class FleetArgs:
         :param pulumi.Input[bool] enable_default_internet_access: Enables or disables default internet access for the fleet.
         :param pulumi.Input[str] fleet_type: Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
         :param pulumi.Input[str] iam_role_arn: ARN of the IAM role to apply to the fleet.
-        :param pulumi.Input[int] idle_disconnect_timeout_in_seconds: Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+        :param pulumi.Input[int] idle_disconnect_timeout_in_seconds: Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
         :param pulumi.Input[str] image_name: Name of the image used to create the fleet.
         :param pulumi.Input[int] max_user_duration_in_seconds: Maximum amount of time that a streaming session can remain active, in seconds.
@@ -200,7 +200,7 @@ class FleetArgs:
     @pulumi.getter(name="idleDisconnectTimeoutInSeconds")
     def idle_disconnect_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+        Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
         """
         return pulumi.get(self, "idle_disconnect_timeout_in_seconds")
 
@@ -331,7 +331,7 @@ class _FleetState:
         :param pulumi.Input[bool] enable_default_internet_access: Enables or disables default internet access for the fleet.
         :param pulumi.Input[str] fleet_type: Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
         :param pulumi.Input[str] iam_role_arn: ARN of the IAM role to apply to the fleet.
-        :param pulumi.Input[int] idle_disconnect_timeout_in_seconds: Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+        :param pulumi.Input[int] idle_disconnect_timeout_in_seconds: Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
         :param pulumi.Input[str] image_name: Name of the image used to create the fleet.
         :param pulumi.Input[str] instance_type: Instance type to use when launching fleet instances.
@@ -514,7 +514,7 @@ class _FleetState:
     @pulumi.getter(name="idleDisconnectTimeoutInSeconds")
     def idle_disconnect_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+        Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
         """
         return pulumi.get(self, "idle_disconnect_timeout_in_seconds")
 
@@ -715,7 +715,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_default_internet_access: Enables or disables default internet access for the fleet.
         :param pulumi.Input[str] fleet_type: Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
         :param pulumi.Input[str] iam_role_arn: ARN of the IAM role to apply to the fleet.
-        :param pulumi.Input[int] idle_disconnect_timeout_in_seconds: Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+        :param pulumi.Input[int] idle_disconnect_timeout_in_seconds: Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
         :param pulumi.Input[str] image_name: Name of the image used to create the fleet.
         :param pulumi.Input[str] instance_type: Instance type to use when launching fleet instances.
@@ -886,7 +886,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_default_internet_access: Enables or disables default internet access for the fleet.
         :param pulumi.Input[str] fleet_type: Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
         :param pulumi.Input[str] iam_role_arn: ARN of the IAM role to apply to the fleet.
-        :param pulumi.Input[int] idle_disconnect_timeout_in_seconds: Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+        :param pulumi.Input[int] idle_disconnect_timeout_in_seconds: Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
         :param pulumi.Input[str] image_name: Name of the image used to create the fleet.
         :param pulumi.Input[str] instance_type: Instance type to use when launching fleet instances.
@@ -1010,7 +1010,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="idleDisconnectTimeoutInSeconds")
     def idle_disconnect_timeout_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
+        Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
         """
         return pulumi.get(self, "idle_disconnect_timeout_in_seconds")
 

@@ -65,6 +65,9 @@ export class Group extends pulumi.CustomResource {
      * AWS account number owning this resource.
      */
     public /*out*/ readonly owner!: pulumi.Output<string>;
+    /**
+     * The policy document that is associated with this resource.
+     */
     public readonly policyDocument!: pulumi.Output<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -161,6 +164,9 @@ export interface GroupState {
      * AWS account number owning this resource.
      */
     owner?: pulumi.Input<string>;
+    /**
+     * The policy document that is associated with this resource.
+     */
     policyDocument?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -194,6 +200,9 @@ export interface GroupArgs {
      * Description of the verified access group.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The policy document that is associated with this resource.
+     */
     policyDocument?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

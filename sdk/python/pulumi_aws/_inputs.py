@@ -261,6 +261,7 @@ class ProviderEndpointArgs:
                  applicationautoscaling: Optional[pulumi.Input[str]] = None,
                  applicationinsights: Optional[pulumi.Input[str]] = None,
                  appmesh: Optional[pulumi.Input[str]] = None,
+                 appregistry: Optional[pulumi.Input[str]] = None,
                  apprunner: Optional[pulumi.Input[str]] = None,
                  appstream: Optional[pulumi.Input[str]] = None,
                  appsync: Optional[pulumi.Input[str]] = None,
@@ -368,6 +369,7 @@ class ProviderEndpointArgs:
                  glue: Optional[pulumi.Input[str]] = None,
                  grafana: Optional[pulumi.Input[str]] = None,
                  greengrass: Optional[pulumi.Input[str]] = None,
+                 groundstation: Optional[pulumi.Input[str]] = None,
                  guardduty: Optional[pulumi.Input[str]] = None,
                  healthlake: Optional[pulumi.Input[str]] = None,
                  iam: Optional[pulumi.Input[str]] = None,
@@ -393,6 +395,7 @@ class ProviderEndpointArgs:
                  kms: Optional[pulumi.Input[str]] = None,
                  lakeformation: Optional[pulumi.Input[str]] = None,
                  lambda_: Optional[pulumi.Input[str]] = None,
+                 launchwizard: Optional[pulumi.Input[str]] = None,
                  lex: Optional[pulumi.Input[str]] = None,
                  lexmodelbuilding: Optional[pulumi.Input[str]] = None,
                  lexmodelbuildingservice: Optional[pulumi.Input[str]] = None,
@@ -429,12 +432,14 @@ class ProviderEndpointArgs:
                  organizations: Optional[pulumi.Input[str]] = None,
                  osis: Optional[pulumi.Input[str]] = None,
                  outposts: Optional[pulumi.Input[str]] = None,
+                 pcaconnectorad: Optional[pulumi.Input[str]] = None,
                  pinpoint: Optional[pulumi.Input[str]] = None,
                  pipes: Optional[pulumi.Input[str]] = None,
                  polly: Optional[pulumi.Input[str]] = None,
                  pricing: Optional[pulumi.Input[str]] = None,
                  prometheus: Optional[pulumi.Input[str]] = None,
                  prometheusservice: Optional[pulumi.Input[str]] = None,
+                 qbusiness: Optional[pulumi.Input[str]] = None,
                  qldb: Optional[pulumi.Input[str]] = None,
                  quicksight: Optional[pulumi.Input[str]] = None,
                  ram: Optional[pulumi.Input[str]] = None,
@@ -471,6 +476,7 @@ class ProviderEndpointArgs:
                  serverlessapprepo: Optional[pulumi.Input[str]] = None,
                  serverlessrepo: Optional[pulumi.Input[str]] = None,
                  servicecatalog: Optional[pulumi.Input[str]] = None,
+                 servicecatalogappregistry: Optional[pulumi.Input[str]] = None,
                  servicediscovery: Optional[pulumi.Input[str]] = None,
                  servicequotas: Optional[pulumi.Input[str]] = None,
                  ses: Optional[pulumi.Input[str]] = None,
@@ -484,6 +490,7 @@ class ProviderEndpointArgs:
                  ssm: Optional[pulumi.Input[str]] = None,
                  ssmcontacts: Optional[pulumi.Input[str]] = None,
                  ssmincidents: Optional[pulumi.Input[str]] = None,
+                 ssmsap: Optional[pulumi.Input[str]] = None,
                  sso: Optional[pulumi.Input[str]] = None,
                  ssoadmin: Optional[pulumi.Input[str]] = None,
                  stepfunctions: Optional[pulumi.Input[str]] = None,
@@ -500,6 +507,7 @@ class ProviderEndpointArgs:
                  waf: Optional[pulumi.Input[str]] = None,
                  wafregional: Optional[pulumi.Input[str]] = None,
                  wafv2: Optional[pulumi.Input[str]] = None,
+                 wellarchitected: Optional[pulumi.Input[str]] = None,
                  worklink: Optional[pulumi.Input[str]] = None,
                  workspaces: Optional[pulumi.Input[str]] = None,
                  xray: Optional[pulumi.Input[str]] = None):
@@ -539,6 +547,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "applicationinsights", applicationinsights)
         if appmesh is not None:
             pulumi.set(__self__, "appmesh", appmesh)
+        if appregistry is not None:
+            pulumi.set(__self__, "appregistry", appregistry)
         if apprunner is not None:
             pulumi.set(__self__, "apprunner", apprunner)
         if appstream is not None:
@@ -753,6 +763,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "grafana", grafana)
         if greengrass is not None:
             pulumi.set(__self__, "greengrass", greengrass)
+        if groundstation is not None:
+            pulumi.set(__self__, "groundstation", groundstation)
         if guardduty is not None:
             pulumi.set(__self__, "guardduty", guardduty)
         if healthlake is not None:
@@ -803,6 +815,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "lakeformation", lakeformation)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+        if launchwizard is not None:
+            pulumi.set(__self__, "launchwizard", launchwizard)
         if lex is not None:
             pulumi.set(__self__, "lex", lex)
         if lexmodelbuilding is not None:
@@ -875,6 +889,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "osis", osis)
         if outposts is not None:
             pulumi.set(__self__, "outposts", outposts)
+        if pcaconnectorad is not None:
+            pulumi.set(__self__, "pcaconnectorad", pcaconnectorad)
         if pinpoint is not None:
             pulumi.set(__self__, "pinpoint", pinpoint)
         if pipes is not None:
@@ -887,6 +903,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "prometheus", prometheus)
         if prometheusservice is not None:
             pulumi.set(__self__, "prometheusservice", prometheusservice)
+        if qbusiness is not None:
+            pulumi.set(__self__, "qbusiness", qbusiness)
         if qldb is not None:
             pulumi.set(__self__, "qldb", qldb)
         if quicksight is not None:
@@ -959,6 +977,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "serverlessrepo", serverlessrepo)
         if servicecatalog is not None:
             pulumi.set(__self__, "servicecatalog", servicecatalog)
+        if servicecatalogappregistry is not None:
+            pulumi.set(__self__, "servicecatalogappregistry", servicecatalogappregistry)
         if servicediscovery is not None:
             pulumi.set(__self__, "servicediscovery", servicediscovery)
         if servicequotas is not None:
@@ -985,6 +1005,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "ssmcontacts", ssmcontacts)
         if ssmincidents is not None:
             pulumi.set(__self__, "ssmincidents", ssmincidents)
+        if ssmsap is not None:
+            pulumi.set(__self__, "ssmsap", ssmsap)
         if sso is not None:
             pulumi.set(__self__, "sso", sso)
         if ssoadmin is not None:
@@ -1017,6 +1039,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "wafregional", wafregional)
         if wafv2 is not None:
             pulumi.set(__self__, "wafv2", wafv2)
+        if wellarchitected is not None:
+            pulumi.set(__self__, "wellarchitected", wellarchitected)
         if worklink is not None:
             pulumi.set(__self__, "worklink", worklink)
         if workspaces is not None:
@@ -1185,6 +1209,15 @@ class ProviderEndpointArgs:
     @appmesh.setter
     def appmesh(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "appmesh", value)
+
+    @property
+    @pulumi.getter
+    def appregistry(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "appregistry")
+
+    @appregistry.setter
+    def appregistry(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "appregistry", value)
 
     @property
     @pulumi.getter
@@ -2151,6 +2184,15 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def groundstation(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "groundstation")
+
+    @groundstation.setter
+    def groundstation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "groundstation", value)
+
+    @property
+    @pulumi.getter
     def guardduty(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "guardduty")
 
@@ -2373,6 +2415,15 @@ class ProviderEndpointArgs:
     @lambda_.setter
     def lambda_(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "lambda_", value)
+
+    @property
+    @pulumi.getter
+    def launchwizard(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "launchwizard")
+
+    @launchwizard.setter
+    def launchwizard(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "launchwizard", value)
 
     @property
     @pulumi.getter
@@ -2700,6 +2751,15 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def pcaconnectorad(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "pcaconnectorad")
+
+    @pcaconnectorad.setter
+    def pcaconnectorad(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pcaconnectorad", value)
+
+    @property
+    @pulumi.getter
     def pinpoint(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "pinpoint")
 
@@ -2751,6 +2811,15 @@ class ProviderEndpointArgs:
     @prometheusservice.setter
     def prometheusservice(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "prometheusservice", value)
+
+    @property
+    @pulumi.getter
+    def qbusiness(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "qbusiness")
+
+    @qbusiness.setter
+    def qbusiness(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "qbusiness", value)
 
     @property
     @pulumi.getter
@@ -3078,6 +3147,15 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def servicecatalogappregistry(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "servicecatalogappregistry")
+
+    @servicecatalogappregistry.setter
+    def servicecatalogappregistry(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "servicecatalogappregistry", value)
+
+    @property
+    @pulumi.getter
     def servicediscovery(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "servicediscovery")
 
@@ -3192,6 +3270,15 @@ class ProviderEndpointArgs:
     @ssmincidents.setter
     def ssmincidents(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ssmincidents", value)
+
+    @property
+    @pulumi.getter
+    def ssmsap(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ssmsap")
+
+    @ssmsap.setter
+    def ssmsap(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssmsap", value)
 
     @property
     @pulumi.getter
@@ -3336,6 +3423,15 @@ class ProviderEndpointArgs:
     @wafv2.setter
     def wafv2(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "wafv2", value)
+
+    @property
+    @pulumi.getter
+    def wellarchitected(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "wellarchitected")
+
+    @wellarchitected.setter
+    def wellarchitected(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "wellarchitected", value)
 
     @property
     @pulumi.getter

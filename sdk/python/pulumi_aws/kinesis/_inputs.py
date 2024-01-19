@@ -77,6 +77,7 @@ __all__ = [
     'FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs',
     'FirehoseDeliveryStreamOpensearchConfigurationArgs',
     'FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs',
+    'FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs',
     'FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs',
     'FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs',
     'FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs',
@@ -1383,7 +1384,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationArgs:
         :param pulumi.Input[str] index_name: The Elasticsearch index name.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
         :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs'] s3_configuration: The S3 Configuration. See s3_configuration for more details.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input[str] cluster_endpoint: The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
@@ -1461,7 +1462,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -1729,9 +1730,6 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
                  parameter_value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-        :param pulumi.Input[str] parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-               
-               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -1751,11 +1749,6 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
-        """
-        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-
-        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
@@ -1778,7 +1771,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs:
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
         :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
@@ -1832,7 +1825,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -2053,7 +2046,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
         :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
@@ -2122,7 +2115,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -3084,9 +3077,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
                  parameter_value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-        :param pulumi.Input[str] parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-               
-               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -3106,11 +3096,6 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
-        """
-        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-
-        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
@@ -3133,7 +3118,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
         :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
@@ -3187,7 +3172,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -3660,9 +3645,6 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProc
                  parameter_value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-        :param pulumi.Input[str] parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-               
-               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -3682,11 +3664,6 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProc
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
-        """
-        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-
-        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
@@ -3785,7 +3762,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs:
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
         :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
@@ -3839,7 +3816,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -4112,6 +4089,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationArgs:
                  buffering_size: Optional[pulumi.Input[int]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs']] = None,
                  cluster_endpoint: Optional[pulumi.Input[str]] = None,
+                 document_id_options: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs']] = None,
                  domain_arn: Optional[pulumi.Input[str]] = None,
                  index_rotation_period: Optional[pulumi.Input[str]] = None,
                  processing_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs']] = None,
@@ -4123,17 +4101,18 @@ class FirehoseDeliveryStreamOpensearchConfigurationArgs:
         :param pulumi.Input[str] index_name: The OpenSearch index name.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs'] s3_configuration: The S3 Configuration. See s3_configuration for more details.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-        :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
+        :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below.
         :param pulumi.Input[str] cluster_endpoint: The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
+        :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs'] document_id_options: The method for setting up document ID. More details are given below.
         :param pulumi.Input[str] domain_arn: The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
         :param pulumi.Input[str] index_rotation_period: The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
-        :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs'] processing_configuration: The data processing configuration.  More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs'] processing_configuration: The data processing configuration. More details are given below.
         :param pulumi.Input[int] retry_duration: After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
         :param pulumi.Input[str] s3_backup_mode: Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
         :param pulumi.Input[str] type_name: The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
-        :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs'] vpc_config: The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+        :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs'] vpc_config: The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
         """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -4146,6 +4125,8 @@ class FirehoseDeliveryStreamOpensearchConfigurationArgs:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
         if cluster_endpoint is not None:
             pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
+        if document_id_options is not None:
+            pulumi.set(__self__, "document_id_options", document_id_options)
         if domain_arn is not None:
             pulumi.set(__self__, "domain_arn", domain_arn)
         if index_rotation_period is not None:
@@ -4201,7 +4182,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -4225,7 +4206,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationArgs:
     @pulumi.getter(name="cloudwatchLoggingOptions")
     def cloudwatch_logging_options(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs']]:
         """
-        The CloudWatch Logging Options for the delivery stream. More details are given below
+        The CloudWatch Logging Options for the delivery stream. More details are given below.
         """
         return pulumi.get(self, "cloudwatch_logging_options")
 
@@ -4244,6 +4225,18 @@ class FirehoseDeliveryStreamOpensearchConfigurationArgs:
     @cluster_endpoint.setter
     def cluster_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_endpoint", value)
+
+    @property
+    @pulumi.getter(name="documentIdOptions")
+    def document_id_options(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs']]:
+        """
+        The method for setting up document ID. More details are given below.
+        """
+        return pulumi.get(self, "document_id_options")
+
+    @document_id_options.setter
+    def document_id_options(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs']]):
+        pulumi.set(self, "document_id_options", value)
 
     @property
     @pulumi.getter(name="domainArn")
@@ -4273,7 +4266,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationArgs:
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs']]:
         """
-        The data processing configuration.  More details are given below.
+        The data processing configuration. More details are given below.
         """
         return pulumi.get(self, "processing_configuration")
 
@@ -4321,7 +4314,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationArgs:
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs']]:
         """
-        The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+        The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
         """
         return pulumi.get(self, "vpc_config")
 
@@ -4383,6 +4376,28 @@ class FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs:
     @log_stream_name.setter
     def log_stream_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_stream_name", value)
+
+
+@pulumi.input_type
+class FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs:
+    def __init__(__self__, *,
+                 default_document_id_format: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] default_document_id_format: The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
+        """
+        pulumi.set(__self__, "default_document_id_format", default_document_id_format)
+
+    @property
+    @pulumi.getter(name="defaultDocumentIdFormat")
+    def default_document_id_format(self) -> pulumi.Input[str]:
+        """
+        The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
+        """
+        return pulumi.get(self, "default_document_id_format")
+
+    @default_document_id_format.setter
+    def default_document_id_format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "default_document_id_format", value)
 
 
 @pulumi.input_type
@@ -4469,9 +4484,6 @@ class FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProces
                  parameter_value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-        :param pulumi.Input[str] parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-               
-               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -4491,11 +4503,6 @@ class FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProces
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
-        """
-        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-
-        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
@@ -4518,7 +4525,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs:
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
         :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
@@ -4572,7 +4579,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -4792,7 +4799,7 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs:
         :param pulumi.Input[str] index_name: The Serverless offering for Amazon OpenSearch Service index name.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs'] s3_configuration: The S3 Configuration. See s3_configuration for more details.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs'] processing_configuration: The data processing configuration.  More details are given below.
@@ -4871,7 +4878,7 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -5091,9 +5098,6 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigura
                  parameter_value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-        :param pulumi.Input[str] parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-               
-               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -5113,11 +5117,6 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigura
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
-        """
-        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-
-        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
@@ -5140,7 +5139,7 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
         :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
@@ -5194,7 +5193,7 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -5743,9 +5742,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
                  parameter_value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-        :param pulumi.Input[str] parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-               
-               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -5765,11 +5761,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
-        """
-        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-
-        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
@@ -5792,7 +5783,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
         :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
@@ -5846,7 +5837,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -5998,7 +5989,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs:
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
         :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
@@ -6052,7 +6043,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         """
         return pulumi.get(self, "buffering_interval")
 
@@ -6254,6 +6245,8 @@ class FirehoseDeliveryStreamSplunkConfigurationArgs:
                  hec_endpoint: pulumi.Input[str],
                  hec_token: pulumi.Input[str],
                  s3_configuration: pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs'],
+                 buffering_interval: Optional[pulumi.Input[int]] = None,
+                 buffering_size: Optional[pulumi.Input[int]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs']] = None,
                  hec_acknowledgment_timeout: Optional[pulumi.Input[int]] = None,
                  hec_endpoint_type: Optional[pulumi.Input[str]] = None,
@@ -6264,6 +6257,8 @@ class FirehoseDeliveryStreamSplunkConfigurationArgs:
         :param pulumi.Input[str] hec_endpoint: The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
         :param pulumi.Input[str] hec_token: The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
         :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs'] s3_configuration: The S3 Configuration. See s3_configuration for more details.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
         :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below.
         :param pulumi.Input[int] hec_acknowledgment_timeout: The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
         :param pulumi.Input[str] hec_endpoint_type: The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
@@ -6274,6 +6269,10 @@ class FirehoseDeliveryStreamSplunkConfigurationArgs:
         pulumi.set(__self__, "hec_endpoint", hec_endpoint)
         pulumi.set(__self__, "hec_token", hec_token)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
+        if buffering_interval is not None:
+            pulumi.set(__self__, "buffering_interval", buffering_interval)
+        if buffering_size is not None:
+            pulumi.set(__self__, "buffering_size", buffering_size)
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
         if hec_acknowledgment_timeout is not None:
@@ -6322,6 +6321,30 @@ class FirehoseDeliveryStreamSplunkConfigurationArgs:
     @s3_configuration.setter
     def s3_configuration(self, value: pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs']):
         pulumi.set(self, "s3_configuration", value)
+
+    @property
+    @pulumi.getter(name="bufferingInterval")
+    def buffering_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        """
+        return pulumi.get(self, "buffering_interval")
+
+    @buffering_interval.setter
+    def buffering_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffering_interval", value)
+
+    @property
+    @pulumi.getter(name="bufferingSize")
+    def buffering_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        """
+        return pulumi.get(self, "buffering_size")
+
+    @buffering_size.setter
+    def buffering_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffering_size", value)
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
@@ -6535,9 +6558,6 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorP
                  parameter_value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-        :param pulumi.Input[str] parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-               
-               > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -6557,11 +6577,6 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorP
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
-        """
-        Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-
-        > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
@@ -6584,7 +6599,7 @@ class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs:
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
         :param pulumi.Input[str] role_arn: The ARN of the role used to access the Amazon MSK cluster.
-        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
@@ -6638,7 +6653,7 @@ class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs:
     @pulumi.getter(name="bufferingInterval")
     def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         """
         return pulumi.get(self, "buffering_interval")
 

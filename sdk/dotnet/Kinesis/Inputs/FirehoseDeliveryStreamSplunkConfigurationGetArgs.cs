@@ -13,6 +13,18 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamSplunkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+        /// </summary>
+        [Input("bufferingInterval")]
+        public Input<int>? BufferingInterval { get; set; }
+
+        /// <summary>
+        /// Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+        /// </summary>
+        [Input("bufferingSize")]
+        public Input<int>? BufferingSize { get; set; }
+
+        /// <summary>
         /// The CloudWatch Logging Options for the delivery stream. More details are given below.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]

@@ -98,6 +98,12 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
             set => _statelessRuleGroupReferences = value;
         }
 
+        /// <summary>
+        /// The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
+        /// </summary>
+        [Input("tlsInspectionConfigurationArn")]
+        public Input<string>? TlsInspectionConfigurationArn { get; set; }
+
         public FirewallPolicyFirewallPolicyGetArgs()
         {
         }

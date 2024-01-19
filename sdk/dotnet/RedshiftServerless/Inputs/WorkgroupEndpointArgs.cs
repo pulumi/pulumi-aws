@@ -19,7 +19,7 @@ namespace Pulumi.Aws.RedshiftServerless.Inputs
         public Input<string>? Address { get; set; }
 
         /// <summary>
-        /// The port that Amazon Redshift Serverless listens on.
+        /// The port number on which the cluster accepts incoming connections.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

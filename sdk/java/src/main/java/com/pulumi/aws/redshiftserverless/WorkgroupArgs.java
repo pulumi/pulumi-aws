@@ -82,6 +82,21 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The port number on which the cluster accepts incoming connections.
+     * 
+     */
+    @Import(name="port")
+    private @Nullable Output<Integer> port;
+
+    /**
+     * @return The port number on which the cluster accepts incoming connections.
+     * 
+     */
+    public Optional<Output<Integer>> port() {
+        return Optional.ofNullable(this.port);
+    }
+
+    /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      * 
      */
@@ -167,6 +182,7 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         this.configParameters = $.configParameters;
         this.enhancedVpcRouting = $.enhancedVpcRouting;
         this.namespaceName = $.namespaceName;
+        this.port = $.port;
         this.publiclyAccessible = $.publiclyAccessible;
         this.securityGroupIds = $.securityGroupIds;
         this.subnetIds = $.subnetIds;
@@ -284,6 +300,27 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder namespaceName(String namespaceName) {
             return namespaceName(Output.of(namespaceName));
+        }
+
+        /**
+         * @param port The port number on which the cluster accepts incoming connections.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(@Nullable Output<Integer> port) {
+            $.port = port;
+            return this;
+        }
+
+        /**
+         * @param port The port number on which the cluster accepts incoming connections.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(Integer port) {
+            return port(Output.of(port));
         }
 
         /**

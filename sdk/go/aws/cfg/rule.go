@@ -231,9 +231,9 @@ type Rule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the config rule
 	RuleId pulumi.StringOutput `pulumi:"ruleId"`
-	// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+	// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
 	Scope RuleScopePtrOutput `pulumi:"scope"`
-	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
 	Source RuleSourceOutput `pulumi:"source"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -294,9 +294,9 @@ type ruleState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the config rule
 	RuleId *string `pulumi:"ruleId"`
-	// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+	// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
 	Scope *RuleScope `pulumi:"scope"`
-	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
 	Source *RuleSource `pulumi:"source"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -321,9 +321,9 @@ type RuleState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the config rule
 	RuleId pulumi.StringPtrInput
-	// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+	// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
 	Scope RuleScopePtrInput
-	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
 	Source RuleSourcePtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -348,9 +348,9 @@ type ruleArgs struct {
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name *string `pulumi:"name"`
-	// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+	// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
 	Scope *RuleScope `pulumi:"scope"`
-	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
 	Source RuleSource `pulumi:"source"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -368,9 +368,9 @@ type RuleArgs struct {
 	MaximumExecutionFrequency pulumi.StringPtrInput
 	// The name of the rule
 	Name pulumi.StringPtrInput
-	// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+	// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
 	Scope RuleScopePtrInput
-	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
 	Source RuleSourceInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -498,12 +498,12 @@ func (o RuleOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.RuleId }).(pulumi.StringOutput)
 }
 
-// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
 func (o RuleOutput) Scope() RuleScopePtrOutput {
 	return o.ApplyT(func(v *Rule) RuleScopePtrOutput { return v.Scope }).(RuleScopePtrOutput)
 }
 
-// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
 func (o RuleOutput) Source() RuleSourceOutput {
 	return o.ApplyT(func(v *Rule) RuleSourceOutput { return v.Source }).(RuleSourceOutput)
 }

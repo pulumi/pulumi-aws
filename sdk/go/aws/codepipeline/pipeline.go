@@ -158,9 +158,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "codepipelineBucketAcl", &s3.BucketAclV2Args{
-//				Bucket: codepipelineBucket.ID(),
-//				Acl:    pulumi.String("private"),
+//			_, err = s3.NewBucketPublicAccessBlock(ctx, "codepipelineBucketPab", &s3.BucketPublicAccessBlockArgs{
+//				Bucket:                codepipelineBucket.ID(),
+//				BlockPublicAcls:       pulumi.Bool(true),
+//				BlockPublicPolicy:     pulumi.Bool(true),
+//				IgnorePublicAcls:      pulumi.Bool(true),
+//				RestrictPublicBuckets: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -237,6 +240,8 @@ type Pipeline struct {
 	ArtifactStores PipelineArtifactStoreArrayOutput `pulumi:"artifactStores"`
 	// The name of the pipeline.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+	PipelineType pulumi.StringPtrOutput `pulumi:"pipelineType"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
@@ -247,6 +252,8 @@ type Pipeline struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+	Variables PipelineVariableArrayOutput `pulumi:"variables"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
@@ -298,6 +305,8 @@ type pipelineState struct {
 	ArtifactStores []PipelineArtifactStore `pulumi:"artifactStores"`
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
+	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+	PipelineType *string `pulumi:"pipelineType"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
@@ -308,6 +317,8 @@ type pipelineState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+	Variables []PipelineVariable `pulumi:"variables"`
 }
 
 type PipelineState struct {
@@ -317,6 +328,8 @@ type PipelineState struct {
 	ArtifactStores PipelineArtifactStoreArrayInput
 	// The name of the pipeline.
 	Name pulumi.StringPtrInput
+	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+	PipelineType pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// A stage block. Stages are documented below.
@@ -327,6 +340,8 @@ type PipelineState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+	Variables PipelineVariableArrayInput
 }
 
 func (PipelineState) ElementType() reflect.Type {
@@ -338,12 +353,16 @@ type pipelineArgs struct {
 	ArtifactStores []PipelineArtifactStore `pulumi:"artifactStores"`
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
+	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+	PipelineType *string `pulumi:"pipelineType"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
 	Stages []PipelineStage `pulumi:"stages"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+	Variables []PipelineVariable `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
@@ -352,12 +371,16 @@ type PipelineArgs struct {
 	ArtifactStores PipelineArtifactStoreArrayInput
 	// The name of the pipeline.
 	Name pulumi.StringPtrInput
+	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+	PipelineType pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringInput
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+	Variables PipelineVariableArrayInput
 }
 
 func (PipelineArgs) ElementType() reflect.Type {
@@ -462,6 +485,11 @@ func (o PipelineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+func (o PipelineOutput) PipelineType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.PipelineType }).(pulumi.StringPtrOutput)
+}
+
 // A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 func (o PipelineOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
@@ -482,6 +510,11 @@ func (o PipelineOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: Please use `tags` instead.
 func (o PipelineOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+func (o PipelineOutput) Variables() PipelineVariableArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineVariableArrayOutput { return v.Variables }).(PipelineVariableArrayOutput)
 }
 
 type PipelineArrayOutput struct{ *pulumi.OutputState }

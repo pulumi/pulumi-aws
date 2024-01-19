@@ -22,6 +22,7 @@ public final class GetFirewallPolicyFirewallPolicy {
     private List<String> statelessDefaultActions;
     private List<String> statelessFragmentDefaultActions;
     private List<GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences;
+    private String tlsInspectionConfigurationArn;
 
     private GetFirewallPolicyFirewallPolicy() {}
     public List<String> statefulDefaultActions() {
@@ -45,6 +46,9 @@ public final class GetFirewallPolicyFirewallPolicy {
     public List<GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences() {
         return this.statelessRuleGroupReferences;
     }
+    public String tlsInspectionConfigurationArn() {
+        return this.tlsInspectionConfigurationArn;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -62,6 +66,7 @@ public final class GetFirewallPolicyFirewallPolicy {
         private List<String> statelessDefaultActions;
         private List<String> statelessFragmentDefaultActions;
         private List<GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences;
+        private String tlsInspectionConfigurationArn;
         public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicy defaults) {
     	      Objects.requireNonNull(defaults);
@@ -72,6 +77,7 @@ public final class GetFirewallPolicyFirewallPolicy {
     	      this.statelessDefaultActions = defaults.statelessDefaultActions;
     	      this.statelessFragmentDefaultActions = defaults.statelessFragmentDefaultActions;
     	      this.statelessRuleGroupReferences = defaults.statelessRuleGroupReferences;
+    	      this.tlsInspectionConfigurationArn = defaults.tlsInspectionConfigurationArn;
         }
 
         @CustomType.Setter
@@ -151,6 +157,14 @@ public final class GetFirewallPolicyFirewallPolicy {
         public Builder statelessRuleGroupReferences(GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference... statelessRuleGroupReferences) {
             return statelessRuleGroupReferences(List.of(statelessRuleGroupReferences));
         }
+        @CustomType.Setter
+        public Builder tlsInspectionConfigurationArn(String tlsInspectionConfigurationArn) {
+            if (tlsInspectionConfigurationArn == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicy", "tlsInspectionConfigurationArn");
+            }
+            this.tlsInspectionConfigurationArn = tlsInspectionConfigurationArn;
+            return this;
+        }
         public GetFirewallPolicyFirewallPolicy build() {
             final var _resultValue = new GetFirewallPolicyFirewallPolicy();
             _resultValue.statefulDefaultActions = statefulDefaultActions;
@@ -160,6 +174,7 @@ public final class GetFirewallPolicyFirewallPolicy {
             _resultValue.statelessDefaultActions = statelessDefaultActions;
             _resultValue.statelessFragmentDefaultActions = statelessFragmentDefaultActions;
             _resultValue.statelessRuleGroupReferences = statelessRuleGroupReferences;
+            _resultValue.tlsInspectionConfigurationArn = tlsInspectionConfigurationArn;
             return _resultValue;
         }
     }

@@ -94,9 +94,12 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const codepipelineBucketAcl = new aws.s3.BucketAclV2("codepipelineBucketAcl", {
+ * const codepipelineBucketPab = new aws.s3.BucketPublicAccessBlock("codepipelineBucketPab", {
  *     bucket: codepipelineBucket.id,
- *     acl: "private",
+ *     blockPublicAcls: true,
+ *     blockPublicPolicy: true,
+ *     ignorePublicAcls: true,
+ *     restrictPublicBuckets: true,
  * });
  * const codepipelinePolicyPolicyDocument = aws.iam.getPolicyDocumentOutput({
  *     statements: [
@@ -184,6 +187,10 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+     */
+    public readonly pipelineType!: pulumi.Output<string | undefined>;
+    /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -201,6 +208,10 @@ export class Pipeline extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+     */
+    public readonly variables!: pulumi.Output<outputs.codepipeline.PipelineVariable[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -218,10 +229,12 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["artifactStores"] = state ? state.artifactStores : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pipelineType"] = state ? state.pipelineType : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["stages"] = state ? state.stages : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
             if ((!args || args.artifactStores === undefined) && !opts.urn) {
@@ -235,9 +248,11 @@ export class Pipeline extends pulumi.CustomResource {
             }
             resourceInputs["artifactStores"] = args ? args.artifactStores : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pipelineType"] = args ? args.pipelineType : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stages"] = args ? args.stages : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["variables"] = args ? args.variables : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -265,6 +280,10 @@ export interface PipelineState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+     */
+    pipelineType?: pulumi.Input<string>;
+    /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     roleArn?: pulumi.Input<string>;
@@ -282,6 +301,10 @@ export interface PipelineState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+     */
+    variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariable>[]>;
 }
 
 /**
@@ -297,6 +320,10 @@ export interface PipelineArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+     */
+    pipelineType?: pulumi.Input<string>;
+    /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     roleArn: pulumi.Input<string>;
@@ -308,4 +335,8 @@ export interface PipelineArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+     */
+    variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariable>[]>;
 }

@@ -103,14 +103,14 @@ public class ManagedPrefixListEntry extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.description);
     }
     /**
-     * CIDR block of this entry.
+     * The ID of the prefix list.
      * 
      */
     @Export(name="prefixListId", refs={String.class}, tree="[0]")
     private Output<String> prefixListId;
 
     /**
-     * @return CIDR block of this entry.
+     * @return The ID of the prefix list.
      * 
      */
     public Output<String> prefixListId() {

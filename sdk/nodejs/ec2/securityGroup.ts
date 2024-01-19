@@ -26,27 +26,38 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const allowTls = new aws.ec2.SecurityGroup("allowTls", {
- *     description: "Allow TLS inbound traffic",
+ *     description: "Allow TLS inbound traffic and all outbound traffic",
  *     vpcId: aws_vpc.main.id,
- *     ingress: [{
- *         description: "TLS from VPC",
- *         fromPort: 443,
- *         toPort: 443,
- *         protocol: "tcp",
- *         cidrBlocks: [aws_vpc.main.cidr_block],
- *         ipv6CidrBlocks: [aws_vpc.main.ipv6_cidr_block],
- *     }],
- *     egress: [{
- *         fromPort: 0,
- *         toPort: 0,
- *         protocol: "-1",
- *         cidrBlocks: ["0.0.0.0/0"],
- *         ipv6CidrBlocks: ["::/0"],
- *     }],
  *     tags: {
  *         Name: "allow_tls",
  *     },
  * });
+ * const allowTlsIpv4 = new aws.vpc.SecurityGroupIngressRule("allowTlsIpv4", {
+ *     securityGroupId: allowTls.id,
+ *     cidrIpv4: aws_vpc.main.cidr_block,
+ *     fromPort: 443,
+ *     ipProtocol: "tcp",
+ *     toPort: 443,
+ * });
+ * const allowTlsIpv6 = new aws.vpc.SecurityGroupIngressRule("allowTlsIpv6", {
+ *     securityGroupId: allowTls.id,
+ *     cidrIpv6: aws_vpc.main.ipv6_cidr_block,
+ *     fromPort: 443,
+ *     ipProtocol: "tcp",
+ *     toPort: 443,
+ * });
+ * const allowAllTrafficIpv4 = new aws.vpc.SecurityGroupEgressRule("allowAllTrafficIpv4", {
+ *     securityGroupId: allowTls.id,
+ *     cidrIpv4: "0.0.0.0/0",
+ *     ipProtocol: "-1",
+ * });
+ * // semantically equivalent to all ports
+ * const allowAllTrafficIpv6 = new aws.vpc.SecurityGroupEgressRule("allowAllTrafficIpv6", {
+ *     securityGroupId: allowTls.id,
+ *     cidrIpv6: "::/0",
+ *     ipProtocol: "-1",
+ * });
+ * // semantically equivalent to all ports
  * ```
  *
  * > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:

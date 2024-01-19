@@ -1019,6 +1019,44 @@ export namespace alb {
 }
 
 export namespace amp {
+    export interface ScraperDestination {
+        /**
+         * Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+         */
+        amp?: outputs.amp.ScraperDestinationAmp;
+    }
+
+    export interface ScraperDestinationAmp {
+        /**
+         * The Amazon Resource Name (ARN) of the prometheus workspace.
+         */
+        workspaceArn: string;
+    }
+
+    export interface ScraperSource {
+        /**
+         * Configuration block for an EKS cluster source. See `eks`.
+         */
+        eks?: outputs.amp.ScraperSourceEks;
+    }
+
+    export interface ScraperSourceEks {
+        clusterArn: string;
+        /**
+         * List of the security group IDs for the Amazon EKS cluster VPC configuration.
+         */
+        securityGroupIds: string[];
+        /**
+         * List of subnet IDs. Must be in at least two different availability zones.
+         */
+        subnetIds: string[];
+    }
+
+    export interface ScraperTimeouts {
+        create?: string;
+        delete?: string;
+    }
+
     export interface WorkspaceLoggingConfiguration {
         /**
          * The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
@@ -2946,6 +2984,10 @@ export namespace appflow {
          * Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
          */
         aggregationType: string;
+        /**
+         * The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+         */
+        targetFileSize: number;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig {
@@ -8531,6 +8573,10 @@ export namespace autoscaling {
          */
         instanceWarmup?: string;
         /**
+         * Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+         */
+        maxHealthyPercentage?: number;
+        /**
          * Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
          */
         minHealthyPercentage?: number;
@@ -10059,6 +10105,22 @@ export namespace batch {
         kubernetesNamespace: string;
     }
 
+    export interface ComputeEnvironmentUpdatePolicy {
+        /**
+         * Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
+         */
+        jobExecutionTimeoutMinutes: number;
+        /**
+         * Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+         */
+        terminateJobsOnUpdate: boolean;
+    }
+
+    export interface GetComputeEnvironmentUpdatePolicy {
+        jobExecutionTimeoutMinutes: number;
+        terminateJobsOnUpdate: boolean;
+    }
+
     export interface GetJobQueueComputeEnvironmentOrder {
         computeEnvironment: string;
         order: number;
@@ -10085,6 +10147,155 @@ export namespace batch {
          * Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
          */
         weightFactor: number;
+    }
+
+    export interface JobDefinitionEksProperties {
+        /**
+         * The properties for the Kubernetes pod resources of a job. See `podProperties` below.
+         */
+        podProperties: outputs.batch.JobDefinitionEksPropertiesPodProperties;
+    }
+
+    export interface JobDefinitionEksPropertiesPodProperties {
+        /**
+         * The properties of the container that's used on the Amazon EKS pod. See containers below.
+         */
+        containers: outputs.batch.JobDefinitionEksPropertiesPodPropertiesContainers;
+        /**
+         * The DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
+         */
+        dnsPolicy?: string;
+        /**
+         * Indicates if the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+         */
+        hostNetwork?: boolean;
+        /**
+         * Metadata about the Kubernetes pod.
+         */
+        metadata?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesMetadata;
+        /**
+         * The name of the service account that's used to run the pod.
+         */
+        serviceAccountName?: string;
+        /**
+         * Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+         */
+        volumes?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesVolume[];
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesContainers {
+        /**
+         * An array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+         */
+        args?: string[];
+        /**
+         * The entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+         */
+        commands?: string[];
+        /**
+         * The environment variables to pass to a container. See EKS Environment below.
+         */
+        envs?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersEnv[];
+        /**
+         * The Docker image used to start the container.
+         */
+        image: string;
+        /**
+         * The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+         */
+        imagePullPolicy?: string;
+        /**
+         * The name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
+         */
+        name?: string;
+        /**
+         * The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+         */
+        resources?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersResources;
+        /**
+         * The security context for a job.
+         */
+        securityContext?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext;
+        /**
+         * The volume mounts for the container.
+         */
+        volumeMounts?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount[];
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesContainersEnv {
+        /**
+         * Specifies the name of the job definition.
+         */
+        name: string;
+        /**
+         * The value of the environment variable.
+         */
+        value: string;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesContainersResources {
+        limits?: {[key: string]: string};
+        requests?: {[key: string]: string};
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext {
+        privileged?: boolean;
+        readOnlyRootFileSystem?: boolean;
+        runAsGroup?: number;
+        runAsNonRoot?: boolean;
+        runAsUser?: number;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount {
+        mountPath: string;
+        /**
+         * Specifies the name of the job definition.
+         */
+        name: string;
+        readOnly?: boolean;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesMetadata {
+        labels?: {[key: string]: string};
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesVolume {
+        emptyDir?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir;
+        hostPath?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesVolumeHostPath;
+        /**
+         * Specifies the name of the job definition.
+         */
+        name?: string;
+        secret?: outputs.batch.JobDefinitionEksPropertiesPodPropertiesVolumeSecret;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir {
+        /**
+         * The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+         */
+        medium?: string;
+        /**
+         * The maximum size of the volume. By default, there's no maximum size defined.
+         */
+        sizeLimit: string;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesVolumeHostPath {
+        /**
+         * The path of the file or directory on the host to mount into containers on the pod.
+         */
+        path: string;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesVolumeSecret {
+        /**
+         * Specifies whether the secret or the secret's keys must be defined.
+         */
+        optional?: boolean;
+        /**
+         * The name of the secret. The name must be allowed as a DNS subdomain name.
+         */
+        secretName: string;
     }
 
     export interface JobDefinitionRetryStrategy {
@@ -11984,7 +12195,7 @@ export namespace cloudfront {
          */
         minimumProtocolVersion?: string;
         /**
-         * How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
+         * How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
          */
         sslSupportMethod?: string;
     }
@@ -13728,7 +13939,7 @@ export namespace codebuild {
          */
         certificate?: string;
         /**
-         * Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`.
+         * Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`, `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `computeType` must be `BUILD_LAMBDA_XGB`.`
          */
         computeType: string;
         /**
@@ -14676,8 +14887,6 @@ export namespace codepipeline {
         name: string;
         /**
          * The namespace all output variables will be accessed from.
-         *
-         * > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
          */
         namespace?: string;
         /**
@@ -14708,6 +14917,23 @@ export namespace codepipeline {
          * A string that identifies the action type.
          */
         version: string;
+    }
+
+    export interface PipelineVariable {
+        /**
+         * The default value of a pipeline-level variable.
+         */
+        defaultValue?: string;
+        /**
+         * The description of a pipeline-level variable.
+         *
+         * > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
+         */
+        description?: string;
+        /**
+         * The name of a pipeline-level variable.
+         */
+        name: string;
     }
 
     export interface WebhookAuthenticationConfiguration {
@@ -15678,6 +15904,7 @@ export namespace config {
         applicationautoscaling?: string;
         applicationinsights?: string;
         appmesh?: string;
+        appregistry?: string;
         apprunner?: string;
         appstream?: string;
         appsync?: string;
@@ -15785,6 +16012,7 @@ export namespace config {
         glue?: string;
         grafana?: string;
         greengrass?: string;
+        groundstation?: string;
         guardduty?: string;
         healthlake?: string;
         iam?: string;
@@ -15810,6 +16038,7 @@ export namespace config {
         kms?: string;
         lakeformation?: string;
         lambda?: string;
+        launchwizard?: string;
         lex?: string;
         lexmodelbuilding?: string;
         lexmodelbuildingservice?: string;
@@ -15846,12 +16075,14 @@ export namespace config {
         organizations?: string;
         osis?: string;
         outposts?: string;
+        pcaconnectorad?: string;
         pinpoint?: string;
         pipes?: string;
         polly?: string;
         pricing?: string;
         prometheus?: string;
         prometheusservice?: string;
+        qbusiness?: string;
         qldb?: string;
         quicksight?: string;
         ram?: string;
@@ -15888,6 +16119,7 @@ export namespace config {
         serverlessapprepo?: string;
         serverlessrepo?: string;
         servicecatalog?: string;
+        servicecatalogappregistry?: string;
         servicediscovery?: string;
         servicequotas?: string;
         ses?: string;
@@ -15901,6 +16133,7 @@ export namespace config {
         ssm?: string;
         ssmcontacts?: string;
         ssmincidents?: string;
+        ssmsap?: string;
         sso?: string;
         ssoadmin?: string;
         stepfunctions?: string;
@@ -15917,6 +16150,7 @@ export namespace config {
         waf?: string;
         wafregional?: string;
         wafv2?: string;
+        wellarchitected?: string;
         worklink?: string;
         workspaces?: string;
         xray?: string;
@@ -20214,6 +20448,11 @@ export namespace dynamodb {
 }
 
 export namespace ebs {
+    export interface FastSnapshotRestoreTimeouts {
+        create?: string;
+        delete?: string;
+    }
+
     export interface GetEbsVolumesFilter {
         /**
          * Name of the field to filter by, as defined by
@@ -25386,9 +25625,6 @@ export namespace ec2 {
          * List of Prefix List IDs.
          */
         prefixListIds?: string[];
-        /**
-         * Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
-         */
         protocol: string;
         /**
          * List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
@@ -25429,13 +25665,6 @@ export namespace ec2 {
          * List of Prefix List IDs.
          */
         prefixListIds?: string[];
-        /**
-         * Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
-         *
-         * The following arguments are optional:
-         *
-         * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `securityGroups` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
-         */
         protocol: string;
         /**
          * List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
@@ -27510,6 +27739,10 @@ export namespace efs {
 
     export interface FileSystemLifecyclePolicy {
         /**
+         * Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+         */
+        transitionToArchive?: string;
+        /**
          * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
          */
         transitionToIa?: string;
@@ -27517,6 +27750,13 @@ export namespace efs {
          * Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
          */
         transitionToPrimaryStorageClass?: string;
+    }
+
+    export interface FileSystemProtection {
+        /**
+         * Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
+         */
+        replicationOverwrite: string;
     }
 
     export interface FileSystemSizeInByte {
@@ -27576,8 +27816,13 @@ export namespace efs {
     }
 
     export interface GetFileSystemLifecyclePolicy {
+        transitionToArchive: string;
         transitionToIa: string;
         transitionToPrimaryStorageClass: string;
+    }
+
+    export interface GetFileSystemProtection {
+        replicationOverwrite: string;
     }
 
     export interface ReplicationConfigurationDestination {
@@ -27585,6 +27830,9 @@ export namespace efs {
          * The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
          */
         availabilityZoneName?: string;
+        /**
+         * The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
+         */
         fileSystemId: string;
         /**
          * The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
@@ -28124,6 +28372,41 @@ export namespace elasticache {
          * Valid values are  `slow-log` or `engine-log`. Max 1 of each.
          */
         logType: string;
+    }
+
+    export interface ServerlessCacheCacheUsageLimits {
+        /**
+         * The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+         */
+        dataStorage?: outputs.elasticache.ServerlessCacheCacheUsageLimitsDataStorage;
+        /**
+         * The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+         */
+        ecpuPerSeconds?: outputs.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecond[];
+    }
+
+    export interface ServerlessCacheCacheUsageLimitsDataStorage {
+        /**
+         * The upper limit for data storage the cache is set to use. Set as Integer.
+         */
+        maximum: number;
+        /**
+         * The unit that the storage is measured in, in GB.
+         */
+        unit: string;
+    }
+
+    export interface ServerlessCacheCacheUsageLimitsEcpuPerSecond {
+        /**
+         * The upper limit for data storage the cache is set to use. Set as Integer.
+         */
+        maximum: number;
+    }
+
+    export interface ServerlessCacheTimeouts {
+        create?: string;
+        delete?: string;
+        update?: string;
     }
 
     export interface UserAuthenticationMode {
@@ -30290,6 +30573,7 @@ export namespace finspace {
          * * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
          * * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
          * * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
+         * * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
          */
         type: string;
     }
@@ -32013,6 +32297,10 @@ export namespace glue {
          * Name of the target table.
          */
         name: string;
+        /**
+         * Region of the target table.
+         */
+        region?: string;
     }
 
     export interface ClassifierCsvClassifier {
@@ -32048,6 +32336,7 @@ export namespace glue {
          * A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
          */
         quoteSymbol?: string;
+        serde: string;
     }
 
     export interface ClassifierGrokClassifier {
@@ -32531,6 +32820,10 @@ export namespace glue {
          * Name of the table.
          */
         name: string;
+        /**
+         * Region of the target table.
+         */
+        region: string;
     }
 
     export interface GetConnectionPhysicalConnectionRequirement {
@@ -37277,7 +37570,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamElasticsearchConfiguration {
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: number;
         /**
@@ -37376,11 +37669,6 @@ export namespace kinesis {
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
-        /**
-         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         *
-         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-         */
         parameterValue: string;
     }
 
@@ -37390,7 +37678,7 @@ export namespace kinesis {
          */
         bucketArn: string;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: number;
         /**
@@ -37461,7 +37749,7 @@ export namespace kinesis {
          */
         bucketArn: string;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: number;
         /**
@@ -37744,11 +38032,6 @@ export namespace kinesis {
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
-        /**
-         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         *
-         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-         */
         parameterValue: string;
     }
 
@@ -37758,7 +38041,7 @@ export namespace kinesis {
          */
         bucketArn: string;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: number;
         /**
@@ -37900,11 +38183,6 @@ export namespace kinesis {
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
-        /**
-         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         *
-         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-         */
         parameterValue: string;
     }
 
@@ -37936,7 +38214,7 @@ export namespace kinesis {
          */
         bucketArn: string;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: number;
         /**
@@ -38024,7 +38302,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamOpensearchConfiguration {
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: number;
         /**
@@ -38032,13 +38310,17 @@ export namespace kinesis {
          */
         bufferingSize?: number;
         /**
-         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         * The CloudWatch Logging Options for the delivery stream. More details are given below.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions;
         /**
          * The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
          */
         clusterEndpoint?: string;
+        /**
+         * The method for setting up document ID. More details are given below.
+         */
+        documentIdOptions?: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions;
         /**
          * The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
          */
@@ -38052,7 +38334,7 @@ export namespace kinesis {
          */
         indexRotationPeriod?: string;
         /**
-         * The data processing configuration.  More details are given below.
+         * The data processing configuration. More details are given below.
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration;
         /**
@@ -38076,7 +38358,7 @@ export namespace kinesis {
          */
         typeName?: string;
         /**
-         * The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+         * The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
          */
         vpcConfig?: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationVpcConfig;
     }
@@ -38094,6 +38376,13 @@ export namespace kinesis {
          * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions {
+        /**
+         * The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
+         */
+        defaultDocumentIdFormat: string;
     }
 
     export interface FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration {
@@ -38123,11 +38412,6 @@ export namespace kinesis {
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
-        /**
-         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         *
-         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-         */
         parameterValue: string;
     }
 
@@ -38137,7 +38421,7 @@ export namespace kinesis {
          */
         bucketArn: string;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: number;
         /**
@@ -38204,7 +38488,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamOpensearchserverlessConfiguration {
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: number;
         /**
@@ -38291,11 +38575,6 @@ export namespace kinesis {
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
-        /**
-         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         *
-         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-         */
         parameterValue: string;
     }
 
@@ -38305,7 +38584,7 @@ export namespace kinesis {
          */
         bucketArn: string;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: number;
         /**
@@ -38467,11 +38746,6 @@ export namespace kinesis {
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
-        /**
-         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         *
-         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-         */
         parameterValue: string;
     }
 
@@ -38481,7 +38755,7 @@ export namespace kinesis {
          */
         bucketArn: string;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: number;
         /**
@@ -38536,7 +38810,7 @@ export namespace kinesis {
          */
         bucketArn: string;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: number;
         /**
@@ -38603,6 +38877,14 @@ export namespace kinesis {
     }
 
     export interface FirehoseDeliveryStreamSplunkConfiguration {
+        /**
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+         */
+        bufferingInterval?: number;
+        /**
+         * Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+         */
+        bufferingSize?: number;
         /**
          * The CloudWatch Logging Options for the delivery stream. More details are given below.
          */
@@ -38683,11 +38965,6 @@ export namespace kinesis {
          * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
-        /**
-         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         *
-         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
-         */
         parameterValue: string;
     }
 
@@ -38697,7 +38974,7 @@ export namespace kinesis {
          */
         bucketArn: string;
         /**
-         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
          */
         bufferingInterval?: number;
         /**
@@ -39933,6 +40210,25 @@ export namespace lambda {
         workingDirectory?: string;
     }
 
+    export interface FunctionLoggingConfig {
+        /**
+         * for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+         */
+        applicationLogLevel?: string;
+        /**
+         * select between `Text` and structured `JSON` format for your function's logs.
+         */
+        logFormat: string;
+        /**
+         * the CloudWatch log group your function sends logs to.
+         */
+        logGroup: string;
+        /**
+         * for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
+         */
+        systemLogLevel?: string;
+    }
+
     export interface FunctionSnapStart {
         /**
          * Conditions where snap start is enabled. Valid values are `PublishedVersions`.
@@ -40023,6 +40319,13 @@ export namespace lambda {
          */
         arn: string;
         localMountPath: string;
+    }
+
+    export interface GetFunctionLoggingConfig {
+        applicationLogLevel: string;
+        logFormat: string;
+        logGroup: string;
+        systemLogLevel: string;
     }
 
     export interface GetFunctionTracingConfig {
@@ -45185,6 +45488,21 @@ export namespace mq {
         useAwsOwnedKey: boolean;
     }
 
+    export interface GetBrokerEngineTypesBrokerEngineType {
+        /**
+         * The MQ engine type to return version details for.
+         */
+        engineType: string;
+        /**
+         * The list of engine versions.
+         */
+        engineVersions: outputs.mq.GetBrokerEngineTypesBrokerEngineTypeEngineVersion[];
+    }
+
+    export interface GetBrokerEngineTypesBrokerEngineTypeEngineVersion {
+        name: string;
+    }
+
     export interface GetBrokerInstance {
         consoleUrl: string;
         endpoints: string[];
@@ -46140,6 +46458,10 @@ export namespace networkfirewall {
          * Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
          */
         statelessRuleGroupReferences?: outputs.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReference[];
+        /**
+         * The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
+         */
+        tlsInspectionConfigurationArn?: string;
     }
 
     export interface FirewallPolicyFirewallPolicyPolicyVariables {
@@ -46338,6 +46660,7 @@ export namespace networkfirewall {
         statelessDefaultActions: string[];
         statelessFragmentDefaultActions: string[];
         statelessRuleGroupReferences: outputs.networkfirewall.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference[];
+        tlsInspectionConfigurationArn: string;
     }
 
     export interface GetFirewallPolicyFirewallPolicyStatefulEngineOption {
@@ -52644,7 +52967,7 @@ export namespace redshiftserverless {
          */
         address: string;
         /**
-         * The port that Amazon Redshift Serverless listens on.
+         * The port number on which the cluster accepts incoming connections.
          */
         port: number;
         /**
@@ -53605,7 +53928,7 @@ export namespace s3 {
          */
         grants?: outputs.s3.BucketAclV2AccessControlPolicyGrant[];
         /**
-         * Configuration block of the bucket owner's display name and ID. See below.
+         * Configuration block for the bucket owner's display name and ID. See below.
          */
         owner: outputs.s3.BucketAclV2AccessControlPolicyOwner;
     }
@@ -53616,7 +53939,7 @@ export namespace s3 {
          */
         grantee?: outputs.s3.BucketAclV2AccessControlPolicyGrantGrantee;
         /**
-         * Logging permissions assigned to the grantee for the bucket.
+         * Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
          */
         permission: string;
     }
@@ -60032,6 +60355,25 @@ export namespace securityhub {
 }
 
 export namespace securitylake {
+    export interface AwsLogSourceSource {
+        /**
+         * Specify the AWS account information where you want to enable Security Lake.
+         */
+        accounts: string[];
+        /**
+         * Specify the Regions where you want to enable Security Lake.
+         */
+        regions: string[];
+        /**
+         * The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+         */
+        sourceName: string;
+        /**
+         * The version for a AWS source. This must be a Regionally unique value.
+         */
+        sourceVersion: string;
+    }
+
     export interface DataLakeConfiguration {
         /**
          * Provides encryption details of Amazon Security Lake object.
@@ -63034,6 +63376,25 @@ export namespace verifiedaccess {
         scope?: string;
         tokenEndpoint?: string;
         userInfoEndpoint?: string;
+    }
+
+}
+
+export namespace verifiedpermissions {
+    export interface PolicyStoreValidationSettings {
+        /**
+         * The mode for the validation settings. Valid values: `OFF`, `STRICT`.
+         *
+         * The following arguments are optional:
+         */
+        mode: string;
+    }
+
+    export interface SchemaDefinition {
+        /**
+         * A JSON string representation of the schema.
+         */
+        value: string;
     }
 
 }

@@ -265,6 +265,7 @@ import * as transcribe from "./transcribe";
 import * as transfer from "./transfer";
 import * as types from "./types";
 import * as verifiedaccess from "./verifiedaccess";
+import * as verifiedpermissions from "./verifiedpermissions";
 import * as vpc from "./vpc";
 import * as vpclattice from "./vpclattice";
 import * as waf from "./waf";
@@ -466,6 +467,7 @@ export {
     transfer,
     types,
     verifiedaccess,
+    verifiedpermissions,
     vpc,
     vpclattice,
     waf,

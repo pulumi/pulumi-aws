@@ -30,45 +30,55 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSecurityGroup(ctx, "allowTls", &ec2.SecurityGroupArgs{
-//				Description: pulumi.String("Allow TLS inbound traffic"),
+//			allowTls, err := ec2.NewSecurityGroup(ctx, "allowTls", &ec2.SecurityGroupArgs{
+//				Description: pulumi.String("Allow TLS inbound traffic and all outbound traffic"),
 //				VpcId:       pulumi.Any(aws_vpc.Main.Id),
-//				Ingress: ec2.SecurityGroupIngressArray{
-//					&ec2.SecurityGroupIngressArgs{
-//						Description: pulumi.String("TLS from VPC"),
-//						FromPort:    pulumi.Int(443),
-//						ToPort:      pulumi.Int(443),
-//						Protocol:    pulumi.String("tcp"),
-//						CidrBlocks: pulumi.StringArray{
-//							aws_vpc.Main.Cidr_block,
-//						},
-//						Ipv6CidrBlocks: pulumi.StringArray{
-//							aws_vpc.Main.Ipv6_cidr_block,
-//						},
-//					},
-//				},
-//				Egress: ec2.SecurityGroupEgressArray{
-//					&ec2.SecurityGroupEgressArgs{
-//						FromPort: pulumi.Int(0),
-//						ToPort:   pulumi.Int(0),
-//						Protocol: pulumi.String("-1"),
-//						CidrBlocks: pulumi.StringArray{
-//							pulumi.String("0.0.0.0/0"),
-//						},
-//						Ipv6CidrBlocks: pulumi.StringArray{
-//							pulumi.String("::/0"),
-//						},
-//					},
-//				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("allow_tls"),
 //				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "allowTlsIpv4", &vpc.SecurityGroupIngressRuleArgs{
+//				SecurityGroupId: allowTls.ID(),
+//				CidrIpv4:        pulumi.Any(aws_vpc.Main.Cidr_block),
+//				FromPort:        pulumi.Int(443),
+//				IpProtocol:      pulumi.String("tcp"),
+//				ToPort:          pulumi.Int(443),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "allowTlsIpv6", &vpc.SecurityGroupIngressRuleArgs{
+//				SecurityGroupId: allowTls.ID(),
+//				CidrIpv6:        pulumi.Any(aws_vpc.Main.Ipv6_cidr_block),
+//				FromPort:        pulumi.Int(443),
+//				IpProtocol:      pulumi.String("tcp"),
+//				ToPort:          pulumi.Int(443),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpc.NewSecurityGroupEgressRule(ctx, "allowAllTrafficIpv4", &vpc.SecurityGroupEgressRuleArgs{
+//				SecurityGroupId: allowTls.ID(),
+//				CidrIpv4:        pulumi.String("0.0.0.0/0"),
+//				IpProtocol:      pulumi.String("-1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpc.NewSecurityGroupEgressRule(ctx, "allowAllTrafficIpv6", &vpc.SecurityGroupEgressRuleArgs{
+//				SecurityGroupId: allowTls.ID(),
+//				CidrIpv6:        pulumi.String("::/0"),
+//				IpProtocol:      pulumi.String("-1"),
 //			})
 //			if err != nil {
 //				return err

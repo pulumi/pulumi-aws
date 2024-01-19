@@ -78,7 +78,7 @@ class GetFirewallResult:
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> bool:
         """
-        Boolean flag indicating whether it is possible to delete the firewall.
+        A flag indicating whether the firewall is protected against deletion.
         """
         return pulumi.get(self, "delete_protection")
 
@@ -110,7 +110,7 @@ class GetFirewallResult:
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> bool:
         """
-        A boolean flag indicating whether it is possible to change the associated firewall policy.
+        A flag indicating whether the firewall is protected against a change to the firewall policy association.
         """
         return pulumi.get(self, "firewall_policy_change_protection")
 
@@ -142,7 +142,7 @@ class GetFirewallResult:
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> bool:
         """
-        A boolean flag indicating whether it is possible to change the associated subnet(s).
+        A flag indicating whether the firewall is protected against changes to the subnet associations.
         """
         return pulumi.get(self, "subnet_change_protection")
 

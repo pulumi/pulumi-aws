@@ -42,6 +42,11 @@ namespace Pulumi.Aws.Route53
     ///                 Ip = "10.0.64.4",
     ///             },
     ///         },
+    ///         Protocols = new[]
+    ///         {
+    ///             "Do53",
+    ///             "DoH",
+    ///         },
     ///         Tags = 
     ///         {
     ///             { "Environment", "Prod" },
@@ -96,6 +101,18 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+        /// </summary>
+        [Output("protocols")]
+        public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
+
+        /// <summary>
+        /// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        /// </summary>
+        [Output("resolverEndpointType")]
+        public Output<string> ResolverEndpointType { get; private set; } = null!;
 
         /// <summary>
         /// The ID of one or more security groups that you want to use to control access to this VPC.
@@ -192,6 +209,24 @@ namespace Pulumi.Aws.Route53
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("protocols")]
+        private InputList<string>? _protocols;
+
+        /// <summary>
+        /// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+        /// </summary>
+        public InputList<string> Protocols
+        {
+            get => _protocols ?? (_protocols = new InputList<string>());
+            set => _protocols = value;
+        }
+
+        /// <summary>
+        /// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        /// </summary>
+        [Input("resolverEndpointType")]
+        public Input<string>? ResolverEndpointType { get; set; }
+
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
 
@@ -262,6 +297,24 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("protocols")]
+        private InputList<string>? _protocols;
+
+        /// <summary>
+        /// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+        /// </summary>
+        public InputList<string> Protocols
+        {
+            get => _protocols ?? (_protocols = new InputList<string>());
+            set => _protocols = value;
+        }
+
+        /// <summary>
+        /// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        /// </summary>
+        [Input("resolverEndpointType")]
+        public Input<string>? ResolverEndpointType { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
