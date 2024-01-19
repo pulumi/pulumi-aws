@@ -10,7 +10,7 @@ import java.util.StringJoiner;
 
     /**
      * A Region represents any valid Amazon region that may be targeted with deployments.
-     *
+     * 
      */
     @EnumType
     public enum Region {
