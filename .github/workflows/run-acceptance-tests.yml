@@ -536,10 +536,6 @@ jobs:
 name: run-acceptance-tests
 on:
   pull_request:
-    branches:
-    - master
-    - v*
-    - feature*
     paths-ignore:
     - CHANGELOG.md
   repository_dispatch:
