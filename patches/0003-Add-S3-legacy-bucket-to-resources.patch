@@ -3658,7 +3658,7 @@ new file mode 100644
 index 0000000000..529368067d
 --- /dev/null
 +++ b/website/docs/r/s3_bucket_legacy.html.markdown
-@@ -0,0 +1,575 @@
+@@ -0,0 +1,577 @@
 +---
 +subcategory: "S3"
 +layout: "aws"
@@ -3672,6 +3672,8 @@ index 0000000000..529368067d
 +Provides a S3 bucket resource.
 +
 +-> This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `aws_s3control_bucket` resource.
++
++-> **NOTE:** This resource might not work well if using an alternative s3-compatible provider. Please use `aws.s3.BucketV2` instead.
 +
 +## Example Usage
 +
