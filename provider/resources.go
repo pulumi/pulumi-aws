@@ -4125,6 +4125,7 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 					{Value: "ap-southeast-3", Name: "APSoutheast3"},
 					{Value: "ap-southeast-4", Name: "APSoutheast4"},
 					{Value: "ca-central-1", Name: "CACentral"},
+					{Value: "ca-west-1", Name: "CAWest1"},
 					{Value: "cn-north-1", Name: "CNNorth1"},
 					{Value: "cn-northwest-1", Name: "CNNorthwest1"},
 					{Value: "eu-central-1", Name: "EUCentral1"},
