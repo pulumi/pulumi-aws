@@ -20,7 +20,7 @@ type state struct {
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		conf := config.New(ctx, "")
-		tagsState := conf.Require("state1")
+		tagsState := conf.Require("state2")
 
 		var s state
 
