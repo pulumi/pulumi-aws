@@ -1387,10 +1387,6 @@
     {
       "old": "For more information, see the Amazon VPC User Guide on [Route Tables][aws-route-tables]. For information about managing normal route tables in Terraform, see [`aws_route_table`][tf-route-tables].\n",
       "new": "For more information, see the Amazon VPC User Guide on [Route Tables][aws-route-tables]. For information about managing normal route tables in Pulumi, see [`aws_route_table`][tf-route-tables].\n"
-    },
-    {
-      "old": "For more information, see the Amazon VPC User Guide on [Route Tables][aws-route-tables]. For information about managing normal route tables in Terraform, see [`aws_route_table`][tf-route-tables].\n",
-      "new": "For more information, see the Amazon VPC User Guide on [Route Tables][aws-route-tables]. For information about managing normal route tables in TODO, see [`aws_route_table`][tf-route-tables].\n"
     }
   ],
   "memorydb_cluster.html.markdown": [
