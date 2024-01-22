@@ -96,15 +96,8 @@ func fixupImports() tfbridge.DocsEdit {
 // Apply replacements from `replacements.json` (as search and replace) to read in docs.
 func applyReplacementsDotJSON() tfbridge.DocsEdit {
 	filePath := "./provider/replacements.json"
-	fileBytes, err := os.ReadFile(filePath)
-	if err != nil {
-		panic(err)
-	}
-	var replacements replacementFile
-	err = json.Unmarshal(fileBytes, &replacements)
-	if err != nil {
-		panic(err)
-	}
+	replacements := make(replacementFile)
+	replacements.mustReadJSONFile(filePath)
 
 	fmt.Printf("Gathered %d replacements\n", len(replacements))
 	var applied int
@@ -167,6 +160,10 @@ type replacement struct {
 	wasUsed bool
 }
 
+func (r replacement) Equal(other replacement) bool {
+	return r.Old == other.Old && r.New == other.New
+}
+
 var elidedText = regexp.MustCompile("[tT]erraform")
 
 func (r replacementFile) checkForTODOs(path string, content []byte) {
@@ -186,11 +183,44 @@ func (r replacementFile) checkForTODOs(path string, content []byte) {
 		start, end = findLine(content, m[0])
 		line := string(content[start:end])
 
-		r[path] = append(r[path], replacement{
+		r.addReplacement(path, replacement{
 			Old:     line,
 			New:     elidedText.ReplaceAllLiteralString(line, "TODO"),
 			wasUsed: true,
 		})
+	}
+}
+
+func (r replacementFile) hasReplacement(path string, repl replacement) bool {
+	for _, old := range r[path] {
+		if old.Equal(repl) {
+			return true
+		}
+	}
+	return false
+}
+
+func (r replacementFile) addReplacement(path string, repl replacement) {
+	if r.hasReplacement(path, repl) {
+		return
+	}
+	r[path] = append(r[path], repl)
+}
+
+func (r replacementFile) mustReadJSONFile(filePath string) {
+	fileBytes, err := os.ReadFile(filePath)
+	if err != nil {
+		panic(err)
+	}
+	var replacements replacementFile
+	err = json.Unmarshal(fileBytes, &replacements)
+	if err != nil {
+		panic(err)
+	}
+	for path, rs := range replacements {
+		for _, repl := range rs {
+			r.addReplacement(path, repl)
+		}
 	}
 }
 
