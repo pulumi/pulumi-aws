@@ -160,10 +160,6 @@ type replacement struct {
 	wasUsed bool
 }
 
-func (r replacement) Equal(other replacement) bool {
-	return r.Old == other.Old && r.New == other.New
-}
-
 var elidedText = regexp.MustCompile("[tT]erraform")
 
 func (r replacementFile) checkForTODOs(path string, content []byte) {
@@ -191,9 +187,10 @@ func (r replacementFile) checkForTODOs(path string, content []byte) {
 	}
 }
 
-func (r replacementFile) hasReplacement(path string, repl replacement) bool {
-	for _, old := range r[path] {
-		if old.Equal(repl) {
+// Checks if file under path already has a replacement specified for a string old.
+func (r replacementFile) hasReplacement(path string, old string) bool {
+	for _, oldReplacement := range r[path] {
+		if oldReplacement.Old == old {
 			return true
 		}
 	}
@@ -201,7 +198,9 @@ func (r replacementFile) hasReplacement(path string, repl replacement) bool {
 }
 
 func (r replacementFile) addReplacement(path string, repl replacement) {
-	if r.hasReplacement(path, repl) {
+	// Adding a replacement for the same old string would be no-op since replacements are
+	// applied sequentially. Skip adding it.
+	if r.hasReplacement(path, repl.Old) {
 		return
 	}
 	r[path] = append(r[path], repl)
