@@ -7,7 +7,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
@@ -21,7 +20,7 @@ type state struct {
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		conf := config.New(ctx, "")
-		tagsState := conf.Require("state2")
+		tagsState := conf.Require("state1")
 
 		var s state
 
@@ -49,14 +48,6 @@ func main() {
 			return err
 		}
 
-		vpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
-			CidrBlock: pulumi.String("10.0.0.0/16"),
-			Tags:      tagsMap,
-		}, pulumi.Provider(p))
-		if err != nil {
-			return err
-		}
-
 		bucket, err := s3.NewBucketV2(ctx, "bucketv2", &s3.BucketV2Args{
 			Tags: tagsMap,
 		}, pulumi.Provider(p))
@@ -79,8 +70,6 @@ func main() {
 			return err
 		}
 
-		ctx.Export("vpc", exportTags(vpc.Tags))
-		ctx.Export("vpc-id", vpc.ID())
 		ctx.Export("bucket", exportTags(bucket.Tags))
 		ctx.Export("legacy-bucket", exportTags(legacyBucket.Tags))
 		ctx.Export("bucket-name", bucket.Bucket)
