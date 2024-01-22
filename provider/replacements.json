@@ -1143,26 +1143,6 @@
     {
       "old": "~> **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, Terraform will recreate the resource whenever dynamic partitioning is enabled or disabled.",
       "new": "~> **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled."
-    },
-    {
-      "old": "~> **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in terraform state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.\n",
-      "new": "~> **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in TODO state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.\n"
-    },
-    {
-      "old": "~> **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in terraform state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.\n",
-      "new": "~> **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in TODO state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.\n"
-    },
-    {
-      "old": "~> **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in terraform state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.\n",
-      "new": "~> **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in TODO state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.\n"
-    },
-    {
-      "old": "~> **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in terraform state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.\n",
-      "new": "~> **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in TODO state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.\n"
-    },
-    {
-      "old": "~> **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in terraform state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.\n",
-      "new": "~> **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in TODO state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.\n"
     }
   ],
   "kms_key_policy.html.markdown": [
@@ -2123,46 +2103,6 @@
     {
       "old": "The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause Terraform to destroy the managed rules. To subsequently remove all managed ingress and egress rules:",
       "new": "The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:"
-    },
-    {
-      "old": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using with Terraform 0.12.x and above, please make sure that the value of the protocol is specified as lowercase when using with older version of Terraform to avoid an issue during upgrade.\n",
-      "new": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using with TODO 0.12.x and above, please make sure that the value of the protocol is specified as lowercase when using with older version of TODO to avoid an issue during upgrade.\n"
-    },
-    {
-      "old": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using Terraform 0.12.x and above. Please make sure that the value of the protocol is specified as lowercase when used with older version of Terraform to avoid issues during upgrade.\n",
-      "new": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using TODO 0.12.x and above. Please make sure that the value of the protocol is specified as lowercase when used with older version of TODO to avoid issues during upgrade.\n"
-    },
-    {
-      "old": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using with Terraform 0.12.x and above, please make sure that the value of the protocol is specified as lowercase when using with older version of Terraform to avoid an issue during upgrade.\n",
-      "new": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using with TODO 0.12.x and above, please make sure that the value of the protocol is specified as lowercase when using with older version of TODO to avoid an issue during upgrade.\n"
-    },
-    {
-      "old": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using Terraform 0.12.x and above. Please make sure that the value of the protocol is specified as lowercase when used with older version of Terraform to avoid issues during upgrade.\n",
-      "new": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using TODO 0.12.x and above. Please make sure that the value of the protocol is specified as lowercase when used with older version of TODO to avoid issues during upgrade.\n"
-    },
-    {
-      "old": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using with Terraform 0.12.x and above, please make sure that the value of the protocol is specified as lowercase when using with older version of Terraform to avoid an issue during upgrade.\n",
-      "new": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using with TODO 0.12.x and above, please make sure that the value of the protocol is specified as lowercase when using with older version of TODO to avoid an issue during upgrade.\n"
-    },
-    {
-      "old": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using Terraform 0.12.x and above. Please make sure that the value of the protocol is specified as lowercase when used with older version of Terraform to avoid issues during upgrade.\n",
-      "new": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using TODO 0.12.x and above. Please make sure that the value of the protocol is specified as lowercase when used with older version of TODO to avoid issues during upgrade.\n"
-    },
-    {
-      "old": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using with Terraform 0.12.x and above, please make sure that the value of the protocol is specified as lowercase when using with older version of Terraform to avoid an issue during upgrade.\n",
-      "new": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using with TODO 0.12.x and above, please make sure that the value of the protocol is specified as lowercase when using with older version of TODO to avoid an issue during upgrade.\n"
-    },
-    {
-      "old": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using Terraform 0.12.x and above. Please make sure that the value of the protocol is specified as lowercase when used with older version of Terraform to avoid issues during upgrade.\n",
-      "new": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using TODO 0.12.x and above. Please make sure that the value of the protocol is specified as lowercase when used with older version of TODO to avoid issues during upgrade.\n"
-    },
-    {
-      "old": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using with Terraform 0.12.x and above, please make sure that the value of the protocol is specified as lowercase when using with older version of Terraform to avoid an issue during upgrade.\n",
-      "new": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using with TODO 0.12.x and above, please make sure that the value of the protocol is specified as lowercase when using with older version of TODO to avoid an issue during upgrade.\n"
-    },
-    {
-      "old": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using Terraform 0.12.x and above. Please make sure that the value of the protocol is specified as lowercase when used with older version of Terraform to avoid issues during upgrade.\n",
-      "new": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using TODO 0.12.x and above. Please make sure that the value of the protocol is specified as lowercase when used with older version of TODO to avoid issues during upgrade.\n"
     }
   ],
   "securityhub_organization_configuration.html.markdown": [
@@ -2225,46 +2165,6 @@
     {
       "old": "resource \"aws_sqs_queue\" \"terraform_queue_deadletter\" {",
       "new": "resource \"aws_sqs_queue\" \"example_queue_deadletter\" {"
-    },
-    {
-      "old": "resource \"aws_sqs_queue_redrive_allow_policy\" \"terraform_queue_redrive_allow_policy\" {\n",
-      "new": "resource \"aws_sqs_queue_redrive_allow_policy\" \"TODO_queue_redrive_allow_policy\" {\n"
-    },
-    {
-      "old": "  queue_url = aws_sqs_queue.terraform_queue_deadletter.id\n",
-      "new": "  queue_url = aws_sqs_queue.TODO_queue_deadletter.id\n"
-    },
-    {
-      "old": "resource \"aws_sqs_queue_redrive_allow_policy\" \"terraform_queue_redrive_allow_policy\" {\n",
-      "new": "resource \"aws_sqs_queue_redrive_allow_policy\" \"TODO_queue_redrive_allow_policy\" {\n"
-    },
-    {
-      "old": "  queue_url = aws_sqs_queue.terraform_queue_deadletter.id\n",
-      "new": "  queue_url = aws_sqs_queue.TODO_queue_deadletter.id\n"
-    },
-    {
-      "old": "resource \"aws_sqs_queue_redrive_allow_policy\" \"terraform_queue_redrive_allow_policy\" {\n",
-      "new": "resource \"aws_sqs_queue_redrive_allow_policy\" \"TODO_queue_redrive_allow_policy\" {\n"
-    },
-    {
-      "old": "  queue_url = aws_sqs_queue.terraform_queue_deadletter.id\n",
-      "new": "  queue_url = aws_sqs_queue.TODO_queue_deadletter.id\n"
-    },
-    {
-      "old": "resource \"aws_sqs_queue_redrive_allow_policy\" \"terraform_queue_redrive_allow_policy\" {\n",
-      "new": "resource \"aws_sqs_queue_redrive_allow_policy\" \"TODO_queue_redrive_allow_policy\" {\n"
-    },
-    {
-      "old": "  queue_url = aws_sqs_queue.terraform_queue_deadletter.id\n",
-      "new": "  queue_url = aws_sqs_queue.TODO_queue_deadletter.id\n"
-    },
-    {
-      "old": "resource \"aws_sqs_queue_redrive_allow_policy\" \"terraform_queue_redrive_allow_policy\" {\n",
-      "new": "resource \"aws_sqs_queue_redrive_allow_policy\" \"TODO_queue_redrive_allow_policy\" {\n"
-    },
-    {
-      "old": "  queue_url = aws_sqs_queue.terraform_queue_deadletter.id\n",
-      "new": "  queue_url = aws_sqs_queue.TODO_queue_deadletter.id\n"
     }
   ],
   "ssm_document.html.markdown": [
