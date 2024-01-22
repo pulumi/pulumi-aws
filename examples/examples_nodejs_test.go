@@ -500,7 +500,7 @@ func TestRegress2818(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestRegress2868(t *tetsting.T) {
+func TestRegress2868(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "regress-2868"),
