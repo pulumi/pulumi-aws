@@ -61,8 +61,8 @@ import * as utilities from "../utilities";
  *     maxReceiveCount: 4,
  * })});
  * const exampleQueueDeadletter = new aws.sqs.Queue("exampleQueueDeadletter", {});
- * const terraformQueueRedriveAllowPolicy = new aws.sqs.RedriveAllowPolicy("terraformQueueRedriveAllowPolicy", {
- *     queueUrl: aws_sqs_queue.terraform_queue_deadletter.id,
+ * const exampleQueueRedriveAllowPolicy = new aws.sqs.RedriveAllowPolicy("exampleQueueRedriveAllowPolicy", {
+ *     queueUrl: exampleQueueDeadletter.id,
  *     redriveAllowPolicy: JSON.stringify({
  *         redrivePermission: "byQueue",
  *         sourceQueueArns: [aws_sqs_queue.example_queue.arn],

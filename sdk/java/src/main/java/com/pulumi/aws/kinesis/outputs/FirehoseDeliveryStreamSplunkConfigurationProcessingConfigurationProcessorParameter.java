@@ -15,6 +15,12 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
      * 
      */
     private String parameterName;
+    /**
+     * @return Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+     * 
+     * &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+     * 
+     */
     private String parameterValue;
 
     private FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter() {}
@@ -25,6 +31,12 @@ public final class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurat
     public String parameterName() {
         return this.parameterName;
     }
+    /**
+     * @return Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+     * 
+     * &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+     * 
+     */
     public String parameterValue() {
         return this.parameterValue;
     }

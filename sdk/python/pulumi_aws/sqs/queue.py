@@ -737,8 +737,8 @@ class Queue(pulumi.CustomResource):
             "maxReceiveCount": 4,
         }))
         example_queue_deadletter = aws.sqs.Queue("exampleQueueDeadletter")
-        terraform_queue_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("terraformQueueRedriveAllowPolicy",
-            queue_url=aws_sqs_queue["terraform_queue_deadletter"]["id"],
+        example_queue_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("exampleQueueRedriveAllowPolicy",
+            queue_url=example_queue_deadletter.id,
             redrive_allow_policy=json.dumps({
                 "redrivePermission": "byQueue",
                 "sourceQueueArns": [aws_sqs_queue["example_queue"]["arn"]],
@@ -858,8 +858,8 @@ class Queue(pulumi.CustomResource):
             "maxReceiveCount": 4,
         }))
         example_queue_deadletter = aws.sqs.Queue("exampleQueueDeadletter")
-        terraform_queue_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("terraformQueueRedriveAllowPolicy",
-            queue_url=aws_sqs_queue["terraform_queue_deadletter"]["id"],
+        example_queue_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("exampleQueueRedriveAllowPolicy",
+            queue_url=example_queue_deadletter.id,
             redrive_allow_policy=json.dumps({
                 "redrivePermission": "byQueue",
                 "sourceQueueArns": [aws_sqs_queue["example_queue"]["arn"]],
