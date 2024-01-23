@@ -144,6 +144,12 @@ namespace Pulumi.Aws.Efs
         public Output<string> PerformanceMode { get; private set; } = null!;
 
         /// <summary>
+        /// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        /// </summary>
+        [Output("protection")]
+        public Output<Outputs.FileSystemProtection> Protection { get; private set; } = null!;
+
+        /// <summary>
         /// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         /// </summary>
         [Output("provisionedThroughputInMibps")]
@@ -269,6 +275,12 @@ namespace Pulumi.Aws.Efs
         public Input<string>? PerformanceMode { get; set; }
 
         /// <summary>
+        /// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        /// </summary>
+        [Input("protection")]
+        public Input<Inputs.FileSystemProtectionArgs>? Protection { get; set; }
+
+        /// <summary>
         /// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         /// </summary>
         [Input("provisionedThroughputInMibps")]
@@ -380,6 +392,12 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         [Input("performanceMode")]
         public Input<string>? PerformanceMode { get; set; }
+
+        /// <summary>
+        /// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        /// </summary>
+        [Input("protection")]
+        public Input<Inputs.FileSystemProtectionGetArgs>? Protection { get; set; }
 
         /// <summary>
         /// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.

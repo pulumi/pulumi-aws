@@ -245,17 +245,29 @@ namespace Pulumi.Aws.Batch
     public partial class JobDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of the job definition.
+        /// The Amazon Resource Name of the job definition, includes revision (`:#`).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN without the revision number.
+        /// </summary>
+        [Output("arnPrefix")]
+        public Output<string> ArnPrefix { get; private set; } = null!;
+
+        /// <summary>
         /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-        /// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+        /// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Output("containerProperties")]
         public Output<string?> ContainerProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        /// </summary>
+        [Output("eksProperties")]
+        public Output<Outputs.JobDefinitionEksProperties?> EksProperties { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the job definition.
@@ -300,6 +312,12 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Output("revision")]
         public Output<int> Revision { get; private set; } = null!;
+
+        /// <summary>
+        /// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+        /// </summary>
+        [Output("schedulingPriority")]
+        public Output<int?> SchedulingPriority { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -379,10 +397,16 @@ namespace Pulumi.Aws.Batch
     {
         /// <summary>
         /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-        /// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+        /// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Input("containerProperties")]
         public Input<string>? ContainerProperties { get; set; }
+
+        /// <summary>
+        /// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        /// </summary>
+        [Input("eksProperties")]
+        public Input<Inputs.JobDefinitionEksPropertiesArgs>? EksProperties { get; set; }
 
         /// <summary>
         /// Specifies the name of the job definition.
@@ -434,6 +458,12 @@ namespace Pulumi.Aws.Batch
         [Input("retryStrategy")]
         public Input<Inputs.JobDefinitionRetryStrategyArgs>? RetryStrategy { get; set; }
 
+        /// <summary>
+        /// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+        /// </summary>
+        [Input("schedulingPriority")]
+        public Input<int>? SchedulingPriority { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -469,17 +499,29 @@ namespace Pulumi.Aws.Batch
     public sealed class JobDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of the job definition.
+        /// The Amazon Resource Name of the job definition, includes revision (`:#`).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// The ARN without the revision number.
+        /// </summary>
+        [Input("arnPrefix")]
+        public Input<string>? ArnPrefix { get; set; }
+
+        /// <summary>
         /// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-        /// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
+        /// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Input("containerProperties")]
         public Input<string>? ContainerProperties { get; set; }
+
+        /// <summary>
+        /// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        /// </summary>
+        [Input("eksProperties")]
+        public Input<Inputs.JobDefinitionEksPropertiesGetArgs>? EksProperties { get; set; }
 
         /// <summary>
         /// Specifies the name of the job definition.
@@ -536,6 +578,12 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("revision")]
         public Input<int>? Revision { get; set; }
+
+        /// <summary>
+        /// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
+        /// </summary>
+        [Input("schedulingPriority")]
+        public Input<int>? SchedulingPriority { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

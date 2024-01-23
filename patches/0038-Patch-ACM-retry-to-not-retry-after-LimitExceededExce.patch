@@ -1,3 +1,10 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Fri, 19 Jan 2024 18:08:51 -0500
+Subject: [PATCH 38/39] Patch ACM retry to not retry after
+ LimitExceededException (#3290)
+
+
 diff --git a/internal/service/acm/service_package_gen.go b/internal/service/acm/service_package_gen.go
 index dbd2989c62..949496c395 100644
 --- a/internal/service/acm/service_package_gen.go

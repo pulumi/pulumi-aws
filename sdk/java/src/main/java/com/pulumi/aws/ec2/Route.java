@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.Route;
  * import com.pulumi.aws.ec2.RouteArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,12 +44,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
- *             .routeTableId(&#34;rtb-4fbb3ac4&#34;)
+ *             .routeTableId(aws_route_table.testing().id())
  *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
  *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_route_table.testing())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

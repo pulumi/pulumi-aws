@@ -36,7 +36,7 @@ public final class GetFunctionUrlResult {
     private String functionArn;
     private String functionName;
     /**
-     * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+     * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
     private String functionUrl;
@@ -95,7 +95,7 @@ public final class GetFunctionUrlResult {
         return this.functionName;
     }
     /**
-     * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+     * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
     public String functionUrl() {

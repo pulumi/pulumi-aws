@@ -45,6 +45,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
         /// </summary>
         public readonly string? QuoteSymbol;
+        public readonly string? Serde;
 
         [OutputConstructor]
         private ClassifierCsvClassifier(
@@ -62,7 +63,9 @@ namespace Pulumi.Aws.Glue.Outputs
 
             ImmutableArray<string> headers,
 
-            string? quoteSymbol)
+            string? quoteSymbol,
+
+            string? serde)
         {
             AllowSingleColumn = allowSingleColumn;
             ContainsHeader = containsHeader;
@@ -72,6 +75,7 @@ namespace Pulumi.Aws.Glue.Outputs
             DisableValueTrimming = disableValueTrimming;
             Headers = headers;
             QuoteSymbol = quoteSymbol;
+            Serde = serde;
         }
     }
 }

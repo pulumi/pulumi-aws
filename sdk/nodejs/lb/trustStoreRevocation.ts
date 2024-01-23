@@ -70,7 +70,7 @@ export class TrustStoreRevocation extends pulumi.CustomResource {
      */
     public readonly revocationsS3Bucket!: pulumi.Output<string>;
     /**
-     * S3 Bucket name holding the client certificate CA bundle.
+     * S3 object key holding the client certificate CA bundle.
      */
     public readonly revocationsS3Key!: pulumi.Output<string>;
     /**
@@ -135,7 +135,7 @@ export interface TrustStoreRevocationState {
      */
     revocationsS3Bucket?: pulumi.Input<string>;
     /**
-     * S3 Bucket name holding the client certificate CA bundle.
+     * S3 object key holding the client certificate CA bundle.
      */
     revocationsS3Key?: pulumi.Input<string>;
     /**
@@ -157,7 +157,7 @@ export interface TrustStoreRevocationArgs {
      */
     revocationsS3Bucket: pulumi.Input<string>;
     /**
-     * S3 Bucket name holding the client certificate CA bundle.
+     * S3 object key holding the client certificate CA bundle.
      */
     revocationsS3Key: pulumi.Input<string>;
     /**

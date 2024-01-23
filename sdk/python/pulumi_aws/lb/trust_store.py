@@ -23,7 +23,7 @@ class TrustStoreArgs:
         """
         The set of arguments for constructing a TrustStore resource.
         :param pulumi.Input[str] ca_certificates_bundle_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
-        :param pulumi.Input[str] ca_certificates_bundle_s3_key: S3 Bucket name holding the client certificate CA bundle.
+        :param pulumi.Input[str] ca_certificates_bundle_s3_key: S3 object key holding the client certificate CA bundle.
         :param pulumi.Input[str] ca_certificates_bundle_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         :param pulumi.Input[str] name: Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
@@ -56,7 +56,7 @@ class TrustStoreArgs:
     @pulumi.getter(name="caCertificatesBundleS3Key")
     def ca_certificates_bundle_s3_key(self) -> pulumi.Input[str]:
         """
-        S3 Bucket name holding the client certificate CA bundle.
+        S3 object key holding the client certificate CA bundle.
         """
         return pulumi.get(self, "ca_certificates_bundle_s3_key")
 
@@ -130,7 +130,7 @@ class _TrustStoreState:
         :param pulumi.Input[str] arn: ARN of the Trust Store (matches `id`).
         :param pulumi.Input[str] arn_suffix: ARN suffix for use with CloudWatch Metrics.
         :param pulumi.Input[str] ca_certificates_bundle_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
-        :param pulumi.Input[str] ca_certificates_bundle_s3_key: S3 Bucket name holding the client certificate CA bundle.
+        :param pulumi.Input[str] ca_certificates_bundle_s3_key: S3 object key holding the client certificate CA bundle.
         :param pulumi.Input[str] ca_certificates_bundle_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         :param pulumi.Input[str] name: Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
@@ -199,7 +199,7 @@ class _TrustStoreState:
     @pulumi.getter(name="caCertificatesBundleS3Key")
     def ca_certificates_bundle_s3_key(self) -> Optional[pulumi.Input[str]]:
         """
-        S3 Bucket name holding the client certificate CA bundle.
+        S3 object key holding the client certificate CA bundle.
         """
         return pulumi.get(self, "ca_certificates_bundle_s3_key")
 
@@ -319,7 +319,7 @@ class TrustStore(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ca_certificates_bundle_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
-        :param pulumi.Input[str] ca_certificates_bundle_s3_key: S3 Bucket name holding the client certificate CA bundle.
+        :param pulumi.Input[str] ca_certificates_bundle_s3_key: S3 object key holding the client certificate CA bundle.
         :param pulumi.Input[str] ca_certificates_bundle_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         :param pulumi.Input[str] name: Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
@@ -438,7 +438,7 @@ class TrustStore(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the Trust Store (matches `id`).
         :param pulumi.Input[str] arn_suffix: ARN suffix for use with CloudWatch Metrics.
         :param pulumi.Input[str] ca_certificates_bundle_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
-        :param pulumi.Input[str] ca_certificates_bundle_s3_key: S3 Bucket name holding the client certificate CA bundle.
+        :param pulumi.Input[str] ca_certificates_bundle_s3_key: S3 object key holding the client certificate CA bundle.
         :param pulumi.Input[str] ca_certificates_bundle_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         :param pulumi.Input[str] name: Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
@@ -488,7 +488,7 @@ class TrustStore(pulumi.CustomResource):
     @pulumi.getter(name="caCertificatesBundleS3Key")
     def ca_certificates_bundle_s3_key(self) -> pulumi.Output[str]:
         """
-        S3 Bucket name holding the client certificate CA bundle.
+        S3 object key holding the client certificate CA bundle.
         """
         return pulumi.get(self, "ca_certificates_bundle_s3_key")
 

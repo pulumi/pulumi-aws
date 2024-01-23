@@ -150,6 +150,20 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
         return this.namespaceName;
     }
     /**
+     * The port number on which the cluster accepts incoming connections.
+     * 
+     */
+    @Export(name="port", refs={Integer.class}, tree="[0]")
+    private Output<Integer> port;
+
+    /**
+     * @return The port number on which the cluster accepts incoming connections.
+     * 
+     */
+    public Output<Integer> port() {
+        return this.port;
+    }
+    /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      * 
      */

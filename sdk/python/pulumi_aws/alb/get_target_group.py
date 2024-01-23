@@ -22,7 +22,7 @@ class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
     """
-    def __init__(__self__, arn=None, arn_suffix=None, connection_termination=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, load_balancing_cross_zone_enabled=None, name=None, port=None, preserve_client_ip=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
+    def __init__(__self__, arn=None, arn_suffix=None, connection_termination=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, load_balancing_anomaly_mitigation=None, load_balancing_cross_zone_enabled=None, name=None, port=None, preserve_client_ip=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -32,8 +32,8 @@ class GetTargetGroupResult:
         if connection_termination and not isinstance(connection_termination, bool):
             raise TypeError("Expected argument 'connection_termination' to be a bool")
         pulumi.set(__self__, "connection_termination", connection_termination)
-        if deregistration_delay and not isinstance(deregistration_delay, int):
-            raise TypeError("Expected argument 'deregistration_delay' to be a int")
+        if deregistration_delay and not isinstance(deregistration_delay, str):
+            raise TypeError("Expected argument 'deregistration_delay' to be a str")
         pulumi.set(__self__, "deregistration_delay", deregistration_delay)
         if health_check and not isinstance(health_check, dict):
             raise TypeError("Expected argument 'health_check' to be a dict")
@@ -47,6 +47,9 @@ class GetTargetGroupResult:
         if load_balancing_algorithm_type and not isinstance(load_balancing_algorithm_type, str):
             raise TypeError("Expected argument 'load_balancing_algorithm_type' to be a str")
         pulumi.set(__self__, "load_balancing_algorithm_type", load_balancing_algorithm_type)
+        if load_balancing_anomaly_mitigation and not isinstance(load_balancing_anomaly_mitigation, str):
+            raise TypeError("Expected argument 'load_balancing_anomaly_mitigation' to be a str")
+        pulumi.set(__self__, "load_balancing_anomaly_mitigation", load_balancing_anomaly_mitigation)
         if load_balancing_cross_zone_enabled and not isinstance(load_balancing_cross_zone_enabled, str):
             raise TypeError("Expected argument 'load_balancing_cross_zone_enabled' to be a str")
         pulumi.set(__self__, "load_balancing_cross_zone_enabled", load_balancing_cross_zone_enabled)
@@ -101,7 +104,7 @@ class GetTargetGroupResult:
 
     @property
     @pulumi.getter(name="deregistrationDelay")
-    def deregistration_delay(self) -> int:
+    def deregistration_delay(self) -> str:
         return pulumi.get(self, "deregistration_delay")
 
     @property
@@ -126,6 +129,11 @@ class GetTargetGroupResult:
     @pulumi.getter(name="loadBalancingAlgorithmType")
     def load_balancing_algorithm_type(self) -> str:
         return pulumi.get(self, "load_balancing_algorithm_type")
+
+    @property
+    @pulumi.getter(name="loadBalancingAnomalyMitigation")
+    def load_balancing_anomaly_mitigation(self) -> str:
+        return pulumi.get(self, "load_balancing_anomaly_mitigation")
 
     @property
     @pulumi.getter(name="loadBalancingCrossZoneEnabled")
@@ -202,6 +210,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
             id=self.id,
             lambda_multi_value_headers_enabled=self.lambda_multi_value_headers_enabled,
             load_balancing_algorithm_type=self.load_balancing_algorithm_type,
+            load_balancing_anomaly_mitigation=self.load_balancing_anomaly_mitigation,
             load_balancing_cross_zone_enabled=self.load_balancing_cross_zone_enabled,
             name=self.name,
             port=self.port,
@@ -217,6 +226,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
 
 
 def get_target_group(arn: Optional[str] = None,
+                     load_balancing_anomaly_mitigation: Optional[str] = None,
                      name: Optional[str] = None,
                      tags: Optional[Mapping[str, str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTargetGroupResult:
@@ -255,6 +265,7 @@ def get_target_group(arn: Optional[str] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['loadBalancingAnomalyMitigation'] = load_balancing_anomaly_mitigation
     __args__['name'] = name
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -269,6 +280,7 @@ def get_target_group(arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         lambda_multi_value_headers_enabled=pulumi.get(__ret__, 'lambda_multi_value_headers_enabled'),
         load_balancing_algorithm_type=pulumi.get(__ret__, 'load_balancing_algorithm_type'),
+        load_balancing_anomaly_mitigation=pulumi.get(__ret__, 'load_balancing_anomaly_mitigation'),
         load_balancing_cross_zone_enabled=pulumi.get(__ret__, 'load_balancing_cross_zone_enabled'),
         name=pulumi.get(__ret__, 'name'),
         port=pulumi.get(__ret__, 'port'),
@@ -285,6 +297,7 @@ def get_target_group(arn: Optional[str] = None,
 
 @_utilities.lift_output_func(get_target_group)
 def get_target_group_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+                            load_balancing_anomaly_mitigation: Optional[pulumi.Input[Optional[str]]] = None,
                             name: Optional[pulumi.Input[Optional[str]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetGroupResult]:

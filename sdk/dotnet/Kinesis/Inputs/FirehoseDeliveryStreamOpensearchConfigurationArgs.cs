@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamOpensearchConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        /// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         /// </summary>
         [Input("bufferingInterval")]
         public Input<int>? BufferingInterval { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
+        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
@@ -35,6 +35,12 @@ namespace Pulumi.Aws.Kinesis.Inputs
         /// </summary>
         [Input("clusterEndpoint")]
         public Input<string>? ClusterEndpoint { get; set; }
+
+        /// <summary>
+        /// The method for setting up document ID. More details are given below.
+        /// </summary>
+        [Input("documentIdOptions")]
+        public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs>? DocumentIdOptions { get; set; }
 
         /// <summary>
         /// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
@@ -55,7 +61,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? IndexRotationPeriod { get; set; }
 
         /// <summary>
-        /// The data processing configuration.  More details are given below.
+        /// The data processing configuration. More details are given below.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
@@ -91,7 +97,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? TypeName { get; set; }
 
         /// <summary>
-        /// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+        /// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs>? VpcConfig { get; set; }

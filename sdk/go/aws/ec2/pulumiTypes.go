@@ -25369,7 +25369,7 @@ type SecurityGroupEgress struct {
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 	Protocol string `pulumi:"protocol"`
 	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -25405,7 +25405,7 @@ type SecurityGroupEgressArgs struct {
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -25495,7 +25495,7 @@ func (o SecurityGroupEgressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
-// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 func (o SecurityGroupEgressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -25550,7 +25550,7 @@ type SecurityGroupIngress struct {
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds []string `pulumi:"prefixListIds"`
-	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 	//
 	// The following arguments are optional:
 	//
@@ -25586,7 +25586,7 @@ type SecurityGroupIngressArgs struct {
 	Ipv6CidrBlocks pulumi.StringArrayInput `pulumi:"ipv6CidrBlocks"`
 	// List of Prefix List IDs.
 	PrefixListIds pulumi.StringArrayInput `pulumi:"prefixListIds"`
-	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 	//
 	// The following arguments are optional:
 	//
@@ -25676,7 +25676,7 @@ func (o SecurityGroupIngressOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
 }
 
-// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 //
 // The following arguments are optional:
 //

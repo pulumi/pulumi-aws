@@ -198,7 +198,9 @@ namespace Pulumi.Aws.Route53
         public readonly string Id;
         public readonly ImmutableArray<string> IpAddresses;
         public readonly string Name;
+        public readonly ImmutableArray<string> Protocols;
         public readonly string? ResolverEndpointId;
+        public readonly string ResolverEndpointType;
         public readonly string Status;
         public readonly string VpcId;
 
@@ -216,7 +218,11 @@ namespace Pulumi.Aws.Route53
 
             string name,
 
+            ImmutableArray<string> protocols,
+
             string? resolverEndpointId,
+
+            string resolverEndpointType,
 
             string status,
 
@@ -228,7 +234,9 @@ namespace Pulumi.Aws.Route53
             Id = id;
             IpAddresses = ipAddresses;
             Name = name;
+            Protocols = protocols;
             ResolverEndpointId = resolverEndpointId;
+            ResolverEndpointType = resolverEndpointType;
             Status = status;
             VpcId = vpcId;
         }

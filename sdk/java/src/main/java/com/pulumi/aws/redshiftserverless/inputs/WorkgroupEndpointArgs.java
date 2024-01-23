@@ -34,14 +34,14 @@ public final class WorkgroupEndpointArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The port that Amazon Redshift Serverless listens on.
+     * The port number on which the cluster accepts incoming connections.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port that Amazon Redshift Serverless listens on.
+     * @return The port number on which the cluster accepts incoming connections.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -111,7 +111,7 @@ public final class WorkgroupEndpointArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param port The port that Amazon Redshift Serverless listens on.
+         * @param port The port number on which the cluster accepts incoming connections.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class WorkgroupEndpointArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param port The port that Amazon Redshift Serverless listens on.
+         * @param port The port number on which the cluster accepts incoming connections.
          * 
          * @return builder
          * 

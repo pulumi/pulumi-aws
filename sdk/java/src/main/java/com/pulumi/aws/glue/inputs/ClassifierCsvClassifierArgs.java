@@ -137,6 +137,13 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.quoteSymbol);
     }
 
+    @Import(name="serde")
+    private @Nullable Output<String> serde;
+
+    public Optional<Output<String>> serde() {
+        return Optional.ofNullable(this.serde);
+    }
+
     private ClassifierCsvClassifierArgs() {}
 
     private ClassifierCsvClassifierArgs(ClassifierCsvClassifierArgs $) {
@@ -148,6 +155,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         this.disableValueTrimming = $.disableValueTrimming;
         this.headers = $.headers;
         this.quoteSymbol = $.quoteSymbol;
+        this.serde = $.serde;
     }
 
     public static Builder builder() {
@@ -354,6 +362,15 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
          */
         public Builder quoteSymbol(String quoteSymbol) {
             return quoteSymbol(Output.of(quoteSymbol));
+        }
+
+        public Builder serde(@Nullable Output<String> serde) {
+            $.serde = serde;
+            return this;
+        }
+
+        public Builder serde(String serde) {
+            return serde(Output.of(serde));
         }
 
         public ClassifierCsvClassifierArgs build() {

@@ -18,6 +18,7 @@ __all__ = [
     'PipelineArtifactStoreEncryptionKeyArgs',
     'PipelineStageArgs',
     'PipelineStageActionArgs',
+    'PipelineVariableArgs',
     'WebhookAuthenticationConfigurationArgs',
     'WebhookFilterArgs',
 ]
@@ -449,8 +450,6 @@ class PipelineStageActionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration: A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] input_artifacts: A list of artifact names to be worked on.
         :param pulumi.Input[str] namespace: The namespace all output variables will be accessed from.
-               
-               > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] output_artifacts: A list of artifact names to output. Output artifact names must be unique within a pipeline.
         :param pulumi.Input[str] region: The region in which to run the action.
         :param pulumi.Input[str] role_arn: The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
@@ -565,8 +564,6 @@ class PipelineStageActionArgs:
     def namespace(self) -> Optional[pulumi.Input[str]]:
         """
         The namespace all output variables will be accessed from.
-
-        > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         """
         return pulumi.get(self, "namespace")
 
@@ -621,6 +618,64 @@ class PipelineStageActionArgs:
     @run_order.setter
     def run_order(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "run_order", value)
+
+
+@pulumi.input_type
+class PipelineVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 default_value: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of a pipeline-level variable.
+        :param pulumi.Input[str] default_value: The default value of a pipeline-level variable.
+        :param pulumi.Input[str] description: The description of a pipeline-level variable.
+               
+               > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
+        """
+        pulumi.set(__self__, "name", name)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of a pipeline-level variable.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default value of a pipeline-level variable.
+        """
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of a pipeline-level variable.
+
+        > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 @pulumi.input_type

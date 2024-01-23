@@ -12,6 +12,7 @@ import com.pulumi.aws.lambda.outputs.FunctionEnvironment;
 import com.pulumi.aws.lambda.outputs.FunctionEphemeralStorage;
 import com.pulumi.aws.lambda.outputs.FunctionFileSystemConfig;
 import com.pulumi.aws.lambda.outputs.FunctionImageConfig;
+import com.pulumi.aws.lambda.outputs.FunctionLoggingConfig;
 import com.pulumi.aws.lambda.outputs.FunctionSnapStart;
 import com.pulumi.aws.lambda.outputs.FunctionTracingConfig;
 import com.pulumi.aws.lambda.outputs.FunctionVpcConfig;
@@ -293,6 +294,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.lambda.Function;
  * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionLoggingConfigArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -335,11 +337,15 @@ import javax.annotation.Nullable;
  *             .policyArn(lambdaLoggingPolicy.arn())
  *             .build());
  * 
- *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.Empty, CustomResourceOptions.builder()
- *             .dependsOn(            
- *                 lambdaLogs,
- *                 example)
- *             .build());
+ *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
+ *             .loggingConfig(FunctionLoggingConfigArgs.builder()
+ *                 .logFormat(&#34;Text&#34;)
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     lambdaLogs,
+ *                     example)
+ *                 .build());
  * 
  *     }
  * }
@@ -587,6 +593,20 @@ public class Function extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> layers() {
         return Codegen.optional(this.layers);
+    }
+    /**
+     * Configuration block used to specify advanced logging settings. Detailed below.
+     * 
+     */
+    @Export(name="loggingConfig", refs={FunctionLoggingConfig.class}, tree="[0]")
+    private Output<FunctionLoggingConfig> loggingConfig;
+
+    /**
+     * @return Configuration block used to specify advanced logging settings. Detailed below.
+     * 
+     */
+    public Output<FunctionLoggingConfig> loggingConfig() {
+        return this.loggingConfig;
     }
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)

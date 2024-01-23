@@ -25,6 +25,11 @@ public final class GetCatalogTableTargetTable {
      * 
      */
     private String name;
+    /**
+     * @return Region of the target table.
+     * 
+     */
+    private String region;
 
     private GetCatalogTableTargetTable() {}
     /**
@@ -48,6 +53,13 @@ public final class GetCatalogTableTargetTable {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Region of the target table.
+     * 
+     */
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -61,12 +73,14 @@ public final class GetCatalogTableTargetTable {
         private String catalogId;
         private String databaseName;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetCatalogTableTargetTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
     	      this.databaseName = defaults.databaseName;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -93,11 +107,20 @@ public final class GetCatalogTableTargetTable {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableTargetTable", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetCatalogTableTargetTable build() {
             final var _resultValue = new GetCatalogTableTargetTable();
             _resultValue.catalogId = catalogId;
             _resultValue.databaseName = databaseName;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.efs.FileSystemArgs;
 import com.pulumi.aws.efs.inputs.FileSystemState;
 import com.pulumi.aws.efs.outputs.FileSystemLifecyclePolicy;
+import com.pulumi.aws.efs.outputs.FileSystemProtection;
 import com.pulumi.aws.efs.outputs.FileSystemSizeInByte;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -271,6 +272,20 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      */
     public Output<String> performanceMode() {
         return this.performanceMode;
+    }
+    /**
+     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+     * 
+     */
+    @Export(name="protection", refs={FileSystemProtection.class}, tree="[0]")
+    private Output<FileSystemProtection> protection;
+
+    /**
+     * @return A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+     * 
+     */
+    public Output<FileSystemProtection> protection() {
+        return this.protection;
     }
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.

@@ -110,6 +110,8 @@ type FileSystem struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode pulumi.StringOutput `pulumi:"performanceMode"`
+	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+	Protection FileSystemProtectionOutput `pulumi:"protection"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrOutput `pulumi:"provisionedThroughputInMibps"`
 	// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
@@ -185,6 +187,8 @@ type fileSystemState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode *string `pulumi:"performanceMode"`
+	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+	Protection *FileSystemProtection `pulumi:"protection"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps *float64 `pulumi:"provisionedThroughputInMibps"`
 	// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
@@ -227,6 +231,8 @@ type FileSystemState struct {
 	OwnerId pulumi.StringPtrInput
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode pulumi.StringPtrInput
+	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+	Protection FileSystemProtectionPtrInput
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrInput
 	// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
@@ -261,6 +267,8 @@ type fileSystemArgs struct {
 	LifecyclePolicies []FileSystemLifecyclePolicy `pulumi:"lifecyclePolicies"`
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode *string `pulumi:"performanceMode"`
+	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+	Protection *FileSystemProtection `pulumi:"protection"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps *float64 `pulumi:"provisionedThroughputInMibps"`
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -286,6 +294,8 @@ type FileSystemArgs struct {
 	LifecyclePolicies FileSystemLifecyclePolicyArrayInput
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode pulumi.StringPtrInput
+	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+	Protection FileSystemProtectionPtrInput
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrInput
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -442,6 +452,11 @@ func (o FileSystemOutput) OwnerId() pulumi.StringOutput {
 // The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 func (o FileSystemOutput) PerformanceMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.PerformanceMode }).(pulumi.StringOutput)
+}
+
+// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+func (o FileSystemOutput) Protection() FileSystemProtectionOutput {
+	return o.ApplyT(func(v *FileSystem) FileSystemProtectionOutput { return v.Protection }).(FileSystemProtectionOutput)
 }
 
 // The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.

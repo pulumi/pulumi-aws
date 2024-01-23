@@ -19,7 +19,7 @@ public final class BucketAclV2AccessControlPolicy {
      */
     private @Nullable List<BucketAclV2AccessControlPolicyGrant> grants;
     /**
-     * @return Configuration block of the bucket owner&#39;s display name and ID. See below.
+     * @return Configuration block for the bucket owner&#39;s display name and ID. See below.
      * 
      */
     private BucketAclV2AccessControlPolicyOwner owner;
@@ -33,7 +33,7 @@ public final class BucketAclV2AccessControlPolicy {
         return this.grants == null ? List.of() : this.grants;
     }
     /**
-     * @return Configuration block of the bucket owner&#39;s display name and ID. See below.
+     * @return Configuration block for the bucket owner&#39;s display name and ID. See below.
      * 
      */
     public BucketAclV2AccessControlPolicyOwner owner() {

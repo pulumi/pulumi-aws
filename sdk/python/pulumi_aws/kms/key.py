@@ -24,7 +24,8 @@ class KeyArgs:
                  key_usage: Optional[pulumi.Input[str]] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 xks_key_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Key resource.
         :param pulumi.Input[bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
@@ -47,6 +48,7 @@ class KeyArgs:
                
                > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] xks_key_id: Identifies the external key that serves as key material for the KMS key in an external key store.
         """
         if bypass_policy_lockout_safety_check is not None:
             pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
@@ -70,6 +72,8 @@ class KeyArgs:
             pulumi.set(__self__, "policy", policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if xks_key_id is not None:
+            pulumi.set(__self__, "xks_key_id", xks_key_id)
 
     @property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
@@ -212,6 +216,18 @@ class KeyArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="xksKeyId")
+    def xks_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifies the external key that serves as key material for the KMS key in an external key store.
+        """
+        return pulumi.get(self, "xks_key_id")
+
+    @xks_key_id.setter
+    def xks_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "xks_key_id", value)
+
 
 @pulumi.input_type
 class _KeyState:
@@ -229,7 +245,8 @@ class _KeyState:
                  multi_region: Optional[pulumi.Input[bool]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 xks_key_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Key resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the key.
@@ -255,6 +272,7 @@ class _KeyState:
                > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] xks_key_id: Identifies the external key that serves as key material for the KMS key in an external key store.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -287,6 +305,8 @@ class _KeyState:
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if xks_key_id is not None:
+            pulumi.set(__self__, "xks_key_id", xks_key_id)
 
     @property
     @pulumi.getter
@@ -468,6 +488,18 @@ class _KeyState:
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
 
+    @property
+    @pulumi.getter(name="xksKeyId")
+    def xks_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifies the external key that serves as key material for the KMS key in an external key store.
+        """
+        return pulumi.get(self, "xks_key_id")
+
+    @xks_key_id.setter
+    def xks_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "xks_key_id", value)
+
 
 class Key(pulumi.CustomResource):
     @overload
@@ -485,6 +517,7 @@ class Key(pulumi.CustomResource):
                  multi_region: Optional[pulumi.Input[bool]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 xks_key_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a single-Region or multi-Region primary KMS key.
@@ -534,6 +567,7 @@ class Key(pulumi.CustomResource):
                
                > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] xks_key_id: Identifies the external key that serves as key material for the KMS key in an external key store.
         """
         ...
     @overload
@@ -593,6 +627,7 @@ class Key(pulumi.CustomResource):
                  multi_region: Optional[pulumi.Input[bool]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 xks_key_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -613,6 +648,7 @@ class Key(pulumi.CustomResource):
             __props__.__dict__["multi_region"] = multi_region
             __props__.__dict__["policy"] = policy
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["xks_key_id"] = xks_key_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["key_id"] = None
             __props__.__dict__["tags_all"] = None
@@ -641,7 +677,8 @@ class Key(pulumi.CustomResource):
             multi_region: Optional[pulumi.Input[bool]] = None,
             policy: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Key':
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            xks_key_id: Optional[pulumi.Input[str]] = None) -> 'Key':
         """
         Get an existing Key resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -672,6 +709,7 @@ class Key(pulumi.CustomResource):
                > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] xks_key_id: Identifies the external key that serves as key material for the KMS key in an external key store.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -691,6 +729,7 @@ class Key(pulumi.CustomResource):
         __props__.__dict__["policy"] = policy
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["xks_key_id"] = xks_key_id
         return Key(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -816,4 +855,12 @@ class Key(pulumi.CustomResource):
         pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
 
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="xksKeyId")
+    def xks_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Identifies the external key that serves as key material for the KMS key in an external key store.
+        """
+        return pulumi.get(self, "xks_key_id")
 

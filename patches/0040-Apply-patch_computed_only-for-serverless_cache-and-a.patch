@@ -1,0 +1,33 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Fri, 19 Jan 2024 18:21:56 -0500
+Subject: [PATCH 40/40] Apply patch_computed_only for serverless_cache and
+ amp_scraper
+
+
+diff --git a/internal/service/amp/scraper.go b/internal/service/amp/scraper.go
+index 5224c93b6e..26a572c6da 100644
+--- a/internal/service/amp/scraper.go
++++ b/internal/service/amp/scraper.go
+@@ -77,7 +77,7 @@ func (r *scraperResource) Schema(ctx context.Context, req resource.SchemaRequest
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"destination": schema.ListNestedBlock{
+diff --git a/internal/service/elasticache/serverless_cache.go b/internal/service/elasticache/serverless_cache.go
+index 1ea07b398e..54d8d5b5d7 100644
+--- a/internal/service/elasticache/serverless_cache.go
++++ b/internal/service/elasticache/serverless_cache.go
+@@ -176,7 +176,7 @@ func (r *resourceServerlessCache) Schema(ctx context.Context, request resource.S
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			"user_group_id": schema.StringAttribute{
+ 				Optional: true,
+ 			},

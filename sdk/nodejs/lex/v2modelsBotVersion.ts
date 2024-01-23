@@ -78,7 +78,7 @@ export class V2modelsBotVersion extends pulumi.CustomResource {
     /**
      * Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
      *
-     * The following arguments are optional:
+     * The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
      */
     public readonly localeSpecification!: pulumi.Output<{[key: string]: outputs.lex.V2modelsBotVersionLocaleSpecification}>;
     public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsBotVersionTimeouts | undefined>;
@@ -139,7 +139,7 @@ export interface V2modelsBotVersionState {
     /**
      * Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
      *
-     * The following arguments are optional:
+     * The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
      */
     localeSpecification?: pulumi.Input<{[key: string]: pulumi.Input<inputs.lex.V2modelsBotVersionLocaleSpecification>}>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotVersionTimeouts>;
@@ -164,7 +164,7 @@ export interface V2modelsBotVersionArgs {
     /**
      * Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
      *
-     * The following arguments are optional:
+     * The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
      */
     localeSpecification: pulumi.Input<{[key: string]: pulumi.Input<inputs.lex.V2modelsBotVersionLocaleSpecification>}>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotVersionTimeouts>;

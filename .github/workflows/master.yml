@@ -505,6 +505,12 @@ jobs:
             with:
               ref: ${{ env.PR_COMMIT_SHA }}
               submodules: true
+          - name: Unshallow clone for tags
+            run: git fetch --prune --unshallow --tags
+          - name: Install pulumictl
+            uses: jaxxstorm/action-install-gh-release@v1.5.0
+            with:
+              repo: pulumi/pulumictl
           - name: Make upstream
             run: make upstream
           - uses: actions/setup-go@v4

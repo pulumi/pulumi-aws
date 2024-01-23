@@ -10,10 +10,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFileSystemLifecyclePolicy {
+    private String transitionToArchive;
     private String transitionToIa;
     private String transitionToPrimaryStorageClass;
 
     private GetFileSystemLifecyclePolicy() {}
+    public String transitionToArchive() {
+        return this.transitionToArchive;
+    }
     public String transitionToIa() {
         return this.transitionToIa;
     }
@@ -30,15 +34,25 @@ public final class GetFileSystemLifecyclePolicy {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String transitionToArchive;
         private String transitionToIa;
         private String transitionToPrimaryStorageClass;
         public Builder() {}
         public Builder(GetFileSystemLifecyclePolicy defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.transitionToArchive = defaults.transitionToArchive;
     	      this.transitionToIa = defaults.transitionToIa;
     	      this.transitionToPrimaryStorageClass = defaults.transitionToPrimaryStorageClass;
         }
 
+        @CustomType.Setter
+        public Builder transitionToArchive(String transitionToArchive) {
+            if (transitionToArchive == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemLifecyclePolicy", "transitionToArchive");
+            }
+            this.transitionToArchive = transitionToArchive;
+            return this;
+        }
         @CustomType.Setter
         public Builder transitionToIa(String transitionToIa) {
             if (transitionToIa == null) {
@@ -57,6 +71,7 @@ public final class GetFileSystemLifecyclePolicy {
         }
         public GetFileSystemLifecyclePolicy build() {
             final var _resultValue = new GetFileSystemLifecyclePolicy();
+            _resultValue.transitionToArchive = transitionToArchive;
             _resultValue.transitionToIa = transitionToIa;
             _resultValue.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
             return _resultValue;

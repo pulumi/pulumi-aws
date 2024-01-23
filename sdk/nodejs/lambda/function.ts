@@ -180,7 +180,9 @@ import {ARN} from "..";
  *     role: aws_iam_role.iam_for_lambda.name,
  *     policyArn: lambdaLoggingPolicy.arn,
  * });
- * const testLambda = new aws.lambda.Function("testLambda", {}, {
+ * const testLambda = new aws.lambda.Function("testLambda", {loggingConfig: {
+ *     logFormat: "Text",
+ * }}, {
  *     dependsOn: [
  *         lambdaLogs,
  *         example,
@@ -296,6 +298,10 @@ export class Function extends pulumi.CustomResource {
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
      */
     public readonly layers!: pulumi.Output<string[] | undefined>;
+    /**
+     * Configuration block used to specify advanced logging settings. Detailed below.
+     */
+    public readonly loggingConfig!: pulumi.Output<outputs.lambda.FunctionLoggingConfig>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
      */
@@ -440,6 +446,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["lastModified"] = state ? state.lastModified : undefined;
             resourceInputs["layers"] = state ? state.layers : undefined;
+            resourceInputs["loggingConfig"] = state ? state.loggingConfig : undefined;
             resourceInputs["memorySize"] = state ? state.memorySize : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["packageType"] = state ? state.packageType : undefined;
@@ -484,6 +491,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["imageUri"] = args ? args.imageUri : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["layers"] = args ? args.layers : undefined;
+            resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
             resourceInputs["memorySize"] = args ? args.memorySize : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["packageType"] = args ? args.packageType : undefined;
@@ -589,6 +597,10 @@ export interface FunctionState {
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
      */
     layers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration block used to specify advanced logging settings. Detailed below.
+     */
+    loggingConfig?: pulumi.Input<inputs.lambda.FunctionLoggingConfig>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
      */
@@ -761,6 +773,10 @@ export interface FunctionArgs {
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
      */
     layers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration block used to specify advanced logging settings. Detailed below.
+     */
+    loggingConfig?: pulumi.Input<inputs.lambda.FunctionLoggingConfig>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
      */

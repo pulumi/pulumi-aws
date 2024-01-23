@@ -82,16 +82,12 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
     /**
      * The namespace all output variables will be accessed from.
      * 
-     * &gt; **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
-     * 
      */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
     /**
      * @return The namespace all output variables will be accessed from.
-     * 
-     * &gt; **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
      * 
      */
     public Optional<Output<String>> namespace() {
@@ -335,8 +331,6 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
         /**
          * @param namespace The namespace all output variables will be accessed from.
          * 
-         * &gt; **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
-         * 
          * @return builder
          * 
          */
@@ -347,8 +341,6 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
 
         /**
          * @param namespace The namespace all output variables will be accessed from.
-         * 
-         * &gt; **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
          * 
          * @return builder
          * 

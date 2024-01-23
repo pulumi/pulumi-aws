@@ -66,7 +66,7 @@ type TrustStoreRevocation struct {
 	RevocationId pulumi.IntOutput `pulumi:"revocationId"`
 	// S3 Bucket name holding the client certificate CA bundle.
 	RevocationsS3Bucket pulumi.StringOutput `pulumi:"revocationsS3Bucket"`
-	// S3 Bucket name holding the client certificate CA bundle.
+	// S3 object key holding the client certificate CA bundle.
 	RevocationsS3Key pulumi.StringOutput `pulumi:"revocationsS3Key"`
 	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 	RevocationsS3ObjectVersion pulumi.StringPtrOutput `pulumi:"revocationsS3ObjectVersion"`
@@ -117,7 +117,7 @@ type trustStoreRevocationState struct {
 	RevocationId *int `pulumi:"revocationId"`
 	// S3 Bucket name holding the client certificate CA bundle.
 	RevocationsS3Bucket *string `pulumi:"revocationsS3Bucket"`
-	// S3 Bucket name holding the client certificate CA bundle.
+	// S3 object key holding the client certificate CA bundle.
 	RevocationsS3Key *string `pulumi:"revocationsS3Key"`
 	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 	RevocationsS3ObjectVersion *string `pulumi:"revocationsS3ObjectVersion"`
@@ -130,7 +130,7 @@ type TrustStoreRevocationState struct {
 	RevocationId pulumi.IntPtrInput
 	// S3 Bucket name holding the client certificate CA bundle.
 	RevocationsS3Bucket pulumi.StringPtrInput
-	// S3 Bucket name holding the client certificate CA bundle.
+	// S3 object key holding the client certificate CA bundle.
 	RevocationsS3Key pulumi.StringPtrInput
 	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 	RevocationsS3ObjectVersion pulumi.StringPtrInput
@@ -145,7 +145,7 @@ func (TrustStoreRevocationState) ElementType() reflect.Type {
 type trustStoreRevocationArgs struct {
 	// S3 Bucket name holding the client certificate CA bundle.
 	RevocationsS3Bucket string `pulumi:"revocationsS3Bucket"`
-	// S3 Bucket name holding the client certificate CA bundle.
+	// S3 object key holding the client certificate CA bundle.
 	RevocationsS3Key string `pulumi:"revocationsS3Key"`
 	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 	RevocationsS3ObjectVersion *string `pulumi:"revocationsS3ObjectVersion"`
@@ -157,7 +157,7 @@ type trustStoreRevocationArgs struct {
 type TrustStoreRevocationArgs struct {
 	// S3 Bucket name holding the client certificate CA bundle.
 	RevocationsS3Bucket pulumi.StringInput
-	// S3 Bucket name holding the client certificate CA bundle.
+	// S3 object key holding the client certificate CA bundle.
 	RevocationsS3Key pulumi.StringInput
 	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 	RevocationsS3ObjectVersion pulumi.StringPtrInput
@@ -262,7 +262,7 @@ func (o TrustStoreRevocationOutput) RevocationsS3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStoreRevocation) pulumi.StringOutput { return v.RevocationsS3Bucket }).(pulumi.StringOutput)
 }
 
-// S3 Bucket name holding the client certificate CA bundle.
+// S3 object key holding the client certificate CA bundle.
 func (o TrustStoreRevocationOutput) RevocationsS3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStoreRevocation) pulumi.StringOutput { return v.RevocationsS3Key }).(pulumi.StringOutput)
 }

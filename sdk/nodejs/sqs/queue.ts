@@ -56,10 +56,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleQueueDeadletter = new aws.sqs.Queue("exampleQueueDeadletter", {redriveAllowPolicy: JSON.stringify({
- *     redrivePermission: "byQueue",
- *     sourceQueueArns: [aws_sqs_queue.example_queue.arn],
+ * const queue = new aws.sqs.Queue("queue", {redrivePolicy: JSON.stringify({
+ *     deadLetterTargetArn: aws_sqs_queue.queue_deadletter.arn,
+ *     maxReceiveCount: 4,
  * })});
+ * const exampleQueueDeadletter = new aws.sqs.Queue("exampleQueueDeadletter", {});
+ * const exampleQueueRedriveAllowPolicy = new aws.sqs.RedriveAllowPolicy("exampleQueueRedriveAllowPolicy", {
+ *     queueUrl: exampleQueueDeadletter.id,
+ *     redriveAllowPolicy: JSON.stringify({
+ *         redrivePermission: "byQueue",
+ *         sourceQueueArns: [aws_sqs_queue.example_queue.arn],
+ *     }),
+ * });
  * ```
  *
  * ## Server-side encryption (SSE)

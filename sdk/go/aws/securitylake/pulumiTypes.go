@@ -13,6 +13,200 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AwsLogSourceSource struct {
+	// Specify the AWS account information where you want to enable Security Lake.
+	Accounts []string `pulumi:"accounts"`
+	// Specify the Regions where you want to enable Security Lake.
+	Regions []string `pulumi:"regions"`
+	// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+	SourceName string `pulumi:"sourceName"`
+	// The version for a AWS source. This must be a Regionally unique value.
+	SourceVersion *string `pulumi:"sourceVersion"`
+}
+
+// AwsLogSourceSourceInput is an input type that accepts AwsLogSourceSourceArgs and AwsLogSourceSourceOutput values.
+// You can construct a concrete instance of `AwsLogSourceSourceInput` via:
+//
+//	AwsLogSourceSourceArgs{...}
+type AwsLogSourceSourceInput interface {
+	pulumi.Input
+
+	ToAwsLogSourceSourceOutput() AwsLogSourceSourceOutput
+	ToAwsLogSourceSourceOutputWithContext(context.Context) AwsLogSourceSourceOutput
+}
+
+type AwsLogSourceSourceArgs struct {
+	// Specify the AWS account information where you want to enable Security Lake.
+	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
+	// Specify the Regions where you want to enable Security Lake.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+	// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+	SourceName pulumi.StringInput `pulumi:"sourceName"`
+	// The version for a AWS source. This must be a Regionally unique value.
+	SourceVersion pulumi.StringPtrInput `pulumi:"sourceVersion"`
+}
+
+func (AwsLogSourceSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsLogSourceSource)(nil)).Elem()
+}
+
+func (i AwsLogSourceSourceArgs) ToAwsLogSourceSourceOutput() AwsLogSourceSourceOutput {
+	return i.ToAwsLogSourceSourceOutputWithContext(context.Background())
+}
+
+func (i AwsLogSourceSourceArgs) ToAwsLogSourceSourceOutputWithContext(ctx context.Context) AwsLogSourceSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsLogSourceSourceOutput)
+}
+
+func (i AwsLogSourceSourceArgs) ToAwsLogSourceSourcePtrOutput() AwsLogSourceSourcePtrOutput {
+	return i.ToAwsLogSourceSourcePtrOutputWithContext(context.Background())
+}
+
+func (i AwsLogSourceSourceArgs) ToAwsLogSourceSourcePtrOutputWithContext(ctx context.Context) AwsLogSourceSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsLogSourceSourceOutput).ToAwsLogSourceSourcePtrOutputWithContext(ctx)
+}
+
+// AwsLogSourceSourcePtrInput is an input type that accepts AwsLogSourceSourceArgs, AwsLogSourceSourcePtr and AwsLogSourceSourcePtrOutput values.
+// You can construct a concrete instance of `AwsLogSourceSourcePtrInput` via:
+//
+//	        AwsLogSourceSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AwsLogSourceSourcePtrInput interface {
+	pulumi.Input
+
+	ToAwsLogSourceSourcePtrOutput() AwsLogSourceSourcePtrOutput
+	ToAwsLogSourceSourcePtrOutputWithContext(context.Context) AwsLogSourceSourcePtrOutput
+}
+
+type awsLogSourceSourcePtrType AwsLogSourceSourceArgs
+
+func AwsLogSourceSourcePtr(v *AwsLogSourceSourceArgs) AwsLogSourceSourcePtrInput {
+	return (*awsLogSourceSourcePtrType)(v)
+}
+
+func (*awsLogSourceSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsLogSourceSource)(nil)).Elem()
+}
+
+func (i *awsLogSourceSourcePtrType) ToAwsLogSourceSourcePtrOutput() AwsLogSourceSourcePtrOutput {
+	return i.ToAwsLogSourceSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *awsLogSourceSourcePtrType) ToAwsLogSourceSourcePtrOutputWithContext(ctx context.Context) AwsLogSourceSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsLogSourceSourcePtrOutput)
+}
+
+type AwsLogSourceSourceOutput struct{ *pulumi.OutputState }
+
+func (AwsLogSourceSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsLogSourceSource)(nil)).Elem()
+}
+
+func (o AwsLogSourceSourceOutput) ToAwsLogSourceSourceOutput() AwsLogSourceSourceOutput {
+	return o
+}
+
+func (o AwsLogSourceSourceOutput) ToAwsLogSourceSourceOutputWithContext(ctx context.Context) AwsLogSourceSourceOutput {
+	return o
+}
+
+func (o AwsLogSourceSourceOutput) ToAwsLogSourceSourcePtrOutput() AwsLogSourceSourcePtrOutput {
+	return o.ToAwsLogSourceSourcePtrOutputWithContext(context.Background())
+}
+
+func (o AwsLogSourceSourceOutput) ToAwsLogSourceSourcePtrOutputWithContext(ctx context.Context) AwsLogSourceSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsLogSourceSource) *AwsLogSourceSource {
+		return &v
+	}).(AwsLogSourceSourcePtrOutput)
+}
+
+// Specify the AWS account information where you want to enable Security Lake.
+func (o AwsLogSourceSourceOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AwsLogSourceSource) []string { return v.Accounts }).(pulumi.StringArrayOutput)
+}
+
+// Specify the Regions where you want to enable Security Lake.
+func (o AwsLogSourceSourceOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AwsLogSourceSource) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+func (o AwsLogSourceSourceOutput) SourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsLogSourceSource) string { return v.SourceName }).(pulumi.StringOutput)
+}
+
+// The version for a AWS source. This must be a Regionally unique value.
+func (o AwsLogSourceSourceOutput) SourceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AwsLogSourceSource) *string { return v.SourceVersion }).(pulumi.StringPtrOutput)
+}
+
+type AwsLogSourceSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AwsLogSourceSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AwsLogSourceSource)(nil)).Elem()
+}
+
+func (o AwsLogSourceSourcePtrOutput) ToAwsLogSourceSourcePtrOutput() AwsLogSourceSourcePtrOutput {
+	return o
+}
+
+func (o AwsLogSourceSourcePtrOutput) ToAwsLogSourceSourcePtrOutputWithContext(ctx context.Context) AwsLogSourceSourcePtrOutput {
+	return o
+}
+
+func (o AwsLogSourceSourcePtrOutput) Elem() AwsLogSourceSourceOutput {
+	return o.ApplyT(func(v *AwsLogSourceSource) AwsLogSourceSource {
+		if v != nil {
+			return *v
+		}
+		var ret AwsLogSourceSource
+		return ret
+	}).(AwsLogSourceSourceOutput)
+}
+
+// Specify the AWS account information where you want to enable Security Lake.
+func (o AwsLogSourceSourcePtrOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AwsLogSourceSource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Accounts
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specify the Regions where you want to enable Security Lake.
+func (o AwsLogSourceSourcePtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AwsLogSourceSource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+func (o AwsLogSourceSourcePtrOutput) SourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AwsLogSourceSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version for a AWS source. This must be a Regionally unique value.
+func (o AwsLogSourceSourcePtrOutput) SourceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AwsLogSourceSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 type DataLakeConfiguration struct {
 	// Provides encryption details of Amazon Security Lake object.
 	EncryptionConfigurations []map[string]interface{} `pulumi:"encryptionConfigurations"`
@@ -934,6 +1128,8 @@ func (o DataLakeTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsLogSourceSourceInput)(nil)).Elem(), AwsLogSourceSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AwsLogSourceSourcePtrInput)(nil)).Elem(), AwsLogSourceSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationInput)(nil)).Elem(), DataLakeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationPtrInput)(nil)).Elem(), DataLakeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationLifecycleConfigurationInput)(nil)).Elem(), DataLakeConfigurationLifecycleConfigurationArgs{})
@@ -946,6 +1142,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationReplicationConfigurationPtrInput)(nil)).Elem(), DataLakeConfigurationReplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeTimeoutsInput)(nil)).Elem(), DataLakeTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeTimeoutsPtrInput)(nil)).Elem(), DataLakeTimeoutsArgs{})
+	pulumi.RegisterOutputType(AwsLogSourceSourceOutput{})
+	pulumi.RegisterOutputType(AwsLogSourceSourcePtrOutput{})
 	pulumi.RegisterOutputType(DataLakeConfigurationOutput{})
 	pulumi.RegisterOutputType(DataLakeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeConfigurationLifecycleConfigurationOutput{})

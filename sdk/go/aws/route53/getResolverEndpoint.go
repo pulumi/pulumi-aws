@@ -99,12 +99,14 @@ type LookupResolverEndpointResult struct {
 	Direction string                      `pulumi:"direction"`
 	Filters   []GetResolverEndpointFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string   `pulumi:"id"`
-	IpAddresses        []string `pulumi:"ipAddresses"`
-	Name               string   `pulumi:"name"`
-	ResolverEndpointId *string  `pulumi:"resolverEndpointId"`
-	Status             string   `pulumi:"status"`
-	VpcId              string   `pulumi:"vpcId"`
+	Id                   string   `pulumi:"id"`
+	IpAddresses          []string `pulumi:"ipAddresses"`
+	Name                 string   `pulumi:"name"`
+	Protocols            []string `pulumi:"protocols"`
+	ResolverEndpointId   *string  `pulumi:"resolverEndpointId"`
+	ResolverEndpointType string   `pulumi:"resolverEndpointType"`
+	Status               string   `pulumi:"status"`
+	VpcId                string   `pulumi:"vpcId"`
 }
 
 func LookupResolverEndpointOutput(ctx *pulumi.Context, args LookupResolverEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupResolverEndpointResultOutput {
@@ -176,8 +178,16 @@ func (o LookupResolverEndpointResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o LookupResolverEndpointResultOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) []string { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
 func (o LookupResolverEndpointResultOutput) ResolverEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.ResolverEndpointId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupResolverEndpointResultOutput) ResolverEndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.ResolverEndpointType }).(pulumi.StringOutput)
 }
 
 func (o LookupResolverEndpointResultOutput) Status() pulumi.StringOutput {

@@ -655,6 +655,8 @@ type FirewallPolicyFirewallPolicy struct {
 	StatelessFragmentDefaultActions []string `pulumi:"statelessFragmentDefaultActions"`
 	// Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
 	StatelessRuleGroupReferences []FirewallPolicyFirewallPolicyStatelessRuleGroupReference `pulumi:"statelessRuleGroupReferences"`
+	// The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
+	TlsInspectionConfigurationArn *string `pulumi:"tlsInspectionConfigurationArn"`
 }
 
 // FirewallPolicyFirewallPolicyInput is an input type that accepts FirewallPolicyFirewallPolicyArgs and FirewallPolicyFirewallPolicyOutput values.
@@ -687,6 +689,8 @@ type FirewallPolicyFirewallPolicyArgs struct {
 	StatelessFragmentDefaultActions pulumi.StringArrayInput `pulumi:"statelessFragmentDefaultActions"`
 	// Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
 	StatelessRuleGroupReferences FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayInput `pulumi:"statelessRuleGroupReferences"`
+	// The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
+	TlsInspectionConfigurationArn pulumi.StringPtrInput `pulumi:"tlsInspectionConfigurationArn"`
 }
 
 func (FirewallPolicyFirewallPolicyArgs) ElementType() reflect.Type {
@@ -818,6 +822,11 @@ func (o FirewallPolicyFirewallPolicyOutput) StatelessRuleGroupReferences() Firew
 	}).(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput)
 }
 
+// The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
+func (o FirewallPolicyFirewallPolicyOutput) TlsInspectionConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) *string { return v.TlsInspectionConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
 type FirewallPolicyFirewallPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyFirewallPolicyPtrOutput) ElementType() reflect.Type {
@@ -922,6 +931,16 @@ func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessRuleGroupReferences() Fi
 		}
 		return v.StatelessRuleGroupReferences
 	}).(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput)
+}
+
+// The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
+func (o FirewallPolicyFirewallPolicyPtrOutput) TlsInspectionConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsInspectionConfigurationArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type FirewallPolicyFirewallPolicyPolicyVariables struct {
@@ -6491,6 +6510,7 @@ type GetFirewallPolicyFirewallPolicy struct {
 	StatelessDefaultActions         []string                                                     `pulumi:"statelessDefaultActions"`
 	StatelessFragmentDefaultActions []string                                                     `pulumi:"statelessFragmentDefaultActions"`
 	StatelessRuleGroupReferences    []GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference `pulumi:"statelessRuleGroupReferences"`
+	TlsInspectionConfigurationArn   string                                                       `pulumi:"tlsInspectionConfigurationArn"`
 }
 
 // GetFirewallPolicyFirewallPolicyInput is an input type that accepts GetFirewallPolicyFirewallPolicyArgs and GetFirewallPolicyFirewallPolicyOutput values.
@@ -6512,6 +6532,7 @@ type GetFirewallPolicyFirewallPolicyArgs struct {
 	StatelessDefaultActions         pulumi.StringArrayInput                                              `pulumi:"statelessDefaultActions"`
 	StatelessFragmentDefaultActions pulumi.StringArrayInput                                              `pulumi:"statelessFragmentDefaultActions"`
 	StatelessRuleGroupReferences    GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayInput `pulumi:"statelessRuleGroupReferences"`
+	TlsInspectionConfigurationArn   pulumi.StringInput                                                   `pulumi:"tlsInspectionConfigurationArn"`
 }
 
 func (GetFirewallPolicyFirewallPolicyArgs) ElementType() reflect.Type {
@@ -6599,6 +6620,10 @@ func (o GetFirewallPolicyFirewallPolicyOutput) StatelessRuleGroupReferences() Ge
 	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicy) []GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference {
 		return v.StatelessRuleGroupReferences
 	}).(GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyOutput) TlsInspectionConfigurationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicy) string { return v.TlsInspectionConfigurationArn }).(pulumi.StringOutput)
 }
 
 type GetFirewallPolicyFirewallPolicyArrayOutput struct{ *pulumi.OutputState }

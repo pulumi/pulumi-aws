@@ -77,14 +77,14 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+     * The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
     @Import(name="functionUrl")
     private @Nullable Output<String> functionUrl;
 
     /**
-     * @return The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+     * @return The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
     public Optional<Output<String>> functionUrl() {
@@ -252,7 +252,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionUrl The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+         * @param functionUrl The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionUrl The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
+         * @param functionUrl The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
          * 
          * @return builder
          * 

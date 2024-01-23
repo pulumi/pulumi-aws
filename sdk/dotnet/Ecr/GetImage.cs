@@ -169,6 +169,10 @@ namespace Pulumi.Aws.Ecr
         /// List of tags associated with this image.
         /// </summary>
         public readonly ImmutableArray<string> ImageTags;
+        /// <summary>
+        /// The URI for the specific image version specified by `image_tag` or `image_digest`.
+        /// </summary>
+        public readonly string ImageUri;
         public readonly bool? MostRecent;
         public readonly string RegistryId;
         public readonly string RepositoryName;
@@ -187,6 +191,8 @@ namespace Pulumi.Aws.Ecr
 
             ImmutableArray<string> imageTags,
 
+            string imageUri,
+
             bool? mostRecent,
 
             string registryId,
@@ -199,6 +205,7 @@ namespace Pulumi.Aws.Ecr
             ImageSizeInBytes = imageSizeInBytes;
             ImageTag = imageTag;
             ImageTags = imageTags;
+            ImageUri = imageUri;
             MostRecent = mostRecent;
             RegistryId = registryId;
             RepositoryName = repositoryName;

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CatalogTableTargetTableArgs extends com.pulumi.resources.ResourceArgs {
@@ -59,12 +61,28 @@ public final class CatalogTableTargetTableArgs extends com.pulumi.resources.Reso
         return this.name;
     }
 
+    /**
+     * Region of the target table.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region of the target table.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private CatalogTableTargetTableArgs() {}
 
     private CatalogTableTargetTableArgs(CatalogTableTargetTableArgs $) {
         this.catalogId = $.catalogId;
         this.databaseName = $.databaseName;
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -146,6 +164,27 @@ public final class CatalogTableTargetTableArgs extends com.pulumi.resources.Reso
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param region Region of the target table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region of the target table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public CatalogTableTargetTableArgs build() {

@@ -64,6 +64,9 @@ namespace Pulumi.Aws.VerifiedAccess
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
+        /// <summary>
+        /// The policy document that is associated with this resource.
+        /// </summary>
         [Output("policyDocument")]
         public Output<string?> PolicyDocument { get; private set; } = null!;
 
@@ -152,6 +155,9 @@ namespace Pulumi.Aws.VerifiedAccess
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The policy document that is associated with this resource.
+        /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
 
@@ -213,6 +219,9 @@ namespace Pulumi.Aws.VerifiedAccess
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
+        /// <summary>
+        /// The policy document that is associated with this resource.
+        /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
 

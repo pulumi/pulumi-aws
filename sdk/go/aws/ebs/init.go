@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DefaultKmsKey{}
 	case "aws:ebs/encryptionByDefault:EncryptionByDefault":
 		r = &EncryptionByDefault{}
+	case "aws:ebs/fastSnapshotRestore:FastSnapshotRestore":
+		r = &FastSnapshotRestore{}
 	case "aws:ebs/snapshot:Snapshot":
 		r = &Snapshot{}
 	case "aws:ebs/snapshotCopy:SnapshotCopy":
@@ -54,6 +56,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ebs/encryptionByDefault",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ebs/fastSnapshotRestore",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

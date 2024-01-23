@@ -12238,7 +12238,7 @@ class SecurityGroupEgressArgs:
                  self: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is `icmp`)
-        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
         :param pulumi.Input[int] to_port: End range port (or ICMP code if protocol is `icmp`).
                
                The following arguments are optional:
@@ -12283,7 +12283,7 @@ class SecurityGroupEgressArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
         """
         return pulumi.get(self, "protocol")
 
@@ -12394,7 +12394,7 @@ class SecurityGroupIngressArgs:
                  self: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
-        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
                
                The following arguments are optional:
                
@@ -12439,7 +12439,7 @@ class SecurityGroupIngressArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 
         The following arguments are optional:
 

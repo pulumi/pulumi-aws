@@ -596,10 +596,9 @@ class Route(pulumi.CustomResource):
         import pulumi_aws as aws
 
         route = aws.ec2.Route("route",
-            route_table_id="rtb-4fbb3ac4",
+            route_table_id=aws_route_table["testing"]["id"],
             destination_cidr_block="10.0.1.0/22",
-            vpc_peering_connection_id="pcx-45ff3dc1",
-            opts=pulumi.ResourceOptions(depends_on=[aws_route_table["testing"]]))
+            vpc_peering_connection_id="pcx-45ff3dc1")
         ```
         ## Example IPv6 Usage
 
@@ -684,10 +683,9 @@ class Route(pulumi.CustomResource):
         import pulumi_aws as aws
 
         route = aws.ec2.Route("route",
-            route_table_id="rtb-4fbb3ac4",
+            route_table_id=aws_route_table["testing"]["id"],
             destination_cidr_block="10.0.1.0/22",
-            vpc_peering_connection_id="pcx-45ff3dc1",
-            opts=pulumi.ResourceOptions(depends_on=[aws_route_table["testing"]]))
+            vpc_peering_connection_id="pcx-45ff3dc1")
         ```
         ## Example IPv6 Usage
 

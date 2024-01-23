@@ -144,6 +144,10 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// ARN of the KMS key used to encrypt data in the Prometheus workspace.
+        /// </summary>
+        public readonly string KmsKeyArn;
+        /// <summary>
         /// Endpoint of the Prometheus workspace.
         /// </summary>
         public readonly string PrometheusEndpoint;
@@ -167,6 +171,8 @@ namespace Pulumi.Aws.Amp
 
             string id,
 
+            string kmsKeyArn,
+
             string prometheusEndpoint,
 
             string status,
@@ -179,6 +185,7 @@ namespace Pulumi.Aws.Amp
             Arn = arn;
             CreatedDate = createdDate;
             Id = id;
+            KmsKeyArn = kmsKeyArn;
             PrometheusEndpoint = prometheusEndpoint;
             Status = status;
             Tags = tags;

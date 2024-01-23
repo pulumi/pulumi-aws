@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AwsLogSourceArgs, AwsLogSourceState } from "./awsLogSource";
+export type AwsLogSource = import("./awsLogSource").AwsLogSource;
+export const AwsLogSource: typeof import("./awsLogSource").AwsLogSource = null as any;
+utilities.lazyLoad(exports, ["AwsLogSource"], () => require("./awsLogSource"));
+
 export { DataLakeArgs, DataLakeState } from "./dataLake";
 export type DataLake = import("./dataLake").DataLake;
 export const DataLake: typeof import("./dataLake").DataLake = null as any;
@@ -15,6 +20,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:securitylake/awsLogSource:AwsLogSource":
+                return new AwsLogSource(name, <any>undefined, { urn })
             case "aws:securitylake/dataLake:DataLake":
                 return new DataLake(name, <any>undefined, { urn })
             default:
@@ -22,4 +29,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "securitylake/awsLogSource", _module)
 pulumi.runtime.registerResourceModule("aws", "securitylake/dataLake", _module)

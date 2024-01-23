@@ -214,6 +214,49 @@ namespace Pulumi.Aws.Batch
     /// 
     /// });
     /// ```
+    /// ### Setting Update Policy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sample = new Aws.Batch.ComputeEnvironment("sample", new()
+    ///     {
+    ///         ComputeEnvironmentName = "sample",
+    ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
+    ///         {
+    ///             AllocationStrategy = "BEST_FIT_PROGRESSIVE",
+    ///             InstanceRole = aws_iam_instance_profile.Ecs_instance.Arn,
+    ///             InstanceTypes = new[]
+    ///             {
+    ///                 "optimal",
+    ///             },
+    ///             MaxVcpus = 4,
+    ///             MinVcpus = 0,
+    ///             SecurityGroupIds = new[]
+    ///             {
+    ///                 aws_security_group.Sample.Id,
+    ///             },
+    ///             Subnets = new[]
+    ///             {
+    ///                 aws_subnet.Sample.Id,
+    ///             },
+    ///             Type = "EC2",
+    ///         },
+    ///         UpdatePolicy = new Aws.Batch.Inputs.ComputeEnvironmentUpdatePolicyArgs
+    ///         {
+    ///             JobExecutionTimeoutMinutes = 30,
+    ///             TerminateJobsOnUpdate = false,
+    ///         },
+    ///         Type = "MANAGED",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -303,6 +346,12 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the infrastructure update policy for the compute environment. See details below.
+        /// </summary>
+        [Output("updatePolicy")]
+        public Output<Outputs.ComputeEnvironmentUpdatePolicy?> UpdatePolicy { get; private set; } = null!;
 
 
         /// <summary>
@@ -408,6 +457,12 @@ namespace Pulumi.Aws.Batch
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the infrastructure update policy for the compute environment. See details below.
+        /// </summary>
+        [Input("updatePolicy")]
+        public Input<Inputs.ComputeEnvironmentUpdatePolicyArgs>? UpdatePolicy { get; set; }
+
         public ComputeEnvironmentArgs()
         {
         }
@@ -510,6 +565,12 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Specifies the infrastructure update policy for the compute environment. See details below.
+        /// </summary>
+        [Input("updatePolicy")]
+        public Input<Inputs.ComputeEnvironmentUpdatePolicyGetArgs>? UpdatePolicy { get; set; }
 
         public ComputeEnvironmentState()
         {

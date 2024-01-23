@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Provides an SES configuration set resource.
  *
  * ## Example Usage
+ * ### Basic Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -26,6 +27,16 @@ import * as utilities from "../utilities";
  *
  * const test = new aws.ses.ConfigurationSet("test", {deliveryOptions: {
  *     tlsPolicy: "Require",
+ * }});
+ * ```
+ * ### Tracking Options
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.ses.ConfigurationSet("test", {trackingOptions: {
+ *     customRedirectDomain: "sub.example.com",
  * }});
  * ```
  *

@@ -37,6 +37,7 @@ export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOp
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lb/getTargetGroup:getTargetGroup", {
         "arn": args.arn,
+        "loadBalancingAnomalyMitigation": args.loadBalancingAnomalyMitigation,
         "name": args.name,
         "tags": args.tags,
     }, opts);
@@ -50,6 +51,7 @@ export interface GetTargetGroupArgs {
      * Full ARN of the target group.
      */
     arn?: string;
+    loadBalancingAnomalyMitigation?: string;
     /**
      * Unique name of the target group.
      */
@@ -69,7 +71,7 @@ export interface GetTargetGroupResult {
     readonly arn: string;
     readonly arnSuffix: string;
     readonly connectionTermination: boolean;
-    readonly deregistrationDelay: number;
+    readonly deregistrationDelay: string;
     readonly healthCheck: outputs.lb.GetTargetGroupHealthCheck;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -77,6 +79,7 @@ export interface GetTargetGroupResult {
     readonly id: string;
     readonly lambdaMultiValueHeadersEnabled: boolean;
     readonly loadBalancingAlgorithmType: string;
+    readonly loadBalancingAnomalyMitigation: string;
     readonly loadBalancingCrossZoneEnabled: string;
     readonly name: string;
     readonly port: number;
@@ -126,6 +129,7 @@ export interface GetTargetGroupOutputArgs {
      * Full ARN of the target group.
      */
     arn?: pulumi.Input<string>;
+    loadBalancingAnomalyMitigation?: pulumi.Input<string>;
     /**
      * Unique name of the target group.
      */

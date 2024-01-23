@@ -24,6 +24,7 @@ import javax.annotation.Nullable;
  * Provides an AWS Network Firewall Firewall Resource
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
@@ -56,6 +57,7 @@ import javax.annotation.Nullable;
  *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
  *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
  *             ))
+ *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -88,14 +90,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+     * A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
      * 
      */
     @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteProtection;
 
     /**
-     * @return A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+     * @return A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> deleteProtection() {
@@ -144,14 +146,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
         return this.firewallPolicyArn;
     }
     /**
-     * A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+     * A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
      * 
      */
     @Export(name="firewallPolicyChangeProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> firewallPolicyChangeProtection;
 
     /**
-     * @return A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+     * @return A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> firewallPolicyChangeProtection() {
@@ -186,14 +188,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+     * A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
      * 
      */
     @Export(name="subnetChangeProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> subnetChangeProtection;
 
     /**
-     * @return A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+     * @return A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> subnetChangeProtection() {

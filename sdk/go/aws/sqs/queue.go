@@ -125,6 +125,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"deadLetterTargetArn": aws_sqs_queue.Queue_deadletter.Arn,
+//				"maxReceiveCount":     4,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+//				RedrivePolicy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleQueueDeadletter, err := sqs.NewQueue(ctx, "exampleQueueDeadletter", nil)
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
 //				"redrivePermission": "byQueue",
 //				"sourceQueueArns": []interface{}{
 //					aws_sqs_queue.Example_queue.Arn,
@@ -133,9 +151,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			json0 := string(tmpJSON0)
-//			_, err = sqs.NewQueue(ctx, "exampleQueueDeadletter", &sqs.QueueArgs{
-//				RedriveAllowPolicy: pulumi.String(json0),
+//			json1 := string(tmpJSON1)
+//			_, err = sqs.NewRedriveAllowPolicy(ctx, "exampleQueueRedriveAllowPolicy", &sqs.RedriveAllowPolicyArgs{
+//				QueueUrl:           exampleQueueDeadletter.ID(),
+//				RedriveAllowPolicy: pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err

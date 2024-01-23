@@ -732,10 +732,17 @@ class Queue(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_queue_deadletter = aws.sqs.Queue("exampleQueueDeadletter", redrive_allow_policy=json.dumps({
-            "redrivePermission": "byQueue",
-            "sourceQueueArns": [aws_sqs_queue["example_queue"]["arn"]],
+        queue = aws.sqs.Queue("queue", redrive_policy=json.dumps({
+            "deadLetterTargetArn": aws_sqs_queue["queue_deadletter"]["arn"],
+            "maxReceiveCount": 4,
         }))
+        example_queue_deadletter = aws.sqs.Queue("exampleQueueDeadletter")
+        example_queue_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("exampleQueueRedriveAllowPolicy",
+            queue_url=example_queue_deadletter.id,
+            redrive_allow_policy=json.dumps({
+                "redrivePermission": "byQueue",
+                "sourceQueueArns": [aws_sqs_queue["example_queue"]["arn"]],
+            }))
         ```
 
         ## Server-side encryption (SSE)
@@ -846,10 +853,17 @@ class Queue(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_queue_deadletter = aws.sqs.Queue("exampleQueueDeadletter", redrive_allow_policy=json.dumps({
-            "redrivePermission": "byQueue",
-            "sourceQueueArns": [aws_sqs_queue["example_queue"]["arn"]],
+        queue = aws.sqs.Queue("queue", redrive_policy=json.dumps({
+            "deadLetterTargetArn": aws_sqs_queue["queue_deadletter"]["arn"],
+            "maxReceiveCount": 4,
         }))
+        example_queue_deadletter = aws.sqs.Queue("exampleQueueDeadletter")
+        example_queue_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("exampleQueueRedriveAllowPolicy",
+            queue_url=example_queue_deadletter.id,
+            redrive_allow_policy=json.dumps({
+                "redrivePermission": "byQueue",
+                "sourceQueueArns": [aws_sqs_queue["example_queue"]["arn"]],
+            }))
         ```
 
         ## Server-side encryption (SSE)

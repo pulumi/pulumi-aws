@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Efs.Outputs
     public sealed class FileSystemLifecyclePolicy
     {
         /// <summary>
+        /// Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+        /// </summary>
+        public readonly string? TransitionToArchive;
+        /// <summary>
         /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
         /// </summary>
         public readonly string? TransitionToIa;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.Efs.Outputs
 
         [OutputConstructor]
         private FileSystemLifecyclePolicy(
+            string? transitionToArchive,
+
             string? transitionToIa,
 
             string? transitionToPrimaryStorageClass)
         {
+            TransitionToArchive = transitionToArchive;
             TransitionToIa = transitionToIa;
             TransitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
         }

@@ -79,6 +79,10 @@ export interface GetImageResult {
      * List of tags associated with this image.
      */
     readonly imageTags: string[];
+    /**
+     * The URI for the specific image version specified by `imageTag` or `imageDigest`.
+     */
+    readonly imageUri: string;
     readonly mostRecent?: boolean;
     readonly registryId: string;
     readonly repositoryName: string;

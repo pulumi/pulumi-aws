@@ -48,14 +48,14 @@ public final class BucketAclV2Args extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the bucket.
+     * Bucket to which to apply the ACL.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return Name of the bucket.
+     * @return Bucket to which to apply the ACL.
      * 
      */
     public Output<String> bucket() {
@@ -147,7 +147,7 @@ public final class BucketAclV2Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of the bucket.
+         * @param bucket Bucket to which to apply the ACL.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class BucketAclV2Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of the bucket.
+         * @param bucket Bucket to which to apply the ACL.
          * 
          * @return builder
          * 

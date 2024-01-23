@@ -34,14 +34,14 @@ public final class BucketAclV2AccessControlPolicyArgs extends com.pulumi.resourc
     }
 
     /**
-     * Configuration block of the bucket owner&#39;s display name and ID. See below.
+     * Configuration block for the bucket owner&#39;s display name and ID. See below.
      * 
      */
     @Import(name="owner", required=true)
     private Output<BucketAclV2AccessControlPolicyOwnerArgs> owner;
 
     /**
-     * @return Configuration block of the bucket owner&#39;s display name and ID. See below.
+     * @return Configuration block for the bucket owner&#39;s display name and ID. See below.
      * 
      */
     public Output<BucketAclV2AccessControlPolicyOwnerArgs> owner() {
@@ -105,7 +105,7 @@ public final class BucketAclV2AccessControlPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param owner Configuration block of the bucket owner&#39;s display name and ID. See below.
+         * @param owner Configuration block for the bucket owner&#39;s display name and ID. See below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class BucketAclV2AccessControlPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param owner Configuration block of the bucket owner&#39;s display name and ID. See below.
+         * @param owner Configuration block for the bucket owner&#39;s display name and ID. See below.
          * 
          * @return builder
          * 

@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'FastSnapshotRestoreTimeouts',
     'SnapshotImportClientData',
     'SnapshotImportDiskContainer',
     'SnapshotImportDiskContainerUserBucket',
@@ -19,6 +20,27 @@ __all__ = [
     'GetSnapshotIdsFilterResult',
     'GetVolumeFilterResult',
 ]
+
+@pulumi.output_type
+class FastSnapshotRestoreTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        return pulumi.get(self, "delete")
+
 
 @pulumi.output_type
 class SnapshotImportClientData(dict):

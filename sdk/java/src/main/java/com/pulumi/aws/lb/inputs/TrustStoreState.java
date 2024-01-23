@@ -62,14 +62,14 @@ public final class TrustStoreState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * S3 Bucket name holding the client certificate CA bundle.
+     * S3 object key holding the client certificate CA bundle.
      * 
      */
     @Import(name="caCertificatesBundleS3Key")
     private @Nullable Output<String> caCertificatesBundleS3Key;
 
     /**
-     * @return S3 Bucket name holding the client certificate CA bundle.
+     * @return S3 object key holding the client certificate CA bundle.
      * 
      */
     public Optional<Output<String>> caCertificatesBundleS3Key() {
@@ -255,7 +255,7 @@ public final class TrustStoreState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param caCertificatesBundleS3Key S3 Bucket name holding the client certificate CA bundle.
+         * @param caCertificatesBundleS3Key S3 object key holding the client certificate CA bundle.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class TrustStoreState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param caCertificatesBundleS3Key S3 Bucket name holding the client certificate CA bundle.
+         * @param caCertificatesBundleS3Key S3 object key holding the client certificate CA bundle.
          * 
          * @return builder
          * 

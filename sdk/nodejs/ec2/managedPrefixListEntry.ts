@@ -78,7 +78,7 @@ export class ManagedPrefixListEntry extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * CIDR block of this entry.
+     * The ID of the prefix list.
      */
     public readonly prefixListId!: pulumi.Output<string>;
 
@@ -128,7 +128,7 @@ export interface ManagedPrefixListEntryState {
      */
     description?: pulumi.Input<string>;
     /**
-     * CIDR block of this entry.
+     * The ID of the prefix list.
      */
     prefixListId?: pulumi.Input<string>;
 }
@@ -146,7 +146,7 @@ export interface ManagedPrefixListEntryArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * CIDR block of this entry.
+     * The ID of the prefix list.
      */
     prefixListId: pulumi.Input<string>;
 }

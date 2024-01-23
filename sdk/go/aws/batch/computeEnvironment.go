@@ -215,6 +215,52 @@ import (
 //	}
 //
 // ```
+// ### Setting Update Policy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := batch.NewComputeEnvironment(ctx, "sample", &batch.ComputeEnvironmentArgs{
+//				ComputeEnvironmentName: pulumi.String("sample"),
+//				ComputeResources: &batch.ComputeEnvironmentComputeResourcesArgs{
+//					AllocationStrategy: pulumi.String("BEST_FIT_PROGRESSIVE"),
+//					InstanceRole:       pulumi.Any(aws_iam_instance_profile.Ecs_instance.Arn),
+//					InstanceTypes: pulumi.StringArray{
+//						pulumi.String("optimal"),
+//					},
+//					MaxVcpus: pulumi.Int(4),
+//					MinVcpus: pulumi.Int(0),
+//					SecurityGroupIds: pulumi.StringArray{
+//						aws_security_group.Sample.Id,
+//					},
+//					Subnets: pulumi.StringArray{
+//						aws_subnet.Sample.Id,
+//					},
+//					Type: pulumi.String("EC2"),
+//				},
+//				UpdatePolicy: &batch.ComputeEnvironmentUpdatePolicyArgs{
+//					JobExecutionTimeoutMinutes: pulumi.Int(30),
+//					TerminateJobsOnUpdate:      pulumi.Bool(false),
+//				},
+//				Type: pulumi.String("MANAGED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -256,6 +302,8 @@ type ComputeEnvironment struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Specifies the infrastructure update policy for the compute environment. See details below.
+	UpdatePolicy ComputeEnvironmentUpdatePolicyPtrOutput `pulumi:"updatePolicy"`
 }
 
 // NewComputeEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -323,6 +371,8 @@ type computeEnvironmentState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type *string `pulumi:"type"`
+	// Specifies the infrastructure update policy for the compute environment. See details below.
+	UpdatePolicy *ComputeEnvironmentUpdatePolicy `pulumi:"updatePolicy"`
 }
 
 type ComputeEnvironmentState struct {
@@ -354,6 +404,8 @@ type ComputeEnvironmentState struct {
 	TagsAll pulumi.StringMapInput
 	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type pulumi.StringPtrInput
+	// Specifies the infrastructure update policy for the compute environment. See details below.
+	UpdatePolicy ComputeEnvironmentUpdatePolicyPtrInput
 }
 
 func (ComputeEnvironmentState) ElementType() reflect.Type {
@@ -377,6 +429,8 @@ type computeEnvironmentArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type string `pulumi:"type"`
+	// Specifies the infrastructure update policy for the compute environment. See details below.
+	UpdatePolicy *ComputeEnvironmentUpdatePolicy `pulumi:"updatePolicy"`
 }
 
 // The set of arguments for constructing a ComputeEnvironment resource.
@@ -397,6 +451,8 @@ type ComputeEnvironmentArgs struct {
 	Tags pulumi.StringMapInput
 	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type pulumi.StringInput
+	// Specifies the infrastructure update policy for the compute environment. See details below.
+	UpdatePolicy ComputeEnvironmentUpdatePolicyPtrInput
 }
 
 func (ComputeEnvironmentArgs) ElementType() reflect.Type {
@@ -551,6 +607,11 @@ func (o ComputeEnvironmentOutput) TagsAll() pulumi.StringMapOutput {
 // The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 func (o ComputeEnvironmentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the infrastructure update policy for the compute environment. See details below.
+func (o ComputeEnvironmentOutput) UpdatePolicy() ComputeEnvironmentUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironmentUpdatePolicyPtrOutput { return v.UpdatePolicy }).(ComputeEnvironmentUpdatePolicyPtrOutput)
 }
 
 type ComputeEnvironmentArrayOutput struct{ *pulumi.OutputState }

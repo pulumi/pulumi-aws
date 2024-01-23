@@ -14,42 +14,6 @@ import (
 
 // Provides an AWS Network Firewall Firewall Resource
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewFirewall(ctx, "example", &networkfirewall.FirewallArgs{
-//				FirewallPolicyArn: pulumi.Any(aws_networkfirewall_firewall_policy.Example.Arn),
-//				VpcId:             pulumi.Any(aws_vpc.Example.Id),
-//				SubnetMappings: networkfirewall.FirewallSubnetMappingArray{
-//					&networkfirewall.FirewallSubnetMappingArgs{
-//						SubnetId: pulumi.Any(aws_subnet.Example.Id),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Tag1": pulumi.String("Value1"),
-//					"Tag2": pulumi.String("Value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:
@@ -64,7 +28,7 @@ type Firewall struct {
 
 	// The Amazon Resource Name (ARN) that identifies the firewall.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+	// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
 	// A friendly description of the firewall.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -72,13 +36,13 @@ type Firewall struct {
 	EncryptionConfiguration FirewallEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
 	FirewallPolicyArn pulumi.StringOutput `pulumi:"firewallPolicyArn"`
-	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+	// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
 	FirewallPolicyChangeProtection pulumi.BoolPtrOutput `pulumi:"firewallPolicyChangeProtection"`
 	// Nested list of information about the current status of the firewall.
 	FirewallStatuses FirewallFirewallStatusArrayOutput `pulumi:"firewallStatuses"`
 	// A friendly name of the firewall.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+	// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
 	SubnetChangeProtection pulumi.BoolPtrOutput `pulumi:"subnetChangeProtection"`
 	// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
 	SubnetMappings FirewallSubnetMappingArrayOutput `pulumi:"subnetMappings"`
@@ -139,7 +103,7 @@ func GetFirewall(ctx *pulumi.Context,
 type firewallState struct {
 	// The Amazon Resource Name (ARN) that identifies the firewall.
 	Arn *string `pulumi:"arn"`
-	// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+	// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// A friendly description of the firewall.
 	Description *string `pulumi:"description"`
@@ -147,13 +111,13 @@ type firewallState struct {
 	EncryptionConfiguration *FirewallEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
 	FirewallPolicyArn *string `pulumi:"firewallPolicyArn"`
-	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+	// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
 	FirewallPolicyChangeProtection *bool `pulumi:"firewallPolicyChangeProtection"`
 	// Nested list of information about the current status of the firewall.
 	FirewallStatuses []FirewallFirewallStatus `pulumi:"firewallStatuses"`
 	// A friendly name of the firewall.
 	Name *string `pulumi:"name"`
-	// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+	// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
 	SubnetChangeProtection *bool `pulumi:"subnetChangeProtection"`
 	// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
 	SubnetMappings []FirewallSubnetMapping `pulumi:"subnetMappings"`
@@ -172,7 +136,7 @@ type firewallState struct {
 type FirewallState struct {
 	// The Amazon Resource Name (ARN) that identifies the firewall.
 	Arn pulumi.StringPtrInput
-	// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+	// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 	DeleteProtection pulumi.BoolPtrInput
 	// A friendly description of the firewall.
 	Description pulumi.StringPtrInput
@@ -180,13 +144,13 @@ type FirewallState struct {
 	EncryptionConfiguration FirewallEncryptionConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
 	FirewallPolicyArn pulumi.StringPtrInput
-	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+	// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
 	FirewallPolicyChangeProtection pulumi.BoolPtrInput
 	// Nested list of information about the current status of the firewall.
 	FirewallStatuses FirewallFirewallStatusArrayInput
 	// A friendly name of the firewall.
 	Name pulumi.StringPtrInput
-	// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+	// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
 	SubnetChangeProtection pulumi.BoolPtrInput
 	// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
 	SubnetMappings FirewallSubnetMappingArrayInput
@@ -207,7 +171,7 @@ func (FirewallState) ElementType() reflect.Type {
 }
 
 type firewallArgs struct {
-	// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+	// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
 	// A friendly description of the firewall.
 	Description *string `pulumi:"description"`
@@ -215,11 +179,11 @@ type firewallArgs struct {
 	EncryptionConfiguration *FirewallEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
 	FirewallPolicyArn string `pulumi:"firewallPolicyArn"`
-	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+	// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
 	FirewallPolicyChangeProtection *bool `pulumi:"firewallPolicyChangeProtection"`
 	// A friendly name of the firewall.
 	Name *string `pulumi:"name"`
-	// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+	// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
 	SubnetChangeProtection *bool `pulumi:"subnetChangeProtection"`
 	// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
 	SubnetMappings []FirewallSubnetMapping `pulumi:"subnetMappings"`
@@ -231,7 +195,7 @@ type firewallArgs struct {
 
 // The set of arguments for constructing a Firewall resource.
 type FirewallArgs struct {
-	// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+	// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 	DeleteProtection pulumi.BoolPtrInput
 	// A friendly description of the firewall.
 	Description pulumi.StringPtrInput
@@ -239,11 +203,11 @@ type FirewallArgs struct {
 	EncryptionConfiguration FirewallEncryptionConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
 	FirewallPolicyArn pulumi.StringInput
-	// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+	// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
 	FirewallPolicyChangeProtection pulumi.BoolPtrInput
 	// A friendly name of the firewall.
 	Name pulumi.StringPtrInput
-	// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+	// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
 	SubnetChangeProtection pulumi.BoolPtrInput
 	// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
 	SubnetMappings FirewallSubnetMappingArrayInput
@@ -345,7 +309,7 @@ func (o FirewallOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 func (o FirewallOutput) DeleteProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.DeleteProtection }).(pulumi.BoolPtrOutput)
 }
@@ -365,7 +329,7 @@ func (o FirewallOutput) FirewallPolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.FirewallPolicyArn }).(pulumi.StringOutput)
 }
 
-// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
 func (o FirewallOutput) FirewallPolicyChangeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.FirewallPolicyChangeProtection }).(pulumi.BoolPtrOutput)
 }
@@ -380,7 +344,7 @@ func (o FirewallOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
 func (o FirewallOutput) SubnetChangeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.SubnetChangeProtection }).(pulumi.BoolPtrOutput)
 }

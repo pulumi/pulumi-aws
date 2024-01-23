@@ -195,6 +195,10 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly ImmutableArray<string> Layers;
         /// <summary>
+        /// Advanced logging settings.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFunctionLoggingConfigResult> LoggingConfigs;
+        /// <summary>
         /// Amount of memory in MB your Lambda Function can use at runtime.
         /// </summary>
         public readonly int MemorySize;
@@ -287,6 +291,8 @@ namespace Pulumi.Aws.Lambda
 
             ImmutableArray<string> layers,
 
+            ImmutableArray<Outputs.GetFunctionLoggingConfigResult> loggingConfigs,
+
             int memorySize,
 
             string qualifiedArn,
@@ -335,6 +341,7 @@ namespace Pulumi.Aws.Lambda
             KmsKeyArn = kmsKeyArn;
             LastModified = lastModified;
             Layers = layers;
+            LoggingConfigs = loggingConfigs;
             MemorySize = memorySize;
             QualifiedArn = qualifiedArn;
             QualifiedInvokeArn = qualifiedInvokeArn;

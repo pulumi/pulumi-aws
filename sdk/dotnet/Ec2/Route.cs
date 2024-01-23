@@ -28,15 +28,9 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var route = new Aws.Ec2.Route("route", new()
     ///     {
-    ///         RouteTableId = "rtb-4fbb3ac4",
+    ///         RouteTableId = aws_route_table.Testing.Id,
     ///         DestinationCidrBlock = "10.0.1.0/22",
     ///         VpcPeeringConnectionId = "pcx-45ff3dc1",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_route_table.Testing,
-    ///         },
     ///     });
     /// 
     /// });

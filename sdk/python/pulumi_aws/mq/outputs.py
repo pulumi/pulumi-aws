@@ -20,6 +20,8 @@ __all__ = [
     'BrokerUser',
     'GetBrokerConfigurationResult',
     'GetBrokerEncryptionOptionResult',
+    'GetBrokerEngineTypesBrokerEngineTypeResult',
+    'GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult',
     'GetBrokerInstanceResult',
     'GetBrokerLdapServerMetadataResult',
     'GetBrokerLogsResult',
@@ -548,6 +550,47 @@ class GetBrokerEncryptionOptionResult(dict):
     @pulumi.getter(name="useAwsOwnedKey")
     def use_aws_owned_key(self) -> bool:
         return pulumi.get(self, "use_aws_owned_key")
+
+
+@pulumi.output_type
+class GetBrokerEngineTypesBrokerEngineTypeResult(dict):
+    def __init__(__self__, *,
+                 engine_type: str,
+                 engine_versions: Sequence['outputs.GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult']):
+        """
+        :param str engine_type: The MQ engine type to return version details for.
+        :param Sequence['GetBrokerEngineTypesBrokerEngineTypeEngineVersionArgs'] engine_versions: The list of engine versions.
+        """
+        pulumi.set(__self__, "engine_type", engine_type)
+        pulumi.set(__self__, "engine_versions", engine_versions)
+
+    @property
+    @pulumi.getter(name="engineType")
+    def engine_type(self) -> str:
+        """
+        The MQ engine type to return version details for.
+        """
+        return pulumi.get(self, "engine_type")
+
+    @property
+    @pulumi.getter(name="engineVersions")
+    def engine_versions(self) -> Sequence['outputs.GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult']:
+        """
+        The list of engine versions.
+        """
+        return pulumi.get(self, "engine_versions")
+
+
+@pulumi.output_type
+class GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult(dict):
+    def __init__(__self__, *,
+                 name: str):
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

@@ -281,7 +281,7 @@ type Project struct {
 	BadgeUrl pulumi.StringOutput `pulumi:"badgeUrl"`
 	// Defines the batch build options for the project.
 	BuildBatchConfig ProjectBuildBatchConfigPtrOutput `pulumi:"buildBatchConfig"`
-	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
 	BuildTimeout pulumi.IntPtrOutput `pulumi:"buildTimeout"`
 	// Configuration block. Detailed below.
 	Cache ProjectCachePtrOutput `pulumi:"cache"`
@@ -303,7 +303,7 @@ type Project struct {
 	ProjectVisibility pulumi.StringPtrOutput `pulumi:"projectVisibility"`
 	// The project identifier used with the public build APIs.
 	PublicProjectAlias pulumi.StringOutput `pulumi:"publicProjectAlias"`
-	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 	QueuedTimeout pulumi.IntPtrOutput `pulumi:"queuedTimeout"`
 	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
 	ResourceAccessRole pulumi.StringPtrOutput `pulumi:"resourceAccessRole"`
@@ -387,7 +387,7 @@ type projectState struct {
 	BadgeUrl *string `pulumi:"badgeUrl"`
 	// Defines the batch build options for the project.
 	BuildBatchConfig *ProjectBuildBatchConfig `pulumi:"buildBatchConfig"`
-	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
 	BuildTimeout *int `pulumi:"buildTimeout"`
 	// Configuration block. Detailed below.
 	Cache *ProjectCache `pulumi:"cache"`
@@ -409,7 +409,7 @@ type projectState struct {
 	ProjectVisibility *string `pulumi:"projectVisibility"`
 	// The project identifier used with the public build APIs.
 	PublicProjectAlias *string `pulumi:"publicProjectAlias"`
-	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 	QueuedTimeout *int `pulumi:"queuedTimeout"`
 	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
 	ResourceAccessRole *string `pulumi:"resourceAccessRole"`
@@ -448,7 +448,7 @@ type ProjectState struct {
 	BadgeUrl pulumi.StringPtrInput
 	// Defines the batch build options for the project.
 	BuildBatchConfig ProjectBuildBatchConfigPtrInput
-	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
 	BuildTimeout pulumi.IntPtrInput
 	// Configuration block. Detailed below.
 	Cache ProjectCachePtrInput
@@ -470,7 +470,7 @@ type ProjectState struct {
 	ProjectVisibility pulumi.StringPtrInput
 	// The project identifier used with the public build APIs.
 	PublicProjectAlias pulumi.StringPtrInput
-	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 	QueuedTimeout pulumi.IntPtrInput
 	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
 	ResourceAccessRole pulumi.StringPtrInput
@@ -509,7 +509,7 @@ type projectArgs struct {
 	BadgeEnabled *bool `pulumi:"badgeEnabled"`
 	// Defines the batch build options for the project.
 	BuildBatchConfig *ProjectBuildBatchConfig `pulumi:"buildBatchConfig"`
-	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
 	BuildTimeout *int `pulumi:"buildTimeout"`
 	// Configuration block. Detailed below.
 	Cache *ProjectCache `pulumi:"cache"`
@@ -529,7 +529,7 @@ type projectArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
 	ProjectVisibility *string `pulumi:"projectVisibility"`
-	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 	QueuedTimeout *int `pulumi:"queuedTimeout"`
 	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
 	ResourceAccessRole *string `pulumi:"resourceAccessRole"`
@@ -561,7 +561,7 @@ type ProjectArgs struct {
 	BadgeEnabled pulumi.BoolPtrInput
 	// Defines the batch build options for the project.
 	BuildBatchConfig ProjectBuildBatchConfigPtrInput
-	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
 	BuildTimeout pulumi.IntPtrInput
 	// Configuration block. Detailed below.
 	Cache ProjectCachePtrInput
@@ -581,7 +581,7 @@ type ProjectArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
 	ProjectVisibility pulumi.StringPtrInput
-	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 	QueuedTimeout pulumi.IntPtrInput
 	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
 	ResourceAccessRole pulumi.StringPtrInput
@@ -717,7 +717,7 @@ func (o ProjectOutput) BuildBatchConfig() ProjectBuildBatchConfigPtrOutput {
 	return o.ApplyT(func(v *Project) ProjectBuildBatchConfigPtrOutput { return v.BuildBatchConfig }).(ProjectBuildBatchConfigPtrOutput)
 }
 
-// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
 func (o ProjectOutput) BuildTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.IntPtrOutput { return v.BuildTimeout }).(pulumi.IntPtrOutput)
 }
@@ -772,7 +772,7 @@ func (o ProjectOutput) PublicProjectAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.PublicProjectAlias }).(pulumi.StringOutput)
 }
 
-// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 func (o ProjectOutput) QueuedTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.IntPtrOutput { return v.QueuedTimeout }).(pulumi.IntPtrOutput)
 }

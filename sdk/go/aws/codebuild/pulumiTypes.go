@@ -849,7 +849,7 @@ func (o ProjectCachePtrOutput) Type() pulumi.StringPtrOutput {
 type ProjectEnvironment struct {
 	// ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
 	Certificate *string `pulumi:"certificate"`
-	// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`.
+	// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`, `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `computeType` must be `BUILD_LAMBDA_XGB`.`
 	ComputeType string `pulumi:"computeType"`
 	// Configuration block. Detailed below.
 	EnvironmentVariables []ProjectEnvironmentEnvironmentVariable `pulumi:"environmentVariables"`
@@ -879,7 +879,7 @@ type ProjectEnvironmentInput interface {
 type ProjectEnvironmentArgs struct {
 	// ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
-	// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`.
+	// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`, `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `computeType` must be `BUILD_LAMBDA_XGB`.`
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// Configuration block. Detailed below.
 	EnvironmentVariables ProjectEnvironmentEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
@@ -977,7 +977,7 @@ func (o ProjectEnvironmentOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectEnvironment) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
-// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`.
+// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`, `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `computeType` must be `BUILD_LAMBDA_XGB`.`
 func (o ProjectEnvironmentOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironment) string { return v.ComputeType }).(pulumi.StringOutput)
 }
@@ -1046,7 +1046,7 @@ func (o ProjectEnvironmentPtrOutput) Certificate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`.
+// Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`, `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `computeType` must be `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `computeType` must be `BUILD_LAMBDA_XGB`.`
 func (o ProjectEnvironmentPtrOutput) ComputeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectEnvironment) *string {
 		if v == nil {

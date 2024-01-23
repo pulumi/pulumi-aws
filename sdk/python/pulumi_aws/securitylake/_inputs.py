@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AwsLogSourceSourceArgs',
     'DataLakeConfigurationArgs',
     'DataLakeConfigurationLifecycleConfigurationArgs',
     'DataLakeConfigurationLifecycleConfigurationExpirationArgs',
@@ -17,6 +18,75 @@ __all__ = [
     'DataLakeConfigurationReplicationConfigurationArgs',
     'DataLakeTimeoutsArgs',
 ]
+
+@pulumi.input_type
+class AwsLogSourceSourceArgs:
+    def __init__(__self__, *,
+                 regions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 source_name: pulumi.Input[str],
+                 accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: Specify the Regions where you want to enable Security Lake.
+        :param pulumi.Input[str] source_name: The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: Specify the AWS account information where you want to enable Security Lake.
+        :param pulumi.Input[str] source_version: The version for a AWS source. This must be a Regionally unique value.
+        """
+        pulumi.set(__self__, "regions", regions)
+        pulumi.set(__self__, "source_name", source_name)
+        if accounts is not None:
+            pulumi.set(__self__, "accounts", accounts)
+        if source_version is not None:
+            pulumi.set(__self__, "source_version", source_version)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specify the Regions where you want to enable Security Lake.
+        """
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "regions", value)
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> pulumi.Input[str]:
+        """
+        The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+        """
+        return pulumi.get(self, "source_name")
+
+    @source_name.setter
+    def source_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_name", value)
+
+    @property
+    @pulumi.getter
+    def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specify the AWS account information where you want to enable Security Lake.
+        """
+        return pulumi.get(self, "accounts")
+
+    @accounts.setter
+    def accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "accounts", value)
+
+    @property
+    @pulumi.getter(name="sourceVersion")
+    def source_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version for a AWS source. This must be a Regionally unique value.
+        """
+        return pulumi.get(self, "source_version")
+
+    @source_version.setter
+    def source_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_version", value)
+
 
 @pulumi.input_type
 class DataLakeConfigurationArgs:

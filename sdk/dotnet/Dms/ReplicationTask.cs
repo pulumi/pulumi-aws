@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Dms
     ///     // Create a new replication task
     ///     var test = new Aws.Dms.ReplicationTask("test", new()
     ///     {
-    ///         CdcStartTime = "1484346880",
+    ///         CdcStartTime = "1993-05-21T05:50:00Z",
     ///         MigrationType = "full-load",
     ///         ReplicationInstanceArn = aws_dms_replication_instance.Test_dms_replication_instance_tf.Replication_instance_arn,
     ///         ReplicationTaskId = "test-dms-replication-task-tf",
@@ -56,13 +56,13 @@ namespace Pulumi.Aws.Dms
     public partial class ReplicationTask : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+        /// Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         /// </summary>
         [Output("cdcStartPosition")]
         public Output<string> CdcStartPosition { get; private set; } = null!;
 
         /// <summary>
-        /// The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+        /// RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
         /// </summary>
         [Output("cdcStartTime")]
         public Output<string?> CdcStartTime { get; private set; } = null!;
@@ -195,13 +195,13 @@ namespace Pulumi.Aws.Dms
     public sealed class ReplicationTaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+        /// Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         /// </summary>
         [Input("cdcStartPosition")]
         public Input<string>? CdcStartPosition { get; set; }
 
         /// <summary>
-        /// The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+        /// RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
         /// </summary>
         [Input("cdcStartTime")]
         public Input<string>? CdcStartTime { get; set; }
@@ -280,13 +280,13 @@ namespace Pulumi.Aws.Dms
     public sealed class ReplicationTaskState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+        /// Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         /// </summary>
         [Input("cdcStartPosition")]
         public Input<string>? CdcStartPosition { get; set; }
 
         /// <summary>
-        /// The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+        /// RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
         /// </summary>
         [Input("cdcStartTime")]
         public Input<string>? CdcStartTime { get; set; }

@@ -89,7 +89,7 @@ type FunctionUrl struct {
 	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
 	// The name (or ARN) of the Lambda function.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
-	// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+	// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
 	FunctionUrl pulumi.StringOutput `pulumi:"functionUrl"`
 	// Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
 	InvokeMode pulumi.StringPtrOutput `pulumi:"invokeMode"`
@@ -143,7 +143,7 @@ type functionUrlState struct {
 	FunctionArn *string `pulumi:"functionArn"`
 	// The name (or ARN) of the Lambda function.
 	FunctionName *string `pulumi:"functionName"`
-	// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+	// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
 	FunctionUrl *string `pulumi:"functionUrl"`
 	// Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
 	InvokeMode *string `pulumi:"invokeMode"`
@@ -162,7 +162,7 @@ type FunctionUrlState struct {
 	FunctionArn pulumi.StringPtrInput
 	// The name (or ARN) of the Lambda function.
 	FunctionName pulumi.StringPtrInput
-	// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+	// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
 	FunctionUrl pulumi.StringPtrInput
 	// Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
 	InvokeMode pulumi.StringPtrInput
@@ -310,7 +310,7 @@ func (o FunctionUrlOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionUrl) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+// The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
 func (o FunctionUrlOutput) FunctionUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionUrl) pulumi.StringOutput { return v.FunctionUrl }).(pulumi.StringOutput)
 }

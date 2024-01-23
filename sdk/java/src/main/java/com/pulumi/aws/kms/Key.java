@@ -285,6 +285,20 @@ public class Key extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Identifies the external key that serves as key material for the KMS key in an external key store.
+     * 
+     */
+    @Export(name="xksKeyId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> xksKeyId;
+
+    /**
+     * @return Identifies the external key that serves as key material for the KMS key in an external key store.
+     * 
+     */
+    public Output<Optional<String>> xksKeyId() {
+        return Codegen.optional(this.xksKeyId);
+    }
 
     /**
      *

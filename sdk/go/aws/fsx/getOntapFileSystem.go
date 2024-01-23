@@ -75,6 +75,8 @@ type LookupOntapFileSystemResult struct {
 	EndpointIpAddressRange string `pulumi:"endpointIpAddressRange"`
 	// The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
 	Endpoints []GetOntapFileSystemEndpoint `pulumi:"endpoints"`
+	// The number of HA pairs for the file system.
+	HaPairs int `pulumi:"haPairs"`
 	// Identifier of the file system (e.g. `fs-12345678`).
 	Id string `pulumi:"id"`
 	// ARN for the KMS Key to encrypt the file system at rest.
@@ -95,8 +97,10 @@ type LookupOntapFileSystemResult struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The tags associated with the file system.
 	Tags map[string]string `pulumi:"tags"`
-	// The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps).
+	// The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthputCapacityPerHaPair x ha_pairs
 	ThroughputCapacity int `pulumi:"throughputCapacity"`
+	// The sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
+	ThroughputCapacityPerHaPair int `pulumi:"throughputCapacityPerHaPair"`
 	// The ID of the primary virtual private cloud (VPC) for the file system.
 	VpcId string `pulumi:"vpcId"`
 	// The preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
@@ -185,6 +189,11 @@ func (o LookupOntapFileSystemResultOutput) Endpoints() GetOntapFileSystemEndpoin
 	return o.ApplyT(func(v LookupOntapFileSystemResult) []GetOntapFileSystemEndpoint { return v.Endpoints }).(GetOntapFileSystemEndpointArrayOutput)
 }
 
+// The number of HA pairs for the file system.
+func (o LookupOntapFileSystemResultOutput) HaPairs() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupOntapFileSystemResult) int { return v.HaPairs }).(pulumi.IntOutput)
+}
+
 // Identifier of the file system (e.g. `fs-12345678`).
 func (o LookupOntapFileSystemResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.Id }).(pulumi.StringOutput)
@@ -235,9 +244,14 @@ func (o LookupOntapFileSystemResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps).
+// The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthputCapacityPerHaPair x ha_pairs
 func (o LookupOntapFileSystemResultOutput) ThroughputCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) int { return v.ThroughputCapacity }).(pulumi.IntOutput)
+}
+
+// The sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
+func (o LookupOntapFileSystemResultOutput) ThroughputCapacityPerHaPair() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupOntapFileSystemResult) int { return v.ThroughputCapacityPerHaPair }).(pulumi.IntOutput)
 }
 
 // The ID of the primary virtual private cloud (VPC) for the file system.

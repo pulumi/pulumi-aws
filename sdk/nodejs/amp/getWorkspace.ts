@@ -63,6 +63,10 @@ export interface GetWorkspaceResult {
      */
     readonly id: string;
     /**
+     * ARN of the KMS key used to encrypt data in the Prometheus workspace.
+     */
+    readonly kmsKeyArn: string;
+    /**
      * Endpoint of the Prometheus workspace.
      */
     readonly prometheusEndpoint: string;

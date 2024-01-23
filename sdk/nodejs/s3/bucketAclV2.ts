@@ -178,7 +178,7 @@ export class BucketAclV2 extends pulumi.CustomResource {
      */
     public readonly acl!: pulumi.Output<string | undefined>;
     /**
-     * Name of the bucket.
+     * Bucket to which to apply the ACL.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -231,7 +231,7 @@ export interface BucketAclV2State {
      */
     acl?: pulumi.Input<string>;
     /**
-     * Name of the bucket.
+     * Bucket to which to apply the ACL.
      */
     bucket?: pulumi.Input<string>;
     /**
@@ -253,7 +253,7 @@ export interface BucketAclV2Args {
      */
     acl?: pulumi.Input<string>;
     /**
-     * Name of the bucket.
+     * Bucket to which to apply the ACL.
      */
     bucket: pulumi.Input<string>;
     /**

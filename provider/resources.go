@@ -231,6 +231,7 @@ const (
 	timestreamWriteMod          = "TimestreamWrite"          // Timestream Write
 	transcribeMod               = "Transcribe"               // Transcribe
 	transferMod                 = "Transfer"                 // Transfer Service
+	verifiedpermissionsMod      = "VerifiedPermissions"      // Verified Permissions
 	verifiedaccessMod           = "VerifiedAccess"           // Verified Access
 	vpclatticeMod               = "VpcLattice"               // VPC Lattice
 	wafMod                      = "Waf"                      // Web Application Firewall (WAF)
@@ -440,6 +441,7 @@ var moduleMap = map[string]string{
 	"transcribe":                      transcribeMod,
 	"transfer":                        transferMod,
 	"verifiedaccess":                  verifiedaccessMod,
+	"verifiedpermissions":             verifiedpermissionsMod,
 	"vpclattice":                      vpclatticeMod,
 	"waf":                             wafMod,
 	"wafregional":                     wafregionalMod,

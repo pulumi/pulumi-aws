@@ -172,11 +172,11 @@ export class Rule extends pulumi.CustomResource {
      */
     public /*out*/ readonly ruleId!: pulumi.Output<string>;
     /**
-     * Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+     * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      */
     public readonly scope!: pulumi.Output<outputs.cfg.RuleScope | undefined>;
     /**
-     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      */
     public readonly source!: pulumi.Output<outputs.cfg.RuleSource>;
     /**
@@ -271,11 +271,11 @@ export interface RuleState {
      */
     ruleId?: pulumi.Input<string>;
     /**
-     * Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+     * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      */
     scope?: pulumi.Input<inputs.cfg.RuleScope>;
     /**
-     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      */
     source?: pulumi.Input<inputs.cfg.RuleSource>;
     /**
@@ -315,11 +315,11 @@ export interface RuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+     * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      */
     scope?: pulumi.Input<inputs.cfg.RuleScope>;
     /**
-     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      */
     source: pulumi.Input<inputs.cfg.RuleSource>;
     /**

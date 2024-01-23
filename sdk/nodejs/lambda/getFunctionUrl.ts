@@ -68,7 +68,7 @@ export interface GetFunctionUrlResult {
     readonly functionArn: string;
     readonly functionName: string;
     /**
-     * HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+     * HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
      */
     readonly functionUrl: string;
     /**

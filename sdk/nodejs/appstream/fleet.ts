@@ -114,7 +114,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly iamRoleArn!: pulumi.Output<string>;
     /**
-     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins.
+     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to 60 seconds.
      */
     public readonly idleDisconnectTimeoutInSeconds!: pulumi.Output<number | undefined>;
     /**
@@ -276,7 +276,7 @@ export interface FleetState {
      */
     iamRoleArn?: pulumi.Input<string>;
     /**
-     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins.
+     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to 60 seconds.
      */
     idleDisconnectTimeoutInSeconds?: pulumi.Input<number>;
     /**
@@ -360,7 +360,7 @@ export interface FleetArgs {
      */
     iamRoleArn?: pulumi.Input<string>;
     /**
-     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins.
+     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to 60 seconds.
      */
     idleDisconnectTimeoutInSeconds?: pulumi.Input<number>;
     /**

@@ -22,14 +22,14 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
     public static final FirewallArgs Empty = new FirewallArgs();
 
     /**
-     * A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+     * A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
      * 
      */
     @Import(name="deleteProtection")
     private @Nullable Output<Boolean> deleteProtection;
 
     /**
-     * @return A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+     * @return A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> deleteProtection() {
@@ -82,14 +82,14 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+     * A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
      * 
      */
     @Import(name="firewallPolicyChangeProtection")
     private @Nullable Output<Boolean> firewallPolicyChangeProtection;
 
     /**
-     * @return A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+     * @return A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> firewallPolicyChangeProtection() {
@@ -112,14 +112,14 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+     * A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
      * 
      */
     @Import(name="subnetChangeProtection")
     private @Nullable Output<Boolean> subnetChangeProtection;
 
     /**
-     * @return A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+     * @return A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> subnetChangeProtection() {
@@ -205,7 +205,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+         * @param deleteProtection A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteProtection A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
+         * @param deleteProtection A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param firewallPolicyChangeProtection A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+         * @param firewallPolicyChangeProtection A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param firewallPolicyChangeProtection A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
+         * @param firewallPolicyChangeProtection A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetChangeProtection A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+         * @param subnetChangeProtection A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetChangeProtection A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
+         * @param subnetChangeProtection A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
          * 
          * @return builder
          * 

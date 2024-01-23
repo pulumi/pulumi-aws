@@ -277,6 +277,7 @@ class GroupInstanceRefreshPreferencesArgs:
                  checkpoint_delay: Optional[pulumi.Input[str]] = None,
                  checkpoint_percentages: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  instance_warmup: Optional[pulumi.Input[str]] = None,
+                 max_healthy_percentage: Optional[pulumi.Input[int]] = None,
                  min_healthy_percentage: Optional[pulumi.Input[int]] = None,
                  scale_in_protected_instances: Optional[pulumi.Input[str]] = None,
                  skip_matching: Optional[pulumi.Input[bool]] = None,
@@ -286,6 +287,7 @@ class GroupInstanceRefreshPreferencesArgs:
         :param pulumi.Input[str] checkpoint_delay: Number of seconds to wait after a checkpoint. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] checkpoint_percentages: List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
         :param pulumi.Input[str] instance_warmup: Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
+        :param pulumi.Input[int] max_healthy_percentage: Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
         :param pulumi.Input[int] min_healthy_percentage: Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
         :param pulumi.Input[str] scale_in_protected_instances: Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
         :param pulumi.Input[bool] skip_matching: Replace instances that already have your desired configuration. Defaults to `false`.
@@ -299,6 +301,8 @@ class GroupInstanceRefreshPreferencesArgs:
             pulumi.set(__self__, "checkpoint_percentages", checkpoint_percentages)
         if instance_warmup is not None:
             pulumi.set(__self__, "instance_warmup", instance_warmup)
+        if max_healthy_percentage is not None:
+            pulumi.set(__self__, "max_healthy_percentage", max_healthy_percentage)
         if min_healthy_percentage is not None:
             pulumi.set(__self__, "min_healthy_percentage", min_healthy_percentage)
         if scale_in_protected_instances is not None:
@@ -355,6 +359,18 @@ class GroupInstanceRefreshPreferencesArgs:
     @instance_warmup.setter
     def instance_warmup(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_warmup", value)
+
+    @property
+    @pulumi.getter(name="maxHealthyPercentage")
+    def max_healthy_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+        """
+        return pulumi.get(self, "max_healthy_percentage")
+
+    @max_healthy_percentage.setter
+    def max_healthy_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_healthy_percentage", value)
 
     @property
     @pulumi.getter(name="minHealthyPercentage")

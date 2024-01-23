@@ -4248,7 +4248,7 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 }
 
 type FirehoseDeliveryStreamElasticsearchConfiguration struct {
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
@@ -4290,7 +4290,7 @@ type FirehoseDeliveryStreamElasticsearchConfigurationInput interface {
 }
 
 type FirehoseDeliveryStreamElasticsearchConfigurationArgs struct {
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
@@ -4397,7 +4397,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) ToFirehoseDelive
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
 }
@@ -4499,7 +4499,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) Elem() Fireho
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) *int {
 		if v == nil {
@@ -5095,7 +5095,7 @@ type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProc
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
-	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -5115,7 +5115,7 @@ type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProc
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
-	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -5179,7 +5179,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 
 // Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 //
-// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -5209,7 +5209,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 type FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration struct {
 	// The ARN of the S3 bucket
 	BucketArn string `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
@@ -5242,7 +5242,7 @@ type FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationInput interf
 type FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs struct {
 	// The ARN of the S3 bucket
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
@@ -5343,7 +5343,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) B
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *int {
 		return v.BufferingInterval
@@ -5426,7 +5426,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *int {
 		if v == nil {
@@ -5881,7 +5881,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) VpcI
 type FirehoseDeliveryStreamExtendedS3Configuration struct {
 	// The ARN of the S3 bucket
 	BucketArn string `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
@@ -5924,7 +5924,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationInput interface {
 type FirehoseDeliveryStreamExtendedS3ConfigurationArgs struct {
 	// The ARN of the S3 bucket
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
@@ -6035,7 +6035,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) BucketArn() pulumi.
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
 }
@@ -6145,7 +6145,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) BucketArn() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *int {
 		if v == nil {
@@ -8832,7 +8832,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcess
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
-	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -8852,7 +8852,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcess
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
-	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -8916,7 +8916,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 
 // Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 //
-// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -8946,7 +8946,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration struct {
 	// The ARN of the S3 bucket
 	BucketArn string `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
@@ -8979,7 +8979,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationInput int
 type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs struct {
 	// The ARN of the S3 bucket
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
@@ -9080,7 +9080,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *int {
 		return v.BufferingInterval
@@ -9165,7 +9165,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *int {
 		if v == nil {
@@ -10235,7 +10235,7 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProce
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
-	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -10255,7 +10255,7 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProce
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
-	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -10319,7 +10319,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 
 // Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 //
-// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -10619,7 +10619,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommo
 type FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration struct {
 	// The ARN of the S3 bucket
 	BucketArn string `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
@@ -10652,7 +10652,7 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationInput interfa
 type FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs struct {
 	// The ARN of the S3 bucket
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
@@ -10753,7 +10753,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) Bu
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *int {
 		return v.BufferingInterval
@@ -10836,7 +10836,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *int {
 		if v == nil {
@@ -11592,21 +11592,23 @@ func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationP
 }
 
 type FirehoseDeliveryStreamOpensearchConfiguration struct {
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. More details are given below
+	// The CloudWatch Logging Options for the delivery stream. More details are given below.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
 	ClusterEndpoint *string `pulumi:"clusterEndpoint"`
+	// The method for setting up document ID. More details are given below.
+	DocumentIdOptions *FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions `pulumi:"documentIdOptions"`
 	// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 	DomainArn *string `pulumi:"domainArn"`
 	// The OpenSearch index name.
 	IndexName string `pulumi:"indexName"`
 	// The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
 	IndexRotationPeriod *string `pulumi:"indexRotationPeriod"`
-	// The data processing configuration.  More details are given below.
+	// The data processing configuration. More details are given below.
 	ProcessingConfiguration *FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration *int `pulumi:"retryDuration"`
@@ -11618,7 +11620,7 @@ type FirehoseDeliveryStreamOpensearchConfiguration struct {
 	S3Configuration FirehoseDeliveryStreamOpensearchConfigurationS3Configuration `pulumi:"s3Configuration"`
 	// The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
 	TypeName *string `pulumi:"typeName"`
-	// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+	// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
 	VpcConfig *FirehoseDeliveryStreamOpensearchConfigurationVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -11634,21 +11636,23 @@ type FirehoseDeliveryStreamOpensearchConfigurationInput interface {
 }
 
 type FirehoseDeliveryStreamOpensearchConfigurationArgs struct {
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
-	// The CloudWatch Logging Options for the delivery stream. More details are given below
+	// The CloudWatch Logging Options for the delivery stream. More details are given below.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
 	// The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
 	ClusterEndpoint pulumi.StringPtrInput `pulumi:"clusterEndpoint"`
+	// The method for setting up document ID. More details are given below.
+	DocumentIdOptions FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrInput `pulumi:"documentIdOptions"`
 	// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 	DomainArn pulumi.StringPtrInput `pulumi:"domainArn"`
 	// The OpenSearch index name.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
 	// The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
 	IndexRotationPeriod pulumi.StringPtrInput `pulumi:"indexRotationPeriod"`
-	// The data processing configuration.  More details are given below.
+	// The data processing configuration. More details are given below.
 	ProcessingConfiguration FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to Amazon OpenSearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
@@ -11660,7 +11664,7 @@ type FirehoseDeliveryStreamOpensearchConfigurationArgs struct {
 	S3Configuration FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
 	// The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
 	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
-	// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+	// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
 	VpcConfig FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
@@ -11741,7 +11745,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) ToFirehoseDeliveryS
 	}).(FirehoseDeliveryStreamOpensearchConfigurationPtrOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
 }
@@ -11751,7 +11755,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) BufferingSize() pul
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. More details are given below
+// The CloudWatch Logging Options for the delivery stream. More details are given below.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
@@ -11761,6 +11765,13 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) CloudwatchLoggingOp
 // The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) ClusterEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *string { return v.ClusterEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The method for setting up document ID. More details are given below.
+func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) DocumentIdOptions() FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions {
+		return v.DocumentIdOptions
+	}).(FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput)
 }
 
 // The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
@@ -11778,7 +11789,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) IndexRotationPeriod
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *string { return v.IndexRotationPeriod }).(pulumi.StringPtrOutput)
 }
 
-// The data processing configuration.  More details are given below.
+// The data processing configuration. More details are given below.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) ProcessingConfiguration() FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration {
 		return v.ProcessingConfiguration
@@ -11812,7 +11823,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) TypeName() pulumi.S
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
 
-// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) VpcConfig() FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationVpcConfig {
 		return v.VpcConfig
@@ -11843,7 +11854,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) Elem() FirehoseD
 	}).(FirehoseDeliveryStreamOpensearchConfigurationOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *int {
 		if v == nil {
@@ -11863,7 +11874,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) BufferingSize() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The CloudWatch Logging Options for the delivery stream. More details are given below
+// The CloudWatch Logging Options for the delivery stream. More details are given below.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -11881,6 +11892,16 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) ClusterEndpoint(
 		}
 		return v.ClusterEndpoint
 	}).(pulumi.StringPtrOutput)
+}
+
+// The method for setting up document ID. More details are given below.
+func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) DocumentIdOptions() FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentIdOptions
+	}).(FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput)
 }
 
 // The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
@@ -11913,7 +11934,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) IndexRotationPer
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data processing configuration.  More details are given below.
+// The data processing configuration. More details are given below.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) ProcessingConfiguration() FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration {
 		if v == nil {
@@ -11973,7 +11994,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) TypeName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below
+// The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. More details are given below.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) VpcConfig() FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationVpcConfig {
 		if v == nil {
@@ -12159,6 +12180,145 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtr
 			return nil
 		}
 		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions struct {
+	// The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
+	DefaultDocumentIdFormat string `pulumi:"defaultDocumentIdFormat"`
+}
+
+// FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsInput is an input type that accepts FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs and FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsInput` via:
+//
+//	FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs{...}
+type FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput() FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput
+	ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput
+}
+
+type FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs struct {
+	// The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
+	DefaultDocumentIdFormat pulumi.StringInput `pulumi:"defaultDocumentIdFormat"`
+}
+
+func (FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs) ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput() FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs) ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput)
+}
+
+func (i FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs) ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput() FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs) ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput).ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrInput is an input type that accepts FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs, FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtr and FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrInput` via:
+//
+//	        FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput() FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput
+	ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput
+}
+
+type firehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrType FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs
+
+func FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtr(v *FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs) FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrInput {
+	return (*firehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrType) ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput() FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrType) ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput) ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput() FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput) ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput) ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput() FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput {
+	return o.ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput) ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions) *FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions {
+		return &v
+	}).(FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput)
+}
+
+// The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
+func (o FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput) DefaultDocumentIdFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions) string {
+		return v.DefaultDocumentIdFormat
+	}).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput) ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput() FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput) ToFirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput) Elem() FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions) FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions
+		return ret
+	}).(FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput)
+}
+
+// The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
+func (o FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput) DefaultDocumentIdFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultDocumentIdFormat
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12435,7 +12595,7 @@ type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcess
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
-	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -12455,7 +12615,7 @@ type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcess
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
-	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -12519,7 +12679,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 
 // Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 //
-// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -12549,7 +12709,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 type FirehoseDeliveryStreamOpensearchConfigurationS3Configuration struct {
 	// The ARN of the S3 bucket
 	BucketArn string `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
@@ -12582,7 +12742,7 @@ type FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationInput interface
 type FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs struct {
 	// The ARN of the S3 bucket
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
@@ -12683,7 +12843,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) Buck
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
 }
@@ -12764,7 +12924,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) B
 	}).(pulumi.StringPtrOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *int {
 		if v == nil {
@@ -13217,7 +13377,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput) VpcId()
 }
 
 type FirehoseDeliveryStreamOpensearchserverlessConfiguration struct {
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
@@ -13253,7 +13413,7 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationInput interface {
 }
 
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs struct {
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
@@ -13354,7 +13514,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) ToFirehos
 	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
 }
@@ -13441,7 +13601,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) Elem()
 	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *int {
 		if v == nil {
@@ -14007,7 +14167,7 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurat
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
-	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -14027,7 +14187,7 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurat
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
-	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -14091,7 +14251,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigu
 
 // Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 //
-// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -14121,7 +14281,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigu
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration struct {
 	// The ARN of the S3 bucket
 	BucketArn string `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
@@ -14154,7 +14314,7 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationInput
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs struct {
 	// The ARN of the S3 bucket
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
@@ -14257,7 +14417,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOu
 	}).(pulumi.StringOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *int {
 		return v.BufferingInterval
@@ -14348,7 +14508,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *int {
 		if v == nil {
@@ -15627,7 +15787,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
-	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -15647,7 +15807,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
-	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -15711,7 +15871,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 
 // Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 //
-// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -15741,7 +15901,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration struct {
 	// The ARN of the S3 bucket
 	BucketArn string `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
@@ -15774,7 +15934,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationInput inter
 type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs struct {
 	// The ARN of the S3 bucket
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
@@ -15875,7 +16035,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) 
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *int {
 		return v.BufferingInterval
@@ -15958,7 +16118,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *int {
 		if v == nil {
@@ -16223,7 +16383,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwat
 type FirehoseDeliveryStreamRedshiftConfigurationS3Configuration struct {
 	// The ARN of the S3 bucket
 	BucketArn string `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
@@ -16256,7 +16416,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationInput interface {
 type FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs struct {
 	// The ARN of the S3 bucket
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
@@ -16357,7 +16517,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) Bucket
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
 }
@@ -16434,7 +16594,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) Buc
 	}).(pulumi.StringPtrOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *int {
 		if v == nil {
@@ -16880,6 +17040,10 @@ func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) KeyType() pulumi.St
 }
 
 type FirehoseDeliveryStreamSplunkConfiguration struct {
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+	BufferingInterval *int `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+	BufferingSize *int `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
@@ -16912,6 +17076,10 @@ type FirehoseDeliveryStreamSplunkConfigurationInput interface {
 }
 
 type FirehoseDeliveryStreamSplunkConfigurationArgs struct {
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
 	// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
@@ -17009,6 +17177,16 @@ func (o FirehoseDeliveryStreamSplunkConfigurationOutput) ToFirehoseDeliveryStrea
 	}).(FirehoseDeliveryStreamSplunkConfigurationPtrOutput)
 }
 
+// Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+func (o FirehoseDeliveryStreamSplunkConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+func (o FirehoseDeliveryStreamSplunkConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
+}
+
 // The CloudWatch Logging Options for the delivery stream. More details are given below.
 func (o FirehoseDeliveryStreamSplunkConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions {
@@ -17082,6 +17260,26 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) Elem() FirehoseDeliv
 		var ret FirehoseDeliveryStreamSplunkConfiguration
 		return ret
 	}).(FirehoseDeliveryStreamSplunkConfigurationOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingSize
+	}).(pulumi.IntPtrOutput)
 }
 
 // The CloudWatch Logging Options for the delivery stream. More details are given below.
@@ -17626,7 +17824,7 @@ type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorPa
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
-	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -17646,7 +17844,7 @@ type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorPa
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
-	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -17710,7 +17908,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 
 // Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 //
-// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -17740,7 +17938,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 type FirehoseDeliveryStreamSplunkConfigurationS3Configuration struct {
 	// The ARN of the S3 bucket
 	BucketArn string `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize *int `pulumi:"bufferingSize"`
@@ -17773,7 +17971,7 @@ type FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationInput interface {
 type FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs struct {
 	// The ARN of the S3 bucket
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
@@ -17874,7 +18072,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) BucketAr
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
 }
@@ -17951,7 +18149,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) Bucke
 	}).(pulumi.StringPtrOutput)
 }
 
-// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *int {
 		if v == nil {
@@ -18581,6 +18779,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs{})
@@ -18780,6 +18980,8 @@ func init() {
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorOutput{})

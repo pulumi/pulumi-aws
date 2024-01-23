@@ -98,14 +98,14 @@ public class TrustStoreRevocation extends com.pulumi.resources.CustomResource {
         return this.revocationsS3Bucket;
     }
     /**
-     * S3 Bucket name holding the client certificate CA bundle.
+     * S3 object key holding the client certificate CA bundle.
      * 
      */
     @Export(name="revocationsS3Key", refs={String.class}, tree="[0]")
     private Output<String> revocationsS3Key;
 
     /**
-     * @return S3 Bucket name holding the client certificate CA bundle.
+     * @return S3 object key holding the client certificate CA bundle.
      * 
      */
     public Output<String> revocationsS3Key() {

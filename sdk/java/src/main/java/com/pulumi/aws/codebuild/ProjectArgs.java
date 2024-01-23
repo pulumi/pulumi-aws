@@ -77,14 +77,14 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     @Import(name="buildTimeout")
     private @Nullable Output<Integer> buildTimeout;
 
     /**
-     * @return Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     * @return Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     public Optional<Output<Integer>> buildTimeout() {
@@ -227,14 +227,14 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     @Import(name="queuedTimeout")
     private @Nullable Output<Integer> queuedTimeout;
 
     /**
-     * @return Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+     * @return Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     public Optional<Output<Integer>> queuedTimeout() {
@@ -490,7 +490,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildTimeout Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+         * @param buildTimeout Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
          * 
          * @return builder
          * 
@@ -501,7 +501,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildTimeout Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+         * @param buildTimeout Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
          * 
          * @return builder
          * 
@@ -710,7 +710,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queuedTimeout Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+         * @param queuedTimeout Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
          * 
          * @return builder
          * 
@@ -721,7 +721,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queuedTimeout Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+         * @param queuedTimeout Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
          * 
          * @return builder
          * 

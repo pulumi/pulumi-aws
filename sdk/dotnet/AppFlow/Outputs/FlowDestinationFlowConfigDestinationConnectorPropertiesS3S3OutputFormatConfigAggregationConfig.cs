@@ -17,11 +17,19 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
         /// </summary>
         public readonly string? AggregationType;
+        /// <summary>
+        /// The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+        /// </summary>
+        public readonly int? TargetFileSize;
 
         [OutputConstructor]
-        private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig(string? aggregationType)
+        private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig(
+            string? aggregationType,
+
+            int? targetFileSize)
         {
             AggregationType = aggregationType;
+            TargetFileSize = targetFileSize;
         }
     }
 }

@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlertManagerDefinition{}
 	case "aws:amp/ruleGroupNamespace:RuleGroupNamespace":
 		r = &RuleGroupNamespace{}
+	case "aws:amp/scraper:Scraper":
+		r = &Scraper{}
 	case "aws:amp/workspace:Workspace":
 		r = &Workspace{}
 	default:
@@ -48,6 +50,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"amp/ruleGroupNamespace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"amp/scraper",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -1066,8 +1066,6 @@ type PipelineStageAction struct {
 	// The action declaration's name.
 	Name string `pulumi:"name"`
 	// The namespace all output variables will be accessed from.
-	//
-	// > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
 	Namespace *string `pulumi:"namespace"`
 	// A list of artifact names to output. Output artifact names must be unique within a pipeline.
 	OutputArtifacts []string `pulumi:"outputArtifacts"`
@@ -1106,8 +1104,6 @@ type PipelineStageActionArgs struct {
 	// The action declaration's name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The namespace all output variables will be accessed from.
-	//
-	// > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// A list of artifact names to output. Output artifact names must be unique within a pipeline.
 	OutputArtifacts pulumi.StringArrayInput `pulumi:"outputArtifacts"`
@@ -1197,8 +1193,6 @@ func (o PipelineStageActionOutput) Name() pulumi.StringOutput {
 }
 
 // The namespace all output variables will be accessed from.
-//
-// > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
 func (o PipelineStageActionOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageAction) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
@@ -1256,6 +1250,127 @@ func (o PipelineStageActionArrayOutput) Index(i pulumi.IntInput) PipelineStageAc
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineStageAction {
 		return vs[0].([]PipelineStageAction)[vs[1].(int)]
 	}).(PipelineStageActionOutput)
+}
+
+type PipelineVariable struct {
+	// The default value of a pipeline-level variable.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// The description of a pipeline-level variable.
+	//
+	// > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
+	Description *string `pulumi:"description"`
+	// The name of a pipeline-level variable.
+	Name string `pulumi:"name"`
+}
+
+// PipelineVariableInput is an input type that accepts PipelineVariableArgs and PipelineVariableOutput values.
+// You can construct a concrete instance of `PipelineVariableInput` via:
+//
+//	PipelineVariableArgs{...}
+type PipelineVariableInput interface {
+	pulumi.Input
+
+	ToPipelineVariableOutput() PipelineVariableOutput
+	ToPipelineVariableOutputWithContext(context.Context) PipelineVariableOutput
+}
+
+type PipelineVariableArgs struct {
+	// The default value of a pipeline-level variable.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// The description of a pipeline-level variable.
+	//
+	// > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of a pipeline-level variable.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (PipelineVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineVariable)(nil)).Elem()
+}
+
+func (i PipelineVariableArgs) ToPipelineVariableOutput() PipelineVariableOutput {
+	return i.ToPipelineVariableOutputWithContext(context.Background())
+}
+
+func (i PipelineVariableArgs) ToPipelineVariableOutputWithContext(ctx context.Context) PipelineVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineVariableOutput)
+}
+
+// PipelineVariableArrayInput is an input type that accepts PipelineVariableArray and PipelineVariableArrayOutput values.
+// You can construct a concrete instance of `PipelineVariableArrayInput` via:
+//
+//	PipelineVariableArray{ PipelineVariableArgs{...} }
+type PipelineVariableArrayInput interface {
+	pulumi.Input
+
+	ToPipelineVariableArrayOutput() PipelineVariableArrayOutput
+	ToPipelineVariableArrayOutputWithContext(context.Context) PipelineVariableArrayOutput
+}
+
+type PipelineVariableArray []PipelineVariableInput
+
+func (PipelineVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineVariable)(nil)).Elem()
+}
+
+func (i PipelineVariableArray) ToPipelineVariableArrayOutput() PipelineVariableArrayOutput {
+	return i.ToPipelineVariableArrayOutputWithContext(context.Background())
+}
+
+func (i PipelineVariableArray) ToPipelineVariableArrayOutputWithContext(ctx context.Context) PipelineVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineVariableArrayOutput)
+}
+
+type PipelineVariableOutput struct{ *pulumi.OutputState }
+
+func (PipelineVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineVariable)(nil)).Elem()
+}
+
+func (o PipelineVariableOutput) ToPipelineVariableOutput() PipelineVariableOutput {
+	return o
+}
+
+func (o PipelineVariableOutput) ToPipelineVariableOutputWithContext(ctx context.Context) PipelineVariableOutput {
+	return o
+}
+
+// The default value of a pipeline-level variable.
+func (o PipelineVariableOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineVariable) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// The description of a pipeline-level variable.
+//
+// > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
+func (o PipelineVariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of a pipeline-level variable.
+func (o PipelineVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type PipelineVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (PipelineVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineVariable)(nil)).Elem()
+}
+
+func (o PipelineVariableArrayOutput) ToPipelineVariableArrayOutput() PipelineVariableArrayOutput {
+	return o
+}
+
+func (o PipelineVariableArrayOutput) ToPipelineVariableArrayOutputWithContext(ctx context.Context) PipelineVariableArrayOutput {
+	return o
+}
+
+func (o PipelineVariableArrayOutput) Index(i pulumi.IntInput) PipelineVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineVariable {
+		return vs[0].([]PipelineVariable)[vs[1].(int)]
+	}).(PipelineVariableOutput)
 }
 
 type WebhookAuthenticationConfiguration struct {
@@ -1537,6 +1652,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageArrayInput)(nil)).Elem(), PipelineStageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageActionInput)(nil)).Elem(), PipelineStageActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageActionArrayInput)(nil)).Elem(), PipelineStageActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVariableInput)(nil)).Elem(), PipelineVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVariableArrayInput)(nil)).Elem(), PipelineVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookAuthenticationConfigurationInput)(nil)).Elem(), WebhookAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookAuthenticationConfigurationPtrInput)(nil)).Elem(), WebhookAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterInput)(nil)).Elem(), WebhookFilterArgs{})
@@ -1557,6 +1674,8 @@ func init() {
 	pulumi.RegisterOutputType(PipelineStageArrayOutput{})
 	pulumi.RegisterOutputType(PipelineStageActionOutput{})
 	pulumi.RegisterOutputType(PipelineStageActionArrayOutput{})
+	pulumi.RegisterOutputType(PipelineVariableOutput{})
+	pulumi.RegisterOutputType(PipelineVariableArrayOutput{})
 	pulumi.RegisterOutputType(WebhookAuthenticationConfigurationOutput{})
 	pulumi.RegisterOutputType(WebhookAuthenticationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebhookFilterOutput{})

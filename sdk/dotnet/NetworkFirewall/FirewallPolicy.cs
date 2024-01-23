@@ -42,6 +42,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                     ResourceArn = aws_networkfirewall_rule_group.Example.Arn,
     ///                 },
     ///             },
+    ///             TlsInspectionConfigurationArn = "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
     ///         },
     ///         Tags = 
     ///         {

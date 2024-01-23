@@ -104,6 +104,31 @@ import * as utilities from "../utilities";
  *     dependsOn: [aws_iam_role_policy_attachment.aws_batch_service_role],
  * });
  * ```
+ * ### Setting Update Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const sample = new aws.batch.ComputeEnvironment("sample", {
+ *     computeEnvironmentName: "sample",
+ *     computeResources: {
+ *         allocationStrategy: "BEST_FIT_PROGRESSIVE",
+ *         instanceRole: aws_iam_instance_profile.ecs_instance.arn,
+ *         instanceTypes: ["optimal"],
+ *         maxVcpus: 4,
+ *         minVcpus: 0,
+ *         securityGroupIds: [aws_security_group.sample.id],
+ *         subnets: [aws_subnet.sample.id],
+ *         type: "EC2",
+ *     },
+ *     updatePolicy: {
+ *         jobExecutionTimeoutMinutes: 30,
+ *         terminateJobsOnUpdate: false,
+ *     },
+ *     type: "MANAGED",
+ * });
+ * ```
  *
  * ## Import
  *
@@ -195,6 +220,10 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Specifies the infrastructure update policy for the compute environment. See details below.
+     */
+    public readonly updatePolicy!: pulumi.Output<outputs.batch.ComputeEnvironmentUpdatePolicy | undefined>;
 
     /**
      * Create a ComputeEnvironment resource with the given unique name, arguments, and options.
@@ -222,6 +251,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["updatePolicy"] = state ? state.updatePolicy : undefined;
         } else {
             const args = argsOrState as ComputeEnvironmentArgs | undefined;
             if ((!args || args.type === undefined) && !opts.urn) {
@@ -235,6 +265,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["updatePolicy"] = args ? args.updatePolicy : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ecsClusterArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -306,6 +337,10 @@ export interface ComputeEnvironmentState {
      * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      */
     type?: pulumi.Input<string>;
+    /**
+     * Specifies the infrastructure update policy for the compute environment. See details below.
+     */
+    updatePolicy?: pulumi.Input<inputs.batch.ComputeEnvironmentUpdatePolicy>;
 }
 
 /**
@@ -344,4 +379,8 @@ export interface ComputeEnvironmentArgs {
      * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      */
     type: pulumi.Input<string>;
+    /**
+     * Specifies the infrastructure update policy for the compute environment. See details below.
+     */
+    updatePolicy?: pulumi.Input<inputs.batch.ComputeEnvironmentUpdatePolicy>;
 }

@@ -311,18 +311,32 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.lambdaMultiValueHeadersEnabled);
     }
     /**
-     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
      * 
      */
     @Export(name="loadBalancingAlgorithmType", refs={String.class}, tree="[0]")
     private Output<String> loadBalancingAlgorithmType;
 
     /**
-     * @return Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+     * @return Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
      * 
      */
     public Output<String> loadBalancingAlgorithmType() {
         return this.loadBalancingAlgorithmType;
+    }
+    /**
+     * Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+     * 
+     */
+    @Export(name="loadBalancingAnomalyMitigation", refs={String.class}, tree="[0]")
+    private Output<String> loadBalancingAnomalyMitigation;
+
+    /**
+     * @return Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
+     * 
+     */
+    public Output<String> loadBalancingAnomalyMitigation() {
+        return this.loadBalancingAnomalyMitigation;
     }
     /**
      * Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.

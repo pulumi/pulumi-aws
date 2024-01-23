@@ -165,6 +165,10 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
     /**
+     * Storage type associated with the cluster `standard/iopt1`.
+     */
+    public /*out*/ readonly storageType!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -214,6 +218,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["promotionTier"] = state ? state.promotionTier : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
             resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["writer"] = state ? state.writer : undefined;
@@ -248,6 +253,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
+            resourceInputs["storageType"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["writer"] = undefined /*out*/;
         }
@@ -352,6 +358,10 @@ export interface ClusterInstanceState {
      * Specifies whether the neptune cluster is encrypted.
      */
     storageEncrypted?: pulumi.Input<boolean>;
+    /**
+     * Storage type associated with the cluster `standard/iopt1`.
+     */
+    storageType?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

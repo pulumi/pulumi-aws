@@ -24,7 +24,9 @@ public final class GetResolverEndpointResult {
     private String id;
     private List<String> ipAddresses;
     private String name;
+    private List<String> protocols;
     private @Nullable String resolverEndpointId;
+    private String resolverEndpointType;
     private String status;
     private String vpcId;
 
@@ -51,8 +53,14 @@ public final class GetResolverEndpointResult {
     public String name() {
         return this.name;
     }
+    public List<String> protocols() {
+        return this.protocols;
+    }
     public Optional<String> resolverEndpointId() {
         return Optional.ofNullable(this.resolverEndpointId);
+    }
+    public String resolverEndpointType() {
+        return this.resolverEndpointType;
     }
     public String status() {
         return this.status;
@@ -76,7 +84,9 @@ public final class GetResolverEndpointResult {
         private String id;
         private List<String> ipAddresses;
         private String name;
+        private List<String> protocols;
         private @Nullable String resolverEndpointId;
+        private String resolverEndpointType;
         private String status;
         private String vpcId;
         public Builder() {}
@@ -88,7 +98,9 @@ public final class GetResolverEndpointResult {
     	      this.id = defaults.id;
     	      this.ipAddresses = defaults.ipAddresses;
     	      this.name = defaults.name;
+    	      this.protocols = defaults.protocols;
     	      this.resolverEndpointId = defaults.resolverEndpointId;
+    	      this.resolverEndpointType = defaults.resolverEndpointType;
     	      this.status = defaults.status;
     	      this.vpcId = defaults.vpcId;
         }
@@ -146,9 +158,28 @@ public final class GetResolverEndpointResult {
             return this;
         }
         @CustomType.Setter
+        public Builder protocols(List<String> protocols) {
+            if (protocols == null) {
+              throw new MissingRequiredPropertyException("GetResolverEndpointResult", "protocols");
+            }
+            this.protocols = protocols;
+            return this;
+        }
+        public Builder protocols(String... protocols) {
+            return protocols(List.of(protocols));
+        }
+        @CustomType.Setter
         public Builder resolverEndpointId(@Nullable String resolverEndpointId) {
 
             this.resolverEndpointId = resolverEndpointId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder resolverEndpointType(String resolverEndpointType) {
+            if (resolverEndpointType == null) {
+              throw new MissingRequiredPropertyException("GetResolverEndpointResult", "resolverEndpointType");
+            }
+            this.resolverEndpointType = resolverEndpointType;
             return this;
         }
         @CustomType.Setter
@@ -175,7 +206,9 @@ public final class GetResolverEndpointResult {
             _resultValue.id = id;
             _resultValue.ipAddresses = ipAddresses;
             _resultValue.name = name;
+            _resultValue.protocols = protocols;
             _resultValue.resolverEndpointId = resolverEndpointId;
+            _resultValue.resolverEndpointType = resolverEndpointType;
             _resultValue.status = status;
             _resultValue.vpcId = vpcId;
             return _resultValue;

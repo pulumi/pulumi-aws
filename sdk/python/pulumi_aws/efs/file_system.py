@@ -22,6 +22,7 @@ class FileSystemArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
+                 protection: Optional[pulumi.Input['FileSystemProtectionArgs']] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None):
@@ -36,6 +37,7 @@ class FileSystemArgs:
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
         :param pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
+        :param pulumi.Input['FileSystemProtectionArgs'] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
@@ -52,6 +54,8 @@ class FileSystemArgs:
             pulumi.set(__self__, "lifecycle_policies", lifecycle_policies)
         if performance_mode is not None:
             pulumi.set(__self__, "performance_mode", performance_mode)
+        if protection is not None:
+            pulumi.set(__self__, "protection", protection)
         if provisioned_throughput_in_mibps is not None:
             pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
         if tags is not None:
@@ -135,6 +139,18 @@ class FileSystemArgs:
         pulumi.set(self, "performance_mode", value)
 
     @property
+    @pulumi.getter
+    def protection(self) -> Optional[pulumi.Input['FileSystemProtectionArgs']]:
+        """
+        A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        """
+        return pulumi.get(self, "protection")
+
+    @protection.setter
+    def protection(self, value: Optional[pulumi.Input['FileSystemProtectionArgs']]):
+        pulumi.set(self, "protection", value)
+
+    @property
     @pulumi.getter(name="provisionedThroughputInMibps")
     def provisioned_throughput_in_mibps(self) -> Optional[pulumi.Input[float]]:
         """
@@ -186,6 +202,7 @@ class _FileSystemState:
                  number_of_mount_targets: Optional[pulumi.Input[int]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
+                 protection: Optional[pulumi.Input['FileSystemProtectionArgs']] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  size_in_bytes: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemSizeInByteArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -208,6 +225,7 @@ class _FileSystemState:
         :param pulumi.Input[int] number_of_mount_targets: The current number of mount targets that the file system has.
         :param pulumi.Input[str] owner_id: The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
+        :param pulumi.Input['FileSystemProtectionArgs'] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Sequence[pulumi.Input['FileSystemSizeInByteArgs']]] size_in_bytes: The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -238,6 +256,8 @@ class _FileSystemState:
             pulumi.set(__self__, "owner_id", owner_id)
         if performance_mode is not None:
             pulumi.set(__self__, "performance_mode", performance_mode)
+        if protection is not None:
+            pulumi.set(__self__, "protection", protection)
         if provisioned_throughput_in_mibps is not None:
             pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
         if size_in_bytes is not None:
@@ -400,6 +420,18 @@ class _FileSystemState:
         pulumi.set(self, "performance_mode", value)
 
     @property
+    @pulumi.getter
+    def protection(self) -> Optional[pulumi.Input['FileSystemProtectionArgs']]:
+        """
+        A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        """
+        return pulumi.get(self, "protection")
+
+    @protection.setter
+    def protection(self, value: Optional[pulumi.Input['FileSystemProtectionArgs']]):
+        pulumi.set(self, "protection", value)
+
+    @property
     @pulumi.getter(name="provisionedThroughputInMibps")
     def provisioned_throughput_in_mibps(self) -> Optional[pulumi.Input[float]]:
         """
@@ -474,6 +506,7 @@ class FileSystem(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
+                 protection: Optional[pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None,
@@ -522,6 +555,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
+        :param pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
@@ -586,6 +620,7 @@ class FileSystem(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
                  performance_mode: Optional[pulumi.Input[str]] = None,
+                 protection: Optional[pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None,
@@ -604,6 +639,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["lifecycle_policies"] = lifecycle_policies
             __props__.__dict__["performance_mode"] = performance_mode
+            __props__.__dict__["protection"] = protection
             __props__.__dict__["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
             __props__.__dict__["tags"] = tags
             __props__.__dict__["throughput_mode"] = throughput_mode
@@ -639,6 +675,7 @@ class FileSystem(pulumi.CustomResource):
             number_of_mount_targets: Optional[pulumi.Input[int]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             performance_mode: Optional[pulumi.Input[str]] = None,
+            protection: Optional[pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']]] = None,
             provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
             size_in_bytes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemSizeInByteArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -666,6 +703,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[int] number_of_mount_targets: The current number of mount targets that the file system has.
         :param pulumi.Input[str] owner_id: The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
+        :param pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemSizeInByteArgs']]]] size_in_bytes: The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -688,6 +726,7 @@ class FileSystem(pulumi.CustomResource):
         __props__.__dict__["number_of_mount_targets"] = number_of_mount_targets
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["performance_mode"] = performance_mode
+        __props__.__dict__["protection"] = protection
         __props__.__dict__["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
         __props__.__dict__["size_in_bytes"] = size_in_bytes
         __props__.__dict__["tags"] = tags
@@ -793,6 +832,14 @@ class FileSystem(pulumi.CustomResource):
         The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         """
         return pulumi.get(self, "performance_mode")
+
+    @property
+    @pulumi.getter
+    def protection(self) -> pulumi.Output['outputs.FileSystemProtection']:
+        """
+        A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        """
+        return pulumi.get(self, "protection")
 
     @property
     @pulumi.getter(name="provisionedThroughputInMibps")

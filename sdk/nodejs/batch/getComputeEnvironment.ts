@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -83,6 +86,10 @@ export interface GetComputeEnvironmentResult {
      * Type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
      */
     readonly type: string;
+    /**
+     * Specifies the infrastructure update policy for the compute environment.
+     */
+    readonly updatePolicies: outputs.batch.GetComputeEnvironmentUpdatePolicy[];
 }
 /**
  * The Batch Compute Environment data source allows access to details of a specific

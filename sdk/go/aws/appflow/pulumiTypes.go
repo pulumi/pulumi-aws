@@ -12695,6 +12695,8 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig struct {
 	// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
 	AggregationType *string `pulumi:"aggregationType"`
+	// The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+	TargetFileSize *int `pulumi:"targetFileSize"`
 }
 
 // FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutput values.
@@ -12711,6 +12713,8 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConf
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs struct {
 	// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
 	AggregationType pulumi.StringPtrInput `pulumi:"aggregationType"`
+	// The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+	TargetFileSize pulumi.IntPtrInput `pulumi:"targetFileSize"`
 }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs) ElementType() reflect.Type {
@@ -12797,6 +12801,13 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	}).(pulumi.StringPtrOutput)
 }
 
+// The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutput) TargetFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig) *int {
+		return v.TargetFileSize
+	}).(pulumi.IntPtrOutput)
+}
+
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput) ElementType() reflect.Type {
@@ -12829,6 +12840,16 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 		}
 		return v.AggregationType
 	}).(pulumi.StringPtrOutput)
+}
+
+// The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput) TargetFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetFileSize
+	}).(pulumi.IntPtrOutput)
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig struct {

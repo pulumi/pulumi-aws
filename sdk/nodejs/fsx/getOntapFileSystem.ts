@@ -82,6 +82,10 @@ export interface GetOntapFileSystemResult {
      */
     readonly endpoints: outputs.fsx.GetOntapFileSystemEndpoint[];
     /**
+     * The number of HA pairs for the file system.
+     */
+    readonly haPairs: number;
+    /**
      * Identifier of the file system (e.g. `fs-12345678`).
      */
     readonly id: string;
@@ -122,9 +126,13 @@ export interface GetOntapFileSystemResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps).
+     * The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthputCapacityPerHaPair x ha_pairs
      */
     readonly throughputCapacity: number;
+    /**
+     * The sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
+     */
+    readonly throughputCapacityPerHaPair: number;
     /**
      * The ID of the primary virtual private cloud (VPC) for the file system.
      */

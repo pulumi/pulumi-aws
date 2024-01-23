@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.batch.outputs;
 
+import com.pulumi.aws.batch.outputs.GetComputeEnvironmentUpdatePolicy;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -57,6 +59,11 @@ public final class GetComputeEnvironmentResult {
      * 
      */
     private String type;
+    /**
+     * @return Specifies the infrastructure update policy for the compute environment.
+     * 
+     */
+    private List<GetComputeEnvironmentUpdatePolicy> updatePolicies;
 
     private GetComputeEnvironmentResult() {}
     /**
@@ -125,6 +132,13 @@ public final class GetComputeEnvironmentResult {
     public String type() {
         return this.type;
     }
+    /**
+     * @return Specifies the infrastructure update policy for the compute environment.
+     * 
+     */
+    public List<GetComputeEnvironmentUpdatePolicy> updatePolicies() {
+        return this.updatePolicies;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -145,6 +159,7 @@ public final class GetComputeEnvironmentResult {
         private String statusReason;
         private Map<String,String> tags;
         private String type;
+        private List<GetComputeEnvironmentUpdatePolicy> updatePolicies;
         public Builder() {}
         public Builder(GetComputeEnvironmentResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -158,6 +173,7 @@ public final class GetComputeEnvironmentResult {
     	      this.statusReason = defaults.statusReason;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
+    	      this.updatePolicies = defaults.updatePolicies;
         }
 
         @CustomType.Setter
@@ -240,6 +256,17 @@ public final class GetComputeEnvironmentResult {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
+        public Builder updatePolicies(List<GetComputeEnvironmentUpdatePolicy> updatePolicies) {
+            if (updatePolicies == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "updatePolicies");
+            }
+            this.updatePolicies = updatePolicies;
+            return this;
+        }
+        public Builder updatePolicies(GetComputeEnvironmentUpdatePolicy... updatePolicies) {
+            return updatePolicies(List.of(updatePolicies));
+        }
         public GetComputeEnvironmentResult build() {
             final var _resultValue = new GetComputeEnvironmentResult();
             _resultValue.arn = arn;
@@ -252,6 +279,7 @@ public final class GetComputeEnvironmentResult {
             _resultValue.statusReason = statusReason;
             _resultValue.tags = tags;
             _resultValue.type = type;
+            _resultValue.updatePolicies = updatePolicies;
             return _resultValue;
         }
     }

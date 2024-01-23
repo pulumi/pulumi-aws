@@ -20,6 +20,11 @@ export const getBroker: typeof import("./getBroker").getBroker = null as any;
 export const getBrokerOutput: typeof import("./getBroker").getBrokerOutput = null as any;
 utilities.lazyLoad(exports, ["getBroker","getBrokerOutput"], () => require("./getBroker"));
 
+export { GetBrokerEngineTypesArgs, GetBrokerEngineTypesResult, GetBrokerEngineTypesOutputArgs } from "./getBrokerEngineTypes";
+export const getBrokerEngineTypes: typeof import("./getBrokerEngineTypes").getBrokerEngineTypes = null as any;
+export const getBrokerEngineTypesOutput: typeof import("./getBrokerEngineTypes").getBrokerEngineTypesOutput = null as any;
+utilities.lazyLoad(exports, ["getBrokerEngineTypes","getBrokerEngineTypesOutput"], () => require("./getBrokerEngineTypes"));
+
 export { GetInstanceTypeOfferingsArgs, GetInstanceTypeOfferingsResult, GetInstanceTypeOfferingsOutputArgs } from "./getInstanceTypeOfferings";
 export const getInstanceTypeOfferings: typeof import("./getInstanceTypeOfferings").getInstanceTypeOfferings = null as any;
 export const getInstanceTypeOfferingsOutput: typeof import("./getInstanceTypeOfferings").getInstanceTypeOfferingsOutput = null as any;

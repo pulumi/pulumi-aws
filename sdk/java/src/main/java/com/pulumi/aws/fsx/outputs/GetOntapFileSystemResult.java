@@ -56,6 +56,11 @@ public final class GetOntapFileSystemResult {
      */
     private List<GetOntapFileSystemEndpoint> endpoints;
     /**
+     * @return The number of HA pairs for the file system.
+     * 
+     */
+    private Integer haPairs;
+    /**
      * @return Identifier of the file system (e.g. `fs-12345678`).
      * 
      */
@@ -106,10 +111,15 @@ public final class GetOntapFileSystemResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps).
+     * @return The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthput_capacity_per_ha_pair x ha_pairs
      * 
      */
     private Integer throughputCapacity;
+    /**
+     * @return The sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
+     * 
+     */
+    private Integer throughputCapacityPerHaPair;
     /**
      * @return The ID of the primary virtual private cloud (VPC) for the file system.
      * 
@@ -177,6 +187,13 @@ public final class GetOntapFileSystemResult {
      */
     public List<GetOntapFileSystemEndpoint> endpoints() {
         return this.endpoints;
+    }
+    /**
+     * @return The number of HA pairs for the file system.
+     * 
+     */
+    public Integer haPairs() {
+        return this.haPairs;
     }
     /**
      * @return Identifier of the file system (e.g. `fs-12345678`).
@@ -249,11 +266,18 @@ public final class GetOntapFileSystemResult {
         return this.tags;
     }
     /**
-     * @return The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps).
+     * @return The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthput_capacity_per_ha_pair x ha_pairs
      * 
      */
     public Integer throughputCapacity() {
         return this.throughputCapacity;
+    }
+    /**
+     * @return The sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
+     * 
+     */
+    public Integer throughputCapacityPerHaPair() {
+        return this.throughputCapacityPerHaPair;
     }
     /**
      * @return The ID of the primary virtual private cloud (VPC) for the file system.
@@ -287,6 +311,7 @@ public final class GetOntapFileSystemResult {
         private String dnsName;
         private String endpointIpAddressRange;
         private List<GetOntapFileSystemEndpoint> endpoints;
+        private Integer haPairs;
         private String id;
         private String kmsKeyId;
         private List<String> networkInterfaceIds;
@@ -298,6 +323,7 @@ public final class GetOntapFileSystemResult {
         private List<String> subnetIds;
         private Map<String,String> tags;
         private Integer throughputCapacity;
+        private Integer throughputCapacityPerHaPair;
         private String vpcId;
         private String weeklyMaintenanceStartTime;
         public Builder() {}
@@ -311,6 +337,7 @@ public final class GetOntapFileSystemResult {
     	      this.dnsName = defaults.dnsName;
     	      this.endpointIpAddressRange = defaults.endpointIpAddressRange;
     	      this.endpoints = defaults.endpoints;
+    	      this.haPairs = defaults.haPairs;
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.networkInterfaceIds = defaults.networkInterfaceIds;
@@ -322,6 +349,7 @@ public final class GetOntapFileSystemResult {
     	      this.subnetIds = defaults.subnetIds;
     	      this.tags = defaults.tags;
     	      this.throughputCapacity = defaults.throughputCapacity;
+    	      this.throughputCapacityPerHaPair = defaults.throughputCapacityPerHaPair;
     	      this.vpcId = defaults.vpcId;
     	      this.weeklyMaintenanceStartTime = defaults.weeklyMaintenanceStartTime;
         }
@@ -395,6 +423,14 @@ public final class GetOntapFileSystemResult {
         }
         public Builder endpoints(GetOntapFileSystemEndpoint... endpoints) {
             return endpoints(List.of(endpoints));
+        }
+        @CustomType.Setter
+        public Builder haPairs(Integer haPairs) {
+            if (haPairs == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "haPairs");
+            }
+            this.haPairs = haPairs;
+            return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -494,6 +530,14 @@ public final class GetOntapFileSystemResult {
             return this;
         }
         @CustomType.Setter
+        public Builder throughputCapacityPerHaPair(Integer throughputCapacityPerHaPair) {
+            if (throughputCapacityPerHaPair == null) {
+              throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "throughputCapacityPerHaPair");
+            }
+            this.throughputCapacityPerHaPair = throughputCapacityPerHaPair;
+            return this;
+        }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             if (vpcId == null) {
               throw new MissingRequiredPropertyException("GetOntapFileSystemResult", "vpcId");
@@ -519,6 +563,7 @@ public final class GetOntapFileSystemResult {
             _resultValue.dnsName = dnsName;
             _resultValue.endpointIpAddressRange = endpointIpAddressRange;
             _resultValue.endpoints = endpoints;
+            _resultValue.haPairs = haPairs;
             _resultValue.id = id;
             _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.networkInterfaceIds = networkInterfaceIds;
@@ -530,6 +575,7 @@ public final class GetOntapFileSystemResult {
             _resultValue.subnetIds = subnetIds;
             _resultValue.tags = tags;
             _resultValue.throughputCapacity = throughputCapacity;
+            _resultValue.throughputCapacityPerHaPair = throughputCapacityPerHaPair;
             _resultValue.vpcId = vpcId;
             _resultValue.weeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
             return _resultValue;
