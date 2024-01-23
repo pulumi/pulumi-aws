@@ -170,9 +170,17 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
     public Output<String> createTime() {
         return this.createTime;
     }
+    /**
+     * The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `&#34;redis&#34;`. Defaults to `0`.
+     * 
+     */
     @Export(name="dailySnapshotTime", refs={String.class}, tree="[0]")
     private Output<String> dailySnapshotTime;
 
+    /**
+     * @return The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `&#34;redis&#34;`. Defaults to `0`.
+     * 
+     */
     public Output<String> dailySnapshotTime() {
         return this.dailySnapshotTime;
     }

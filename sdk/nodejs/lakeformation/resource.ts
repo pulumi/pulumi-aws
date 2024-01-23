@@ -7,7 +7,10 @@ import * as utilities from "../utilities";
 /**
  * Registers a Lake Formation resource (e.g., S3 bucket) as managed by the Data Catalog. In other words, the S3 path is added to the data lake.
  *
- * Choose a role that has read/write access to the chosen Amazon S3 path or use the service-linked role. When you register the S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.
+ * Choose a role that has read/write access to the chosen Amazon S3 path or use the service-linked role.
+ * When you register the S3 path, the service-linked role and a new inline policy are created on your behalf.
+ * Lake Formation adds the first path to the inline policy and attaches it to the service-linked role.
+ * When you register subsequent paths, Lake Formation adds the path to the existing policy.
  *
  * ## Example Usage
  *
@@ -50,19 +53,25 @@ export class Resource extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the resource, an S3 path.
+     * Amazon Resource Name (ARN) of the resource.
+     *
+     * The following arguments are optional:
      */
     public readonly arn!: pulumi.Output<string>;
     /**
-     * (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
     /**
-     * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+     * Role that has read/write access to the resource.
+     */
+    public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
      *
      * > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      */
-    public readonly roleArn!: pulumi.Output<string>;
+    public readonly useServiceLinkedRole!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Resource resource with the given unique name, arguments, and options.
@@ -80,6 +89,7 @@ export class Resource extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["lastModified"] = state ? state.lastModified : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["useServiceLinkedRole"] = state ? state.useServiceLinkedRole : undefined;
         } else {
             const args = argsOrState as ResourceArgs | undefined;
             if ((!args || args.arn === undefined) && !opts.urn) {
@@ -87,6 +97,7 @@ export class Resource extends pulumi.CustomResource {
             }
             resourceInputs["arn"] = args ? args.arn : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["useServiceLinkedRole"] = args ? args.useServiceLinkedRole : undefined;
             resourceInputs["lastModified"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -99,19 +110,25 @@ export class Resource extends pulumi.CustomResource {
  */
 export interface ResourceState {
     /**
-     * Amazon Resource Name (ARN) of the resource, an S3 path.
+     * Amazon Resource Name (ARN) of the resource.
+     *
+     * The following arguments are optional:
      */
     arn?: pulumi.Input<string>;
     /**
-     * (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
     lastModified?: pulumi.Input<string>;
     /**
-     * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+     * Role that has read/write access to the resource.
+     */
+    roleArn?: pulumi.Input<string>;
+    /**
+     * Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
      *
      * > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      */
-    roleArn?: pulumi.Input<string>;
+    useServiceLinkedRole?: pulumi.Input<boolean>;
 }
 
 /**
@@ -119,13 +136,19 @@ export interface ResourceState {
  */
 export interface ResourceArgs {
     /**
-     * Amazon Resource Name (ARN) of the resource, an S3 path.
+     * Amazon Resource Name (ARN) of the resource.
+     *
+     * The following arguments are optional:
      */
     arn: pulumi.Input<string>;
     /**
-     * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+     * Role that has read/write access to the resource.
+     */
+    roleArn?: pulumi.Input<string>;
+    /**
+     * Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
      *
      * > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      */
-    roleArn?: pulumi.Input<string>;
+    useServiceLinkedRole?: pulumi.Input<boolean>;
 }

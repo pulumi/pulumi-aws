@@ -125,6 +125,9 @@ namespace Pulumi.Aws.ElastiCache
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+        /// </summary>
         [Output("dailySnapshotTime")]
         public Output<string> DailySnapshotTime { get; private set; } = null!;
 
@@ -283,6 +286,9 @@ namespace Pulumi.Aws.ElastiCache
         [Input("cacheUsageLimits")]
         public Input<Inputs.ServerlessCacheCacheUsageLimitsArgs>? CacheUsageLimits { get; set; }
 
+        /// <summary>
+        /// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+        /// </summary>
         [Input("dailySnapshotTime")]
         public Input<string>? DailySnapshotTime { get; set; }
 
@@ -408,6 +414,9 @@ namespace Pulumi.Aws.ElastiCache
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }
 
+        /// <summary>
+        /// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+        /// </summary>
         [Input("dailySnapshotTime")]
         public Input<string>? DailySnapshotTime { get; set; }
 

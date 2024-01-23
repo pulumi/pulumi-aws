@@ -45,15 +45,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
  *         final var currentRegion = AwsFunctions.getRegion();
  * 
  *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
  *         final var currentPartition = AwsFunctions.getPartition();
  * 
+ *         final var distributionId = config.get(&#34;distributionId&#34;);
  *         var example = new ApplicationLayerAutomaticResponse(&#34;example&#34;, ApplicationLayerAutomaticResponseArgs.builder()        
  *             .action(&#34;COUNT&#34;)
- *             .resourceArn(String.format(&#34;arn:%s:cloudfront:%s:distribution/%s&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),var_.distribution_id()))
+ *             .resourceArn(String.format(&#34;arn:%s:cloudfront:%s:distribution/%s&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),distributionId))
  *             .build());
  * 
  *     }

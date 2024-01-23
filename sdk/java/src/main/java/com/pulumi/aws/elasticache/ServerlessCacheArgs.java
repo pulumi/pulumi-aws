@@ -36,9 +36,17 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.cacheUsageLimits);
     }
 
+    /**
+     * The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `&#34;redis&#34;`. Defaults to `0`.
+     * 
+     */
     @Import(name="dailySnapshotTime")
     private @Nullable Output<String> dailySnapshotTime;
 
+    /**
+     * @return The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `&#34;redis&#34;`. Defaults to `0`.
+     * 
+     */
     public Optional<Output<String>> dailySnapshotTime() {
         return Optional.ofNullable(this.dailySnapshotTime);
     }
@@ -279,11 +287,23 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
             return cacheUsageLimits(Output.of(cacheUsageLimits));
         }
 
+        /**
+         * @param dailySnapshotTime The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `&#34;redis&#34;`. Defaults to `0`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dailySnapshotTime(@Nullable Output<String> dailySnapshotTime) {
             $.dailySnapshotTime = dailySnapshotTime;
             return this;
         }
 
+        /**
+         * @param dailySnapshotTime The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `&#34;redis&#34;`. Defaults to `0`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dailySnapshotTime(String dailySnapshotTime) {
             return dailySnapshotTime(Output.of(dailySnapshotTime));
         }

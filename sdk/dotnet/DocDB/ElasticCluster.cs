@@ -13,6 +13,27 @@ namespace Pulumi.Aws.DocDB
     /// Manages an AWS DocDB (DocumentDB) Elastic Cluster.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.DocDB.ElasticCluster("example", new()
+    ///     {
+    ///         AdminUserName = "foo",
+    ///         AdminUserPassword = "mustbeeightchars",
+    ///         AuthType = "PLAIN_TEXT",
+    ///         ShardCapacity = 2,
+    ///         ShardCount = 1,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -67,6 +88,9 @@ namespace Pulumi.Aws.DocDB
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+        /// </summary>
         [Output("preferredMaintenanceWindow")]
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
 
@@ -199,6 +223,9 @@ namespace Pulumi.Aws.DocDB
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+        /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
@@ -315,6 +342,9 @@ namespace Pulumi.Aws.DocDB
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+        /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 

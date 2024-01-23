@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:eks/accessEntry:AccessEntry":
+		r = &AccessEntry{}
+	case "aws:eks/accessPolicyAssociation:AccessPolicyAssociation":
+		r = &AccessPolicyAssociation{}
 	case "aws:eks/addon:Addon":
 		r = &Addon{}
 	case "aws:eks/cluster:Cluster":
@@ -46,6 +50,16 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"eks/accessEntry",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"eks/accessPolicyAssociation",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"eks/addon",

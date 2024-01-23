@@ -11,6 +11,20 @@ import * as utilities from "../utilities";
  * Manages an AWS DocDB (DocumentDB) Elastic Cluster.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.docdb.ElasticCluster("example", {
+ *     adminUserName: "foo",
+ *     adminUserPassword: "mustbeeightchars",
+ *     authType: "PLAIN_TEXT",
+ *     shardCapacity: 2,
+ *     shardCount: 1,
+ * });
+ * ```
  *
  * ## Import
  *
@@ -76,6 +90,9 @@ export class ElasticCluster extends pulumi.CustomResource {
      * Name of the Elastic DocumentDB cluster
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+     */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
      * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
@@ -205,6 +222,9 @@ export interface ElasticClusterState {
      * Name of the Elastic DocumentDB cluster
      */
     name?: pulumi.Input<string>;
+    /**
+     * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+     */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
      * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
@@ -259,6 +279,9 @@ export interface ElasticClusterArgs {
      * Name of the Elastic DocumentDB cluster
      */
     name?: pulumi.Input<string>;
+    /**
+     * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+     */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
      * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64

@@ -21,10 +21,13 @@ class GetSecretVersionResult:
     """
     A collection of values returned by getSecretVersion.
     """
-    def __init__(__self__, arn=None, id=None, secret_binary=None, secret_id=None, secret_string=None, version_id=None, version_stage=None, version_stages=None):
+    def __init__(__self__, arn=None, created_date=None, id=None, secret_binary=None, secret_id=None, secret_string=None, version_id=None, version_stage=None, version_stages=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        pulumi.set(__self__, "created_date", created_date)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -54,6 +57,14 @@ class GetSecretVersionResult:
         ARN of the secret.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        Created date of the secret in UTC.
+        """
+        return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter
@@ -110,6 +121,7 @@ class AwaitableGetSecretVersionResult(GetSecretVersionResult):
             yield self
         return GetSecretVersionResult(
             arn=self.arn,
+            created_date=self.created_date,
             id=self.id,
             secret_binary=self.secret_binary,
             secret_id=self.secret_id,
@@ -161,6 +173,7 @@ def get_secret_version(secret_id: Optional[str] = None,
 
     return AwaitableGetSecretVersionResult(
         arn=pulumi.get(__ret__, 'arn'),
+        created_date=pulumi.get(__ret__, 'created_date'),
         id=pulumi.get(__ret__, 'id'),
         secret_binary=pulumi.get(__ret__, 'secret_binary'),
         secret_id=pulumi.get(__ret__, 'secret_id'),

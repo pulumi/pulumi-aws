@@ -21,14 +21,14 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
     public static final BucketV2ReplicationConfigurationRuleDestinationArgs Empty = new BucketV2ReplicationConfigurationRuleDestinationArgs();
 
     /**
-     * Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+     * Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
      * 
      */
     @Import(name="accessControlTranslations")
     private @Nullable Output<List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs>> accessControlTranslations;
 
     /**
-     * @return Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+     * @return Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
      * 
      */
     public Optional<Output<List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs>>> accessControlTranslations() {
@@ -158,7 +158,7 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
         }
 
         /**
-         * @param accessControlTranslations Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+         * @param accessControlTranslations Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
         }
 
         /**
-         * @param accessControlTranslations Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+         * @param accessControlTranslations Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs extends c
         }
 
         /**
-         * @param accessControlTranslations Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+         * @param accessControlTranslations Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
          * 
          * @return builder
          * 

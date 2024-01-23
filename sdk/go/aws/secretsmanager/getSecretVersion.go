@@ -91,6 +91,8 @@ type LookupSecretVersionArgs struct {
 type LookupSecretVersionResult struct {
 	// ARN of the secret.
 	Arn string `pulumi:"arn"`
+	// Created date of the secret in UTC.
+	CreatedDate string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Decrypted part of the protected secret information that was originally provided as a binary.
@@ -149,6 +151,11 @@ func (o LookupSecretVersionResultOutput) ToLookupSecretVersionResultOutputWithCo
 // ARN of the secret.
 func (o LookupSecretVersionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Created date of the secret in UTC.
+func (o LookupSecretVersionResultOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

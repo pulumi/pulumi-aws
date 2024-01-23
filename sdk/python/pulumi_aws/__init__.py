@@ -4784,6 +4784,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "eks/accessEntry",
+  "fqn": "pulumi_aws.eks",
+  "classes": {
+   "aws:eks/accessEntry:AccessEntry": "AccessEntry"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "eks/accessPolicyAssociation",
+  "fqn": "pulumi_aws.eks",
+  "classes": {
+   "aws:eks/accessPolicyAssociation:AccessPolicyAssociation": "AccessPolicyAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "eks/addon",
   "fqn": "pulumi_aws.eks",
   "classes": {
@@ -6740,6 +6756,14 @@ _utilities.register(
   "fqn": "pulumi_aws.lex",
   "classes": {
    "aws:lex/v2modelsBotVersion:V2modelsBotVersion": "V2modelsBotVersion"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lex/v2modelsIntent",
+  "fqn": "pulumi_aws.lex",
+  "classes": {
+   "aws:lex/v2modelsIntent:V2modelsIntent": "V2modelsIntent"
   }
  },
  {

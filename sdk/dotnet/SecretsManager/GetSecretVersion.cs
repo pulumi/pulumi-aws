@@ -176,6 +176,10 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public readonly string Arn;
         /// <summary>
+        /// Created date of the secret in UTC.
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -199,6 +203,8 @@ namespace Pulumi.Aws.SecretsManager
         private GetSecretVersionResult(
             string arn,
 
+            string createdDate,
+
             string id,
 
             string secretBinary,
@@ -214,6 +220,7 @@ namespace Pulumi.Aws.SecretsManager
             ImmutableArray<string> versionStages)
         {
             Arn = arn;
+            CreatedDate = createdDate;
             Id = id;
             SecretBinary = secretBinary;
             SecretId = secretId;

@@ -27,6 +27,7 @@ import (
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/shield"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
 //
@@ -44,9 +45,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			cfg := config.New(ctx, "")
+//			distributionId := cfg.RequireObject("distributionId")
 //			_, err = shield.NewApplicationLayerAutomaticResponse(ctx, "example", &shield.ApplicationLayerAutomaticResponseArgs{
 //				Action:      pulumi.String("COUNT"),
-//				ResourceArn: pulumi.String(fmt.Sprintf("arn:%v:cloudfront:%v:distribution/%v", currentPartition.Partition, currentCallerIdentity.AccountId, _var.Distribution_id)),
+//				ResourceArn: pulumi.String(fmt.Sprintf("arn:%v:cloudfront:%v:distribution/%v", currentPartition.Partition, currentCallerIdentity.AccountId, distributionId)),
 //			})
 //			if err != nil {
 //				return err

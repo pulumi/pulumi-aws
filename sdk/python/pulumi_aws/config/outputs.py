@@ -336,6 +336,7 @@ class Endpoints(dict):
                  locationservice: Optional[str] = None,
                  logs: Optional[str] = None,
                  lookoutmetrics: Optional[str] = None,
+                 m2: Optional[str] = None,
                  macie2: Optional[str] = None,
                  managedgrafana: Optional[str] = None,
                  mediaconnect: Optional[str] = None,
@@ -378,6 +379,7 @@ class Endpoints(dict):
                  redshiftdata: Optional[str] = None,
                  redshiftdataapiservice: Optional[str] = None,
                  redshiftserverless: Optional[str] = None,
+                 rekognition: Optional[str] = None,
                  resourceexplorer2: Optional[str] = None,
                  resourcegroups: Optional[str] = None,
                  resourcegroupstagging: Optional[str] = None,
@@ -769,6 +771,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "logs", logs)
         if lookoutmetrics is not None:
             pulumi.set(__self__, "lookoutmetrics", lookoutmetrics)
+        if m2 is not None:
+            pulumi.set(__self__, "m2", m2)
         if macie2 is not None:
             pulumi.set(__self__, "macie2", macie2)
         if managedgrafana is not None:
@@ -853,6 +857,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "redshiftdataapiservice", redshiftdataapiservice)
         if redshiftserverless is not None:
             pulumi.set(__self__, "redshiftserverless", redshiftserverless)
+        if rekognition is not None:
+            pulumi.set(__self__, "rekognition", rekognition)
         if resourceexplorer2 is not None:
             pulumi.set(__self__, "resourceexplorer2", resourceexplorer2)
         if resourcegroups is not None:
@@ -1803,6 +1809,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def m2(self) -> Optional[str]:
+        return pulumi.get(self, "m2")
+
+    @property
+    @pulumi.getter
     def macie2(self) -> Optional[str]:
         return pulumi.get(self, "macie2")
 
@@ -2010,6 +2021,11 @@ class Endpoints(dict):
     @pulumi.getter
     def redshiftserverless(self) -> Optional[str]:
         return pulumi.get(self, "redshiftserverless")
+
+    @property
+    @pulumi.getter
+    def rekognition(self) -> Optional[str]:
+        return pulumi.get(self, "rekognition")
 
     @property
     @pulumi.getter

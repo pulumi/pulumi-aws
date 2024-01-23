@@ -927,7 +927,7 @@ class OptionGroupOption(dict):
         """
         :param str option_name: Name of the option (e.g., MEMCACHED).
         :param Sequence[str] db_security_group_memberships: List of DB Security Groups for which the option is enabled.
-        :param Sequence['OptionGroupOptionOptionSettingArgs'] option_settings: List of option settings to apply.
+        :param Sequence['OptionGroupOptionOptionSettingArgs'] option_settings: The option settings to apply. See `option_settings` Block below for more details.
         :param int port: Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
         :param str version: Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
         :param Sequence[str] vpc_security_group_memberships: List of VPC Security Groups for which the option is enabled.
@@ -964,7 +964,7 @@ class OptionGroupOption(dict):
     @pulumi.getter(name="optionSettings")
     def option_settings(self) -> Optional[Sequence['outputs.OptionGroupOptionOptionSetting']]:
         """
-        List of option settings to apply.
+        The option settings to apply. See `option_settings` Block below for more details.
         """
         return pulumi.get(self, "option_settings")
 

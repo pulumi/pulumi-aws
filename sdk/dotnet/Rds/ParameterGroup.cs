@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Family { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the DB parameter.
+        /// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        /// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.ParameterGroupParameter>> Parameters { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Rds
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
-        /// The name of the DB parameter.
+        /// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.ParameterGroupParameterArgs>? _parameters;
 
         /// <summary>
-        /// A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        /// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         /// </summary>
         public InputList<Inputs.ParameterGroupParameterArgs> Parameters
         {
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// The name of the DB parameter.
+        /// The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.ParameterGroupParameterGetArgs>? _parameters;
 
         /// <summary>
-        /// A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        /// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         /// </summary>
         public InputList<Inputs.ParameterGroupParameterGetArgs> Parameters
         {

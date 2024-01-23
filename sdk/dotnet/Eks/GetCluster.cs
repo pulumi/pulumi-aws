@@ -138,6 +138,10 @@ namespace Pulumi.Aws.Eks
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// Configuration block for access config.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterAccessConfigResult> AccessConfigs;
+        /// <summary>
         /// ARN of the cluster.
         /// </summary>
         public readonly string Arn;
@@ -205,6 +209,8 @@ namespace Pulumi.Aws.Eks
 
         [OutputConstructor]
         private GetClusterResult(
+            ImmutableArray<Outputs.GetClusterAccessConfigResult> accessConfigs,
+
             string arn,
 
             ImmutableArray<Outputs.GetClusterCertificateAuthorityResult> certificateAuthorities,
@@ -239,6 +245,7 @@ namespace Pulumi.Aws.Eks
 
             Outputs.GetClusterVpcConfigResult vpcConfig)
         {
+            AccessConfigs = accessConfigs;
             Arn = arn;
             CertificateAuthorities = certificateAuthorities;
             ClusterId = clusterId;

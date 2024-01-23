@@ -23,7 +23,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -49,7 +48,6 @@ import javax.annotation.Nullable;
  *             .adminUserName(&#34;foo&#34;)
  *             .adminUserPassword(&#34;mustbeeightchars&#34;)
  *             .authType(&#34;PLAIN_TEXT&#34;)
- *             .clusterName(&#34;my-docdb-cluster&#34;)
  *             .shardCapacity(2)
  *             .shardCount(1)
  *             .build());
@@ -167,9 +165,17 @@ public class ElasticCluster extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+     * 
+     */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredMaintenanceWindow;
 
+    /**
+     * @return Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+     * 
+     */
     public Output<String> preferredMaintenanceWindow() {
         return this.preferredMaintenanceWindow;
     }

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.eks;
 
+import com.pulumi.aws.eks.inputs.ClusterAccessConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterEncryptionConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterKubernetesNetworkConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterOutpostConfigArgs;
@@ -21,6 +22,21 @@ import javax.annotation.Nullable;
 public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ClusterArgs Empty = new ClusterArgs();
+
+    /**
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+     * 
+     */
+    @Import(name="accessConfig")
+    private @Nullable Output<ClusterAccessConfigArgs> accessConfig;
+
+    /**
+     * @return Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+     * 
+     */
+    public Optional<Output<ClusterAccessConfigArgs>> accessConfig() {
+        return Optional.ofNullable(this.accessConfig);
+    }
 
     @Import(name="defaultAddonsToRemoves")
     private @Nullable Output<List<String>> defaultAddonsToRemoves;
@@ -171,6 +187,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     private ClusterArgs() {}
 
     private ClusterArgs(ClusterArgs $) {
+        this.accessConfig = $.accessConfig;
         this.defaultAddonsToRemoves = $.defaultAddonsToRemoves;
         this.enabledClusterLogTypes = $.enabledClusterLogTypes;
         this.encryptionConfig = $.encryptionConfig;
@@ -199,6 +216,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ClusterArgs defaults) {
             $ = new ClusterArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accessConfig Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessConfig(@Nullable Output<ClusterAccessConfigArgs> accessConfig) {
+            $.accessConfig = accessConfig;
+            return this;
+        }
+
+        /**
+         * @param accessConfig Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessConfig(ClusterAccessConfigArgs accessConfig) {
+            return accessConfig(Output.of(accessConfig));
         }
 
         public Builder defaultAddonsToRemoves(@Nullable Output<List<String>> defaultAddonsToRemoves) {

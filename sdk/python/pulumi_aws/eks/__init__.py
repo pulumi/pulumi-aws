@@ -5,9 +5,12 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .access_entry import *
+from .access_policy_association import *
 from .addon import *
 from .cluster import *
 from .fargate_profile import *
+from .get_access_entry import *
 from .get_addon import *
 from .get_addon_version import *
 from .get_cluster import *

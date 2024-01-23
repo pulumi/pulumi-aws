@@ -91,7 +91,7 @@ type ClusterInstance struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// (Optional) The identifier of the CA certificate for the DB instance.
+	// The identifier of the certificate authority (CA) certificate for the DB instance.
 	CaCertIdentifier pulumi.StringOutput `pulumi:"caCertIdentifier"`
 	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
@@ -213,7 +213,7 @@ type clusterInstanceState struct {
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// (Optional) The identifier of the CA certificate for the DB instance.
+	// The identifier of the certificate authority (CA) certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
 	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
@@ -296,7 +296,7 @@ type ClusterInstanceState struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
 	AvailabilityZone pulumi.StringPtrInput
-	// (Optional) The identifier of the CA certificate for the DB instance.
+	// The identifier of the certificate authority (CA) certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
 	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringPtrInput
@@ -381,7 +381,7 @@ type clusterInstanceArgs struct {
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// (Optional) The identifier of the CA certificate for the DB instance.
+	// The identifier of the certificate authority (CA) certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
 	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
@@ -440,7 +440,7 @@ type ClusterInstanceArgs struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
 	AvailabilityZone pulumi.StringPtrInput
-	// (Optional) The identifier of the CA certificate for the DB instance.
+	// The identifier of the certificate authority (CA) certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
 	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringInput
@@ -598,7 +598,7 @@ func (o ClusterInstanceOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// (Optional) The identifier of the CA certificate for the DB instance.
+// The identifier of the certificate authority (CA) certificate for the DB instance.
 func (o ClusterInstanceOutput) CaCertIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.CaCertIdentifier }).(pulumi.StringOutput)
 }

@@ -69,6 +69,10 @@ export interface GetSecretVersionResult {
      */
     readonly arn: string;
     /**
+     * Created date of the secret in UTC.
+     */
+    readonly createdDate: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

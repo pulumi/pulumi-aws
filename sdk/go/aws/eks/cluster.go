@@ -204,6 +204,46 @@ import (
 //	}
 //
 // ```
+// ### EKS Cluster with Access Config
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(data.Aws_iam_policy_document.Example_assume_role_policy.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eks.NewCluster(ctx, "exampleCluster", &eks.ClusterArgs{
+//				RoleArn: exampleRole.Arn,
+//				VpcConfig: &eks.ClusterVpcConfigArgs{
+//					EndpointPrivateAccess: pulumi.Bool(true),
+//					EndpointPublicAccess:  pulumi.Bool(false),
+//				},
+//				AccessConfig: &eks.ClusterAccessConfigArgs{
+//					AuthenticationMode:                      pulumi.String("CONFIG_MAP"),
+//					BootstrapClusterCreatorAdminPermissions: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // After adding inline IAM Policies (e.g., `iam.RolePolicy` resource) or attaching IAM Policies (e.g., `iam.Policy` resource and `iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetesServiceAccount` resource) and recreate any pods.
 //
@@ -219,6 +259,8 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
+	// Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+	AccessConfig ClusterAccessConfigOutput `pulumi:"accessConfig"`
 	// ARN of the cluster.
 	Arn                    pulumi.StringOutput                    `pulumi:"arn"`
 	CertificateAuthorities ClusterCertificateAuthorityArrayOutput `pulumi:"certificateAuthorities"`
@@ -304,6 +346,8 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
+	// Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
 	// ARN of the cluster.
 	Arn                    *string                       `pulumi:"arn"`
 	CertificateAuthorities []ClusterCertificateAuthority `pulumi:"certificateAuthorities"`
@@ -350,6 +394,8 @@ type clusterState struct {
 }
 
 type ClusterState struct {
+	// Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+	AccessConfig ClusterAccessConfigPtrInput
 	// ARN of the cluster.
 	Arn                    pulumi.StringPtrInput
 	CertificateAuthorities ClusterCertificateAuthorityArrayInput
@@ -400,7 +446,9 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	DefaultAddonsToRemoves []string `pulumi:"defaultAddonsToRemoves"`
+	// Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+	AccessConfig           *ClusterAccessConfig `pulumi:"accessConfig"`
+	DefaultAddonsToRemoves []string             `pulumi:"defaultAddonsToRemoves"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
@@ -425,6 +473,8 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+	AccessConfig           ClusterAccessConfigPtrInput
 	DefaultAddonsToRemoves pulumi.StringArrayInput
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayInput
@@ -533,6 +583,11 @@ func (o ClusterOutput) ToClusterOutput() ClusterOutput {
 
 func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOutput {
 	return o
+}
+
+// Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+func (o ClusterOutput) AccessConfig() ClusterAccessConfigOutput {
+	return o.ApplyT(func(v *Cluster) ClusterAccessConfigOutput { return v.AccessConfig }).(ClusterAccessConfigOutput)
 }
 
 // ARN of the cluster.

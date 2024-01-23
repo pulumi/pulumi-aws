@@ -70,6 +70,10 @@ export class SecretRotation extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `false`.
+     */
+    public readonly rotateImmediately!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies whether automatic rotation is enabled for this secret.
      */
     public /*out*/ readonly rotationEnabled!: pulumi.Output<boolean>;
@@ -99,6 +103,7 @@ export class SecretRotation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecretRotationState | undefined;
+            resourceInputs["rotateImmediately"] = state ? state.rotateImmediately : undefined;
             resourceInputs["rotationEnabled"] = state ? state.rotationEnabled : undefined;
             resourceInputs["rotationLambdaArn"] = state ? state.rotationLambdaArn : undefined;
             resourceInputs["rotationRules"] = state ? state.rotationRules : undefined;
@@ -111,6 +116,7 @@ export class SecretRotation extends pulumi.CustomResource {
             if ((!args || args.secretId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
+            resourceInputs["rotateImmediately"] = args ? args.rotateImmediately : undefined;
             resourceInputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
             resourceInputs["rotationRules"] = args ? args.rotationRules : undefined;
             resourceInputs["secretId"] = args ? args.secretId : undefined;
@@ -125,6 +131,10 @@ export class SecretRotation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecretRotation resources.
  */
 export interface SecretRotationState {
+    /**
+     * Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `false`.
+     */
+    rotateImmediately?: pulumi.Input<boolean>;
     /**
      * Specifies whether automatic rotation is enabled for this secret.
      */
@@ -147,6 +157,10 @@ export interface SecretRotationState {
  * The set of arguments for constructing a SecretRotation resource.
  */
 export interface SecretRotationArgs {
+    /**
+     * Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `false`.
+     */
+    rotateImmediately?: pulumi.Input<boolean>;
     /**
      * Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      */

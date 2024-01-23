@@ -94,7 +94,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
-     * (Optional) The identifier of the CA certificate for the DB instance.
+     * The identifier of the certificate authority (CA) certificate for the DB instance.
      */
     public readonly caCertIdentifier!: pulumi.Output<string>;
     /**
@@ -314,7 +314,7 @@ export interface ClusterInstanceState {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * (Optional) The identifier of the CA certificate for the DB instance.
+     * The identifier of the certificate authority (CA) certificate for the DB instance.
      */
     caCertIdentifier?: pulumi.Input<string>;
     /**
@@ -448,7 +448,7 @@ export interface ClusterInstanceArgs {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * (Optional) The identifier of the CA certificate for the DB instance.
+     * The identifier of the certificate authority (CA) certificate for the DB instance.
      */
     caCertIdentifier?: pulumi.Input<string>;
     /**

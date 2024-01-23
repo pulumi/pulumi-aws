@@ -93,7 +93,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) The identifier of the CA certificate for the DB instance.
+        /// The identifier of the certificate authority (CA) certificate for the DB instance.
         /// </summary>
         [Output("caCertIdentifier")]
         public Output<string> CaCertIdentifier { get; private set; } = null!;
@@ -321,7 +321,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// (Optional) The identifier of the CA certificate for the DB instance.
+        /// The identifier of the certificate authority (CA) certificate for the DB instance.
         /// </summary>
         [Input("caCertIdentifier")]
         public Input<string>? CaCertIdentifier { get; set; }
@@ -456,7 +456,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// (Optional) The identifier of the CA certificate for the DB instance.
+        /// The identifier of the certificate authority (CA) certificate for the DB instance.
         /// </summary>
         [Input("caCertIdentifier")]
         public Input<string>? CaCertIdentifier { get; set; }

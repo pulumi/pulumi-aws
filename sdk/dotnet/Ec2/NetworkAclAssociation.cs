@@ -34,6 +34,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import Network ACL associations using the `id`. For example:
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkAclAssociation:NetworkAclAssociation")]
     public partial class NetworkAclAssociation : global::Pulumi.CustomResource

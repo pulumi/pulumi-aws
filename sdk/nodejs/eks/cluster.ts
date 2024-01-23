@@ -109,6 +109,25 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### EKS Cluster with Access Config
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: data.aws_iam_policy_document.example_assume_role_policy.json});
+ * const exampleCluster = new aws.eks.Cluster("exampleCluster", {
+ *     roleArn: exampleRole.arn,
+ *     vpcConfig: {
+ *         endpointPrivateAccess: true,
+ *         endpointPublicAccess: false,
+ *     },
+ *     accessConfig: {
+ *         authenticationMode: "CONFIG_MAP",
+ *         bootstrapClusterCreatorAdminPermissions: true,
+ *     },
+ * });
+ * ```
  *
  * After adding inline IAM Policies (e.g., `aws.iam.RolePolicy` resource) or attaching IAM Policies (e.g., `aws.iam.Policy` resource and `aws.iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetesServiceAccount` resource) and recreate any pods.
  *
@@ -148,6 +167,10 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    /**
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+     */
+    public readonly accessConfig!: pulumi.Output<outputs.eks.ClusterAccessConfig>;
     /**
      * ARN of the cluster.
      */
@@ -241,6 +264,7 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
+            resourceInputs["accessConfig"] = state ? state.accessConfig : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["certificateAuthorities"] = state ? state.certificateAuthorities : undefined;
             resourceInputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
@@ -269,6 +293,7 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.vpcConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfig'");
             }
+            resourceInputs["accessConfig"] = args ? args.accessConfig : undefined;
             resourceInputs["defaultAddonsToRemoves"] = args ? args.defaultAddonsToRemoves : undefined;
             resourceInputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
             resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
@@ -301,6 +326,10 @@ export class Cluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Cluster resources.
  */
 export interface ClusterState {
+    /**
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+     */
+    accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfig>;
     /**
      * ARN of the cluster.
      */
@@ -386,6 +415,10 @@ export interface ClusterState {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+     */
+    accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfig>;
     defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).

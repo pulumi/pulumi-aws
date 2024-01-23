@@ -81,14 +81,14 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * (Optional) The identifier of the CA certificate for the DB instance.
+     * The identifier of the certificate authority (CA) certificate for the DB instance.
      * 
      */
     @Import(name="caCertIdentifier")
     private @Nullable Output<String> caCertIdentifier;
 
     /**
-     * @return (Optional) The identifier of the CA certificate for the DB instance.
+     * @return The identifier of the certificate authority (CA) certificate for the DB instance.
      * 
      */
     public Optional<Output<String>> caCertIdentifier() {
@@ -610,7 +610,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param caCertIdentifier (Optional) The identifier of the CA certificate for the DB instance.
+         * @param caCertIdentifier The identifier of the certificate authority (CA) certificate for the DB instance.
          * 
          * @return builder
          * 
@@ -621,7 +621,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param caCertIdentifier (Optional) The identifier of the CA certificate for the DB instance.
+         * @param caCertIdentifier The identifier of the certificate authority (CA) certificate for the DB instance.
          * 
          * @return builder
          * 

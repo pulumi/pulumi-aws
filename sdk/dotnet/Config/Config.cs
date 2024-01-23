@@ -549,6 +549,7 @@ namespace Pulumi.Aws
                 public string? Locationservice { get; set; } = null!;
                 public string? Logs { get; set; } = null!;
                 public string? Lookoutmetrics { get; set; } = null!;
+                public string? M2 { get; set; } = null!;
                 public string? Macie2 { get; set; } = null!;
                 public string? Managedgrafana { get; set; } = null!;
                 public string? Mediaconnect { get; set; } = null!;
@@ -591,6 +592,7 @@ namespace Pulumi.Aws
                 public string? Redshiftdata { get; set; } = null!;
                 public string? Redshiftdataapiservice { get; set; } = null!;
                 public string? Redshiftserverless { get; set; } = null!;
+                public string? Rekognition { get; set; } = null!;
                 public string? Resourceexplorer2 { get; set; } = null!;
                 public string? Resourcegroups { get; set; } = null!;
                 public string? Resourcegroupstagging { get; set; } = null!;

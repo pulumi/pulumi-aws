@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketV2ReplicationConfigurationRuleDestination {
     /**
-     * @return Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+     * @return Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
      * 
      */
     private @Nullable List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation> accessControlTranslations;
@@ -55,7 +55,7 @@ public final class BucketV2ReplicationConfigurationRuleDestination {
 
     private BucketV2ReplicationConfigurationRuleDestination() {}
     /**
-     * @return Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+     * @return Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
      * 
      */
     public List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation> accessControlTranslations() {

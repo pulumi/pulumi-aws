@@ -4,6 +4,7 @@
 package com.pulumi.aws.backup.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,6 +22,11 @@ public final class PlanRuleLifecycle {
      * 
      */
     private @Nullable Integer deleteAfter;
+    /**
+     * @return This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+     * 
+     */
+    private @Nullable Boolean optInToArchiveForSupportedResources;
 
     private PlanRuleLifecycle() {}
     /**
@@ -37,6 +43,13 @@ public final class PlanRuleLifecycle {
     public Optional<Integer> deleteAfter() {
         return Optional.ofNullable(this.deleteAfter);
     }
+    /**
+     * @return This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+     * 
+     */
+    public Optional<Boolean> optInToArchiveForSupportedResources() {
+        return Optional.ofNullable(this.optInToArchiveForSupportedResources);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +62,13 @@ public final class PlanRuleLifecycle {
     public static final class Builder {
         private @Nullable Integer coldStorageAfter;
         private @Nullable Integer deleteAfter;
+        private @Nullable Boolean optInToArchiveForSupportedResources;
         public Builder() {}
         public Builder(PlanRuleLifecycle defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.coldStorageAfter = defaults.coldStorageAfter;
     	      this.deleteAfter = defaults.deleteAfter;
+    	      this.optInToArchiveForSupportedResources = defaults.optInToArchiveForSupportedResources;
         }
 
         @CustomType.Setter
@@ -68,10 +83,17 @@ public final class PlanRuleLifecycle {
             this.deleteAfter = deleteAfter;
             return this;
         }
+        @CustomType.Setter
+        public Builder optInToArchiveForSupportedResources(@Nullable Boolean optInToArchiveForSupportedResources) {
+
+            this.optInToArchiveForSupportedResources = optInToArchiveForSupportedResources;
+            return this;
+        }
         public PlanRuleLifecycle build() {
             final var _resultValue = new PlanRuleLifecycle();
             _resultValue.coldStorageAfter = coldStorageAfter;
             _resultValue.deleteAfter = deleteAfter;
+            _resultValue.optInToArchiveForSupportedResources = optInToArchiveForSupportedResources;
             return _resultValue;
         }
     }
