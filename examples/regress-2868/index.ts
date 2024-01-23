@@ -23,7 +23,6 @@ export const AppUsersPool = new aws.cognito.UserPool("test-user-pool", {
         }],
     },
     autoVerifiedAttributes: ["email"],
-    deletionProtection: "ACTIVE",
     mfaConfiguration: "OPTIONAL",
     name: "test-user-pool",
     passwordPolicy: {
