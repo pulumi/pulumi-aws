@@ -155,11 +155,11 @@ class CaCertificateRegistrationConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 role_arn: Optional[bool] = None,
+                 role_arn: Optional[str] = None,
                  template_body: Optional[str] = None,
                  template_name: Optional[str] = None):
         """
-        :param bool role_arn: The ARN of the role.
+        :param str role_arn: The ARN of the role.
         :param str template_body: The template body.
         :param str template_name: The name of the provisioning template.
         """
@@ -172,7 +172,7 @@ class CaCertificateRegistrationConfig(dict):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[bool]:
+    def role_arn(self) -> Optional[str]:
         """
         The ARN of the role.
         """

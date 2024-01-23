@@ -30110,7 +30110,7 @@ export namespace iot {
         /**
          * The ARN of the role.
          */
-        roleArn?: pulumi.Input<boolean>;
+        roleArn?: pulumi.Input<string>;
         /**
          * The template body.
          */
