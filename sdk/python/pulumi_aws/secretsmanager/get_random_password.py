@@ -135,7 +135,6 @@ def get_random_password(exclude_characters: Optional[str] = None,
                         exclude_uppercase: Optional[bool] = None,
                         include_space: Optional[bool] = None,
                         password_length: Optional[int] = None,
-                        random_password: Optional[str] = None,
                         require_each_included_type: Optional[bool] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRandomPasswordResult:
     """
@@ -159,7 +158,6 @@ def get_random_password(exclude_characters: Optional[str] = None,
     :param bool exclude_uppercase: Specifies whether to exclude uppercase letters from the password.
     :param bool include_space: Specifies whether to include the space character.
     :param int password_length: Length of the password.
-    :param str random_password: Random password.
     :param bool require_each_included_type: Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
     """
     __args__ = dict()
@@ -170,7 +168,6 @@ def get_random_password(exclude_characters: Optional[str] = None,
     __args__['excludeUppercase'] = exclude_uppercase
     __args__['includeSpace'] = include_space
     __args__['passwordLength'] = password_length
-    __args__['randomPassword'] = random_password
     __args__['requireEachIncludedType'] = require_each_included_type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getRandomPassword:getRandomPassword', __args__, opts=opts, typ=GetRandomPasswordResult).value
@@ -196,7 +193,6 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
                                exclude_uppercase: Optional[pulumi.Input[Optional[bool]]] = None,
                                include_space: Optional[pulumi.Input[Optional[bool]]] = None,
                                password_length: Optional[pulumi.Input[Optional[int]]] = None,
-                               random_password: Optional[pulumi.Input[Optional[str]]] = None,
                                require_each_included_type: Optional[pulumi.Input[Optional[bool]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRandomPasswordResult]:
     """
@@ -220,7 +216,6 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
     :param bool exclude_uppercase: Specifies whether to exclude uppercase letters from the password.
     :param bool include_space: Specifies whether to include the space character.
     :param int password_length: Length of the password.
-    :param str random_password: Random password.
     :param bool require_each_included_type: Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
     """
     ...

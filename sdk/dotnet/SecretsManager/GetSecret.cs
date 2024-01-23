@@ -123,6 +123,18 @@ namespace Pulumi.Aws.SecretsManager
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Tags of the secret.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetSecretArgs()
         {
         }
@@ -143,6 +155,18 @@ namespace Pulumi.Aws.SecretsManager
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags of the secret.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public GetSecretInvokeArgs()
         {
         }
@@ -158,6 +182,10 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public readonly string Arn;
         /// <summary>
+        /// Created date of the secret in UTC.
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
         /// Description of the secret.
         /// </summary>
         public readonly string Description;
@@ -169,6 +197,10 @@ namespace Pulumi.Aws.SecretsManager
         /// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
         /// </summary>
         public readonly string KmsKeyId;
+        /// <summary>
+        /// Last updated date of the secret in UTC.
+        /// </summary>
+        public readonly string LastChangedDate;
         public readonly string Name;
         /// <summary>
         /// Resource-based policy document that's attached to the secret.
@@ -183,11 +215,15 @@ namespace Pulumi.Aws.SecretsManager
         private GetSecretResult(
             string arn,
 
+            string createdDate,
+
             string description,
 
             string id,
 
             string kmsKeyId,
+
+            string lastChangedDate,
 
             string name,
 
@@ -196,9 +232,11 @@ namespace Pulumi.Aws.SecretsManager
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
+            CreatedDate = createdDate;
             Description = description;
             Id = id;
             KmsKeyId = kmsKeyId;
+            LastChangedDate = lastChangedDate;
             Name = name;
             Policy = policy;
             Tags = tags;

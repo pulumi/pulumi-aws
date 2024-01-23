@@ -795,6 +795,8 @@ type PlanRuleCopyActionLifecycle struct {
 	ColdStorageAfter *int `pulumi:"coldStorageAfter"`
 	// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
 	DeleteAfter *int `pulumi:"deleteAfter"`
+	// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+	OptInToArchiveForSupportedResources *bool `pulumi:"optInToArchiveForSupportedResources"`
 }
 
 // PlanRuleCopyActionLifecycleInput is an input type that accepts PlanRuleCopyActionLifecycleArgs and PlanRuleCopyActionLifecycleOutput values.
@@ -813,6 +815,8 @@ type PlanRuleCopyActionLifecycleArgs struct {
 	ColdStorageAfter pulumi.IntPtrInput `pulumi:"coldStorageAfter"`
 	// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
 	DeleteAfter pulumi.IntPtrInput `pulumi:"deleteAfter"`
+	// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+	OptInToArchiveForSupportedResources pulumi.BoolPtrInput `pulumi:"optInToArchiveForSupportedResources"`
 }
 
 func (PlanRuleCopyActionLifecycleArgs) ElementType() reflect.Type {
@@ -902,6 +906,11 @@ func (o PlanRuleCopyActionLifecycleOutput) DeleteAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanRuleCopyActionLifecycle) *int { return v.DeleteAfter }).(pulumi.IntPtrOutput)
 }
 
+// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+func (o PlanRuleCopyActionLifecycleOutput) OptInToArchiveForSupportedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PlanRuleCopyActionLifecycle) *bool { return v.OptInToArchiveForSupportedResources }).(pulumi.BoolPtrOutput)
+}
+
 type PlanRuleCopyActionLifecyclePtrOutput struct{ *pulumi.OutputState }
 
 func (PlanRuleCopyActionLifecyclePtrOutput) ElementType() reflect.Type {
@@ -946,11 +955,23 @@ func (o PlanRuleCopyActionLifecyclePtrOutput) DeleteAfter() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+func (o PlanRuleCopyActionLifecyclePtrOutput) OptInToArchiveForSupportedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PlanRuleCopyActionLifecycle) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OptInToArchiveForSupportedResources
+	}).(pulumi.BoolPtrOutput)
+}
+
 type PlanRuleLifecycle struct {
 	// Specifies the number of days after creation that a recovery point is moved to cold storage.
 	ColdStorageAfter *int `pulumi:"coldStorageAfter"`
 	// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
 	DeleteAfter *int `pulumi:"deleteAfter"`
+	// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+	OptInToArchiveForSupportedResources *bool `pulumi:"optInToArchiveForSupportedResources"`
 }
 
 // PlanRuleLifecycleInput is an input type that accepts PlanRuleLifecycleArgs and PlanRuleLifecycleOutput values.
@@ -969,6 +990,8 @@ type PlanRuleLifecycleArgs struct {
 	ColdStorageAfter pulumi.IntPtrInput `pulumi:"coldStorageAfter"`
 	// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
 	DeleteAfter pulumi.IntPtrInput `pulumi:"deleteAfter"`
+	// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+	OptInToArchiveForSupportedResources pulumi.BoolPtrInput `pulumi:"optInToArchiveForSupportedResources"`
 }
 
 func (PlanRuleLifecycleArgs) ElementType() reflect.Type {
@@ -1058,6 +1081,11 @@ func (o PlanRuleLifecycleOutput) DeleteAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanRuleLifecycle) *int { return v.DeleteAfter }).(pulumi.IntPtrOutput)
 }
 
+// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+func (o PlanRuleLifecycleOutput) OptInToArchiveForSupportedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PlanRuleLifecycle) *bool { return v.OptInToArchiveForSupportedResources }).(pulumi.BoolPtrOutput)
+}
+
 type PlanRuleLifecyclePtrOutput struct{ *pulumi.OutputState }
 
 func (PlanRuleLifecyclePtrOutput) ElementType() reflect.Type {
@@ -1100,6 +1128,16 @@ func (o PlanRuleLifecyclePtrOutput) DeleteAfter() pulumi.IntPtrOutput {
 		}
 		return v.DeleteAfter
 	}).(pulumi.IntPtrOutput)
+}
+
+// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+func (o PlanRuleLifecyclePtrOutput) OptInToArchiveForSupportedResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PlanRuleLifecycle) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OptInToArchiveForSupportedResources
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ReportPlanReportDeliveryChannel struct {

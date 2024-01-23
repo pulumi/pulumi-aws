@@ -1170,6 +1170,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.lookoutmetrics);
     }
 
+    @Import(name="m2")
+    private @Nullable Output<String> m2;
+
+    public Optional<Output<String>> m2() {
+        return Optional.ofNullable(this.m2);
+    }
+
     @Import(name="macie2")
     private @Nullable Output<String> macie2;
 
@@ -1462,6 +1469,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> redshiftserverless() {
         return Optional.ofNullable(this.redshiftserverless);
+    }
+
+    @Import(name="rekognition")
+    private @Nullable Output<String> rekognition;
+
+    public Optional<Output<String>> rekognition() {
+        return Optional.ofNullable(this.rekognition);
     }
 
     @Import(name="resourceexplorer2")
@@ -2059,6 +2073,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.locationservice = $.locationservice;
         this.logs = $.logs;
         this.lookoutmetrics = $.lookoutmetrics;
+        this.m2 = $.m2;
         this.macie2 = $.macie2;
         this.managedgrafana = $.managedgrafana;
         this.mediaconnect = $.mediaconnect;
@@ -2101,6 +2116,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.redshiftdata = $.redshiftdata;
         this.redshiftdataapiservice = $.redshiftdataapiservice;
         this.redshiftserverless = $.redshiftserverless;
+        this.rekognition = $.rekognition;
         this.resourceexplorer2 = $.resourceexplorer2;
         this.resourcegroups = $.resourcegroups;
         this.resourcegroupstagging = $.resourcegroupstagging;
@@ -3667,6 +3683,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return lookoutmetrics(Output.of(lookoutmetrics));
         }
 
+        public Builder m2(@Nullable Output<String> m2) {
+            $.m2 = m2;
+            return this;
+        }
+
+        public Builder m2(String m2) {
+            return m2(Output.of(m2));
+        }
+
         public Builder macie2(@Nullable Output<String> macie2) {
             $.macie2 = macie2;
             return this;
@@ -4043,6 +4068,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder redshiftserverless(String redshiftserverless) {
             return redshiftserverless(Output.of(redshiftserverless));
+        }
+
+        public Builder rekognition(@Nullable Output<String> rekognition) {
+            $.rekognition = rekognition;
+            return this;
+        }
+
+        public Builder rekognition(String rekognition) {
+            return rekognition(Output.of(rekognition));
         }
 
         public Builder resourceexplorer2(@Nullable Output<String> resourceexplorer2) {

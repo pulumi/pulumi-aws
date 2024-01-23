@@ -139,7 +139,8 @@ type ServerlessCache struct {
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrOutput `pulumi:"cacheUsageLimits"`
 	// Timestamp of when the serverless cache was created.
-	CreateTime        pulumi.StringOutput `pulumi:"createTime"`
+	CreateTime pulumi.StringOutput `pulumi:"createTime"`
+	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
 	DailySnapshotTime pulumi.StringOutput `pulumi:"dailySnapshotTime"`
 	// User-provided description for the serverless cache. The default is NULL.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -221,7 +222,8 @@ type serverlessCacheState struct {
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
 	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
 	// Timestamp of when the serverless cache was created.
-	CreateTime        *string `pulumi:"createTime"`
+	CreateTime *string `pulumi:"createTime"`
+	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
 	DailySnapshotTime *string `pulumi:"dailySnapshotTime"`
 	// User-provided description for the serverless cache. The default is NULL.
 	Description *string `pulumi:"description"`
@@ -267,7 +269,8 @@ type ServerlessCacheState struct {
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrInput
 	// Timestamp of when the serverless cache was created.
-	CreateTime        pulumi.StringPtrInput
+	CreateTime pulumi.StringPtrInput
+	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
 	DailySnapshotTime pulumi.StringPtrInput
 	// User-provided description for the serverless cache. The default is NULL.
 	Description pulumi.StringPtrInput
@@ -313,8 +316,9 @@ func (ServerlessCacheState) ElementType() reflect.Type {
 
 type serverlessCacheArgs struct {
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
-	CacheUsageLimits  *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
-	DailySnapshotTime *string                          `pulumi:"dailySnapshotTime"`
+	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
+	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+	DailySnapshotTime *string `pulumi:"dailySnapshotTime"`
 	// User-provided description for the serverless cache. The default is NULL.
 	Description *string `pulumi:"description"`
 	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
@@ -346,7 +350,8 @@ type serverlessCacheArgs struct {
 // The set of arguments for constructing a ServerlessCache resource.
 type ServerlessCacheArgs struct {
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
-	CacheUsageLimits  ServerlessCacheCacheUsageLimitsPtrInput
+	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrInput
+	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
 	DailySnapshotTime pulumi.StringPtrInput
 	// User-provided description for the serverless cache. The default is NULL.
 	Description pulumi.StringPtrInput
@@ -478,6 +483,7 @@ func (o ServerlessCacheOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
+// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
 func (o ServerlessCacheOutput) DailySnapshotTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.DailySnapshotTime }).(pulumi.StringOutput)
 }

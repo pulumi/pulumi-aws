@@ -29,6 +29,8 @@ namespace Pulumi.Aws.Shield
     /// 
     ///     var currentPartition = Aws.GetPartition.Invoke();
     /// 
+    ///     var config = new Config();
+    ///     var distributionId = config.RequireObject&lt;dynamic&gt;("distributionId");
     ///     var example = new Aws.Shield.ApplicationLayerAutomaticResponse("example", new()
     ///     {
     ///         Action = "COUNT",
@@ -36,7 +38,7 @@ namespace Pulumi.Aws.Shield
     ///         {
     ///             var currentPartition = values.Item1;
     ///             var currentCallerIdentity = values.Item2;
-    ///             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudfront:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:distribution/{@var.Distribution_id}";
+    ///             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudfront:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:distribution/{distributionId}";
     ///         }),
     ///     });
     /// 

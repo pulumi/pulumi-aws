@@ -184,6 +184,38 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// ### EKS Cluster with Access Config
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Example_assume_role_policy.Json,
+    ///     });
+    /// 
+    ///     var exampleCluster = new Aws.Eks.Cluster("exampleCluster", new()
+    ///     {
+    ///         RoleArn = exampleRole.Arn,
+    ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
+    ///         {
+    ///             EndpointPrivateAccess = true,
+    ///             EndpointPublicAccess = false,
+    ///         },
+    ///         AccessConfig = new Aws.Eks.Inputs.ClusterAccessConfigArgs
+    ///         {
+    ///             AuthenticationMode = "CONFIG_MAP",
+    ///             BootstrapClusterCreatorAdminPermissions = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// After adding inline IAM Policies (e.g., `aws.iam.RolePolicy` resource) or attaching IAM Policies (e.g., `aws.iam.Policy` resource and `aws.iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
     /// 
@@ -198,6 +230,12 @@ namespace Pulumi.Aws.Eks
     [AwsResourceType("aws:eks/cluster:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+        /// </summary>
+        [Output("accessConfig")]
+        public Output<Outputs.ClusterAccessConfig> AccessConfig { get; private set; } = null!;
+
         /// <summary>
         /// ARN of the cluster.
         /// </summary>
@@ -365,6 +403,12 @@ namespace Pulumi.Aws.Eks
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+        /// </summary>
+        [Input("accessConfig")]
+        public Input<Inputs.ClusterAccessConfigArgs>? AccessConfig { get; set; }
+
         [Input("defaultAddonsToRemoves")]
         private InputList<string>? _defaultAddonsToRemoves;
         public InputList<string> DefaultAddonsToRemoves
@@ -449,6 +493,12 @@ namespace Pulumi.Aws.Eks
 
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+        /// </summary>
+        [Input("accessConfig")]
+        public Input<Inputs.ClusterAccessConfigGetArgs>? AccessConfig { get; set; }
+
         /// <summary>
         /// ARN of the cluster.
         /// </summary>

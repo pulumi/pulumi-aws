@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation {
+    /**
+     * @return Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+     * 
+     */
     private String owner;
 
     private BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation() {}
+    /**
+     * @return Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+     * 
+     */
     public String owner() {
         return this.owner;
     }

@@ -182,14 +182,14 @@ public class OptionGroup extends com.pulumi.resources.CustomResource {
         return this.optionGroupDescription;
     }
     /**
-     * List of options to apply.
+     * The options to apply. See `option` Block below for more details.
      * 
      */
     @Export(name="options", refs={List.class,OptionGroupOption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OptionGroupOption>> options;
 
     /**
-     * @return List of options to apply.
+     * @return The options to apply. See `option` Block below for more details.
      * 
      */
     public Output<Optional<List<OptionGroupOption>>> options() {

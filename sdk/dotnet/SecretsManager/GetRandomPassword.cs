@@ -116,12 +116,6 @@ namespace Pulumi.Aws.SecretsManager
         public int? PasswordLength { get; set; }
 
         /// <summary>
-        /// Random password.
-        /// </summary>
-        [Input("randomPassword")]
-        public string? RandomPassword { get; set; }
-
-        /// <summary>
         /// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
         /// </summary>
         [Input("requireEachIncludedType")]
@@ -176,12 +170,6 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         [Input("passwordLength")]
         public Input<int>? PasswordLength { get; set; }
-
-        /// <summary>
-        /// Random password.
-        /// </summary>
-        [Input("randomPassword")]
-        public Input<string>? RandomPassword { get; set; }
 
         /// <summary>
         /// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.

@@ -2132,7 +2132,7 @@ type OptionGroupOption struct {
 	DbSecurityGroupMemberships []string `pulumi:"dbSecurityGroupMemberships"`
 	// Name of the option (e.g., MEMCACHED).
 	OptionName string `pulumi:"optionName"`
-	// List of option settings to apply.
+	// The option settings to apply. See `optionSettings` Block below for more details.
 	OptionSettings []OptionGroupOptionOptionSetting `pulumi:"optionSettings"`
 	// Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
 	Port *int `pulumi:"port"`
@@ -2158,7 +2158,7 @@ type OptionGroupOptionArgs struct {
 	DbSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"dbSecurityGroupMemberships"`
 	// Name of the option (e.g., MEMCACHED).
 	OptionName pulumi.StringInput `pulumi:"optionName"`
-	// List of option settings to apply.
+	// The option settings to apply. See `optionSettings` Block below for more details.
 	OptionSettings OptionGroupOptionOptionSettingArrayInput `pulumi:"optionSettings"`
 	// Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
 	Port pulumi.IntPtrInput `pulumi:"port"`
@@ -2229,7 +2229,7 @@ func (o OptionGroupOptionOutput) OptionName() pulumi.StringOutput {
 	return o.ApplyT(func(v OptionGroupOption) string { return v.OptionName }).(pulumi.StringOutput)
 }
 
-// List of option settings to apply.
+// The option settings to apply. See `optionSettings` Block below for more details.
 func (o OptionGroupOptionOutput) OptionSettings() OptionGroupOptionOptionSettingArrayOutput {
 	return o.ApplyT(func(v OptionGroupOption) []OptionGroupOptionOptionSetting { return v.OptionSettings }).(OptionGroupOptionOptionSettingArrayOutput)
 }

@@ -56,6 +56,10 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
+     * Configuration block for access config.
+     */
+    readonly accessConfigs: outputs.eks.GetClusterAccessConfig[];
+    /**
      * ARN of the cluster.
      */
     readonly arn: string;

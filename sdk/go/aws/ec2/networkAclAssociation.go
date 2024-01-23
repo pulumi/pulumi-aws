@@ -44,6 +44,16 @@ import (
 //	}
 //
 // ```
+//
+// ## Import
+//
+// Using `pulumi import`, import Network ACL associations using the `id`. For example:
+//
+// ```sh
+//
+//	$ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
+//
+// ```
 type NetworkAclAssociation struct {
 	pulumi.CustomResourceState
 

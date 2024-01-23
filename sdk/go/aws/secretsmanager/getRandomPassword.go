@@ -65,8 +65,6 @@ type GetRandomPasswordArgs struct {
 	IncludeSpace *bool `pulumi:"includeSpace"`
 	// Length of the password.
 	PasswordLength *int `pulumi:"passwordLength"`
-	// Random password.
-	RandomPassword *string `pulumi:"randomPassword"`
 	// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
 	RequireEachIncludedType *bool `pulumi:"requireEachIncludedType"`
 }
@@ -116,8 +114,6 @@ type GetRandomPasswordOutputArgs struct {
 	IncludeSpace pulumi.BoolPtrInput `pulumi:"includeSpace"`
 	// Length of the password.
 	PasswordLength pulumi.IntPtrInput `pulumi:"passwordLength"`
-	// Random password.
-	RandomPassword pulumi.StringPtrInput `pulumi:"randomPassword"`
 	// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
 	RequireEachIncludedType pulumi.BoolPtrInput `pulumi:"requireEachIncludedType"`
 }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2ReplicationConfigurationRuleDestination
     {
         /// <summary>
-        /// Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+        /// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation> AccessControlTranslations;
         /// <summary>

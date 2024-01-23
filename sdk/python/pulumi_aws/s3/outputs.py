@@ -4903,7 +4903,7 @@ class BucketV2ReplicationConfigurationRuleDestination(dict):
                  storage_class: Optional[str] = None):
         """
         :param str bucket: ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
-        :param Sequence['BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs'] access_control_translations: Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+        :param Sequence['BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs'] access_control_translations: Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
         :param str account_id: Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
         :param Sequence['BucketV2ReplicationConfigurationRuleDestinationMetricArgs'] metrics: Enables replication metrics (required for S3 RTC) (documented below).
         :param str replica_kms_key_id: Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
@@ -4937,7 +4937,7 @@ class BucketV2ReplicationConfigurationRuleDestination(dict):
     @pulumi.getter(name="accessControlTranslations")
     def access_control_translations(self) -> Optional[Sequence['outputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation']]:
         """
-        Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+        Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
         """
         return pulumi.get(self, "access_control_translations")
 
@@ -4987,11 +4987,17 @@ class BucketV2ReplicationConfigurationRuleDestination(dict):
 class BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation(dict):
     def __init__(__self__, *,
                  owner: str):
+        """
+        :param str owner: Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+        """
         pulumi.set(__self__, "owner", owner)
 
     @property
     @pulumi.getter
     def owner(self) -> str:
+        """
+        Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+        """
         return pulumi.get(self, "owner")
 
 

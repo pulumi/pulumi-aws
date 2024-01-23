@@ -12,6 +12,9 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+        /// </summary>
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
 

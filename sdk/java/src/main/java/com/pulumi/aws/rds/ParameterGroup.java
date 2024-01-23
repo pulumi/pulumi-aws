@@ -174,14 +174,14 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
         return this.family;
     }
     /**
-     * The name of the DB parameter.
+     * The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the DB parameter.
+     * @return The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {
@@ -202,14 +202,14 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
         return this.namePrefix;
     }
     /**
-     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+     * The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      * 
      */
     @Export(name="parameters", refs={List.class,ParameterGroupParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ParameterGroupParameter>> parameters;
 
     /**
-     * @return A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+     * @return The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      * 
      */
     public Output<Optional<List<ParameterGroupParameter>>> parameters() {

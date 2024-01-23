@@ -9873,6 +9873,10 @@ export namespace backup {
          * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
          */
         deleteAfter?: number;
+        /**
+         * This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+         */
+        optInToArchiveForSupportedResources: boolean;
     }
 
     export interface PlanRuleLifecycle {
@@ -9884,6 +9888,10 @@ export namespace backup {
          * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `coldStorageAfter`.
          */
         deleteAfter?: number;
+        /**
+         * This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+         */
+        optInToArchiveForSupportedResources: boolean;
     }
 
     export interface ReportPlanReportDeliveryChannel {
@@ -16051,6 +16059,7 @@ export namespace config {
         locationservice?: string;
         logs?: string;
         lookoutmetrics?: string;
+        m2?: string;
         macie2?: string;
         managedgrafana?: string;
         mediaconnect?: string;
@@ -16093,6 +16102,7 @@ export namespace config {
         redshiftdata?: string;
         redshiftdataapiservice?: string;
         redshiftserverless?: string;
+        rekognition?: string;
         resourceexplorer2?: string;
         resourcegroups?: string;
         resourcegroupstagging?: string;
@@ -27858,6 +27868,28 @@ export namespace efs {
 }
 
 export namespace eks {
+    export interface AccessPolicyAssociationAccessScope {
+        /**
+         * The namespaces to which the access scope applies when type is namespace.
+         */
+        namespaces?: string[];
+        /**
+         * Valid values are `namespace` or `cluster`.
+         */
+        type: string;
+    }
+
+    export interface ClusterAccessConfig {
+        /**
+         * The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+         */
+        authenticationMode: string;
+        /**
+         * Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+         */
+        bootstrapClusterCreatorAdminPermissions?: boolean;
+    }
+
     export interface ClusterCertificateAuthority {
         /**
          * Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
@@ -27988,6 +28020,13 @@ export namespace eks {
          * The following arguments are optional:
          */
         namespace: string;
+    }
+
+    export interface GetClusterAccessConfig {
+        /**
+         * Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+         */
+        authenticationMode: string;
     }
 
     export interface GetClusterCertificateAuthority {
@@ -41634,6 +41673,11141 @@ export namespace lex {
         delete?: string;
     }
 
+    export interface V2modelsIntentClosingSetting {
+        /**
+         * Whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
+         */
+        active?: boolean;
+        /**
+         * Configuration block for response that Amazon Lex sends to the user when the intent is complete. See `closingResponse`.
+         */
+        closingResponse?: outputs.lex.V2modelsIntentClosingSettingClosingResponse;
+        /**
+         * Configuration block for list of conditional branches associated with the intent's closing response. These branches are executed when the `nextStep` attribute is set to `EvalutateConditional`. See `conditional`.
+         */
+        conditional?: outputs.lex.V2modelsIntentClosingSettingConditional;
+        /**
+         * Next step that the bot executes after playing the intent's closing response. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentClosingSettingNextStep;
+    }
+
+    export interface V2modelsIntentClosingSettingClosingResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentClosingSettingClosingResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentClosingSettingClosingResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentClosingSettingClosingResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingClosingResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentClosingSettingClosingResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingClosingResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingClosingResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingClosingResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentClosingSettingClosingResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingClosingResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentClosingSettingClosingResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingClosingResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingClosingResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditional {
+        /**
+         * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        active: boolean;
+        /**
+         * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
+         */
+        conditionalBranches?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranch[];
+        /**
+         * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
+         */
+        defaultBranch: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranch;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranch {
+        /**
+         * Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+         */
+        condition: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchCondition;
+        /**
+         * Name of the branch.
+         */
+        name: string;
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponse;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchCondition {
+        /**
+         * Expression string that is evaluated.
+         */
+        expressionString: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranch {
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponse;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentClosingSettingNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentClosingSettingNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentClosingSettingNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentClosingSettingNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentClosingSettingNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentClosingSettingNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentClosingSettingNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentClosingSettingNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentClosingSettingNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSetting {
+        /**
+         * Whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true.
+         */
+        active?: boolean;
+        /**
+         * Configuration block for the intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `invokeDialogCodeHook`.  See `codeHook`.
+         */
+        codeHook?: outputs.lex.V2modelsIntentConfirmationSettingCodeHook;
+        /**
+         * Configuration block for conditional branches to evaluate after the intent is closed. See `confirmationConditional`.
+         */
+        confirmationConditional?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditional;
+        /**
+         * Configuration block for the next step that the bot executes when the customer confirms the intent. See `confirmationNextStep`.
+         */
+        confirmationNextStep?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationNextStep;
+        /**
+         * Configuration block for message groups that Amazon Lex uses to respond the user input. See `confirmationResponse`.
+         */
+        confirmationResponse?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponse;
+        /**
+         * Configuration block for conditional branches to evaluate after the intent is declined. See `declinationConditional`.
+         */
+        declinationConditional?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditional;
+        /**
+         * Configuration block for the next step that the bot executes when the customer declines the intent. See `declinationNextStep`.
+         */
+        declinationNextStep?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationNextStep;
+        /**
+         * Configuration block for when the user answers "no" to the question defined in `promptSpecification`, Amazon Lex responds with this response to acknowledge that the intent was canceled. See `declinationResponse`.
+         */
+        declinationResponse?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponse;
+        /**
+         * Configuration block for when the code hook is invoked during confirmation prompt retries. See `elicitationCodeHook`.
+         */
+        elicitationCodeHook?: outputs.lex.V2modelsIntentConfirmationSettingElicitationCodeHook;
+        /**
+         * Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `failureConditional`.
+         */
+        failureConditional?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditional;
+        /**
+         * Configuration block for the next step to take in the conversation if the confirmation step fails. See `failureNextStep`.
+         */
+        failureNextStep?: outputs.lex.V2modelsIntentConfirmationSettingFailureNextStep;
+        /**
+         * Configuration block for message groups that Amazon Lex uses to respond the user input. See `failureResponse`.
+         */
+        failureResponse?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponse;
+        /**
+         * Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `promptSpecification`.
+         */
+        promptSpecification: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecification;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHook {
+        /**
+         * Whether a dialog code hook is used when the intent is activated.
+         */
+        active: boolean;
+        /**
+         * Whether a Lambda function should be invoked for the dialog.
+         */
+        enableCodeHookInvocation: boolean;
+        /**
+         * Label that indicates the dialog step from which the dialog code hook is happening.
+         */
+        invocationLabel?: string;
+        /**
+         * Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
+         */
+        postCodeHookSpecification: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification {
+        /**
+         * Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+         */
+        failureConditional?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditional;
+        /**
+         * Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed . See `failureNextStep`.
+         */
+        failureNextStep?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStep;
+        /**
+         * Configuration block for message groups that Amazon Lex uses to respond the user input. See `failureResponse`.
+         */
+        failureResponse?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponse;
+        /**
+         * Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `successConditional`.
+         */
+        successConditional?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditional;
+        /**
+         * Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `successNextStep`.
+         */
+        successNextStep?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStep;
+        /**
+         * Configuration block for message groups that Amazon Lex uses to respond the user input. See `successResponse`.
+         */
+        successResponse?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponse;
+        /**
+         * Configuration block for conditional branches to evaluate if the code hook times out. See `timeoutConditional`.
+         */
+        timeoutConditional?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditional;
+        /**
+         * Configuration block for the next step that the bot runs when the code hook times out. See `timeoutNextStep`.
+         */
+        timeoutNextStep?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeoutResponse`.
+         */
+        timeoutResponse?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponse;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditional {
+        /**
+         * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        active: boolean;
+        /**
+         * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
+         */
+        conditionalBranches?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranch[];
+        /**
+         * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
+         */
+        defaultBranch: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranch {
+        /**
+         * Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+         */
+        condition: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition;
+        /**
+         * Name of the branch.
+         */
+        name: string;
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponse;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition {
+        /**
+         * Expression string that is evaluated.
+         */
+        expressionString: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch {
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponse;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditional {
+        /**
+         * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        active: boolean;
+        /**
+         * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
+         */
+        conditionalBranches?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranch[];
+        /**
+         * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
+         */
+        defaultBranch: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranch;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranch {
+        /**
+         * Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+         */
+        condition: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition;
+        /**
+         * Name of the branch.
+         */
+        name: string;
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponse;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition {
+        /**
+         * Expression string that is evaluated.
+         */
+        expressionString: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranch {
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponse;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditional {
+        /**
+         * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        active: boolean;
+        /**
+         * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
+         */
+        conditionalBranches?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranch[];
+        /**
+         * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
+         */
+        defaultBranch: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranch;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranch {
+        /**
+         * Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+         */
+        condition: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchCondition;
+        /**
+         * Name of the branch.
+         */
+        name: string;
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponse;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchCondition {
+        /**
+         * Expression string that is evaluated.
+         */
+        expressionString: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranch {
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponse;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditional {
+        /**
+         * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        active: boolean;
+        /**
+         * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
+         */
+        conditionalBranches?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranch[];
+        /**
+         * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
+         */
+        defaultBranch: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranch;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranch {
+        /**
+         * Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+         */
+        condition: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchCondition;
+        /**
+         * Name of the branch.
+         */
+        name: string;
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponse;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchCondition {
+        /**
+         * Expression string that is evaluated.
+         */
+        expressionString: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranch {
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponse;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditional {
+        /**
+         * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        active: boolean;
+        /**
+         * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
+         */
+        conditionalBranches?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranch[];
+        /**
+         * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
+         */
+        defaultBranch: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranch;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranch {
+        /**
+         * Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+         */
+        condition: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchCondition;
+        /**
+         * Name of the branch.
+         */
+        name: string;
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponse;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchCondition {
+        /**
+         * Expression string that is evaluated.
+         */
+        expressionString: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranch {
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponse;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingElicitationCodeHook {
+        /**
+         * Whether a Lambda function should be invoked for the dialog.
+         */
+        enableCodeHookInvocation?: boolean;
+        /**
+         * Label that indicates the dialog step from which the dialog code hook is happening.
+         */
+        invocationLabel?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditional {
+        /**
+         * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        active: boolean;
+        /**
+         * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
+         */
+        conditionalBranches?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch[];
+        /**
+         * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
+         */
+        defaultBranch: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch {
+        /**
+         * Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+         */
+        condition: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchCondition;
+        /**
+         * Name of the branch.
+         */
+        name: string;
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponse;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchCondition {
+        /**
+         * Expression string that is evaluated.
+         */
+        expressionString: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch {
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponse;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentConfirmationSettingFailureNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentConfirmationSettingFailureNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentConfirmationSettingFailureNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentConfirmationSettingFailureNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecification {
+        /**
+         * Whether the user can interrupt a speech prompt from the bot.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Maximum number of times the bot tries to elicit a response from the user using this prompt.
+         */
+        maxRetries: number;
+        /**
+         * Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroup[];
+        /**
+         * How a message is selected from a message group among retries. Valid values are `Random` and `Ordered`.
+         */
+        messageSelectionStrategy?: string;
+        /**
+         * Configuration block for advanced settings on each attempt of the prompt. See `promptAttemptsSpecification`.
+         */
+        promptAttemptsSpecifications?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification {
+        /**
+         * Whether the user can interrupt a speech prompt attempt from the bot.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration block for the allowed input types of the prompt attempt. See `allowedInputTypes`.
+         */
+        allowedInputTypes: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes;
+        /**
+         * Configuration block for settings on audio and DTMF input. See `audioAndDtmfInputSpecification`.
+         */
+        audioAndDtmfInputSpecification?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification;
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * Configuration block for the settings on text input. See `textInputSpecification`.
+         */
+        textInputSpecification?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes {
+        /**
+         * Whether audio input is allowed.
+         */
+        allowAudioInput: boolean;
+        /**
+         * Whether DTMF input is allowed.
+         */
+        allowDtmfInput: boolean;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification {
+        /**
+         * Configuration block for the settings on audio input. See `audioSpecification`.
+         */
+        audioSpecification?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification;
+        /**
+         * Configuration block for the settings on DTMF input. See `dtmfSpecification`.
+         */
+        dtmfSpecification?: outputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification;
+        /**
+         * Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
+         */
+        startTimeoutMs: number;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification {
+        /**
+         * Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
+         */
+        endTimeoutMs: number;
+        /**
+         * Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
+         */
+        maxLengthMs: number;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification {
+        /**
+         * DTMF character that clears the accumulated DTMF digits and immediately ends the input.
+         */
+        deletionCharacter: string;
+        /**
+         * DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
+         */
+        endCharacter: string;
+        /**
+         * How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
+         */
+        endTimeoutMs: number;
+        /**
+         * Maximum number of DTMF digits allowed in an utterance.
+         */
+        maxLength: number;
+    }
+
+    export interface V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification {
+        /**
+         * Time for which a bot waits before re-prompting a customer for text input.
+         */
+        startTimeoutMs: number;
+    }
+
+    export interface V2modelsIntentDialogCodeHook {
+        /**
+         * Enables the dialog code hook so that it processes user requests.
+         */
+        enabled: boolean;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHook {
+        /**
+         * Whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
+         */
+        active?: boolean;
+        /**
+         * Whether a Lambda function should be invoked to fulfill a specific intent.
+         */
+        enabled: boolean;
+        /**
+         * Configuration block for settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations. See `fulfillmentUpdatesSpecification`.
+         */
+        fulfillmentUpdatesSpecification?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecification;
+        /**
+         * Configuration block for settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations. See `postFulfillmentStatusSpecification`.
+         */
+        postFulfillmentStatusSpecification?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecification {
+        /**
+         * Whether fulfillment updates are sent to the user. When this field is true, updates are sent. If the active field is set to true, the `startResponse`, `updateResponse`, and `timeoutInSeconds` fields are required.
+         */
+        active: boolean;
+        /**
+         * Configuration block for the message sent to users when the fulfillment Lambda functions starts running.
+         */
+        startResponse?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse;
+        /**
+         * Length of time that the fulfillment Lambda function should run before it times out.
+         */
+        timeoutInSeconds?: number;
+        /**
+         * Configuration block for messages sent periodically to the user while the fulfillment Lambda function is running.
+         */
+        updateResponse?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse {
+        /**
+         * Whether the user can interrupt the start message while it is playing.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn't played.
+         */
+        delayInSeconds?: number;
+        /**
+         * Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse {
+        /**
+         * Whether the user can interrupt the start message while it is playing.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
+         */
+        frequencyInSeconds: number;
+        /**
+         * Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification {
+        /**
+         * Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failureConditional`.
+         */
+        failureConditional?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditional;
+        /**
+         * Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failureNextStep`.
+         */
+        failureNextStep?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStep;
+        /**
+         * Configuration block for message groups that Amazon Lex uses to respond the user input. See `failureResponse`.
+         */
+        failureResponse?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponse;
+        /**
+         * Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `successConditional`.
+         */
+        successConditional?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditional;
+        /**
+         * Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `successNextStep`.
+         */
+        successNextStep?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStep;
+        /**
+         * Configuration block for message groups that Amazon Lex uses to respond the user input. See `successResponse`.
+         */
+        successResponse?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponse;
+        /**
+         * Configuration block for conditional branches to evaluate if the code hook times out. See `timeoutConditional`.
+         */
+        timeoutConditional?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditional;
+        /**
+         * Configuration block for the next step that the bot runs when the code hook times out. See `timeoutNextStep`.
+         */
+        timeoutNextStep?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeoutResponse`.
+         */
+        timeoutResponse?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponse;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditional {
+        /**
+         * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        active: boolean;
+        /**
+         * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
+         */
+        conditionalBranches?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranch[];
+        /**
+         * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
+         */
+        defaultBranch: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranch;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranch {
+        /**
+         * Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+         */
+        condition: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchCondition;
+        /**
+         * Name of the branch.
+         */
+        name: string;
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponse;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchCondition {
+        /**
+         * Expression string that is evaluated.
+         */
+        expressionString: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranch {
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponse;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditional {
+        /**
+         * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        active: boolean;
+        /**
+         * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
+         */
+        conditionalBranches?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranch[];
+        /**
+         * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
+         */
+        defaultBranch: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranch;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranch {
+        /**
+         * Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+         */
+        condition: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchCondition;
+        /**
+         * Name of the branch.
+         */
+        name: string;
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponse;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchCondition {
+        /**
+         * Expression string that is evaluated.
+         */
+        expressionString: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranch {
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponse;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditional {
+        /**
+         * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        active: boolean;
+        /**
+         * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
+         */
+        conditionalBranches?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranch[];
+        /**
+         * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
+         */
+        defaultBranch: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranch;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranch {
+        /**
+         * Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+         */
+        condition: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchCondition;
+        /**
+         * Name of the branch.
+         */
+        name: string;
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponse;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchCondition {
+        /**
+         * Expression string that is evaluated.
+         */
+        expressionString: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranch {
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponse;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSetting {
+        /**
+         * Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `codeHook`.
+         */
+        codeHook?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHook;
+        /**
+         * Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `conditional`.
+         */
+        conditional?: outputs.lex.V2modelsIntentInitialResponseSettingConditional;
+        /**
+         * Configuration block for message groups that Amazon Lex uses to respond the user input. See `initialResponse`.
+         */
+        initialResponse?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponse;
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentInitialResponseSettingNextStep;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHook {
+        /**
+         * Whether a dialog code hook is used when the intent is activated.
+         */
+        active: boolean;
+        /**
+         * Whether a Lambda function should be invoked for the dialog.
+         */
+        enableCodeHookInvocation: boolean;
+        /**
+         * Label that indicates the dialog step from which the dialog code hook is happening.
+         */
+        invocationLabel?: string;
+        /**
+         * Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `postCodeHookSpecification`.
+         */
+        postCodeHookSpecification: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification {
+        /**
+         * Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+         */
+        failureConditional?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditional;
+        /**
+         * Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed . See `failureNextStep`.
+         */
+        failureNextStep?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStep;
+        /**
+         * Configuration block for message groups that Amazon Lex uses to respond the user input. See `failureResponse`.
+         */
+        failureResponse?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponse;
+        /**
+         * Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `successConditional`.
+         */
+        successConditional?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditional;
+        /**
+         * Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `successNextStep`.
+         */
+        successNextStep?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStep;
+        /**
+         * Configuration block for message groups that Amazon Lex uses to respond the user input. See `successResponse`.
+         */
+        successResponse?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponse;
+        /**
+         * Configuration block for conditional branches to evaluate if the code hook times out. See `timeoutConditional`.
+         */
+        timeoutConditional?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditional;
+        /**
+         * Configuration block for the next step that the bot runs when the code hook times out. See `timeoutNextStep`.
+         */
+        timeoutNextStep?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeoutResponse`.
+         */
+        timeoutResponse?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponse;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditional {
+        /**
+         * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        active: boolean;
+        /**
+         * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
+         */
+        conditionalBranches?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranch[];
+        /**
+         * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
+         */
+        defaultBranch: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranch {
+        /**
+         * Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+         */
+        condition: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition;
+        /**
+         * Name of the branch.
+         */
+        name: string;
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponse;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition {
+        /**
+         * Expression string that is evaluated.
+         */
+        expressionString: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch {
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponse;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditional {
+        /**
+         * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        active: boolean;
+        /**
+         * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
+         */
+        conditionalBranches?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranch[];
+        /**
+         * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
+         */
+        defaultBranch: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranch;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranch {
+        /**
+         * Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+         */
+        condition: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition;
+        /**
+         * Name of the branch.
+         */
+        name: string;
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponse;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition {
+        /**
+         * Expression string that is evaluated.
+         */
+        expressionString: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranch {
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponse;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditional {
+        /**
+         * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        active: boolean;
+        /**
+         * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
+         */
+        conditionalBranches?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranch[];
+        /**
+         * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
+         */
+        defaultBranch: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranch;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranch {
+        /**
+         * Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+         */
+        condition: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchCondition;
+        /**
+         * Name of the branch.
+         */
+        name: string;
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponse;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchCondition {
+        /**
+         * Expression string that is evaluated.
+         */
+        expressionString: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranch {
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponse;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditional {
+        /**
+         * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        active: boolean;
+        /**
+         * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditionalBranch`.
+         */
+        conditionalBranches?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranch[];
+        /**
+         * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
+         */
+        defaultBranch: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranch;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranch {
+        /**
+         * Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+         */
+        condition: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchCondition;
+        /**
+         * Name of the branch.
+         */
+        name: string;
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponse;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchCondition {
+        /**
+         * Expression string that is evaluated.
+         */
+        expressionString: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranch {
+        /**
+         * Configuration block for the next step in the conversation. See `nextStep`.
+         */
+        nextStep?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStep;
+        /**
+         * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
+         */
+        response?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponse;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingInitialResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
+        allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `messageGroup`.
+         */
+        messageGroups?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroup[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingInitialResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
+         */
+        message: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
+         */
+        variations?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessage {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessagePlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessagePlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
+        customPayload?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationCustomPayload;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
+        imageResponseCard?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCard;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
+        plainTextMessage?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessage;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
+        ssmlMessage?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationCustomPayload {
+        /**
+         * String that is sent to your application.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCard {
+        /**
+         * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
+         */
+        buttons?: outputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardButton[];
+        /**
+         * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
+         */
+        imageUrl?: string;
+        /**
+         * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
+         */
+        subtitle?: string;
+        /**
+         * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
+         */
+        title: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardButton {
+        /**
+         * Text that appears on the button. Use this to tell the user what value is returned when they choose this button.
+         */
+        text: string;
+        /**
+         * Value returned to Amazon Lex when the user chooses this button. This must be one of the slot values configured for the slot.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessage {
+        /**
+         * Message to send to the user.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessage {
+        /**
+         * SSML text that defines the prompt.
+         */
+        value: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingNextStep {
+        /**
+         * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialogAction`.
+         */
+        dialogAction?: outputs.lex.V2modelsIntentInitialResponseSettingNextStepDialogAction;
+        /**
+         * Configuration block for override settings to configure the intent state. See `intent`.
+         */
+        intent?: outputs.lex.V2modelsIntentInitialResponseSettingNextStepIntent;
+        /**
+         * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+         */
+        sessionAttributes?: {[key: string]: string};
+    }
+
+    export interface V2modelsIntentInitialResponseSettingNextStepDialogAction {
+        /**
+         * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * Whether the next message for the intent is _not_ used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
+         */
+        type: string;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingNextStepIntent {
+        /**
+         * Name of the intent.
+         */
+        name?: string;
+        /**
+         * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
+         */
+        slots?: outputs.lex.V2modelsIntentInitialResponseSettingNextStepIntentSlot[];
+    }
+
+    export interface V2modelsIntentInitialResponseSettingNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
+        mapBlockKey: string;
+        /**
+         * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
+         */
+        shape?: string;
+        /**
+         * Configuration block for the current value of the slot. See `value`.
+         */
+        value?: outputs.lex.V2modelsIntentInitialResponseSettingNextStepIntentSlotValue;
+    }
+
+    export interface V2modelsIntentInitialResponseSettingNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
+        interpretedValue?: string;
+    }
+
+    export interface V2modelsIntentInputContext {
+        /**
+         * Name of the context.
+         */
+        name: string;
+    }
+
+    export interface V2modelsIntentKendraConfiguration {
+        /**
+         * ARN of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot.
+         */
+        kendraIndex: string;
+        /**
+         * Query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html).
+         */
+        queryFilterString?: string;
+        /**
+         * Whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
+         */
+        queryFilterStringEnabled?: boolean;
+    }
+
+    export interface V2modelsIntentOutputContext {
+        /**
+         * Name of the output context.
+         */
+        name: string;
+        /**
+         * Amount of time, in seconds, that the output context should remain active. The time is figured from the first time the context is sent to the user.
+         */
+        timeToLiveInSeconds: number;
+        /**
+         * Number of conversation turns that the output context should remain active. The number of turns is counted from the first time that the context is sent to the user.
+         */
+        turnsToLive: number;
+    }
+
+    export interface V2modelsIntentSampleUtterance {
+        /**
+         * Sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+         */
+        utterance: string;
+    }
+
+    export interface V2modelsIntentSlotPriority {
+        /**
+         * Priority that Amazon Lex should apply to the slot.
+         */
+        priority: number;
+        /**
+         * Unique identifier of the slot.
+         */
+        slotId: string;
+    }
+
+    export interface V2modelsIntentTimeouts {
+        create?: string;
+        delete?: string;
+        update?: string;
+    }
+
 }
 
 export namespace licensemanager {
@@ -52632,7 +63806,7 @@ export namespace rds {
          */
         optionName: string;
         /**
-         * List of option settings to apply.
+         * The option settings to apply. See `optionSettings` Block below for more details.
          */
         optionSettings?: outputs.rds.OptionGroupOptionOptionSetting[];
         /**
@@ -55195,7 +66369,7 @@ export namespace s3 {
 
     export interface BucketV2ReplicationConfigurationRuleDestination {
         /**
-         * Specifies the overrides to use for object owners on replication. Must be used in conjunction with `accountId` owner override configuration.
+         * Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
          */
         accessControlTranslations?: outputs.s3.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation[];
         /**
@@ -55226,6 +66400,9 @@ export namespace s3 {
     }
 
     export interface BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation {
+        /**
+         * Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+         */
         owner: string;
     }
 

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Rds.Inputs
         private InputList<Inputs.OptionGroupOptionOptionSettingGetArgs>? _optionSettings;
 
         /// <summary>
-        /// List of option settings to apply.
+        /// The option settings to apply. See `option_settings` Block below for more details.
         /// </summary>
         public InputList<Inputs.OptionGroupOptionOptionSettingGetArgs> OptionSettings
         {

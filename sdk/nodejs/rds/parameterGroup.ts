@@ -117,7 +117,7 @@ export class ParameterGroup extends pulumi.CustomResource {
      */
     public readonly family!: pulumi.Output<string>;
     /**
-     * The name of the DB parameter.
+     * The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -125,7 +125,7 @@ export class ParameterGroup extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
-     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+     * The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      */
     public readonly parameters!: pulumi.Output<outputs.rds.ParameterGroupParameter[] | undefined>;
     /**
@@ -198,7 +198,7 @@ export interface ParameterGroupState {
      */
     family?: pulumi.Input<string>;
     /**
-     * The name of the DB parameter.
+     * The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -206,7 +206,7 @@ export interface ParameterGroupState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+     * The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.rds.ParameterGroupParameter>[]>;
     /**
@@ -234,7 +234,7 @@ export interface ParameterGroupArgs {
      */
     family: pulumi.Input<string>;
     /**
-     * The name of the DB parameter.
+     * The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -242,7 +242,7 @@ export interface ParameterGroupArgs {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+     * The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.rds.ParameterGroupParameter>[]>;
     /**

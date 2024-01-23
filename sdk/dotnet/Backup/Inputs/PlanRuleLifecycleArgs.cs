@@ -24,6 +24,12 @@ namespace Pulumi.Aws.Backup.Inputs
         [Input("deleteAfter")]
         public Input<int>? DeleteAfter { get; set; }
 
+        /// <summary>
+        /// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+        /// </summary>
+        [Input("optInToArchiveForSupportedResources")]
+        public Input<bool>? OptInToArchiveForSupportedResources { get; set; }
+
         public PlanRuleLifecycleArgs()
         {
         }

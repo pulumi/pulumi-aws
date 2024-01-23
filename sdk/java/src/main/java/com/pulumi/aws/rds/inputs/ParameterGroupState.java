@@ -65,14 +65,14 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the DB parameter.
+     * The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the DB parameter.
+     * @return The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -95,14 +95,14 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+     * The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<List<ParameterGroupParameterArgs>> parameters;
 
     /**
-     * @return A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+     * @return The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      * 
      */
     public Optional<Output<List<ParameterGroupParameterArgs>>> parameters() {
@@ -242,7 +242,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the DB parameter.
+         * @param name The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the DB parameter.
+         * @param name The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param parameters A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+         * @param parameters The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param parameters A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+         * @param parameters The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param parameters A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+         * @param parameters The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
          * 
          * @return builder
          * 

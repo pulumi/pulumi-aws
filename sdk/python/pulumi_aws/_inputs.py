@@ -408,6 +408,7 @@ class ProviderEndpointArgs:
                  locationservice: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input[str]] = None,
                  lookoutmetrics: Optional[pulumi.Input[str]] = None,
+                 m2: Optional[pulumi.Input[str]] = None,
                  macie2: Optional[pulumi.Input[str]] = None,
                  managedgrafana: Optional[pulumi.Input[str]] = None,
                  mediaconnect: Optional[pulumi.Input[str]] = None,
@@ -450,6 +451,7 @@ class ProviderEndpointArgs:
                  redshiftdata: Optional[pulumi.Input[str]] = None,
                  redshiftdataapiservice: Optional[pulumi.Input[str]] = None,
                  redshiftserverless: Optional[pulumi.Input[str]] = None,
+                 rekognition: Optional[pulumi.Input[str]] = None,
                  resourceexplorer2: Optional[pulumi.Input[str]] = None,
                  resourcegroups: Optional[pulumi.Input[str]] = None,
                  resourcegroupstagging: Optional[pulumi.Input[str]] = None,
@@ -841,6 +843,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "logs", logs)
         if lookoutmetrics is not None:
             pulumi.set(__self__, "lookoutmetrics", lookoutmetrics)
+        if m2 is not None:
+            pulumi.set(__self__, "m2", m2)
         if macie2 is not None:
             pulumi.set(__self__, "macie2", macie2)
         if managedgrafana is not None:
@@ -925,6 +929,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "redshiftdataapiservice", redshiftdataapiservice)
         if redshiftserverless is not None:
             pulumi.set(__self__, "redshiftserverless", redshiftserverless)
+        if rekognition is not None:
+            pulumi.set(__self__, "rekognition", rekognition)
         if resourceexplorer2 is not None:
             pulumi.set(__self__, "resourceexplorer2", resourceexplorer2)
         if resourcegroups is not None:
@@ -2535,6 +2541,15 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def m2(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "m2")
+
+    @m2.setter
+    def m2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "m2", value)
+
+    @property
+    @pulumi.getter
     def macie2(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "macie2")
 
@@ -2910,6 +2925,15 @@ class ProviderEndpointArgs:
     @redshiftserverless.setter
     def redshiftserverless(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "redshiftserverless", value)
+
+    @property
+    @pulumi.getter
+    def rekognition(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "rekognition")
+
+    @rekognition.setter
+    def rekognition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rekognition", value)
 
     @property
     @pulumi.getter

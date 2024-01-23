@@ -22,7 +22,10 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, certificate_authorities=None, cluster_id=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, role_arn=None, status=None, tags=None, version=None, vpc_config=None):
+    def __init__(__self__, access_configs=None, arn=None, certificate_authorities=None, cluster_id=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, role_arn=None, status=None, tags=None, version=None, vpc_config=None):
+        if access_configs and not isinstance(access_configs, list):
+            raise TypeError("Expected argument 'access_configs' to be a list")
+        pulumi.set(__self__, "access_configs", access_configs)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -74,6 +77,14 @@ class GetClusterResult:
         if vpc_config and not isinstance(vpc_config, dict):
             raise TypeError("Expected argument 'vpc_config' to be a dict")
         pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @property
+    @pulumi.getter(name="accessConfigs")
+    def access_configs(self) -> Sequence['outputs.GetClusterAccessConfigResult']:
+        """
+        Configuration block for access config.
+        """
+        return pulumi.get(self, "access_configs")
 
     @property
     @pulumi.getter
@@ -215,6 +226,7 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            access_configs=self.access_configs,
             arn=self.arn,
             certificate_authorities=self.certificate_authorities,
             cluster_id=self.cluster_id,
@@ -263,6 +275,7 @@ def get_cluster(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:eks/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
+        access_configs=pulumi.get(__ret__, 'access_configs'),
         arn=pulumi.get(__ret__, 'arn'),
         certificate_authorities=pulumi.get(__ret__, 'certificate_authorities'),
         cluster_id=pulumi.get(__ret__, 'cluster_id'),

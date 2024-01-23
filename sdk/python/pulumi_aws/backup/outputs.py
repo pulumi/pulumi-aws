@@ -432,6 +432,8 @@ class PlanRuleCopyActionLifecycle(dict):
             suggest = "cold_storage_after"
         elif key == "deleteAfter":
             suggest = "delete_after"
+        elif key == "optInToArchiveForSupportedResources":
+            suggest = "opt_in_to_archive_for_supported_resources"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PlanRuleCopyActionLifecycle. Access the value via the '{suggest}' property getter instead.")
@@ -446,15 +448,19 @@ class PlanRuleCopyActionLifecycle(dict):
 
     def __init__(__self__, *,
                  cold_storage_after: Optional[int] = None,
-                 delete_after: Optional[int] = None):
+                 delete_after: Optional[int] = None,
+                 opt_in_to_archive_for_supported_resources: Optional[bool] = None):
         """
         :param int cold_storage_after: Specifies the number of days after creation that a recovery point is moved to cold storage.
         :param int delete_after: Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+        :param bool opt_in_to_archive_for_supported_resources: This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
         """
         if cold_storage_after is not None:
             pulumi.set(__self__, "cold_storage_after", cold_storage_after)
         if delete_after is not None:
             pulumi.set(__self__, "delete_after", delete_after)
+        if opt_in_to_archive_for_supported_resources is not None:
+            pulumi.set(__self__, "opt_in_to_archive_for_supported_resources", opt_in_to_archive_for_supported_resources)
 
     @property
     @pulumi.getter(name="coldStorageAfter")
@@ -472,6 +478,14 @@ class PlanRuleCopyActionLifecycle(dict):
         """
         return pulumi.get(self, "delete_after")
 
+    @property
+    @pulumi.getter(name="optInToArchiveForSupportedResources")
+    def opt_in_to_archive_for_supported_resources(self) -> Optional[bool]:
+        """
+        This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+        """
+        return pulumi.get(self, "opt_in_to_archive_for_supported_resources")
+
 
 @pulumi.output_type
 class PlanRuleLifecycle(dict):
@@ -482,6 +496,8 @@ class PlanRuleLifecycle(dict):
             suggest = "cold_storage_after"
         elif key == "deleteAfter":
             suggest = "delete_after"
+        elif key == "optInToArchiveForSupportedResources":
+            suggest = "opt_in_to_archive_for_supported_resources"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PlanRuleLifecycle. Access the value via the '{suggest}' property getter instead.")
@@ -496,15 +512,19 @@ class PlanRuleLifecycle(dict):
 
     def __init__(__self__, *,
                  cold_storage_after: Optional[int] = None,
-                 delete_after: Optional[int] = None):
+                 delete_after: Optional[int] = None,
+                 opt_in_to_archive_for_supported_resources: Optional[bool] = None):
         """
         :param int cold_storage_after: Specifies the number of days after creation that a recovery point is moved to cold storage.
         :param int delete_after: Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
+        :param bool opt_in_to_archive_for_supported_resources: This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
         """
         if cold_storage_after is not None:
             pulumi.set(__self__, "cold_storage_after", cold_storage_after)
         if delete_after is not None:
             pulumi.set(__self__, "delete_after", delete_after)
+        if opt_in_to_archive_for_supported_resources is not None:
+            pulumi.set(__self__, "opt_in_to_archive_for_supported_resources", opt_in_to_archive_for_supported_resources)
 
     @property
     @pulumi.getter(name="coldStorageAfter")
@@ -521,6 +541,14 @@ class PlanRuleLifecycle(dict):
         Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
         """
         return pulumi.get(self, "delete_after")
+
+    @property
+    @pulumi.getter(name="optInToArchiveForSupportedResources")
+    def opt_in_to_archive_for_supported_resources(self) -> Optional[bool]:
+        """
+        This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+        """
+        return pulumi.get(self, "opt_in_to_archive_for_supported_resources")
 
 
 @pulumi.output_type

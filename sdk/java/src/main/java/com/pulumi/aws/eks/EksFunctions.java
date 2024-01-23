@@ -4,6 +4,8 @@
 package com.pulumi.aws.eks;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.eks.inputs.GetAccessEntryArgs;
+import com.pulumi.aws.eks.inputs.GetAccessEntryPlainArgs;
 import com.pulumi.aws.eks.inputs.GetAddonArgs;
 import com.pulumi.aws.eks.inputs.GetAddonPlainArgs;
 import com.pulumi.aws.eks.inputs.GetAddonVersionArgs;
@@ -16,6 +18,7 @@ import com.pulumi.aws.eks.inputs.GetNodeGroupArgs;
 import com.pulumi.aws.eks.inputs.GetNodeGroupPlainArgs;
 import com.pulumi.aws.eks.inputs.GetNodeGroupsArgs;
 import com.pulumi.aws.eks.inputs.GetNodeGroupsPlainArgs;
+import com.pulumi.aws.eks.outputs.GetAccessEntryResult;
 import com.pulumi.aws.eks.outputs.GetAddonResult;
 import com.pulumi.aws.eks.outputs.GetAddonVersionResult;
 import com.pulumi.aws.eks.outputs.GetClusterAuthResult;
@@ -31,6 +34,162 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class EksFunctions {
+    /**
+     * Access Entry Configurations for an EKS Cluster.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetAccessEntryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EksFunctions.getAccessEntry(GetAccessEntryArgs.builder()
+     *             .clusterName(aws_eks_cluster.example().name())
+     *             .principalArn(aws_iam_role.example().arn())
+     *             .build());
+     * 
+     *         ctx.export(&#34;eksAccessEntryOutputs&#34;, aws_eks_access_entry.example());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAccessEntryResult> getAccessEntry(GetAccessEntryArgs args) {
+        return getAccessEntry(args, InvokeOptions.Empty);
+    }
+    /**
+     * Access Entry Configurations for an EKS Cluster.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetAccessEntryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EksFunctions.getAccessEntry(GetAccessEntryArgs.builder()
+     *             .clusterName(aws_eks_cluster.example().name())
+     *             .principalArn(aws_iam_role.example().arn())
+     *             .build());
+     * 
+     *         ctx.export(&#34;eksAccessEntryOutputs&#34;, aws_eks_access_entry.example());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAccessEntryResult> getAccessEntryPlain(GetAccessEntryPlainArgs args) {
+        return getAccessEntryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Access Entry Configurations for an EKS Cluster.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetAccessEntryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EksFunctions.getAccessEntry(GetAccessEntryArgs.builder()
+     *             .clusterName(aws_eks_cluster.example().name())
+     *             .principalArn(aws_iam_role.example().arn())
+     *             .build());
+     * 
+     *         ctx.export(&#34;eksAccessEntryOutputs&#34;, aws_eks_access_entry.example());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAccessEntryResult> getAccessEntry(GetAccessEntryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:eks/getAccessEntry:getAccessEntry", TypeShape.of(GetAccessEntryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Access Entry Configurations for an EKS Cluster.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetAccessEntryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EksFunctions.getAccessEntry(GetAccessEntryArgs.builder()
+     *             .clusterName(aws_eks_cluster.example().name())
+     *             .principalArn(aws_iam_role.example().arn())
+     *             .build());
+     * 
+     *         ctx.export(&#34;eksAccessEntryOutputs&#34;, aws_eks_access_entry.example());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAccessEntryResult> getAccessEntryPlain(GetAccessEntryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:eks/getAccessEntry:getAccessEntry", TypeShape.of(GetAccessEntryResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Retrieve information about an EKS add-on.
      * 

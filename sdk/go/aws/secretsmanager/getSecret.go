@@ -80,19 +80,25 @@ type LookupSecretArgs struct {
 	Arn *string `pulumi:"arn"`
 	// Name of the secret to retrieve.
 	Name *string `pulumi:"name"`
+	// Tags of the secret.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSecret.
 type LookupSecretResult struct {
 	// ARN of the secret.
 	Arn string `pulumi:"arn"`
+	// Created date of the secret in UTC.
+	CreatedDate string `pulumi:"createdDate"`
 	// Description of the secret.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
 	KmsKeyId string `pulumi:"kmsKeyId"`
-	Name     string `pulumi:"name"`
+	// Last updated date of the secret in UTC.
+	LastChangedDate string `pulumi:"lastChangedDate"`
+	Name            string `pulumi:"name"`
 	// Resource-based policy document that's attached to the secret.
 	Policy string `pulumi:"policy"`
 	// Tags of the secret.
@@ -118,6 +124,8 @@ type LookupSecretOutputArgs struct {
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Name of the secret to retrieve.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Tags of the secret.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupSecretOutputArgs) ElementType() reflect.Type {
@@ -144,6 +152,11 @@ func (o LookupSecretResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Created date of the secret in UTC.
+func (o LookupSecretResultOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
 // Description of the secret.
 func (o LookupSecretResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Description }).(pulumi.StringOutput)
@@ -157,6 +170,11 @@ func (o LookupSecretResultOutput) Id() pulumi.StringOutput {
 // Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
 func (o LookupSecretResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// Last updated date of the secret in UTC.
+func (o LookupSecretResultOutput) LastChangedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.LastChangedDate }).(pulumi.StringOutput)
 }
 
 func (o LookupSecretResultOutput) Name() pulumi.StringOutput {

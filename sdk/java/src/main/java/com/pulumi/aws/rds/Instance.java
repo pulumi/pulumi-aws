@@ -221,7 +221,7 @@ import javax.annotation.Nullable;
  *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
  *             .allocatedStorage(500)
  *             .autoMinorVersionUpgrade(false)
- *             .customIamInstanceProfile(&#34;AWSRDSCustomSQLServerInstanceRole&#34;)
+ *             .customIamInstanceProfile(&#34;AWSRDSCustomSQLServerInstanceProfile&#34;)
  *             .backupRetentionPeriod(7)
  *             .dbSubnetGroupName(local.db_subnet_group_name())
  *             .engine(custom_sqlserver.engine())

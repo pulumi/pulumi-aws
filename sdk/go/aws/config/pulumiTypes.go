@@ -410,6 +410,7 @@ type Endpoints struct {
 	Locationservice                      *string `pulumi:"locationservice"`
 	Logs                                 *string `pulumi:"logs"`
 	Lookoutmetrics                       *string `pulumi:"lookoutmetrics"`
+	M2                                   *string `pulumi:"m2"`
 	Macie2                               *string `pulumi:"macie2"`
 	Managedgrafana                       *string `pulumi:"managedgrafana"`
 	Mediaconnect                         *string `pulumi:"mediaconnect"`
@@ -452,6 +453,7 @@ type Endpoints struct {
 	Redshiftdata                         *string `pulumi:"redshiftdata"`
 	Redshiftdataapiservice               *string `pulumi:"redshiftdataapiservice"`
 	Redshiftserverless                   *string `pulumi:"redshiftserverless"`
+	Rekognition                          *string `pulumi:"rekognition"`
 	Resourceexplorer2                    *string `pulumi:"resourceexplorer2"`
 	Resourcegroups                       *string `pulumi:"resourcegroups"`
 	Resourcegroupstagging                *string `pulumi:"resourcegroupstagging"`
@@ -692,6 +694,7 @@ type EndpointsArgs struct {
 	Locationservice                      pulumi.StringPtrInput `pulumi:"locationservice"`
 	Logs                                 pulumi.StringPtrInput `pulumi:"logs"`
 	Lookoutmetrics                       pulumi.StringPtrInput `pulumi:"lookoutmetrics"`
+	M2                                   pulumi.StringPtrInput `pulumi:"m2"`
 	Macie2                               pulumi.StringPtrInput `pulumi:"macie2"`
 	Managedgrafana                       pulumi.StringPtrInput `pulumi:"managedgrafana"`
 	Mediaconnect                         pulumi.StringPtrInput `pulumi:"mediaconnect"`
@@ -734,6 +737,7 @@ type EndpointsArgs struct {
 	Redshiftdata                         pulumi.StringPtrInput `pulumi:"redshiftdata"`
 	Redshiftdataapiservice               pulumi.StringPtrInput `pulumi:"redshiftdataapiservice"`
 	Redshiftserverless                   pulumi.StringPtrInput `pulumi:"redshiftserverless"`
+	Rekognition                          pulumi.StringPtrInput `pulumi:"rekognition"`
 	Resourceexplorer2                    pulumi.StringPtrInput `pulumi:"resourceexplorer2"`
 	Resourcegroups                       pulumi.StringPtrInput `pulumi:"resourcegroups"`
 	Resourcegroupstagging                pulumi.StringPtrInput `pulumi:"resourcegroupstagging"`
@@ -1508,6 +1512,10 @@ func (o EndpointsOutput) Lookoutmetrics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Lookoutmetrics }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointsOutput) M2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.M2 }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointsOutput) Macie2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Macie2 }).(pulumi.StringPtrOutput)
 }
@@ -1674,6 +1682,10 @@ func (o EndpointsOutput) Redshiftdataapiservice() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Redshiftserverless() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Redshiftserverless }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Rekognition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Rekognition }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Resourceexplorer2() pulumi.StringPtrOutput {

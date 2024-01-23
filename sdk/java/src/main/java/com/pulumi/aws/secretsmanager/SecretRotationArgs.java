@@ -7,6 +7,7 @@ import com.pulumi.aws.secretsmanager.inputs.SecretRotationRotationRulesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SecretRotationArgs Empty = new SecretRotationArgs();
+
+    /**
+     * Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `false`.
+     * 
+     */
+    @Import(name="rotateImmediately")
+    private @Nullable Output<Boolean> rotateImmediately;
+
+    /**
+     * @return Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> rotateImmediately() {
+        return Optional.ofNullable(this.rotateImmediately);
+    }
 
     /**
      * Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
@@ -65,6 +81,7 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
     private SecretRotationArgs() {}
 
     private SecretRotationArgs(SecretRotationArgs $) {
+        this.rotateImmediately = $.rotateImmediately;
         this.rotationLambdaArn = $.rotationLambdaArn;
         this.rotationRules = $.rotationRules;
         this.secretId = $.secretId;
@@ -86,6 +103,27 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
 
         public Builder(SecretRotationArgs defaults) {
             $ = new SecretRotationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param rotateImmediately Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rotateImmediately(@Nullable Output<Boolean> rotateImmediately) {
+            $.rotateImmediately = rotateImmediately;
+            return this;
+        }
+
+        /**
+         * @param rotateImmediately Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rotateImmediately(Boolean rotateImmediately) {
+            return rotateImmediately(Output.of(rotateImmediately));
         }
 
         /**

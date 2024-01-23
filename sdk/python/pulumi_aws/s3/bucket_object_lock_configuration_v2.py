@@ -206,37 +206,13 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         """
         Provides an S3 bucket Object Lock configuration resource. For more information about Object Locking, go to [Using S3 Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) in the Amazon S3 User Guide.
 
-        > **NOTE:** This resource **does not enable** Object Lock for **new** buckets. It configures a default retention period for objects placed in the specified bucket.
-        Thus, to **enable** Object Lock for a **new** bucket, see the Using object lock configuration section in  the `s3.BucketV2` resource or the Object Lock configuration for a new bucket example below.
-        If you want to **enable** Object Lock for an **existing** bucket, contact AWS Support and see the Object Lock configuration for an existing bucket example below.
+        > This resource can be used enable Object Lock for **new** and **existing** buckets.
 
         > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
-        ### Object Lock configuration for a new bucket
+        ### Object Lock configuration for new or existing buckets
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", object_lock_enabled=True)
-        example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2",
-            bucket=example_bucket_v2.id,
-            rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(
-                default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs(
-                    mode="COMPLIANCE",
-                    days=5,
-                ),
-            ))
-        ```
-        ### Object Lock configuration for an existing bucket
-
-        This is a multistep process that requires AWS Support intervention.
-
-        1. Enable versioning on your S3 bucket, if you have not already done so.
-           Doing so will generate an "Object Lock token" in the back-end.
-
-        <!-- markdownlint-disable MD029 -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -247,28 +223,15 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
             versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
                 status="Enabled",
             ))
-        ```
-        <!-- markdownlint-disable MD029 -->
-
-        2. Contact AWS Support to provide you with the "Object Lock token" for the specified bucket and use the token (or token ID) within your new `s3.BucketObjectLockConfigurationV2` resource.
-           Notice the `object_lock_enabled` argument does not need to be specified as it defaults to `Enabled`.
-
-        <!-- markdownlint-disable MD029 -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.BucketObjectLockConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
+        example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2",
+            bucket=example_bucket_v2.id,
             rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(
                 default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs(
                     mode="COMPLIANCE",
                     days=5,
                 ),
-            ),
-            token="NG2MKsfoLqV3A+aquXneSG4LOu/ekrlXkRXwIPFVfERT7XOPos+/k444d7RIH0E3W3p5QU6ml2exS2F/eYCFmMWHJ3hFZGk6al1sIJkmNhUMYmsv0jYVQyTTZNLM+DnfooA6SATt39mM1VW1yJh4E+XljMlWzaBwHKbss3/EjlGDjOmVhaSs4Z6427mMCaFD0RLwsYY7zX49gEc31YfOMJGxbXCXSeyNwAhhM/A8UH7gQf38RmjHjjAFbbbLtl8arsxTPW8F1IYohqwmKIr9DnotLLj8Tg44U2SPwujVaqmlKKP9s41rfgb4UbIm7khSafDBng0LGfxC4pMlT9Ny2w==")
+            ))
         ```
-        <!-- markdownlint-disable MD029 -->
 
         ## Import
 
@@ -311,37 +274,13 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         """
         Provides an S3 bucket Object Lock configuration resource. For more information about Object Locking, go to [Using S3 Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) in the Amazon S3 User Guide.
 
-        > **NOTE:** This resource **does not enable** Object Lock for **new** buckets. It configures a default retention period for objects placed in the specified bucket.
-        Thus, to **enable** Object Lock for a **new** bucket, see the Using object lock configuration section in  the `s3.BucketV2` resource or the Object Lock configuration for a new bucket example below.
-        If you want to **enable** Object Lock for an **existing** bucket, contact AWS Support and see the Object Lock configuration for an existing bucket example below.
+        > This resource can be used enable Object Lock for **new** and **existing** buckets.
 
         > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
-        ### Object Lock configuration for a new bucket
+        ### Object Lock configuration for new or existing buckets
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", object_lock_enabled=True)
-        example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2",
-            bucket=example_bucket_v2.id,
-            rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(
-                default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs(
-                    mode="COMPLIANCE",
-                    days=5,
-                ),
-            ))
-        ```
-        ### Object Lock configuration for an existing bucket
-
-        This is a multistep process that requires AWS Support intervention.
-
-        1. Enable versioning on your S3 bucket, if you have not already done so.
-           Doing so will generate an "Object Lock token" in the back-end.
-
-        <!-- markdownlint-disable MD029 -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -352,28 +291,15 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
             versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
                 status="Enabled",
             ))
-        ```
-        <!-- markdownlint-disable MD029 -->
-
-        2. Contact AWS Support to provide you with the "Object Lock token" for the specified bucket and use the token (or token ID) within your new `s3.BucketObjectLockConfigurationV2` resource.
-           Notice the `object_lock_enabled` argument does not need to be specified as it defaults to `Enabled`.
-
-        <!-- markdownlint-disable MD029 -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.BucketObjectLockConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
+        example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2",
+            bucket=example_bucket_v2.id,
             rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(
                 default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs(
                     mode="COMPLIANCE",
                     days=5,
                 ),
-            ),
-            token="NG2MKsfoLqV3A+aquXneSG4LOu/ekrlXkRXwIPFVfERT7XOPos+/k444d7RIH0E3W3p5QU6ml2exS2F/eYCFmMWHJ3hFZGk6al1sIJkmNhUMYmsv0jYVQyTTZNLM+DnfooA6SATt39mM1VW1yJh4E+XljMlWzaBwHKbss3/EjlGDjOmVhaSs4Z6427mMCaFD0RLwsYY7zX49gEc31YfOMJGxbXCXSeyNwAhhM/A8UH7gQf38RmjHjjAFbbbLtl8arsxTPW8F1IYohqwmKIr9DnotLLj8Tg44U2SPwujVaqmlKKP9s41rfgb4UbIm7khSafDBng0LGfxC4pMlT9Ny2w==")
+            ))
         ```
-        <!-- markdownlint-disable MD029 -->
 
         ## Import
 

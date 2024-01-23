@@ -137,9 +137,11 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
         current_region = aws.get_region()
         current_caller_identity = aws.get_caller_identity()
         current_partition = aws.get_partition()
+        config = pulumi.Config()
+        distribution_id = config.require_object("distributionId")
         example = aws.shield.ApplicationLayerAutomaticResponse("example",
             action="COUNT",
-            resource_arn=f"arn:{current_partition.partition}:cloudfront:{current_caller_identity.account_id}:distribution/{var['distribution_id']}")
+            resource_arn=f"arn:{current_partition.partition}:cloudfront:{current_caller_identity.account_id}:distribution/{distribution_id}")
         ```
 
         :param str resource_name: The name of the resource.
@@ -166,9 +168,11 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
         current_region = aws.get_region()
         current_caller_identity = aws.get_caller_identity()
         current_partition = aws.get_partition()
+        config = pulumi.Config()
+        distribution_id = config.require_object("distributionId")
         example = aws.shield.ApplicationLayerAutomaticResponse("example",
             action="COUNT",
-            resource_arn=f"arn:{current_partition.partition}:cloudfront:{current_caller_identity.account_id}:distribution/{var['distribution_id']}")
+            resource_arn=f"arn:{current_partition.partition}:cloudfront:{current_caller_identity.account_id}:distribution/{distribution_id}")
         ```
 
         :param str resource_name: The name of the resource.

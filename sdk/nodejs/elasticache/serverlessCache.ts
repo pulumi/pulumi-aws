@@ -110,6 +110,9 @@ export class ServerlessCache extends pulumi.CustomResource {
      * Timestamp of when the serverless cache was created.
      */
     public /*out*/ readonly createTime!: pulumi.Output<string>;
+    /**
+     * The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+     */
     public readonly dailySnapshotTime!: pulumi.Output<string>;
     /**
      * User-provided description for the serverless cache. The default is NULL.
@@ -264,6 +267,9 @@ export interface ServerlessCacheState {
      * Timestamp of when the serverless cache was created.
      */
     createTime?: pulumi.Input<string>;
+    /**
+     * The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+     */
     dailySnapshotTime?: pulumi.Input<string>;
     /**
      * User-provided description for the serverless cache. The default is NULL.
@@ -343,6 +349,9 @@ export interface ServerlessCacheArgs {
      * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
      */
     cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimits>;
+    /**
+     * The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+     */
     dailySnapshotTime?: pulumi.Input<string>;
     /**
      * User-provided description for the serverless cache. The default is NULL.

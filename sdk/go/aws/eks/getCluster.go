@@ -61,6 +61,8 @@ type LookupClusterArgs struct {
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
+	// Configuration block for access config.
+	AccessConfigs []GetClusterAccessConfig `pulumi:"accessConfigs"`
 	// ARN of the cluster.
 	Arn string `pulumi:"arn"`
 	// Nested attribute containing `certificate-authority-data` for your cluster.
@@ -134,6 +136,11 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutput() LookupClusterRe
 
 func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx context.Context) LookupClusterResultOutput {
 	return o
+}
+
+// Configuration block for access config.
+func (o LookupClusterResultOutput) AccessConfigs() GetClusterAccessConfigArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterAccessConfig { return v.AccessConfigs }).(GetClusterAccessConfigArrayOutput)
 }
 
 // ARN of the cluster.

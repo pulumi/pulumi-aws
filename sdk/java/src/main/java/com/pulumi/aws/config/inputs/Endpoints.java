@@ -176,6 +176,7 @@ public final class Endpoints {
     private @Nullable String locationservice;
     private @Nullable String logs;
     private @Nullable String lookoutmetrics;
+    private @Nullable String m2;
     private @Nullable String macie2;
     private @Nullable String managedgrafana;
     private @Nullable String mediaconnect;
@@ -218,6 +219,7 @@ public final class Endpoints {
     private @Nullable String redshiftdata;
     private @Nullable String redshiftdataapiservice;
     private @Nullable String redshiftserverless;
+    private @Nullable String rekognition;
     private @Nullable String resourceexplorer2;
     private @Nullable String resourcegroups;
     private @Nullable String resourcegroupstagging;
@@ -776,6 +778,9 @@ public final class Endpoints {
     public Optional<String> lookoutmetrics() {
         return Optional.ofNullable(this.lookoutmetrics);
     }
+    public Optional<String> m2() {
+        return Optional.ofNullable(this.m2);
+    }
     public Optional<String> macie2() {
         return Optional.ofNullable(this.macie2);
     }
@@ -901,6 +906,9 @@ public final class Endpoints {
     }
     public Optional<String> redshiftserverless() {
         return Optional.ofNullable(this.redshiftserverless);
+    }
+    public Optional<String> rekognition() {
+        return Optional.ofNullable(this.rekognition);
     }
     public Optional<String> resourceexplorer2() {
         return Optional.ofNullable(this.resourceexplorer2);
@@ -1260,6 +1268,7 @@ public final class Endpoints {
         private @Nullable String locationservice;
         private @Nullable String logs;
         private @Nullable String lookoutmetrics;
+        private @Nullable String m2;
         private @Nullable String macie2;
         private @Nullable String managedgrafana;
         private @Nullable String mediaconnect;
@@ -1302,6 +1311,7 @@ public final class Endpoints {
         private @Nullable String redshiftdata;
         private @Nullable String redshiftdataapiservice;
         private @Nullable String redshiftserverless;
+        private @Nullable String rekognition;
         private @Nullable String resourceexplorer2;
         private @Nullable String resourcegroups;
         private @Nullable String resourcegroupstagging;
@@ -1531,6 +1541,7 @@ public final class Endpoints {
     	      this.locationservice = defaults.locationservice;
     	      this.logs = defaults.logs;
     	      this.lookoutmetrics = defaults.lookoutmetrics;
+    	      this.m2 = defaults.m2;
     	      this.macie2 = defaults.macie2;
     	      this.managedgrafana = defaults.managedgrafana;
     	      this.mediaconnect = defaults.mediaconnect;
@@ -1573,6 +1584,7 @@ public final class Endpoints {
     	      this.redshiftdata = defaults.redshiftdata;
     	      this.redshiftdataapiservice = defaults.redshiftdataapiservice;
     	      this.redshiftserverless = defaults.redshiftserverless;
+    	      this.rekognition = defaults.rekognition;
     	      this.resourceexplorer2 = defaults.resourceexplorer2;
     	      this.resourcegroups = defaults.resourcegroups;
     	      this.resourcegroupstagging = defaults.resourcegroupstagging;
@@ -2627,6 +2639,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder m2(@Nullable String m2) {
+
+            this.m2 = m2;
+            return this;
+        }
+        @CustomType.Setter
         public Builder macie2(@Nullable String macie2) {
 
             this.macie2 = macie2;
@@ -2876,6 +2894,12 @@ public final class Endpoints {
         public Builder redshiftserverless(@Nullable String redshiftserverless) {
 
             this.redshiftserverless = redshiftserverless;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder rekognition(@Nullable String rekognition) {
+
+            this.rekognition = rekognition;
             return this;
         }
         @CustomType.Setter
@@ -3411,6 +3435,7 @@ public final class Endpoints {
             _resultValue.locationservice = locationservice;
             _resultValue.logs = logs;
             _resultValue.lookoutmetrics = lookoutmetrics;
+            _resultValue.m2 = m2;
             _resultValue.macie2 = macie2;
             _resultValue.managedgrafana = managedgrafana;
             _resultValue.mediaconnect = mediaconnect;
@@ -3453,6 +3478,7 @@ public final class Endpoints {
             _resultValue.redshiftdata = redshiftdata;
             _resultValue.redshiftdataapiservice = redshiftdataapiservice;
             _resultValue.redshiftserverless = redshiftserverless;
+            _resultValue.rekognition = rekognition;
             _resultValue.resourceexplorer2 = resourceexplorer2;
             _resultValue.resourcegroups = resourcegroups;
             _resultValue.resourcegroupstagging = resourcegroupstagging;

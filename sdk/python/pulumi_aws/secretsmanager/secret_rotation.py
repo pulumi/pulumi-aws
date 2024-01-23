@@ -18,15 +18,19 @@ class SecretRotationArgs:
     def __init__(__self__, *,
                  rotation_rules: pulumi.Input['SecretRotationRotationRulesArgs'],
                  secret_id: pulumi.Input[str],
+                 rotate_immediately: Optional[pulumi.Input[bool]] = None,
                  rotation_lambda_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecretRotation resource.
         :param pulumi.Input['SecretRotationRotationRulesArgs'] rotation_rules: A structure that defines the rotation configuration for this secret. Defined below.
         :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        :param pulumi.Input[bool] rotate_immediately: Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `false`.
         :param pulumi.Input[str] rotation_lambda_arn: Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         """
         pulumi.set(__self__, "rotation_rules", rotation_rules)
         pulumi.set(__self__, "secret_id", secret_id)
+        if rotate_immediately is not None:
+            pulumi.set(__self__, "rotate_immediately", rotate_immediately)
         if rotation_lambda_arn is not None:
             pulumi.set(__self__, "rotation_lambda_arn", rotation_lambda_arn)
 
@@ -55,6 +59,18 @@ class SecretRotationArgs:
         pulumi.set(self, "secret_id", value)
 
     @property
+    @pulumi.getter(name="rotateImmediately")
+    def rotate_immediately(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `false`.
+        """
+        return pulumi.get(self, "rotate_immediately")
+
+    @rotate_immediately.setter
+    def rotate_immediately(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rotate_immediately", value)
+
+    @property
     @pulumi.getter(name="rotationLambdaArn")
     def rotation_lambda_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -70,17 +86,21 @@ class SecretRotationArgs:
 @pulumi.input_type
 class _SecretRotationState:
     def __init__(__self__, *,
+                 rotate_immediately: Optional[pulumi.Input[bool]] = None,
                  rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
                  rotation_rules: Optional[pulumi.Input['SecretRotationRotationRulesArgs']] = None,
                  secret_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SecretRotation resources.
+        :param pulumi.Input[bool] rotate_immediately: Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `false`.
         :param pulumi.Input[bool] rotation_enabled: Specifies whether automatic rotation is enabled for this secret.
         :param pulumi.Input[str] rotation_lambda_arn: Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         :param pulumi.Input['SecretRotationRotationRulesArgs'] rotation_rules: A structure that defines the rotation configuration for this secret. Defined below.
         :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         """
+        if rotate_immediately is not None:
+            pulumi.set(__self__, "rotate_immediately", rotate_immediately)
         if rotation_enabled is not None:
             pulumi.set(__self__, "rotation_enabled", rotation_enabled)
         if rotation_lambda_arn is not None:
@@ -89,6 +109,18 @@ class _SecretRotationState:
             pulumi.set(__self__, "rotation_rules", rotation_rules)
         if secret_id is not None:
             pulumi.set(__self__, "secret_id", secret_id)
+
+    @property
+    @pulumi.getter(name="rotateImmediately")
+    def rotate_immediately(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `false`.
+        """
+        return pulumi.get(self, "rotate_immediately")
+
+    @rotate_immediately.setter
+    def rotate_immediately(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rotate_immediately", value)
 
     @property
     @pulumi.getter(name="rotationEnabled")
@@ -144,6 +176,7 @@ class SecretRotation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 rotate_immediately: Optional[pulumi.Input[bool]] = None,
                  rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
                  rotation_rules: Optional[pulumi.Input[pulumi.InputType['SecretRotationRotationRulesArgs']]] = None,
                  secret_id: Optional[pulumi.Input[str]] = None,
@@ -183,6 +216,7 @@ class SecretRotation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] rotate_immediately: Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `false`.
         :param pulumi.Input[str] rotation_lambda_arn: Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         :param pulumi.Input[pulumi.InputType['SecretRotationRotationRulesArgs']] rotation_rules: A structure that defines the rotation configuration for this secret. Defined below.
         :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
@@ -241,6 +275,7 @@ class SecretRotation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 rotate_immediately: Optional[pulumi.Input[bool]] = None,
                  rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
                  rotation_rules: Optional[pulumi.Input[pulumi.InputType['SecretRotationRotationRulesArgs']]] = None,
                  secret_id: Optional[pulumi.Input[str]] = None,
@@ -253,6 +288,7 @@ class SecretRotation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecretRotationArgs.__new__(SecretRotationArgs)
 
+            __props__.__dict__["rotate_immediately"] = rotate_immediately
             __props__.__dict__["rotation_lambda_arn"] = rotation_lambda_arn
             if rotation_rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rotation_rules'")
@@ -271,6 +307,7 @@ class SecretRotation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            rotate_immediately: Optional[pulumi.Input[bool]] = None,
             rotation_enabled: Optional[pulumi.Input[bool]] = None,
             rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
             rotation_rules: Optional[pulumi.Input[pulumi.InputType['SecretRotationRotationRulesArgs']]] = None,
@@ -282,6 +319,7 @@ class SecretRotation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] rotate_immediately: Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `false`.
         :param pulumi.Input[bool] rotation_enabled: Specifies whether automatic rotation is enabled for this secret.
         :param pulumi.Input[str] rotation_lambda_arn: Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         :param pulumi.Input[pulumi.InputType['SecretRotationRotationRulesArgs']] rotation_rules: A structure that defines the rotation configuration for this secret. Defined below.
@@ -291,11 +329,20 @@ class SecretRotation(pulumi.CustomResource):
 
         __props__ = _SecretRotationState.__new__(_SecretRotationState)
 
+        __props__.__dict__["rotate_immediately"] = rotate_immediately
         __props__.__dict__["rotation_enabled"] = rotation_enabled
         __props__.__dict__["rotation_lambda_arn"] = rotation_lambda_arn
         __props__.__dict__["rotation_rules"] = rotation_rules
         __props__.__dict__["secret_id"] = secret_id
         return SecretRotation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="rotateImmediately")
+    def rotate_immediately(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `false`.
+        """
+        return pulumi.get(self, "rotate_immediately")
 
     @property
     @pulumi.getter(name="rotationEnabled")

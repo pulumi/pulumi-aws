@@ -110,14 +110,14 @@ public final class OptionGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of options to apply.
+     * The options to apply. See `option` Block below for more details.
      * 
      */
     @Import(name="options")
     private @Nullable Output<List<OptionGroupOptionArgs>> options;
 
     /**
-     * @return List of options to apply.
+     * @return The options to apply. See `option` Block below for more details.
      * 
      */
     public Optional<Output<List<OptionGroupOptionArgs>>> options() {
@@ -321,7 +321,7 @@ public final class OptionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param options List of options to apply.
+         * @param options The options to apply. See `option` Block below for more details.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class OptionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param options List of options to apply.
+         * @param options The options to apply. See `option` Block below for more details.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class OptionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param options List of options to apply.
+         * @param options The options to apply. See `option` Block below for more details.
          * 
          * @return builder
          * 

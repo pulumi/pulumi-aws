@@ -39,6 +39,7 @@ class ElasticClusterArgs:
                The following arguments are optional:
         :param pulumi.Input[str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         :param pulumi.Input[str] name: Name of the Elastic DocumentDB cluster
+        :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
@@ -152,6 +153,9 @@ class ElasticClusterArgs:
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -231,6 +235,7 @@ class _ElasticClusterState:
         :param pulumi.Input[str] endpoint: The DNS address of the DocDB instance
         :param pulumi.Input[str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         :param pulumi.Input[str] name: Name of the Elastic DocumentDB cluster
+        :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
         :param pulumi.Input[int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         :param pulumi.Input[int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
                
@@ -360,6 +365,9 @@ class _ElasticClusterState:
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
@@ -472,6 +480,19 @@ class ElasticCluster(pulumi.CustomResource):
         Manages an AWS DocDB (DocumentDB) Elastic Cluster.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.docdb.ElasticCluster("example",
+            admin_user_name="foo",
+            admin_user_password="mustbeeightchars",
+            auth_type="PLAIN_TEXT",
+            shard_capacity=2,
+            shard_count=1)
+        ```
 
         ## Import
 
@@ -488,6 +509,7 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[str] auth_type: Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
         :param pulumi.Input[str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         :param pulumi.Input[str] name: Name of the Elastic DocumentDB cluster
+        :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
         :param pulumi.Input[int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         :param pulumi.Input[int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
                
@@ -506,6 +528,19 @@ class ElasticCluster(pulumi.CustomResource):
         Manages an AWS DocDB (DocumentDB) Elastic Cluster.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.docdb.ElasticCluster("example",
+            admin_user_name="foo",
+            admin_user_password="mustbeeightchars",
+            auth_type="PLAIN_TEXT",
+            shard_capacity=2,
+            shard_count=1)
+        ```
 
         ## Import
 
@@ -617,6 +652,7 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: The DNS address of the DocDB instance
         :param pulumi.Input[str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         :param pulumi.Input[str] name: Name of the Elastic DocumentDB cluster
+        :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
         :param pulumi.Input[int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         :param pulumi.Input[int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
                
@@ -705,6 +741,9 @@ class ElasticCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[str]:
+        """
+        Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @property

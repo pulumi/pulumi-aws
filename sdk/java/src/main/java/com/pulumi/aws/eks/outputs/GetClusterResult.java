@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.eks.outputs;
 
+import com.pulumi.aws.eks.outputs.GetClusterAccessConfig;
 import com.pulumi.aws.eks.outputs.GetClusterCertificateAuthority;
 import com.pulumi.aws.eks.outputs.GetClusterIdentity;
 import com.pulumi.aws.eks.outputs.GetClusterKubernetesNetworkConfig;
@@ -17,6 +18,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterResult {
+    /**
+     * @return Configuration block for access config.
+     * 
+     */
+    private List<GetClusterAccessConfig> accessConfigs;
     /**
      * @return ARN of the cluster.
      * 
@@ -100,6 +106,13 @@ public final class GetClusterResult {
     private GetClusterVpcConfig vpcConfig;
 
     private GetClusterResult() {}
+    /**
+     * @return Configuration block for access config.
+     * 
+     */
+    public List<GetClusterAccessConfig> accessConfigs() {
+        return this.accessConfigs;
+    }
     /**
      * @return ARN of the cluster.
      * 
@@ -225,6 +238,7 @@ public final class GetClusterResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetClusterAccessConfig> accessConfigs;
         private String arn;
         private List<GetClusterCertificateAuthority> certificateAuthorities;
         private String clusterId;
@@ -245,6 +259,7 @@ public final class GetClusterResult {
         public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accessConfigs = defaults.accessConfigs;
     	      this.arn = defaults.arn;
     	      this.certificateAuthorities = defaults.certificateAuthorities;
     	      this.clusterId = defaults.clusterId;
@@ -264,6 +279,17 @@ public final class GetClusterResult {
     	      this.vpcConfig = defaults.vpcConfig;
         }
 
+        @CustomType.Setter
+        public Builder accessConfigs(List<GetClusterAccessConfig> accessConfigs) {
+            if (accessConfigs == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "accessConfigs");
+            }
+            this.accessConfigs = accessConfigs;
+            return this;
+        }
+        public Builder accessConfigs(GetClusterAccessConfig... accessConfigs) {
+            return accessConfigs(List.of(accessConfigs));
+        }
         @CustomType.Setter
         public Builder arn(String arn) {
             if (arn == null) {
@@ -417,6 +443,7 @@ public final class GetClusterResult {
         }
         public GetClusterResult build() {
             final var _resultValue = new GetClusterResult();
+            _resultValue.accessConfigs = accessConfigs;
             _resultValue.arn = arn;
             _resultValue.certificateAuthorities = certificateAuthorities;
             _resultValue.clusterId = clusterId;

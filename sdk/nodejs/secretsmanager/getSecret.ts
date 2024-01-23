@@ -36,6 +36,7 @@ export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("aws:secretsmanager/getSecret:getSecret", {
         "arn": args.arn,
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -51,6 +52,10 @@ export interface GetSecretArgs {
      * Name of the secret to retrieve.
      */
     name?: string;
+    /**
+     * Tags of the secret.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -61,6 +66,10 @@ export interface GetSecretResult {
      * ARN of the secret.
      */
     readonly arn: string;
+    /**
+     * Created date of the secret in UTC.
+     */
+    readonly createdDate: string;
     /**
      * Description of the secret.
      */
@@ -73,6 +82,10 @@ export interface GetSecretResult {
      * Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
      */
     readonly kmsKeyId: string;
+    /**
+     * Last updated date of the secret in UTC.
+     */
+    readonly lastChangedDate: string;
     readonly name: string;
     /**
      * Resource-based policy document that's attached to the secret.
@@ -124,4 +137,8 @@ export interface GetSecretOutputArgs {
      * Name of the secret to retrieve.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Tags of the secret.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

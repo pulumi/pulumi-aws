@@ -122,21 +122,6 @@ public final class GetRandomPasswordPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * Random password.
-     * 
-     */
-    @Import(name="randomPassword")
-    private @Nullable String randomPassword;
-
-    /**
-     * @return Random password.
-     * 
-     */
-    public Optional<String> randomPassword() {
-        return Optional.ofNullable(this.randomPassword);
-    }
-
-    /**
      * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
      * 
      */
@@ -161,7 +146,6 @@ public final class GetRandomPasswordPlainArgs extends com.pulumi.resources.Invok
         this.excludeUppercase = $.excludeUppercase;
         this.includeSpace = $.includeSpace;
         this.passwordLength = $.passwordLength;
-        this.randomPassword = $.randomPassword;
         this.requireEachIncludedType = $.requireEachIncludedType;
     }
 
@@ -257,17 +241,6 @@ public final class GetRandomPasswordPlainArgs extends com.pulumi.resources.Invok
          */
         public Builder passwordLength(@Nullable Integer passwordLength) {
             $.passwordLength = passwordLength;
-            return this;
-        }
-
-        /**
-         * @param randomPassword Random password.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder randomPassword(@Nullable String randomPassword) {
-            $.randomPassword = randomPassword;
             return this;
         }
 

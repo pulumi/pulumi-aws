@@ -6,6 +6,7 @@ package com.pulumi.aws.eks;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.eks.ClusterArgs;
 import com.pulumi.aws.eks.inputs.ClusterState;
+import com.pulumi.aws.eks.outputs.ClusterAccessConfig;
 import com.pulumi.aws.eks.outputs.ClusterCertificateAuthority;
 import com.pulumi.aws.eks.outputs.ClusterEncryptionConfig;
 import com.pulumi.aws.eks.outputs.ClusterIdentity;
@@ -215,6 +216,51 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### EKS Cluster with Access Config
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.eks.Cluster;
+ * import com.pulumi.aws.eks.ClusterArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterAccessConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(data.aws_iam_policy_document().example_assume_role_policy().json())
+ *             .build());
+ * 
+ *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
+ *             .roleArn(exampleRole.arn())
+ *             .vpcConfig(ClusterVpcConfigArgs.builder()
+ *                 .endpointPrivateAccess(true)
+ *                 .endpointPublicAccess(false)
+ *                 .build())
+ *             .accessConfig(ClusterAccessConfigArgs.builder()
+ *                 .authenticationMode(&#34;CONFIG_MAP&#34;)
+ *                 .bootstrapClusterCreatorAdminPermissions(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * After adding inline IAM Policies (e.g., `aws.iam.RolePolicy` resource) or attaching IAM Policies (e.g., `aws.iam.Policy` resource and `aws.iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
  * 
@@ -229,6 +275,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:eks/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
+    /**
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+     * 
+     */
+    @Export(name="accessConfig", refs={ClusterAccessConfig.class}, tree="[0]")
+    private Output<ClusterAccessConfig> accessConfig;
+
+    /**
+     * @return Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+     * 
+     */
+    public Output<ClusterAccessConfig> accessConfig() {
+        return this.accessConfig;
+    }
     /**
      * ARN of the cluster.
      * 

@@ -5,6 +5,7 @@ package com.pulumi.aws.backup.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -45,11 +46,27 @@ public final class PlanRuleCopyActionLifecycleArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.deleteAfter);
     }
 
+    /**
+     * This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+     * 
+     */
+    @Import(name="optInToArchiveForSupportedResources")
+    private @Nullable Output<Boolean> optInToArchiveForSupportedResources;
+
+    /**
+     * @return This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+     * 
+     */
+    public Optional<Output<Boolean>> optInToArchiveForSupportedResources() {
+        return Optional.ofNullable(this.optInToArchiveForSupportedResources);
+    }
+
     private PlanRuleCopyActionLifecycleArgs() {}
 
     private PlanRuleCopyActionLifecycleArgs(PlanRuleCopyActionLifecycleArgs $) {
         this.coldStorageAfter = $.coldStorageAfter;
         this.deleteAfter = $.deleteAfter;
+        this.optInToArchiveForSupportedResources = $.optInToArchiveForSupportedResources;
     }
 
     public static Builder builder() {
@@ -110,6 +127,27 @@ public final class PlanRuleCopyActionLifecycleArgs extends com.pulumi.resources.
          */
         public Builder deleteAfter(Integer deleteAfter) {
             return deleteAfter(Output.of(deleteAfter));
+        }
+
+        /**
+         * @param optInToArchiveForSupportedResources This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder optInToArchiveForSupportedResources(@Nullable Output<Boolean> optInToArchiveForSupportedResources) {
+            $.optInToArchiveForSupportedResources = optInToArchiveForSupportedResources;
+            return this;
+        }
+
+        /**
+         * @param optInToArchiveForSupportedResources This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder optInToArchiveForSupportedResources(Boolean optInToArchiveForSupportedResources) {
+            return optInToArchiveForSupportedResources(Output.of(optInToArchiveForSupportedResources));
         }
 
         public PlanRuleCopyActionLifecycleArgs build() {

@@ -118,7 +118,7 @@ export class OptionGroup extends pulumi.CustomResource {
      */
     public readonly optionGroupDescription!: pulumi.Output<string>;
     /**
-     * List of options to apply.
+     * The options to apply. See `option` Block below for more details.
      */
     public readonly options!: pulumi.Output<outputs.rds.OptionGroupOption[] | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface OptionGroupState {
      */
     optionGroupDescription?: pulumi.Input<string>;
     /**
-     * List of options to apply.
+     * The options to apply. See `option` Block below for more details.
      */
     options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
     /**
@@ -248,7 +248,7 @@ export interface OptionGroupArgs {
      */
     optionGroupDescription?: pulumi.Input<string>;
     /**
-     * List of options to apply.
+     * The options to apply. See `option` Block below for more details.
      */
     options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
     /**

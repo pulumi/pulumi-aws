@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> OptionGroupDescription { get; private set; } = null!;
 
         /// <summary>
-        /// List of options to apply.
+        /// The options to apply. See `option` Block below for more details.
         /// </summary>
         [Output("options")]
         public Output<ImmutableArray<Outputs.OptionGroupOption>> Options { get; private set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.OptionGroupOptionArgs>? _options;
 
         /// <summary>
-        /// List of options to apply.
+        /// The options to apply. See `option` Block below for more details.
         /// </summary>
         public InputList<Inputs.OptionGroupOptionArgs> Options
         {
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.OptionGroupOptionGetArgs>? _options;
 
         /// <summary>
-        /// List of options to apply.
+        /// The options to apply. See `option` Block below for more details.
         /// </summary>
         public InputList<Inputs.OptionGroupOptionGetArgs> Options
         {

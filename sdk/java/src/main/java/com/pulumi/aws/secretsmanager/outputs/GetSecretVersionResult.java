@@ -19,6 +19,11 @@ public final class GetSecretVersionResult {
      */
     private String arn;
     /**
+     * @return Created date of the secret in UTC.
+     * 
+     */
+    private String createdDate;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -49,6 +54,13 @@ public final class GetSecretVersionResult {
      */
     public String arn() {
         return this.arn;
+    }
+    /**
+     * @return Created date of the secret in UTC.
+     * 
+     */
+    public String createdDate() {
+        return this.createdDate;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -98,6 +110,7 @@ public final class GetSecretVersionResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private String createdDate;
         private String id;
         private String secretBinary;
         private String secretId;
@@ -109,6 +122,7 @@ public final class GetSecretVersionResult {
         public Builder(GetSecretVersionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.createdDate = defaults.createdDate;
     	      this.id = defaults.id;
     	      this.secretBinary = defaults.secretBinary;
     	      this.secretId = defaults.secretId;
@@ -124,6 +138,14 @@ public final class GetSecretVersionResult {
               throw new MissingRequiredPropertyException("GetSecretVersionResult", "arn");
             }
             this.arn = arn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder createdDate(String createdDate) {
+            if (createdDate == null) {
+              throw new MissingRequiredPropertyException("GetSecretVersionResult", "createdDate");
+            }
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
@@ -186,6 +208,7 @@ public final class GetSecretVersionResult {
         public GetSecretVersionResult build() {
             final var _resultValue = new GetSecretVersionResult();
             _resultValue.arn = arn;
+            _resultValue.createdDate = createdDate;
             _resultValue.id = id;
             _resultValue.secretBinary = secretBinary;
             _resultValue.secretId = secretId;

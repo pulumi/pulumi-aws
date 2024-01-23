@@ -146,14 +146,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.availabilityZone;
     }
     /**
-     * (Optional) The identifier of the CA certificate for the DB instance.
+     * The identifier of the certificate authority (CA) certificate for the DB instance.
      * 
      */
     @Export(name="caCertIdentifier", refs={String.class}, tree="[0]")
     private Output<String> caCertIdentifier;
 
     /**
-     * @return (Optional) The identifier of the CA certificate for the DB instance.
+     * @return The identifier of the certificate authority (CA) certificate for the DB instance.
      * 
      */
     public Output<String> caCertIdentifier() {

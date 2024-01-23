@@ -15,6 +15,35 @@ import (
 // Manages an AWS DocDB (DocumentDB) Elastic Cluster.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := docdb.NewElasticCluster(ctx, "example", &docdb.ElasticClusterArgs{
+//				AdminUserName:     pulumi.String("foo"),
+//				AdminUserPassword: pulumi.String("mustbeeightchars"),
+//				AuthType:          pulumi.String("PLAIN_TEXT"),
+//				ShardCapacity:     pulumi.Int(2),
+//				ShardCount:        pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -41,7 +70,8 @@ type ElasticCluster struct {
 	// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Name of the Elastic DocumentDB cluster
-	Name                       pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 	ShardCapacity pulumi.IntOutput `pulumi:"shardCapacity"`
@@ -126,7 +156,8 @@ type elasticClusterState struct {
 	// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the Elastic DocumentDB cluster
-	Name                       *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 	ShardCapacity *int `pulumi:"shardCapacity"`
@@ -159,7 +190,8 @@ type ElasticClusterState struct {
 	// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the Elastic DocumentDB cluster
-	Name                       pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 	ShardCapacity pulumi.IntPtrInput
@@ -192,7 +224,8 @@ type elasticClusterArgs struct {
 	// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the Elastic DocumentDB cluster
-	Name                       *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 	ShardCapacity int `pulumi:"shardCapacity"`
@@ -220,7 +253,8 @@ type ElasticClusterArgs struct {
 	// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the Elastic DocumentDB cluster
-	Name                       pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 	ShardCapacity pulumi.IntInput
@@ -359,6 +393,7 @@ func (o ElasticClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 func (o ElasticClusterOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticCluster) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
 }

@@ -507,6 +507,9 @@ namespace Pulumi.Aws.Inputs
         [Input("lookoutmetrics")]
         public Input<string>? Lookoutmetrics { get; set; }
 
+        [Input("m2")]
+        public Input<string>? M2 { get; set; }
+
         [Input("macie2")]
         public Input<string>? Macie2 { get; set; }
 
@@ -632,6 +635,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("redshiftserverless")]
         public Input<string>? Redshiftserverless { get; set; }
+
+        [Input("rekognition")]
+        public Input<string>? Rekognition { get; set; }
 
         [Input("resourceexplorer2")]
         public Input<string>? Resourceexplorer2 { get; set; }

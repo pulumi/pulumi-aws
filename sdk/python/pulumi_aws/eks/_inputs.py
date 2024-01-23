@@ -10,6 +10,8 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AccessPolicyAssociationAccessScopeArgs',
+    'ClusterAccessConfigArgs',
     'ClusterCertificateAuthorityArgs',
     'ClusterEncryptionConfigArgs',
     'ClusterEncryptionConfigProviderArgs',
@@ -29,6 +31,83 @@ __all__ = [
     'NodeGroupTaintArgs',
     'NodeGroupUpdateConfigArgs',
 ]
+
+@pulumi.input_type
+class AccessPolicyAssociationAccessScopeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] type: Valid values are `namespace` or `cluster`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] namespaces: The namespaces to which the access scope applies when type is namespace.
+        """
+        pulumi.set(__self__, "type", type)
+        if namespaces is not None:
+            pulumi.set(__self__, "namespaces", namespaces)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Valid values are `namespace` or `cluster`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The namespaces to which the access scope applies when type is namespace.
+        """
+        return pulumi.get(self, "namespaces")
+
+    @namespaces.setter
+    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "namespaces", value)
+
+
+@pulumi.input_type
+class ClusterAccessConfigArgs:
+    def __init__(__self__, *,
+                 authentication_mode: Optional[pulumi.Input[str]] = None,
+                 bootstrap_cluster_creator_admin_permissions: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] authentication_mode: The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+        :param pulumi.Input[bool] bootstrap_cluster_creator_admin_permissions: Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+        """
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
+        if bootstrap_cluster_creator_admin_permissions is not None:
+            pulumi.set(__self__, "bootstrap_cluster_creator_admin_permissions", bootstrap_cluster_creator_admin_permissions)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_mode", value)
+
+    @property
+    @pulumi.getter(name="bootstrapClusterCreatorAdminPermissions")
+    def bootstrap_cluster_creator_admin_permissions(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+        """
+        return pulumi.get(self, "bootstrap_cluster_creator_admin_permissions")
+
+    @bootstrap_cluster_creator_admin_permissions.setter
+    def bootstrap_cluster_creator_admin_permissions(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bootstrap_cluster_creator_admin_permissions", value)
+
 
 @pulumi.input_type
 class ClusterCertificateAuthorityArgs:

@@ -31,7 +31,6 @@ export function getRandomPassword(args?: GetRandomPasswordArgs, opts?: pulumi.In
         "excludeUppercase": args.excludeUppercase,
         "includeSpace": args.includeSpace,
         "passwordLength": args.passwordLength,
-        "randomPassword": args.randomPassword,
         "requireEachIncludedType": args.requireEachIncludedType,
     }, opts);
 }
@@ -68,10 +67,6 @@ export interface GetRandomPasswordArgs {
      * Length of the password.
      */
     passwordLength?: number;
-    /**
-     * Random password.
-     */
-    randomPassword?: string;
     /**
      * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
      */
@@ -150,10 +145,6 @@ export interface GetRandomPasswordOutputArgs {
      * Length of the password.
      */
     passwordLength?: pulumi.Input<number>;
-    /**
-     * Random password.
-     */
-    randomPassword?: pulumi.Input<string>;
     /**
      * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
      */

@@ -18,6 +18,7 @@ class ClusterArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  vpc_config: pulumi.Input['ClusterVpcConfigArgs'],
+                 access_config: Optional[pulumi.Input['ClusterAccessConfigArgs']] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
@@ -32,6 +33,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterVpcConfigArgs'] vpc_config: Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
                
                The following arguments are optional:
+        :param pulumi.Input['ClusterAccessConfigArgs'] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
@@ -42,6 +44,8 @@ class ClusterArgs:
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "vpc_config", vpc_config)
+        if access_config is not None:
+            pulumi.set(__self__, "access_config", access_config)
         if default_addons_to_removes is not None:
             pulumi.set(__self__, "default_addons_to_removes", default_addons_to_removes)
         if enabled_cluster_log_types is not None:
@@ -84,6 +88,18 @@ class ClusterArgs:
     @vpc_config.setter
     def vpc_config(self, value: pulumi.Input['ClusterVpcConfigArgs']):
         pulumi.set(self, "vpc_config", value)
+
+    @property
+    @pulumi.getter(name="accessConfig")
+    def access_config(self) -> Optional[pulumi.Input['ClusterAccessConfigArgs']]:
+        """
+        Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+        """
+        return pulumi.get(self, "access_config")
+
+    @access_config.setter
+    def access_config(self, value: Optional[pulumi.Input['ClusterAccessConfigArgs']]):
+        pulumi.set(self, "access_config", value)
 
     @property
     @pulumi.getter(name="defaultAddonsToRemoves")
@@ -182,6 +198,7 @@ class ClusterArgs:
 @pulumi.input_type
 class _ClusterState:
     def __init__(__self__, *,
+                 access_config: Optional[pulumi.Input['ClusterAccessConfigArgs']] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]] = None,
                  certificate_authority: Optional[pulumi.Input['ClusterCertificateAuthorityArgs']] = None,
@@ -204,6 +221,7 @@ class _ClusterState:
                  vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+        :param pulumi.Input['ClusterAccessConfigArgs'] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[str] arn: ARN of the cluster.
         :param pulumi.Input['ClusterCertificateAuthorityArgs'] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         :param pulumi.Input[str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
@@ -226,6 +244,8 @@ class _ClusterState:
                
                The following arguments are optional:
         """
+        if access_config is not None:
+            pulumi.set(__self__, "access_config", access_config)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if certificate_authorities is not None:
@@ -269,6 +289,18 @@ class _ClusterState:
             pulumi.set(__self__, "version", version)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @property
+    @pulumi.getter(name="accessConfig")
+    def access_config(self) -> Optional[pulumi.Input['ClusterAccessConfigArgs']]:
+        """
+        Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+        """
+        return pulumi.get(self, "access_config")
+
+    @access_config.setter
+    def access_config(self, value: Optional[pulumi.Input['ClusterAccessConfigArgs']]):
+        pulumi.set(self, "access_config", value)
 
     @property
     @pulumi.getter
@@ -516,6 +548,7 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_config: Optional[pulumi.Input[pulumi.InputType['ClusterAccessConfigArgs']]] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption_config: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]] = None,
@@ -619,6 +652,24 @@ class Cluster(pulumi.CustomResource):
                 outpost_arns=[data["aws_outposts_outpost"]["example"]["arn"]],
             ))
         ```
+        ### EKS Cluster with Access Config
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=data["aws_iam_policy_document"]["example_assume_role_policy"]["json"])
+        example_cluster = aws.eks.Cluster("exampleCluster",
+            role_arn=example_role.arn,
+            vpc_config=aws.eks.ClusterVpcConfigArgs(
+                endpoint_private_access=True,
+                endpoint_public_access=False,
+            ),
+            access_config=aws.eks.ClusterAccessConfigArgs(
+                authentication_mode="CONFIG_MAP",
+                bootstrap_cluster_creator_admin_permissions=True,
+            ))
+        ```
 
         After adding inline IAM Policies (e.g., `iam.RolePolicy` resource) or attaching IAM Policies (e.g., `iam.Policy` resource and `iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
 
@@ -632,6 +683,7 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ClusterAccessConfigArgs']] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
         :param pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
@@ -742,6 +794,24 @@ class Cluster(pulumi.CustomResource):
                 outpost_arns=[data["aws_outposts_outpost"]["example"]["arn"]],
             ))
         ```
+        ### EKS Cluster with Access Config
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=data["aws_iam_policy_document"]["example_assume_role_policy"]["json"])
+        example_cluster = aws.eks.Cluster("exampleCluster",
+            role_arn=example_role.arn,
+            vpc_config=aws.eks.ClusterVpcConfigArgs(
+                endpoint_private_access=True,
+                endpoint_public_access=False,
+            ),
+            access_config=aws.eks.ClusterAccessConfigArgs(
+                authentication_mode="CONFIG_MAP",
+                bootstrap_cluster_creator_admin_permissions=True,
+            ))
+        ```
 
         After adding inline IAM Policies (e.g., `iam.RolePolicy` resource) or attaching IAM Policies (e.g., `iam.Policy` resource and `iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
 
@@ -768,6 +838,7 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_config: Optional[pulumi.Input[pulumi.InputType['ClusterAccessConfigArgs']]] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption_config: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]] = None,
@@ -787,6 +858,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
+            __props__.__dict__["access_config"] = access_config
             __props__.__dict__["default_addons_to_removes"] = default_addons_to_removes
             __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
             __props__.__dict__["encryption_config"] = encryption_config
@@ -823,6 +895,7 @@ class Cluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            access_config: Optional[pulumi.Input[pulumi.InputType['ClusterAccessConfigArgs']]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCertificateAuthorityArgs']]]]] = None,
             certificate_authority: Optional[pulumi.Input[pulumi.InputType['ClusterCertificateAuthorityArgs']]] = None,
@@ -850,6 +923,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ClusterAccessConfigArgs']] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[str] arn: ARN of the cluster.
         :param pulumi.Input[pulumi.InputType['ClusterCertificateAuthorityArgs']] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         :param pulumi.Input[str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
@@ -876,6 +950,7 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = _ClusterState.__new__(_ClusterState)
 
+        __props__.__dict__["access_config"] = access_config
         __props__.__dict__["arn"] = arn
         __props__.__dict__["certificate_authorities"] = certificate_authorities
         __props__.__dict__["certificate_authority"] = certificate_authority
@@ -897,6 +972,14 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         __props__.__dict__["vpc_config"] = vpc_config
         return Cluster(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accessConfig")
+    def access_config(self) -> pulumi.Output['outputs.ClusterAccessConfig']:
+        """
+        Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+        """
+        return pulumi.get(self, "access_config")
 
     @property
     @pulumi.getter

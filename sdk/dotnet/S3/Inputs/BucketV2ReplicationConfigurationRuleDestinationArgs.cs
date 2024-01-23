@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs>? _accessControlTranslations;
 
         /// <summary>
-        /// Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+        /// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
         /// </summary>
         public InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs> AccessControlTranslations
         {

@@ -60,7 +60,7 @@ class ClusterInstanceArgs:
                are applied immediately, or during the next maintenance window. Default is`false`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-        :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
+        :param pulumi.Input[str] ca_cert_identifier: The identifier of the certificate authority (CA) certificate for the DB instance.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all DB instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
@@ -189,7 +189,7 @@ class ClusterInstanceArgs:
     @pulumi.getter(name="caCertIdentifier")
     def ca_cert_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) The identifier of the CA certificate for the DB instance.
+        The identifier of the certificate authority (CA) certificate for the DB instance.
         """
         return pulumi.get(self, "ca_cert_identifier")
 
@@ -344,7 +344,7 @@ class _ClusterInstanceState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of cluster instance
         :param pulumi.Input[bool] auto_minor_version_upgrade: This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-        :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
+        :param pulumi.Input[str] ca_cert_identifier: The identifier of the certificate authority (CA) certificate for the DB instance.
         :param pulumi.Input[str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all DB instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] db_subnet_group_name: The DB subnet group to associate with this DB instance.
@@ -502,7 +502,7 @@ class _ClusterInstanceState:
     @pulumi.getter(name="caCertIdentifier")
     def ca_cert_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) The identifier of the CA certificate for the DB instance.
+        The identifier of the certificate authority (CA) certificate for the DB instance.
         """
         return pulumi.get(self, "ca_cert_identifier")
 
@@ -867,7 +867,7 @@ class ClusterInstance(pulumi.CustomResource):
                are applied immediately, or during the next maintenance window. Default is`false`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-        :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
+        :param pulumi.Input[str] ca_cert_identifier: The identifier of the certificate authority (CA) certificate for the DB instance.
         :param pulumi.Input[str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all DB instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
@@ -1072,7 +1072,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of cluster instance
         :param pulumi.Input[bool] auto_minor_version_upgrade: This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-        :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
+        :param pulumi.Input[str] ca_cert_identifier: The identifier of the certificate authority (CA) certificate for the DB instance.
         :param pulumi.Input[str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all DB instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] db_subnet_group_name: The DB subnet group to associate with this DB instance.
@@ -1189,7 +1189,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter(name="caCertIdentifier")
     def ca_cert_identifier(self) -> pulumi.Output[str]:
         """
-        (Optional) The identifier of the CA certificate for the DB instance.
+        The identifier of the certificate authority (CA) certificate for the DB instance.
         """
         return pulumi.get(self, "ca_cert_identifier")
 

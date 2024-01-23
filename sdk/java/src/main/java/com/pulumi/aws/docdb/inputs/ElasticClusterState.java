@@ -124,9 +124,17 @@ public final class ElasticClusterState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+     * 
+     */
     @Import(name="preferredMaintenanceWindow")
     private @Nullable Output<String> preferredMaintenanceWindow;
 
+    /**
+     * @return Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+     * 
+     */
     public Optional<Output<String>> preferredMaintenanceWindow() {
         return Optional.ofNullable(this.preferredMaintenanceWindow);
     }
@@ -421,11 +429,23 @@ public final class ElasticClusterState extends com.pulumi.resources.ResourceArgs
             return name(Output.of(name));
         }
 
+        /**
+         * @param preferredMaintenanceWindow Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredMaintenanceWindow(@Nullable Output<String> preferredMaintenanceWindow) {
             $.preferredMaintenanceWindow = preferredMaintenanceWindow;
             return this;
         }
 
+        /**
+         * @param preferredMaintenanceWindow Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+         * 
+         * @return builder
+         * 
+         */
         public Builder preferredMaintenanceWindow(String preferredMaintenanceWindow) {
             return preferredMaintenanceWindow(Output.of(preferredMaintenanceWindow));
         }

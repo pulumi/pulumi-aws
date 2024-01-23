@@ -6,6 +6,7 @@ package com.pulumi.aws.lakeformation;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,14 +18,18 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
     public static final ResourceArgs Empty = new ResourceArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the resource, an S3 path.
+     * Amazon Resource Name (ARN) of the resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the resource, an S3 path.
+     * @return Amazon Resource Name (ARN) of the resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> arn() {
@@ -32,22 +37,37 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
-     * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * Role that has read/write access to the resource.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
-     * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * @return Role that has read/write access to the resource.
      * 
      */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
+    }
+
+    /**
+     * Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
+    @Import(name="useServiceLinkedRole")
+    private @Nullable Output<Boolean> useServiceLinkedRole;
+
+    /**
+     * @return Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
+    public Optional<Output<Boolean>> useServiceLinkedRole() {
+        return Optional.ofNullable(this.useServiceLinkedRole);
     }
 
     private ResourceArgs() {}
@@ -55,6 +75,7 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
     private ResourceArgs(ResourceArgs $) {
         this.arn = $.arn;
         this.roleArn = $.roleArn;
+        this.useServiceLinkedRole = $.useServiceLinkedRole;
     }
 
     public static Builder builder() {
@@ -76,7 +97,9 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the resource, an S3 path.
+         * @param arn Amazon Resource Name (ARN) of the resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -87,7 +110,9 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the resource, an S3 path.
+         * @param arn Amazon Resource Name (ARN) of the resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -97,9 +122,7 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
-         * 
-         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+         * @param roleArn Role that has read/write access to the resource.
          * 
          * @return builder
          * 
@@ -110,15 +133,38 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
-         * 
-         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+         * @param roleArn Role that has read/write access to the resource.
          * 
          * @return builder
          * 
          */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
+        }
+
+        /**
+         * @param useServiceLinkedRole Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+         * 
+         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useServiceLinkedRole(@Nullable Output<Boolean> useServiceLinkedRole) {
+            $.useServiceLinkedRole = useServiceLinkedRole;
+            return this;
+        }
+
+        /**
+         * @param useServiceLinkedRole Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+         * 
+         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useServiceLinkedRole(Boolean useServiceLinkedRole) {
+            return useServiceLinkedRole(Output.of(useServiceLinkedRole));
         }
 
         public ResourceArgs build() {

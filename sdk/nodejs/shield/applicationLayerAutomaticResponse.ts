@@ -20,9 +20,11 @@ import * as utilities from "../utilities";
  * const currentRegion = aws.getRegion({});
  * const currentCallerIdentity = aws.getCallerIdentity({});
  * const currentPartition = aws.getPartition({});
+ * const config = new pulumi.Config();
+ * const distributionId = config.requireObject("distributionId");
  * const example = new aws.shield.ApplicationLayerAutomaticResponse("example", {
  *     action: "COUNT",
- *     resourceArn: Promise.all([currentPartition, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity]) => `arn:${currentPartition.partition}:cloudfront:${currentCallerIdentity.accountId}:distribution/${_var.distribution_id}`),
+ *     resourceArn: Promise.all([currentPartition, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity]) => `arn:${currentPartition.partition}:cloudfront:${currentCallerIdentity.accountId}:distribution/${distributionId}`),
  * });
  * ```
  */
