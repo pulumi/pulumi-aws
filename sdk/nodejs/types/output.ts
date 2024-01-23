@@ -35128,7 +35128,7 @@ export namespace iot {
         /**
          * The ARN of the role.
          */
-        roleArn?: boolean;
+        roleArn?: string;
         /**
          * The template body.
          */
