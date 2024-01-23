@@ -31,7 +31,6 @@ team: ecosystem
 goBuildParallelism: 2
 runner:
   publish: pulumi-ubuntu-8core
-  buildSdk: pulumi-ubuntu-8core
 actions:
   preTest:
     - name: Configure AWS Credentials
