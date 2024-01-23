@@ -110,8 +110,8 @@ lint_provider: provider
 lint_provider.fix:
 	cd provider && golangci-lint run -c ../.golangci.yml --fix
 
-# `make provider_no_deps` builds the provider binary directly, without ensuring that 
-# `cmd/pulumi-resource-aws/schema.json` is valid and up to date. 
+# `make provider_no_deps` builds the provider binary directly, without ensuring that
+# `cmd/pulumi-resource-aws/schema.json` is valid and up to date.
 # To create a release ready binary, you should use `make provider`.
 provider_no_deps:
 	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(PROVIDER) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION) -X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(PROVIDER))
@@ -168,7 +168,7 @@ ci-mgmt: .ci-mgmt.yaml
 	curl -fsSL https://get.pulumi.com | HOME=$(WORKING_DIR) sh -s -- --version $(shell cat .pulumi/version)
 
 # Compute the version of Pulumi to use by inspecting the Go dependencies of the provider.
-.pulumi/version:
+.pulumi/version: provider/go.mod
 	@mkdir -p .pulumi
 	@cd provider && go list -f "{{slice .Version 1}}" -m github.com/pulumi/pulumi/pkg/v3 | tee ../$@
 
