@@ -662,13 +662,18 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 	config.SharedConfigFiles = []string{configPath}
 
 	if _, _, diag := awsbase.GetAwsConfig(context.Background(), config); diag != nil && diag.HasError() {
+		formattedDiag := formatDiags(diag)
+		if strings.Contains(formattedDiag, "dial tcp: lookup sts..amazonaws.com: no such host") {
+			return fmt.Errorf("missing region information\n"+
+				"Make sure you have set your AWS region, e.g. `pulumi config set aws:region us-west-2`.\n"+
+				"Details: %s", formattedDiag)
+		}
 		return fmt.Errorf("unable to validate AWS credentials. \n"+
 			"Details: %s\n"+
-			"Make sure you have set your AWS region, e.g. `pulumi config set aws:region us-west-2`. \n\n"+
 			"NEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the "+
 			"correct and valid credentials are used.\nLearn more: "+
 			"https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials",
-			formatDiags(diag))
+			formattedDiag)
 	}
 
 	return nil
