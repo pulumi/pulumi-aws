@@ -16,6 +16,7 @@ package provider
 
 import (
 	"context"
+	"os"
 	"strings"
 	"testing"
 	"time"
@@ -115,6 +116,110 @@ func TestCheckConfigFastWithCustomEndpoints(t *testing.T) {
 	}]`)
 	cutoff := 5 * time.Second
 	require.Truef(t, time0.Add(cutoff).After(time.Now()), "CheckConfig with custom endpoints is taking more than %v", cutoff)
+}
+
+func TestMissingCredentialsErrorMessage(t *testing.T) {
+	replaySequence(t, `
+	[{
+		"method": "/pulumirpc.ResourceProvider/CheckConfig",
+		"request": {
+			"urn": "urn:pulumi:dev::aws_no_creds::pulumi:providers:aws::default_6_18_2",
+			"olds": {},
+			"news": {
+				"version": "6.18.2"
+			}
+		},
+		"response": {
+			"inputs": {
+				"skipCredentialsValidation": "false",
+				"skipMetadataApiCheck": "true",
+				"skipRegionValidation": "true",
+				"version": "6.18.2"
+			},
+			"failures": [
+				{
+					"reason": "No valid credential sources found.\nPlease see https://www.pulumi.com/registry/packages/aws/installation-configuration/for more information about providing credentials.\nNEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the correct and valid credentials are used.\nLearn more: https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials"
+				}
+			]
+		},
+		"metadata": {
+			"kind": "resource",
+			"mode": "client",
+			"name": "aws"
+		}
+	}]`)
+}
+
+func TestMissingRegionErrorMessage(t *testing.T) {
+	os.Setenv("AWS_ACCESS_KEY_ID", "VALID")
+	os.Setenv("AWS_SECRET_ACCESS_KEY", "VALID")
+
+	replaySequence(t, strings.ReplaceAll(`
+	[{
+		"method": "/pulumirpc.ResourceProvider/CheckConfig",
+		"request": {
+			"urn": "urn:pulumi:dev::aws_no_creds::pulumi:providers:aws::default_6_18_2",
+			"olds": {},
+			"news": {
+				"version": "6.18.2"
+			}
+		},
+		"response": {
+			"inputs": {
+				"skipCredentialsValidation": "false",
+				"skipMetadataApiCheck": "true",
+				"skipRegionValidation": "true",
+				"version": "6.18.2"
+			},
+			"failures": [
+				{
+					"reason": "missing region information\nMake sure you have set your AWS region, e.g. '''pulumi config set aws:region us-west-2'''.\n"
+				}
+			]
+		},
+		"metadata": {
+			"kind": "resource",
+			"mode": "client",
+			"name": "aws"
+		}
+	}]`, "'''", "`"))
+}
+
+func TestInvalidCredentialsErrorMessage(t *testing.T) {
+	os.Setenv("AWS_ACCESS_KEY_ID", "INVALID")
+	os.Setenv("AWS_SECRET_ACCESS_KEY", "INVALID")
+	os.Setenv("AWS_REGION", "us-west-2")
+
+	replaySequence(t, `
+	[{
+		"method": "/pulumirpc.ResourceProvider/CheckConfig",
+		"request": {
+			"urn": "urn:pulumi:dev::aws_no_creds::pulumi:providers:aws::default_6_18_2",
+			"olds": {},
+			"news": {
+				"version": "6.18.2"
+			}
+		},
+		"response": {
+			"inputs": {
+				"region": "us-west-2",
+				"skipCredentialsValidation": "false",
+				"skipMetadataApiCheck": "true",
+				"skipRegionValidation": "true",
+				"version": "6.18.2"
+			},
+			"failures": [
+				{
+					"reason": "Invalid credentials configured.\nPlease see https://www.pulumi.com/docs/intro/cloud-providers/aws/setup/ for more information about providing credentials.\nNEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the correct and valid credentials are used.\nLearn more: https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials"
+				}
+			]
+		},
+		"metadata": {
+			"kind": "resource",
+			"mode": "client",
+			"name": "aws"
+		}
+	}]`)
 }
 
 func replaySequence(t *testing.T, sequence string) {

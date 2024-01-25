@@ -664,16 +664,50 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 	if _, _, diag := awsbase.GetAwsConfig(context.Background(), config); diag != nil && diag.HasError() {
 		formattedDiag := formatDiags(diag)
 		if strings.Contains(formattedDiag, "dial tcp: lookup sts..amazonaws.com: no such host") {
-			return fmt.Errorf("missing region information\n"+
-				"Make sure you have set your AWS region, e.g. `pulumi config set aws:region us-west-2`.\n"+
-				"Details: %s", formattedDiag)
+			return tfbridge.CheckFailureError{
+				Failures: []tfbridge.CheckFailureErrorElement{
+					{
+						Reason: fmt.Sprintf("missing region information\n" +
+							"Make sure you have set your AWS region, e.g. `pulumi config set aws:region us-west-2`.\n"),
+						Property: "",
+					},
+				},
+			}
 		}
+		if strings.Contains(formattedDiag, "no EC2 IMDS role found") {
+			return tfbridge.CheckFailureError{
+				Failures: []tfbridge.CheckFailureErrorElement{
+					{
+						Reason: fmt.Sprintf("No valid credential sources found.\n" +
+							"Please see https://www.pulumi.com/registry/packages/aws/installation-configuration/" +
+							"for more information about providing credentials.\n" +
+							"NEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the " +
+							"correct and valid credentials are used.\nLearn more: " +
+							"https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials",
+						),
+						Property: "",
+					},
+				},
+			}
+		}
+		if strings.Contains(formattedDiag, "The security token included in the request is invalid") {
+			return tfbridge.CheckFailureError{
+				Failures: []tfbridge.CheckFailureErrorElement{
+					{
+						Reason: fmt.Sprintf("Invalid credentials configured.\n" +
+							"Please see https://www.pulumi.com/docs/intro/cloud-providers/aws/setup/ for more information about providing credentials.\n" +
+							"NEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the " +
+							"correct and valid credentials are used.\nLearn more: " +
+							"https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials",
+						),
+						Property: "",
+					},
+				},
+			}
+		}
+
 		return fmt.Errorf("unable to validate AWS credentials. \n"+
-			"Details: %s\n"+
-			"NEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the "+
-			"correct and valid credentials are used.\nLearn more: "+
-			"https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials",
-			formattedDiag)
+			"Details: %s\n", formattedDiag)
 	}
 
 	return nil
