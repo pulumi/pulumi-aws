@@ -571,6 +571,9 @@ var invalidCredentialsError string
 //go:embed errors/no_region.txt
 var noRegionError string
 
+//go:embed errors/expired_sso.txt
+var expiredSSOError string
+
 func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error {
 	config := &awsbase.Config{
 		AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
@@ -702,9 +705,25 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 				},
 			}
 		}
+		if strings.Contains(formattedDiag, "failed to refresh cached credentials") {
+			return tfbridge.CheckFailureError{
+				Failures: []tfbridge.CheckFailureErrorElement{
+					{
+						Reason:   expiredSSOError,
+						Property: "",
+					},
+				},
+			}
+		}
 
-		return fmt.Errorf("unable to validate AWS credentials. \n"+
-			"Details: %s\n", formattedDiag)
+		return tfbridge.CheckFailureError{
+			Failures: []tfbridge.CheckFailureErrorElement{
+				{
+					Reason:   fmt.Sprintf("unable to validate AWS credentials.\nDetails: %s\n", formattedDiag),
+					Property: "",
+				},
+			},
+		}
 	}
 
 	return nil

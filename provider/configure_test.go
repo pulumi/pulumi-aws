@@ -230,6 +230,44 @@ func TestInvalidCredentialsErrorMessage(t *testing.T) {
 	}]`)
 }
 
+func TestOtherFailureErrorMessage(t *testing.T) {
+	os.Setenv("AWS_ACCESS_KEY_ID", "INVALID")
+	os.Setenv("AWS_SECRET_ACCESS_KEY", "INVALID")
+	os.Setenv("AWS_REGION", "us-west-2")
+	os.Setenv("AWS_PROFILE", "non-existent-profile")
+
+	replaySequence(t, `
+	[{
+		"method": "/pulumirpc.ResourceProvider/CheckConfig",
+		"request": {
+			"urn": "urn:pulumi:dev::aws_no_creds::pulumi:providers:aws::default_6_18_2",
+			"olds": {},
+			"news": {
+				"version": "6.18.2"
+			}
+		},
+		"response": {
+			"inputs": {
+				"region": "us-west-2",
+				"skipCredentialsValidation": "false",
+				"skipMetadataApiCheck": "true",
+				"skipRegionValidation": "true",
+				"version": "6.18.2"
+			},
+			"failures": [
+				{
+					"reason": "unable to validate AWS credentials.\nDetails: loading configuration: failed to get shared config profile, non-existent-profile\n"
+				}
+			]
+		},
+		"metadata": {
+			"kind": "resource",
+			"mode": "client",
+			"name": "aws"
+		}
+	}]`)
+}
+
 func replaySequence(t *testing.T, sequence string) {
 	info := *Provider()
 	ctx := context.Background()

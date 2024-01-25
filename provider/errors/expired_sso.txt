@@ -1,0 +1,4 @@
+Failed to refresh cached SSO credentials.
+Please refresh SSO login.
+NEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the correct and valid credentials are used.
+Learn more: https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials
