@@ -10,7 +10,7 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/providertest v0.0.3
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.24.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.71.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.71.1-0.20240125152356-82517dd004b3
 	github.com/pulumi/pulumi/pkg/v3 v3.101.1
 	github.com/pulumi/pulumi/sdk/v3 v3.101.1
 	github.com/stretchr/testify v1.8.4
