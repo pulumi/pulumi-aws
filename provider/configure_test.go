@@ -123,6 +123,7 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 	os.Unsetenv("AWS_SECRET_ACCESS_KEY")
 	os.Unsetenv("AWS_REGION")
 	os.Unsetenv("AWS_PROFILE")
+	os.Unsetenv("AWS_SKIP_CREDENTIALS_VALIDATION")
 
 	replaySequence(t, `
 	[{
@@ -160,6 +161,7 @@ func TestMissingRegionErrorMessage(t *testing.T) {
 	os.Setenv("AWS_SECRET_ACCESS_KEY", "VALID")
 	os.Unsetenv("AWS_REGION")
 	os.Unsetenv("AWS_PROFILE")
+	os.Unsetenv("AWS_SKIP_CREDENTIALS_VALIDATION")
 
 	replaySequence(t, strings.ReplaceAll(`
 	[{
@@ -235,6 +237,7 @@ func TestOtherFailureErrorMessage(t *testing.T) {
 	os.Setenv("AWS_SECRET_ACCESS_KEY", "INVALID")
 	os.Setenv("AWS_REGION", "us-west-2")
 	os.Setenv("AWS_PROFILE", "non-existent-profile")
+	os.Unsetenv("AWS_SKIP_CREDENTIALS_VALIDATION")
 
 	replaySequence(t, `
 	[{
