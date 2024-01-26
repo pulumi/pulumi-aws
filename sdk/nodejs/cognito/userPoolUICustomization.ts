@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * const exampleUserPoolUICustomization = new aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization", {
  *     clientId: exampleUserPoolClient.id,
  *     css: ".label-customizable {font-weight: 400;}",
- *     imageFile: Buffer.from(fs.readFileSync("logo.png", 'binary')).toString('base64'),
+ *     imageFile: fs.readFileSync("logo.png", { encoding: "base64" }),
  *     userPoolId: exampleUserPoolDomain.userPoolId,
  * });
  * ```
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleUserPoolUICustomization = new aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization", {
  *     css: ".label-customizable {font-weight: 400;}",
- *     imageFile: Buffer.from(fs.readFileSync("logo.png", 'binary')).toString('base64'),
+ *     imageFile: fs.readFileSync("logo.png", { encoding: "base64" }),
  *     userPoolId: exampleUserPoolDomain.userPoolId,
  * });
  * ```
