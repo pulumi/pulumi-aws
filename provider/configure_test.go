@@ -119,6 +119,7 @@ func TestCheckConfigFastWithCustomEndpoints(t *testing.T) {
 }
 
 func TestMissingCredentialsErrorMessage(t *testing.T) {
+	skipIfShort(t)
 	os.Unsetenv("AWS_ACCESS_KEY_ID")
 	os.Unsetenv("AWS_SECRET_ACCESS_KEY")
 	os.Unsetenv("AWS_REGION")
@@ -157,6 +158,7 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 }
 
 func TestMissingRegionErrorMessage(t *testing.T) {
+	skipIfShort(t)
 	os.Setenv("AWS_ACCESS_KEY_ID", "VALID")
 	os.Setenv("AWS_SECRET_ACCESS_KEY", "VALID")
 	os.Unsetenv("AWS_REGION")
@@ -195,6 +197,7 @@ func TestMissingRegionErrorMessage(t *testing.T) {
 }
 
 func TestInvalidCredentialsErrorMessage(t *testing.T) {
+	skipIfShort(t)
 	os.Setenv("AWS_ACCESS_KEY_ID", "INVALID")
 	os.Setenv("AWS_SECRET_ACCESS_KEY", "INVALID")
 	os.Setenv("AWS_REGION", "us-west-2")
@@ -234,6 +237,7 @@ func TestInvalidCredentialsErrorMessage(t *testing.T) {
 }
 
 func TestOtherFailureErrorMessage(t *testing.T) {
+	skipIfShort(t)
 	os.Setenv("AWS_ACCESS_KEY_ID", "INVALID")
 	os.Setenv("AWS_SECRET_ACCESS_KEY", "INVALID")
 	os.Setenv("AWS_REGION", "us-west-2")
