@@ -59,23 +59,6 @@ class AwaitableGetRegistrationCodeResult(GetRegistrationCodeResult):
 def get_registration_code(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationCodeResult:
     """
     Gets a registration code used to register a CA certificate with AWS IoT.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_tls as tls
-
-    example = aws.iot.get_registration_code()
-    verification_private_key = tls.PrivateKey("verificationPrivateKey", algorithm="RSA")
-    verification_cert_request = tls.CertRequest("verificationCertRequest",
-        key_algorithm="RSA",
-        private_key_pem=verification_private_key.private_key_pem,
-        subject=tls.CertRequestSubjectArgs(
-            common_name=example.registration_code,
-        ))
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -90,22 +73,5 @@ def get_registration_code(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
 def get_registration_code_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationCodeResult]:
     """
     Gets a registration code used to register a CA certificate with AWS IoT.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_tls as tls
-
-    example = aws.iot.get_registration_code()
-    verification_private_key = tls.PrivateKey("verificationPrivateKey", algorithm="RSA")
-    verification_cert_request = tls.CertRequest("verificationCertRequest",
-        key_algorithm="RSA",
-        private_key_pem=verification_private_key.private_key_pem,
-        subject=tls.CertRequestSubjectArgs(
-            common_name=example.registration_code,
-        ))
-    ```
     """
     ...

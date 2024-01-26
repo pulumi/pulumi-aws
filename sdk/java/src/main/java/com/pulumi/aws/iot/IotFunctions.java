@@ -272,6 +272,7 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -323,6 +324,7 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -374,6 +376,7 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -425,6 +428,7 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -476,6 +480,7 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -527,6 +532,7 @@ public final class IotFunctions {
      * Gets a registration code used to register a CA certificate with AWS IoT.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
