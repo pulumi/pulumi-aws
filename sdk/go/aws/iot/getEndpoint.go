@@ -21,7 +21,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
-//	"github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes"
+//	"github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
