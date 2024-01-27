@@ -118,12 +118,21 @@ func TestCheckConfigFastWithCustomEndpoints(t *testing.T) {
 	require.Truef(t, time0.Add(cutoff).After(time.Now()), "CheckConfig with custom endpoints is taking more than %v", cutoff)
 }
 
-func TestMissingCredentialsErrorMessage(t *testing.T) {
-	skipIfShort(t)
+func unsetAWSEnv() {
+	os.Unsetenv("AWS_SECRET_ACCESS_KEY")
+	os.Unsetenv("AWS_SESSION_TOKEN")
+	os.Unsetenv("AWS_DEFAULT_REGION")
+	os.Unsetenv("AWS_PROFILE")
 	os.Unsetenv("AWS_ACCESS_KEY_ID")
 	os.Unsetenv("AWS_SECRET_ACCESS_KEY")
 	os.Unsetenv("AWS_REGION")
-	os.Unsetenv("AWS_PROFILE")
+	os.Setenv("AWS_CONFIG_FILE", "non-existent/config.json")
+	os.Setenv("AWS_SHARED_CREDENTIALS_FILE", "non-existent/credentials")
+}
+
+func TestMissingCredentialsErrorMessage(t *testing.T) {
+	skipIfShort(t)
+	unsetAWSEnv()
 	os.Setenv("AWS_SKIP_CREDENTIALS_VALIDATION", "false")
 
 	replaySequence(t, `
@@ -159,10 +168,9 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 
 func TestMissingRegionErrorMessage(t *testing.T) {
 	skipIfShort(t)
+	unsetAWSEnv()
 	os.Setenv("AWS_ACCESS_KEY_ID", "VALID")
 	os.Setenv("AWS_SECRET_ACCESS_KEY", "VALID")
-	os.Unsetenv("AWS_REGION")
-	os.Unsetenv("AWS_PROFILE")
 	os.Setenv("AWS_SKIP_CREDENTIALS_VALIDATION", "false")
 
 	replaySequence(t, strings.ReplaceAll(`
@@ -198,10 +206,10 @@ func TestMissingRegionErrorMessage(t *testing.T) {
 
 func TestInvalidCredentialsErrorMessage(t *testing.T) {
 	skipIfShort(t)
+	unsetAWSEnv()
 	os.Setenv("AWS_ACCESS_KEY_ID", "INVALID")
 	os.Setenv("AWS_SECRET_ACCESS_KEY", "INVALID")
 	os.Setenv("AWS_REGION", "us-west-2")
-	os.Unsetenv("AWS_PROFILE")
 	os.Setenv("AWS_SKIP_CREDENTIALS_VALIDATION", "false")
 
 	replaySequence(t, `
@@ -238,6 +246,7 @@ func TestInvalidCredentialsErrorMessage(t *testing.T) {
 
 func TestOtherFailureErrorMessage(t *testing.T) {
 	skipIfShort(t)
+	unsetAWSEnv()
 	os.Setenv("AWS_ACCESS_KEY_ID", "INVALID")
 	os.Setenv("AWS_SECRET_ACCESS_KEY", "INVALID")
 	os.Setenv("AWS_REGION", "us-west-2")
