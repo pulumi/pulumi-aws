@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
@@ -213,12 +212,6 @@ func (in *metricPtr) ToMetricPtrOutputWithContext(ctx context.Context) MetricPtr
 	return pulumi.ToOutputWithContext(ctx, in).(MetricPtrOutput)
 }
 
-func (in *metricPtr) ToOutput(ctx context.Context) pulumix.Output[*Metric] {
-	return pulumix.Output[*Metric]{
-		OutputState: in.ToMetricPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
 type MetricsGranularity string
 
@@ -381,12 +374,6 @@ func (in *metricsGranularityPtr) ToMetricsGranularityPtrOutput() MetricsGranular
 
 func (in *metricsGranularityPtr) ToMetricsGranularityPtrOutputWithContext(ctx context.Context) MetricsGranularityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricsGranularityPtrOutput)
-}
-
-func (in *metricsGranularityPtr) ToOutput(ctx context.Context) pulumix.Output[*MetricsGranularity] {
-	return pulumix.Output[*MetricsGranularity]{
-		OutputState: in.ToMetricsGranularityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_NotificationConfiguration.html
@@ -559,12 +546,6 @@ func (in *notificationTypePtr) ToNotificationTypePtrOutput() NotificationTypePtr
 
 func (in *notificationTypePtr) ToNotificationTypePtrOutputWithContext(ctx context.Context) NotificationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NotificationTypePtrOutput)
-}
-
-func (in *notificationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*NotificationType] {
-	return pulumix.Output[*NotificationType]{
-		OutputState: in.ToNotificationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

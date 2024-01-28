@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // See https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl
@@ -187,12 +186,6 @@ func (in *cannedAclPtr) ToCannedAclPtrOutput() CannedAclPtrOutput {
 
 func (in *cannedAclPtr) ToCannedAclPtrOutputWithContext(ctx context.Context) CannedAclPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CannedAclPtrOutput)
-}
-
-func (in *cannedAclPtr) ToOutput(ctx context.Context) pulumix.Output[*CannedAcl] {
-	return pulumix.Output[*CannedAcl]{
-		OutputState: in.ToCannedAclPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {
