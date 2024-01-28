@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type IpAddressType string
@@ -176,12 +175,6 @@ func (in *ipAddressTypePtr) ToIpAddressTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(IpAddressTypePtrOutput)
 }
 
-func (in *ipAddressTypePtr) ToOutput(ctx context.Context) pulumix.Output[*IpAddressType] {
-	return pulumix.Output[*IpAddressType]{
-		OutputState: in.ToIpAddressTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoadBalancerType string
 
 const (
@@ -345,12 +338,6 @@ func (in *loadBalancerTypePtr) ToLoadBalancerTypePtrOutput() LoadBalancerTypePtr
 
 func (in *loadBalancerTypePtr) ToLoadBalancerTypePtrOutputWithContext(ctx context.Context) LoadBalancerTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoadBalancerTypePtrOutput)
-}
-
-func (in *loadBalancerTypePtr) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerType] {
-	return pulumix.Output[*LoadBalancerType]{
-		OutputState: in.ToLoadBalancerTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {
