@@ -156,9 +156,9 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 		},
 		"response": {
 			"inputs": {
-				"skipCredentialsValidation": "false",
-				"skipMetadataApiCheck": "true",
-				"skipRegionValidation": "true",
+				"skipCredentialsValidation": "*",
+				"skipMetadataApiCheck": "*",
+				"skipRegionValidation": "*",
 				"version": "6.18.2"
 			},
 			"failures": [
@@ -195,9 +195,9 @@ func TestMissingRegionErrorMessage(t *testing.T) {
 		},
 		"response": {
 			"inputs": {
-				"skipCredentialsValidation": "false",
-				"skipMetadataApiCheck": "true",
-				"skipRegionValidation": "true",
+				"skipCredentialsValidation": "*",
+				"skipMetadataApiCheck": "*",
+				"skipRegionValidation": "*",
 				"version": "6.18.2"
 			},
 			"failures": [
@@ -235,10 +235,10 @@ func TestInvalidCredentialsErrorMessage(t *testing.T) {
 		},
 		"response": {
 			"inputs": {
-				"region": "us-west-2",
-				"skipCredentialsValidation": "false",
-				"skipMetadataApiCheck": "true",
-				"skipRegionValidation": "true",
+				"region": "*",
+				"skipCredentialsValidation": "*",
+				"skipMetadataApiCheck": "*",
+				"skipRegionValidation": "*",
 				"version": "6.18.2"
 			},
 			"failures": [
@@ -277,10 +277,10 @@ func TestOtherFailureErrorMessage(t *testing.T) {
 		},
 		"response": {
 			"inputs": {
-				"region": "us-west-2",
-				"skipCredentialsValidation": "false",
-				"skipMetadataApiCheck": "true",
-				"skipRegionValidation": "true",
+				"region": "*",
+				"skipCredentialsValidation": "*",
+				"skipMetadataApiCheck": "*",
+				"skipRegionValidation": "*",
 				"version": "6.18.2"
 			},
 			"failures": [
