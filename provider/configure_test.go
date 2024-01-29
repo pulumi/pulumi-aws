@@ -130,9 +130,18 @@ func unsetAWSEnv() {
 	os.Setenv("AWS_SHARED_CREDENTIALS_FILE", "non-existent/credentials")
 }
 
+func skipIfNotShort(t *testing.T) {
+	if !testing.Short() {
+		t.Skipf("Skipping test in non-short mode")
+	}
+}
+
 func TestMissingCredentialsErrorMessage(t *testing.T) {
-	skipIfShort(t)
+	skipIfNotShort(t)
 	unsetAWSEnv()
+	// We need to reset the credentialsValidationRun flag to false, since the
+	// previous test might have set it to true.
+	credentialsValidationRun.Store(false)
 	os.Setenv("AWS_SKIP_CREDENTIALS_VALIDATION", "false")
 
 	replaySequence(t, `
@@ -167,8 +176,9 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 }
 
 func TestMissingRegionErrorMessage(t *testing.T) {
-	skipIfShort(t)
+	skipIfNotShort(t)
 	unsetAWSEnv()
+	credentialsValidationRun.Store(false)
 	os.Setenv("AWS_ACCESS_KEY_ID", "VALID")
 	os.Setenv("AWS_SECRET_ACCESS_KEY", "VALID")
 	os.Setenv("AWS_SKIP_CREDENTIALS_VALIDATION", "false")
@@ -205,8 +215,9 @@ func TestMissingRegionErrorMessage(t *testing.T) {
 }
 
 func TestInvalidCredentialsErrorMessage(t *testing.T) {
-	skipIfShort(t)
+	skipIfNotShort(t)
 	unsetAWSEnv()
+	credentialsValidationRun.Store(false)
 	os.Setenv("AWS_ACCESS_KEY_ID", "INVALID")
 	os.Setenv("AWS_SECRET_ACCESS_KEY", "INVALID")
 	os.Setenv("AWS_REGION", "us-west-2")
@@ -245,8 +256,9 @@ func TestInvalidCredentialsErrorMessage(t *testing.T) {
 }
 
 func TestOtherFailureErrorMessage(t *testing.T) {
-	skipIfShort(t)
+	skipIfNotShort(t)
 	unsetAWSEnv()
+	credentialsValidationRun.Store(false)
 	os.Setenv("AWS_ACCESS_KEY_ID", "INVALID")
 	os.Setenv("AWS_SECRET_ACCESS_KEY", "INVALID")
 	os.Setenv("AWS_REGION", "us-west-2")
@@ -302,4 +314,7 @@ func replaySequence(t *testing.T, sequence string) {
 
 func init() {
 	version.Version = "6.0.0"
+}
+
+func TestMain(m *testing.M) {
 }

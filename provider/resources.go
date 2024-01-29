@@ -675,6 +675,8 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 
 	if _, _, diag := awsbase.GetAwsConfig(context.Background(), config); diag != nil && diag.HasError() {
 		formattedDiag := formatDiags(diag)
+		// Normally it'd query sts.REGION.amazonaws.com
+		// but if we query sts..amazonaws.com, then we don't have a region.
 		if strings.Contains(formattedDiag, "dial tcp: lookup sts..amazonaws.com: no such host") {
 			return tfbridge.CheckFailureError{
 				Failures: []tfbridge.CheckFailureErrorElement{
