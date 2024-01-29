@@ -516,6 +516,29 @@ func TestRegress2868(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+// Checks aws.ssm.Document that had constant Diff issues.
+//
+// See https://github.com/pulumi/pulumi-aws/issues/2555
+func TestRegress2555(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: "regress-2555",
+
+			// TODO does not refresh cleanly, actually following upstream: both in TF
+			// pure and in Pulumi refreshing replaces nil with empty map for tags and
+			// permissions properties.
+			SkipRefresh: true,
+
+			EditDirs: []integration.EditDir{{
+				Dir:      filepath.Join("regress-2555", "step1"),
+				Additive: true,
+			}},
+		})
+	// Disable envRegion mangling
+	test.Config = nil
+	integration.ProgramTest(t, &test)
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	baseJS := integration.ProgramTestOptions{
