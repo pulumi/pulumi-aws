@@ -315,6 +315,3 @@ func replaySequence(t *testing.T, sequence string) {
 func init() {
 	version.Version = "6.0.0"
 }
-
-func TestMain(m *testing.M) {
-}
