@@ -199,13 +199,13 @@ type VpcPeeringConnection struct {
 	Accepter VpcPeeringConnectionAccepterTypeOutput `pulumi:"accepter"`
 	// Accept the peering (both VPCs need to be in the same AWS account and region).
 	AutoAccept pulumi.BoolPtrOutput `pulumi:"autoAccept"`
-	// The AWS account ID of the owner of the peer VPC.
-	// Defaults to the account ID the AWS provider is currently connected to.
+	// The AWS account ID of the target peer VPC.
+	// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
 	PeerOwnerId pulumi.StringOutput `pulumi:"peerOwnerId"`
 	// The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
 	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
 	PeerRegion pulumi.StringOutput `pulumi:"peerRegion"`
-	// The ID of the VPC with which you are creating the VPC Peering Connection.
+	// The ID of the target VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId pulumi.StringOutput `pulumi:"peerVpcId"`
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
@@ -267,13 +267,13 @@ type vpcPeeringConnectionState struct {
 	Accepter *VpcPeeringConnectionAccepterType `pulumi:"accepter"`
 	// Accept the peering (both VPCs need to be in the same AWS account and region).
 	AutoAccept *bool `pulumi:"autoAccept"`
-	// The AWS account ID of the owner of the peer VPC.
-	// Defaults to the account ID the AWS provider is currently connected to.
+	// The AWS account ID of the target peer VPC.
+	// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
 	PeerOwnerId *string `pulumi:"peerOwnerId"`
 	// The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
 	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
 	PeerRegion *string `pulumi:"peerRegion"`
-	// The ID of the VPC with which you are creating the VPC Peering Connection.
+	// The ID of the target VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId *string `pulumi:"peerVpcId"`
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
@@ -296,13 +296,13 @@ type VpcPeeringConnectionState struct {
 	Accepter VpcPeeringConnectionAccepterTypePtrInput
 	// Accept the peering (both VPCs need to be in the same AWS account and region).
 	AutoAccept pulumi.BoolPtrInput
-	// The AWS account ID of the owner of the peer VPC.
-	// Defaults to the account ID the AWS provider is currently connected to.
+	// The AWS account ID of the target peer VPC.
+	// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
 	PeerOwnerId pulumi.StringPtrInput
 	// The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
 	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
 	PeerRegion pulumi.StringPtrInput
-	// The ID of the VPC with which you are creating the VPC Peering Connection.
+	// The ID of the target VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId pulumi.StringPtrInput
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
@@ -327,13 +327,13 @@ type vpcPeeringConnectionArgs struct {
 	Accepter *VpcPeeringConnectionAccepterType `pulumi:"accepter"`
 	// Accept the peering (both VPCs need to be in the same AWS account and region).
 	AutoAccept *bool `pulumi:"autoAccept"`
-	// The AWS account ID of the owner of the peer VPC.
-	// Defaults to the account ID the AWS provider is currently connected to.
+	// The AWS account ID of the target peer VPC.
+	// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
 	PeerOwnerId *string `pulumi:"peerOwnerId"`
 	// The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
 	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
 	PeerRegion *string `pulumi:"peerRegion"`
-	// The ID of the VPC with which you are creating the VPC Peering Connection.
+	// The ID of the target VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId string `pulumi:"peerVpcId"`
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
@@ -351,13 +351,13 @@ type VpcPeeringConnectionArgs struct {
 	Accepter VpcPeeringConnectionAccepterTypePtrInput
 	// Accept the peering (both VPCs need to be in the same AWS account and region).
 	AutoAccept pulumi.BoolPtrInput
-	// The AWS account ID of the owner of the peer VPC.
-	// Defaults to the account ID the AWS provider is currently connected to.
+	// The AWS account ID of the target peer VPC.
+	// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
 	PeerOwnerId pulumi.StringPtrInput
 	// The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
 	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
 	PeerRegion pulumi.StringPtrInput
-	// The ID of the VPC with which you are creating the VPC Peering Connection.
+	// The ID of the target VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId pulumi.StringInput
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
@@ -471,8 +471,8 @@ func (o VpcPeeringConnectionOutput) AutoAccept() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.BoolPtrOutput { return v.AutoAccept }).(pulumi.BoolPtrOutput)
 }
 
-// The AWS account ID of the owner of the peer VPC.
-// Defaults to the account ID the AWS provider is currently connected to.
+// The AWS account ID of the target peer VPC.
+// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
 func (o VpcPeeringConnectionOutput) PeerOwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringOutput { return v.PeerOwnerId }).(pulumi.StringOutput)
 }
@@ -483,7 +483,7 @@ func (o VpcPeeringConnectionOutput) PeerRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringOutput { return v.PeerRegion }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC with which you are creating the VPC Peering Connection.
+// The ID of the target VPC with which you are creating the VPC Peering Connection.
 func (o VpcPeeringConnectionOutput) PeerVpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringOutput { return v.PeerVpcId }).(pulumi.StringOutput)
 }

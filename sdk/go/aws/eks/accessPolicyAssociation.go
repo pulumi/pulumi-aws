@@ -50,17 +50,17 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EKS access entry using the `cluster_name` `policy_arn` and `principal_arn` separated by a colon (`:`). For example:
+// Using `pulumi import`, import EKS access entry using the `cluster_name` `principal_arn` and `policy_arn` separated by a colon (`#`). For example:
 //
 // ```sh
 //
-//	$ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name:my_policy_arn:my_principal_arn
+//	$ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name#my_principal_arn#my_policy_arn
 //
 // ```
 type AccessPolicyAssociation struct {
 	pulumi.CustomResourceState
 
-	// The configuration block to determine the scope of the access.
+	// The configuration block to determine the scope of the access. See `accessScope` Block below.
 	AccessScope AccessPolicyAssociationAccessScopeOutput `pulumi:"accessScope"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
 	AssociatedAt pulumi.StringOutput `pulumi:"associatedAt"`
@@ -116,7 +116,7 @@ func GetAccessPolicyAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessPolicyAssociation resources.
 type accessPolicyAssociationState struct {
-	// The configuration block to determine the scope of the access.
+	// The configuration block to determine the scope of the access. See `accessScope` Block below.
 	AccessScope *AccessPolicyAssociationAccessScope `pulumi:"accessScope"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
 	AssociatedAt *string `pulumi:"associatedAt"`
@@ -131,7 +131,7 @@ type accessPolicyAssociationState struct {
 }
 
 type AccessPolicyAssociationState struct {
-	// The configuration block to determine the scope of the access.
+	// The configuration block to determine the scope of the access. See `accessScope` Block below.
 	AccessScope AccessPolicyAssociationAccessScopePtrInput
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
 	AssociatedAt pulumi.StringPtrInput
@@ -150,7 +150,7 @@ func (AccessPolicyAssociationState) ElementType() reflect.Type {
 }
 
 type accessPolicyAssociationArgs struct {
-	// The configuration block to determine the scope of the access.
+	// The configuration block to determine the scope of the access. See `accessScope` Block below.
 	AccessScope AccessPolicyAssociationAccessScope `pulumi:"accessScope"`
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName string `pulumi:"clusterName"`
@@ -162,7 +162,7 @@ type accessPolicyAssociationArgs struct {
 
 // The set of arguments for constructing a AccessPolicyAssociation resource.
 type AccessPolicyAssociationArgs struct {
-	// The configuration block to determine the scope of the access.
+	// The configuration block to determine the scope of the access. See `accessScope` Block below.
 	AccessScope AccessPolicyAssociationAccessScopeInput
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName pulumi.StringInput
@@ -259,7 +259,7 @@ func (o AccessPolicyAssociationOutput) ToAccessPolicyAssociationOutputWithContex
 	return o
 }
 
-// The configuration block to determine the scope of the access.
+// The configuration block to determine the scope of the access. See `accessScope` Block below.
 func (o AccessPolicyAssociationOutput) AccessScope() AccessPolicyAssociationAccessScopeOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) AccessPolicyAssociationAccessScopeOutput { return v.AccessScope }).(AccessPolicyAssociationAccessScopeOutput)
 }

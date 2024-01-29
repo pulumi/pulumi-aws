@@ -60,7 +60,7 @@ func GetContainerRecipes(ctx *pulumi.Context, args *GetContainerRecipesArgs, opt
 type GetContainerRecipesArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetContainerRecipesFilter `pulumi:"filters"`
-	// Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+	// Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
 	Owner *string `pulumi:"owner"`
 }
 
@@ -93,7 +93,7 @@ func GetContainerRecipesOutput(ctx *pulumi.Context, args GetContainerRecipesOutp
 type GetContainerRecipesOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetContainerRecipesFilterArrayInput `pulumi:"filters"`
-	// Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+	// Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
 	Owner pulumi.StringPtrInput `pulumi:"owner"`
 }
 

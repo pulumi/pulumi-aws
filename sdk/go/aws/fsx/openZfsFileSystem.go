@@ -96,6 +96,8 @@ type OpenZfsFileSystem struct {
 	RouteTableIds pulumi.StringArrayOutput `pulumi:"routeTableIds"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	SkipFinalBackup pulumi.BoolPtrOutput `pulumi:"skipFinalBackup"`
 	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
 	StorageCapacity pulumi.IntPtrOutput `pulumi:"storageCapacity"`
 	// The filesystem storage type. Only `SSD` is supported.
@@ -195,6 +197,8 @@ type openZfsFileSystemState struct {
 	RouteTableIds []string `pulumi:"routeTableIds"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
 	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
 	StorageCapacity *int `pulumi:"storageCapacity"`
 	// The filesystem storage type. Only `SSD` is supported.
@@ -252,6 +256,8 @@ type OpenZfsFileSystemState struct {
 	RouteTableIds pulumi.StringArrayInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayInput
+	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	SkipFinalBackup pulumi.BoolPtrInput
 	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
 	StorageCapacity pulumi.IntPtrInput
 	// The filesystem storage type. Only `SSD` is supported.
@@ -303,6 +309,8 @@ type openZfsFileSystemArgs struct {
 	RouteTableIds []string `pulumi:"routeTableIds"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
 	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
 	StorageCapacity *int `pulumi:"storageCapacity"`
 	// The filesystem storage type. Only `SSD` is supported.
@@ -345,6 +353,8 @@ type OpenZfsFileSystemArgs struct {
 	RouteTableIds pulumi.StringArrayInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayInput
+	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	SkipFinalBackup pulumi.BoolPtrInput
 	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
 	StorageCapacity pulumi.IntPtrInput
 	// The filesystem storage type. Only `SSD` is supported.
@@ -538,6 +548,11 @@ func (o OpenZfsFileSystemOutput) RouteTableIds() pulumi.StringArrayOutput {
 // A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 func (o OpenZfsFileSystemOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+func (o OpenZfsFileSystemOutput) SkipFinalBackup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.BoolPtrOutput { return v.SkipFinalBackup }).(pulumi.BoolPtrOutput)
 }
 
 // The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.

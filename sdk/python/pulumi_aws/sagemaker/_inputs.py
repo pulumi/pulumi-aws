@@ -1394,8 +1394,8 @@ class DomainDefaultSpaceSettingsArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] execution_role: The execution role for the space.
-        :param pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
-        :param pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
+        :param pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
+        :param pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
         """
         pulumi.set(__self__, "execution_role", execution_role)
@@ -1422,7 +1422,7 @@ class DomainDefaultSpaceSettingsArgs:
     @pulumi.getter(name="jupyterServerAppSettings")
     def jupyter_server_app_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs']]:
         """
-        The Jupyter server's app settings. See Jupyter Server App Settings below.
+        The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         """
         return pulumi.get(self, "jupyter_server_app_settings")
 
@@ -1434,7 +1434,7 @@ class DomainDefaultSpaceSettingsArgs:
     @pulumi.getter(name="kernelGatewayAppSettings")
     def kernel_gateway_app_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs']]:
         """
-        The kernel gateway app settings. See Kernel Gateway App Settings below.
+        The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         """
         return pulumi.get(self, "kernel_gateway_app_settings")
 
@@ -1462,8 +1462,8 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-        :param pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        :param pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if code_repositories is not None:
@@ -1477,7 +1477,7 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]]:
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         """
         return pulumi.get(self, "code_repositories")
 
@@ -1489,7 +1489,7 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -1626,8 +1626,8 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-        :param pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see `custom_image` Block below.
+        :param pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if custom_images is not None:
@@ -1641,7 +1641,7 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        A list of custom SageMaker images that are configured to run as a KernelGateway app. see `custom_image` Block below.
         """
         return pulumi.get(self, "custom_images")
 
@@ -1653,7 +1653,7 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -1835,21 +1835,21 @@ class DomainDefaultUserSettingsArgs:
                  tensor_board_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsArgs']] = None):
         """
         :param pulumi.Input[str] execution_role: The execution role ARN for the user.
-        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsArgs'] canvas_app_settings: The Canvas app settings. See Canvas App Settings below.
-        :param pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings. See Code Editor App Settings below.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
-        :param pulumi.Input['DomainDefaultUserSettingsCustomPosixUserConfigArgs'] custom_posix_user_config: Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsArgs'] canvas_app_settings: The Canvas app settings. See `canvas_app_settings` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings. See `code_editor_app_settings` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsCustomPosixUserConfigArgs'] custom_posix_user_config: Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
         :param pulumi.Input[str] default_landing_uri: The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
-        :param pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See Jupyter Lab App Settings below.
-        :param pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
-        :param pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
-        :param pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsArgs'] r_session_app_settings: The RSession app settings. See RSession App Settings below.
-        :param pulumi.Input['DomainDefaultUserSettingsRStudioServerProAppSettingsArgs'] r_studio_server_pro_app_settings: A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+        :param pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsArgs'] r_session_app_settings: The RSession app settings. See `r_session_app_settings` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsRStudioServerProAppSettingsArgs'] r_studio_server_pro_app_settings: A collection of settings that configure user interaction with the RStudioServerPro app. See `r_studio_server_pro_app_settings` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group IDs that will be attached to the user.
-        :param pulumi.Input['DomainDefaultUserSettingsSharingSettingsArgs'] sharing_settings: The sharing settings. See Sharing Settings below.
-        :param pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsArgs'] space_storage_settings: The storage settings for a private space. See Space Storage Settings below.
+        :param pulumi.Input['DomainDefaultUserSettingsSharingSettingsArgs'] sharing_settings: The sharing settings. See `sharing_settings` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsArgs'] space_storage_settings: The storage settings for a private space. See `space_storage_settings` Block below.
         :param pulumi.Input[str] studio_web_portal: Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
-        :param pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsArgs'] tensor_board_app_settings: The TensorBoard app settings. See TensorBoard App Settings below.
+        :param pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsArgs'] tensor_board_app_settings: The TensorBoard app settings. See `tensor_board_app_settings` Block below.
         """
         pulumi.set(__self__, "execution_role", execution_role)
         if canvas_app_settings is not None:
@@ -1899,7 +1899,7 @@ class DomainDefaultUserSettingsArgs:
     @pulumi.getter(name="canvasAppSettings")
     def canvas_app_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsArgs']]:
         """
-        The Canvas app settings. See Canvas App Settings below.
+        The Canvas app settings. See `canvas_app_settings` Block below.
         """
         return pulumi.get(self, "canvas_app_settings")
 
@@ -1911,7 +1911,7 @@ class DomainDefaultUserSettingsArgs:
     @pulumi.getter(name="codeEditorAppSettings")
     def code_editor_app_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsArgs']]:
         """
-        The Code Editor application settings. See Code Editor App Settings below.
+        The Code Editor application settings. See `code_editor_app_settings` Block below.
         """
         return pulumi.get(self, "code_editor_app_settings")
 
@@ -1923,7 +1923,7 @@ class DomainDefaultUserSettingsArgs:
     @pulumi.getter(name="customFileSystemConfigs")
     def custom_file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigArgs']]]]:
         """
-        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
         """
         return pulumi.get(self, "custom_file_system_configs")
 
@@ -1935,7 +1935,7 @@ class DomainDefaultUserSettingsArgs:
     @pulumi.getter(name="customPosixUserConfig")
     def custom_posix_user_config(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCustomPosixUserConfigArgs']]:
         """
-        Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+        Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
         """
         return pulumi.get(self, "custom_posix_user_config")
 
@@ -1959,7 +1959,7 @@ class DomainDefaultUserSettingsArgs:
     @pulumi.getter(name="jupyterLabAppSettings")
     def jupyter_lab_app_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsArgs']]:
         """
-        The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+        The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
         """
         return pulumi.get(self, "jupyter_lab_app_settings")
 
@@ -1971,7 +1971,7 @@ class DomainDefaultUserSettingsArgs:
     @pulumi.getter(name="jupyterServerAppSettings")
     def jupyter_server_app_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsArgs']]:
         """
-        The Jupyter server's app settings. See Jupyter Server App Settings below.
+        The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         """
         return pulumi.get(self, "jupyter_server_app_settings")
 
@@ -1983,7 +1983,7 @@ class DomainDefaultUserSettingsArgs:
     @pulumi.getter(name="kernelGatewayAppSettings")
     def kernel_gateway_app_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsArgs']]:
         """
-        The kernel gateway app settings. See Kernel Gateway App Settings below.
+        The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         """
         return pulumi.get(self, "kernel_gateway_app_settings")
 
@@ -1995,7 +1995,7 @@ class DomainDefaultUserSettingsArgs:
     @pulumi.getter(name="rSessionAppSettings")
     def r_session_app_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsArgs']]:
         """
-        The RSession app settings. See RSession App Settings below.
+        The RSession app settings. See `r_session_app_settings` Block below.
         """
         return pulumi.get(self, "r_session_app_settings")
 
@@ -2007,7 +2007,7 @@ class DomainDefaultUserSettingsArgs:
     @pulumi.getter(name="rStudioServerProAppSettings")
     def r_studio_server_pro_app_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsRStudioServerProAppSettingsArgs']]:
         """
-        A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+        A collection of settings that configure user interaction with the RStudioServerPro app. See `r_studio_server_pro_app_settings` Block below.
         """
         return pulumi.get(self, "r_studio_server_pro_app_settings")
 
@@ -2031,7 +2031,7 @@ class DomainDefaultUserSettingsArgs:
     @pulumi.getter(name="sharingSettings")
     def sharing_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsSharingSettingsArgs']]:
         """
-        The sharing settings. See Sharing Settings below.
+        The sharing settings. See `sharing_settings` Block below.
         """
         return pulumi.get(self, "sharing_settings")
 
@@ -2043,7 +2043,7 @@ class DomainDefaultUserSettingsArgs:
     @pulumi.getter(name="spaceStorageSettings")
     def space_storage_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsArgs']]:
         """
-        The storage settings for a private space. See Space Storage Settings below.
+        The storage settings for a private space. See `space_storage_settings` Block below.
         """
         return pulumi.get(self, "space_storage_settings")
 
@@ -2067,7 +2067,7 @@ class DomainDefaultUserSettingsArgs:
     @pulumi.getter(name="tensorBoardAppSettings")
     def tensor_board_app_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsArgs']]:
         """
-        The TensorBoard app settings. See TensorBoard App Settings below.
+        The TensorBoard app settings. See `tensor_board_app_settings` Block below.
         """
         return pulumi.get(self, "tensor_board_app_settings")
 
@@ -2086,12 +2086,12 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
                  time_series_forecasting_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']] = None,
                  workspace_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']] = None):
         """
-        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs'] direct_deploy_settings: The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]] identity_provider_oauth_settings: The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
-        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs'] kendra_settings: The settings for document querying. See Kendra Settings below.
-        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs'] model_register_settings: The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
-        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs'] time_series_forecasting_settings: Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
-        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs'] workspace_settings: The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs'] direct_deploy_settings: The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]] identity_provider_oauth_settings: The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs'] kendra_settings: The settings for document querying. See `kendra_settings` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs'] model_register_settings: The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs'] time_series_forecasting_settings: Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs'] workspace_settings: The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
         """
         if direct_deploy_settings is not None:
             pulumi.set(__self__, "direct_deploy_settings", direct_deploy_settings)
@@ -2110,7 +2110,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     @pulumi.getter(name="directDeploySettings")
     def direct_deploy_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs']]:
         """
-        The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+        The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
         """
         return pulumi.get(self, "direct_deploy_settings")
 
@@ -2122,7 +2122,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     @pulumi.getter(name="identityProviderOauthSettings")
     def identity_provider_oauth_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]]]:
         """
-        The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+        The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
         """
         return pulumi.get(self, "identity_provider_oauth_settings")
 
@@ -2134,7 +2134,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     @pulumi.getter(name="kendraSettings")
     def kendra_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs']]:
         """
-        The settings for document querying. See Kendra Settings below.
+        The settings for document querying. See `kendra_settings` Block below.
         """
         return pulumi.get(self, "kendra_settings")
 
@@ -2146,7 +2146,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     @pulumi.getter(name="modelRegisterSettings")
     def model_register_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs']]:
         """
-        The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+        The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
         """
         return pulumi.get(self, "model_register_settings")
 
@@ -2158,7 +2158,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     @pulumi.getter(name="timeSeriesForecastingSettings")
     def time_series_forecasting_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']]:
         """
-        Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+        Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
         """
         return pulumi.get(self, "time_series_forecasting_settings")
 
@@ -2170,7 +2170,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     @pulumi.getter(name="workspaceSettings")
     def workspace_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']]:
         """
-        The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+        The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
         """
         return pulumi.get(self, "workspace_settings")
 
@@ -2402,7 +2402,7 @@ class DomainDefaultUserSettingsCodeEditorAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if default_resource_spec is not None:
@@ -2414,7 +2414,7 @@ class DomainDefaultUserSettingsCodeEditorAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -2527,7 +2527,7 @@ class DomainDefaultUserSettingsCustomFileSystemConfigArgs:
     def __init__(__self__, *,
                  efs_file_system_config: Optional[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs']] = None):
         """
-        :param pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs'] efs_file_system_config: The default EBS storage settings for a private space. See EFS File System Config below.
+        :param pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs'] efs_file_system_config: The default EBS storage settings for a private space. See `efs_file_system_config` Block below.
         """
         if efs_file_system_config is not None:
             pulumi.set(__self__, "efs_file_system_config", efs_file_system_config)
@@ -2536,7 +2536,7 @@ class DomainDefaultUserSettingsCustomFileSystemConfigArgs:
     @pulumi.getter(name="efsFileSystemConfig")
     def efs_file_system_config(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs']]:
         """
-        The default EBS storage settings for a private space. See EFS File System Config below.
+        The default EBS storage settings for a private space. See `efs_file_system_config` Block below.
         """
         return pulumi.get(self, "efs_file_system_config")
 
@@ -2627,9 +2627,9 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-        :param pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if code_repositories is not None:
@@ -2645,7 +2645,7 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]:
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         """
         return pulumi.get(self, "code_repositories")
 
@@ -2657,7 +2657,7 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
         """
         return pulumi.get(self, "custom_images")
 
@@ -2669,7 +2669,7 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -2859,8 +2859,8 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-        :param pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if code_repositories is not None:
@@ -2874,7 +2874,7 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]]:
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         """
         return pulumi.get(self, "code_repositories")
 
@@ -2886,7 +2886,7 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -3023,8 +3023,8 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-        :param pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see `custom_image` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if custom_images is not None:
@@ -3038,7 +3038,7 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        A list of custom SageMaker images that are configured to run as a KernelGateway app. see `custom_image` Block below.
         """
         return pulumi.get(self, "custom_images")
 
@@ -3050,7 +3050,7 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -3217,8 +3217,8 @@ class DomainDefaultUserSettingsRSessionAppSettingsArgs:
                  custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs']]]] = None,
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-        :param pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a RSession app. see `custom_image` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
         """
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
@@ -3229,7 +3229,7 @@ class DomainDefaultUserSettingsRSessionAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        A list of custom SageMaker images that are configured to run as a RSession app. see `custom_image` Block below.
         """
         return pulumi.get(self, "custom_images")
 
@@ -3241,7 +3241,7 @@ class DomainDefaultUserSettingsRSessionAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -3489,7 +3489,7 @@ class DomainDefaultUserSettingsSpaceStorageSettingsArgs:
     def __init__(__self__, *,
                  default_ebs_storage_settings: Optional[pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs']] = None):
         """
-        :param pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs'] default_ebs_storage_settings: The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+        :param pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs'] default_ebs_storage_settings: The default EBS storage settings for a private space. See `default_ebs_storage_settings` Block below.
         """
         if default_ebs_storage_settings is not None:
             pulumi.set(__self__, "default_ebs_storage_settings", default_ebs_storage_settings)
@@ -3498,7 +3498,7 @@ class DomainDefaultUserSettingsSpaceStorageSettingsArgs:
     @pulumi.getter(name="defaultEbsStorageSettings")
     def default_ebs_storage_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs']]:
         """
-        The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+        The default EBS storage settings for a private space. See `default_ebs_storage_settings` Block below.
         """
         return pulumi.get(self, "default_ebs_storage_settings")
 
@@ -3549,7 +3549,7 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsArgs:
     def __init__(__self__, *,
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']] = None):
         """
-        :param pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         """
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -3558,7 +3558,7 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -3662,7 +3662,7 @@ class DomainDomainSettingsArgs:
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] execution_role_identity_config: The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
-        :param pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsArgs'] r_studio_server_pro_domain_settings: A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+        :param pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsArgs'] r_studio_server_pro_domain_settings: A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         """
         if execution_role_identity_config is not None:
@@ -3688,7 +3688,7 @@ class DomainDomainSettingsArgs:
     @pulumi.getter(name="rStudioServerProDomainSettings")
     def r_studio_server_pro_domain_settings(self) -> Optional[pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsArgs']]:
         """
-        A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+        A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
         """
         return pulumi.get(self, "r_studio_server_pro_domain_settings")
 
@@ -3718,7 +3718,7 @@ class DomainDomainSettingsRStudioServerProDomainSettingsArgs:
                  r_studio_package_manager_url: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] domain_execution_role_arn: The ARN of the execution role for the RStudioServerPro Domain-level app.
-        :param pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
         :param pulumi.Input[str] r_studio_connect_url: A URL pointing to an RStudio Connect server.
         :param pulumi.Input[str] r_studio_package_manager_url: A URL pointing to an RStudio Package Manager server.
         """
@@ -3746,7 +3746,7 @@ class DomainDomainSettingsRStudioServerProDomainSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
         """
         return pulumi.get(self, "default_resource_spec")
 

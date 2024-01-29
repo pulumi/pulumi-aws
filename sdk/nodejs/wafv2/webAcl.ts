@@ -48,9 +48,13 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public /*out*/ readonly capacity!: pulumi.Output<number>;
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
      */
     public readonly captchaConfig!: pulumi.Output<outputs.wafv2.WebAclCaptchaConfig | undefined>;
+    /**
+     * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
+     */
+    public readonly challengeConfig!: pulumi.Output<outputs.wafv2.WebAclChallengeConfig | undefined>;
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      */
@@ -112,6 +116,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["associationConfig"] = state ? state.associationConfig : undefined;
             resourceInputs["capacity"] = state ? state.capacity : undefined;
             resourceInputs["captchaConfig"] = state ? state.captchaConfig : undefined;
+            resourceInputs["challengeConfig"] = state ? state.challengeConfig : undefined;
             resourceInputs["customResponseBodies"] = state ? state.customResponseBodies : undefined;
             resourceInputs["defaultAction"] = state ? state.defaultAction : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -136,6 +141,7 @@ export class WebAcl extends pulumi.CustomResource {
             }
             resourceInputs["associationConfig"] = args ? args.associationConfig : undefined;
             resourceInputs["captchaConfig"] = args ? args.captchaConfig : undefined;
+            resourceInputs["challengeConfig"] = args ? args.challengeConfig : undefined;
             resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
             resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -174,9 +180,13 @@ export interface WebAclState {
      */
     capacity?: pulumi.Input<number>;
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
      */
     captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig>;
+    /**
+     * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
+     */
+    challengeConfig?: pulumi.Input<inputs.wafv2.WebAclChallengeConfig>;
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      */
@@ -231,9 +241,13 @@ export interface WebAclArgs {
      */
     associationConfig?: pulumi.Input<inputs.wafv2.WebAclAssociationConfig>;
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
      */
     captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig>;
+    /**
+     * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
+     */
+    challengeConfig?: pulumi.Input<inputs.wafv2.WebAclChallengeConfig>;
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      */

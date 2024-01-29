@@ -158,6 +158,12 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
+        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        /// </summary>
+        [Output("skipFinalBackup")]
+        public Output<bool?> SkipFinalBackup { get; private set; } = null!;
+
+        /// <summary>
         /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
         /// </summary>
         [Output("storageCapacity")]
@@ -346,6 +352,12 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
+        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        /// </summary>
+        [Input("skipFinalBackup")]
+        public Input<bool>? SkipFinalBackup { get; set; }
+
+        /// <summary>
         /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
         /// </summary>
         [Input("storageCapacity")]
@@ -520,6 +532,12 @@ namespace Pulumi.Aws.Fsx
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
             set => _securityGroupIds = value;
         }
+
+        /// <summary>
+        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        /// </summary>
+        [Input("skipFinalBackup")]
+        public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
         /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.

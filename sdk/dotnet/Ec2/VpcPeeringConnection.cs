@@ -182,8 +182,8 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> AutoAccept { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS account ID of the owner of the peer VPC.
-        /// Defaults to the account ID the AWS provider is currently connected to.
+        /// The AWS account ID of the target peer VPC.
+        /// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
         /// </summary>
         [Output("peerOwnerId")]
         public Output<string> PeerOwnerId { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PeerRegion { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC with which you are creating the VPC Peering Connection.
+        /// The ID of the target VPC with which you are creating the VPC Peering Connection.
         /// </summary>
         [Output("peerVpcId")]
         public Output<string> PeerVpcId { get; private set; } = null!;
@@ -290,8 +290,8 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? AutoAccept { get; set; }
 
         /// <summary>
-        /// The AWS account ID of the owner of the peer VPC.
-        /// Defaults to the account ID the AWS provider is currently connected to.
+        /// The AWS account ID of the target peer VPC.
+        /// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
         /// </summary>
         [Input("peerOwnerId")]
         public Input<string>? PeerOwnerId { get; set; }
@@ -304,7 +304,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PeerRegion { get; set; }
 
         /// <summary>
-        /// The ID of the VPC with which you are creating the VPC Peering Connection.
+        /// The ID of the target VPC with which you are creating the VPC Peering Connection.
         /// </summary>
         [Input("peerVpcId", required: true)]
         public Input<string> PeerVpcId { get; set; } = null!;
@@ -362,8 +362,8 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? AutoAccept { get; set; }
 
         /// <summary>
-        /// The AWS account ID of the owner of the peer VPC.
-        /// Defaults to the account ID the AWS provider is currently connected to.
+        /// The AWS account ID of the target peer VPC.
+        /// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
         /// </summary>
         [Input("peerOwnerId")]
         public Input<string>? PeerOwnerId { get; set; }
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PeerRegion { get; set; }
 
         /// <summary>
-        /// The ID of the VPC with which you are creating the VPC Peering Connection.
+        /// The ID of the target VPC with which you are creating the VPC Peering Connection.
         /// </summary>
         [Input("peerVpcId")]
         public Input<string>? PeerVpcId { get; set; }

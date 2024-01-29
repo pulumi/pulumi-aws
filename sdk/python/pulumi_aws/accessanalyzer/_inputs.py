@@ -10,8 +10,56 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AnalyzerConfigurationArgs',
+    'AnalyzerConfigurationUnusedAccessArgs',
     'ArchiveRuleFilterArgs',
 ]
+
+@pulumi.input_type
+class AnalyzerConfigurationArgs:
+    def __init__(__self__, *,
+                 unused_access: Optional[pulumi.Input['AnalyzerConfigurationUnusedAccessArgs']] = None):
+        """
+        :param pulumi.Input['AnalyzerConfigurationUnusedAccessArgs'] unused_access: A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+        """
+        if unused_access is not None:
+            pulumi.set(__self__, "unused_access", unused_access)
+
+    @property
+    @pulumi.getter(name="unusedAccess")
+    def unused_access(self) -> Optional[pulumi.Input['AnalyzerConfigurationUnusedAccessArgs']]:
+        """
+        A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+        """
+        return pulumi.get(self, "unused_access")
+
+    @unused_access.setter
+    def unused_access(self, value: Optional[pulumi.Input['AnalyzerConfigurationUnusedAccessArgs']]):
+        pulumi.set(self, "unused_access", value)
+
+
+@pulumi.input_type
+class AnalyzerConfigurationUnusedAccessArgs:
+    def __init__(__self__, *,
+                 unused_access_age: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] unused_access_age: The specified access age in days for which to generate findings for unused access.
+        """
+        if unused_access_age is not None:
+            pulumi.set(__self__, "unused_access_age", unused_access_age)
+
+    @property
+    @pulumi.getter(name="unusedAccessAge")
+    def unused_access_age(self) -> Optional[pulumi.Input[int]]:
+        """
+        The specified access age in days for which to generate findings for unused access.
+        """
+        return pulumi.get(self, "unused_access_age")
+
+    @unused_access_age.setter
+    def unused_access_age(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "unused_access_age", value)
+
 
 @pulumi.input_type
 class ArchiveRuleFilterArgs:

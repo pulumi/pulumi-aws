@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<Inputs.DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryGetArgs>? _codeRepositories;
 
         /// <summary>
-        /// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        /// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         /// </summary>
         public InputList<Inputs.DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryGetArgs> CodeRepositories
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<Inputs.DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageGetArgs>? _customImages;
 
         /// <summary>
-        /// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        /// A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
         /// </summary>
         public InputList<Inputs.DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageGetArgs> CustomImages
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecGetArgs>? DefaultResourceSpec { get; set; }

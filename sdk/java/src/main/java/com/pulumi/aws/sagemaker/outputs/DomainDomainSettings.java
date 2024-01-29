@@ -19,7 +19,7 @@ public final class DomainDomainSettings {
      */
     private @Nullable String executionRoleIdentityConfig;
     /**
-     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
      * 
      */
     private @Nullable DomainDomainSettingsRStudioServerProDomainSettings rStudioServerProDomainSettings;
@@ -38,7 +38,7 @@ public final class DomainDomainSettings {
         return Optional.ofNullable(this.executionRoleIdentityConfig);
     }
     /**
-     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
      * 
      */
     public Optional<DomainDomainSettingsRStudioServerProDomainSettings> rStudioServerProDomainSettings() {

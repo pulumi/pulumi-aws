@@ -276,14 +276,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:eks/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
     /**
-     * Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
      * 
      */
     @Export(name="accessConfig", refs={ClusterAccessConfig.class}, tree="[0]")
     private Output<ClusterAccessConfig> accessConfig;
 
     /**
-     * @return Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+     * @return Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
      * 
      */
     public Output<ClusterAccessConfig> accessConfig() {

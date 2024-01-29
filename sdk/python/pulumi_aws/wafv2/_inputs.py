@@ -314,6 +314,8 @@ __all__ = [
     'WebAclAssociationConfigRequestBodyCloudfrontArgs',
     'WebAclCaptchaConfigArgs',
     'WebAclCaptchaConfigImmunityTimePropertyArgs',
+    'WebAclChallengeConfigArgs',
+    'WebAclChallengeConfigImmunityTimePropertyArgs',
     'WebAclCustomResponseBodyArgs',
     'WebAclDefaultActionArgs',
     'WebAclDefaultActionAllowArgs',
@@ -11996,6 +11998,52 @@ class WebAclCaptchaConfigArgs:
 
 @pulumi.input_type
 class WebAclCaptchaConfigImmunityTimePropertyArgs:
+    def __init__(__self__, *,
+                 immunity_time: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] immunity_time: The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+        """
+        if immunity_time is not None:
+            pulumi.set(__self__, "immunity_time", immunity_time)
+
+    @property
+    @pulumi.getter(name="immunityTime")
+    def immunity_time(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+        """
+        return pulumi.get(self, "immunity_time")
+
+    @immunity_time.setter
+    def immunity_time(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "immunity_time", value)
+
+
+@pulumi.input_type
+class WebAclChallengeConfigArgs:
+    def __init__(__self__, *,
+                 immunity_time_property: Optional[pulumi.Input['WebAclChallengeConfigImmunityTimePropertyArgs']] = None):
+        """
+        :param pulumi.Input['WebAclChallengeConfigImmunityTimePropertyArgs'] immunity_time_property: Defines custom immunity time. See `immunity_time_property` below for details.
+        """
+        if immunity_time_property is not None:
+            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
+
+    @property
+    @pulumi.getter(name="immunityTimeProperty")
+    def immunity_time_property(self) -> Optional[pulumi.Input['WebAclChallengeConfigImmunityTimePropertyArgs']]:
+        """
+        Defines custom immunity time. See `immunity_time_property` below for details.
+        """
+        return pulumi.get(self, "immunity_time_property")
+
+    @immunity_time_property.setter
+    def immunity_time_property(self, value: Optional[pulumi.Input['WebAclChallengeConfigImmunityTimePropertyArgs']]):
+        pulumi.set(self, "immunity_time_property", value)
+
+
+@pulumi.input_type
+class WebAclChallengeConfigImmunityTimePropertyArgs:
     def __init__(__self__, *,
                  immunity_time: Optional[pulumi.Input[int]] = None):
         """

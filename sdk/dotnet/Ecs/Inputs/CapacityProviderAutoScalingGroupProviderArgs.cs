@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<string> AutoScalingGroupArn { get; set; } = null!;
 
         /// <summary>
+        /// Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+        /// </summary>
+        [Input("managedDraining")]
+        public Input<string>? ManagedDraining { get; set; }
+
+        /// <summary>
         /// Configuration block defining the parameters of the auto scaling. Detailed below.
         /// </summary>
         [Input("managedScaling")]

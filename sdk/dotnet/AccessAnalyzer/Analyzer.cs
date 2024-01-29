@@ -89,6 +89,12 @@ namespace Pulumi.Aws.AccessAnalyzer
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// A block that specifies the configuration of the analyzer. Documented below
+        /// </summary>
+        [Output("configuration")]
+        public Output<Outputs.AnalyzerConfiguration?> Configuration { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -164,6 +170,12 @@ namespace Pulumi.Aws.AccessAnalyzer
         [Input("analyzerName", required: true)]
         public Input<string> AnalyzerName { get; set; } = null!;
 
+        /// <summary>
+        /// A block that specifies the configuration of the analyzer. Documented below
+        /// </summary>
+        [Input("configuration")]
+        public Input<Inputs.AnalyzerConfigurationArgs>? Configuration { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -203,6 +215,12 @@ namespace Pulumi.Aws.AccessAnalyzer
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// A block that specifies the configuration of the analyzer. Documented below
+        /// </summary>
+        [Input("configuration")]
+        public Input<Inputs.AnalyzerConfigurationGetArgs>? Configuration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

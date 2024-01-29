@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string> ExecutionRole { get; set; } = null!;
 
         /// <summary>
-        /// The Jupyter server's app settings. See Jupyter Server App Settings below.
+        /// The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         /// </summary>
         [Input("jupyterServerAppSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs>? JupyterServerAppSettings { get; set; }
 
         /// <summary>
-        /// The kernel gateway app settings. See Kernel Gateway App Settings below.
+        /// The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         /// </summary>
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs>? KernelGatewayAppSettings { get; set; }

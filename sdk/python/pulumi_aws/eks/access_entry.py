@@ -17,7 +17,9 @@ class AccessEntryArgs:
                  cluster_name: pulumi.Input[str],
                  principal_arn: pulumi.Input[str],
                  kubernetes_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AccessEntry resource.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
@@ -26,6 +28,8 @@ class AccessEntryArgs:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] type: Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
+        :param pulumi.Input[str] user_name: Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "principal_arn", principal_arn)
@@ -33,6 +37,10 @@ class AccessEntryArgs:
             pulumi.set(__self__, "kubernetes_groups", kubernetes_groups)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -83,6 +91,30 @@ class AccessEntryArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name", value)
 
 
 @pulumi.input_type
@@ -272,6 +304,8 @@ class AccessEntry(pulumi.CustomResource):
                  kubernetes_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Access Entry Configurations for an EKS Cluster.
@@ -288,7 +322,8 @@ class AccessEntry(pulumi.CustomResource):
             kubernetes_groups=[
                 "group-1",
                 "group-2",
-            ])
+            ],
+            type="STANDARD")
         ```
 
         ## Import
@@ -307,6 +342,8 @@ class AccessEntry(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] type: Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
+        :param pulumi.Input[str] user_name: Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
         """
         ...
     @overload
@@ -329,7 +366,8 @@ class AccessEntry(pulumi.CustomResource):
             kubernetes_groups=[
                 "group-1",
                 "group-2",
-            ])
+            ],
+            type="STANDARD")
         ```
 
         ## Import
@@ -359,6 +397,8 @@ class AccessEntry(pulumi.CustomResource):
                  kubernetes_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -376,12 +416,12 @@ class AccessEntry(pulumi.CustomResource):
                 raise TypeError("Missing required property 'principal_arn'")
             __props__.__dict__["principal_arn"] = principal_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
+            __props__.__dict__["user_name"] = user_name
             __props__.__dict__["access_entry_arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["modified_at"] = None
             __props__.__dict__["tags_all"] = None
-            __props__.__dict__["type"] = None
-            __props__.__dict__["user_name"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AccessEntry, __self__).__init__(
@@ -466,7 +506,7 @@ class AccessEntry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kubernetesGroups")
-    def kubernetes_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def kubernetes_groups(self) -> pulumi.Output[Sequence[str]]:
         """
         List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
         """
@@ -511,7 +551,7 @@ class AccessEntry(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
         """

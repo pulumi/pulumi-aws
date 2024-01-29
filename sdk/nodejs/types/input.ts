@@ -378,6 +378,20 @@ export interface ProviderIgnoreTags {
     keys?: pulumi.Input<pulumi.Input<string>[]>;
 }
 export namespace accessanalyzer {
+    export interface AnalyzerConfiguration {
+        /**
+         * A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+         */
+        unusedAccess?: pulumi.Input<inputs.accessanalyzer.AnalyzerConfigurationUnusedAccess>;
+    }
+
+    export interface AnalyzerConfigurationUnusedAccess {
+        /**
+         * The specified access age in days for which to generate findings for unused access.
+         */
+        unusedAccessAge?: pulumi.Input<number>;
+    }
+
     export interface ArchiveRuleFilter {
         /**
          * Contains comparator.
@@ -23071,6 +23085,10 @@ export namespace ecs {
          */
         autoScalingGroupArn: pulumi.Input<string>;
         /**
+         * Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+         */
+        managedDraining?: pulumi.Input<string>;
+        /**
          * Configuration block defining the parameters of the auto scaling. Detailed below.
          */
         managedScaling?: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProviderManagedScaling>;
@@ -26637,7 +26655,7 @@ export namespace fis {
 
     export interface ExperimentTemplateActionTarget {
         /**
-         * Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
+         * Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
          */
         key: pulumi.Input<string>;
         /**
@@ -56740,6 +56758,9 @@ export namespace quicksight {
     }
 
     export interface IamPolicyAssignmentIdentities {
+        /**
+         * Array of Quicksight group names to assign the policy to.
+         */
         groups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Array of Quicksight user names to assign the policy to.
@@ -57742,6 +57763,13 @@ export namespace redshiftserverless {
     }
 }
 
+export namespace rekognition {
+    export interface ProjectTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
+    }
+}
+
 export namespace resourceexplorer {
     export interface IndexTimeouts {
         create?: pulumi.Input<string>;
@@ -58361,6 +58389,26 @@ export namespace route53 {
 }
 
 export namespace route53domains {
+    export interface DelegationSignerRecordSigningAttributes {
+        /**
+         * Algorithm which was used to generate the digest from the public key.
+         */
+        algorithm: pulumi.Input<number>;
+        /**
+         * Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
+         */
+        flags: pulumi.Input<number>;
+        /**
+         * The base64-encoded public key part of the key pair that is passed to the registry.
+         */
+        publicKey: pulumi.Input<string>;
+    }
+
+    export interface DelegationSignerRecordTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
+    }
+
     export interface RegisteredDomainAdminContact {
         /**
          * First line of the contact's address.
@@ -61146,11 +61194,11 @@ export namespace sagemaker {
          */
         executionRole: pulumi.Input<string>;
         /**
-         * The Jupyter server's app settings. See Jupyter Server App Settings below.
+         * The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
          */
         jupyterServerAppSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsJupyterServerAppSettings>;
         /**
-         * The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
          */
         kernelGatewayAppSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsKernelGatewayAppSettings>;
         /**
@@ -61161,11 +61209,11 @@ export namespace sagemaker {
 
     export interface DomainDefaultSpaceSettingsJupyterServerAppSettings {
         /**
-         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
          */
         codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository>[]>;
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec>;
         /**
@@ -61206,11 +61254,11 @@ export namespace sagemaker {
 
     export interface DomainDefaultSpaceSettingsKernelGatewayAppSettings {
         /**
-         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see `customImage` Block below.
          */
         customImages?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage>[]>;
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec>;
         /**
@@ -61259,19 +61307,19 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettings {
         /**
-         * The Canvas app settings. See Canvas App Settings below.
+         * The Canvas app settings. See `canvasAppSettings` Block below.
          */
         canvasAppSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettings>;
         /**
-         * The Code Editor application settings. See Code Editor App Settings below.
+         * The Code Editor application settings. See `codeEditorAppSettings` Block below.
          */
         codeEditorAppSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCodeEditorAppSettings>;
         /**
-         * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+         * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `customFileSystemConfig` Block below.
          */
         customFileSystemConfigs?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCustomFileSystemConfig>[]>;
         /**
-         * Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+         * Details about the POSIX identity that is used for file system operations. See `customPosixUserConfig` Block below.
          */
         customPosixUserConfig?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCustomPosixUserConfig>;
         /**
@@ -61283,23 +61331,23 @@ export namespace sagemaker {
          */
         executionRole: pulumi.Input<string>;
         /**
-         * The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+         * The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
          */
         jupyterLabAppSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettings>;
         /**
-         * The Jupyter server's app settings. See Jupyter Server App Settings below.
+         * The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
          */
         jupyterServerAppSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettings>;
         /**
-         * The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
          */
         kernelGatewayAppSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettings>;
         /**
-         * The RSession app settings. See RSession App Settings below.
+         * The RSession app settings. See `rSessionAppSettings` Block below.
          */
         rSessionAppSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsRSessionAppSettings>;
         /**
-         * A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+         * A collection of settings that configure user interaction with the RStudioServerPro app. See `rStudioServerProAppSettings` Block below.
          */
         rStudioServerProAppSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsRStudioServerProAppSettings>;
         /**
@@ -61307,11 +61355,11 @@ export namespace sagemaker {
          */
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The sharing settings. See Sharing Settings below.
+         * The sharing settings. See `sharingSettings` Block below.
          */
         sharingSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsSharingSettings>;
         /**
-         * The storage settings for a private space. See Space Storage Settings below.
+         * The storage settings for a private space. See `spaceStorageSettings` Block below.
          */
         spaceStorageSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsSpaceStorageSettings>;
         /**
@@ -61319,34 +61367,34 @@ export namespace sagemaker {
          */
         studioWebPortal?: pulumi.Input<string>;
         /**
-         * The TensorBoard app settings. See TensorBoard App Settings below.
+         * The TensorBoard app settings. See `tensorBoardAppSettings` Block below.
          */
         tensorBoardAppSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsTensorBoardAppSettings>;
     }
 
     export interface DomainDefaultUserSettingsCanvasAppSettings {
         /**
-         * The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+         * The model deployment settings for the SageMaker Canvas application. See `directDeploySettings` Block below.
          */
         directDeploySettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings>;
         /**
-         * The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+         * The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
          */
         identityProviderOauthSettings?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting>[]>;
         /**
-         * The settings for document querying. See Kendra Settings below.
+         * The settings for document querying. See `kendraSettings` Block below.
          */
         kendraSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsKendraSettings>;
         /**
-         * The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+         * The model registry settings for the SageMaker Canvas application. See `modelRegisterSettings` Block below.
          */
         modelRegisterSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings>;
         /**
-         * Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+         * Time series forecast settings for the Canvas app. See `timeSeriesForecastingSettings` Block below.
          */
         timeSeriesForecastingSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings>;
         /**
-         * The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+         * The workspace settings for the SageMaker Canvas application. See `workspaceSettings` Block below.
          */
         workspaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings>;
     }
@@ -61415,7 +61463,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsCodeEditorAppSettings {
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec>;
         /**
@@ -61449,7 +61497,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsCustomFileSystemConfig {
         /**
-         * The default EBS storage settings for a private space. See EFS File System Config below.
+         * The default EBS storage settings for a private space. See `efsFileSystemConfig` Block below.
          */
         efsFileSystemConfig?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig>;
     }
@@ -61478,15 +61526,15 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsJupyterLabAppSettings {
         /**
-         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
          */
         codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository>[]>;
         /**
-         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * A list of custom SageMaker images that are configured to run as a JupyterLab app. see `customImage` Block below.
          */
         customImages?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage>[]>;
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec>;
         /**
@@ -61542,11 +61590,11 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsJupyterServerAppSettings {
         /**
-         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
          */
         codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository>[]>;
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec>;
         /**
@@ -61587,11 +61635,11 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsKernelGatewayAppSettings {
         /**
-         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see `customImage` Block below.
          */
         customImages?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage>[]>;
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec>;
         /**
@@ -61640,11 +61688,11 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsRSessionAppSettings {
         /**
-         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * A list of custom SageMaker images that are configured to run as a RSession app. see `customImage` Block below.
          */
         customImages?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsRSessionAppSettingsCustomImage>[]>;
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block above.
          */
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec>;
     }
@@ -61715,7 +61763,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsSpaceStorageSettings {
         /**
-         * The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+         * The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
          */
         defaultEbsStorageSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings>;
     }
@@ -61733,7 +61781,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsTensorBoardAppSettings {
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec>;
     }
@@ -61767,7 +61815,7 @@ export namespace sagemaker {
          */
         executionRoleIdentityConfig?: pulumi.Input<string>;
         /**
-         * A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+         * A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
          */
         rStudioServerProDomainSettings?: pulumi.Input<inputs.sagemaker.DomainDomainSettingsRStudioServerProDomainSettings>;
         /**
@@ -61778,7 +61826,7 @@ export namespace sagemaker {
 
     export interface DomainDomainSettingsRStudioServerProDomainSettings {
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block above.
          */
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec>;
         /**
@@ -66319,35 +66367,23 @@ export namespace ssm {
 
     export interface PatchBaselineApprovalRule {
         /**
-         * The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
-         * Valid Range: 0 to 100.
-         * Conflicts with `approveUntilDate`.
+         * Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approveUntilDate`.
          */
         approveAfterDays?: pulumi.Input<number>;
         /**
-         * The cutoff date for auto approval of released patches.
-         * Any patches released on or before this date are installed automatically.
-         * Date is formatted as `YYYY-MM-DD`.
-         * Conflicts with `approveAfterDays`
+         * Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
          */
         approveUntilDate?: pulumi.Input<string>;
         /**
-         * The compliance level for patches approved by this rule.
-         * Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`.
-         * The default value is `UNSPECIFIED`.
+         * Compliance level for patches approved by this rule. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`. The default value is `UNSPECIFIED`.
          */
         complianceLevel?: pulumi.Input<string>;
         /**
-         * Boolean enabling the application of non-security updates.
-         * The default value is `false`.
-         * Valid for Linux instances only.
+         * Boolean enabling the application of non-security updates. The default value is `false`. Valid for Linux instances only.
          */
         enableNonSecurity?: pulumi.Input<boolean>;
         /**
-         * The patch filter group that defines the criteria for the rule.
-         * Up to 5 patch filters can be specified per approval rule using Key/Value pairs.
-         * Valid combinations of these Keys and the `operatingSystem` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html).
-         * Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
+         * Patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operatingSystem` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values. `PATCH_SET` defaults to `OS` if unspecified
          */
         patchFilters: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineApprovalRulePatchFilter>[]>;
     }
@@ -66364,17 +66400,15 @@ export namespace ssm {
 
     export interface PatchBaselineSource {
         /**
-         * The value of the yum repo configuration.
-         * For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+         * Value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
          */
         configuration: pulumi.Input<string>;
         /**
-         * The name specified to identify the patch source.
+         * Name specified to identify the patch source.
          */
         name: pulumi.Input<string>;
         /**
-         * The specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`.
-         * For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+         * Specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
          */
         products: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -71933,6 +71967,20 @@ export namespace wafv2 {
     }
 
     export interface WebAclCaptchaConfigImmunityTimeProperty {
+        /**
+         * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+         */
+        immunityTime?: pulumi.Input<number>;
+    }
+
+    export interface WebAclChallengeConfig {
+        /**
+         * Defines custom immunity time. See `immunityTimeProperty` below for details.
+         */
+        immunityTimeProperty?: pulumi.Input<inputs.wafv2.WebAclChallengeConfigImmunityTimeProperty>;
+    }
+
+    export interface WebAclChallengeConfigImmunityTimeProperty {
         /**
          * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
          */

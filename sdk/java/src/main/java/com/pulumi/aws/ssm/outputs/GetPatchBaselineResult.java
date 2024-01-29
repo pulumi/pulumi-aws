@@ -28,7 +28,7 @@ public final class GetPatchBaselineResult {
      */
     private List<String> approvedPatches;
     /**
-     * @return The compliance level for approved patches.
+     * @return Compliance level for approved patches.
      * 
      */
     private String approvedPatchesComplianceLevel;
@@ -54,7 +54,12 @@ public final class GetPatchBaselineResult {
      */
     private String id;
     /**
-     * @return The name specified to identify the patch source.
+     * @return JSON representation of the baseline.
+     * 
+     */
+    private String json;
+    /**
+     * @return Name specified to identify the patch source.
      * 
      */
     private String name;
@@ -67,7 +72,7 @@ public final class GetPatchBaselineResult {
      */
     private List<String> rejectedPatches;
     /**
-     * @return The action specified to take on patches included in the `rejected_patches` list.
+     * @return Action specified to take on patches included in the `rejected_patches` list.
      * 
      */
     private String rejectedPatchesAction;
@@ -93,7 +98,7 @@ public final class GetPatchBaselineResult {
         return this.approvedPatches;
     }
     /**
-     * @return The compliance level for approved patches.
+     * @return Compliance level for approved patches.
      * 
      */
     public String approvedPatchesComplianceLevel() {
@@ -131,7 +136,14 @@ public final class GetPatchBaselineResult {
         return this.id;
     }
     /**
-     * @return The name specified to identify the patch source.
+     * @return JSON representation of the baseline.
+     * 
+     */
+    public String json() {
+        return this.json;
+    }
+    /**
+     * @return Name specified to identify the patch source.
      * 
      */
     public String name() {
@@ -154,7 +166,7 @@ public final class GetPatchBaselineResult {
         return this.rejectedPatches;
     }
     /**
-     * @return The action specified to take on patches included in the `rejected_patches` list.
+     * @return Action specified to take on patches included in the `rejected_patches` list.
      * 
      */
     public String rejectedPatchesAction() {
@@ -185,6 +197,7 @@ public final class GetPatchBaselineResult {
         private String description;
         private List<GetPatchBaselineGlobalFilter> globalFilters;
         private String id;
+        private String json;
         private String name;
         private @Nullable String namePrefix;
         private @Nullable String operatingSystem;
@@ -203,6 +216,7 @@ public final class GetPatchBaselineResult {
     	      this.description = defaults.description;
     	      this.globalFilters = defaults.globalFilters;
     	      this.id = defaults.id;
+    	      this.json = defaults.json;
     	      this.name = defaults.name;
     	      this.namePrefix = defaults.namePrefix;
     	      this.operatingSystem = defaults.operatingSystem;
@@ -284,6 +298,14 @@ public final class GetPatchBaselineResult {
             return this;
         }
         @CustomType.Setter
+        public Builder json(String json) {
+            if (json == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineResult", "json");
+            }
+            this.json = json;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetPatchBaselineResult", "name");
@@ -351,6 +373,7 @@ public final class GetPatchBaselineResult {
             _resultValue.description = description;
             _resultValue.globalFilters = globalFilters;
             _resultValue.id = id;
+            _resultValue.json = json;
             _resultValue.name = name;
             _resultValue.namePrefix = namePrefix;
             _resultValue.operatingSystem = operatingSystem;

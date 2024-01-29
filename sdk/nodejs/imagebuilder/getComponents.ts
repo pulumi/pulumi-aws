@@ -44,7 +44,7 @@ export interface GetComponentsArgs {
      */
     filters?: inputs.imagebuilder.GetComponentsFilter[];
     /**
-     * Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      */
     owner?: string;
 }
@@ -99,7 +99,7 @@ export interface GetComponentsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetComponentsFilterArgs>[]>;
     /**
-     * Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      */
     owner?: pulumi.Input<string>;
 }

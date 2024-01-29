@@ -29,10 +29,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import EKS access entry using the `cluster_name` `policy_arn` and `principal_arn` separated by a colon (`:`). For example:
+ * Using `pulumi import`, import EKS access entry using the `cluster_name` `principal_arn` and `policy_arn` separated by a colon (`#`). For example:
  *
  * ```sh
- *  $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name:my_policy_arn:my_principal_arn
+ *  $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name#my_principal_arn#my_policy_arn
  * ```
  */
 export class AccessPolicyAssociation extends pulumi.CustomResource {
@@ -64,7 +64,7 @@ export class AccessPolicyAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The configuration block to determine the scope of the access.
+     * The configuration block to determine the scope of the access. See `accessScope` Block below.
      */
     public readonly accessScope!: pulumi.Output<outputs.eks.AccessPolicyAssociationAccessScope>;
     /**
@@ -138,7 +138,7 @@ export class AccessPolicyAssociation extends pulumi.CustomResource {
  */
 export interface AccessPolicyAssociationState {
     /**
-     * The configuration block to determine the scope of the access.
+     * The configuration block to determine the scope of the access. See `accessScope` Block below.
      */
     accessScope?: pulumi.Input<inputs.eks.AccessPolicyAssociationAccessScope>;
     /**
@@ -168,7 +168,7 @@ export interface AccessPolicyAssociationState {
  */
 export interface AccessPolicyAssociationArgs {
     /**
-     * The configuration block to determine the scope of the access.
+     * The configuration block to determine the scope of the access. See `accessScope` Block below.
      */
     accessScope: pulumi.Input<inputs.eks.AccessPolicyAssociationAccessScope>;
     /**

@@ -49,6 +49,44 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### AWS KMS Customer Managed Keys (CMK)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.codecommit.Repository;
+ * import com.pulumi.aws.codecommit.RepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testKey = new Key(&#34;testKey&#34;, KeyArgs.builder()        
+ *             .description(&#34;test&#34;)
+ *             .deletionWindowInDays(7)
+ *             .build());
+ * 
+ *         var testRepository = new Repository(&#34;testRepository&#34;, RepositoryArgs.builder()        
+ *             .repositoryName(&#34;MyTestRepository&#34;)
+ *             .description(&#34;This is the Sample App Repository&#34;)
+ *             .kmsKeyId(testKey.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -130,6 +168,20 @@ public class Repository extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     * 
+     */
+    @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
+    private Output<String> kmsKeyId;
+
+    /**
+     * @return The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     * 
+     */
+    public Output<String> kmsKeyId() {
+        return this.kmsKeyId;
     }
     /**
      * The ID of the repository

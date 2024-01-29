@@ -56,7 +56,7 @@ type LookupRepositoryArgs struct {
 
 // A collection of values returned by getRepository.
 type LookupRepositoryResult struct {
-	// ARN of the repository
+	// ARN of the repository.
 	Arn string `pulumi:"arn"`
 	// URL to use for cloning the repository over HTTPS.
 	CloneUrlHttp string `pulumi:"cloneUrlHttp"`
@@ -64,7 +64,9 @@ type LookupRepositoryResult struct {
 	CloneUrlSsh string `pulumi:"cloneUrlSsh"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// ID of the repository
+	// The ID of the encryption key.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	// ID of the repository.
 	RepositoryId   string `pulumi:"repositoryId"`
 	RepositoryName string `pulumi:"repositoryName"`
 }
@@ -107,7 +109,7 @@ func (o LookupRepositoryResultOutput) ToLookupRepositoryResultOutputWithContext(
 	return o
 }
 
-// ARN of the repository
+// ARN of the repository.
 func (o LookupRepositoryResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -127,7 +129,12 @@ func (o LookupRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ID of the repository
+// The ID of the encryption key.
+func (o LookupRepositoryResultOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// ID of the repository.
 func (o LookupRepositoryResultOutput) RepositoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.RepositoryId }).(pulumi.StringOutput)
 }

@@ -171,7 +171,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly bisectBatchOnFunctionError!: pulumi.Output<boolean | undefined>;
     /**
-     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
      */
     public readonly destinationConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDestinationConfig | undefined>;
     /**
@@ -374,7 +374,7 @@ export interface EventSourceMappingState {
      */
     bisectBatchOnFunctionError?: pulumi.Input<boolean>;
     /**
-     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
      */
     destinationConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDestinationConfig>;
     /**
@@ -496,7 +496,7 @@ export interface EventSourceMappingArgs {
      */
     bisectBatchOnFunctionError?: pulumi.Input<boolean>;
     /**
-     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
      */
     destinationConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDestinationConfig>;
     /**

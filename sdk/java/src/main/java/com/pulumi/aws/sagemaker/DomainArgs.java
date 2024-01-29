@@ -68,14 +68,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default space settings. See Default Space Settings below.
+     * The default space settings. See `default_space_settings` Block below.
      * 
      */
     @Import(name="defaultSpaceSettings")
     private @Nullable Output<DomainDefaultSpaceSettingsArgs> defaultSpaceSettings;
 
     /**
-     * @return The default space settings. See Default Space Settings below.
+     * @return The default space settings. See `default_space_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultSpaceSettingsArgs>> defaultSpaceSettings() {
@@ -83,14 +83,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default user settings. See Default User Settings below.
+     * The default user settings. See `default_user_settings` Block below.
      * 
      */
     @Import(name="defaultUserSettings", required=true)
     private Output<DomainDefaultUserSettingsArgs> defaultUserSettings;
 
     /**
-     * @return The default user settings. See Default User Settings below.
+     * @return The default user settings. See `default_user_settings` Block below.
      * 
      */
     public Output<DomainDefaultUserSettingsArgs> defaultUserSettings() {
@@ -113,14 +113,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The domain&#39;s settings.
+     * The domain settings. See `domain_settings` Block below.
      * 
      */
     @Import(name="domainSettings")
     private @Nullable Output<DomainDomainSettingsArgs> domainSettings;
 
     /**
-     * @return The domain&#39;s settings.
+     * @return The domain settings. See `domain_settings` Block below.
      * 
      */
     public Optional<Output<DomainDomainSettingsArgs>> domainSettings() {
@@ -143,14 +143,14 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
      * 
      */
     @Import(name="retentionPolicy")
     private @Nullable Output<DomainRetentionPolicyArgs> retentionPolicy;
 
     /**
-     * @return The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     * @return The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
      * 
      */
     public Optional<Output<DomainRetentionPolicyArgs>> retentionPolicy() {
@@ -305,7 +305,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultSpaceSettings The default space settings. See Default Space Settings below.
+         * @param defaultSpaceSettings The default space settings. See `default_space_settings` Block below.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultSpaceSettings The default space settings. See Default Space Settings below.
+         * @param defaultSpaceSettings The default space settings. See `default_space_settings` Block below.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultUserSettings The default user settings. See Default User Settings below.
+         * @param defaultUserSettings The default user settings. See `default_user_settings` Block below.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultUserSettings The default user settings. See Default User Settings below.
+         * @param defaultUserSettings The default user settings. See `default_user_settings` Block below.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainSettings The domain&#39;s settings.
+         * @param domainSettings The domain settings. See `domain_settings` Block below.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainSettings The domain&#39;s settings.
+         * @param domainSettings The domain settings. See `domain_settings` Block below.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionPolicy The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+         * @param retentionPolicy The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionPolicy The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+         * @param retentionPolicy The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
          * 
          * @return builder
          * 

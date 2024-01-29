@@ -67,6 +67,14 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ## Import
+ * 
+ * Using `pulumi import`, import domains using the domain name. For example:
+ * 
+ * ```sh
+ *  $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
+ * ```
+ * 
  */
 @ResourceType(type="aws:route53domains/registeredDomain:RegisteredDomain")
 public class RegisteredDomain extends com.pulumi.resources.CustomResource {
@@ -99,14 +107,14 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
         return this.abuseContactPhone;
     }
     /**
-     * Details about the domain administrative contact.
+     * Details about the domain administrative contact. See Contact Blocks for more details.
      * 
      */
     @Export(name="adminContact", refs={RegisteredDomainAdminContact.class}, tree="[0]")
     private Output<RegisteredDomainAdminContact> adminContact;
 
     /**
-     * @return Details about the domain administrative contact.
+     * @return Details about the domain administrative contact. See Contact Blocks for more details.
      * 
      */
     public Output<RegisteredDomainAdminContact> adminContact() {
@@ -183,28 +191,28 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
         return this.expirationDate;
     }
     /**
-     * The list of nameservers for the domain.
+     * The list of nameservers for the domain. See `name_server` Blocks for more details.
      * 
      */
     @Export(name="nameServers", refs={List.class,RegisteredDomainNameServer.class}, tree="[0,1]")
     private Output<List<RegisteredDomainNameServer>> nameServers;
 
     /**
-     * @return The list of nameservers for the domain.
+     * @return The list of nameservers for the domain. See `name_server` Blocks for more details.
      * 
      */
     public Output<List<RegisteredDomainNameServer>> nameServers() {
         return this.nameServers;
     }
     /**
-     * Details about the domain registrant.
+     * Details about the domain registrant. See Contact Blocks for more details.
      * 
      */
     @Export(name="registrantContact", refs={RegisteredDomainRegistrantContact.class}, tree="[0]")
     private Output<RegisteredDomainRegistrantContact> registrantContact;
 
     /**
-     * @return Details about the domain registrant.
+     * @return Details about the domain registrant. See Contact Blocks for more details.
      * 
      */
     public Output<RegisteredDomainRegistrantContact> registrantContact() {
@@ -313,14 +321,14 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Details about the domain technical contact.
+     * Details about the domain technical contact. See Contact Blocks for more details.
      * 
      */
     @Export(name="techContact", refs={RegisteredDomainTechContact.class}, tree="[0]")
     private Output<RegisteredDomainTechContact> techContact;
 
     /**
-     * @return Details about the domain technical contact.
+     * @return Details about the domain technical contact. See Contact Blocks for more details.
      * 
      */
     public Output<RegisteredDomainTechContact> techContact() {

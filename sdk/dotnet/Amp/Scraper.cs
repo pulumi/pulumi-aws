@@ -40,6 +40,12 @@ namespace Pulumi.Aws.Amp
         public Output<Outputs.ScraperDestination?> Destination { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+        /// </summary>
+        [Output("roleArn")]
+        public Output<string> RoleArn { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         /// </summary>
         [Output("scrapeConfiguration")]
@@ -174,6 +180,12 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         [Input("destination")]
         public Input<Inputs.ScraperDestinationGetArgs>? Destination { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+        /// </summary>
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
 
         /// <summary>
         /// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).

@@ -243,6 +243,10 @@ class SmsPreferences(pulumi.CustomResource):
         update_sms_prefs = aws.sns.SmsPreferences("updateSmsPrefs")
         ```
 
+        ## Import
+
+        You cannot import the SMS preferences.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_sender_id: A string, such as your business brand, that is displayed as the sender on the receiving device.
@@ -269,6 +273,10 @@ class SmsPreferences(pulumi.CustomResource):
 
         update_sms_prefs = aws.sns.SmsPreferences("updateSmsPrefs")
         ```
+
+        ## Import
+
+        You cannot import the SMS preferences.
 
         :param str resource_name: The name of the resource.
         :param SmsPreferencesArgs args: The arguments to use to populate this resource's properties.

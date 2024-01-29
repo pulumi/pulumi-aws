@@ -22,7 +22,7 @@ class AccessPolicyAssociationArgs:
                  principal_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a AccessPolicyAssociation resource.
-        :param pulumi.Input['AccessPolicyAssociationAccessScopeArgs'] access_scope: The configuration block to determine the scope of the access.
+        :param pulumi.Input['AccessPolicyAssociationAccessScopeArgs'] access_scope: The configuration block to determine the scope of the access. See `access_scope` Block below.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
         :param pulumi.Input[str] policy_arn: The ARN of the access policy that you're associating.
         :param pulumi.Input[str] principal_arn: The IAM Princial ARN which requires Authentication access to the EKS cluster.
@@ -36,7 +36,7 @@ class AccessPolicyAssociationArgs:
     @pulumi.getter(name="accessScope")
     def access_scope(self) -> pulumi.Input['AccessPolicyAssociationAccessScopeArgs']:
         """
-        The configuration block to determine the scope of the access.
+        The configuration block to determine the scope of the access. See `access_scope` Block below.
         """
         return pulumi.get(self, "access_scope")
 
@@ -92,7 +92,7 @@ class _AccessPolicyAssociationState:
                  principal_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AccessPolicyAssociation resources.
-        :param pulumi.Input['AccessPolicyAssociationAccessScopeArgs'] access_scope: The configuration block to determine the scope of the access.
+        :param pulumi.Input['AccessPolicyAssociationAccessScopeArgs'] access_scope: The configuration block to determine the scope of the access. See `access_scope` Block below.
         :param pulumi.Input[str] associated_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
@@ -116,7 +116,7 @@ class _AccessPolicyAssociationState:
     @pulumi.getter(name="accessScope")
     def access_scope(self) -> Optional[pulumi.Input['AccessPolicyAssociationAccessScopeArgs']]:
         """
-        The configuration block to determine the scope of the access.
+        The configuration block to determine the scope of the access. See `access_scope` Block below.
         """
         return pulumi.get(self, "access_scope")
 
@@ -216,15 +216,15 @@ class AccessPolicyAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EKS access entry using the `cluster_name` `policy_arn` and `principal_arn` separated by a colon (`:`). For example:
+        Using `pulumi import`, import EKS access entry using the `cluster_name` `principal_arn` and `policy_arn` separated by a colon (`#`). For example:
 
         ```sh
-         $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name:my_policy_arn:my_principal_arn
+         $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name#my_principal_arn#my_policy_arn
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccessPolicyAssociationAccessScopeArgs']] access_scope: The configuration block to determine the scope of the access.
+        :param pulumi.Input[pulumi.InputType['AccessPolicyAssociationAccessScopeArgs']] access_scope: The configuration block to determine the scope of the access. See `access_scope` Block below.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
         :param pulumi.Input[str] policy_arn: The ARN of the access policy that you're associating.
         :param pulumi.Input[str] principal_arn: The IAM Princial ARN which requires Authentication access to the EKS cluster.
@@ -256,10 +256,10 @@ class AccessPolicyAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EKS access entry using the `cluster_name` `policy_arn` and `principal_arn` separated by a colon (`:`). For example:
+        Using `pulumi import`, import EKS access entry using the `cluster_name` `principal_arn` and `policy_arn` separated by a colon (`#`). For example:
 
         ```sh
-         $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name:my_policy_arn:my_principal_arn
+         $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name#my_principal_arn#my_policy_arn
         ```
 
         :param str resource_name: The name of the resource.
@@ -327,7 +327,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccessPolicyAssociationAccessScopeArgs']] access_scope: The configuration block to determine the scope of the access.
+        :param pulumi.Input[pulumi.InputType['AccessPolicyAssociationAccessScopeArgs']] access_scope: The configuration block to determine the scope of the access. See `access_scope` Block below.
         :param pulumi.Input[str] associated_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
@@ -350,7 +350,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
     @pulumi.getter(name="accessScope")
     def access_scope(self) -> pulumi.Output['outputs.AccessPolicyAssociationAccessScope']:
         """
-        The configuration block to determine the scope of the access.
+        The configuration block to determine the scope of the access. See `access_scope` Block below.
         """
         return pulumi.get(self, "access_scope")
 

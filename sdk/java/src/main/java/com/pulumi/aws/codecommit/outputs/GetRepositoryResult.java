@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetRepositoryResult {
     /**
-     * @return ARN of the repository
+     * @return ARN of the repository.
      * 
      */
     private String arn;
@@ -31,7 +31,12 @@ public final class GetRepositoryResult {
      */
     private String id;
     /**
-     * @return ID of the repository
+     * @return The ID of the encryption key.
+     * 
+     */
+    private String kmsKeyId;
+    /**
+     * @return ID of the repository.
      * 
      */
     private String repositoryId;
@@ -39,7 +44,7 @@ public final class GetRepositoryResult {
 
     private GetRepositoryResult() {}
     /**
-     * @return ARN of the repository
+     * @return ARN of the repository.
      * 
      */
     public String arn() {
@@ -67,7 +72,14 @@ public final class GetRepositoryResult {
         return this.id;
     }
     /**
-     * @return ID of the repository
+     * @return The ID of the encryption key.
+     * 
+     */
+    public String kmsKeyId() {
+        return this.kmsKeyId;
+    }
+    /**
+     * @return ID of the repository.
      * 
      */
     public String repositoryId() {
@@ -90,6 +102,7 @@ public final class GetRepositoryResult {
         private String cloneUrlHttp;
         private String cloneUrlSsh;
         private String id;
+        private String kmsKeyId;
         private String repositoryId;
         private String repositoryName;
         public Builder() {}
@@ -99,6 +112,7 @@ public final class GetRepositoryResult {
     	      this.cloneUrlHttp = defaults.cloneUrlHttp;
     	      this.cloneUrlSsh = defaults.cloneUrlSsh;
     	      this.id = defaults.id;
+    	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.repositoryId = defaults.repositoryId;
     	      this.repositoryName = defaults.repositoryName;
         }
@@ -136,6 +150,14 @@ public final class GetRepositoryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder kmsKeyId(String kmsKeyId) {
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryResult", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder repositoryId(String repositoryId) {
             if (repositoryId == null) {
               throw new MissingRequiredPropertyException("GetRepositoryResult", "repositoryId");
@@ -157,6 +179,7 @@ public final class GetRepositoryResult {
             _resultValue.cloneUrlHttp = cloneUrlHttp;
             _resultValue.cloneUrlSsh = cloneUrlSsh;
             _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.repositoryId = repositoryId;
             _resultValue.repositoryName = repositoryName;
             return _resultValue;

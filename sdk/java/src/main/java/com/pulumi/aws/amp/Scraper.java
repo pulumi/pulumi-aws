@@ -74,6 +74,20 @@ public class Scraper extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.destination);
     }
     /**
+     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+     * 
+     */
+    @Export(name="roleArn", refs={String.class}, tree="[0]")
+    private Output<String> roleArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+     * 
+     */
+    public Output<String> roleArn() {
+        return this.roleArn;
+    }
+    /**
      * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      * 
      */

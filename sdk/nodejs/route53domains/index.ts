@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DelegationSignerRecordArgs, DelegationSignerRecordState } from "./delegationSignerRecord";
+export type DelegationSignerRecord = import("./delegationSignerRecord").DelegationSignerRecord;
+export const DelegationSignerRecord: typeof import("./delegationSignerRecord").DelegationSignerRecord = null as any;
+utilities.lazyLoad(exports, ["DelegationSignerRecord"], () => require("./delegationSignerRecord"));
+
 export { RegisteredDomainArgs, RegisteredDomainState } from "./registeredDomain";
 export type RegisteredDomain = import("./registeredDomain").RegisteredDomain;
 export const RegisteredDomain: typeof import("./registeredDomain").RegisteredDomain = null as any;
@@ -15,6 +20,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:route53domains/delegationSignerRecord:DelegationSignerRecord":
+                return new DelegationSignerRecord(name, <any>undefined, { urn })
             case "aws:route53domains/registeredDomain:RegisteredDomain":
                 return new RegisteredDomain(name, <any>undefined, { urn })
             default:
@@ -22,4 +29,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "route53domains/delegationSignerRecord", _module)
 pulumi.runtime.registerResourceModule("aws", "route53domains/registeredDomain", _module)

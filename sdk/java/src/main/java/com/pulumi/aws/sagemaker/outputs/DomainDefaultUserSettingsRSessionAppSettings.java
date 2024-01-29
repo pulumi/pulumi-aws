@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultUserSettingsRSessionAppSettings {
     /**
-     * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+     * @return A list of custom SageMaker images that are configured to run as a RSession app. see `custom_image` Block below.
      * 
      */
     private @Nullable List<DomainDefaultUserSettingsRSessionAppSettingsCustomImage> customImages;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
      * 
      */
     private @Nullable DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec defaultResourceSpec;
 
     private DomainDefaultUserSettingsRSessionAppSettings() {}
     /**
-     * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+     * @return A list of custom SageMaker images that are configured to run as a RSession app. see `custom_image` Block below.
      * 
      */
     public List<DomainDefaultUserSettingsRSessionAppSettingsCustomImage> customImages() {
         return this.customImages == null ? List.of() : this.customImages;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
      * 
      */
     public Optional<DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec> defaultResourceSpec() {

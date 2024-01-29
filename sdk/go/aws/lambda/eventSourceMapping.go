@@ -251,7 +251,7 @@ type EventSourceMapping struct {
 	BatchSize pulumi.IntPtrOutput `pulumi:"batchSize"`
 	// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
 	BisectBatchOnFunctionError pulumi.BoolPtrOutput `pulumi:"bisectBatchOnFunctionError"`
-	// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+	// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
 	DestinationConfig EventSourceMappingDestinationConfigPtrOutput `pulumi:"destinationConfig"`
 	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
 	DocumentDbEventSourceConfig EventSourceMappingDocumentDbEventSourceConfigPtrOutput `pulumi:"documentDbEventSourceConfig"`
@@ -344,7 +344,7 @@ type eventSourceMappingState struct {
 	BatchSize *int `pulumi:"batchSize"`
 	// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
 	BisectBatchOnFunctionError *bool `pulumi:"bisectBatchOnFunctionError"`
-	// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+	// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
 	DestinationConfig *EventSourceMappingDestinationConfig `pulumi:"destinationConfig"`
 	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
 	DocumentDbEventSourceConfig *EventSourceMappingDocumentDbEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
@@ -405,7 +405,7 @@ type EventSourceMappingState struct {
 	BatchSize pulumi.IntPtrInput
 	// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
 	BisectBatchOnFunctionError pulumi.BoolPtrInput
-	// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+	// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
 	DestinationConfig EventSourceMappingDestinationConfigPtrInput
 	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
 	DocumentDbEventSourceConfig EventSourceMappingDocumentDbEventSourceConfigPtrInput
@@ -470,7 +470,7 @@ type eventSourceMappingArgs struct {
 	BatchSize *int `pulumi:"batchSize"`
 	// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
 	BisectBatchOnFunctionError *bool `pulumi:"bisectBatchOnFunctionError"`
-	// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+	// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
 	DestinationConfig *EventSourceMappingDestinationConfig `pulumi:"destinationConfig"`
 	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
 	DocumentDbEventSourceConfig *EventSourceMappingDocumentDbEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
@@ -520,7 +520,7 @@ type EventSourceMappingArgs struct {
 	BatchSize pulumi.IntPtrInput
 	// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
 	BisectBatchOnFunctionError pulumi.BoolPtrInput
-	// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+	// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
 	DestinationConfig EventSourceMappingDestinationConfigPtrInput
 	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
 	DocumentDbEventSourceConfig EventSourceMappingDocumentDbEventSourceConfigPtrInput
@@ -666,7 +666,7 @@ func (o EventSourceMappingOutput) BisectBatchOnFunctionError() pulumi.BoolPtrOut
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.BoolPtrOutput { return v.BisectBatchOnFunctionError }).(pulumi.BoolPtrOutput)
 }
 
-// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
 func (o EventSourceMappingOutput) DestinationConfig() EventSourceMappingDestinationConfigPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingDestinationConfigPtrOutput { return v.DestinationConfig }).(EventSourceMappingDestinationConfigPtrOutput)
 }

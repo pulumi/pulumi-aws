@@ -42,6 +42,20 @@ export interface GetRegionsFilter {
 }
 
 export namespace accessanalyzer {
+    export interface AnalyzerConfiguration {
+        /**
+         * A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+         */
+        unusedAccess?: outputs.accessanalyzer.AnalyzerConfigurationUnusedAccess;
+    }
+
+    export interface AnalyzerConfigurationUnusedAccess {
+        /**
+         * The specified access age in days for which to generate findings for unused access.
+         */
+        unusedAccessAge?: number;
+    }
+
     export interface ArchiveRuleFilter {
         /**
          * Contains comparator.
@@ -26988,6 +27002,10 @@ export namespace ecs {
          */
         autoScalingGroupArn: string;
         /**
+         * Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+         */
+        managedDraining: string;
+        /**
          * Configuration block defining the parameters of the auto scaling. Detailed below.
          */
         managedScaling: outputs.ecs.CapacityProviderAutoScalingGroupProviderManagedScaling;
@@ -30900,7 +30918,7 @@ export namespace fis {
 
     export interface ExperimentTemplateActionTarget {
         /**
-         * Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
+         * Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
          */
         key: string;
         /**
@@ -63166,6 +63184,9 @@ export namespace quicksight {
     }
 
     export interface IamPolicyAssignmentIdentities {
+        /**
+         * Array of Quicksight group names to assign the policy to.
+         */
         groups?: string[];
         /**
          * Array of Quicksight user names to assign the policy to.
@@ -64231,6 +64252,14 @@ export namespace redshiftserverless {
 
 }
 
+export namespace rekognition {
+    export interface ProjectTimeouts {
+        create?: string;
+        delete?: string;
+    }
+
+}
+
 export namespace resourceexplorer {
     export interface IndexTimeouts {
         create?: string;
@@ -64712,6 +64741,26 @@ export namespace route53 {
 }
 
 export namespace route53domains {
+    export interface DelegationSignerRecordSigningAttributes {
+        /**
+         * Algorithm which was used to generate the digest from the public key.
+         */
+        algorithm: number;
+        /**
+         * Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
+         */
+        flags: number;
+        /**
+         * The base64-encoded public key part of the key pair that is passed to the registry.
+         */
+        publicKey: string;
+    }
+
+    export interface DelegationSignerRecordTimeouts {
+        create?: string;
+        delete?: string;
+    }
+
     export interface RegisteredDomainAdminContact {
         /**
          * First line of the contact's address.
@@ -67544,11 +67593,11 @@ export namespace sagemaker {
          */
         executionRole: string;
         /**
-         * The Jupyter server's app settings. See Jupyter Server App Settings below.
+         * The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
          */
         jupyterServerAppSettings?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterServerAppSettings;
         /**
-         * The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
          */
         kernelGatewayAppSettings?: outputs.sagemaker.DomainDefaultSpaceSettingsKernelGatewayAppSettings;
         /**
@@ -67559,11 +67608,11 @@ export namespace sagemaker {
 
     export interface DomainDefaultSpaceSettingsJupyterServerAppSettings {
         /**
-         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
          */
         codeRepositories?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec;
         /**
@@ -67604,11 +67653,11 @@ export namespace sagemaker {
 
     export interface DomainDefaultSpaceSettingsKernelGatewayAppSettings {
         /**
-         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see `customImage` Block below.
          */
         customImages?: outputs.sagemaker.DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec;
         /**
@@ -67657,19 +67706,19 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettings {
         /**
-         * The Canvas app settings. See Canvas App Settings below.
+         * The Canvas app settings. See `canvasAppSettings` Block below.
          */
         canvasAppSettings?: outputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettings;
         /**
-         * The Code Editor application settings. See Code Editor App Settings below.
+         * The Code Editor application settings. See `codeEditorAppSettings` Block below.
          */
         codeEditorAppSettings?: outputs.sagemaker.DomainDefaultUserSettingsCodeEditorAppSettings;
         /**
-         * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+         * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `customFileSystemConfig` Block below.
          */
         customFileSystemConfigs?: outputs.sagemaker.DomainDefaultUserSettingsCustomFileSystemConfig[];
         /**
-         * Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+         * Details about the POSIX identity that is used for file system operations. See `customPosixUserConfig` Block below.
          */
         customPosixUserConfig?: outputs.sagemaker.DomainDefaultUserSettingsCustomPosixUserConfig;
         /**
@@ -67681,23 +67730,23 @@ export namespace sagemaker {
          */
         executionRole: string;
         /**
-         * The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+         * The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
          */
         jupyterLabAppSettings?: outputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettings;
         /**
-         * The Jupyter server's app settings. See Jupyter Server App Settings below.
+         * The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
          */
         jupyterServerAppSettings?: outputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettings;
         /**
-         * The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
          */
         kernelGatewayAppSettings?: outputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettings;
         /**
-         * The RSession app settings. See RSession App Settings below.
+         * The RSession app settings. See `rSessionAppSettings` Block below.
          */
         rSessionAppSettings?: outputs.sagemaker.DomainDefaultUserSettingsRSessionAppSettings;
         /**
-         * A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+         * A collection of settings that configure user interaction with the RStudioServerPro app. See `rStudioServerProAppSettings` Block below.
          */
         rStudioServerProAppSettings?: outputs.sagemaker.DomainDefaultUserSettingsRStudioServerProAppSettings;
         /**
@@ -67705,11 +67754,11 @@ export namespace sagemaker {
          */
         securityGroups?: string[];
         /**
-         * The sharing settings. See Sharing Settings below.
+         * The sharing settings. See `sharingSettings` Block below.
          */
         sharingSettings?: outputs.sagemaker.DomainDefaultUserSettingsSharingSettings;
         /**
-         * The storage settings for a private space. See Space Storage Settings below.
+         * The storage settings for a private space. See `spaceStorageSettings` Block below.
          */
         spaceStorageSettings: outputs.sagemaker.DomainDefaultUserSettingsSpaceStorageSettings;
         /**
@@ -67717,34 +67766,34 @@ export namespace sagemaker {
          */
         studioWebPortal: string;
         /**
-         * The TensorBoard app settings. See TensorBoard App Settings below.
+         * The TensorBoard app settings. See `tensorBoardAppSettings` Block below.
          */
         tensorBoardAppSettings?: outputs.sagemaker.DomainDefaultUserSettingsTensorBoardAppSettings;
     }
 
     export interface DomainDefaultUserSettingsCanvasAppSettings {
         /**
-         * The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+         * The model deployment settings for the SageMaker Canvas application. See `directDeploySettings` Block below.
          */
         directDeploySettings?: outputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings;
         /**
-         * The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+         * The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
          */
         identityProviderOauthSettings?: outputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting[];
         /**
-         * The settings for document querying. See Kendra Settings below.
+         * The settings for document querying. See `kendraSettings` Block below.
          */
         kendraSettings?: outputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsKendraSettings;
         /**
-         * The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+         * The model registry settings for the SageMaker Canvas application. See `modelRegisterSettings` Block below.
          */
         modelRegisterSettings?: outputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings;
         /**
-         * Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+         * Time series forecast settings for the Canvas app. See `timeSeriesForecastingSettings` Block below.
          */
         timeSeriesForecastingSettings?: outputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings;
         /**
-         * The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+         * The workspace settings for the SageMaker Canvas application. See `workspaceSettings` Block below.
          */
         workspaceSettings?: outputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings;
     }
@@ -67813,7 +67862,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsCodeEditorAppSettings {
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec;
         /**
@@ -67847,7 +67896,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsCustomFileSystemConfig {
         /**
-         * The default EBS storage settings for a private space. See EFS File System Config below.
+         * The default EBS storage settings for a private space. See `efsFileSystemConfig` Block below.
          */
         efsFileSystemConfig?: outputs.sagemaker.DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig;
     }
@@ -67876,15 +67925,15 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsJupyterLabAppSettings {
         /**
-         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
          */
         codeRepositories?: outputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository[];
         /**
-         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * A list of custom SageMaker images that are configured to run as a JupyterLab app. see `customImage` Block below.
          */
         customImages?: outputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec;
         /**
@@ -67940,11 +67989,11 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsJupyterServerAppSettings {
         /**
-         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
          */
         codeRepositories?: outputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec;
         /**
@@ -67985,11 +68034,11 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsKernelGatewayAppSettings {
         /**
-         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see `customImage` Block below.
          */
         customImages?: outputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec;
         /**
@@ -68038,11 +68087,11 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsRSessionAppSettings {
         /**
-         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * A list of custom SageMaker images that are configured to run as a RSession app. see `customImage` Block below.
          */
         customImages?: outputs.sagemaker.DomainDefaultUserSettingsRSessionAppSettingsCustomImage[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block above.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec;
     }
@@ -68113,7 +68162,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsSpaceStorageSettings {
         /**
-         * The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+         * The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
          */
         defaultEbsStorageSettings?: outputs.sagemaker.DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings;
     }
@@ -68131,7 +68180,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsTensorBoardAppSettings {
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec;
     }
@@ -68165,7 +68214,7 @@ export namespace sagemaker {
          */
         executionRoleIdentityConfig?: string;
         /**
-         * A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+         * A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
          */
         rStudioServerProDomainSettings?: outputs.sagemaker.DomainDomainSettingsRStudioServerProDomainSettings;
         /**
@@ -68176,7 +68225,7 @@ export namespace sagemaker {
 
     export interface DomainDomainSettingsRStudioServerProDomainSettings {
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block above.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec;
         /**
@@ -72817,15 +72866,15 @@ export namespace ssm {
 
     export interface GetPatchBaselineApprovalRule {
         /**
-         * The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+         * Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
          */
         approveAfterDays: number;
         /**
-         * The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
+         * Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
          */
         approveUntilDate: string;
         /**
-         * The compliance level for patches approved by this rule.
+         * Compliance level for patches approved by this rule.
          */
         complianceLevel: string;
         /**
@@ -72833,44 +72882,44 @@ export namespace ssm {
          */
         enableNonSecurity: boolean;
         /**
-         * The patch filter group that defines the criteria for the rule.
+         * Patch filter group that defines the criteria for the rule.
          */
         patchFilters: outputs.ssm.GetPatchBaselineApprovalRulePatchFilter[];
     }
 
     export interface GetPatchBaselineApprovalRulePatchFilter {
         /**
-         * The key for the filter.
+         * Key for the filter.
          */
         key: string;
         /**
-         * The value for the filter.
+         * Value for the filter.
          */
         values: string[];
     }
 
     export interface GetPatchBaselineGlobalFilter {
         /**
-         * The key for the filter.
+         * Key for the filter.
          */
         key: string;
         /**
-         * The value for the filter.
+         * Value for the filter.
          */
         values: string[];
     }
 
     export interface GetPatchBaselineSource {
         /**
-         * The value of the yum repo configuration.
+         * Value of the yum repo configuration.
          */
         configuration: string;
         /**
-         * The name specified to identify the patch source.
+         * Name specified to identify the patch source.
          */
         name: string;
         /**
-         * The specific operating system versions a patch repository applies to.
+         * Specific operating system versions a patch repository applies to.
          */
         products: string[];
     }
@@ -73041,35 +73090,23 @@ export namespace ssm {
 
     export interface PatchBaselineApprovalRule {
         /**
-         * The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
-         * Valid Range: 0 to 100.
-         * Conflicts with `approveUntilDate`.
+         * Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approveUntilDate`.
          */
         approveAfterDays?: number;
         /**
-         * The cutoff date for auto approval of released patches.
-         * Any patches released on or before this date are installed automatically.
-         * Date is formatted as `YYYY-MM-DD`.
-         * Conflicts with `approveAfterDays`
+         * Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
          */
         approveUntilDate?: string;
         /**
-         * The compliance level for patches approved by this rule.
-         * Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`.
-         * The default value is `UNSPECIFIED`.
+         * Compliance level for patches approved by this rule. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`. The default value is `UNSPECIFIED`.
          */
         complianceLevel?: string;
         /**
-         * Boolean enabling the application of non-security updates.
-         * The default value is `false`.
-         * Valid for Linux instances only.
+         * Boolean enabling the application of non-security updates. The default value is `false`. Valid for Linux instances only.
          */
         enableNonSecurity?: boolean;
         /**
-         * The patch filter group that defines the criteria for the rule.
-         * Up to 5 patch filters can be specified per approval rule using Key/Value pairs.
-         * Valid combinations of these Keys and the `operatingSystem` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html).
-         * Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
+         * Patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operatingSystem` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values. `PATCH_SET` defaults to `OS` if unspecified
          */
         patchFilters: outputs.ssm.PatchBaselineApprovalRulePatchFilter[];
     }
@@ -73086,17 +73123,15 @@ export namespace ssm {
 
     export interface PatchBaselineSource {
         /**
-         * The value of the yum repo configuration.
-         * For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+         * Value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
          */
         configuration: string;
         /**
-         * The name specified to identify the patch source.
+         * Name specified to identify the patch source.
          */
         name: string;
         /**
-         * The specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`.
-         * For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+         * Specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
          */
         products: string[];
     }
@@ -78754,6 +78789,20 @@ export namespace wafv2 {
     }
 
     export interface WebAclCaptchaConfigImmunityTimeProperty {
+        /**
+         * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+         */
+        immunityTime?: number;
+    }
+
+    export interface WebAclChallengeConfig {
+        /**
+         * Defines custom immunity time. See `immunityTimeProperty` below for details.
+         */
+        immunityTimeProperty?: outputs.wafv2.WebAclChallengeConfigImmunityTimeProperty;
+    }
+
+    export interface WebAclChallengeConfigImmunityTimeProperty {
         /**
          * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
          */

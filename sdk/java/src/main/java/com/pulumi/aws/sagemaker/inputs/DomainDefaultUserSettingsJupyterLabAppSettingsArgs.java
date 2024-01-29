@@ -20,14 +20,14 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
     public static final DomainDefaultUserSettingsJupyterLabAppSettingsArgs Empty = new DomainDefaultUserSettingsJupyterLabAppSettingsArgs();
 
     /**
-     * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
      * 
      */
     @Import(name="codeRepositories")
     private @Nullable Output<List<DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs>> codeRepositories;
 
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
      * 
      */
     public Optional<Output<List<DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs>>> codeRepositories() {
@@ -35,14 +35,14 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
     }
 
     /**
-     * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+     * A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
      * 
      */
     @Import(name="customImages")
     private @Nullable Output<List<DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs>> customImages;
 
     /**
-     * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+     * @return A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
      * 
      */
     public Optional<Output<List<DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs>>> customImages() {
@@ -50,14 +50,14 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
     }
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
      * 
      */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
@@ -107,7 +107,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
         }
 
         /**
-         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
         }
 
         /**
-         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
         }
 
         /**
-         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
         }
 
         /**
-         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * @param customImages A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
         }
 
         /**
-         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * @param customImages A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
         }
 
         /**
-         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * @param customImages A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
          * 
          * @return builder
          * 

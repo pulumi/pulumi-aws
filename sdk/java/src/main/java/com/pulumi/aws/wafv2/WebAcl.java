@@ -8,6 +8,7 @@ import com.pulumi.aws.wafv2.WebAclArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclState;
 import com.pulumi.aws.wafv2.outputs.WebAclAssociationConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclCaptchaConfig;
+import com.pulumi.aws.wafv2.outputs.WebAclChallengeConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclCustomResponseBody;
 import com.pulumi.aws.wafv2.outputs.WebAclDefaultAction;
 import com.pulumi.aws.wafv2.outputs.WebAclRule;
@@ -68,18 +69,32 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return this.capacity;
     }
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
      * 
      */
     @Export(name="captchaConfig", refs={WebAclCaptchaConfig.class}, tree="[0]")
     private Output</* @Nullable */ WebAclCaptchaConfig> captchaConfig;
 
     /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+     * @return Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
      * 
      */
     public Output<Optional<WebAclCaptchaConfig>> captchaConfig() {
         return Codegen.optional(this.captchaConfig);
+    }
+    /**
+     * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+     * 
+     */
+    @Export(name="challengeConfig", refs={WebAclChallengeConfig.class}, tree="[0]")
+    private Output</* @Nullable */ WebAclChallengeConfig> challengeConfig;
+
+    /**
+     * @return Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+     * 
+     */
+    public Output<Optional<WebAclChallengeConfig>> challengeConfig() {
+        return Codegen.optional(this.challengeConfig);
     }
     /**
      * Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.

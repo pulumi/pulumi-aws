@@ -319,6 +319,8 @@ if typing.TYPE_CHECKING:
     redshiftdata = __redshiftdata
     import pulumi_aws.redshiftserverless as __redshiftserverless
     redshiftserverless = __redshiftserverless
+    import pulumi_aws.rekognition as __rekognition
+    rekognition = __rekognition
     import pulumi_aws.resourceexplorer as __resourceexplorer
     resourceexplorer = __resourceexplorer
     import pulumi_aws.resourcegroups as __resourcegroups
@@ -568,6 +570,7 @@ else:
     redshift = _utilities.lazy_import('pulumi_aws.redshift')
     redshiftdata = _utilities.lazy_import('pulumi_aws.redshiftdata')
     redshiftserverless = _utilities.lazy_import('pulumi_aws.redshiftserverless')
+    rekognition = _utilities.lazy_import('pulumi_aws.rekognition')
     resourceexplorer = _utilities.lazy_import('pulumi_aws.resourceexplorer')
     resourcegroups = _utilities.lazy_import('pulumi_aws.resourcegroups')
     resourcegroupstaggingapi = _utilities.lazy_import('pulumi_aws.resourcegroupstaggingapi')
@@ -8600,6 +8603,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "rekognition/project",
+  "fqn": "pulumi_aws.rekognition",
+  "classes": {
+   "aws:rekognition/project:Project": "Project"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "resourceexplorer/index",
   "fqn": "pulumi_aws.resourceexplorer",
   "classes": {
@@ -8844,6 +8855,14 @@ _utilities.register(
   "fqn": "pulumi_aws.route53",
   "classes": {
    "aws:route53/zoneAssociation:ZoneAssociation": "ZoneAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53domains/delegationSignerRecord",
+  "fqn": "pulumi_aws.route53domains",
+  "classes": {
+   "aws:route53domains/delegationSignerRecord:DelegationSignerRecord": "DelegationSignerRecord"
   }
  },
  {

@@ -30,6 +30,31 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// });
     /// ```
+    /// ### AWS KMS Customer Managed Keys (CMK)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testKey = new Aws.Kms.Key("testKey", new()
+    ///     {
+    ///         Description = "test",
+    ///         DeletionWindowInDays = 7,
+    ///     });
+    /// 
+    ///     var testRepository = new Aws.CodeCommit.Repository("testRepository", new()
+    ///     {
+    ///         RepositoryName = "MyTestRepository",
+    ///         Description = "This is the Sample App Repository",
+    ///         KmsKeyId = testKey.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -71,6 +96,12 @@ namespace Pulumi.Aws.CodeCommit
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+        /// </summary>
+        [Output("kmsKeyId")]
+        public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the repository
@@ -159,6 +190,12 @@ namespace Pulumi.Aws.CodeCommit
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
         /// The name for the repository. This needs to be less than 100 characters.
         /// </summary>
         [Input("repositoryName", required: true)]
@@ -213,6 +250,12 @@ namespace Pulumi.Aws.CodeCommit
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// The ID of the repository

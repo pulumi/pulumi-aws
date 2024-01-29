@@ -92,6 +92,21 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     * 
+     */
+    @Import(name="kmsKeyId")
+    private @Nullable Output<String> kmsKeyId;
+
+    /**
+     * @return The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyId() {
+        return Optional.ofNullable(this.kmsKeyId);
+    }
+
+    /**
      * The ID of the repository
      * 
      */
@@ -167,6 +182,7 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
         this.cloneUrlSsh = $.cloneUrlSsh;
         this.defaultBranch = $.defaultBranch;
         this.description = $.description;
+        this.kmsKeyId = $.kmsKeyId;
         this.repositoryId = $.repositoryId;
         this.repositoryName = $.repositoryName;
         this.tags = $.tags;
@@ -294,6 +310,27 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param kmsKeyId The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
+            $.kmsKeyId = kmsKeyId;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyId The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyId(String kmsKeyId) {
+            return kmsKeyId(Output.of(kmsKeyId));
         }
 
         /**

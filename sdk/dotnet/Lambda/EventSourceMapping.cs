@@ -224,7 +224,7 @@ namespace Pulumi.Aws.Lambda
         public Output<bool?> BisectBatchOnFunctionError { get; private set; } = null!;
 
         /// <summary>
-        /// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        /// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         /// </summary>
         [Output("destinationConfig")]
         public Output<Outputs.EventSourceMappingDestinationConfig?> DestinationConfig { get; private set; } = null!;
@@ -444,7 +444,7 @@ namespace Pulumi.Aws.Lambda
         public Input<bool>? BisectBatchOnFunctionError { get; set; }
 
         /// <summary>
-        /// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        /// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         /// </summary>
         [Input("destinationConfig")]
         public Input<Inputs.EventSourceMappingDestinationConfigArgs>? DestinationConfig { get; set; }
@@ -608,7 +608,7 @@ namespace Pulumi.Aws.Lambda
         public Input<bool>? BisectBatchOnFunctionError { get; set; }
 
         /// <summary>
-        /// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        /// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         /// </summary>
         [Input("destinationConfig")]
         public Input<Inputs.EventSourceMappingDestinationConfigGetArgs>? DestinationConfig { get; set; }

@@ -41,7 +41,7 @@ export interface GetRepositoryArgs {
  */
 export interface GetRepositoryResult {
     /**
-     * ARN of the repository
+     * ARN of the repository.
      */
     readonly arn: string;
     /**
@@ -57,7 +57,11 @@ export interface GetRepositoryResult {
      */
     readonly id: string;
     /**
-     * ID of the repository
+     * The ID of the encryption key.
+     */
+    readonly kmsKeyId: string;
+    /**
+     * ID of the repository.
      */
     readonly repositoryId: string;
     readonly repositoryName: string;

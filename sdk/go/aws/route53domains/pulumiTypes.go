@@ -13,6 +13,329 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DelegationSignerRecordSigningAttributes struct {
+	// Algorithm which was used to generate the digest from the public key.
+	Algorithm int `pulumi:"algorithm"`
+	// Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
+	Flags int `pulumi:"flags"`
+	// The base64-encoded public key part of the key pair that is passed to the registry.
+	PublicKey string `pulumi:"publicKey"`
+}
+
+// DelegationSignerRecordSigningAttributesInput is an input type that accepts DelegationSignerRecordSigningAttributesArgs and DelegationSignerRecordSigningAttributesOutput values.
+// You can construct a concrete instance of `DelegationSignerRecordSigningAttributesInput` via:
+//
+//	DelegationSignerRecordSigningAttributesArgs{...}
+type DelegationSignerRecordSigningAttributesInput interface {
+	pulumi.Input
+
+	ToDelegationSignerRecordSigningAttributesOutput() DelegationSignerRecordSigningAttributesOutput
+	ToDelegationSignerRecordSigningAttributesOutputWithContext(context.Context) DelegationSignerRecordSigningAttributesOutput
+}
+
+type DelegationSignerRecordSigningAttributesArgs struct {
+	// Algorithm which was used to generate the digest from the public key.
+	Algorithm pulumi.IntInput `pulumi:"algorithm"`
+	// Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
+	Flags pulumi.IntInput `pulumi:"flags"`
+	// The base64-encoded public key part of the key pair that is passed to the registry.
+	PublicKey pulumi.StringInput `pulumi:"publicKey"`
+}
+
+func (DelegationSignerRecordSigningAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DelegationSignerRecordSigningAttributes)(nil)).Elem()
+}
+
+func (i DelegationSignerRecordSigningAttributesArgs) ToDelegationSignerRecordSigningAttributesOutput() DelegationSignerRecordSigningAttributesOutput {
+	return i.ToDelegationSignerRecordSigningAttributesOutputWithContext(context.Background())
+}
+
+func (i DelegationSignerRecordSigningAttributesArgs) ToDelegationSignerRecordSigningAttributesOutputWithContext(ctx context.Context) DelegationSignerRecordSigningAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegationSignerRecordSigningAttributesOutput)
+}
+
+func (i DelegationSignerRecordSigningAttributesArgs) ToDelegationSignerRecordSigningAttributesPtrOutput() DelegationSignerRecordSigningAttributesPtrOutput {
+	return i.ToDelegationSignerRecordSigningAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i DelegationSignerRecordSigningAttributesArgs) ToDelegationSignerRecordSigningAttributesPtrOutputWithContext(ctx context.Context) DelegationSignerRecordSigningAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegationSignerRecordSigningAttributesOutput).ToDelegationSignerRecordSigningAttributesPtrOutputWithContext(ctx)
+}
+
+// DelegationSignerRecordSigningAttributesPtrInput is an input type that accepts DelegationSignerRecordSigningAttributesArgs, DelegationSignerRecordSigningAttributesPtr and DelegationSignerRecordSigningAttributesPtrOutput values.
+// You can construct a concrete instance of `DelegationSignerRecordSigningAttributesPtrInput` via:
+//
+//	        DelegationSignerRecordSigningAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DelegationSignerRecordSigningAttributesPtrInput interface {
+	pulumi.Input
+
+	ToDelegationSignerRecordSigningAttributesPtrOutput() DelegationSignerRecordSigningAttributesPtrOutput
+	ToDelegationSignerRecordSigningAttributesPtrOutputWithContext(context.Context) DelegationSignerRecordSigningAttributesPtrOutput
+}
+
+type delegationSignerRecordSigningAttributesPtrType DelegationSignerRecordSigningAttributesArgs
+
+func DelegationSignerRecordSigningAttributesPtr(v *DelegationSignerRecordSigningAttributesArgs) DelegationSignerRecordSigningAttributesPtrInput {
+	return (*delegationSignerRecordSigningAttributesPtrType)(v)
+}
+
+func (*delegationSignerRecordSigningAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DelegationSignerRecordSigningAttributes)(nil)).Elem()
+}
+
+func (i *delegationSignerRecordSigningAttributesPtrType) ToDelegationSignerRecordSigningAttributesPtrOutput() DelegationSignerRecordSigningAttributesPtrOutput {
+	return i.ToDelegationSignerRecordSigningAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *delegationSignerRecordSigningAttributesPtrType) ToDelegationSignerRecordSigningAttributesPtrOutputWithContext(ctx context.Context) DelegationSignerRecordSigningAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegationSignerRecordSigningAttributesPtrOutput)
+}
+
+type DelegationSignerRecordSigningAttributesOutput struct{ *pulumi.OutputState }
+
+func (DelegationSignerRecordSigningAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DelegationSignerRecordSigningAttributes)(nil)).Elem()
+}
+
+func (o DelegationSignerRecordSigningAttributesOutput) ToDelegationSignerRecordSigningAttributesOutput() DelegationSignerRecordSigningAttributesOutput {
+	return o
+}
+
+func (o DelegationSignerRecordSigningAttributesOutput) ToDelegationSignerRecordSigningAttributesOutputWithContext(ctx context.Context) DelegationSignerRecordSigningAttributesOutput {
+	return o
+}
+
+func (o DelegationSignerRecordSigningAttributesOutput) ToDelegationSignerRecordSigningAttributesPtrOutput() DelegationSignerRecordSigningAttributesPtrOutput {
+	return o.ToDelegationSignerRecordSigningAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o DelegationSignerRecordSigningAttributesOutput) ToDelegationSignerRecordSigningAttributesPtrOutputWithContext(ctx context.Context) DelegationSignerRecordSigningAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DelegationSignerRecordSigningAttributes) *DelegationSignerRecordSigningAttributes {
+		return &v
+	}).(DelegationSignerRecordSigningAttributesPtrOutput)
+}
+
+// Algorithm which was used to generate the digest from the public key.
+func (o DelegationSignerRecordSigningAttributesOutput) Algorithm() pulumi.IntOutput {
+	return o.ApplyT(func(v DelegationSignerRecordSigningAttributes) int { return v.Algorithm }).(pulumi.IntOutput)
+}
+
+// Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
+func (o DelegationSignerRecordSigningAttributesOutput) Flags() pulumi.IntOutput {
+	return o.ApplyT(func(v DelegationSignerRecordSigningAttributes) int { return v.Flags }).(pulumi.IntOutput)
+}
+
+// The base64-encoded public key part of the key pair that is passed to the registry.
+func (o DelegationSignerRecordSigningAttributesOutput) PublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DelegationSignerRecordSigningAttributes) string { return v.PublicKey }).(pulumi.StringOutput)
+}
+
+type DelegationSignerRecordSigningAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (DelegationSignerRecordSigningAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DelegationSignerRecordSigningAttributes)(nil)).Elem()
+}
+
+func (o DelegationSignerRecordSigningAttributesPtrOutput) ToDelegationSignerRecordSigningAttributesPtrOutput() DelegationSignerRecordSigningAttributesPtrOutput {
+	return o
+}
+
+func (o DelegationSignerRecordSigningAttributesPtrOutput) ToDelegationSignerRecordSigningAttributesPtrOutputWithContext(ctx context.Context) DelegationSignerRecordSigningAttributesPtrOutput {
+	return o
+}
+
+func (o DelegationSignerRecordSigningAttributesPtrOutput) Elem() DelegationSignerRecordSigningAttributesOutput {
+	return o.ApplyT(func(v *DelegationSignerRecordSigningAttributes) DelegationSignerRecordSigningAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret DelegationSignerRecordSigningAttributes
+		return ret
+	}).(DelegationSignerRecordSigningAttributesOutput)
+}
+
+// Algorithm which was used to generate the digest from the public key.
+func (o DelegationSignerRecordSigningAttributesPtrOutput) Algorithm() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DelegationSignerRecordSigningAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Algorithm
+	}).(pulumi.IntPtrOutput)
+}
+
+// Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
+func (o DelegationSignerRecordSigningAttributesPtrOutput) Flags() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DelegationSignerRecordSigningAttributes) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Flags
+	}).(pulumi.IntPtrOutput)
+}
+
+// The base64-encoded public key part of the key pair that is passed to the registry.
+func (o DelegationSignerRecordSigningAttributesPtrOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DelegationSignerRecordSigningAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PublicKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type DelegationSignerRecordTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+}
+
+// DelegationSignerRecordTimeoutsInput is an input type that accepts DelegationSignerRecordTimeoutsArgs and DelegationSignerRecordTimeoutsOutput values.
+// You can construct a concrete instance of `DelegationSignerRecordTimeoutsInput` via:
+//
+//	DelegationSignerRecordTimeoutsArgs{...}
+type DelegationSignerRecordTimeoutsInput interface {
+	pulumi.Input
+
+	ToDelegationSignerRecordTimeoutsOutput() DelegationSignerRecordTimeoutsOutput
+	ToDelegationSignerRecordTimeoutsOutputWithContext(context.Context) DelegationSignerRecordTimeoutsOutput
+}
+
+type DelegationSignerRecordTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (DelegationSignerRecordTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DelegationSignerRecordTimeouts)(nil)).Elem()
+}
+
+func (i DelegationSignerRecordTimeoutsArgs) ToDelegationSignerRecordTimeoutsOutput() DelegationSignerRecordTimeoutsOutput {
+	return i.ToDelegationSignerRecordTimeoutsOutputWithContext(context.Background())
+}
+
+func (i DelegationSignerRecordTimeoutsArgs) ToDelegationSignerRecordTimeoutsOutputWithContext(ctx context.Context) DelegationSignerRecordTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegationSignerRecordTimeoutsOutput)
+}
+
+func (i DelegationSignerRecordTimeoutsArgs) ToDelegationSignerRecordTimeoutsPtrOutput() DelegationSignerRecordTimeoutsPtrOutput {
+	return i.ToDelegationSignerRecordTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i DelegationSignerRecordTimeoutsArgs) ToDelegationSignerRecordTimeoutsPtrOutputWithContext(ctx context.Context) DelegationSignerRecordTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegationSignerRecordTimeoutsOutput).ToDelegationSignerRecordTimeoutsPtrOutputWithContext(ctx)
+}
+
+// DelegationSignerRecordTimeoutsPtrInput is an input type that accepts DelegationSignerRecordTimeoutsArgs, DelegationSignerRecordTimeoutsPtr and DelegationSignerRecordTimeoutsPtrOutput values.
+// You can construct a concrete instance of `DelegationSignerRecordTimeoutsPtrInput` via:
+//
+//	        DelegationSignerRecordTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DelegationSignerRecordTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToDelegationSignerRecordTimeoutsPtrOutput() DelegationSignerRecordTimeoutsPtrOutput
+	ToDelegationSignerRecordTimeoutsPtrOutputWithContext(context.Context) DelegationSignerRecordTimeoutsPtrOutput
+}
+
+type delegationSignerRecordTimeoutsPtrType DelegationSignerRecordTimeoutsArgs
+
+func DelegationSignerRecordTimeoutsPtr(v *DelegationSignerRecordTimeoutsArgs) DelegationSignerRecordTimeoutsPtrInput {
+	return (*delegationSignerRecordTimeoutsPtrType)(v)
+}
+
+func (*delegationSignerRecordTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DelegationSignerRecordTimeouts)(nil)).Elem()
+}
+
+func (i *delegationSignerRecordTimeoutsPtrType) ToDelegationSignerRecordTimeoutsPtrOutput() DelegationSignerRecordTimeoutsPtrOutput {
+	return i.ToDelegationSignerRecordTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *delegationSignerRecordTimeoutsPtrType) ToDelegationSignerRecordTimeoutsPtrOutputWithContext(ctx context.Context) DelegationSignerRecordTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegationSignerRecordTimeoutsPtrOutput)
+}
+
+type DelegationSignerRecordTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (DelegationSignerRecordTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DelegationSignerRecordTimeouts)(nil)).Elem()
+}
+
+func (o DelegationSignerRecordTimeoutsOutput) ToDelegationSignerRecordTimeoutsOutput() DelegationSignerRecordTimeoutsOutput {
+	return o
+}
+
+func (o DelegationSignerRecordTimeoutsOutput) ToDelegationSignerRecordTimeoutsOutputWithContext(ctx context.Context) DelegationSignerRecordTimeoutsOutput {
+	return o
+}
+
+func (o DelegationSignerRecordTimeoutsOutput) ToDelegationSignerRecordTimeoutsPtrOutput() DelegationSignerRecordTimeoutsPtrOutput {
+	return o.ToDelegationSignerRecordTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o DelegationSignerRecordTimeoutsOutput) ToDelegationSignerRecordTimeoutsPtrOutputWithContext(ctx context.Context) DelegationSignerRecordTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DelegationSignerRecordTimeouts) *DelegationSignerRecordTimeouts {
+		return &v
+	}).(DelegationSignerRecordTimeoutsPtrOutput)
+}
+
+func (o DelegationSignerRecordTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DelegationSignerRecordTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o DelegationSignerRecordTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DelegationSignerRecordTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type DelegationSignerRecordTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (DelegationSignerRecordTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DelegationSignerRecordTimeouts)(nil)).Elem()
+}
+
+func (o DelegationSignerRecordTimeoutsPtrOutput) ToDelegationSignerRecordTimeoutsPtrOutput() DelegationSignerRecordTimeoutsPtrOutput {
+	return o
+}
+
+func (o DelegationSignerRecordTimeoutsPtrOutput) ToDelegationSignerRecordTimeoutsPtrOutputWithContext(ctx context.Context) DelegationSignerRecordTimeoutsPtrOutput {
+	return o
+}
+
+func (o DelegationSignerRecordTimeoutsPtrOutput) Elem() DelegationSignerRecordTimeoutsOutput {
+	return o.ApplyT(func(v *DelegationSignerRecordTimeouts) DelegationSignerRecordTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret DelegationSignerRecordTimeouts
+		return ret
+	}).(DelegationSignerRecordTimeoutsOutput)
+}
+
+func (o DelegationSignerRecordTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DelegationSignerRecordTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DelegationSignerRecordTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DelegationSignerRecordTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type RegisteredDomainAdminContact struct {
 	// First line of the contact's address.
 	AddressLine1 *string `pulumi:"addressLine1"`
@@ -1272,6 +1595,10 @@ func (o RegisteredDomainTechContactPtrOutput) ZipCode() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DelegationSignerRecordSigningAttributesInput)(nil)).Elem(), DelegationSignerRecordSigningAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DelegationSignerRecordSigningAttributesPtrInput)(nil)).Elem(), DelegationSignerRecordSigningAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DelegationSignerRecordTimeoutsInput)(nil)).Elem(), DelegationSignerRecordTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DelegationSignerRecordTimeoutsPtrInput)(nil)).Elem(), DelegationSignerRecordTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegisteredDomainAdminContactInput)(nil)).Elem(), RegisteredDomainAdminContactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegisteredDomainAdminContactPtrInput)(nil)).Elem(), RegisteredDomainAdminContactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegisteredDomainNameServerInput)(nil)).Elem(), RegisteredDomainNameServerArgs{})
@@ -1280,6 +1607,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegisteredDomainRegistrantContactPtrInput)(nil)).Elem(), RegisteredDomainRegistrantContactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegisteredDomainTechContactInput)(nil)).Elem(), RegisteredDomainTechContactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegisteredDomainTechContactPtrInput)(nil)).Elem(), RegisteredDomainTechContactArgs{})
+	pulumi.RegisterOutputType(DelegationSignerRecordSigningAttributesOutput{})
+	pulumi.RegisterOutputType(DelegationSignerRecordSigningAttributesPtrOutput{})
+	pulumi.RegisterOutputType(DelegationSignerRecordTimeoutsOutput{})
+	pulumi.RegisterOutputType(DelegationSignerRecordTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(RegisteredDomainAdminContactOutput{})
 	pulumi.RegisterOutputType(RegisteredDomainAdminContactPtrOutput{})
 	pulumi.RegisterOutputType(RegisteredDomainNameServerOutput{})

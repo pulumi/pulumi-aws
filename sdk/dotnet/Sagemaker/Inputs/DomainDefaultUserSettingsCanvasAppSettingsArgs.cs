@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class DomainDefaultUserSettingsCanvasAppSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+        /// The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
         /// </summary>
         [Input("directDeploySettings")]
         public Input<Inputs.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs>? DirectDeploySettings { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<Inputs.DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>? _identityProviderOauthSettings;
 
         /// <summary>
-        /// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+        /// The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
         /// </summary>
         public InputList<Inputs.DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs> IdentityProviderOauthSettings
         {
@@ -31,25 +31,25 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// The settings for document querying. See Kendra Settings below.
+        /// The settings for document querying. See `kendra_settings` Block below.
         /// </summary>
         [Input("kendraSettings")]
         public Input<Inputs.DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs>? KendraSettings { get; set; }
 
         /// <summary>
-        /// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+        /// The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
         /// </summary>
         [Input("modelRegisterSettings")]
         public Input<Inputs.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs>? ModelRegisterSettings { get; set; }
 
         /// <summary>
-        /// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+        /// Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
         /// </summary>
         [Input("timeSeriesForecastingSettings")]
         public Input<Inputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs>? TimeSeriesForecastingSettings { get; set; }
 
         /// <summary>
-        /// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+        /// The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
         /// </summary>
         [Input("workspaceSettings")]
         public Input<Inputs.DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs>? WorkspaceSettings { get; set; }

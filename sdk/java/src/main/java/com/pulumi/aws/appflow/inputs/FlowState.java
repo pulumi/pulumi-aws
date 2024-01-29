@@ -67,6 +67,21 @@ public final class FlowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The current status of the flow.
+     * 
+     */
+    @Import(name="flowStatus")
+    private @Nullable Output<String> flowStatus;
+
+    /**
+     * @return The current status of the flow.
+     * 
+     */
+    public Optional<Output<String>> flowStatus() {
+        return Optional.ofNullable(this.flowStatus);
+    }
+
+    /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */
@@ -185,6 +200,7 @@ public final class FlowState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.description = $.description;
         this.destinationFlowConfigs = $.destinationFlowConfigs;
+        this.flowStatus = $.flowStatus;
         this.kmsArn = $.kmsArn;
         this.name = $.name;
         this.sourceFlowConfig = $.sourceFlowConfig;
@@ -283,6 +299,27 @@ public final class FlowState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder destinationFlowConfigs(FlowDestinationFlowConfigArgs... destinationFlowConfigs) {
             return destinationFlowConfigs(List.of(destinationFlowConfigs));
+        }
+
+        /**
+         * @param flowStatus The current status of the flow.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flowStatus(@Nullable Output<String> flowStatus) {
+            $.flowStatus = flowStatus;
+            return this;
+        }
+
+        /**
+         * @param flowStatus The current status of the flow.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flowStatus(String flowStatus) {
+            return flowStatus(Output.of(flowStatus));
         }
 
         /**

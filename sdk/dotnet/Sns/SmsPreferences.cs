@@ -26,6 +26,10 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// You cannot import the SMS preferences.
     /// </summary>
     [AwsResourceType("aws:sns/smsPreferences:SmsPreferences")]
     public partial class SmsPreferences : global::Pulumi.CustomResource

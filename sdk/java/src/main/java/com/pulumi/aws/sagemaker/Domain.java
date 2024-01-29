@@ -218,28 +218,28 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.authMode;
     }
     /**
-     * The default space settings. See Default Space Settings below.
+     * The default space settings. See `default_space_settings` Block below.
      * 
      */
     @Export(name="defaultSpaceSettings", refs={DomainDefaultSpaceSettings.class}, tree="[0]")
     private Output</* @Nullable */ DomainDefaultSpaceSettings> defaultSpaceSettings;
 
     /**
-     * @return The default space settings. See Default Space Settings below.
+     * @return The default space settings. See `default_space_settings` Block below.
      * 
      */
     public Output<Optional<DomainDefaultSpaceSettings>> defaultSpaceSettings() {
         return Codegen.optional(this.defaultSpaceSettings);
     }
     /**
-     * The default user settings. See Default User Settings below.
+     * The default user settings. See `default_user_settings` Block below.
      * 
      */
     @Export(name="defaultUserSettings", refs={DomainDefaultUserSettings.class}, tree="[0]")
     private Output<DomainDefaultUserSettings> defaultUserSettings;
 
     /**
-     * @return The default user settings. See Default User Settings below.
+     * @return The default user settings. See `default_user_settings` Block below.
      * 
      */
     public Output<DomainDefaultUserSettings> defaultUserSettings() {
@@ -260,14 +260,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.domainName;
     }
     /**
-     * The domain&#39;s settings.
+     * The domain settings. See `domain_settings` Block below.
      * 
      */
     @Export(name="domainSettings", refs={DomainDomainSettings.class}, tree="[0]")
     private Output</* @Nullable */ DomainDomainSettings> domainSettings;
 
     /**
-     * @return The domain&#39;s settings.
+     * @return The domain settings. See `domain_settings` Block below.
      * 
      */
     public Output<Optional<DomainDomainSettings>> domainSettings() {
@@ -302,14 +302,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyId);
     }
     /**
-     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
      * 
      */
     @Export(name="retentionPolicy", refs={DomainRetentionPolicy.class}, tree="[0]")
     private Output</* @Nullable */ DomainRetentionPolicy> retentionPolicy;
 
     /**
-     * @return The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     * @return The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
      * 
      */
     public Output<Optional<DomainRetentionPolicy>> retentionPolicy() {

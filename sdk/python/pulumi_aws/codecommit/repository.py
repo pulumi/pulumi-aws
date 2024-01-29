@@ -17,12 +17,14 @@ class RepositoryArgs:
                  repository_name: pulumi.Input[str],
                  default_branch: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
         :param pulumi.Input[str] default_branch: The default branch of the repository. The branch specified here needs to exist.
         :param pulumi.Input[str] description: The description of the repository. This needs to be less than 1000 characters
+        :param pulumi.Input[str] kms_key_id: The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "repository_name", repository_name)
@@ -30,6 +32,8 @@ class RepositoryArgs:
             pulumi.set(__self__, "default_branch", default_branch)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -70,6 +74,18 @@ class RepositoryArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -90,6 +106,7 @@ class _RepositoryState:
                  clone_url_ssh: Optional[pulumi.Input[str]] = None,
                  default_branch: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -101,6 +118,7 @@ class _RepositoryState:
         :param pulumi.Input[str] clone_url_ssh: The URL to use for cloning the repository over SSH.
         :param pulumi.Input[str] default_branch: The default branch of the repository. The branch specified here needs to exist.
         :param pulumi.Input[str] description: The description of the repository. This needs to be less than 1000 characters
+        :param pulumi.Input[str] kms_key_id: The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
         :param pulumi.Input[str] repository_id: The ID of the repository
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -116,6 +134,8 @@ class _RepositoryState:
             pulumi.set(__self__, "default_branch", default_branch)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if repository_id is not None:
             pulumi.set(__self__, "repository_id", repository_id)
         if repository_name is not None:
@@ -189,6 +209,18 @@ class _RepositoryState:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -247,6 +279,7 @@ class Repository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_branch: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -263,6 +296,20 @@ class Repository(pulumi.CustomResource):
             description="This is the Sample App Repository",
             repository_name="MyTestRepository")
         ```
+        ### AWS KMS Customer Managed Keys (CMK)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_key = aws.kms.Key("testKey",
+            description="test",
+            deletion_window_in_days=7)
+        test_repository = aws.codecommit.Repository("testRepository",
+            repository_name="MyTestRepository",
+            description="This is the Sample App Repository",
+            kms_key_id=test_key.arn)
+        ```
 
         ## Import
 
@@ -276,6 +323,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_branch: The default branch of the repository. The branch specified here needs to exist.
         :param pulumi.Input[str] description: The description of the repository. This needs to be less than 1000 characters
+        :param pulumi.Input[str] kms_key_id: The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -297,6 +345,20 @@ class Repository(pulumi.CustomResource):
         test = aws.codecommit.Repository("test",
             description="This is the Sample App Repository",
             repository_name="MyTestRepository")
+        ```
+        ### AWS KMS Customer Managed Keys (CMK)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_key = aws.kms.Key("testKey",
+            description="test",
+            deletion_window_in_days=7)
+        test_repository = aws.codecommit.Repository("testRepository",
+            repository_name="MyTestRepository",
+            description="This is the Sample App Repository",
+            kms_key_id=test_key.arn)
         ```
 
         ## Import
@@ -324,6 +386,7 @@ class Repository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_branch: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -337,6 +400,7 @@ class Repository(pulumi.CustomResource):
 
             __props__.__dict__["default_branch"] = default_branch
             __props__.__dict__["description"] = description
+            __props__.__dict__["kms_key_id"] = kms_key_id
             if repository_name is None and not opts.urn:
                 raise TypeError("Missing required property 'repository_name'")
             __props__.__dict__["repository_name"] = repository_name
@@ -363,6 +427,7 @@ class Repository(pulumi.CustomResource):
             clone_url_ssh: Optional[pulumi.Input[str]] = None,
             default_branch: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            kms_key_id: Optional[pulumi.Input[str]] = None,
             repository_id: Optional[pulumi.Input[str]] = None,
             repository_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -379,6 +444,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] clone_url_ssh: The URL to use for cloning the repository over SSH.
         :param pulumi.Input[str] default_branch: The default branch of the repository. The branch specified here needs to exist.
         :param pulumi.Input[str] description: The description of the repository. This needs to be less than 1000 characters
+        :param pulumi.Input[str] kms_key_id: The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
         :param pulumi.Input[str] repository_id: The ID of the repository
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -393,6 +459,7 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["clone_url_ssh"] = clone_url_ssh
         __props__.__dict__["default_branch"] = default_branch
         __props__.__dict__["description"] = description
+        __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["repository_id"] = repository_id
         __props__.__dict__["repository_name"] = repository_name
         __props__.__dict__["tags"] = tags
@@ -438,6 +505,14 @@ class Repository(pulumi.CustomResource):
         The description of the repository. This needs to be less than 1000 characters
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Output[str]:
+        """
+        The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+        """
+        return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="repositoryId")

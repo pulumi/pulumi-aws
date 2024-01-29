@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string AutoScalingGroupArn;
         /// <summary>
+        /// Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+        /// </summary>
+        public readonly string? ManagedDraining;
+        /// <summary>
         /// Configuration block defining the parameters of the auto scaling. Detailed below.
         /// </summary>
         public readonly Outputs.CapacityProviderAutoScalingGroupProviderManagedScaling? ManagedScaling;
@@ -30,11 +34,14 @@ namespace Pulumi.Aws.Ecs.Outputs
         private CapacityProviderAutoScalingGroupProvider(
             string autoScalingGroupArn,
 
+            string? managedDraining,
+
             Outputs.CapacityProviderAutoScalingGroupProviderManagedScaling? managedScaling,
 
             string? managedTerminationProtection)
         {
             AutoScalingGroupArn = autoScalingGroupArn;
+            ManagedDraining = managedDraining;
             ManagedScaling = managedScaling;
             ManagedTerminationProtection = managedTerminationProtection;
         }
