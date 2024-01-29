@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type EngineMode string
@@ -180,12 +179,6 @@ func (in *engineModePtr) ToEngineModePtrOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, in).(EngineModePtrOutput)
 }
 
-func (in *engineModePtr) ToOutput(ctx context.Context) pulumix.Output[*EngineMode] {
-	return pulumix.Output[*EngineMode]{
-		OutputState: in.ToEngineModePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EngineType string
 
 const (
@@ -351,12 +344,6 @@ func (in *engineTypePtr) ToEngineTypePtrOutput() EngineTypePtrOutput {
 
 func (in *engineTypePtr) ToEngineTypePtrOutputWithContext(ctx context.Context) EngineTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EngineTypePtrOutput)
-}
-
-func (in *engineTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EngineType] {
-	return pulumix.Output[*EngineType]{
-		OutputState: in.ToEngineTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type InstanceType string
@@ -678,12 +665,6 @@ func (in *instanceTypePtr) ToInstanceTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceTypePtrOutput)
 }
 
-func (in *instanceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceType] {
-	return pulumix.Output[*InstanceType]{
-		OutputState: in.ToInstanceTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageType string
 
 const (
@@ -851,12 +832,6 @@ func (in *storageTypePtr) ToStorageTypePtrOutput() StorageTypePtrOutput {
 
 func (in *storageTypePtr) ToStorageTypePtrOutputWithContext(ctx context.Context) StorageTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StorageTypePtrOutput)
-}
-
-func (in *storageTypePtr) ToOutput(ctx context.Context) pulumix.Output[*StorageType] {
-	return pulumix.Output[*StorageType]{
-		OutputState: in.ToStorageTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {
