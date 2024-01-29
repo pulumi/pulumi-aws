@@ -1,13 +1,13 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:34:56 +0000
-Subject: [PATCH 09/36] Workaround Autoscaling launch_configuration
+Subject: [PATCH 09/40] Workaround Autoscaling launch_configuration
  associate_public_ip_address
 
 - Disable computation of property until fixed.
 
 diff --git a/internal/service/autoscaling/launch_configuration.go b/internal/service/autoscaling/launch_configuration.go
-index 0cd504e232..74d309153f 100644
+index fcb1202480..c67d04f8f7 100644
 --- a/internal/service/autoscaling/launch_configuration.go
 +++ b/internal/service/autoscaling/launch_configuration.go
 @@ -48,7 +48,8 @@ func ResourceLaunchConfiguration() *schema.Resource {

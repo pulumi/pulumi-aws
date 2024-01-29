@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Kyle Pitzen <kpitzen@pulumi.com>
 Date: Fri, 27 Jan 2023 09:37:43 -0600
-Subject: [PATCH 16/36] Reverts patches to S3BucketLegacy and GameLift
+Subject: [PATCH 16/40] Reverts patches to S3BucketLegacy and GameLift
 
 Previously, we were pulling along patches which removed a few simplifications
 to waiters in AWS GameLift, and a newer patch which plumbed through context.Context

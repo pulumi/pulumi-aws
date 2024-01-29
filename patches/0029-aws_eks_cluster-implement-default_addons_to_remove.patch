@@ -1,14 +1,14 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Wed, 15 Nov 2023 11:53:09 -0500
-Subject: [PATCH 29/36] aws_eks_cluster: implement default_addons_to_remove
+Subject: [PATCH 29/40] aws_eks_cluster: implement default_addons_to_remove
 
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index aff8f46b0d..ea64dc1523 100644
+index 6f4ddd9ea4..79110331b4 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
-@@ -97,6 +97,13 @@ func resourceCluster() *schema.Resource {
+@@ -118,6 +118,13 @@ func resourceCluster() *schema.Resource {
  				Type:     schema.TypeString,
  				Computed: true,
  			},
@@ -22,7 +22,7 @@ index aff8f46b0d..ea64dc1523 100644
  			"enabled_cluster_log_types": {
  				Type:     schema.TypeSet,
  				Optional: true,
-@@ -378,7 +385,11 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -403,7 +410,11 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
  		return sdkdiag.AppendErrorf(diags, "waiting for EKS Cluster (%s) create: %s", d.Id(), err)
  	}
  
