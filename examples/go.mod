@@ -5,7 +5,7 @@ go 1.21.0
 require (
 	github.com/aws/aws-sdk-go v1.49.19
 	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-00010101000000-000000000000
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.25.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.25.1-0.20240129152342-0403e5753015
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.2-0.20230927165309-e3fd9503f2d3
 	github.com/pulumi/pulumi/pkg/v3 v3.103.1
 	github.com/stretchr/testify v1.8.4
