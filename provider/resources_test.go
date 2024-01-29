@@ -4,6 +4,7 @@ import (
 	"context"
 	"testing"
 
+	"github.com/pulumi/providertest/replay"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
@@ -65,4 +66,57 @@ func TestHasOptionalOrRequiredNamePropertyOptimized(t *testing.T) {
 			t.Logf("Should cache %v: %s", v, rn)
 		}
 	}
+}
+
+func TestImportMissingRefreshSchedule(t *testing.T) {
+	replay.ReplaySequence(t, providerServer(t), `
+[
+  {
+    "method": "/pulumirpc.ResourceProvider/Configure",
+    "request": {
+      "variables": {
+        "aws:config:region": "eu-central-1",
+        "aws:config:skipCredentialsValidation": "false",
+        "aws:config:skipMetadataApiCheck": "true",
+        "aws:config:skipRegionValidation": "true"
+      },
+      "args": {
+        "region": "eu-central-1",
+        "skipCredentialsValidation": "false",
+        "skipMetadataApiCheck": "true",
+        "skipRegionValidation": "true",
+        "version": "6.18.2"
+      },
+      "acceptSecrets": true,
+      "acceptResources": true,
+      "sendsOldInputs": true,
+      "sendsOldInputsToDelete": true
+    },
+    "response": {
+      "supportsPreview": true
+    },
+    "metadata": {
+      "kind": "resource",
+      "mode": "client",
+      "name": "aws"
+    }
+  },
+  {
+    "method": "/pulumirpc.ResourceProvider/Read",
+    "request": {
+      "id": "616138583583,f97a0c01-e04c-4919-9edd-dacb36b72be8,5dac165c-ba31-407d-a3a3-8852b9af1f4b",
+      "urn": "urn:pulumi:dev::ts::aws:quicksight/refreshSchedule:RefreshSchedule::example2",
+      "properties": {}
+    },
+    "response": {
+      "properties": {},
+      "inputs": {}
+    },
+    "metadata": {
+      "kind": "resource",
+      "mode": "client",
+      "name": "aws"
+    }
+  }
+]`)
 }
