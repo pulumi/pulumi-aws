@@ -474,12 +474,11 @@ func TestAccWafV2(t *testing.T) {
 func TestRegress1423Ts(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "regress-1423"),
-			RunUpdateTest: false,
+			Dir: filepath.Join(getCwd(t), "regress-1423"),
 		})
-	test.ExpectRefreshChanges = false
+	// TODO[pulumi/pulumi-aws#3361] similarly to upstream this currently has a non-empty refresh
+	test.SkipRefresh = true
 	test.Quick = false
-	test.SkipRefresh = false
 	integration.ProgramTest(t, &test)
 }
 
