@@ -731,36 +731,35 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 	return nil
 }
 
-// We should only run the validation once to avoid duplicating the reported errors.
-var credentialsValidationRun atomic.Bool
-
 // preConfigureCallback validates that AWS credentials can be successfully discovered. This emulates the credentials
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
 // before passing control to the TF provider to ensure we can report actionable errors.
-func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
-	skipCredentialsValidation := boolValue(vars, "skipCredentialsValidation",
-		[]string{"AWS_SKIP_CREDENTIALS_VALIDATION"})
+func preConfigureCallback(alreadyRun *atomic.Bool) func(vars resource.PropertyMap, c shim.ResourceConfig) error {
+	return func(vars resource.PropertyMap, c shim.ResourceConfig) error {
+		skipCredentialsValidation := boolValue(vars, "skipCredentialsValidation",
+			[]string{"AWS_SKIP_CREDENTIALS_VALIDATION"})
 
-	// if we skipCredentialsValidation then we don't need to do anything in
-	// preConfigureCallback as this is an explicit operation
-	if skipCredentialsValidation {
-		log.Printf("[INFO] pulumi-aws: skip credentials validation")
-		return nil
-	}
-
-	var err error
-	if credentialsValidationRun.CompareAndSwap(false, true) {
-		log.Printf("[INFO] pulumi-aws: starting to validate credentials. " +
-			"Disable this by AWS_SKIP_CREDENTIALS_VALIDATION or " +
-			"skipCredentialsValidation option")
-		err = validateCredentials(vars, c)
-		if err == nil {
-			log.Printf("[INFO] pulumi-aws: credentials are valid")
-		} else {
-			log.Printf("[INFO] pulumi-aws: error validating credentials: %v", err)
+		// if we skipCredentialsValidation then we don't need to do anything in
+		// preConfigureCallback as this is an explicit operation
+		if skipCredentialsValidation {
+			log.Printf("[INFO] pulumi-aws: skip credentials validation")
+			return nil
 		}
+
+		var err error
+		if alreadyRun.CompareAndSwap(false, true) {
+			log.Printf("[INFO] pulumi-aws: starting to validate credentials. " +
+				"Disable this by AWS_SKIP_CREDENTIALS_VALIDATION or " +
+				"skipCredentialsValidation option")
+			err = validateCredentials(vars, c)
+			if err == nil {
+				log.Printf("[INFO] pulumi-aws: credentials are valid")
+			} else {
+				log.Printf("[INFO] pulumi-aws: error validating credentials: %v", err)
+			}
+		}
+		return err
 	}
-	return err
 }
 
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
@@ -786,6 +785,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	upstreamProvider := newUpstreamProvider(ctx)
 
 	p := pftfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider, shimv2.WithDiffStrategy(shimv2.PlanState)), upstreamProvider.PluginFrameworkProvider)
+
+	// We should only run the validation once to avoid duplicating the reported errors.
+	var credentialsValidationRun atomic.Bool
 
 	prov := tfbridge.ProviderInfo{
 		P:                p,
@@ -840,7 +842,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				},
 			},
 		},
-		PreConfigureCallback: preConfigureCallback,
+		PreConfigureCallback: preConfigureCallback(&credentialsValidationRun),
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// AWS Certificate Manager
 			"aws_acm_certificate_validation": {
