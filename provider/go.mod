@@ -9,8 +9,8 @@ require (
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/providertest v0.0.10
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.25.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.72.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.25.1-0.20240129212619-e91ed7ee525a
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.72.1-0.20240129212619-e91ed7ee525a
 	github.com/pulumi/pulumi/pkg/v3 v3.103.1
 	github.com/pulumi/pulumi/sdk/v3 v3.103.1
 	github.com/stretchr/testify v1.8.4
@@ -29,7 +29,7 @@ replace (
 	// this dependency is sensitive and is worth doing carefully (such as reading release notes)
 	// and not simply rely on passing tests for the upgrade.
 	github.com/hashicorp/terraform-plugin-framework => github.com/pulumi/terraform-plugin-framework v0.0.0-20230922145027-1535d08c1d47
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230912190043-e6d96b3b8f7e
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240129205329-74776a5cd5f9
 	github.com/hashicorp/terraform-provider-aws => ../upstream
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 )

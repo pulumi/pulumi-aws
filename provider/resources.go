@@ -730,7 +730,13 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	ctx := context.Background()
 	upstreamProvider := newUpstreamProvider(ctx)
 
-	p := pftfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider, shimv2.WithDiffStrategy(shimv2.PlanState)), upstreamProvider.PluginFrameworkProvider)
+	v2p := shimv2.NewProvider(upstreamProvider.SDKV2Provider,
+		shimv2.WithDiffStrategy(shimv2.PlanState),
+		shimv2.WithPlanResourceChange(func(s string) bool {
+			return s == "aws_ssm_document"
+		}))
+
+	p := pftfbridge.MuxShimWithDisjointgPF(ctx, v2p, upstreamProvider.PluginFrameworkProvider)
 
 	prov := tfbridge.ProviderInfo{
 		P:                p,
