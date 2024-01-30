@@ -30,14 +30,14 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     public static final DomainDefaultUserSettingsArgs Empty = new DomainDefaultUserSettingsArgs();
 
     /**
-     * The Canvas app settings. See Canvas App Settings below.
+     * The Canvas app settings. See `canvas_app_settings` Block below.
      * 
      */
     @Import(name="canvasAppSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsArgs> canvasAppSettings;
 
     /**
-     * @return The Canvas app settings. See Canvas App Settings below.
+     * @return The Canvas app settings. See `canvas_app_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsArgs>> canvasAppSettings() {
@@ -45,14 +45,14 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The Code Editor application settings. See Code Editor App Settings below.
+     * The Code Editor application settings. See `code_editor_app_settings` Block below.
      * 
      */
     @Import(name="codeEditorAppSettings")
     private @Nullable Output<DomainDefaultUserSettingsCodeEditorAppSettingsArgs> codeEditorAppSettings;
 
     /**
-     * @return The Code Editor application settings. See Code Editor App Settings below.
+     * @return The Code Editor application settings. See `code_editor_app_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCodeEditorAppSettingsArgs>> codeEditorAppSettings() {
@@ -60,14 +60,14 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+     * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
      * 
      */
     @Import(name="customFileSystemConfigs")
     private @Nullable Output<List<DomainDefaultUserSettingsCustomFileSystemConfigArgs>> customFileSystemConfigs;
 
     /**
-     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
      * 
      */
     public Optional<Output<List<DomainDefaultUserSettingsCustomFileSystemConfigArgs>>> customFileSystemConfigs() {
@@ -75,14 +75,14 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+     * Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
      * 
      */
     @Import(name="customPosixUserConfig")
     private @Nullable Output<DomainDefaultUserSettingsCustomPosixUserConfigArgs> customPosixUserConfig;
 
     /**
-     * @return Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+     * @return Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCustomPosixUserConfigArgs>> customPosixUserConfig() {
@@ -120,14 +120,14 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+     * The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
      * 
      */
     @Import(name="jupyterLabAppSettings")
     private @Nullable Output<DomainDefaultUserSettingsJupyterLabAppSettingsArgs> jupyterLabAppSettings;
 
     /**
-     * @return The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+     * @return The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsJupyterLabAppSettingsArgs>> jupyterLabAppSettings() {
@@ -135,14 +135,14 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
      * 
      */
     @Import(name="jupyterServerAppSettings")
     private @Nullable Output<DomainDefaultUserSettingsJupyterServerAppSettingsArgs> jupyterServerAppSettings;
 
     /**
-     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * @return The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsJupyterServerAppSettingsArgs>> jupyterServerAppSettings() {
@@ -150,14 +150,14 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
      * 
      */
     @Import(name="kernelGatewayAppSettings")
     private @Nullable Output<DomainDefaultUserSettingsKernelGatewayAppSettingsArgs> kernelGatewayAppSettings;
 
     /**
-     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * @return The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsKernelGatewayAppSettingsArgs>> kernelGatewayAppSettings() {
@@ -165,14 +165,14 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The RSession app settings. See RSession App Settings below.
+     * The RSession app settings. See `r_session_app_settings` Block below.
      * 
      */
     @Import(name="rSessionAppSettings")
     private @Nullable Output<DomainDefaultUserSettingsRSessionAppSettingsArgs> rSessionAppSettings;
 
     /**
-     * @return The RSession app settings. See RSession App Settings below.
+     * @return The RSession app settings. See `r_session_app_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsRSessionAppSettingsArgs>> rSessionAppSettings() {
@@ -180,14 +180,14 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+     * A collection of settings that configure user interaction with the RStudioServerPro app. See `r_studio_server_pro_app_settings` Block below.
      * 
      */
     @Import(name="rStudioServerProAppSettings")
     private @Nullable Output<DomainDefaultUserSettingsRStudioServerProAppSettingsArgs> rStudioServerProAppSettings;
 
     /**
-     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See `r_studio_server_pro_app_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsRStudioServerProAppSettingsArgs>> rStudioServerProAppSettings() {
@@ -210,14 +210,14 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The sharing settings. See Sharing Settings below.
+     * The sharing settings. See `sharing_settings` Block below.
      * 
      */
     @Import(name="sharingSettings")
     private @Nullable Output<DomainDefaultUserSettingsSharingSettingsArgs> sharingSettings;
 
     /**
-     * @return The sharing settings. See Sharing Settings below.
+     * @return The sharing settings. See `sharing_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsSharingSettingsArgs>> sharingSettings() {
@@ -225,14 +225,14 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The storage settings for a private space. See Space Storage Settings below.
+     * The storage settings for a private space. See `space_storage_settings` Block below.
      * 
      */
     @Import(name="spaceStorageSettings")
     private @Nullable Output<DomainDefaultUserSettingsSpaceStorageSettingsArgs> spaceStorageSettings;
 
     /**
-     * @return The storage settings for a private space. See Space Storage Settings below.
+     * @return The storage settings for a private space. See `space_storage_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsSpaceStorageSettingsArgs>> spaceStorageSettings() {
@@ -255,14 +255,14 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The TensorBoard app settings. See TensorBoard App Settings below.
+     * The TensorBoard app settings. See `tensor_board_app_settings` Block below.
      * 
      */
     @Import(name="tensorBoardAppSettings")
     private @Nullable Output<DomainDefaultUserSettingsTensorBoardAppSettingsArgs> tensorBoardAppSettings;
 
     /**
-     * @return The TensorBoard app settings. See TensorBoard App Settings below.
+     * @return The TensorBoard app settings. See `tensor_board_app_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsTensorBoardAppSettingsArgs>> tensorBoardAppSettings() {
@@ -309,7 +309,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param canvasAppSettings The Canvas app settings. See Canvas App Settings below.
+         * @param canvasAppSettings The Canvas app settings. See `canvas_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param canvasAppSettings The Canvas app settings. See Canvas App Settings below.
+         * @param canvasAppSettings The Canvas app settings. See `canvas_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param codeEditorAppSettings The Code Editor application settings. See Code Editor App Settings below.
+         * @param codeEditorAppSettings The Code Editor application settings. See `code_editor_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param codeEditorAppSettings The Code Editor application settings. See Code Editor App Settings below.
+         * @param codeEditorAppSettings The Code Editor application settings. See `code_editor_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param customPosixUserConfig Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+         * @param customPosixUserConfig Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param customPosixUserConfig Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+         * @param customPosixUserConfig Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param jupyterLabAppSettings The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+         * @param jupyterLabAppSettings The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param jupyterLabAppSettings The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+         * @param jupyterLabAppSettings The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param kernelGatewayAppSettings The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * @param kernelGatewayAppSettings The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param kernelGatewayAppSettings The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * @param kernelGatewayAppSettings The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rSessionAppSettings The RSession app settings. See RSession App Settings below.
+         * @param rSessionAppSettings The RSession app settings. See `r_session_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -519,7 +519,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rSessionAppSettings The RSession app settings. See RSession App Settings below.
+         * @param rSessionAppSettings The RSession app settings. See `r_session_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rStudioServerProAppSettings A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+         * @param rStudioServerProAppSettings A collection of settings that configure user interaction with the RStudioServerPro app. See `r_studio_server_pro_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -540,7 +540,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rStudioServerProAppSettings A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+         * @param rStudioServerProAppSettings A collection of settings that configure user interaction with the RStudioServerPro app. See `r_studio_server_pro_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -581,7 +581,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param sharingSettings The sharing settings. See Sharing Settings below.
+         * @param sharingSettings The sharing settings. See `sharing_settings` Block below.
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param sharingSettings The sharing settings. See Sharing Settings below.
+         * @param sharingSettings The sharing settings. See `sharing_settings` Block below.
          * 
          * @return builder
          * 
@@ -602,7 +602,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param spaceStorageSettings The storage settings for a private space. See Space Storage Settings below.
+         * @param spaceStorageSettings The storage settings for a private space. See `space_storage_settings` Block below.
          * 
          * @return builder
          * 
@@ -613,7 +613,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param spaceStorageSettings The storage settings for a private space. See Space Storage Settings below.
+         * @param spaceStorageSettings The storage settings for a private space. See `space_storage_settings` Block below.
          * 
          * @return builder
          * 
@@ -644,7 +644,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tensorBoardAppSettings The TensorBoard app settings. See TensorBoard App Settings below.
+         * @param tensorBoardAppSettings The TensorBoard app settings. See `tensor_board_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -655,7 +655,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tensorBoardAppSettings The TensorBoard app settings. See TensorBoard App Settings below.
+         * @param tensorBoardAppSettings The TensorBoard app settings. See `tensor_board_app_settings` Block below.
          * 
          * @return builder
          * 

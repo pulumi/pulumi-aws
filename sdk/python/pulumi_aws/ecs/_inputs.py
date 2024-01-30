@@ -63,14 +63,18 @@ __all__ = [
 class CapacityProviderAutoScalingGroupProviderArgs:
     def __init__(__self__, *,
                  auto_scaling_group_arn: pulumi.Input[str],
+                 managed_draining: Optional[pulumi.Input[str]] = None,
                  managed_scaling: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedScalingArgs']] = None,
                  managed_termination_protection: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] auto_scaling_group_arn: ARN of the associated auto scaling group.
+        :param pulumi.Input[str] managed_draining: Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
         :param pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedScalingArgs'] managed_scaling: Configuration block defining the parameters of the auto scaling. Detailed below.
         :param pulumi.Input[str] managed_termination_protection: Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
         """
         pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
+        if managed_draining is not None:
+            pulumi.set(__self__, "managed_draining", managed_draining)
         if managed_scaling is not None:
             pulumi.set(__self__, "managed_scaling", managed_scaling)
         if managed_termination_protection is not None:
@@ -87,6 +91,18 @@ class CapacityProviderAutoScalingGroupProviderArgs:
     @auto_scaling_group_arn.setter
     def auto_scaling_group_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "auto_scaling_group_arn", value)
+
+    @property
+    @pulumi.getter(name="managedDraining")
+    def managed_draining(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+        """
+        return pulumi.get(self, "managed_draining")
+
+    @managed_draining.setter
+    def managed_draining(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_draining", value)
 
     @property
     @pulumi.getter(name="managedScaling")

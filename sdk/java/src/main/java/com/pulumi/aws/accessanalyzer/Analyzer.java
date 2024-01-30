@@ -6,6 +6,7 @@ package com.pulumi.aws.accessanalyzer;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.accessanalyzer.AnalyzerArgs;
 import com.pulumi.aws.accessanalyzer.inputs.AnalyzerState;
+import com.pulumi.aws.accessanalyzer.outputs.AnalyzerConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -131,6 +132,20 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * A block that specifies the configuration of the analyzer. Documented below
+     * 
+     */
+    @Export(name="configuration", refs={AnalyzerConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ AnalyzerConfiguration> configuration;
+
+    /**
+     * @return A block that specifies the configuration of the analyzer. Documented below
+     * 
+     */
+    public Output<Optional<AnalyzerConfiguration>> configuration() {
+        return Codegen.optional(this.configuration);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

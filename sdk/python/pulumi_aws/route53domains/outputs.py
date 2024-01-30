@@ -10,11 +10,91 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'DelegationSignerRecordSigningAttributes',
+    'DelegationSignerRecordTimeouts',
     'RegisteredDomainAdminContact',
     'RegisteredDomainNameServer',
     'RegisteredDomainRegistrantContact',
     'RegisteredDomainTechContact',
 ]
+
+@pulumi.output_type
+class DelegationSignerRecordSigningAttributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicKey":
+            suggest = "public_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DelegationSignerRecordSigningAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DelegationSignerRecordSigningAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DelegationSignerRecordSigningAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 algorithm: int,
+                 flags: int,
+                 public_key: str):
+        """
+        :param int algorithm: Algorithm which was used to generate the digest from the public key.
+        :param int flags: Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
+        :param str public_key: The base64-encoded public key part of the key pair that is passed to the registry.
+        """
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "flags", flags)
+        pulumi.set(__self__, "public_key", public_key)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> int:
+        """
+        Algorithm which was used to generate the digest from the public key.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter
+    def flags(self) -> int:
+        """
+        Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
+        """
+        return pulumi.get(self, "flags")
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> str:
+        """
+        The base64-encoded public key part of the key pair that is passed to the registry.
+        """
+        return pulumi.get(self, "public_key")
+
+
+@pulumi.output_type
+class DelegationSignerRecordTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        return pulumi.get(self, "delete")
+
 
 @pulumi.output_type
 class RegisteredDomainAdminContact(dict):

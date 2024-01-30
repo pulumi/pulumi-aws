@@ -15,17 +15,17 @@ import java.util.Objects;
 @CustomType
 public final class GetPatchBaselineApprovalRule {
     /**
-     * @return The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+     * @return Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
      * 
      */
     private Integer approveAfterDays;
     /**
-     * @return The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+     * @return Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
      * 
      */
     private String approveUntilDate;
     /**
-     * @return The compliance level for patches approved by this rule.
+     * @return Compliance level for patches approved by this rule.
      * 
      */
     private String complianceLevel;
@@ -35,28 +35,28 @@ public final class GetPatchBaselineApprovalRule {
      */
     private Boolean enableNonSecurity;
     /**
-     * @return The patch filter group that defines the criteria for the rule.
+     * @return Patch filter group that defines the criteria for the rule.
      * 
      */
     private List<GetPatchBaselineApprovalRulePatchFilter> patchFilters;
 
     private GetPatchBaselineApprovalRule() {}
     /**
-     * @return The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+     * @return Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
      * 
      */
     public Integer approveAfterDays() {
         return this.approveAfterDays;
     }
     /**
-     * @return The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+     * @return Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
      * 
      */
     public String approveUntilDate() {
         return this.approveUntilDate;
     }
     /**
-     * @return The compliance level for patches approved by this rule.
+     * @return Compliance level for patches approved by this rule.
      * 
      */
     public String complianceLevel() {
@@ -70,7 +70,7 @@ public final class GetPatchBaselineApprovalRule {
         return this.enableNonSecurity;
     }
     /**
-     * @return The patch filter group that defines the criteria for the rule.
+     * @return Patch filter group that defines the criteria for the rule.
      * 
      */
     public List<GetPatchBaselineApprovalRulePatchFilter> patchFilters() {

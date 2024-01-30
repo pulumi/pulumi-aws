@@ -69,6 +69,8 @@ class CapacityProviderAutoScalingGroupProvider(dict):
         suggest = None
         if key == "autoScalingGroupArn":
             suggest = "auto_scaling_group_arn"
+        elif key == "managedDraining":
+            suggest = "managed_draining"
         elif key == "managedScaling":
             suggest = "managed_scaling"
         elif key == "managedTerminationProtection":
@@ -87,14 +89,18 @@ class CapacityProviderAutoScalingGroupProvider(dict):
 
     def __init__(__self__, *,
                  auto_scaling_group_arn: str,
+                 managed_draining: Optional[str] = None,
                  managed_scaling: Optional['outputs.CapacityProviderAutoScalingGroupProviderManagedScaling'] = None,
                  managed_termination_protection: Optional[str] = None):
         """
         :param str auto_scaling_group_arn: ARN of the associated auto scaling group.
+        :param str managed_draining: Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
         :param 'CapacityProviderAutoScalingGroupProviderManagedScalingArgs' managed_scaling: Configuration block defining the parameters of the auto scaling. Detailed below.
         :param str managed_termination_protection: Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
         """
         pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
+        if managed_draining is not None:
+            pulumi.set(__self__, "managed_draining", managed_draining)
         if managed_scaling is not None:
             pulumi.set(__self__, "managed_scaling", managed_scaling)
         if managed_termination_protection is not None:
@@ -107,6 +113,14 @@ class CapacityProviderAutoScalingGroupProvider(dict):
         ARN of the associated auto scaling group.
         """
         return pulumi.get(self, "auto_scaling_group_arn")
+
+    @property
+    @pulumi.getter(name="managedDraining")
+    def managed_draining(self) -> Optional[str]:
+        """
+        Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+        """
+        return pulumi.get(self, "managed_draining")
 
     @property
     @pulumi.getter(name="managedScaling")

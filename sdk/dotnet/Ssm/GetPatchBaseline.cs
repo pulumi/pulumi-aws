@@ -141,6 +141,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("owner", required: true)]
         public string Owner { get; set; } = null!;
@@ -173,6 +175,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
@@ -196,7 +200,7 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public readonly ImmutableArray<string> ApprovedPatches;
         /// <summary>
-        /// The compliance level for approved patches.
+        /// Compliance level for approved patches.
         /// </summary>
         public readonly string ApprovedPatchesComplianceLevel;
         /// <summary>
@@ -217,7 +221,11 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name specified to identify the patch source.
+        /// JSON representation of the baseline.
+        /// </summary>
+        public readonly string Json;
+        /// <summary>
+        /// Name specified to identify the patch source.
         /// </summary>
         public readonly string Name;
         public readonly string? NamePrefix;
@@ -228,7 +236,7 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public readonly ImmutableArray<string> RejectedPatches;
         /// <summary>
-        /// The action specified to take on patches included in the `rejected_patches` list.
+        /// Action specified to take on patches included in the `rejected_patches` list.
         /// </summary>
         public readonly string RejectedPatchesAction;
         /// <summary>
@@ -254,6 +262,8 @@ namespace Pulumi.Aws.Ssm
 
             string id,
 
+            string json,
+
             string name,
 
             string? namePrefix,
@@ -276,6 +286,7 @@ namespace Pulumi.Aws.Ssm
             Description = description;
             GlobalFilters = globalFilters;
             Id = id;
+            Json = json;
             Name = name;
             NamePrefix = namePrefix;
             OperatingSystem = operatingSystem;

@@ -47,6 +47,7 @@ import javax.annotation.Nullable;
  *             .kubernetesGroups(            
  *                 &#34;group-1&#34;,
  *                 &#34;group-2&#34;)
+ *             .type(&#34;STANDARD&#34;)
  *             .build());
  * 
  *     }
@@ -111,14 +112,14 @@ public class AccessEntry extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kubernetesGroups", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> kubernetesGroups;
+    private Output<List<String>> kubernetesGroups;
 
     /**
      * @return List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
      * 
      */
-    public Output<Optional<List<String>>> kubernetesGroups() {
-        return Codegen.optional(this.kubernetesGroups);
+    public Output<List<String>> kubernetesGroups() {
+        return this.kubernetesGroups;
     }
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
@@ -189,14 +190,14 @@ public class AccessEntry extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
      * @return Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
     /**
      * Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.

@@ -22,18 +22,14 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     public static final PatchBaselineState Empty = new PatchBaselineState();
 
     /**
-     * A set of rules used to include patches in the baseline.
-     * Up to 10 approval rules can be specified.
-     * See `approval_rule` below.
+     * Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
      * 
      */
     @Import(name="approvalRules")
     private @Nullable Output<List<PatchBaselineApprovalRuleArgs>> approvalRules;
 
     /**
-     * @return A set of rules used to include patches in the baseline.
-     * Up to 10 approval rules can be specified.
-     * See `approval_rule` below.
+     * @return Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
      * 
      */
     public Optional<Output<List<PatchBaselineApprovalRuleArgs>>> approvalRules() {
@@ -41,16 +37,14 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A list of explicitly approved patches for the baseline.
-     * Cannot be specified with `approval_rule`.
+     * List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
      * 
      */
     @Import(name="approvedPatches")
     private @Nullable Output<List<String>> approvedPatches;
 
     /**
-     * @return A list of explicitly approved patches for the baseline.
-     * Cannot be specified with `approval_rule`.
+     * @return List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
      * 
      */
     public Optional<Output<List<String>>> approvedPatches() {
@@ -58,20 +52,14 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The compliance level for approved patches.
-     * This means that if an approved patch is reported as missing, this is the severity of the compliance violation.
-     * Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.
-     * The default value is `UNSPECIFIED`.
+     * Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
      * 
      */
     @Import(name="approvedPatchesComplianceLevel")
     private @Nullable Output<String> approvedPatchesComplianceLevel;
 
     /**
-     * @return The compliance level for approved patches.
-     * This means that if an approved patch is reported as missing, this is the severity of the compliance violation.
-     * Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.
-     * The default value is `UNSPECIFIED`.
+     * @return Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
      * 
      */
     public Optional<Output<String>> approvedPatchesComplianceLevel() {
@@ -79,16 +67,14 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
-     * Applies to Linux instances only.
+     * Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
      * 
      */
     @Import(name="approvedPatchesEnableNonSecurity")
     private @Nullable Output<Boolean> approvedPatchesEnableNonSecurity;
 
     /**
-     * @return Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
-     * Applies to Linux instances only.
+     * @return Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
      * 
      */
     public Optional<Output<Boolean>> approvedPatchesEnableNonSecurity() {
@@ -96,14 +82,14 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ARN of the patch baseline.
+     * ARN of the baseline.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the patch baseline.
+     * @return ARN of the baseline.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -111,14 +97,14 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The description of the patch baseline.
+     * Description of the patch baseline.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the patch baseline.
+     * @return Description of the patch baseline.
      * 
      */
     public Optional<Output<String>> description() {
@@ -126,18 +112,14 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A set of global filters used to exclude patches from the baseline.
-     * Up to 4 global filters can be specified using Key/Value pairs.
-     * Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
+     * Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
      * 
      */
     @Import(name="globalFilters")
     private @Nullable Output<List<PatchBaselineGlobalFilterArgs>> globalFilters;
 
     /**
-     * @return A set of global filters used to exclude patches from the baseline.
-     * Up to 4 global filters can be specified using Key/Value pairs.
-     * Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
+     * @return Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
      * 
      */
     public Optional<Output<List<PatchBaselineGlobalFilterArgs>>> globalFilters() {
@@ -145,14 +127,33 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the patch baseline.
+     * JSON definition of the baseline.
+     * 
+     */
+    @Import(name="json")
+    private @Nullable Output<String> json;
+
+    /**
+     * @return JSON definition of the baseline.
+     * 
+     */
+    public Optional<Output<String>> json() {
+        return Optional.ofNullable(this.json);
+    }
+
+    /**
+     * Name of the patch baseline.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the patch baseline.
+     * @return Name of the patch baseline.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -160,48 +161,14 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The operating system the patch baseline applies to.
-     * Valid values are
-     * `ALMA_LINUX`,
-     * `AMAZON_LINUX`,
-     * `AMAZON_LINUX_2`,
-     * `AMAZON_LINUX_2022`,
-     * `AMAZON_LINUX_2023`,
-     * `CENTOS`,
-     * `DEBIAN`,
-     * `MACOS`,
-     * `ORACLE_LINUX`,
-     * `RASPBIAN`,
-     * `REDHAT_ENTERPRISE_LINUX`,
-     * `ROCKY_LINUX`,
-     * `SUSE`,
-     * `UBUNTU`, and
-     * `WINDOWS`.
-     * The default value is `WINDOWS`.
+     * Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
      * 
      */
     @Import(name="operatingSystem")
     private @Nullable Output<String> operatingSystem;
 
     /**
-     * @return The operating system the patch baseline applies to.
-     * Valid values are
-     * `ALMA_LINUX`,
-     * `AMAZON_LINUX`,
-     * `AMAZON_LINUX_2`,
-     * `AMAZON_LINUX_2022`,
-     * `AMAZON_LINUX_2023`,
-     * `CENTOS`,
-     * `DEBIAN`,
-     * `MACOS`,
-     * `ORACLE_LINUX`,
-     * `RASPBIAN`,
-     * `REDHAT_ENTERPRISE_LINUX`,
-     * `ROCKY_LINUX`,
-     * `SUSE`,
-     * `UBUNTU`, and
-     * `WINDOWS`.
-     * The default value is `WINDOWS`.
+     * @return Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
      * 
      */
     public Optional<Output<String>> operatingSystem() {
@@ -209,14 +176,14 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A list of rejected patches.
+     * List of rejected patches.
      * 
      */
     @Import(name="rejectedPatches")
     private @Nullable Output<List<String>> rejectedPatches;
 
     /**
-     * @return A list of rejected patches.
+     * @return List of rejected patches.
      * 
      */
     public Optional<Output<List<String>>> rejectedPatches() {
@@ -224,16 +191,14 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The action for Patch Manager to take on patches included in the `rejected_patches` list.
-     * Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+     * Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      * 
      */
     @Import(name="rejectedPatchesAction")
     private @Nullable Output<String> rejectedPatchesAction;
 
     /**
-     * @return The action for Patch Manager to take on patches included in the `rejected_patches` list.
-     * Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+     * @return Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      * 
      */
     public Optional<Output<String>> rejectedPatchesAction() {
@@ -241,18 +206,14 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Configuration block with alternate sources for patches.
-     * Applies to Linux instances only.
-     * See `source` below.
+     * Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
      * 
      */
     @Import(name="sources")
     private @Nullable Output<List<PatchBaselineSourceArgs>> sources;
 
     /**
-     * @return Configuration block with alternate sources for patches.
-     * Applies to Linux instances only.
-     * See `source` below.
+     * @return Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
      * 
      */
     public Optional<Output<List<PatchBaselineSourceArgs>>> sources() {
@@ -260,14 +221,14 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -275,7 +236,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -286,7 +247,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -307,6 +268,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         this.arn = $.arn;
         this.description = $.description;
         this.globalFilters = $.globalFilters;
+        this.json = $.json;
         this.name = $.name;
         this.operatingSystem = $.operatingSystem;
         this.rejectedPatches = $.rejectedPatches;
@@ -335,9 +297,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param approvalRules A set of rules used to include patches in the baseline.
-         * Up to 10 approval rules can be specified.
-         * See `approval_rule` below.
+         * @param approvalRules Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
          * 
          * @return builder
          * 
@@ -348,9 +308,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param approvalRules A set of rules used to include patches in the baseline.
-         * Up to 10 approval rules can be specified.
-         * See `approval_rule` below.
+         * @param approvalRules Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
          * 
          * @return builder
          * 
@@ -360,9 +318,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param approvalRules A set of rules used to include patches in the baseline.
-         * Up to 10 approval rules can be specified.
-         * See `approval_rule` below.
+         * @param approvalRules Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
          * 
          * @return builder
          * 
@@ -372,8 +328,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param approvedPatches A list of explicitly approved patches for the baseline.
-         * Cannot be specified with `approval_rule`.
+         * @param approvedPatches List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
          * 
          * @return builder
          * 
@@ -384,8 +339,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param approvedPatches A list of explicitly approved patches for the baseline.
-         * Cannot be specified with `approval_rule`.
+         * @param approvedPatches List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
          * 
          * @return builder
          * 
@@ -395,8 +349,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param approvedPatches A list of explicitly approved patches for the baseline.
-         * Cannot be specified with `approval_rule`.
+         * @param approvedPatches List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
          * 
          * @return builder
          * 
@@ -406,10 +359,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param approvedPatchesComplianceLevel The compliance level for approved patches.
-         * This means that if an approved patch is reported as missing, this is the severity of the compliance violation.
-         * Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.
-         * The default value is `UNSPECIFIED`.
+         * @param approvedPatchesComplianceLevel Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
          * 
          * @return builder
          * 
@@ -420,10 +370,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param approvedPatchesComplianceLevel The compliance level for approved patches.
-         * This means that if an approved patch is reported as missing, this is the severity of the compliance violation.
-         * Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`.
-         * The default value is `UNSPECIFIED`.
+         * @param approvedPatchesComplianceLevel Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
          * 
          * @return builder
          * 
@@ -433,8 +380,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param approvedPatchesEnableNonSecurity Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
-         * Applies to Linux instances only.
+         * @param approvedPatchesEnableNonSecurity Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
          * 
          * @return builder
          * 
@@ -445,8 +391,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param approvedPatchesEnableNonSecurity Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
-         * Applies to Linux instances only.
+         * @param approvedPatchesEnableNonSecurity Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
          * 
          * @return builder
          * 
@@ -456,7 +401,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The ARN of the patch baseline.
+         * @param arn ARN of the baseline.
          * 
          * @return builder
          * 
@@ -467,7 +412,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The ARN of the patch baseline.
+         * @param arn ARN of the baseline.
          * 
          * @return builder
          * 
@@ -477,7 +422,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param description The description of the patch baseline.
+         * @param description Description of the patch baseline.
          * 
          * @return builder
          * 
@@ -488,7 +433,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param description The description of the patch baseline.
+         * @param description Description of the patch baseline.
          * 
          * @return builder
          * 
@@ -498,9 +443,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param globalFilters A set of global filters used to exclude patches from the baseline.
-         * Up to 4 global filters can be specified using Key/Value pairs.
-         * Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
+         * @param globalFilters Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
          * 
          * @return builder
          * 
@@ -511,9 +454,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param globalFilters A set of global filters used to exclude patches from the baseline.
-         * Up to 4 global filters can be specified using Key/Value pairs.
-         * Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
+         * @param globalFilters Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
          * 
          * @return builder
          * 
@@ -523,9 +464,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param globalFilters A set of global filters used to exclude patches from the baseline.
-         * Up to 4 global filters can be specified using Key/Value pairs.
-         * Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
+         * @param globalFilters Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
          * 
          * @return builder
          * 
@@ -535,7 +474,30 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the patch baseline.
+         * @param json JSON definition of the baseline.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder json(@Nullable Output<String> json) {
+            $.json = json;
+            return this;
+        }
+
+        /**
+         * @param json JSON definition of the baseline.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder json(String json) {
+            return json(Output.of(json));
+        }
+
+        /**
+         * @param name Name of the patch baseline.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -546,7 +508,9 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the patch baseline.
+         * @param name Name of the patch baseline.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -556,24 +520,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param operatingSystem The operating system the patch baseline applies to.
-         * Valid values are
-         * `ALMA_LINUX`,
-         * `AMAZON_LINUX`,
-         * `AMAZON_LINUX_2`,
-         * `AMAZON_LINUX_2022`,
-         * `AMAZON_LINUX_2023`,
-         * `CENTOS`,
-         * `DEBIAN`,
-         * `MACOS`,
-         * `ORACLE_LINUX`,
-         * `RASPBIAN`,
-         * `REDHAT_ENTERPRISE_LINUX`,
-         * `ROCKY_LINUX`,
-         * `SUSE`,
-         * `UBUNTU`, and
-         * `WINDOWS`.
-         * The default value is `WINDOWS`.
+         * @param operatingSystem Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
          * 
          * @return builder
          * 
@@ -584,24 +531,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param operatingSystem The operating system the patch baseline applies to.
-         * Valid values are
-         * `ALMA_LINUX`,
-         * `AMAZON_LINUX`,
-         * `AMAZON_LINUX_2`,
-         * `AMAZON_LINUX_2022`,
-         * `AMAZON_LINUX_2023`,
-         * `CENTOS`,
-         * `DEBIAN`,
-         * `MACOS`,
-         * `ORACLE_LINUX`,
-         * `RASPBIAN`,
-         * `REDHAT_ENTERPRISE_LINUX`,
-         * `ROCKY_LINUX`,
-         * `SUSE`,
-         * `UBUNTU`, and
-         * `WINDOWS`.
-         * The default value is `WINDOWS`.
+         * @param operatingSystem Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
          * 
          * @return builder
          * 
@@ -611,7 +541,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param rejectedPatches A list of rejected patches.
+         * @param rejectedPatches List of rejected patches.
          * 
          * @return builder
          * 
@@ -622,7 +552,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param rejectedPatches A list of rejected patches.
+         * @param rejectedPatches List of rejected patches.
          * 
          * @return builder
          * 
@@ -632,7 +562,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param rejectedPatches A list of rejected patches.
+         * @param rejectedPatches List of rejected patches.
          * 
          * @return builder
          * 
@@ -642,8 +572,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param rejectedPatchesAction The action for Patch Manager to take on patches included in the `rejected_patches` list.
-         * Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+         * @param rejectedPatchesAction Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
          * 
          * @return builder
          * 
@@ -654,8 +583,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param rejectedPatchesAction The action for Patch Manager to take on patches included in the `rejected_patches` list.
-         * Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+         * @param rejectedPatchesAction Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
          * 
          * @return builder
          * 
@@ -665,9 +593,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sources Configuration block with alternate sources for patches.
-         * Applies to Linux instances only.
-         * See `source` below.
+         * @param sources Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
          * 
          * @return builder
          * 
@@ -678,9 +604,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sources Configuration block with alternate sources for patches.
-         * Applies to Linux instances only.
-         * See `source` below.
+         * @param sources Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
          * 
          * @return builder
          * 
@@ -690,9 +614,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sources Configuration block with alternate sources for patches.
-         * Applies to Linux instances only.
-         * See `source` below.
+         * @param sources Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
          * 
          * @return builder
          * 
@@ -702,7 +624,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -713,7 +635,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -723,7 +645,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -738,7 +660,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

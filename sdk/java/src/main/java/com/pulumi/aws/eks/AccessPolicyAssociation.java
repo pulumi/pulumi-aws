@@ -56,24 +56,24 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import EKS access entry using the `cluster_name` `policy_arn` and `principal_arn` separated by a colon (`:`). For example:
+ * Using `pulumi import`, import EKS access entry using the `cluster_name` `principal_arn` and `policy_arn` separated by a colon (`#`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name:my_policy_arn:my_principal_arn
+ *  $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name#my_principal_arn#my_policy_arn
  * ```
  * 
  */
 @ResourceType(type="aws:eks/accessPolicyAssociation:AccessPolicyAssociation")
 public class AccessPolicyAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The configuration block to determine the scope of the access.
+     * The configuration block to determine the scope of the access. See `access_scope` Block below.
      * 
      */
     @Export(name="accessScope", refs={AccessPolicyAssociationAccessScope.class}, tree="[0]")
     private Output<AccessPolicyAssociationAccessScope> accessScope;
 
     /**
-     * @return The configuration block to determine the scope of the access.
+     * @return The configuration block to determine the scope of the access. See `access_scope` Block below.
      * 
      */
     public Output<AccessPolicyAssociationAccessScope> accessScope() {

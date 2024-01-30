@@ -30,6 +30,8 @@ type Scraper struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block for the managed scraper to send metrics to. See `destination`.
 	Destination ScraperDestinationPtrOutput `pulumi:"destination"`
+	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
 	ScrapeConfiguration pulumi.StringOutput `pulumi:"scrapeConfiguration"`
 	// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
@@ -85,6 +87,8 @@ type scraperState struct {
 	Arn *string `pulumi:"arn"`
 	// Configuration block for the managed scraper to send metrics to. See `destination`.
 	Destination *ScraperDestination `pulumi:"destination"`
+	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+	RoleArn *string `pulumi:"roleArn"`
 	// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
 	ScrapeConfiguration *string `pulumi:"scrapeConfiguration"`
 	// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
@@ -104,6 +108,8 @@ type ScraperState struct {
 	Arn pulumi.StringPtrInput
 	// Configuration block for the managed scraper to send metrics to. See `destination`.
 	Destination ScraperDestinationPtrInput
+	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+	RoleArn pulumi.StringPtrInput
 	// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
 	ScrapeConfiguration pulumi.StringPtrInput
 	// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
@@ -251,6 +257,11 @@ func (o ScraperOutput) Arn() pulumi.StringOutput {
 // Configuration block for the managed scraper to send metrics to. See `destination`.
 func (o ScraperOutput) Destination() ScraperDestinationPtrOutput {
 	return o.ApplyT(func(v *Scraper) ScraperDestinationPtrOutput { return v.Destination }).(ScraperDestinationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+func (o ScraperOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Scraper) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 // The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).

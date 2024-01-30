@@ -135,6 +135,10 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
+     * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     */
+    public readonly skipFinalBackup!: pulumi.Output<boolean | undefined>;
+    /**
      * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
      */
     public readonly storageCapacity!: pulumi.Output<number | undefined>;
@@ -200,6 +204,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["rootVolumeId"] = state ? state.rootVolumeId : undefined;
             resourceInputs["routeTableIds"] = state ? state.routeTableIds : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["skipFinalBackup"] = state ? state.skipFinalBackup : undefined;
             resourceInputs["storageCapacity"] = state ? state.storageCapacity : undefined;
             resourceInputs["storageType"] = state ? state.storageType : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -232,6 +237,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["rootVolumeConfiguration"] = args ? args.rootVolumeConfiguration : undefined;
             resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["skipFinalBackup"] = args ? args.skipFinalBackup : undefined;
             resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
             resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -330,6 +336,10 @@ export interface OpenZfsFileSystemState {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     */
+    skipFinalBackup?: pulumi.Input<boolean>;
+    /**
      * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
      */
     storageCapacity?: pulumi.Input<number>;
@@ -421,6 +431,10 @@ export interface OpenZfsFileSystemArgs {
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     */
+    skipFinalBackup?: pulumi.Input<boolean>;
     /**
      * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
      */

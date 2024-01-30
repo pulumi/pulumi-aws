@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class IamPolicyAssignmentIdentities
     {
+        /// <summary>
+        /// Array of Quicksight group names to assign the policy to.
+        /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
         /// Array of Quicksight user names to assign the policy to.

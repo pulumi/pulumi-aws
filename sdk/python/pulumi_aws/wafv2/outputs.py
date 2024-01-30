@@ -315,6 +315,8 @@ __all__ = [
     'WebAclAssociationConfigRequestBodyCloudfront',
     'WebAclCaptchaConfig',
     'WebAclCaptchaConfigImmunityTimeProperty',
+    'WebAclChallengeConfig',
+    'WebAclChallengeConfigImmunityTimeProperty',
     'WebAclCustomResponseBody',
     'WebAclDefaultAction',
     'WebAclDefaultActionAllow',
@@ -12811,6 +12813,78 @@ class WebAclCaptchaConfigImmunityTimeProperty(dict):
 
     def get(self, key: str, default = None) -> Any:
         WebAclCaptchaConfigImmunityTimeProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 immunity_time: Optional[int] = None):
+        """
+        :param int immunity_time: The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+        """
+        if immunity_time is not None:
+            pulumi.set(__self__, "immunity_time", immunity_time)
+
+    @property
+    @pulumi.getter(name="immunityTime")
+    def immunity_time(self) -> Optional[int]:
+        """
+        The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+        """
+        return pulumi.get(self, "immunity_time")
+
+
+@pulumi.output_type
+class WebAclChallengeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "immunityTimeProperty":
+            suggest = "immunity_time_property"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclChallengeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclChallengeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclChallengeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 immunity_time_property: Optional['outputs.WebAclChallengeConfigImmunityTimeProperty'] = None):
+        """
+        :param 'WebAclChallengeConfigImmunityTimePropertyArgs' immunity_time_property: Defines custom immunity time. See `immunity_time_property` below for details.
+        """
+        if immunity_time_property is not None:
+            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
+
+    @property
+    @pulumi.getter(name="immunityTimeProperty")
+    def immunity_time_property(self) -> Optional['outputs.WebAclChallengeConfigImmunityTimeProperty']:
+        """
+        Defines custom immunity time. See `immunity_time_property` below for details.
+        """
+        return pulumi.get(self, "immunity_time_property")
+
+
+@pulumi.output_type
+class WebAclChallengeConfigImmunityTimeProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "immunityTime":
+            suggest = "immunity_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclChallengeConfigImmunityTimeProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclChallengeConfigImmunityTimeProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclChallengeConfigImmunityTimeProperty.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

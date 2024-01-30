@@ -16,6 +16,8 @@ var _ = internal.GetEnvOrDefault
 type CapacityProviderAutoScalingGroupProvider struct {
 	// ARN of the associated auto scaling group.
 	AutoScalingGroupArn string `pulumi:"autoScalingGroupArn"`
+	// Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+	ManagedDraining *string `pulumi:"managedDraining"`
 	// Configuration block defining the parameters of the auto scaling. Detailed below.
 	ManagedScaling *CapacityProviderAutoScalingGroupProviderManagedScaling `pulumi:"managedScaling"`
 	// Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
@@ -36,6 +38,8 @@ type CapacityProviderAutoScalingGroupProviderInput interface {
 type CapacityProviderAutoScalingGroupProviderArgs struct {
 	// ARN of the associated auto scaling group.
 	AutoScalingGroupArn pulumi.StringInput `pulumi:"autoScalingGroupArn"`
+	// Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+	ManagedDraining pulumi.StringPtrInput `pulumi:"managedDraining"`
 	// Configuration block defining the parameters of the auto scaling. Detailed below.
 	ManagedScaling CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput `pulumi:"managedScaling"`
 	// Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
@@ -124,6 +128,11 @@ func (o CapacityProviderAutoScalingGroupProviderOutput) AutoScalingGroupArn() pu
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) string { return v.AutoScalingGroupArn }).(pulumi.StringOutput)
 }
 
+// Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedDraining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *string { return v.ManagedDraining }).(pulumi.StringPtrOutput)
+}
+
 // Configuration block defining the parameters of the auto scaling. Detailed below.
 func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedScaling() CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedScaling {
@@ -167,6 +176,16 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) AutoScalingGroupArn()
 			return nil
 		}
 		return &v.AutoScalingGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedDraining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedDraining
 	}).(pulumi.StringPtrOutput)
 }
 

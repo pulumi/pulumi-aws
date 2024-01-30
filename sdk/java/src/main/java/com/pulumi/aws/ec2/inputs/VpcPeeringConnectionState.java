@@ -67,16 +67,16 @@ public final class VpcPeeringConnectionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the AWS provider is currently connected to.
+     * The AWS account ID of the target peer VPC.
+     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
      * 
      */
     @Import(name="peerOwnerId")
     private @Nullable Output<String> peerOwnerId;
 
     /**
-     * @return The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the AWS provider is currently connected to.
+     * @return The AWS account ID of the target peer VPC.
+     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
      * 
      */
     public Optional<Output<String>> peerOwnerId() {
@@ -101,14 +101,14 @@ public final class VpcPeeringConnectionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ID of the VPC with which you are creating the VPC Peering Connection.
+     * The ID of the target VPC with which you are creating the VPC Peering Connection.
      * 
      */
     @Import(name="peerVpcId")
     private @Nullable Output<String> peerVpcId;
 
     /**
-     * @return The ID of the VPC with which you are creating the VPC Peering Connection.
+     * @return The ID of the target VPC with which you are creating the VPC Peering Connection.
      * 
      */
     public Optional<Output<String>> peerVpcId() {
@@ -284,8 +284,8 @@ public final class VpcPeeringConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param peerOwnerId The AWS account ID of the owner of the peer VPC.
-         * Defaults to the account ID the AWS provider is currently connected to.
+         * @param peerOwnerId The AWS account ID of the target peer VPC.
+         * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
          * 
          * @return builder
          * 
@@ -296,8 +296,8 @@ public final class VpcPeeringConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param peerOwnerId The AWS account ID of the owner of the peer VPC.
-         * Defaults to the account ID the AWS provider is currently connected to.
+         * @param peerOwnerId The AWS account ID of the target peer VPC.
+         * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class VpcPeeringConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param peerVpcId The ID of the VPC with which you are creating the VPC Peering Connection.
+         * @param peerVpcId The ID of the target VPC with which you are creating the VPC Peering Connection.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class VpcPeeringConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param peerVpcId The ID of the VPC with which you are creating the VPC Peering Connection.
+         * @param peerVpcId The ID of the target VPC with which you are creating the VPC Peering Connection.
          * 
          * @return builder
          * 

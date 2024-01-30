@@ -65,6 +65,21 @@ public final class ScraperState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+     * 
+     */
+    @Import(name="roleArn")
+    private @Nullable Output<String> roleArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+     * 
+     */
+    public Optional<Output<String>> roleArn() {
+        return Optional.ofNullable(this.roleArn);
+    }
+
+    /**
      * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      * 
      */
@@ -137,6 +152,7 @@ public final class ScraperState extends com.pulumi.resources.ResourceArgs {
         this.alias = $.alias;
         this.arn = $.arn;
         this.destination = $.destination;
+        this.roleArn = $.roleArn;
         this.scrapeConfiguration = $.scrapeConfiguration;
         this.source = $.source;
         this.tags = $.tags;
@@ -223,6 +239,27 @@ public final class ScraperState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder destination(ScraperDestinationArgs destination) {
             return destination(Output.of(destination));
+        }
+
+        /**
+         * @param roleArn The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+         * 
+         * @return builder
+         * 
+         */
+        public Builder roleArn(@Nullable Output<String> roleArn) {
+            $.roleArn = roleArn;
+            return this;
+        }
+
+        /**
+         * @param roleArn The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+         * 
+         * @return builder
+         * 
+         */
+        public Builder roleArn(String roleArn) {
+            return roleArn(Output.of(roleArn));
         }
 
         /**

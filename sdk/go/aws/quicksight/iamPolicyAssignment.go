@@ -70,7 +70,7 @@ type IamPolicyAssignment struct {
 	AssignmentStatus pulumi.StringOutput `pulumi:"assignmentStatus"`
 	// AWS account ID.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 	Identities IamPolicyAssignmentIdentitiesPtrOutput `pulumi:"identities"`
 	// Namespace that contains the assignment. Defaults to `default`.
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
@@ -124,7 +124,7 @@ type iamPolicyAssignmentState struct {
 	AssignmentStatus *string `pulumi:"assignmentStatus"`
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 	Identities *IamPolicyAssignmentIdentities `pulumi:"identities"`
 	// Namespace that contains the assignment. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
@@ -143,7 +143,7 @@ type IamPolicyAssignmentState struct {
 	AssignmentStatus pulumi.StringPtrInput
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
-	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 	Identities IamPolicyAssignmentIdentitiesPtrInput
 	// Namespace that contains the assignment. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
@@ -164,7 +164,7 @@ type iamPolicyAssignmentArgs struct {
 	AssignmentStatus string `pulumi:"assignmentStatus"`
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 	Identities *IamPolicyAssignmentIdentities `pulumi:"identities"`
 	// Namespace that contains the assignment. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
@@ -182,7 +182,7 @@ type IamPolicyAssignmentArgs struct {
 	AssignmentStatus pulumi.StringInput
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
-	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 	Identities IamPolicyAssignmentIdentitiesPtrInput
 	// Namespace that contains the assignment. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
@@ -299,7 +299,7 @@ func (o IamPolicyAssignmentOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IamPolicyAssignment) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 func (o IamPolicyAssignmentOutput) Identities() IamPolicyAssignmentIdentitiesPtrOutput {
 	return o.ApplyT(func(v *IamPolicyAssignment) IamPolicyAssignmentIdentitiesPtrOutput { return v.Identities }).(IamPolicyAssignmentIdentitiesPtrOutput)
 }

@@ -35,6 +35,7 @@ import (
 //					pulumi.String("group-1"),
 //					pulumi.String("group-2"),
 //				},
+//				Type: pulumi.String("STANDARD"),
 //			})
 //			if err != nil {
 //				return err
@@ -78,7 +79,7 @@ type AccessEntry struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
@@ -191,6 +192,10 @@ type accessEntryArgs struct {
 	PrincipalArn string `pulumi:"principalArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
+	Type *string `pulumi:"type"`
+	// Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
+	UserName *string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a AccessEntry resource.
@@ -205,6 +210,10 @@ type AccessEntryArgs struct {
 	PrincipalArn pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
+	Type pulumi.StringPtrInput
+	// Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
+	UserName pulumi.StringPtrInput
 }
 
 func (AccessEntryArgs) ElementType() reflect.Type {
@@ -339,8 +348,8 @@ func (o AccessEntryOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
-func (o AccessEntryOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *AccessEntry) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o AccessEntryOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessEntry) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.

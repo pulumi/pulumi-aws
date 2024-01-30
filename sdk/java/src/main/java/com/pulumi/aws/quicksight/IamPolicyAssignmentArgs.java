@@ -67,14 +67,14 @@ public final class IamPolicyAssignmentArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+     * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
      * 
      */
     @Import(name="identities")
     private @Nullable Output<IamPolicyAssignmentIdentitiesArgs> identities;
 
     /**
-     * @return Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+     * @return Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
      * 
      */
     public Optional<Output<IamPolicyAssignmentIdentitiesArgs>> identities() {
@@ -208,7 +208,7 @@ public final class IamPolicyAssignmentArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param identities Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+         * @param identities Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class IamPolicyAssignmentArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param identities Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+         * @param identities Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
          * 
          * @return builder
          * 

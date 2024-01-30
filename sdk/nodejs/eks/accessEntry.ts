@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *         "group-1",
  *         "group-2",
  *     ],
+ *     type: "STANDARD",
  * });
  * ```
  *
@@ -74,7 +75,7 @@ export class AccessEntry extends pulumi.CustomResource {
     /**
      * List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
      */
-    public readonly kubernetesGroups!: pulumi.Output<string[] | undefined>;
+    public readonly kubernetesGroups!: pulumi.Output<string[]>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      */
@@ -98,11 +99,11 @@ export class AccessEntry extends pulumi.CustomResource {
     /**
      * Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
     /**
      * Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
      */
-    public /*out*/ readonly userName!: pulumi.Output<string>;
+    public readonly userName!: pulumi.Output<string>;
 
     /**
      * Create a AccessEntry resource with the given unique name, arguments, and options.
@@ -139,12 +140,12 @@ export class AccessEntry extends pulumi.CustomResource {
             resourceInputs["kubernetesGroups"] = args ? args.kubernetesGroups : undefined;
             resourceInputs["principalArn"] = args ? args.principalArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["accessEntryArn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
-            resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
@@ -225,4 +226,12 @@ export interface AccessEntryArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
+     */
+    userName?: pulumi.Input<string>;
 }

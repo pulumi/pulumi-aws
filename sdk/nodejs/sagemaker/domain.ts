@@ -132,11 +132,11 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly authMode!: pulumi.Output<string>;
     /**
-     * The default space settings. See Default Space Settings below.
+     * The default space settings. See `defaultSpaceSettings` Block below.
      */
     public readonly defaultSpaceSettings!: pulumi.Output<outputs.sagemaker.DomainDefaultSpaceSettings | undefined>;
     /**
-     * The default user settings. See Default User Settings below.
+     * The default user settings. See `defaultUserSettings` Block below.
      */
     public readonly defaultUserSettings!: pulumi.Output<outputs.sagemaker.DomainDefaultUserSettings>;
     /**
@@ -144,7 +144,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
-     * The domain's settings.
+     * The domain settings. See `domainSettings` Block below.
      */
     public readonly domainSettings!: pulumi.Output<outputs.sagemaker.DomainDomainSettings | undefined>;
     /**
@@ -156,7 +156,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      */
     public readonly retentionPolicy!: pulumi.Output<outputs.sagemaker.DomainRetentionPolicy | undefined>;
     /**
@@ -293,11 +293,11 @@ export interface DomainState {
      */
     authMode?: pulumi.Input<string>;
     /**
-     * The default space settings. See Default Space Settings below.
+     * The default space settings. See `defaultSpaceSettings` Block below.
      */
     defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettings>;
     /**
-     * The default user settings. See Default User Settings below.
+     * The default user settings. See `defaultUserSettings` Block below.
      */
     defaultUserSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettings>;
     /**
@@ -305,7 +305,7 @@ export interface DomainState {
      */
     domainName?: pulumi.Input<string>;
     /**
-     * The domain's settings.
+     * The domain settings. See `domainSettings` Block below.
      */
     domainSettings?: pulumi.Input<inputs.sagemaker.DomainDomainSettings>;
     /**
@@ -317,7 +317,7 @@ export interface DomainState {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      */
     retentionPolicy?: pulumi.Input<inputs.sagemaker.DomainRetentionPolicy>;
     /**
@@ -375,11 +375,11 @@ export interface DomainArgs {
      */
     authMode: pulumi.Input<string>;
     /**
-     * The default space settings. See Default Space Settings below.
+     * The default space settings. See `defaultSpaceSettings` Block below.
      */
     defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettings>;
     /**
-     * The default user settings. See Default User Settings below.
+     * The default user settings. See `defaultUserSettings` Block below.
      */
     defaultUserSettings: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettings>;
     /**
@@ -387,7 +387,7 @@ export interface DomainArgs {
      */
     domainName: pulumi.Input<string>;
     /**
-     * The domain's settings.
+     * The domain settings. See `domainSettings` Block below.
      */
     domainSettings?: pulumi.Input<inputs.sagemaker.DomainDomainSettings>;
     /**
@@ -395,7 +395,7 @@ export interface DomainArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      */
     retentionPolicy?: pulumi.Input<inputs.sagemaker.DomainRetentionPolicy>;
     /**

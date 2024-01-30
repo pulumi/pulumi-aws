@@ -190,6 +190,7 @@ const (
 	ramMod                      = "Ram"                      // Resource Access Manager
 	rbinMod                     = "Rbin"                     // Recycle Bin
 	rdsMod                      = "Rds"                      // Relational Database Service (RDS)
+	rekognitionMod              = "Rekognition"              //Amazon Rekognition"
 	redshiftMod                 = "RedShift"                 // RedShift
 	redshiftDataMod             = "RedshiftData"             // RedshiftData
 	redshiftServerlessMod       = "RedshiftServerless"       // Redshift Serverless
@@ -402,6 +403,7 @@ var moduleMap = map[string]string{
 	"redshift":                        redshiftMod,
 	"redshiftdata":                    redshiftDataMod,
 	"redshiftserverless":              redshiftServerlessMod,
+	"rekognition":                     rekognitionMod,
 	"resourcegroups":                  resourcegroupsMod,
 	"resourcegroupstaggingapi":        resourcegroupsTaggingApiMod,
 	"rolesanywhere":                   rolesAnywhereMod,

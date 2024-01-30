@@ -157,6 +157,10 @@ export class Flow extends pulumi.CustomResource {
      */
     public readonly destinationFlowConfigs!: pulumi.Output<outputs.appflow.FlowDestinationFlowConfig[]>;
     /**
+     * The current status of the flow.
+     */
+    public /*out*/ readonly flowStatus!: pulumi.Output<string>;
+    /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
     public readonly kmsArn!: pulumi.Output<string>;
@@ -203,6 +207,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["destinationFlowConfigs"] = state ? state.destinationFlowConfigs : undefined;
+            resourceInputs["flowStatus"] = state ? state.flowStatus : undefined;
             resourceInputs["kmsArn"] = state ? state.kmsArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["sourceFlowConfig"] = state ? state.sourceFlowConfig : undefined;
@@ -233,6 +238,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["tasks"] = args ? args.tasks : undefined;
             resourceInputs["triggerConfig"] = args ? args.triggerConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["flowStatus"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -258,6 +264,10 @@ export interface FlowState {
      * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
      */
     destinationFlowConfigs?: pulumi.Input<pulumi.Input<inputs.appflow.FlowDestinationFlowConfig>[]>;
+    /**
+     * The current status of the flow.
+     */
+    flowStatus?: pulumi.Input<string>;
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */

@@ -18,14 +18,14 @@ public final class DomainDefaultUserSettingsRSessionAppSettingsArgs extends com.
     public static final DomainDefaultUserSettingsRSessionAppSettingsArgs Empty = new DomainDefaultUserSettingsRSessionAppSettingsArgs();
 
     /**
-     * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+     * A list of custom SageMaker images that are configured to run as a RSession app. see `custom_image` Block below.
      * 
      */
     @Import(name="customImages")
     private @Nullable Output<List<DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs>> customImages;
 
     /**
-     * @return A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+     * @return A list of custom SageMaker images that are configured to run as a RSession app. see `custom_image` Block below.
      * 
      */
     public Optional<Output<List<DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs>>> customImages() {
@@ -33,14 +33,14 @@ public final class DomainDefaultUserSettingsRSessionAppSettingsArgs extends com.
     }
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
      * 
      */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
@@ -73,7 +73,7 @@ public final class DomainDefaultUserSettingsRSessionAppSettingsArgs extends com.
         }
 
         /**
-         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * @param customImages A list of custom SageMaker images that are configured to run as a RSession app. see `custom_image` Block below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class DomainDefaultUserSettingsRSessionAppSettingsArgs extends com.
         }
 
         /**
-         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * @param customImages A list of custom SageMaker images that are configured to run as a RSession app. see `custom_image` Block below.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class DomainDefaultUserSettingsRSessionAppSettingsArgs extends com.
         }
 
         /**
-         * @param customImages A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * @param customImages A list of custom SageMaker images that are configured to run as a RSession app. see `custom_image` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class DomainDefaultUserSettingsRSessionAppSettingsArgs extends com.
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DomainDefaultUserSettingsRSessionAppSettingsArgs extends com.
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
          * 
          * @return builder
          * 

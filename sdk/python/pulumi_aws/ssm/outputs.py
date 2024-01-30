@@ -880,23 +880,11 @@ class PatchBaselineApprovalRule(dict):
                  compliance_level: Optional[str] = None,
                  enable_non_security: Optional[bool] = None):
         """
-        :param Sequence['PatchBaselineApprovalRulePatchFilterArgs'] patch_filters: The patch filter group that defines the criteria for the rule.
-               Up to 5 patch filters can be specified per approval rule using Key/Value pairs.
-               Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html).
-               Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
-        :param int approve_after_days: The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
-               Valid Range: 0 to 100.
-               Conflicts with `approve_until_date`.
-        :param str approve_until_date: The cutoff date for auto approval of released patches.
-               Any patches released on or before this date are installed automatically.
-               Date is formatted as `YYYY-MM-DD`.
-               Conflicts with `approve_after_days`
-        :param str compliance_level: The compliance level for patches approved by this rule.
-               Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`.
-               The default value is `UNSPECIFIED`.
-        :param bool enable_non_security: Boolean enabling the application of non-security updates.
-               The default value is `false`.
-               Valid for Linux instances only.
+        :param Sequence['PatchBaselineApprovalRulePatchFilterArgs'] patch_filters: Patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values. `PATCH_SET` defaults to `OS` if unspecified
+        :param int approve_after_days: Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
+        :param str approve_until_date: Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+        :param str compliance_level: Compliance level for patches approved by this rule. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+        :param bool enable_non_security: Boolean enabling the application of non-security updates. The default value is `false`. Valid for Linux instances only.
         """
         pulumi.set(__self__, "patch_filters", patch_filters)
         if approve_after_days is not None:
@@ -912,10 +900,7 @@ class PatchBaselineApprovalRule(dict):
     @pulumi.getter(name="patchFilters")
     def patch_filters(self) -> Sequence['outputs.PatchBaselineApprovalRulePatchFilter']:
         """
-        The patch filter group that defines the criteria for the rule.
-        Up to 5 patch filters can be specified per approval rule using Key/Value pairs.
-        Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html).
-        Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
+        Patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values. `PATCH_SET` defaults to `OS` if unspecified
         """
         return pulumi.get(self, "patch_filters")
 
@@ -923,9 +908,7 @@ class PatchBaselineApprovalRule(dict):
     @pulumi.getter(name="approveAfterDays")
     def approve_after_days(self) -> Optional[int]:
         """
-        The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
-        Valid Range: 0 to 100.
-        Conflicts with `approve_until_date`.
+        Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
         """
         return pulumi.get(self, "approve_after_days")
 
@@ -933,10 +916,7 @@ class PatchBaselineApprovalRule(dict):
     @pulumi.getter(name="approveUntilDate")
     def approve_until_date(self) -> Optional[str]:
         """
-        The cutoff date for auto approval of released patches.
-        Any patches released on or before this date are installed automatically.
-        Date is formatted as `YYYY-MM-DD`.
-        Conflicts with `approve_after_days`
+        Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
         """
         return pulumi.get(self, "approve_until_date")
 
@@ -944,9 +924,7 @@ class PatchBaselineApprovalRule(dict):
     @pulumi.getter(name="complianceLevel")
     def compliance_level(self) -> Optional[str]:
         """
-        The compliance level for patches approved by this rule.
-        Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`.
-        The default value is `UNSPECIFIED`.
+        Compliance level for patches approved by this rule. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         """
         return pulumi.get(self, "compliance_level")
 
@@ -954,9 +932,7 @@ class PatchBaselineApprovalRule(dict):
     @pulumi.getter(name="enableNonSecurity")
     def enable_non_security(self) -> Optional[bool]:
         """
-        Boolean enabling the application of non-security updates.
-        The default value is `false`.
-        Valid for Linux instances only.
+        Boolean enabling the application of non-security updates. The default value is `false`. Valid for Linux instances only.
         """
         return pulumi.get(self, "enable_non_security")
 
@@ -1006,11 +982,9 @@ class PatchBaselineSource(dict):
                  name: str,
                  products: Sequence[str]):
         """
-        :param str configuration: The value of the yum repo configuration.
-               For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
-        :param str name: The name specified to identify the patch source.
-        :param Sequence[str] products: The specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`.
-               For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+        :param str configuration: Value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+        :param str name: Name specified to identify the patch source.
+        :param Sequence[str] products: Specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
         """
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "name", name)
@@ -1020,8 +994,7 @@ class PatchBaselineSource(dict):
     @pulumi.getter
     def configuration(self) -> str:
         """
-        The value of the yum repo configuration.
-        For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+        Value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
         """
         return pulumi.get(self, "configuration")
 
@@ -1029,7 +1002,7 @@ class PatchBaselineSource(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name specified to identify the patch source.
+        Name specified to identify the patch source.
         """
         return pulumi.get(self, "name")
 
@@ -1037,8 +1010,7 @@ class PatchBaselineSource(dict):
     @pulumi.getter
     def products(self) -> Sequence[str]:
         """
-        The specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`.
-        For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+        Specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
         """
         return pulumi.get(self, "products")
 
@@ -1196,11 +1168,11 @@ class GetPatchBaselineApprovalRuleResult(dict):
                  enable_non_security: bool,
                  patch_filters: Sequence['outputs.GetPatchBaselineApprovalRulePatchFilterResult']):
         """
-        :param int approve_after_days: The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
-        :param str approve_until_date: The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
-        :param str compliance_level: The compliance level for patches approved by this rule.
+        :param int approve_after_days: Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+        :param str approve_until_date: Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+        :param str compliance_level: Compliance level for patches approved by this rule.
         :param bool enable_non_security: Boolean enabling the application of non-security updates.
-        :param Sequence['GetPatchBaselineApprovalRulePatchFilterArgs'] patch_filters: The patch filter group that defines the criteria for the rule.
+        :param Sequence['GetPatchBaselineApprovalRulePatchFilterArgs'] patch_filters: Patch filter group that defines the criteria for the rule.
         """
         pulumi.set(__self__, "approve_after_days", approve_after_days)
         pulumi.set(__self__, "approve_until_date", approve_until_date)
@@ -1212,7 +1184,7 @@ class GetPatchBaselineApprovalRuleResult(dict):
     @pulumi.getter(name="approveAfterDays")
     def approve_after_days(self) -> int:
         """
-        The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+        Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
         """
         return pulumi.get(self, "approve_after_days")
 
@@ -1220,7 +1192,7 @@ class GetPatchBaselineApprovalRuleResult(dict):
     @pulumi.getter(name="approveUntilDate")
     def approve_until_date(self) -> str:
         """
-        The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+        Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
         """
         return pulumi.get(self, "approve_until_date")
 
@@ -1228,7 +1200,7 @@ class GetPatchBaselineApprovalRuleResult(dict):
     @pulumi.getter(name="complianceLevel")
     def compliance_level(self) -> str:
         """
-        The compliance level for patches approved by this rule.
+        Compliance level for patches approved by this rule.
         """
         return pulumi.get(self, "compliance_level")
 
@@ -1244,7 +1216,7 @@ class GetPatchBaselineApprovalRuleResult(dict):
     @pulumi.getter(name="patchFilters")
     def patch_filters(self) -> Sequence['outputs.GetPatchBaselineApprovalRulePatchFilterResult']:
         """
-        The patch filter group that defines the criteria for the rule.
+        Patch filter group that defines the criteria for the rule.
         """
         return pulumi.get(self, "patch_filters")
 
@@ -1255,8 +1227,8 @@ class GetPatchBaselineApprovalRulePatchFilterResult(dict):
                  key: str,
                  values: Sequence[str]):
         """
-        :param str key: The key for the filter.
-        :param Sequence[str] values: The value for the filter.
+        :param str key: Key for the filter.
+        :param Sequence[str] values: Value for the filter.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1265,7 +1237,7 @@ class GetPatchBaselineApprovalRulePatchFilterResult(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The key for the filter.
+        Key for the filter.
         """
         return pulumi.get(self, "key")
 
@@ -1273,7 +1245,7 @@ class GetPatchBaselineApprovalRulePatchFilterResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        The value for the filter.
+        Value for the filter.
         """
         return pulumi.get(self, "values")
 
@@ -1284,8 +1256,8 @@ class GetPatchBaselineGlobalFilterResult(dict):
                  key: str,
                  values: Sequence[str]):
         """
-        :param str key: The key for the filter.
-        :param Sequence[str] values: The value for the filter.
+        :param str key: Key for the filter.
+        :param Sequence[str] values: Value for the filter.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1294,7 +1266,7 @@ class GetPatchBaselineGlobalFilterResult(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The key for the filter.
+        Key for the filter.
         """
         return pulumi.get(self, "key")
 
@@ -1302,7 +1274,7 @@ class GetPatchBaselineGlobalFilterResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        The value for the filter.
+        Value for the filter.
         """
         return pulumi.get(self, "values")
 
@@ -1314,9 +1286,9 @@ class GetPatchBaselineSourceResult(dict):
                  name: str,
                  products: Sequence[str]):
         """
-        :param str configuration: The value of the yum repo configuration.
-        :param str name: The name specified to identify the patch source.
-        :param Sequence[str] products: The specific operating system versions a patch repository applies to.
+        :param str configuration: Value of the yum repo configuration.
+        :param str name: Name specified to identify the patch source.
+        :param Sequence[str] products: Specific operating system versions a patch repository applies to.
         """
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "name", name)
@@ -1326,7 +1298,7 @@ class GetPatchBaselineSourceResult(dict):
     @pulumi.getter
     def configuration(self) -> str:
         """
-        The value of the yum repo configuration.
+        Value of the yum repo configuration.
         """
         return pulumi.get(self, "configuration")
 
@@ -1334,7 +1306,7 @@ class GetPatchBaselineSourceResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name specified to identify the patch source.
+        Name specified to identify the patch source.
         """
         return pulumi.get(self, "name")
 
@@ -1342,7 +1314,7 @@ class GetPatchBaselineSourceResult(dict):
     @pulumi.getter
     def products(self) -> Sequence[str]:
         """
-        The specific operating system versions a patch repository applies to.
+        Specific operating system versions a patch repository applies to.
         """
         return pulumi.get(self, "products")
 

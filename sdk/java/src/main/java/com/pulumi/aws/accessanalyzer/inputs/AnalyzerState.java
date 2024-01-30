@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.accessanalyzer.inputs;
 
+import com.pulumi.aws.accessanalyzer.inputs.AnalyzerConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -48,6 +49,21 @@ public final class AnalyzerState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * A block that specifies the configuration of the analyzer. Documented below
+     * 
+     */
+    @Import(name="configuration")
+    private @Nullable Output<AnalyzerConfigurationArgs> configuration;
+
+    /**
+     * @return A block that specifies the configuration of the analyzer. Documented below
+     * 
+     */
+    public Optional<Output<AnalyzerConfigurationArgs>> configuration() {
+        return Optional.ofNullable(this.configuration);
     }
 
     /**
@@ -108,6 +124,7 @@ public final class AnalyzerState extends com.pulumi.resources.ResourceArgs {
     private AnalyzerState(AnalyzerState $) {
         this.analyzerName = $.analyzerName;
         this.arn = $.arn;
+        this.configuration = $.configuration;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.type = $.type;
@@ -175,6 +192,27 @@ public final class AnalyzerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param configuration A block that specifies the configuration of the analyzer. Documented below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configuration(@Nullable Output<AnalyzerConfigurationArgs> configuration) {
+            $.configuration = configuration;
+            return this;
+        }
+
+        /**
+         * @param configuration A block that specifies the configuration of the analyzer. Documented below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configuration(AnalyzerConfigurationArgs configuration) {
+            return configuration(Output.of(configuration));
         }
 
         /**

@@ -21,8 +21,10 @@ type WebAcl struct {
 	AssociationConfig WebAclAssociationConfigPtrOutput `pulumi:"associationConfig"`
 	// Web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity pulumi.IntOutput `pulumi:"capacity"`
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+	// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
 	CaptchaConfig WebAclCaptchaConfigPtrOutput `pulumi:"captchaConfig"`
+	// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
+	ChallengeConfig WebAclChallengeConfigPtrOutput `pulumi:"challengeConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayOutput `pulumi:"customResponseBodies"`
 	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
@@ -97,8 +99,10 @@ type webAclState struct {
 	AssociationConfig *WebAclAssociationConfig `pulumi:"associationConfig"`
 	// Web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity *int `pulumi:"capacity"`
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+	// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
 	CaptchaConfig *WebAclCaptchaConfig `pulumi:"captchaConfig"`
+	// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
+	ChallengeConfig *WebAclChallengeConfig `pulumi:"challengeConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
 	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
@@ -131,8 +135,10 @@ type WebAclState struct {
 	AssociationConfig WebAclAssociationConfigPtrInput
 	// Web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity pulumi.IntPtrInput
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+	// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
 	CaptchaConfig WebAclCaptchaConfigPtrInput
+	// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
+	ChallengeConfig WebAclChallengeConfigPtrInput
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayInput
 	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
@@ -165,8 +171,10 @@ func (WebAclState) ElementType() reflect.Type {
 type webAclArgs struct {
 	// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
 	AssociationConfig *WebAclAssociationConfig `pulumi:"associationConfig"`
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+	// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
 	CaptchaConfig *WebAclCaptchaConfig `pulumi:"captchaConfig"`
+	// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
+	ChallengeConfig *WebAclChallengeConfig `pulumi:"challengeConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
 	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
@@ -191,8 +199,10 @@ type webAclArgs struct {
 type WebAclArgs struct {
 	// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
 	AssociationConfig WebAclAssociationConfigPtrInput
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+	// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
 	CaptchaConfig WebAclCaptchaConfigPtrInput
+	// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
+	ChallengeConfig WebAclChallengeConfigPtrInput
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayInput
 	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
@@ -315,9 +325,14 @@ func (o WebAclOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.IntOutput { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
 func (o WebAclOutput) CaptchaConfig() WebAclCaptchaConfigPtrOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclCaptchaConfigPtrOutput { return v.CaptchaConfig }).(WebAclCaptchaConfigPtrOutput)
+}
+
+// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
+func (o WebAclOutput) ChallengeConfig() WebAclChallengeConfigPtrOutput {
+	return o.ApplyT(func(v *WebAcl) WebAclChallengeConfigPtrOutput { return v.ChallengeConfig }).(WebAclChallengeConfigPtrOutput)
 }
 
 // Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.

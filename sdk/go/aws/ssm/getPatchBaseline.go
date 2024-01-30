@@ -90,6 +90,8 @@ type LookupPatchBaselineArgs struct {
 	// Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+	//
+	// The following arguments are optional:
 	Owner string `pulumi:"owner"`
 }
 
@@ -99,7 +101,7 @@ type LookupPatchBaselineResult struct {
 	ApprovalRules []GetPatchBaselineApprovalRule `pulumi:"approvalRules"`
 	// List of explicitly approved patches for the baseline.
 	ApprovedPatches []string `pulumi:"approvedPatches"`
-	// The compliance level for approved patches.
+	// Compliance level for approved patches.
 	ApprovedPatchesComplianceLevel string `pulumi:"approvedPatchesComplianceLevel"`
 	// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
 	ApprovedPatchesEnableNonSecurity bool  `pulumi:"approvedPatchesEnableNonSecurity"`
@@ -110,14 +112,16 @@ type LookupPatchBaselineResult struct {
 	GlobalFilters []GetPatchBaselineGlobalFilter `pulumi:"globalFilters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The name specified to identify the patch source.
+	// JSON representation of the baseline.
+	Json string `pulumi:"json"`
+	// Name specified to identify the patch source.
 	Name            string  `pulumi:"name"`
 	NamePrefix      *string `pulumi:"namePrefix"`
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	Owner           string  `pulumi:"owner"`
 	// List of rejected patches.
 	RejectedPatches []string `pulumi:"rejectedPatches"`
-	// The action specified to take on patches included in the `rejectedPatches` list.
+	// Action specified to take on patches included in the `rejectedPatches` list.
 	RejectedPatchesAction string `pulumi:"rejectedPatchesAction"`
 	// Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
 	Sources []GetPatchBaselineSource `pulumi:"sources"`
@@ -145,6 +149,8 @@ type LookupPatchBaselineOutputArgs struct {
 	// Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
 	OperatingSystem pulumi.StringPtrInput `pulumi:"operatingSystem"`
 	// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+	//
+	// The following arguments are optional:
 	Owner pulumi.StringInput `pulumi:"owner"`
 }
 
@@ -177,7 +183,7 @@ func (o LookupPatchBaselineResultOutput) ApprovedPatches() pulumi.StringArrayOut
 	return o.ApplyT(func(v LookupPatchBaselineResult) []string { return v.ApprovedPatches }).(pulumi.StringArrayOutput)
 }
 
-// The compliance level for approved patches.
+// Compliance level for approved patches.
 func (o LookupPatchBaselineResultOutput) ApprovedPatchesComplianceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.ApprovedPatchesComplianceLevel }).(pulumi.StringOutput)
 }
@@ -206,7 +212,12 @@ func (o LookupPatchBaselineResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name specified to identify the patch source.
+// JSON representation of the baseline.
+func (o LookupPatchBaselineResultOutput) Json() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Json }).(pulumi.StringOutput)
+}
+
+// Name specified to identify the patch source.
 func (o LookupPatchBaselineResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -228,7 +239,7 @@ func (o LookupPatchBaselineResultOutput) RejectedPatches() pulumi.StringArrayOut
 	return o.ApplyT(func(v LookupPatchBaselineResult) []string { return v.RejectedPatches }).(pulumi.StringArrayOutput)
 }
 
-// The action specified to take on patches included in the `rejectedPatches` list.
+// Action specified to take on patches included in the `rejectedPatches` list.
 func (o LookupPatchBaselineResultOutput) RejectedPatchesAction() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.RejectedPatchesAction }).(pulumi.StringOutput)
 }

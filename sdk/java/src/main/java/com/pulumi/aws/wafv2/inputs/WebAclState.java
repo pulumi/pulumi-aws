@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.aws.wafv2.inputs.WebAclAssociationConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclCaptchaConfigArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclChallengeConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclCustomResponseBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
@@ -70,18 +71,33 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
      * 
      */
     @Import(name="captchaConfig")
     private @Nullable Output<WebAclCaptchaConfigArgs> captchaConfig;
 
     /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+     * @return Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
      * 
      */
     public Optional<Output<WebAclCaptchaConfigArgs>> captchaConfig() {
         return Optional.ofNullable(this.captchaConfig);
+    }
+
+    /**
+     * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+     * 
+     */
+    @Import(name="challengeConfig")
+    private @Nullable Output<WebAclChallengeConfigArgs> challengeConfig;
+
+    /**
+     * @return Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+     * 
+     */
+    public Optional<Output<WebAclChallengeConfigArgs>> challengeConfig() {
+        return Optional.ofNullable(this.challengeConfig);
     }
 
     /**
@@ -256,6 +272,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         this.associationConfig = $.associationConfig;
         this.capacity = $.capacity;
         this.captchaConfig = $.captchaConfig;
+        this.challengeConfig = $.challengeConfig;
         this.customResponseBodies = $.customResponseBodies;
         this.defaultAction = $.defaultAction;
         this.description = $.description;
@@ -351,7 +368,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
          * 
          * @return builder
          * 
@@ -362,13 +379,34 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
          * 
          * @return builder
          * 
          */
         public Builder captchaConfig(WebAclCaptchaConfigArgs captchaConfig) {
             return captchaConfig(Output.of(captchaConfig));
+        }
+
+        /**
+         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder challengeConfig(@Nullable Output<WebAclChallengeConfigArgs> challengeConfig) {
+            $.challengeConfig = challengeConfig;
+            return this;
+        }
+
+        /**
+         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder challengeConfig(WebAclChallengeConfigArgs challengeConfig) {
+            return challengeConfig(Output.of(challengeConfig));
         }
 
         /**

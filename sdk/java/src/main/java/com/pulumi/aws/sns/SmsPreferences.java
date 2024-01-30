@@ -45,6 +45,10 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ## Import
+ * 
+ * You cannot import the SMS preferences.
+ * 
  */
 @ResourceType(type="aws:sns/smsPreferences:SmsPreferences")
 public class SmsPreferences extends com.pulumi.resources.CustomResource {

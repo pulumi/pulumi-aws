@@ -150,8 +150,8 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      */
     public readonly autoAccept!: pulumi.Output<boolean | undefined>;
     /**
-     * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the AWS provider is currently connected to.
+     * The AWS account ID of the target peer VPC.
+     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
      */
     public readonly peerOwnerId!: pulumi.Output<string>;
     /**
@@ -160,7 +160,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      */
     public readonly peerRegion!: pulumi.Output<string>;
     /**
-     * The ID of the VPC with which you are creating the VPC Peering Connection.
+     * The ID of the target VPC with which you are creating the VPC Peering Connection.
      */
     public readonly peerVpcId!: pulumi.Output<string>;
     /**
@@ -250,8 +250,8 @@ export interface VpcPeeringConnectionState {
      */
     autoAccept?: pulumi.Input<boolean>;
     /**
-     * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the AWS provider is currently connected to.
+     * The AWS account ID of the target peer VPC.
+     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
      */
     peerOwnerId?: pulumi.Input<string>;
     /**
@@ -260,7 +260,7 @@ export interface VpcPeeringConnectionState {
      */
     peerRegion?: pulumi.Input<string>;
     /**
-     * The ID of the VPC with which you are creating the VPC Peering Connection.
+     * The ID of the target VPC with which you are creating the VPC Peering Connection.
      */
     peerVpcId?: pulumi.Input<string>;
     /**
@@ -298,8 +298,8 @@ export interface VpcPeeringConnectionArgs {
      */
     autoAccept?: pulumi.Input<boolean>;
     /**
-     * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the AWS provider is currently connected to.
+     * The AWS account ID of the target peer VPC.
+     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
      */
     peerOwnerId?: pulumi.Input<string>;
     /**
@@ -308,7 +308,7 @@ export interface VpcPeeringConnectionArgs {
      */
     peerRegion?: pulumi.Input<string>;
     /**
-     * The ID of the VPC with which you are creating the VPC Peering Connection.
+     * The ID of the target VPC with which you are creating the VPC Peering Connection.
      */
     peerVpcId: pulumi.Input<string>;
     /**
