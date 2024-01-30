@@ -733,7 +733,14 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	v2p := shimv2.NewProvider(upstreamProvider.SDKV2Provider,
 		shimv2.WithDiffStrategy(shimv2.PlanState),
 		shimv2.WithPlanResourceChange(func(s string) bool {
-			return s == "aws_ssm_document"
+			switch s {
+			case "aws_ssm_document":
+				return true
+			case "aws_wafv2_web_acl":
+				return true
+			default:
+				return false
+			}
 		}))
 
 	p := pftfbridge.MuxShimWithDisjointgPF(ctx, v2p, upstreamProvider.PluginFrameworkProvider)
@@ -6221,9 +6228,6 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			args.ExamplePath == "#/resources/aws:wafv2/webAcl:WebAcl" ||
 			args.ExamplePath == "#/resources/aws:appsync/graphQLApi:GraphQLApi"
 	}
-
-	// Fixes a spurious diff on repeat pulumi up for the aws_wafv2_web_acl resource (pulumi/pulumi#1423).
-	shimv2.SetInstanceStateStrategy(prov.P.ResourcesMap().Get("aws_wafv2_web_acl"), shimv2.CtyInstanceState)
 
 	setAutonaming(&prov)
 
