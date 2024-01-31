@@ -152,9 +152,7 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 			}
 		},
 		"response": {
-			"inputs": {
-				"*"
-			},
+			"inputs": "*",
 			"failures": [
 				{
 					"reason": "No valid credential sources found.\nPlease see https://www.pulumi.com/registry/packages/aws/installation-configuration/ for more information about providing credentials.\nNEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the correct and valid credentials are used.\nLearn more: https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials"
@@ -187,9 +185,7 @@ func TestMissingRegionErrorMessage(t *testing.T) {
 			}
 		},
 		"response": {
-			"inputs": {
-				"*"
-			},
+			"inputs": "*",
 			"failures": [
 				{
 					"reason": "Missing region information\nMake sure you have set your AWS region, e.g. '''pulumi config set aws:region us-west-2'''."
@@ -223,9 +219,7 @@ func TestInvalidCredentialsErrorMessage(t *testing.T) {
 			}
 		},
 		"response": {
-			"inputs": {
-				"*"
-			},
+			"inputs": "*",
 			"failures": [
 				{
 					"reason": "Invalid credentials configured.\nPlease see https://www.pulumi.com/registry/packages/aws/installation-configuration/ for more information about providing credentials.\nNEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the correct and valid credentials are used.\nLearn more: https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials"
@@ -260,9 +254,7 @@ func TestOtherFailureErrorMessage(t *testing.T) {
 			}
 		},
 		"response": {
-			"inputs": {
-				"*"
-			},
+			"inputs": "*",
 			"failures": [
 				{
 					"reason": "unable to validate AWS credentials.\nDetails: loading configuration: failed to get shared config profile, non-existent-profile\n"
