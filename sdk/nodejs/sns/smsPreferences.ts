@@ -15,6 +15,10 @@ import * as utilities from "../utilities";
  *
  * const updateSmsPrefs = new aws.sns.SmsPreferences("updateSmsPrefs", {});
  * ```
+ *
+ * ## Import
+ *
+ * You cannot import the SMS preferences.
  */
 export class SmsPreferences extends pulumi.CustomResource {
     /**

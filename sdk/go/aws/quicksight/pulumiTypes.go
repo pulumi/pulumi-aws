@@ -14159,6 +14159,7 @@ func (o FolderPermissionArrayOutput) Index(i pulumi.IntInput) FolderPermissionOu
 }
 
 type IamPolicyAssignmentIdentities struct {
+	// Array of Quicksight group names to assign the policy to.
 	Groups []string `pulumi:"groups"`
 	// Array of Quicksight user names to assign the policy to.
 	Users []string `pulumi:"users"`
@@ -14176,6 +14177,7 @@ type IamPolicyAssignmentIdentitiesInput interface {
 }
 
 type IamPolicyAssignmentIdentitiesArgs struct {
+	// Array of Quicksight group names to assign the policy to.
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
 	// Array of Quicksight user names to assign the policy to.
 	Users pulumi.StringArrayInput `pulumi:"users"`
@@ -14258,6 +14260,7 @@ func (o IamPolicyAssignmentIdentitiesOutput) ToIamPolicyAssignmentIdentitiesPtrO
 	}).(IamPolicyAssignmentIdentitiesPtrOutput)
 }
 
+// Array of Quicksight group names to assign the policy to.
 func (o IamPolicyAssignmentIdentitiesOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IamPolicyAssignmentIdentities) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
@@ -14291,6 +14294,7 @@ func (o IamPolicyAssignmentIdentitiesPtrOutput) Elem() IamPolicyAssignmentIdenti
 	}).(IamPolicyAssignmentIdentitiesOutput)
 }
 
+// Array of Quicksight group names to assign the policy to.
 func (o IamPolicyAssignmentIdentitiesPtrOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IamPolicyAssignmentIdentities) []string {
 		if v == nil {

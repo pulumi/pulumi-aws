@@ -18,6 +18,22 @@ import * as utilities from "../utilities";
  *     repositoryName: "MyTestRepository",
  * });
  * ```
+ * ### AWS KMS Customer Managed Keys (CMK)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testKey = new aws.kms.Key("testKey", {
+ *     description: "test",
+ *     deletionWindowInDays: 7,
+ * });
+ * const testRepository = new aws.codecommit.Repository("testRepository", {
+ *     repositoryName: "MyTestRepository",
+ *     description: "This is the Sample App Repository",
+ *     kmsKeyId: testKey.arn,
+ * });
+ * ```
  *
  * ## Import
  *
@@ -76,6 +92,10 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     */
+    public readonly kmsKeyId!: pulumi.Output<string>;
+    /**
      * The ID of the repository
      */
     public /*out*/ readonly repositoryId!: pulumi.Output<string>;
@@ -112,6 +132,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["cloneUrlSsh"] = state ? state.cloneUrlSsh : undefined;
             resourceInputs["defaultBranch"] = state ? state.defaultBranch : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
             resourceInputs["repositoryName"] = state ? state.repositoryName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -123,6 +144,7 @@ export class Repository extends pulumi.CustomResource {
             }
             resourceInputs["defaultBranch"] = args ? args.defaultBranch : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -163,6 +185,10 @@ export interface RepositoryState {
      */
     description?: pulumi.Input<string>;
     /**
+     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     */
+    kmsKeyId?: pulumi.Input<string>;
+    /**
      * The ID of the repository
      */
     repositoryId?: pulumi.Input<string>;
@@ -194,6 +220,10 @@ export interface RepositoryArgs {
      * The description of the repository. This needs to be less than 1000 characters
      */
     description?: pulumi.Input<string>;
+    /**
+     * The ARN of the encryption key. If no key is specified, the default `aws/codecommit`` Amazon Web Services managed key is used.
+     */
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */

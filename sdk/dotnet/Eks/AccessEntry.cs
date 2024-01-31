@@ -31,6 +31,7 @@ namespace Pulumi.Aws.Eks
     ///             "group-1",
     ///             "group-2",
     ///         },
+    ///         Type = "STANDARD",
     ///     });
     /// 
     /// });
@@ -101,7 +102,7 @@ namespace Pulumi.Aws.Eks
         /// Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
         /// Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
@@ -196,6 +197,18 @@ namespace Pulumi.Aws.Eks
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
+        /// </summary>
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
 
         public AccessEntryArgs()
         {

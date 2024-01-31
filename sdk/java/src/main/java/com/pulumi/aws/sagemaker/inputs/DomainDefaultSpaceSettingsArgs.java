@@ -35,14 +35,14 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
      * 
      */
     @Import(name="jupyterServerAppSettings")
     private @Nullable Output<DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs> jupyterServerAppSettings;
 
     /**
-     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * @return The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs>> jupyterServerAppSettings() {
@@ -50,14 +50,14 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
      * 
      */
     @Import(name="kernelGatewayAppSettings")
     private @Nullable Output<DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs> kernelGatewayAppSettings;
 
     /**
-     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * @return The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs>> kernelGatewayAppSettings() {
@@ -128,7 +128,7 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kernelGatewayAppSettings The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * @param kernelGatewayAppSettings The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kernelGatewayAppSettings The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * @param kernelGatewayAppSettings The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
          * 
          * @return builder
          * 

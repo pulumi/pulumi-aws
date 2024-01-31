@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Eks
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
         /// </summary>
         [Output("accessConfig")]
         public Output<Outputs.ClusterAccessConfig> AccessConfig { get; private set; } = null!;
@@ -404,7 +404,7 @@ namespace Pulumi.Aws.Eks
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
         /// </summary>
         [Input("accessConfig")]
         public Input<Inputs.ClusterAccessConfigArgs>? AccessConfig { get; set; }
@@ -494,7 +494,7 @@ namespace Pulumi.Aws.Eks
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
         /// </summary>
         [Input("accessConfig")]
         public Input<Inputs.ClusterAccessConfigGetArgs>? AccessConfig { get; set; }

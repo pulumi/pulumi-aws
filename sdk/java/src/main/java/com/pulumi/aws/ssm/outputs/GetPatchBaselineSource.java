@@ -12,38 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class GetPatchBaselineSource {
     /**
-     * @return The value of the yum repo configuration.
+     * @return Value of the yum repo configuration.
      * 
      */
     private String configuration;
     /**
-     * @return The name specified to identify the patch source.
+     * @return Name specified to identify the patch source.
      * 
      */
     private String name;
     /**
-     * @return The specific operating system versions a patch repository applies to.
+     * @return Specific operating system versions a patch repository applies to.
      * 
      */
     private List<String> products;
 
     private GetPatchBaselineSource() {}
     /**
-     * @return The value of the yum repo configuration.
+     * @return Value of the yum repo configuration.
      * 
      */
     public String configuration() {
         return this.configuration;
     }
     /**
-     * @return The name specified to identify the patch source.
+     * @return Name specified to identify the patch source.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The specific operating system versions a patch repository applies to.
+     * @return Specific operating system versions a patch repository applies to.
      * 
      */
     public List<String> products() {

@@ -218,6 +218,21 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    @Import(name="skipFinalBackup")
+    private @Nullable Output<Boolean> skipFinalBackup;
+
+    /**
+     * @return When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> skipFinalBackup() {
+        return Optional.ofNullable(this.skipFinalBackup);
+    }
+
+    /**
      * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
      * 
      */
@@ -323,6 +338,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         this.rootVolumeConfiguration = $.rootVolumeConfiguration;
         this.routeTableIds = $.routeTableIds;
         this.securityGroupIds = $.securityGroupIds;
+        this.skipFinalBackup = $.skipFinalBackup;
         this.storageCapacity = $.storageCapacity;
         this.storageType = $.storageType;
         this.subnetIds = $.subnetIds;
@@ -640,6 +656,27 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
+        }
+
+        /**
+         * @param skipFinalBackup When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalBackup(@Nullable Output<Boolean> skipFinalBackup) {
+            $.skipFinalBackup = skipFinalBackup;
+            return this;
+        }
+
+        /**
+         * @param skipFinalBackup When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalBackup(Boolean skipFinalBackup) {
+            return skipFinalBackup(Output.of(skipFinalBackup));
         }
 
         /**

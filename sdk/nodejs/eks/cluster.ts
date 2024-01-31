@@ -168,7 +168,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
-     * Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
      */
     public readonly accessConfig!: pulumi.Output<outputs.eks.ClusterAccessConfig>;
     /**
@@ -327,7 +327,7 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterState {
     /**
-     * Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
      */
     accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfig>;
     /**
@@ -416,7 +416,7 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * Configuration block for the access config associated with your cluster, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
      */
     accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfig>;
     defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;

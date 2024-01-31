@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? ExecutionRoleIdentityConfig;
         /// <summary>
-        /// A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+        /// A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
         /// </summary>
         public readonly Outputs.DomainDomainSettingsRStudioServerProDomainSettings? RStudioServerProDomainSettings;
         /// <summary>

@@ -135,7 +135,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly alarms!: pulumi.Output<outputs.ecs.ServiceAlarms | undefined>;
     /**
-     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.
+     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
      */
     public readonly capacityProviderStrategies!: pulumi.Output<outputs.ecs.ServiceCapacityProviderStrategy[] | undefined>;
     /**
@@ -183,7 +183,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly iamRole!: pulumi.Output<string>;
     /**
-     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacityProviderStrategy`.
      */
     public readonly launchType!: pulumi.Output<string>;
     /**
@@ -243,7 +243,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly taskDefinition!: pulumi.Output<string | undefined>;
     /**
-     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
      */
     public readonly triggers!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -341,7 +341,7 @@ export interface ServiceState {
      */
     alarms?: pulumi.Input<inputs.ecs.ServiceAlarms>;
     /**
-     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.
+     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
      */
     capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceCapacityProviderStrategy>[]>;
     /**
@@ -389,7 +389,7 @@ export interface ServiceState {
      */
     iamRole?: pulumi.Input<string>;
     /**
-     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacityProviderStrategy`.
      */
     launchType?: pulumi.Input<string>;
     /**
@@ -449,7 +449,7 @@ export interface ServiceState {
      */
     taskDefinition?: pulumi.Input<string>;
     /**
-     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
      */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -467,7 +467,7 @@ export interface ServiceArgs {
      */
     alarms?: pulumi.Input<inputs.ecs.ServiceAlarms>;
     /**
-     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below.
+     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
      */
     capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceCapacityProviderStrategy>[]>;
     /**
@@ -515,7 +515,7 @@ export interface ServiceArgs {
      */
     iamRole?: pulumi.Input<string>;
     /**
-     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacityProviderStrategy`.
      */
     launchType?: pulumi.Input<string>;
     /**
@@ -569,7 +569,7 @@ export interface ServiceArgs {
      */
     taskDefinition?: pulumi.Input<string>;
     /**
-     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
      */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

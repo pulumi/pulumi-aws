@@ -42,17 +42,17 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EKS access entry using the `cluster_name` `policy_arn` and `principal_arn` separated by a colon (`:`). For example:
+    /// Using `pulumi import`, import EKS access entry using the `cluster_name` `principal_arn` and `policy_arn` separated by a colon (`#`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name:my_policy_arn:my_principal_arn
+    ///  $ pulumi import aws:eks/accessPolicyAssociation:AccessPolicyAssociation my_eks_access_entry my_cluster_name#my_principal_arn#my_policy_arn
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/accessPolicyAssociation:AccessPolicyAssociation")]
     public partial class AccessPolicyAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The configuration block to determine the scope of the access.
+        /// The configuration block to determine the scope of the access. See `access_scope` Block below.
         /// </summary>
         [Output("accessScope")]
         public Output<Outputs.AccessPolicyAssociationAccessScope> AccessScope { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Eks
     public sealed class AccessPolicyAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration block to determine the scope of the access.
+        /// The configuration block to determine the scope of the access. See `access_scope` Block below.
         /// </summary>
         [Input("accessScope", required: true)]
         public Input<Inputs.AccessPolicyAssociationAccessScopeArgs> AccessScope { get; set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Eks
     public sealed class AccessPolicyAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration block to determine the scope of the access.
+        /// The configuration block to determine the scope of the access. See `access_scope` Block below.
         /// </summary>
         [Input("accessScope")]
         public Input<Inputs.AccessPolicyAssociationAccessScopeGetArgs>? AccessScope { get; set; }

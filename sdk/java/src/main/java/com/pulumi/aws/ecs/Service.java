@@ -243,14 +243,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.alarms);
     }
     /**
-     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
      * 
      */
     @Export(name="capacityProviderStrategies", refs={List.class,ServiceCapacityProviderStrategy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceCapacityProviderStrategy>> capacityProviderStrategies;
 
     /**
-     * @return Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+     * @return Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
      * 
      */
     public Output<Optional<List<ServiceCapacityProviderStrategy>>> capacityProviderStrategies() {
@@ -411,14 +411,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.iamRole;
     }
     /**
-     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
      * 
      */
     @Export(name="launchType", refs={String.class}, tree="[0]")
     private Output<String> launchType;
 
     /**
-     * @return Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * @return Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
      * 
      */
     public Output<String> launchType() {
@@ -615,14 +615,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.taskDefinition);
     }
     /**
-     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
      * 
      */
     @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> triggers;
 
     /**
-     * @return Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
+     * @return Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
      * 
      */
     public Output<Map<String,String>> triggers() {

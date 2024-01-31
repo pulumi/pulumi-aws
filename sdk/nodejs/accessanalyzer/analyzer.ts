@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -78,6 +81,10 @@ export class Analyzer extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * A block that specifies the configuration of the analyzer. Documented below
+     */
+    public readonly configuration!: pulumi.Output<outputs.accessanalyzer.AnalyzerConfiguration | undefined>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -107,6 +114,7 @@ export class Analyzer extends pulumi.CustomResource {
             const state = argsOrState as AnalyzerState | undefined;
             resourceInputs["analyzerName"] = state ? state.analyzerName : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -116,6 +124,7 @@ export class Analyzer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'analyzerName'");
             }
             resourceInputs["analyzerName"] = args ? args.analyzerName : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -143,6 +152,10 @@ export interface AnalyzerState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * A block that specifies the configuration of the analyzer. Documented below
+     */
+    configuration?: pulumi.Input<inputs.accessanalyzer.AnalyzerConfiguration>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -168,6 +181,10 @@ export interface AnalyzerArgs {
      * The following arguments are optional:
      */
     analyzerName: pulumi.Input<string>;
+    /**
+     * A block that specifies the configuration of the analyzer. Documented below
+     */
+    configuration?: pulumi.Input<inputs.accessanalyzer.AnalyzerConfiguration>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

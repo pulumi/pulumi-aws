@@ -4430,6 +4430,7 @@ class IamPolicyAssignmentIdentitiesArgs:
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Array of Quicksight group names to assign the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: Array of Quicksight user names to assign the policy to.
         """
         if groups is not None:
@@ -4440,6 +4441,9 @@ class IamPolicyAssignmentIdentitiesArgs:
     @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of Quicksight group names to assign the policy to.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter

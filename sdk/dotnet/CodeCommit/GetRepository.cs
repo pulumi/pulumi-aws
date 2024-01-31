@@ -102,7 +102,7 @@ namespace Pulumi.Aws.CodeCommit
     public sealed class GetRepositoryResult
     {
         /// <summary>
-        /// ARN of the repository
+        /// ARN of the repository.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -118,7 +118,11 @@ namespace Pulumi.Aws.CodeCommit
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// ID of the repository
+        /// The ID of the encryption key.
+        /// </summary>
+        public readonly string KmsKeyId;
+        /// <summary>
+        /// ID of the repository.
         /// </summary>
         public readonly string RepositoryId;
         public readonly string RepositoryName;
@@ -133,6 +137,8 @@ namespace Pulumi.Aws.CodeCommit
 
             string id,
 
+            string kmsKeyId,
+
             string repositoryId,
 
             string repositoryName)
@@ -141,6 +147,7 @@ namespace Pulumi.Aws.CodeCommit
             CloneUrlHttp = cloneUrlHttp;
             CloneUrlSsh = cloneUrlSsh;
             Id = id;
+            KmsKeyId = kmsKeyId;
             RepositoryId = repositoryId;
             RepositoryName = repositoryName;
         }

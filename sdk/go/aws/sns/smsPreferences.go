@@ -36,6 +36,10 @@ import (
 //	}
 //
 // ```
+//
+// ## Import
+//
+// You cannot import the SMS preferences.
 type SmsPreferences struct {
 	pulumi.CustomResourceState
 

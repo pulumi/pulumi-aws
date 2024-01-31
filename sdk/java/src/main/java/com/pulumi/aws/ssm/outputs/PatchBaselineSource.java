@@ -12,42 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class PatchBaselineSource {
     /**
-     * @return The value of the yum repo configuration.
-     * For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+     * @return Value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
      * 
      */
     private String configuration;
     /**
-     * @return The name specified to identify the patch source.
+     * @return Name specified to identify the patch source.
      * 
      */
     private String name;
     /**
-     * @return The specific operating system versions a patch repository applies to, such as `&#34;Ubuntu16.04&#34;`, `&#34;AmazonLinux2016.09&#34;`, `&#34;RedhatEnterpriseLinux7.2&#34;` or `&#34;Suse12.7&#34;`.
-     * For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+     * @return Specific operating system versions a patch repository applies to, such as `&#34;Ubuntu16.04&#34;`, `&#34;AmazonLinux2016.09&#34;`, `&#34;RedhatEnterpriseLinux7.2&#34;` or `&#34;Suse12.7&#34;`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
      * 
      */
     private List<String> products;
 
     private PatchBaselineSource() {}
     /**
-     * @return The value of the yum repo configuration.
-     * For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
+     * @return Value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
      * 
      */
     public String configuration() {
         return this.configuration;
     }
     /**
-     * @return The name specified to identify the patch source.
+     * @return Name specified to identify the patch source.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The specific operating system versions a patch repository applies to, such as `&#34;Ubuntu16.04&#34;`, `&#34;AmazonLinux2016.09&#34;`, `&#34;RedhatEnterpriseLinux7.2&#34;` or `&#34;Suse12.7&#34;`.
-     * For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
+     * @return Specific operating system versions a patch repository applies to, such as `&#34;Ubuntu16.04&#34;`, `&#34;AmazonLinux2016.09&#34;`, `&#34;RedhatEnterpriseLinux7.2&#34;` or `&#34;Suse12.7&#34;`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
      * 
      */
     public List<String> products() {

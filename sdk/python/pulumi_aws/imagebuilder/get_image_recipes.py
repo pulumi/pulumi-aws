@@ -109,7 +109,7 @@ def get_image_recipes(filters: Optional[Sequence[pulumi.InputType['GetImageRecip
 
 
     :param Sequence[pulumi.InputType['GetImageRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+    :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -147,6 +147,6 @@ def get_image_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[pu
 
 
     :param Sequence[pulumi.InputType['GetImageRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+    :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     """
     ...

@@ -8,10 +8,85 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'AnalyzerConfiguration',
+    'AnalyzerConfigurationUnusedAccess',
     'ArchiveRuleFilter',
 ]
+
+@pulumi.output_type
+class AnalyzerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unusedAccess":
+            suggest = "unused_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyzerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyzerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyzerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unused_access: Optional['outputs.AnalyzerConfigurationUnusedAccess'] = None):
+        """
+        :param 'AnalyzerConfigurationUnusedAccessArgs' unused_access: A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+        """
+        if unused_access is not None:
+            pulumi.set(__self__, "unused_access", unused_access)
+
+    @property
+    @pulumi.getter(name="unusedAccess")
+    def unused_access(self) -> Optional['outputs.AnalyzerConfigurationUnusedAccess']:
+        """
+        A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+        """
+        return pulumi.get(self, "unused_access")
+
+
+@pulumi.output_type
+class AnalyzerConfigurationUnusedAccess(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unusedAccessAge":
+            suggest = "unused_access_age"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyzerConfigurationUnusedAccess. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyzerConfigurationUnusedAccess.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyzerConfigurationUnusedAccess.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unused_access_age: Optional[int] = None):
+        """
+        :param int unused_access_age: The specified access age in days for which to generate findings for unused access.
+        """
+        if unused_access_age is not None:
+            pulumi.set(__self__, "unused_access_age", unused_access_age)
+
+    @property
+    @pulumi.getter(name="unusedAccessAge")
+    def unused_access_age(self) -> Optional[int]:
+        """
+        The specified access age in days for which to generate findings for unused access.
+        """
+        return pulumi.get(self, "unused_access_age")
+
 
 @pulumi.output_type
 class ArchiveRuleFilter(dict):

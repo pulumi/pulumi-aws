@@ -190,6 +190,7 @@ const (
 	ramMod                      = "Ram"                      // Resource Access Manager
 	rbinMod                     = "Rbin"                     // Recycle Bin
 	rdsMod                      = "Rds"                      // Relational Database Service (RDS)
+	rekognitionMod              = "Rekognition"              //Amazon Rekognition"
 	redshiftMod                 = "RedShift"                 // RedShift
 	redshiftDataMod             = "RedshiftData"             // RedshiftData
 	redshiftServerlessMod       = "RedshiftServerless"       // Redshift Serverless
@@ -402,6 +403,7 @@ var moduleMap = map[string]string{
 	"redshift":                        redshiftMod,
 	"redshiftdata":                    redshiftDataMod,
 	"redshiftserverless":              redshiftServerlessMod,
+	"rekognition":                     rekognitionMod,
 	"resourcegroups":                  resourcegroupsMod,
 	"resourcegroupstaggingapi":        resourcegroupsTaggingApiMod,
 	"rolesanywhere":                   rolesAnywhereMod,
@@ -784,7 +786,13 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	ctx := context.Background()
 	upstreamProvider := newUpstreamProvider(ctx)
 
-	p := pftfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider, shimv2.WithDiffStrategy(shimv2.PlanState)), upstreamProvider.PluginFrameworkProvider)
+	v2p := shimv2.NewProvider(upstreamProvider.SDKV2Provider,
+		shimv2.WithDiffStrategy(shimv2.PlanState),
+		shimv2.WithPlanResourceChange(func(s string) bool {
+			return s == "aws_ssm_document"
+		}))
+
+	p := pftfbridge.MuxShimWithDisjointgPF(ctx, v2p, upstreamProvider.PluginFrameworkProvider)
 
 	// We should only run the validation once to avoid duplicating the reported errors.
 	var credentialsValidationRun atomic.Bool

@@ -4476,9 +4476,9 @@ func (o DeviceFleetOutputConfigPtrOutput) S3OutputLocation() pulumi.StringPtrOut
 type DomainDefaultSpaceSettings struct {
 	// The execution role for the space.
 	ExecutionRole string `pulumi:"executionRole"`
-	// The Jupyter server's app settings. See Jupyter Server App Settings below.
+	// The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
 	JupyterServerAppSettings *DomainDefaultSpaceSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
-	// The kernel gateway app settings. See Kernel Gateway App Settings below.
+	// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 	KernelGatewayAppSettings *DomainDefaultSpaceSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -4498,9 +4498,9 @@ type DomainDefaultSpaceSettingsInput interface {
 type DomainDefaultSpaceSettingsArgs struct {
 	// The execution role for the space.
 	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
-	// The Jupyter server's app settings. See Jupyter Server App Settings below.
+	// The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
 	JupyterServerAppSettings DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
-	// The kernel gateway app settings. See Kernel Gateway App Settings below.
+	// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 	KernelGatewayAppSettings DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -4588,14 +4588,14 @@ func (o DomainDefaultSpaceSettingsOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
 }
 
-// The Jupyter server's app settings. See Jupyter Server App Settings below.
+// The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
 func (o DomainDefaultSpaceSettingsOutput) JupyterServerAppSettings() DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettings) *DomainDefaultSpaceSettingsJupyterServerAppSettings {
 		return v.JupyterServerAppSettings
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput)
 }
 
-// The kernel gateway app settings. See Kernel Gateway App Settings below.
+// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 func (o DomainDefaultSpaceSettingsOutput) KernelGatewayAppSettings() DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettings) *DomainDefaultSpaceSettingsKernelGatewayAppSettings {
 		return v.KernelGatewayAppSettings
@@ -4641,7 +4641,7 @@ func (o DomainDefaultSpaceSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Jupyter server's app settings. See Jupyter Server App Settings below.
+// The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
 func (o DomainDefaultSpaceSettingsPtrOutput) JupyterServerAppSettings() DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettings) *DomainDefaultSpaceSettingsJupyterServerAppSettings {
 		if v == nil {
@@ -4651,7 +4651,7 @@ func (o DomainDefaultSpaceSettingsPtrOutput) JupyterServerAppSettings() DomainDe
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput)
 }
 
-// The kernel gateway app settings. See Kernel Gateway App Settings below.
+// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 func (o DomainDefaultSpaceSettingsPtrOutput) KernelGatewayAppSettings() DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettings) *DomainDefaultSpaceSettingsKernelGatewayAppSettings {
 		if v == nil {
@@ -4672,9 +4672,9 @@ func (o DomainDefaultSpaceSettingsPtrOutput) SecurityGroups() pulumi.StringArray
 }
 
 type DomainDefaultSpaceSettingsJupyterServerAppSettings struct {
-	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 	CodeRepositories []DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
@@ -4692,9 +4692,9 @@ type DomainDefaultSpaceSettingsJupyterServerAppSettingsInput interface {
 }
 
 type DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs struct {
-	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 	CodeRepositories DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
@@ -4777,14 +4777,14 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsOutput) ToDomainDefaul
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput)
 }
 
-// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsOutput) CodeRepositories() DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterServerAppSettings) []DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository {
 		return v.CodeRepositories
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterServerAppSettings) *DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -4820,7 +4820,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput) Elem() Doma
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsOutput)
 }
 
-// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput) CodeRepositories() DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterServerAppSettings) []DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository {
 		if v == nil {
@@ -4830,7 +4830,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput) CodeReposit
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterServerAppSettings) *DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -5173,9 +5173,9 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtr
 }
 
 type DomainDefaultSpaceSettingsKernelGatewayAppSettings struct {
-	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see `customImage` Block below.
 	CustomImages []DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
@@ -5193,9 +5193,9 @@ type DomainDefaultSpaceSettingsKernelGatewayAppSettingsInput interface {
 }
 
 type DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs struct {
-	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see `customImage` Block below.
 	CustomImages DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayInput `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
@@ -5278,14 +5278,14 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsOutput) ToDomainDefaul
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
-// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see `customImage` Block below.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsOutput) CustomImages() DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettings) []DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage {
 		return v.CustomImages
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettings) *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -5321,7 +5321,7 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput) Elem() Doma
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsOutput)
 }
 
-// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see `customImage` Block below.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput) CustomImages() DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsKernelGatewayAppSettings) []DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage {
 		if v == nil {
@@ -5331,7 +5331,7 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput) CustomImage
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsKernelGatewayAppSettings) *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -5694,37 +5694,37 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtr
 }
 
 type DomainDefaultUserSettings struct {
-	// The Canvas app settings. See Canvas App Settings below.
+	// The Canvas app settings. See `canvasAppSettings` Block below.
 	CanvasAppSettings *DomainDefaultUserSettingsCanvasAppSettings `pulumi:"canvasAppSettings"`
-	// The Code Editor application settings. See Code Editor App Settings below.
+	// The Code Editor application settings. See `codeEditorAppSettings` Block below.
 	CodeEditorAppSettings *DomainDefaultUserSettingsCodeEditorAppSettings `pulumi:"codeEditorAppSettings"`
-	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `customFileSystemConfig` Block below.
 	CustomFileSystemConfigs []DomainDefaultUserSettingsCustomFileSystemConfig `pulumi:"customFileSystemConfigs"`
-	// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+	// Details about the POSIX identity that is used for file system operations. See `customPosixUserConfig` Block below.
 	CustomPosixUserConfig *DomainDefaultUserSettingsCustomPosixUserConfig `pulumi:"customPosixUserConfig"`
 	// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
 	DefaultLandingUri *string `pulumi:"defaultLandingUri"`
 	// The execution role ARN for the user.
 	ExecutionRole string `pulumi:"executionRole"`
-	// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+	// The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
 	JupyterLabAppSettings *DomainDefaultUserSettingsJupyterLabAppSettings `pulumi:"jupyterLabAppSettings"`
-	// The Jupyter server's app settings. See Jupyter Server App Settings below.
+	// The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
 	JupyterServerAppSettings *DomainDefaultUserSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
-	// The kernel gateway app settings. See Kernel Gateway App Settings below.
+	// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 	KernelGatewayAppSettings *DomainDefaultUserSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
-	// The RSession app settings. See RSession App Settings below.
+	// The RSession app settings. See `rSessionAppSettings` Block below.
 	RSessionAppSettings *DomainDefaultUserSettingsRSessionAppSettings `pulumi:"rSessionAppSettings"`
-	// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+	// A collection of settings that configure user interaction with the RStudioServerPro app. See `rStudioServerProAppSettings` Block below.
 	RStudioServerProAppSettings *DomainDefaultUserSettingsRStudioServerProAppSettings `pulumi:"rStudioServerProAppSettings"`
 	// A list of security group IDs that will be attached to the user.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// The sharing settings. See Sharing Settings below.
+	// The sharing settings. See `sharingSettings` Block below.
 	SharingSettings *DomainDefaultUserSettingsSharingSettings `pulumi:"sharingSettings"`
-	// The storage settings for a private space. See Space Storage Settings below.
+	// The storage settings for a private space. See `spaceStorageSettings` Block below.
 	SpaceStorageSettings *DomainDefaultUserSettingsSpaceStorageSettings `pulumi:"spaceStorageSettings"`
 	// Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
 	StudioWebPortal *string `pulumi:"studioWebPortal"`
-	// The TensorBoard app settings. See TensorBoard App Settings below.
+	// The TensorBoard app settings. See `tensorBoardAppSettings` Block below.
 	TensorBoardAppSettings *DomainDefaultUserSettingsTensorBoardAppSettings `pulumi:"tensorBoardAppSettings"`
 }
 
@@ -5740,37 +5740,37 @@ type DomainDefaultUserSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsArgs struct {
-	// The Canvas app settings. See Canvas App Settings below.
+	// The Canvas app settings. See `canvasAppSettings` Block below.
 	CanvasAppSettings DomainDefaultUserSettingsCanvasAppSettingsPtrInput `pulumi:"canvasAppSettings"`
-	// The Code Editor application settings. See Code Editor App Settings below.
+	// The Code Editor application settings. See `codeEditorAppSettings` Block below.
 	CodeEditorAppSettings DomainDefaultUserSettingsCodeEditorAppSettingsPtrInput `pulumi:"codeEditorAppSettings"`
-	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `customFileSystemConfig` Block below.
 	CustomFileSystemConfigs DomainDefaultUserSettingsCustomFileSystemConfigArrayInput `pulumi:"customFileSystemConfigs"`
-	// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+	// Details about the POSIX identity that is used for file system operations. See `customPosixUserConfig` Block below.
 	CustomPosixUserConfig DomainDefaultUserSettingsCustomPosixUserConfigPtrInput `pulumi:"customPosixUserConfig"`
 	// The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
 	DefaultLandingUri pulumi.StringPtrInput `pulumi:"defaultLandingUri"`
 	// The execution role ARN for the user.
 	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
-	// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+	// The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
 	JupyterLabAppSettings DomainDefaultUserSettingsJupyterLabAppSettingsPtrInput `pulumi:"jupyterLabAppSettings"`
-	// The Jupyter server's app settings. See Jupyter Server App Settings below.
+	// The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
 	JupyterServerAppSettings DomainDefaultUserSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
-	// The kernel gateway app settings. See Kernel Gateway App Settings below.
+	// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 	KernelGatewayAppSettings DomainDefaultUserSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
-	// The RSession app settings. See RSession App Settings below.
+	// The RSession app settings. See `rSessionAppSettings` Block below.
 	RSessionAppSettings DomainDefaultUserSettingsRSessionAppSettingsPtrInput `pulumi:"rSessionAppSettings"`
-	// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+	// A collection of settings that configure user interaction with the RStudioServerPro app. See `rStudioServerProAppSettings` Block below.
 	RStudioServerProAppSettings DomainDefaultUserSettingsRStudioServerProAppSettingsPtrInput `pulumi:"rStudioServerProAppSettings"`
 	// A list of security group IDs that will be attached to the user.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// The sharing settings. See Sharing Settings below.
+	// The sharing settings. See `sharingSettings` Block below.
 	SharingSettings DomainDefaultUserSettingsSharingSettingsPtrInput `pulumi:"sharingSettings"`
-	// The storage settings for a private space. See Space Storage Settings below.
+	// The storage settings for a private space. See `spaceStorageSettings` Block below.
 	SpaceStorageSettings DomainDefaultUserSettingsSpaceStorageSettingsPtrInput `pulumi:"spaceStorageSettings"`
 	// Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
 	StudioWebPortal pulumi.StringPtrInput `pulumi:"studioWebPortal"`
-	// The TensorBoard app settings. See TensorBoard App Settings below.
+	// The TensorBoard app settings. See `tensorBoardAppSettings` Block below.
 	TensorBoardAppSettings DomainDefaultUserSettingsTensorBoardAppSettingsPtrInput `pulumi:"tensorBoardAppSettings"`
 }
 
@@ -5851,28 +5851,28 @@ func (o DomainDefaultUserSettingsOutput) ToDomainDefaultUserSettingsPtrOutputWit
 	}).(DomainDefaultUserSettingsPtrOutput)
 }
 
-// The Canvas app settings. See Canvas App Settings below.
+// The Canvas app settings. See `canvasAppSettings` Block below.
 func (o DomainDefaultUserSettingsOutput) CanvasAppSettings() DomainDefaultUserSettingsCanvasAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsCanvasAppSettings {
 		return v.CanvasAppSettings
 	}).(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput)
 }
 
-// The Code Editor application settings. See Code Editor App Settings below.
+// The Code Editor application settings. See `codeEditorAppSettings` Block below.
 func (o DomainDefaultUserSettingsOutput) CodeEditorAppSettings() DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsCodeEditorAppSettings {
 		return v.CodeEditorAppSettings
 	}).(DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput)
 }
 
-// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `customFileSystemConfig` Block below.
 func (o DomainDefaultUserSettingsOutput) CustomFileSystemConfigs() DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) []DomainDefaultUserSettingsCustomFileSystemConfig {
 		return v.CustomFileSystemConfigs
 	}).(DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput)
 }
 
-// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+// Details about the POSIX identity that is used for file system operations. See `customPosixUserConfig` Block below.
 func (o DomainDefaultUserSettingsOutput) CustomPosixUserConfig() DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsCustomPosixUserConfig {
 		return v.CustomPosixUserConfig
@@ -5889,35 +5889,35 @@ func (o DomainDefaultUserSettingsOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
 }
 
-// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+// The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
 func (o DomainDefaultUserSettingsOutput) JupyterLabAppSettings() DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsJupyterLabAppSettings {
 		return v.JupyterLabAppSettings
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput)
 }
 
-// The Jupyter server's app settings. See Jupyter Server App Settings below.
+// The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
 func (o DomainDefaultUserSettingsOutput) JupyterServerAppSettings() DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsJupyterServerAppSettings {
 		return v.JupyterServerAppSettings
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput)
 }
 
-// The kernel gateway app settings. See Kernel Gateway App Settings below.
+// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 func (o DomainDefaultUserSettingsOutput) KernelGatewayAppSettings() DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsKernelGatewayAppSettings {
 		return v.KernelGatewayAppSettings
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
-// The RSession app settings. See RSession App Settings below.
+// The RSession app settings. See `rSessionAppSettings` Block below.
 func (o DomainDefaultUserSettingsOutput) RSessionAppSettings() DomainDefaultUserSettingsRSessionAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsRSessionAppSettings {
 		return v.RSessionAppSettings
 	}).(DomainDefaultUserSettingsRSessionAppSettingsPtrOutput)
 }
 
-// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+// A collection of settings that configure user interaction with the RStudioServerPro app. See `rStudioServerProAppSettings` Block below.
 func (o DomainDefaultUserSettingsOutput) RStudioServerProAppSettings() DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsRStudioServerProAppSettings {
 		return v.RStudioServerProAppSettings
@@ -5929,12 +5929,12 @@ func (o DomainDefaultUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutp
 	return o.ApplyT(func(v DomainDefaultUserSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// The sharing settings. See Sharing Settings below.
+// The sharing settings. See `sharingSettings` Block below.
 func (o DomainDefaultUserSettingsOutput) SharingSettings() DomainDefaultUserSettingsSharingSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsSharingSettings { return v.SharingSettings }).(DomainDefaultUserSettingsSharingSettingsPtrOutput)
 }
 
-// The storage settings for a private space. See Space Storage Settings below.
+// The storage settings for a private space. See `spaceStorageSettings` Block below.
 func (o DomainDefaultUserSettingsOutput) SpaceStorageSettings() DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsSpaceStorageSettings {
 		return v.SpaceStorageSettings
@@ -5946,7 +5946,7 @@ func (o DomainDefaultUserSettingsOutput) StudioWebPortal() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v DomainDefaultUserSettings) *string { return v.StudioWebPortal }).(pulumi.StringPtrOutput)
 }
 
-// The TensorBoard app settings. See TensorBoard App Settings below.
+// The TensorBoard app settings. See `tensorBoardAppSettings` Block below.
 func (o DomainDefaultUserSettingsOutput) TensorBoardAppSettings() DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsTensorBoardAppSettings {
 		return v.TensorBoardAppSettings
@@ -5977,7 +5977,7 @@ func (o DomainDefaultUserSettingsPtrOutput) Elem() DomainDefaultUserSettingsOutp
 	}).(DomainDefaultUserSettingsOutput)
 }
 
-// The Canvas app settings. See Canvas App Settings below.
+// The Canvas app settings. See `canvasAppSettings` Block below.
 func (o DomainDefaultUserSettingsPtrOutput) CanvasAppSettings() DomainDefaultUserSettingsCanvasAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsCanvasAppSettings {
 		if v == nil {
@@ -5987,7 +5987,7 @@ func (o DomainDefaultUserSettingsPtrOutput) CanvasAppSettings() DomainDefaultUse
 	}).(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput)
 }
 
-// The Code Editor application settings. See Code Editor App Settings below.
+// The Code Editor application settings. See `codeEditorAppSettings` Block below.
 func (o DomainDefaultUserSettingsPtrOutput) CodeEditorAppSettings() DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsCodeEditorAppSettings {
 		if v == nil {
@@ -5997,7 +5997,7 @@ func (o DomainDefaultUserSettingsPtrOutput) CodeEditorAppSettings() DomainDefaul
 	}).(DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput)
 }
 
-// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `customFileSystemConfig` Block below.
 func (o DomainDefaultUserSettingsPtrOutput) CustomFileSystemConfigs() DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) []DomainDefaultUserSettingsCustomFileSystemConfig {
 		if v == nil {
@@ -6007,7 +6007,7 @@ func (o DomainDefaultUserSettingsPtrOutput) CustomFileSystemConfigs() DomainDefa
 	}).(DomainDefaultUserSettingsCustomFileSystemConfigArrayOutput)
 }
 
-// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+// Details about the POSIX identity that is used for file system operations. See `customPosixUserConfig` Block below.
 func (o DomainDefaultUserSettingsPtrOutput) CustomPosixUserConfig() DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsCustomPosixUserConfig {
 		if v == nil {
@@ -6037,7 +6037,7 @@ func (o DomainDefaultUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+// The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
 func (o DomainDefaultUserSettingsPtrOutput) JupyterLabAppSettings() DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsJupyterLabAppSettings {
 		if v == nil {
@@ -6047,7 +6047,7 @@ func (o DomainDefaultUserSettingsPtrOutput) JupyterLabAppSettings() DomainDefaul
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput)
 }
 
-// The Jupyter server's app settings. See Jupyter Server App Settings below.
+// The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
 func (o DomainDefaultUserSettingsPtrOutput) JupyterServerAppSettings() DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsJupyterServerAppSettings {
 		if v == nil {
@@ -6057,7 +6057,7 @@ func (o DomainDefaultUserSettingsPtrOutput) JupyterServerAppSettings() DomainDef
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput)
 }
 
-// The kernel gateway app settings. See Kernel Gateway App Settings below.
+// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 func (o DomainDefaultUserSettingsPtrOutput) KernelGatewayAppSettings() DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsKernelGatewayAppSettings {
 		if v == nil {
@@ -6067,7 +6067,7 @@ func (o DomainDefaultUserSettingsPtrOutput) KernelGatewayAppSettings() DomainDef
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
-// The RSession app settings. See RSession App Settings below.
+// The RSession app settings. See `rSessionAppSettings` Block below.
 func (o DomainDefaultUserSettingsPtrOutput) RSessionAppSettings() DomainDefaultUserSettingsRSessionAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsRSessionAppSettings {
 		if v == nil {
@@ -6077,7 +6077,7 @@ func (o DomainDefaultUserSettingsPtrOutput) RSessionAppSettings() DomainDefaultU
 	}).(DomainDefaultUserSettingsRSessionAppSettingsPtrOutput)
 }
 
-// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+// A collection of settings that configure user interaction with the RStudioServerPro app. See `rStudioServerProAppSettings` Block below.
 func (o DomainDefaultUserSettingsPtrOutput) RStudioServerProAppSettings() DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsRStudioServerProAppSettings {
 		if v == nil {
@@ -6097,7 +6097,7 @@ func (o DomainDefaultUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// The sharing settings. See Sharing Settings below.
+// The sharing settings. See `sharingSettings` Block below.
 func (o DomainDefaultUserSettingsPtrOutput) SharingSettings() DomainDefaultUserSettingsSharingSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsSharingSettings {
 		if v == nil {
@@ -6107,7 +6107,7 @@ func (o DomainDefaultUserSettingsPtrOutput) SharingSettings() DomainDefaultUserS
 	}).(DomainDefaultUserSettingsSharingSettingsPtrOutput)
 }
 
-// The storage settings for a private space. See Space Storage Settings below.
+// The storage settings for a private space. See `spaceStorageSettings` Block below.
 func (o DomainDefaultUserSettingsPtrOutput) SpaceStorageSettings() DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsSpaceStorageSettings {
 		if v == nil {
@@ -6127,7 +6127,7 @@ func (o DomainDefaultUserSettingsPtrOutput) StudioWebPortal() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The TensorBoard app settings. See TensorBoard App Settings below.
+// The TensorBoard app settings. See `tensorBoardAppSettings` Block below.
 func (o DomainDefaultUserSettingsPtrOutput) TensorBoardAppSettings() DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsTensorBoardAppSettings {
 		if v == nil {
@@ -6138,17 +6138,17 @@ func (o DomainDefaultUserSettingsPtrOutput) TensorBoardAppSettings() DomainDefau
 }
 
 type DomainDefaultUserSettingsCanvasAppSettings struct {
-	// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+	// The model deployment settings for the SageMaker Canvas application. See `directDeploySettings` Block below.
 	DirectDeploySettings *DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings `pulumi:"directDeploySettings"`
-	// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+	// The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
 	IdentityProviderOauthSettings []DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting `pulumi:"identityProviderOauthSettings"`
-	// The settings for document querying. See Kendra Settings below.
+	// The settings for document querying. See `kendraSettings` Block below.
 	KendraSettings *DomainDefaultUserSettingsCanvasAppSettingsKendraSettings `pulumi:"kendraSettings"`
-	// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+	// The model registry settings for the SageMaker Canvas application. See `modelRegisterSettings` Block below.
 	ModelRegisterSettings *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings `pulumi:"modelRegisterSettings"`
-	// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+	// Time series forecast settings for the Canvas app. See `timeSeriesForecastingSettings` Block below.
 	TimeSeriesForecastingSettings *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings `pulumi:"timeSeriesForecastingSettings"`
-	// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+	// The workspace settings for the SageMaker Canvas application. See `workspaceSettings` Block below.
 	WorkspaceSettings *DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings `pulumi:"workspaceSettings"`
 }
 
@@ -6164,17 +6164,17 @@ type DomainDefaultUserSettingsCanvasAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsCanvasAppSettingsArgs struct {
-	// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+	// The model deployment settings for the SageMaker Canvas application. See `directDeploySettings` Block below.
 	DirectDeploySettings DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput `pulumi:"directDeploySettings"`
-	// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+	// The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
 	IdentityProviderOauthSettings DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput `pulumi:"identityProviderOauthSettings"`
-	// The settings for document querying. See Kendra Settings below.
+	// The settings for document querying. See `kendraSettings` Block below.
 	KendraSettings DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrInput `pulumi:"kendraSettings"`
-	// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+	// The model registry settings for the SageMaker Canvas application. See `modelRegisterSettings` Block below.
 	ModelRegisterSettings DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput `pulumi:"modelRegisterSettings"`
-	// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+	// Time series forecast settings for the Canvas app. See `timeSeriesForecastingSettings` Block below.
 	TimeSeriesForecastingSettings DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput `pulumi:"timeSeriesForecastingSettings"`
-	// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+	// The workspace settings for the SageMaker Canvas application. See `workspaceSettings` Block below.
 	WorkspaceSettings DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput `pulumi:"workspaceSettings"`
 }
 
@@ -6255,42 +6255,42 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) ToDomainDefaultUserSet
 	}).(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput)
 }
 
-// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+// The model deployment settings for the SageMaker Canvas application. See `directDeploySettings` Block below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) DirectDeploySettings() DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings {
 		return v.DirectDeploySettings
 	}).(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
 }
 
-// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+// The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) IdentityProviderOauthSettings() DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) []DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting {
 		return v.IdentityProviderOauthSettings
 	}).(DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput)
 }
 
-// The settings for document querying. See Kendra Settings below.
+// The settings for document querying. See `kendraSettings` Block below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) KendraSettings() DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsKendraSettings {
 		return v.KendraSettings
 	}).(DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput)
 }
 
-// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+// The model registry settings for the SageMaker Canvas application. See `modelRegisterSettings` Block below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) ModelRegisterSettings() DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings {
 		return v.ModelRegisterSettings
 	}).(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput)
 }
 
-// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+// Time series forecast settings for the Canvas app. See `timeSeriesForecastingSettings` Block below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) TimeSeriesForecastingSettings() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
 		return v.TimeSeriesForecastingSettings
 	}).(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
 }
 
-// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+// The workspace settings for the SageMaker Canvas application. See `workspaceSettings` Block below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) WorkspaceSettings() DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings {
 		return v.WorkspaceSettings
@@ -6321,7 +6321,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) Elem() DomainDefaul
 	}).(DomainDefaultUserSettingsCanvasAppSettingsOutput)
 }
 
-// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+// The model deployment settings for the SageMaker Canvas application. See `directDeploySettings` Block below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) DirectDeploySettings() DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings {
 		if v == nil {
@@ -6331,7 +6331,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) DirectDeploySetting
 	}).(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
 }
 
-// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+// The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) IdentityProviderOauthSettings() DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) []DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting {
 		if v == nil {
@@ -6341,7 +6341,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) IdentityProviderOau
 	}).(DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput)
 }
 
-// The settings for document querying. See Kendra Settings below.
+// The settings for document querying. See `kendraSettings` Block below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) KendraSettings() DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsKendraSettings {
 		if v == nil {
@@ -6351,7 +6351,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) KendraSettings() Do
 	}).(DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput)
 }
 
-// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+// The model registry settings for the SageMaker Canvas application. See `modelRegisterSettings` Block below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) ModelRegisterSettings() DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings {
 		if v == nil {
@@ -6361,7 +6361,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) ModelRegisterSettin
 	}).(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput)
 }
 
-// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+// Time series forecast settings for the Canvas app. See `timeSeriesForecastingSettings` Block below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) TimeSeriesForecastingSettings() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
 		if v == nil {
@@ -6371,7 +6371,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) TimeSeriesForecasti
 	}).(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
 }
 
-// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+// The workspace settings for the SageMaker Canvas application. See `workspaceSettings` Block below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) WorkspaceSettings() DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings {
 		if v == nil {
@@ -7251,7 +7251,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) S3
 }
 
 type DomainDefaultUserSettingsCodeEditorAppSettings struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
@@ -7269,7 +7269,7 @@ type DomainDefaultUserSettingsCodeEditorAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsCodeEditorAppSettingsArgs struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
@@ -7352,7 +7352,7 @@ func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) ToDomainDefaultUse
 	}).(DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettings) *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -7388,7 +7388,7 @@ func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) Elem() DomainDe
 	}).(DomainDefaultUserSettingsCodeEditorAppSettingsOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettings) *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -7632,7 +7632,7 @@ func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutp
 }
 
 type DomainDefaultUserSettingsCustomFileSystemConfig struct {
-	// The default EBS storage settings for a private space. See EFS File System Config below.
+	// The default EBS storage settings for a private space. See `efsFileSystemConfig` Block below.
 	EfsFileSystemConfig *DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig `pulumi:"efsFileSystemConfig"`
 }
 
@@ -7648,7 +7648,7 @@ type DomainDefaultUserSettingsCustomFileSystemConfigInput interface {
 }
 
 type DomainDefaultUserSettingsCustomFileSystemConfigArgs struct {
-	// The default EBS storage settings for a private space. See EFS File System Config below.
+	// The default EBS storage settings for a private space. See `efsFileSystemConfig` Block below.
 	EfsFileSystemConfig DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrInput `pulumi:"efsFileSystemConfig"`
 }
 
@@ -7703,7 +7703,7 @@ func (o DomainDefaultUserSettingsCustomFileSystemConfigOutput) ToDomainDefaultUs
 	return o
 }
 
-// The default EBS storage settings for a private space. See EFS File System Config below.
+// The default EBS storage settings for a private space. See `efsFileSystemConfig` Block below.
 func (o DomainDefaultUserSettingsCustomFileSystemConfigOutput) EfsFileSystemConfig() DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCustomFileSystemConfig) *DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig {
 		return v.EfsFileSystemConfig
@@ -8047,11 +8047,11 @@ func (o DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput) Uid() pulumi.In
 }
 
 type DomainDefaultUserSettingsJupyterLabAppSettings struct {
-	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 	CodeRepositories []DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository `pulumi:"codeRepositories"`
-	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	// A list of custom SageMaker images that are configured to run as a JupyterLab app. see `customImage` Block below.
 	CustomImages []DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
@@ -8069,11 +8069,11 @@ type DomainDefaultUserSettingsJupyterLabAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsJupyterLabAppSettingsArgs struct {
-	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 	CodeRepositories DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
-	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	// A list of custom SageMaker images that are configured to run as a JupyterLab app. see `customImage` Block below.
 	CustomImages DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayInput `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
@@ -8156,21 +8156,21 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) ToDomainDefaultUse
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput)
 }
 
-// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) CodeRepositories() DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettings) []DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository {
 		return v.CodeRepositories
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
 }
 
-// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+// A list of custom SageMaker images that are configured to run as a JupyterLab app. see `customImage` Block below.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) CustomImages() DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettings) []DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage {
 		return v.CustomImages
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettings) *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -8206,7 +8206,7 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) Elem() DomainDe
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsOutput)
 }
 
-// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) CodeRepositories() DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettings) []DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository {
 		if v == nil {
@@ -8216,7 +8216,7 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) CodeRepositorie
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
 }
 
-// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+// A list of custom SageMaker images that are configured to run as a JupyterLab app. see `customImage` Block below.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) CustomImages() DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettings) []DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage {
 		if v == nil {
@@ -8226,7 +8226,7 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) CustomImages() 
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettings) *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -8682,9 +8682,9 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutp
 }
 
 type DomainDefaultUserSettingsJupyterServerAppSettings struct {
-	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 	CodeRepositories []DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
@@ -8702,9 +8702,9 @@ type DomainDefaultUserSettingsJupyterServerAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsJupyterServerAppSettingsArgs struct {
-	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 	CodeRepositories DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
@@ -8787,14 +8787,14 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) ToDomainDefault
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput)
 }
 
-// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) CodeRepositories() DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettings) []DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository {
 		return v.CodeRepositories
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettings) *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -8830,7 +8830,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) Elem() Domai
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsOutput)
 }
 
-// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) CodeRepositories() DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettings) []DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository {
 		if v == nil {
@@ -8840,7 +8840,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) CodeReposito
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettings) *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -9181,9 +9181,9 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrO
 }
 
 type DomainDefaultUserSettingsKernelGatewayAppSettings struct {
-	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see `customImage` Block below.
 	CustomImages []DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
@@ -9201,9 +9201,9 @@ type DomainDefaultUserSettingsKernelGatewayAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsKernelGatewayAppSettingsArgs struct {
-	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see `customImage` Block below.
 	CustomImages DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayInput `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
@@ -9286,14 +9286,14 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) ToDomainDefault
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
-// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see `customImage` Block below.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) CustomImages() DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettings) []DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage {
 		return v.CustomImages
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettings) *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -9329,7 +9329,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) Elem() Domai
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsOutput)
 }
 
-// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+// A list of custom SageMaker images that are configured to run as a KernelGateway app. see `customImage` Block below.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) CustomImages() DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettings) []DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage {
 		if v == nil {
@@ -9339,7 +9339,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) CustomImages
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettings) *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -9700,9 +9700,9 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrO
 }
 
 type DomainDefaultUserSettingsRSessionAppSettings struct {
-	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	// A list of custom SageMaker images that are configured to run as a RSession app. see `customImage` Block below.
 	CustomImages []DomainDefaultUserSettingsRSessionAppSettingsCustomImage `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block above.
 	DefaultResourceSpec *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -9718,9 +9718,9 @@ type DomainDefaultUserSettingsRSessionAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsRSessionAppSettingsArgs struct {
-	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+	// A list of custom SageMaker images that are configured to run as a RSession app. see `customImage` Block below.
 	CustomImages DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayInput `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block above.
 	DefaultResourceSpec DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -9801,14 +9801,14 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsOutput) ToDomainDefaultUserS
 	}).(DomainDefaultUserSettingsRSessionAppSettingsPtrOutput)
 }
 
-// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+// A list of custom SageMaker images that are configured to run as a RSession app. see `customImage` Block below.
 func (o DomainDefaultUserSettingsRSessionAppSettingsOutput) CustomImages() DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettings) []DomainDefaultUserSettingsRSessionAppSettingsCustomImage {
 		return v.CustomImages
 	}).(DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block above.
 func (o DomainDefaultUserSettingsRSessionAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettings) *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -9839,7 +9839,7 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) Elem() DomainDefa
 	}).(DomainDefaultUserSettingsRSessionAppSettingsOutput)
 }
 
-// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+// A list of custom SageMaker images that are configured to run as a RSession app. see `customImage` Block below.
 func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) CustomImages() DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettings) []DomainDefaultUserSettingsRSessionAppSettingsCustomImage {
 		if v == nil {
@@ -9849,7 +9849,7 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) CustomImages() Do
 	}).(DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block above.
 func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettings) *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -10527,7 +10527,7 @@ func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) S3OutputPath() pulumi
 }
 
 type DomainDefaultUserSettingsSpaceStorageSettings struct {
-	// The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+	// The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
 	DefaultEbsStorageSettings *DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings `pulumi:"defaultEbsStorageSettings"`
 }
 
@@ -10543,7 +10543,7 @@ type DomainDefaultUserSettingsSpaceStorageSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsSpaceStorageSettingsArgs struct {
-	// The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+	// The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
 	DefaultEbsStorageSettings DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrInput `pulumi:"defaultEbsStorageSettings"`
 }
 
@@ -10624,7 +10624,7 @@ func (o DomainDefaultUserSettingsSpaceStorageSettingsOutput) ToDomainDefaultUser
 	}).(DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput)
 }
 
-// The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+// The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
 func (o DomainDefaultUserSettingsSpaceStorageSettingsOutput) DefaultEbsStorageSettings() DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsSpaceStorageSettings) *DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
 		return v.DefaultEbsStorageSettings
@@ -10655,7 +10655,7 @@ func (o DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput) Elem() DomainDef
 	}).(DomainDefaultUserSettingsSpaceStorageSettingsOutput)
 }
 
-// The default EBS storage settings for a private space. See Default EBS Storage Settings below.
+// The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
 func (o DomainDefaultUserSettingsSpaceStorageSettingsPtrOutput) DefaultEbsStorageSettings() DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsSpaceStorageSettings) *DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
 		if v == nil {
@@ -10826,7 +10826,7 @@ func (o DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPt
 }
 
 type DomainDefaultUserSettingsTensorBoardAppSettings struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -10842,7 +10842,7 @@ type DomainDefaultUserSettingsTensorBoardAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsTensorBoardAppSettingsArgs struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -10923,7 +10923,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) ToDomainDefaultUs
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettings) *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -10954,7 +10954,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) Elem() DomainD
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettings) *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -11190,7 +11190,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 type DomainDomainSettings struct {
 	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
 	ExecutionRoleIdentityConfig *string `pulumi:"executionRoleIdentityConfig"`
-	// A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+	// A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
 	RStudioServerProDomainSettings *DomainDomainSettingsRStudioServerProDomainSettings `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -11210,7 +11210,7 @@ type DomainDomainSettingsInput interface {
 type DomainDomainSettingsArgs struct {
 	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
 	ExecutionRoleIdentityConfig pulumi.StringPtrInput `pulumi:"executionRoleIdentityConfig"`
-	// A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+	// A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
 	RStudioServerProDomainSettings DomainDomainSettingsRStudioServerProDomainSettingsPtrInput `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
@@ -11298,7 +11298,7 @@ func (o DomainDomainSettingsOutput) ExecutionRoleIdentityConfig() pulumi.StringP
 	return o.ApplyT(func(v DomainDomainSettings) *string { return v.ExecutionRoleIdentityConfig }).(pulumi.StringPtrOutput)
 }
 
-// A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+// A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
 func (o DomainDomainSettingsOutput) RStudioServerProDomainSettings() DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDomainSettings) *DomainDomainSettingsRStudioServerProDomainSettings {
 		return v.RStudioServerProDomainSettings
@@ -11344,7 +11344,7 @@ func (o DomainDomainSettingsPtrOutput) ExecutionRoleIdentityConfig() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+// A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
 func (o DomainDomainSettingsPtrOutput) RStudioServerProDomainSettings() DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDomainSettings) *DomainDomainSettingsRStudioServerProDomainSettings {
 		if v == nil {
@@ -11365,7 +11365,7 @@ func (o DomainDomainSettingsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutp
 }
 
 type DomainDomainSettingsRStudioServerProDomainSettings struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block above.
 	DefaultResourceSpec *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The ARN of the execution role for the RStudioServerPro Domain-level app.
 	DomainExecutionRoleArn string `pulumi:"domainExecutionRoleArn"`
@@ -11387,7 +11387,7 @@ type DomainDomainSettingsRStudioServerProDomainSettingsInput interface {
 }
 
 type DomainDomainSettingsRStudioServerProDomainSettingsArgs struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block above.
 	DefaultResourceSpec DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The ARN of the execution role for the RStudioServerPro Domain-level app.
 	DomainExecutionRoleArn pulumi.StringInput `pulumi:"domainExecutionRoleArn"`
@@ -11474,7 +11474,7 @@ func (o DomainDomainSettingsRStudioServerProDomainSettingsOutput) ToDomainDomain
 	}).(DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block above.
 func (o DomainDomainSettingsRStudioServerProDomainSettingsOutput) DefaultResourceSpec() DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDomainSettingsRStudioServerProDomainSettings) *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -11520,7 +11520,7 @@ func (o DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput) Elem() Doma
 	}).(DomainDomainSettingsRStudioServerProDomainSettingsOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block above.
 func (o DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput) DefaultResourceSpec() DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDomainSettingsRStudioServerProDomainSettings) *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec {
 		if v == nil {

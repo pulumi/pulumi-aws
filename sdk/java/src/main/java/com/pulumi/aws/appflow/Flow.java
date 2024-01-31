@@ -215,6 +215,20 @@ public class Flow extends com.pulumi.resources.CustomResource {
         return this.destinationFlowConfigs;
     }
     /**
+     * The current status of the flow.
+     * 
+     */
+    @Export(name="flowStatus", refs={String.class}, tree="[0]")
+    private Output<String> flowStatus;
+
+    /**
+     * @return The current status of the flow.
+     * 
+     */
+    public Output<String> flowStatus() {
+        return this.flowStatus;
+    }
+    /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */

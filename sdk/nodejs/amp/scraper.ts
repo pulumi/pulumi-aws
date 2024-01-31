@@ -57,6 +57,10 @@ export class Scraper extends pulumi.CustomResource {
      */
     public readonly destination!: pulumi.Output<outputs.amp.ScraperDestination | undefined>;
     /**
+     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+     */
+    public /*out*/ readonly roleArn!: pulumi.Output<string>;
+    /**
      * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      */
     public readonly scrapeConfiguration!: pulumi.Output<string>;
@@ -89,6 +93,7 @@ export class Scraper extends pulumi.CustomResource {
             resourceInputs["alias"] = state ? state.alias : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["scrapeConfiguration"] = state ? state.scrapeConfiguration : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -106,6 +111,7 @@ export class Scraper extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -131,6 +137,10 @@ export interface ScraperState {
      * Configuration block for the managed scraper to send metrics to. See `destination`.
      */
     destination?: pulumi.Input<inputs.amp.ScraperDestination>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+     */
+    roleArn?: pulumi.Input<string>;
     /**
      * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      */

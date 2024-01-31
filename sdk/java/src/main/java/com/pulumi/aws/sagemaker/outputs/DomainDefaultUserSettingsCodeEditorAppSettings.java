@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultUserSettingsCodeEditorAppSettings {
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec;
@@ -26,7 +26,7 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettings {
 
     private DomainDefaultUserSettingsCodeEditorAppSettings() {}
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec> defaultResourceSpec() {

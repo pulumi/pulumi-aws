@@ -188,6 +188,8 @@ type Flow struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayOutput `pulumi:"destinationFlowConfigs"`
+	// The current status of the flow.
+	FlowStatus pulumi.StringOutput `pulumi:"flowStatus"`
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringOutput `pulumi:"kmsArn"`
 	// Name of the flow.
@@ -258,6 +260,8 @@ type flowState struct {
 	Description *string `pulumi:"description"`
 	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
 	DestinationFlowConfigs []FlowDestinationFlowConfig `pulumi:"destinationFlowConfigs"`
+	// The current status of the flow.
+	FlowStatus *string `pulumi:"flowStatus"`
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn *string `pulumi:"kmsArn"`
 	// Name of the flow.
@@ -283,6 +287,8 @@ type FlowState struct {
 	Description pulumi.StringPtrInput
 	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayInput
+	// The current status of the flow.
+	FlowStatus pulumi.StringPtrInput
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringPtrInput
 	// Name of the flow.
@@ -444,6 +450,11 @@ func (o FlowOutput) Description() pulumi.StringPtrOutput {
 // A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
 func (o FlowOutput) DestinationFlowConfigs() FlowDestinationFlowConfigArrayOutput {
 	return o.ApplyT(func(v *Flow) FlowDestinationFlowConfigArrayOutput { return v.DestinationFlowConfigs }).(FlowDestinationFlowConfigArrayOutput)
+}
+
+// The current status of the flow.
+func (o FlowOutput) FlowStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.FlowStatus }).(pulumi.StringOutput)
 }
 
 // ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.

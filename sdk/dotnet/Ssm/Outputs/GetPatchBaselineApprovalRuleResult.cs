@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Ssm.Outputs
     public sealed class GetPatchBaselineApprovalRuleResult
     {
         /// <summary>
-        /// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+        /// Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
         /// </summary>
         public readonly int ApproveAfterDays;
         /// <summary>
-        /// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+        /// Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
         /// </summary>
         public readonly string ApproveUntilDate;
         /// <summary>
-        /// The compliance level for patches approved by this rule.
+        /// Compliance level for patches approved by this rule.
         /// </summary>
         public readonly string ComplianceLevel;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ssm.Outputs
         /// </summary>
         public readonly bool EnableNonSecurity;
         /// <summary>
-        /// The patch filter group that defines the criteria for the rule.
+        /// Patch filter group that defines the criteria for the rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPatchBaselineApprovalRulePatchFilterResult> PatchFilters;
 

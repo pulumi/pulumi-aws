@@ -82,6 +82,36 @@ public final class AccessEntryArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
+     * 
+     */
+    @Import(name="type")
+    private @Nullable Output<String> type;
+
+    /**
+     * @return Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
+     * 
+     */
+    public Optional<Output<String>> type() {
+        return Optional.ofNullable(this.type);
+    }
+
+    /**
+     * Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
+     * 
+     */
+    @Import(name="userName")
+    private @Nullable Output<String> userName;
+
+    /**
+     * @return Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
+     * 
+     */
+    public Optional<Output<String>> userName() {
+        return Optional.ofNullable(this.userName);
+    }
+
     private AccessEntryArgs() {}
 
     private AccessEntryArgs(AccessEntryArgs $) {
@@ -89,6 +119,8 @@ public final class AccessEntryArgs extends com.pulumi.resources.ResourceArgs {
         this.kubernetesGroups = $.kubernetesGroups;
         this.principalArn = $.principalArn;
         this.tags = $.tags;
+        this.type = $.type;
+        this.userName = $.userName;
     }
 
     public static Builder builder() {
@@ -205,6 +237,48 @@ public final class AccessEntryArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param type Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(@Nullable Output<String> type) {
+            $.type = type;
+            return this;
+        }
+
+        /**
+         * @param type Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(String type) {
+            return type(Output.of(type));
+        }
+
+        /**
+         * @param userName Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userName(@Nullable Output<String> userName) {
+            $.userName = userName;
+            return this;
+        }
+
+        /**
+         * @param userName Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userName(String userName) {
+            return userName(Output.of(userName));
         }
 
         public AccessEntryArgs build() {

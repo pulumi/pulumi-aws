@@ -26,22 +26,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultUserSettings {
     /**
-     * @return The Canvas app settings. See Canvas App Settings below.
+     * @return The Canvas app settings. See `canvas_app_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettings canvasAppSettings;
     /**
-     * @return The Code Editor application settings. See Code Editor App Settings below.
+     * @return The Code Editor application settings. See `code_editor_app_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCodeEditorAppSettings codeEditorAppSettings;
     /**
-     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
      * 
      */
     private @Nullable List<DomainDefaultUserSettingsCustomFileSystemConfig> customFileSystemConfigs;
     /**
-     * @return Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+     * @return Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCustomPosixUserConfig customPosixUserConfig;
@@ -56,27 +56,27 @@ public final class DomainDefaultUserSettings {
      */
     private String executionRole;
     /**
-     * @return The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+     * @return The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsJupyterLabAppSettings jupyterLabAppSettings;
     /**
-     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * @return The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsJupyterServerAppSettings jupyterServerAppSettings;
     /**
-     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * @return The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
     /**
-     * @return The RSession app settings. See RSession App Settings below.
+     * @return The RSession app settings. See `r_session_app_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsRSessionAppSettings rSessionAppSettings;
     /**
-     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See `r_studio_server_pro_app_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsRStudioServerProAppSettings rStudioServerProAppSettings;
@@ -86,12 +86,12 @@ public final class DomainDefaultUserSettings {
      */
     private @Nullable List<String> securityGroups;
     /**
-     * @return The sharing settings. See Sharing Settings below.
+     * @return The sharing settings. See `sharing_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsSharingSettings sharingSettings;
     /**
-     * @return The storage settings for a private space. See Space Storage Settings below.
+     * @return The storage settings for a private space. See `space_storage_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsSpaceStorageSettings spaceStorageSettings;
@@ -101,35 +101,35 @@ public final class DomainDefaultUserSettings {
      */
     private @Nullable String studioWebPortal;
     /**
-     * @return The TensorBoard app settings. See TensorBoard App Settings below.
+     * @return The TensorBoard app settings. See `tensor_board_app_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsTensorBoardAppSettings tensorBoardAppSettings;
 
     private DomainDefaultUserSettings() {}
     /**
-     * @return The Canvas app settings. See Canvas App Settings below.
+     * @return The Canvas app settings. See `canvas_app_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCanvasAppSettings> canvasAppSettings() {
         return Optional.ofNullable(this.canvasAppSettings);
     }
     /**
-     * @return The Code Editor application settings. See Code Editor App Settings below.
+     * @return The Code Editor application settings. See `code_editor_app_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCodeEditorAppSettings> codeEditorAppSettings() {
         return Optional.ofNullable(this.codeEditorAppSettings);
     }
     /**
-     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
      * 
      */
     public List<DomainDefaultUserSettingsCustomFileSystemConfig> customFileSystemConfigs() {
         return this.customFileSystemConfigs == null ? List.of() : this.customFileSystemConfigs;
     }
     /**
-     * @return Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+     * @return Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCustomPosixUserConfig> customPosixUserConfig() {
@@ -150,35 +150,35 @@ public final class DomainDefaultUserSettings {
         return this.executionRole;
     }
     /**
-     * @return The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+     * @return The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsJupyterLabAppSettings> jupyterLabAppSettings() {
         return Optional.ofNullable(this.jupyterLabAppSettings);
     }
     /**
-     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * @return The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsJupyterServerAppSettings> jupyterServerAppSettings() {
         return Optional.ofNullable(this.jupyterServerAppSettings);
     }
     /**
-     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * @return The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsKernelGatewayAppSettings> kernelGatewayAppSettings() {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
     }
     /**
-     * @return The RSession app settings. See RSession App Settings below.
+     * @return The RSession app settings. See `r_session_app_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsRSessionAppSettings> rSessionAppSettings() {
         return Optional.ofNullable(this.rSessionAppSettings);
     }
     /**
-     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See `r_studio_server_pro_app_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsRStudioServerProAppSettings> rStudioServerProAppSettings() {
@@ -192,14 +192,14 @@ public final class DomainDefaultUserSettings {
         return this.securityGroups == null ? List.of() : this.securityGroups;
     }
     /**
-     * @return The sharing settings. See Sharing Settings below.
+     * @return The sharing settings. See `sharing_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsSharingSettings> sharingSettings() {
         return Optional.ofNullable(this.sharingSettings);
     }
     /**
-     * @return The storage settings for a private space. See Space Storage Settings below.
+     * @return The storage settings for a private space. See `space_storage_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsSpaceStorageSettings> spaceStorageSettings() {
@@ -213,7 +213,7 @@ public final class DomainDefaultUserSettings {
         return Optional.ofNullable(this.studioWebPortal);
     }
     /**
-     * @return The TensorBoard app settings. See TensorBoard App Settings below.
+     * @return The TensorBoard app settings. See `tensor_board_app_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsTensorBoardAppSettings> tensorBoardAppSettings() {

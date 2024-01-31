@@ -68,6 +68,8 @@ export interface GetPatchBaselineArgs {
     operatingSystem?: string;
     /**
      * Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+     *
+     * The following arguments are optional:
      */
     owner: string;
 }
@@ -85,7 +87,7 @@ export interface GetPatchBaselineResult {
      */
     readonly approvedPatches: string[];
     /**
-     * The compliance level for approved patches.
+     * Compliance level for approved patches.
      */
     readonly approvedPatchesComplianceLevel: string;
     /**
@@ -106,7 +108,11 @@ export interface GetPatchBaselineResult {
      */
     readonly id: string;
     /**
-     * The name specified to identify the patch source.
+     * JSON representation of the baseline.
+     */
+    readonly json: string;
+    /**
+     * Name specified to identify the patch source.
      */
     readonly name: string;
     readonly namePrefix?: string;
@@ -117,7 +123,7 @@ export interface GetPatchBaselineResult {
      */
     readonly rejectedPatches: string[];
     /**
-     * The action specified to take on patches included in the `rejectedPatches` list.
+     * Action specified to take on patches included in the `rejectedPatches` list.
      */
     readonly rejectedPatchesAction: string;
     /**
@@ -179,6 +185,8 @@ export interface GetPatchBaselineOutputArgs {
     operatingSystem?: pulumi.Input<string>;
     /**
      * Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+     *
+     * The following arguments are optional:
      */
     owner: pulumi.Input<string>;
 }

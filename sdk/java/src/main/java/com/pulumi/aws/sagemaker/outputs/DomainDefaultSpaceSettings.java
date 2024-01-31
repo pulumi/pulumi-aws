@@ -21,12 +21,12 @@ public final class DomainDefaultSpaceSettings {
      */
     private String executionRole;
     /**
-     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * @return The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultSpaceSettingsJupyterServerAppSettings jupyterServerAppSettings;
     /**
-     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * @return The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultSpaceSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
@@ -45,14 +45,14 @@ public final class DomainDefaultSpaceSettings {
         return this.executionRole;
     }
     /**
-     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
+     * @return The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
      * 
      */
     public Optional<DomainDefaultSpaceSettingsJupyterServerAppSettings> jupyterServerAppSettings() {
         return Optional.ofNullable(this.jupyterServerAppSettings);
     }
     /**
-     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
+     * @return The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
      * 
      */
     public Optional<DomainDefaultSpaceSettingsKernelGatewayAppSettings> kernelGatewayAppSettings() {

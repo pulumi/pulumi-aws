@@ -24,14 +24,14 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
     public static final RegisteredDomainArgs Empty = new RegisteredDomainArgs();
 
     /**
-     * Details about the domain administrative contact.
+     * Details about the domain administrative contact. See Contact Blocks for more details.
      * 
      */
     @Import(name="adminContact")
     private @Nullable Output<RegisteredDomainAdminContactArgs> adminContact;
 
     /**
-     * @return Details about the domain administrative contact.
+     * @return Details about the domain administrative contact. See Contact Blocks for more details.
      * 
      */
     public Optional<Output<RegisteredDomainAdminContactArgs>> adminContact() {
@@ -84,14 +84,14 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The list of nameservers for the domain.
+     * The list of nameservers for the domain. See `name_server` Blocks for more details.
      * 
      */
     @Import(name="nameServers")
     private @Nullable Output<List<RegisteredDomainNameServerArgs>> nameServers;
 
     /**
-     * @return The list of nameservers for the domain.
+     * @return The list of nameservers for the domain. See `name_server` Blocks for more details.
      * 
      */
     public Optional<Output<List<RegisteredDomainNameServerArgs>>> nameServers() {
@@ -99,14 +99,14 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Details about the domain registrant.
+     * Details about the domain registrant. See Contact Blocks for more details.
      * 
      */
     @Import(name="registrantContact")
     private @Nullable Output<RegisteredDomainRegistrantContactArgs> registrantContact;
 
     /**
-     * @return Details about the domain registrant.
+     * @return Details about the domain registrant. See Contact Blocks for more details.
      * 
      */
     public Optional<Output<RegisteredDomainRegistrantContactArgs>> registrantContact() {
@@ -144,14 +144,14 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Details about the domain technical contact.
+     * Details about the domain technical contact. See Contact Blocks for more details.
      * 
      */
     @Import(name="techContact")
     private @Nullable Output<RegisteredDomainTechContactArgs> techContact;
 
     /**
-     * @return Details about the domain technical contact.
+     * @return Details about the domain technical contact. See Contact Blocks for more details.
      * 
      */
     public Optional<Output<RegisteredDomainTechContactArgs>> techContact() {
@@ -223,7 +223,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param adminContact Details about the domain administrative contact.
+         * @param adminContact Details about the domain administrative contact. See Contact Blocks for more details.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param adminContact Details about the domain administrative contact.
+         * @param adminContact Details about the domain administrative contact. See Contact Blocks for more details.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param nameServers The list of nameservers for the domain.
+         * @param nameServers The list of nameservers for the domain. See `name_server` Blocks for more details.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param nameServers The list of nameservers for the domain.
+         * @param nameServers The list of nameservers for the domain. See `name_server` Blocks for more details.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param nameServers The list of nameservers for the domain.
+         * @param nameServers The list of nameservers for the domain. See `name_server` Blocks for more details.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param registrantContact Details about the domain registrant.
+         * @param registrantContact Details about the domain registrant. See Contact Blocks for more details.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param registrantContact Details about the domain registrant.
+         * @param registrantContact Details about the domain registrant. See Contact Blocks for more details.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param techContact Details about the domain technical contact.
+         * @param techContact Details about the domain technical contact. See Contact Blocks for more details.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class RegisteredDomainArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param techContact Details about the domain technical contact.
+         * @param techContact Details about the domain technical contact. See Contact Blocks for more details.
          * 
          * @return builder
          * 

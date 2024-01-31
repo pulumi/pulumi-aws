@@ -60,7 +60,7 @@ func GetComponents(ctx *pulumi.Context, args *GetComponentsArgs, opts ...pulumi.
 type GetComponentsArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetComponentsFilter `pulumi:"filters"`
-	// Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+	// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
 	Owner *string `pulumi:"owner"`
 }
 
@@ -93,7 +93,7 @@ func GetComponentsOutput(ctx *pulumi.Context, args GetComponentsOutputArgs, opts
 type GetComponentsOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetComponentsFilterArrayInput `pulumi:"filters"`
-	// Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+	// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
 	Owner pulumi.StringPtrInput `pulumi:"owner"`
 }
 

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:route53domains/delegationSignerRecord:DelegationSignerRecord":
+		r = &DelegationSignerRecord{}
 	case "aws:route53domains/registeredDomain:RegisteredDomain":
 		r = &RegisteredDomain{}
 	default:
@@ -36,6 +38,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"route53domains/delegationSignerRecord",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"route53domains/registeredDomain",

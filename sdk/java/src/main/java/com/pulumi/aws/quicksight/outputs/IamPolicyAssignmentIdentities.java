@@ -11,6 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IamPolicyAssignmentIdentities {
+    /**
+     * @return Array of Quicksight group names to assign the policy to.
+     * 
+     */
     private @Nullable List<String> groups;
     /**
      * @return Array of Quicksight user names to assign the policy to.
@@ -19,6 +23,10 @@ public final class IamPolicyAssignmentIdentities {
     private @Nullable List<String> users;
 
     private IamPolicyAssignmentIdentities() {}
+    /**
+     * @return Array of Quicksight group names to assign the policy to.
+     * 
+     */
     public List<String> groups() {
         return this.groups == null ? List.of() : this.groups;
     }

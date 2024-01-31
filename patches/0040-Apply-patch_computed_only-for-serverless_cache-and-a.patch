@@ -6,10 +6,10 @@ Subject: [PATCH 40/40] Apply patch_computed_only for serverless_cache and
 
 
 diff --git a/internal/service/amp/scraper.go b/internal/service/amp/scraper.go
-index 5224c93b6e..26a572c6da 100644
+index df5e6e5717..d89097e695 100644
 --- a/internal/service/amp/scraper.go
 +++ b/internal/service/amp/scraper.go
-@@ -77,7 +77,7 @@ func (r *scraperResource) Schema(ctx context.Context, req resource.SchemaRequest
+@@ -80,7 +80,7 @@ func (r *scraperResource) Schema(ctx context.Context, req resource.SchemaRequest
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

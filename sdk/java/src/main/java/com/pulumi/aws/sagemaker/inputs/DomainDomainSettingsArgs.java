@@ -33,14 +33,14 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+     * A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
      * 
      */
     @Import(name="rStudioServerProDomainSettings")
     private @Nullable Output<DomainDomainSettingsRStudioServerProDomainSettingsArgs> rStudioServerProDomainSettings;
 
     /**
-     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
      * 
      */
     public Optional<Output<DomainDomainSettingsRStudioServerProDomainSettingsArgs>> rStudioServerProDomainSettings() {
@@ -110,7 +110,7 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param rStudioServerProDomainSettings A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+         * @param rStudioServerProDomainSettings A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param rStudioServerProDomainSettings A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+         * @param rStudioServerProDomainSettings A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
          * 
          * @return builder
          * 

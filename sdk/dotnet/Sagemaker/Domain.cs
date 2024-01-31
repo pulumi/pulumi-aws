@@ -170,13 +170,13 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> AuthMode { get; private set; } = null!;
 
         /// <summary>
-        /// The default space settings. See Default Space Settings below.
+        /// The default space settings. See `default_space_settings` Block below.
         /// </summary>
         [Output("defaultSpaceSettings")]
         public Output<Outputs.DomainDefaultSpaceSettings?> DefaultSpaceSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The default user settings. See Default User Settings below.
+        /// The default user settings. See `default_user_settings` Block below.
         /// </summary>
         [Output("defaultUserSettings")]
         public Output<Outputs.DomainDefaultUserSettings> DefaultUserSettings { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The domain's settings.
+        /// The domain settings. See `domain_settings` Block below.
         /// </summary>
         [Output("domainSettings")]
         public Output<Outputs.DomainDomainSettings?> DomainSettings { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         /// </summary>
         [Output("retentionPolicy")]
         public Output<Outputs.DomainRetentionPolicy?> RetentionPolicy { get; private set; } = null!;
@@ -330,13 +330,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> AuthMode { get; set; } = null!;
 
         /// <summary>
-        /// The default space settings. See Default Space Settings below.
+        /// The default space settings. See `default_space_settings` Block below.
         /// </summary>
         [Input("defaultSpaceSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsArgs>? DefaultSpaceSettings { get; set; }
 
         /// <summary>
-        /// The default user settings. See Default User Settings below.
+        /// The default user settings. See `default_user_settings` Block below.
         /// </summary>
         [Input("defaultUserSettings", required: true)]
         public Input<Inputs.DomainDefaultUserSettingsArgs> DefaultUserSettings { get; set; } = null!;
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The domain's settings.
+        /// The domain settings. See `domain_settings` Block below.
         /// </summary>
         [Input("domainSettings")]
         public Input<Inputs.DomainDomainSettingsArgs>? DomainSettings { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         /// </summary>
         [Input("retentionPolicy")]
         public Input<Inputs.DomainRetentionPolicyArgs>? RetentionPolicy { get; set; }
@@ -430,13 +430,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AuthMode { get; set; }
 
         /// <summary>
-        /// The default space settings. See Default Space Settings below.
+        /// The default space settings. See `default_space_settings` Block below.
         /// </summary>
         [Input("defaultSpaceSettings")]
         public Input<Inputs.DomainDefaultSpaceSettingsGetArgs>? DefaultSpaceSettings { get; set; }
 
         /// <summary>
-        /// The default user settings. See Default User Settings below.
+        /// The default user settings. See `default_user_settings` Block below.
         /// </summary>
         [Input("defaultUserSettings")]
         public Input<Inputs.DomainDefaultUserSettingsGetArgs>? DefaultUserSettings { get; set; }
@@ -448,7 +448,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The domain's settings.
+        /// The domain settings. See `domain_settings` Block below.
         /// </summary>
         [Input("domainSettings")]
         public Input<Inputs.DomainDomainSettingsGetArgs>? DomainSettings { get; set; }
@@ -466,7 +466,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         /// </summary>
         [Input("retentionPolicy")]
         public Input<Inputs.DomainRetentionPolicyGetArgs>? RetentionPolicy { get; set; }

@@ -322,6 +322,20 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityGroupIds);
     }
     /**
+     * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    @Export(name="skipFinalBackup", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> skipFinalBackup;
+
+    /**
+     * @return When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> skipFinalBackup() {
+        return Codegen.optional(this.skipFinalBackup);
+    }
+    /**
      * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
      * 
      */

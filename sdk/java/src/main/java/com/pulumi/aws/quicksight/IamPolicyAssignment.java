@@ -127,14 +127,14 @@ public class IamPolicyAssignment extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+     * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
      * 
      */
     @Export(name="identities", refs={IamPolicyAssignmentIdentities.class}, tree="[0]")
     private Output</* @Nullable */ IamPolicyAssignmentIdentities> identities;
 
     /**
-     * @return Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+     * @return Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
      * 
      */
     public Output<Optional<IamPolicyAssignmentIdentities>> identities() {

@@ -35,6 +35,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Using `pulumi import`, import domains using the domain name. For example:
+ *
+ * ```sh
+ *  $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
+ * ```
  */
 export class RegisteredDomain extends pulumi.CustomResource {
     /**
@@ -73,7 +81,7 @@ export class RegisteredDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly abuseContactPhone!: pulumi.Output<string>;
     /**
-     * Details about the domain administrative contact.
+     * Details about the domain administrative contact. See Contact Blocks for more details.
      */
     public readonly adminContact!: pulumi.Output<outputs.route53domains.RegisteredDomainAdminContact>;
     /**
@@ -97,11 +105,11 @@ export class RegisteredDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly expirationDate!: pulumi.Output<string>;
     /**
-     * The list of nameservers for the domain.
+     * The list of nameservers for the domain. See `nameServer` Blocks for more details.
      */
     public readonly nameServers!: pulumi.Output<outputs.route53domains.RegisteredDomainNameServer[]>;
     /**
-     * Details about the domain registrant.
+     * Details about the domain registrant. See Contact Blocks for more details.
      */
     public readonly registrantContact!: pulumi.Output<outputs.route53domains.RegisteredDomainRegistrantContact>;
     /**
@@ -135,7 +143,7 @@ export class RegisteredDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Details about the domain technical contact.
+     * Details about the domain technical contact. See Contact Blocks for more details.
      */
     public readonly techContact!: pulumi.Output<outputs.route53domains.RegisteredDomainTechContact>;
     /**
@@ -238,7 +246,7 @@ export interface RegisteredDomainState {
      */
     abuseContactPhone?: pulumi.Input<string>;
     /**
-     * Details about the domain administrative contact.
+     * Details about the domain administrative contact. See Contact Blocks for more details.
      */
     adminContact?: pulumi.Input<inputs.route53domains.RegisteredDomainAdminContact>;
     /**
@@ -262,11 +270,11 @@ export interface RegisteredDomainState {
      */
     expirationDate?: pulumi.Input<string>;
     /**
-     * The list of nameservers for the domain.
+     * The list of nameservers for the domain. See `nameServer` Blocks for more details.
      */
     nameServers?: pulumi.Input<pulumi.Input<inputs.route53domains.RegisteredDomainNameServer>[]>;
     /**
-     * Details about the domain registrant.
+     * Details about the domain registrant. See Contact Blocks for more details.
      */
     registrantContact?: pulumi.Input<inputs.route53domains.RegisteredDomainRegistrantContact>;
     /**
@@ -300,7 +308,7 @@ export interface RegisteredDomainState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Details about the domain technical contact.
+     * Details about the domain technical contact. See Contact Blocks for more details.
      */
     techContact?: pulumi.Input<inputs.route53domains.RegisteredDomainTechContact>;
     /**
@@ -326,7 +334,7 @@ export interface RegisteredDomainState {
  */
 export interface RegisteredDomainArgs {
     /**
-     * Details about the domain administrative contact.
+     * Details about the domain administrative contact. See Contact Blocks for more details.
      */
     adminContact?: pulumi.Input<inputs.route53domains.RegisteredDomainAdminContact>;
     /**
@@ -342,11 +350,11 @@ export interface RegisteredDomainArgs {
      */
     domainName: pulumi.Input<string>;
     /**
-     * The list of nameservers for the domain.
+     * The list of nameservers for the domain. See `nameServer` Blocks for more details.
      */
     nameServers?: pulumi.Input<pulumi.Input<inputs.route53domains.RegisteredDomainNameServer>[]>;
     /**
-     * Details about the domain registrant.
+     * Details about the domain registrant. See Contact Blocks for more details.
      */
     registrantContact?: pulumi.Input<inputs.route53domains.RegisteredDomainRegistrantContact>;
     /**
@@ -358,7 +366,7 @@ export interface RegisteredDomainArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Details about the domain technical contact.
+     * Details about the domain technical contact. See Contact Blocks for more details.
      */
     techContact?: pulumi.Input<inputs.route53domains.RegisteredDomainTechContact>;
     /**

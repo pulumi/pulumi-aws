@@ -57,7 +57,7 @@ type AccountSubscription struct {
 	ActiveDirectoryName pulumi.StringPtrOutput `pulumi:"activeDirectoryName"`
 	// Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	AdminGroups pulumi.StringArrayOutput `pulumi:"adminGroups"`
-	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
+	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 	AuthenticationMethod pulumi.StringOutput `pulumi:"authenticationMethod"`
 	// Author group associated with your Active Directory.
 	AuthorGroups pulumi.StringArrayOutput `pulumi:"authorGroups"`
@@ -135,7 +135,7 @@ type accountSubscriptionState struct {
 	ActiveDirectoryName *string `pulumi:"activeDirectoryName"`
 	// Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	AdminGroups []string `pulumi:"adminGroups"`
-	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
+	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 	AuthenticationMethod *string `pulumi:"authenticationMethod"`
 	// Author group associated with your Active Directory.
 	AuthorGroups []string `pulumi:"authorGroups"`
@@ -172,7 +172,7 @@ type AccountSubscriptionState struct {
 	ActiveDirectoryName pulumi.StringPtrInput
 	// Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	AdminGroups pulumi.StringArrayInput
-	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
+	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 	AuthenticationMethod pulumi.StringPtrInput
 	// Author group associated with your Active Directory.
 	AuthorGroups pulumi.StringArrayInput
@@ -211,7 +211,7 @@ type accountSubscriptionArgs struct {
 	ActiveDirectoryName *string `pulumi:"activeDirectoryName"`
 	// Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	AdminGroups []string `pulumi:"adminGroups"`
-	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
+	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 	AuthenticationMethod string `pulumi:"authenticationMethod"`
 	// Author group associated with your Active Directory.
 	AuthorGroups []string `pulumi:"authorGroups"`
@@ -247,7 +247,7 @@ type AccountSubscriptionArgs struct {
 	ActiveDirectoryName pulumi.StringPtrInput
 	// Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	AdminGroups pulumi.StringArrayInput
-	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
+	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 	AuthenticationMethod pulumi.StringInput
 	// Author group associated with your Active Directory.
 	AuthorGroups pulumi.StringArrayInput
@@ -382,7 +382,7 @@ func (o AccountSubscriptionOutput) AdminGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringArrayOutput { return v.AdminGroups }).(pulumi.StringArrayOutput)
 }
 
-// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
+// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 func (o AccountSubscriptionOutput) AuthenticationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringOutput { return v.AuthenticationMethod }).(pulumi.StringOutput)
 }
