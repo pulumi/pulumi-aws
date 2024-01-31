@@ -153,10 +153,7 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 		},
 		"response": {
 			"inputs": {
-				"skipCredentialsValidation": "*",
-				"skipMetadataApiCheck": "*",
-				"skipRegionValidation": "*",
-				"version": "6.18.2"
+				"*"
 			},
 			"failures": [
 				{
@@ -191,10 +188,7 @@ func TestMissingRegionErrorMessage(t *testing.T) {
 		},
 		"response": {
 			"inputs": {
-				"skipCredentialsValidation": "*",
-				"skipMetadataApiCheck": "*",
-				"skipRegionValidation": "*",
-				"version": "6.18.2"
+				"*"
 			},
 			"failures": [
 				{
@@ -230,11 +224,7 @@ func TestInvalidCredentialsErrorMessage(t *testing.T) {
 		},
 		"response": {
 			"inputs": {
-				"region": "*",
-				"skipCredentialsValidation": "*",
-				"skipMetadataApiCheck": "*",
-				"skipRegionValidation": "*",
-				"version": "6.18.2"
+				"*"
 			},
 			"failures": [
 				{
@@ -271,11 +261,7 @@ func TestOtherFailureErrorMessage(t *testing.T) {
 		},
 		"response": {
 			"inputs": {
-				"region": "*",
-				"skipCredentialsValidation": "*",
-				"skipMetadataApiCheck": "*",
-				"skipRegionValidation": "*",
-				"version": "6.18.2"
+				"*"
 			},
 			"failures": [
 				{
