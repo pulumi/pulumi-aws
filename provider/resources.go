@@ -564,6 +564,18 @@ func durationFromConfig(vars resource.PropertyMap, prop resource.PropertyKey) (*
 	return nil, nil
 }
 
+//go:embed errors/no_credentials.txt
+var noCredentialsError string
+
+//go:embed errors/invalid_credentials.txt
+var invalidCredentialsError string
+
+//go:embed errors/no_region.txt
+var noRegionError string
+
+//go:embed errors/expired_sso.txt
+var expiredSSOError string
+
 func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error {
 	config := &awsbase.Config{
 		AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
@@ -664,48 +676,92 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 	config.SharedConfigFiles = []string{configPath}
 
 	if _, _, diag := awsbase.GetAwsConfig(context.Background(), config); diag != nil && diag.HasError() {
-		return fmt.Errorf("unable to validate AWS credentials. \n"+
-			"Details: %s\n"+
-			"Make sure you have set your AWS region, e.g. `pulumi config set aws:region us-west-2`. \n\n"+
-			"NEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the "+
-			"correct and valid credentials are used.\nLearn more: "+
-			"https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials",
-			formatDiags(diag))
+		formattedDiag := formatDiags(diag)
+		// Normally it'd query sts.REGION.amazonaws.com
+		// but if we query sts..amazonaws.com, then we don't have a region.
+		if strings.Contains(formattedDiag, "dial tcp: lookup sts..amazonaws.com: no such host") {
+			return tfbridge.CheckFailureError{
+				Failures: []tfbridge.CheckFailureErrorElement{
+					{
+						Reason:   noRegionError,
+						Property: "",
+					},
+				},
+			}
+		}
+		if strings.Contains(formattedDiag, "no EC2 IMDS role found") {
+			return tfbridge.CheckFailureError{
+				Failures: []tfbridge.CheckFailureErrorElement{
+					{
+						Reason:   noCredentialsError,
+						Property: "",
+					},
+				},
+			}
+		}
+		if strings.Contains(formattedDiag, "The security token included in the request is invalid") {
+			return tfbridge.CheckFailureError{
+				Failures: []tfbridge.CheckFailureErrorElement{
+					{
+						Reason:   invalidCredentialsError,
+						Property: "",
+					},
+				},
+			}
+		}
+		if strings.Contains(formattedDiag, "failed to refresh cached credentials") {
+			return tfbridge.CheckFailureError{
+				Failures: []tfbridge.CheckFailureErrorElement{
+					{
+						Reason:   expiredSSOError,
+						Property: "",
+					},
+				},
+			}
+		}
+
+		return tfbridge.CheckFailureError{
+			Failures: []tfbridge.CheckFailureErrorElement{
+				{
+					Reason:   fmt.Sprintf("unable to validate AWS credentials.\nDetails: %s\n", formattedDiag),
+					Property: "",
+				},
+			},
+		}
 	}
 
 	return nil
 }
 
-// We should only run the validation once to avoid duplicating the reported errors.
-var credentialsValidationRun atomic.Bool
-
 // preConfigureCallback validates that AWS credentials can be successfully discovered. This emulates the credentials
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
 // before passing control to the TF provider to ensure we can report actionable errors.
-func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
-	skipCredentialsValidation := boolValue(vars, "skipCredentialsValidation",
-		[]string{"AWS_SKIP_CREDENTIALS_VALIDATION"})
+func preConfigureCallback(alreadyRun *atomic.Bool) func(vars resource.PropertyMap, c shim.ResourceConfig) error {
+	return func(vars resource.PropertyMap, c shim.ResourceConfig) error {
+		skipCredentialsValidation := boolValue(vars, "skipCredentialsValidation",
+			[]string{"AWS_SKIP_CREDENTIALS_VALIDATION"})
 
-	// if we skipCredentialsValidation then we don't need to do anything in
-	// preConfigureCallback as this is an explicit operation
-	if skipCredentialsValidation {
-		log.Printf("[INFO] pulumi-aws: skip credentials validation")
-		return nil
-	}
-
-	var err error
-	if credentialsValidationRun.CompareAndSwap(false, true) {
-		log.Printf("[INFO] pulumi-aws: starting to validate credentials. " +
-			"Disable this by AWS_SKIP_CREDENTIALS_VALIDATION or " +
-			"skipCredentialsValidation option")
-		err = validateCredentials(vars, c)
-		if err == nil {
-			log.Printf("[INFO] pulumi-aws: credentials are valid")
-		} else {
-			log.Printf("[INFO] pulumi-aws: error validating credentials: %v", err)
+		// if we skipCredentialsValidation then we don't need to do anything in
+		// preConfigureCallback as this is an explicit operation
+		if skipCredentialsValidation {
+			log.Printf("[INFO] pulumi-aws: skip credentials validation")
+			return nil
 		}
+
+		var err error
+		if alreadyRun.CompareAndSwap(false, true) {
+			log.Printf("[INFO] pulumi-aws: starting to validate credentials. " +
+				"Disable this by AWS_SKIP_CREDENTIALS_VALIDATION or " +
+				"skipCredentialsValidation option")
+			err = validateCredentials(vars, c)
+			if err == nil {
+				log.Printf("[INFO] pulumi-aws: credentials are valid")
+			} else {
+				log.Printf("[INFO] pulumi-aws: error validating credentials: %v", err)
+			}
+		}
+		return err
 	}
-	return err
 }
 
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
@@ -737,6 +793,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 		}))
 
 	p := pftfbridge.MuxShimWithDisjointgPF(ctx, v2p, upstreamProvider.PluginFrameworkProvider)
+
+	// We should only run the validation once to avoid duplicating the reported errors.
+	var credentialsValidationRun atomic.Bool
 
 	prov := tfbridge.ProviderInfo{
 		P:                p,
@@ -791,7 +850,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				},
 			},
 		},
-		PreConfigureCallback: preConfigureCallback,
+		PreConfigureCallback: preConfigureCallback(&credentialsValidationRun),
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// AWS Certificate Manager
 			"aws_acm_certificate_validation": {

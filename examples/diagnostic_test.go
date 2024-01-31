@@ -22,7 +22,10 @@ func TestCredentialsErrorNotDuplicated(t *testing.T) {
 			"AWS_SECRET_ACCESS_KEY=INVALID",
 		},
 		ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
-			assert.Equal(t, 1, strings.Count(outputBuf.String(), "The security token included in the request is invalid"))
+			assert.Contains(t, outputBuf.String(), "Invalid credentials configured.")
+			assert.Equal(t, 1, strings.Count(outputBuf.String(),
+				"Please see https://www.pulumi.com/registry/packages/aws/installation-configuration/ "+
+					"for more information about providing credentials."))
 		},
 	}
 
