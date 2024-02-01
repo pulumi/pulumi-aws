@@ -87,7 +87,7 @@ import (
 //				Attributes: pulumi.StringMap{
 //					"example":        pulumi.String("true"),
 //					"foo":            pulumi.String("bar"),
-//					"email":          pulumi.String("no-reply@domain.example"),
+//					"email":          pulumi.String("no-reply@example.com"),
 //					"email_verified": pulumi.String("true"),
 //				},
 //			})

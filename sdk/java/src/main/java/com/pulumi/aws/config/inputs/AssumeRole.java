@@ -13,41 +13,113 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AssumeRole {
+    /**
+     * @return The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+     * 
+     */
     private @Nullable String duration;
+    /**
+     * @return A unique identifier that might be required when you assume a role in another account.
+     * 
+     */
     private @Nullable String externalId;
+    /**
+     * @return IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+     * 
+     */
     private @Nullable String policy;
+    /**
+     * @return Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+     * 
+     */
     private @Nullable List<String> policyArns;
+    /**
+     * @return Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+     * 
+     */
     private @Nullable String roleArn;
+    /**
+     * @return An identifier for the assumed role session.
+     * 
+     */
     private @Nullable String sessionName;
+    /**
+     * @return Source identity specified by the principal assuming the role.
+     * 
+     */
     private @Nullable String sourceIdentity;
+    /**
+     * @return Assume role session tags.
+     * 
+     */
     private @Nullable Map<String,String> tags;
+    /**
+     * @return Assume role session tag keys to pass to any subsequent sessions.
+     * 
+     */
     private @Nullable List<String> transitiveTagKeys;
 
     private AssumeRole() {}
+    /**
+     * @return The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+     * 
+     */
     public Optional<String> duration() {
         return Optional.ofNullable(this.duration);
     }
+    /**
+     * @return A unique identifier that might be required when you assume a role in another account.
+     * 
+     */
     public Optional<String> externalId() {
         return Optional.ofNullable(this.externalId);
     }
+    /**
+     * @return IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+     * 
+     */
     public Optional<String> policy() {
         return Optional.ofNullable(this.policy);
     }
+    /**
+     * @return Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+     * 
+     */
     public List<String> policyArns() {
         return this.policyArns == null ? List.of() : this.policyArns;
     }
+    /**
+     * @return Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+     * 
+     */
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
+    /**
+     * @return An identifier for the assumed role session.
+     * 
+     */
     public Optional<String> sessionName() {
         return Optional.ofNullable(this.sessionName);
     }
+    /**
+     * @return Source identity specified by the principal assuming the role.
+     * 
+     */
     public Optional<String> sourceIdentity() {
         return Optional.ofNullable(this.sourceIdentity);
     }
+    /**
+     * @return Assume role session tags.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
+    /**
+     * @return Assume role session tag keys to pass to any subsequent sessions.
+     * 
+     */
     public List<String> transitiveTagKeys() {
         return this.transitiveTagKeys == null ? List.of() : this.transitiveTagKeys;
     }

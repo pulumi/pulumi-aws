@@ -26,7 +26,7 @@ func GetAssumeRoleWithWebIdentity(ctx *pulumi.Context) string {
 }
 
 // File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+// variable. (Setting `caBundle` in the shared config file is not supported.)
 func GetCustomCaBundle(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:customCaBundle")
 }
@@ -55,13 +55,13 @@ func GetForbiddenAccountIds(ctx *pulumi.Context) string {
 }
 
 // URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-// `http_proxy` environment variables.
+// `httpProxy` environment variables.
 func GetHttpProxy(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:httpProxy")
 }
 
 // URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-// `https_proxy` environment variables.
+// `httpsProxy` environment variables.
 func GetHttpsProxy(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:httpsProxy")
 }
@@ -82,7 +82,7 @@ func GetMaxRetries(ctx *pulumi.Context) int {
 }
 
 // Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-// `no_proxy` environment variables.
+// `noProxy` environment variables.
 func GetNoProxy(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:noProxy")
 }
@@ -113,7 +113,7 @@ func GetRetryMode(ctx *pulumi.Context) string {
 
 // Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
 // values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+// variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
 func GetS3UsEast1RegionalEndpoint(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:s3UsEast1RegionalEndpoint")
 }

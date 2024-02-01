@@ -596,7 +596,9 @@ func (o ScraperSourceEksPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 type ScraperTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete *string `pulumi:"delete"`
 }
 
@@ -612,7 +614,9 @@ type ScraperTimeoutsInput interface {
 }
 
 type ScraperTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete pulumi.StringPtrInput `pulumi:"delete"`
 }
 
@@ -693,10 +697,12 @@ func (o ScraperTimeoutsOutput) ToScraperTimeoutsPtrOutputWithContext(ctx context
 	}).(ScraperTimeoutsPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o ScraperTimeoutsOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScraperTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o ScraperTimeoutsOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScraperTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
 }
@@ -725,6 +731,7 @@ func (o ScraperTimeoutsPtrOutput) Elem() ScraperTimeoutsOutput {
 	}).(ScraperTimeoutsOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o ScraperTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScraperTimeouts) *string {
 		if v == nil {
@@ -734,6 +741,7 @@ func (o ScraperTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o ScraperTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScraperTimeouts) *string {
 		if v == nil {

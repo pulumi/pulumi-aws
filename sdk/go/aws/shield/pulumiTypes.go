@@ -14,8 +14,11 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApplicationLayerAutomaticResponseTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Update *string `pulumi:"update"`
 }
 
@@ -31,8 +34,11 @@ type ApplicationLayerAutomaticResponseTimeoutsInput interface {
 }
 
 type ApplicationLayerAutomaticResponseTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Update pulumi.StringPtrInput `pulumi:"update"`
 }
 
@@ -113,14 +119,17 @@ func (o ApplicationLayerAutomaticResponseTimeoutsOutput) ToApplicationLayerAutom
 	}).(ApplicationLayerAutomaticResponseTimeoutsPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o ApplicationLayerAutomaticResponseTimeoutsOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationLayerAutomaticResponseTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o ApplicationLayerAutomaticResponseTimeoutsOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationLayerAutomaticResponseTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o ApplicationLayerAutomaticResponseTimeoutsOutput) Update() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationLayerAutomaticResponseTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
 }
@@ -149,6 +158,7 @@ func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) Elem() ApplicationLa
 	}).(ApplicationLayerAutomaticResponseTimeoutsOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationLayerAutomaticResponseTimeouts) *string {
 		if v == nil {
@@ -158,6 +168,7 @@ func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) Create() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationLayerAutomaticResponseTimeouts) *string {
 		if v == nil {
@@ -167,6 +178,7 @@ func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) Delete() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationLayerAutomaticResponseTimeouts) *string {
 		if v == nil {
@@ -177,9 +189,12 @@ func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) Update() pulumi.Stri
 }
 
 type DrtAccessLogBucketAssociationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete *string `pulumi:"delete"`
-	Read   *string `pulumi:"read"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+	Read *string `pulumi:"read"`
 }
 
 // DrtAccessLogBucketAssociationTimeoutsInput is an input type that accepts DrtAccessLogBucketAssociationTimeoutsArgs and DrtAccessLogBucketAssociationTimeoutsOutput values.
@@ -194,9 +209,12 @@ type DrtAccessLogBucketAssociationTimeoutsInput interface {
 }
 
 type DrtAccessLogBucketAssociationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete pulumi.StringPtrInput `pulumi:"delete"`
-	Read   pulumi.StringPtrInput `pulumi:"read"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+	Read pulumi.StringPtrInput `pulumi:"read"`
 }
 
 func (DrtAccessLogBucketAssociationTimeoutsArgs) ElementType() reflect.Type {
@@ -276,14 +294,17 @@ func (o DrtAccessLogBucketAssociationTimeoutsOutput) ToDrtAccessLogBucketAssocia
 	}).(DrtAccessLogBucketAssociationTimeoutsPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o DrtAccessLogBucketAssociationTimeoutsOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DrtAccessLogBucketAssociationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o DrtAccessLogBucketAssociationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DrtAccessLogBucketAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 func (o DrtAccessLogBucketAssociationTimeoutsOutput) Read() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DrtAccessLogBucketAssociationTimeouts) *string { return v.Read }).(pulumi.StringPtrOutput)
 }
@@ -312,6 +333,7 @@ func (o DrtAccessLogBucketAssociationTimeoutsPtrOutput) Elem() DrtAccessLogBucke
 	}).(DrtAccessLogBucketAssociationTimeoutsOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o DrtAccessLogBucketAssociationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DrtAccessLogBucketAssociationTimeouts) *string {
 		if v == nil {
@@ -321,6 +343,7 @@ func (o DrtAccessLogBucketAssociationTimeoutsPtrOutput) Create() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o DrtAccessLogBucketAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DrtAccessLogBucketAssociationTimeouts) *string {
 		if v == nil {
@@ -330,6 +353,7 @@ func (o DrtAccessLogBucketAssociationTimeoutsPtrOutput) Delete() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 func (o DrtAccessLogBucketAssociationTimeoutsPtrOutput) Read() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DrtAccessLogBucketAssociationTimeouts) *string {
 		if v == nil {
@@ -340,9 +364,12 @@ func (o DrtAccessLogBucketAssociationTimeoutsPtrOutput) Read() pulumi.StringPtrO
 }
 
 type DrtAccessRoleArnAssociationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete *string `pulumi:"delete"`
-	Read   *string `pulumi:"read"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+	Read *string `pulumi:"read"`
 }
 
 // DrtAccessRoleArnAssociationTimeoutsInput is an input type that accepts DrtAccessRoleArnAssociationTimeoutsArgs and DrtAccessRoleArnAssociationTimeoutsOutput values.
@@ -357,9 +384,12 @@ type DrtAccessRoleArnAssociationTimeoutsInput interface {
 }
 
 type DrtAccessRoleArnAssociationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete pulumi.StringPtrInput `pulumi:"delete"`
-	Read   pulumi.StringPtrInput `pulumi:"read"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+	Read pulumi.StringPtrInput `pulumi:"read"`
 }
 
 func (DrtAccessRoleArnAssociationTimeoutsArgs) ElementType() reflect.Type {
@@ -439,14 +469,17 @@ func (o DrtAccessRoleArnAssociationTimeoutsOutput) ToDrtAccessRoleArnAssociation
 	}).(DrtAccessRoleArnAssociationTimeoutsPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o DrtAccessRoleArnAssociationTimeoutsOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DrtAccessRoleArnAssociationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o DrtAccessRoleArnAssociationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DrtAccessRoleArnAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 func (o DrtAccessRoleArnAssociationTimeoutsOutput) Read() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DrtAccessRoleArnAssociationTimeouts) *string { return v.Read }).(pulumi.StringPtrOutput)
 }
@@ -475,6 +508,7 @@ func (o DrtAccessRoleArnAssociationTimeoutsPtrOutput) Elem() DrtAccessRoleArnAss
 	}).(DrtAccessRoleArnAssociationTimeoutsOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o DrtAccessRoleArnAssociationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DrtAccessRoleArnAssociationTimeouts) *string {
 		if v == nil {
@@ -484,6 +518,7 @@ func (o DrtAccessRoleArnAssociationTimeoutsPtrOutput) Create() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o DrtAccessRoleArnAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DrtAccessRoleArnAssociationTimeouts) *string {
 		if v == nil {
@@ -493,6 +528,7 @@ func (o DrtAccessRoleArnAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 func (o DrtAccessRoleArnAssociationTimeoutsPtrOutput) Read() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DrtAccessRoleArnAssociationTimeouts) *string {
 		if v == nil {

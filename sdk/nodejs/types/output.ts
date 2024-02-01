@@ -1067,7 +1067,13 @@ export namespace amp {
     }
 
     export interface ScraperTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
     }
 
@@ -10358,8 +10364,17 @@ export namespace batch {
     }
 
     export interface JobQueueTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: string;
     }
 
@@ -15882,306 +15897,1167 @@ export namespace comprehend {
 
 export namespace config {
     export interface AssumeRole {
+        /**
+         * The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+         */
         duration?: string;
+        /**
+         * A unique identifier that might be required when you assume a role in another account.
+         */
         externalId?: string;
+        /**
+         * IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+         */
         policy?: string;
+        /**
+         * Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+         */
         policyArns?: string[];
+        /**
+         * Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+         */
         roleArn?: string;
+        /**
+         * An identifier for the assumed role session.
+         */
         sessionName?: string;
+        /**
+         * Source identity specified by the principal assuming the role.
+         */
         sourceIdentity?: string;
+        /**
+         * Assume role session tags.
+         */
         tags?: {[key: string]: string};
+        /**
+         * Assume role session tag keys to pass to any subsequent sessions.
+         */
         transitiveTagKeys?: string[];
     }
 
     export interface AssumeRoleWithWebIdentity {
+        /**
+         * The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+         */
         duration?: string;
+        /**
+         * IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+         */
         policy?: string;
+        /**
+         * Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+         */
         policyArns?: string[];
+        /**
+         * Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+         */
         roleArn?: string;
+        /**
+         * An identifier for the assumed role session.
+         */
         sessionName?: string;
         webIdentityToken?: string;
         webIdentityTokenFile?: string;
     }
 
     export interface DefaultTags {
+        /**
+         * Resource tags to default across all resources
+         */
         tags?: {[key: string]: string};
     }
 
     export interface Endpoints {
+        /**
+         * Use this to override the default service endpoint URL
+         */
         accessanalyzer?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         account?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         acm?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         acmpca?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         amg?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         amp?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         amplify?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         apigateway?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         apigatewayv2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         appautoscaling?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         appconfig?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         appfabric?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         appflow?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         appintegrations?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         appintegrationsservice?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         applicationautoscaling?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         applicationinsights?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         appmesh?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         appregistry?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         apprunner?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         appstream?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         appsync?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         athena?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         auditmanager?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         autoscaling?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         autoscalingplans?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         backup?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         batch?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         beanstalk?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         bedrock?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         budgets?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ce?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         chime?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         chimesdkmediapipelines?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         chimesdkvoice?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cleanrooms?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloud9?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudcontrol?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudcontrolapi?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudformation?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudfront?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudhsm?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudhsmv2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudsearch?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudtrail?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudwatch?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudwatchevents?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudwatchevidently?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudwatchlog?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudwatchlogs?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudwatchobservabilityaccessmanager?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudwatchrum?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         codeartifact?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         codebuild?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         codecatalyst?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         codecommit?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         codedeploy?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         codeguruprofiler?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         codegurureviewer?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         codepipeline?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         codestarconnections?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         codestarnotifications?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cognitoidentity?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cognitoidentityprovider?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cognitoidp?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         comprehend?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         computeoptimizer?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         config?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         configservice?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         connect?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         connectcases?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         controltower?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         costandusagereportservice?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         costexplorer?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cur?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         customerprofiles?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         databasemigration?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         databasemigrationservice?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         dataexchange?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         datapipeline?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         datasync?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         dax?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         deploy?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         detective?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         devicefarm?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         directconnect?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         directoryservice?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         dlm?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         dms?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         docdb?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         docdbelastic?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ds?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         dynamodb?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ec2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ecr?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ecrpublic?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ecs?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         efs?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         eks?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         elasticache?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         elasticbeanstalk?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         elasticloadbalancing?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         elasticloadbalancingv2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         elasticsearch?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         elasticsearchservice?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         elastictranscoder?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         elb?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         elbv2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         emr?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         emrcontainers?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         emrserverless?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         es?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         eventbridge?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         events?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         evidently?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         finspace?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         firehose?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         fis?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         fms?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         fsx?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         gamelift?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         glacier?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         globalaccelerator?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         glue?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         grafana?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         greengrass?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         groundstation?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         guardduty?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         healthlake?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         iam?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         identitystore?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         imagebuilder?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         inspector?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         inspector2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         inspectorv2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         internetmonitor?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         iot?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         iotanalytics?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         iotevents?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ivs?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ivschat?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         kafka?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         kafkaconnect?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         kendra?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         keyspaces?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         kinesis?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         kinesisanalytics?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         kinesisanalyticsv2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         kinesisvideo?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         kms?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         lakeformation?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         lambda?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         launchwizard?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         lex?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         lexmodelbuilding?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         lexmodelbuildingservice?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         lexmodels?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         lexmodelsv2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         lexv2models?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         licensemanager?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         lightsail?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         location?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         locationservice?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         logs?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         lookoutmetrics?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         m2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         macie2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         managedgrafana?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         mediaconnect?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         mediaconvert?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         medialive?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         mediapackage?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         mediapackagev2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         mediastore?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         memorydb?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         mq?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         msk?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         mwaa?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         neptune?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         networkfirewall?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         networkmanager?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         oam?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         opensearch?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         opensearchingestion?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         opensearchserverless?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         opensearchservice?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         opsworks?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         organizations?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         osis?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         outposts?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         pcaconnectorad?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         pinpoint?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         pipes?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         polly?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         pricing?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         prometheus?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         prometheusservice?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         qbusiness?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         qldb?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         quicksight?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ram?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         rbin?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         rds?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         recyclebin?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         redshift?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         redshiftdata?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         redshiftdataapiservice?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         redshiftserverless?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         rekognition?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         resourceexplorer2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         resourcegroups?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         resourcegroupstagging?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         resourcegroupstaggingapi?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         rolesanywhere?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         route53?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         route53domains?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         route53recoverycontrolconfig?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         route53recoveryreadiness?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         route53resolver?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         rum?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         s3?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         s3api?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         s3control?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         s3outposts?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         sagemaker?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         scheduler?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         schemas?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         sdb?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         secretsmanager?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         securityhub?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         securitylake?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         serverlessapplicationrepository?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         serverlessapprepo?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         serverlessrepo?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         servicecatalog?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         servicecatalogappregistry?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         servicediscovery?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         servicequotas?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ses?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         sesv2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         sfn?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         shield?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         signer?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         simpledb?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         sns?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         sqs?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ssm?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ssmcontacts?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ssmincidents?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ssmsap?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         sso?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ssoadmin?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         stepfunctions?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         storagegateway?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         sts?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         swf?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         synthetics?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         timestreamwrite?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         transcribe?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         transcribeservice?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         transfer?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         verifiedpermissions?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         vpclattice?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         waf?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         wafregional?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         wafv2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         wellarchitected?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         worklink?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         workspaces?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         xray?: string;
     }
 
     export interface IgnoreTags {
+        /**
+         * Resource tag key prefixes to ignore across all resources.
+         */
         keyPrefixes?: string[];
+        /**
+         * Resource tag keys to ignore across all resources.
+         */
         keys?: string[];
     }
 
@@ -20215,8 +21091,17 @@ export namespace docdb {
     }
 
     export interface ElasticClusterTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: string;
     }
 
@@ -20473,7 +21358,13 @@ export namespace dynamodb {
 
 export namespace ebs {
     export interface FastSnapshotRestoreTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
     }
 
@@ -26864,7 +27755,13 @@ export namespace ec2transitgateway {
     }
 
     export interface InstanceConnectEndpointTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
     }
 
@@ -28471,8 +29368,17 @@ export namespace elasticache {
     }
 
     export interface ServerlessCacheTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: string;
     }
 
@@ -33729,7 +34635,13 @@ export namespace iam {
     }
 
     export interface GetPrincipalPolicySimulationResultMatchedStatement {
+        /**
+         * Identifier of one of the policies used as input to the simulation.
+         */
         sourcePolicyId: string;
+        /**
+         * The type of the policy identified in source_policy_id.
+         */
         sourcePolicyType: string;
     }
 
@@ -41637,8 +42549,17 @@ export namespace lex {
     }
 
     export interface V2modelsBotLocaleTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: string;
     }
 
@@ -41677,8 +42598,17 @@ export namespace lex {
     }
 
     export interface V2modelsBotTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: string;
     }
 
@@ -41687,7 +42617,13 @@ export namespace lex {
     }
 
     export interface V2modelsBotVersionTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
     }
 
@@ -52821,8 +53757,17 @@ export namespace lex {
     }
 
     export interface V2modelsIntentTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: string;
     }
 
@@ -59319,7 +60264,13 @@ export namespace opensearch {
     }
 
     export interface ServerlessCollectionTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
     }
 
@@ -59343,8 +60294,17 @@ export namespace opensearch {
     }
 
     export interface ServerlessVpcEndpointTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: string;
     }
 
@@ -63195,7 +64155,13 @@ export namespace quicksight {
     }
 
     export interface NamespaceTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
     }
 
@@ -63472,8 +64438,17 @@ export namespace quicksight {
     }
 
     export interface VpcConnectionTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: string;
     }
 
@@ -63651,7 +64626,13 @@ export namespace rds {
     }
 
     export interface ExportTaskTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
     }
 
@@ -64254,7 +65235,13 @@ export namespace redshiftserverless {
 
 export namespace rekognition {
     export interface ProjectTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
     }
 
@@ -64262,8 +65249,17 @@ export namespace rekognition {
 
 export namespace resourceexplorer {
     export interface IndexTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: string;
     }
 
@@ -64757,7 +65753,13 @@ export namespace route53domains {
     }
 
     export interface DelegationSignerRecordTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
     }
 
@@ -71705,8 +72707,17 @@ export namespace securitylake {
     }
 
     export interface DataLakeTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: string;
     }
 
@@ -72648,20 +73659,47 @@ export namespace sfn {
 
 export namespace shield {
     export interface ApplicationLayerAutomaticResponseTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: string;
     }
 
     export interface DrtAccessLogBucketAssociationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+         */
         read?: string;
     }
 
     export interface DrtAccessRoleArnAssociationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+         */
         read?: string;
     }
 
@@ -84199,8 +85237,17 @@ export namespace worklink {
 
 export namespace workspaces {
     export interface ConnectionAliasTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: string;
     }
 

@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *             .attributes(Map.ofEntries(
  *                 Map.entry(&#34;example&#34;, true),
  *                 Map.entry(&#34;foo&#34;, &#34;bar&#34;),
- *                 Map.entry(&#34;email&#34;, &#34;no-reply@domain.example&#34;),
+ *                 Map.entry(&#34;email&#34;, &#34;no-reply@example.com&#34;),
  *                 Map.entry(&#34;email_verified&#34;, true)
  *             ))
  *             .build());

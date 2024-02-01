@@ -189,7 +189,9 @@ func (o DelegationSignerRecordSigningAttributesPtrOutput) PublicKey() pulumi.Str
 }
 
 type DelegationSignerRecordTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete *string `pulumi:"delete"`
 }
 
@@ -205,7 +207,9 @@ type DelegationSignerRecordTimeoutsInput interface {
 }
 
 type DelegationSignerRecordTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete pulumi.StringPtrInput `pulumi:"delete"`
 }
 
@@ -286,10 +290,12 @@ func (o DelegationSignerRecordTimeoutsOutput) ToDelegationSignerRecordTimeoutsPt
 	}).(DelegationSignerRecordTimeoutsPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o DelegationSignerRecordTimeoutsOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DelegationSignerRecordTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o DelegationSignerRecordTimeoutsOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DelegationSignerRecordTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
 }
@@ -318,6 +324,7 @@ func (o DelegationSignerRecordTimeoutsPtrOutput) Elem() DelegationSignerRecordTi
 	}).(DelegationSignerRecordTimeoutsOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o DelegationSignerRecordTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DelegationSignerRecordTimeouts) *string {
 		if v == nil {
@@ -327,6 +334,7 @@ func (o DelegationSignerRecordTimeoutsPtrOutput) Create() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o DelegationSignerRecordTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DelegationSignerRecordTimeouts) *string {
 		if v == nil {

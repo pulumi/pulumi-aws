@@ -11,1085 +11,3245 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class Endpoints {
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String accessanalyzer;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String account;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String acm;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String acmpca;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String amg;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String amp;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String amplify;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String apigateway;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String apigatewayv2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String appautoscaling;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String appconfig;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String appfabric;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String appflow;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String appintegrations;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String appintegrationsservice;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String applicationautoscaling;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String applicationinsights;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String appmesh;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String appregistry;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String apprunner;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String appstream;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String appsync;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String athena;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String auditmanager;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String autoscaling;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String autoscalingplans;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String backup;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String batch;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String beanstalk;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String bedrock;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String budgets;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ce;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String chime;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String chimesdkmediapipelines;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String chimesdkvoice;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cleanrooms;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloud9;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudcontrol;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudcontrolapi;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudformation;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudfront;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudhsm;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudhsmv2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudsearch;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudtrail;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudwatch;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudwatchevents;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudwatchevidently;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudwatchlog;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudwatchlogs;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudwatchobservabilityaccessmanager;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudwatchrum;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String codeartifact;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String codebuild;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String codecatalyst;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String codecommit;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String codedeploy;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String codeguruprofiler;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String codegurureviewer;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String codepipeline;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String codestarconnections;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String codestarnotifications;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cognitoidentity;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cognitoidentityprovider;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cognitoidp;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String comprehend;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String computeoptimizer;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String config;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String configservice;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String connect;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String connectcases;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String controltower;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String costandusagereportservice;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String costexplorer;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cur;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String customerprofiles;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String databasemigration;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String databasemigrationservice;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String dataexchange;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String datapipeline;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String datasync;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String dax;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String deploy;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String detective;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String devicefarm;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String directconnect;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String directoryservice;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String dlm;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String dms;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String docdb;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String docdbelastic;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ds;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String dynamodb;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ec2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ecr;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ecrpublic;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ecs;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String efs;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String eks;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String elasticache;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String elasticbeanstalk;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String elasticloadbalancing;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String elasticloadbalancingv2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String elasticsearch;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String elasticsearchservice;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String elastictranscoder;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String elb;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String elbv2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String emr;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String emrcontainers;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String emrserverless;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String es;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String eventbridge;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String events;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String evidently;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String finspace;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String firehose;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String fis;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String fms;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String fsx;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String gamelift;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String glacier;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String globalaccelerator;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String glue;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String grafana;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String greengrass;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String groundstation;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String guardduty;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String healthlake;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String iam;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String identitystore;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String imagebuilder;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String inspector;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String inspector2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String inspectorv2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String internetmonitor;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String iot;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String iotanalytics;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String iotevents;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ivs;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ivschat;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String kafka;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String kafkaconnect;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String kendra;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String keyspaces;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String kinesis;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String kinesisanalytics;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String kinesisanalyticsv2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String kinesisvideo;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String kms;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String lakeformation;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String lambda;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String launchwizard;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String lex;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String lexmodelbuilding;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String lexmodelbuildingservice;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String lexmodels;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String lexmodelsv2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String lexv2models;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String licensemanager;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String lightsail;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String location;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String locationservice;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String logs;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String lookoutmetrics;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String m2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String macie2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String managedgrafana;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String mediaconnect;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String mediaconvert;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String medialive;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String mediapackage;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String mediapackagev2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String mediastore;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String memorydb;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String mq;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String msk;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String mwaa;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String neptune;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String networkfirewall;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String networkmanager;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String oam;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String opensearch;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String opensearchingestion;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String opensearchserverless;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String opensearchservice;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String opsworks;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String organizations;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String osis;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String outposts;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String pcaconnectorad;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String pinpoint;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String pipes;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String polly;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String pricing;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String prometheus;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String prometheusservice;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String qbusiness;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String qldb;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String quicksight;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ram;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String rbin;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String rds;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String recyclebin;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String redshift;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String redshiftdata;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String redshiftdataapiservice;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String redshiftserverless;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String rekognition;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String resourceexplorer2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String resourcegroups;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String resourcegroupstagging;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String resourcegroupstaggingapi;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String rolesanywhere;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String route53;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String route53domains;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String route53recoverycontrolconfig;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String route53recoveryreadiness;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String route53resolver;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String rum;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String s3;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String s3api;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String s3control;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String s3outposts;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String sagemaker;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String scheduler;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String schemas;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String sdb;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String secretsmanager;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String securityhub;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String securitylake;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String serverlessapplicationrepository;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String serverlessapprepo;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String serverlessrepo;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String servicecatalog;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String servicecatalogappregistry;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String servicediscovery;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String servicequotas;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ses;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String sesv2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String sfn;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String shield;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String signer;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String simpledb;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String sns;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String sqs;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ssm;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ssmcontacts;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ssmincidents;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ssmsap;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String sso;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ssoadmin;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String stepfunctions;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String storagegateway;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String sts;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String swf;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String synthetics;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String timestreamwrite;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String transcribe;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String transcribeservice;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String transfer;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String verifiedpermissions;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String vpclattice;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String waf;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String wafregional;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String wafv2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String wellarchitected;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String worklink;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String workspaces;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String xray;
 
     private Endpoints() {}
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> accessanalyzer() {
         return Optional.ofNullable(this.accessanalyzer);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> account() {
         return Optional.ofNullable(this.account);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> acm() {
         return Optional.ofNullable(this.acm);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> acmpca() {
         return Optional.ofNullable(this.acmpca);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> amg() {
         return Optional.ofNullable(this.amg);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> amp() {
         return Optional.ofNullable(this.amp);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> amplify() {
         return Optional.ofNullable(this.amplify);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> apigateway() {
         return Optional.ofNullable(this.apigateway);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> apigatewayv2() {
         return Optional.ofNullable(this.apigatewayv2);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> appautoscaling() {
         return Optional.ofNullable(this.appautoscaling);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> appconfig() {
         return Optional.ofNullable(this.appconfig);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> appfabric() {
         return Optional.ofNullable(this.appfabric);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> appflow() {
         return Optional.ofNullable(this.appflow);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> appintegrations() {
         return Optional.ofNullable(this.appintegrations);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> appintegrationsservice() {
         return Optional.ofNullable(this.appintegrationsservice);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> applicationautoscaling() {
         return Optional.ofNullable(this.applicationautoscaling);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> applicationinsights() {
         return Optional.ofNullable(this.applicationinsights);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> appmesh() {
         return Optional.ofNullable(this.appmesh);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> appregistry() {
         return Optional.ofNullable(this.appregistry);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> apprunner() {
         return Optional.ofNullable(this.apprunner);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> appstream() {
         return Optional.ofNullable(this.appstream);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> appsync() {
         return Optional.ofNullable(this.appsync);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> athena() {
         return Optional.ofNullable(this.athena);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> auditmanager() {
         return Optional.ofNullable(this.auditmanager);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> autoscaling() {
         return Optional.ofNullable(this.autoscaling);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> autoscalingplans() {
         return Optional.ofNullable(this.autoscalingplans);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> backup() {
         return Optional.ofNullable(this.backup);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> batch() {
         return Optional.ofNullable(this.batch);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> beanstalk() {
         return Optional.ofNullable(this.beanstalk);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> bedrock() {
         return Optional.ofNullable(this.bedrock);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> budgets() {
         return Optional.ofNullable(this.budgets);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ce() {
         return Optional.ofNullable(this.ce);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> chime() {
         return Optional.ofNullable(this.chime);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> chimesdkmediapipelines() {
         return Optional.ofNullable(this.chimesdkmediapipelines);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> chimesdkvoice() {
         return Optional.ofNullable(this.chimesdkvoice);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cleanrooms() {
         return Optional.ofNullable(this.cleanrooms);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloud9() {
         return Optional.ofNullable(this.cloud9);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudcontrol() {
         return Optional.ofNullable(this.cloudcontrol);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudcontrolapi() {
         return Optional.ofNullable(this.cloudcontrolapi);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudformation() {
         return Optional.ofNullable(this.cloudformation);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudfront() {
         return Optional.ofNullable(this.cloudfront);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudhsm() {
         return Optional.ofNullable(this.cloudhsm);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudhsmv2() {
         return Optional.ofNullable(this.cloudhsmv2);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudsearch() {
         return Optional.ofNullable(this.cloudsearch);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudtrail() {
         return Optional.ofNullable(this.cloudtrail);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudwatch() {
         return Optional.ofNullable(this.cloudwatch);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudwatchevents() {
         return Optional.ofNullable(this.cloudwatchevents);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudwatchevidently() {
         return Optional.ofNullable(this.cloudwatchevidently);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudwatchlog() {
         return Optional.ofNullable(this.cloudwatchlog);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudwatchlogs() {
         return Optional.ofNullable(this.cloudwatchlogs);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudwatchobservabilityaccessmanager() {
         return Optional.ofNullable(this.cloudwatchobservabilityaccessmanager);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudwatchrum() {
         return Optional.ofNullable(this.cloudwatchrum);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> codeartifact() {
         return Optional.ofNullable(this.codeartifact);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> codebuild() {
         return Optional.ofNullable(this.codebuild);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> codecatalyst() {
         return Optional.ofNullable(this.codecatalyst);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> codecommit() {
         return Optional.ofNullable(this.codecommit);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> codedeploy() {
         return Optional.ofNullable(this.codedeploy);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> codeguruprofiler() {
         return Optional.ofNullable(this.codeguruprofiler);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> codegurureviewer() {
         return Optional.ofNullable(this.codegurureviewer);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> codepipeline() {
         return Optional.ofNullable(this.codepipeline);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> codestarconnections() {
         return Optional.ofNullable(this.codestarconnections);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> codestarnotifications() {
         return Optional.ofNullable(this.codestarnotifications);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cognitoidentity() {
         return Optional.ofNullable(this.cognitoidentity);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cognitoidentityprovider() {
         return Optional.ofNullable(this.cognitoidentityprovider);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cognitoidp() {
         return Optional.ofNullable(this.cognitoidp);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> comprehend() {
         return Optional.ofNullable(this.comprehend);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> computeoptimizer() {
         return Optional.ofNullable(this.computeoptimizer);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> config() {
         return Optional.ofNullable(this.config);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> configservice() {
         return Optional.ofNullable(this.configservice);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> connect() {
         return Optional.ofNullable(this.connect);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> connectcases() {
         return Optional.ofNullable(this.connectcases);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> controltower() {
         return Optional.ofNullable(this.controltower);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> costandusagereportservice() {
         return Optional.ofNullable(this.costandusagereportservice);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> costexplorer() {
         return Optional.ofNullable(this.costexplorer);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cur() {
         return Optional.ofNullable(this.cur);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> customerprofiles() {
         return Optional.ofNullable(this.customerprofiles);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> databasemigration() {
         return Optional.ofNullable(this.databasemigration);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> databasemigrationservice() {
         return Optional.ofNullable(this.databasemigrationservice);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> dataexchange() {
         return Optional.ofNullable(this.dataexchange);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> datapipeline() {
         return Optional.ofNullable(this.datapipeline);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> datasync() {
         return Optional.ofNullable(this.datasync);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> dax() {
         return Optional.ofNullable(this.dax);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> deploy() {
         return Optional.ofNullable(this.deploy);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> detective() {
         return Optional.ofNullable(this.detective);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> devicefarm() {
         return Optional.ofNullable(this.devicefarm);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> directconnect() {
         return Optional.ofNullable(this.directconnect);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> directoryservice() {
         return Optional.ofNullable(this.directoryservice);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> dlm() {
         return Optional.ofNullable(this.dlm);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> dms() {
         return Optional.ofNullable(this.dms);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> docdb() {
         return Optional.ofNullable(this.docdb);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> docdbelastic() {
         return Optional.ofNullable(this.docdbelastic);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ds() {
         return Optional.ofNullable(this.ds);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> dynamodb() {
         return Optional.ofNullable(this.dynamodb);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ec2() {
         return Optional.ofNullable(this.ec2);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ecr() {
         return Optional.ofNullable(this.ecr);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ecrpublic() {
         return Optional.ofNullable(this.ecrpublic);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ecs() {
         return Optional.ofNullable(this.ecs);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> efs() {
         return Optional.ofNullable(this.efs);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> eks() {
         return Optional.ofNullable(this.eks);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> elasticache() {
         return Optional.ofNullable(this.elasticache);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> elasticbeanstalk() {
         return Optional.ofNullable(this.elasticbeanstalk);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> elasticloadbalancing() {
         return Optional.ofNullable(this.elasticloadbalancing);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> elasticloadbalancingv2() {
         return Optional.ofNullable(this.elasticloadbalancingv2);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> elasticsearch() {
         return Optional.ofNullable(this.elasticsearch);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> elasticsearchservice() {
         return Optional.ofNullable(this.elasticsearchservice);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> elastictranscoder() {
         return Optional.ofNullable(this.elastictranscoder);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> elb() {
         return Optional.ofNullable(this.elb);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> elbv2() {
         return Optional.ofNullable(this.elbv2);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> emr() {
         return Optional.ofNullable(this.emr);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> emrcontainers() {
         return Optional.ofNullable(this.emrcontainers);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> emrserverless() {
         return Optional.ofNullable(this.emrserverless);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> es() {
         return Optional.ofNullable(this.es);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> eventbridge() {
         return Optional.ofNullable(this.eventbridge);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> events() {
         return Optional.ofNullable(this.events);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> evidently() {
         return Optional.ofNullable(this.evidently);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> finspace() {
         return Optional.ofNullable(this.finspace);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> firehose() {
         return Optional.ofNullable(this.firehose);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> fis() {
         return Optional.ofNullable(this.fis);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> fms() {
         return Optional.ofNullable(this.fms);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> fsx() {
         return Optional.ofNullable(this.fsx);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> gamelift() {
         return Optional.ofNullable(this.gamelift);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> glacier() {
         return Optional.ofNullable(this.glacier);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> globalaccelerator() {
         return Optional.ofNullable(this.globalaccelerator);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> glue() {
         return Optional.ofNullable(this.glue);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> grafana() {
         return Optional.ofNullable(this.grafana);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> greengrass() {
         return Optional.ofNullable(this.greengrass);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> groundstation() {
         return Optional.ofNullable(this.groundstation);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> guardduty() {
         return Optional.ofNullable(this.guardduty);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> healthlake() {
         return Optional.ofNullable(this.healthlake);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> iam() {
         return Optional.ofNullable(this.iam);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> identitystore() {
         return Optional.ofNullable(this.identitystore);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> imagebuilder() {
         return Optional.ofNullable(this.imagebuilder);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> inspector() {
         return Optional.ofNullable(this.inspector);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> inspector2() {
         return Optional.ofNullable(this.inspector2);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> inspectorv2() {
         return Optional.ofNullable(this.inspectorv2);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> internetmonitor() {
         return Optional.ofNullable(this.internetmonitor);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> iot() {
         return Optional.ofNullable(this.iot);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> iotanalytics() {
         return Optional.ofNullable(this.iotanalytics);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> iotevents() {
         return Optional.ofNullable(this.iotevents);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ivs() {
         return Optional.ofNullable(this.ivs);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ivschat() {
         return Optional.ofNullable(this.ivschat);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> kafka() {
         return Optional.ofNullable(this.kafka);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> kafkaconnect() {
         return Optional.ofNullable(this.kafkaconnect);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> kendra() {
         return Optional.ofNullable(this.kendra);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> keyspaces() {
         return Optional.ofNullable(this.keyspaces);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> kinesis() {
         return Optional.ofNullable(this.kinesis);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> kinesisanalytics() {
         return Optional.ofNullable(this.kinesisanalytics);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> kinesisanalyticsv2() {
         return Optional.ofNullable(this.kinesisanalyticsv2);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> kinesisvideo() {
         return Optional.ofNullable(this.kinesisvideo);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> kms() {
         return Optional.ofNullable(this.kms);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> lakeformation() {
         return Optional.ofNullable(this.lakeformation);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> lambda() {
         return Optional.ofNullable(this.lambda);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> launchwizard() {
         return Optional.ofNullable(this.launchwizard);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> lex() {
         return Optional.ofNullable(this.lex);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> lexmodelbuilding() {
         return Optional.ofNullable(this.lexmodelbuilding);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> lexmodelbuildingservice() {
         return Optional.ofNullable(this.lexmodelbuildingservice);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> lexmodels() {
         return Optional.ofNullable(this.lexmodels);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> lexmodelsv2() {
         return Optional.ofNullable(this.lexmodelsv2);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> lexv2models() {
         return Optional.ofNullable(this.lexv2models);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> licensemanager() {
         return Optional.ofNullable(this.licensemanager);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> lightsail() {
         return Optional.ofNullable(this.lightsail);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> location() {
         return Optional.ofNullable(this.location);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> locationservice() {
         return Optional.ofNullable(this.locationservice);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> logs() {
         return Optional.ofNullable(this.logs);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> lookoutmetrics() {
         return Optional.ofNullable(this.lookoutmetrics);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> m2() {
         return Optional.ofNullable(this.m2);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> macie2() {
         return Optional.ofNullable(this.macie2);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> managedgrafana() {
         return Optional.ofNullable(this.managedgrafana);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> mediaconnect() {
         return Optional.ofNullable(this.mediaconnect);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> mediaconvert() {
         return Optional.ofNullable(this.mediaconvert);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> medialive() {
         return Optional.ofNullable(this.medialive);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> mediapackage() {
         return Optional.ofNullable(this.mediapackage);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> mediapackagev2() {
         return Optional.ofNullable(this.mediapackagev2);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> mediastore() {
         return Optional.ofNullable(this.mediastore);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> memorydb() {
         return Optional.ofNullable(this.memorydb);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> mq() {
         return Optional.ofNullable(this.mq);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> msk() {
         return Optional.ofNullable(this.msk);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> mwaa() {
         return Optional.ofNullable(this.mwaa);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> neptune() {
         return Optional.ofNullable(this.neptune);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> networkfirewall() {
         return Optional.ofNullable(this.networkfirewall);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> networkmanager() {
         return Optional.ofNullable(this.networkmanager);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> oam() {
         return Optional.ofNullable(this.oam);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> opensearch() {
         return Optional.ofNullable(this.opensearch);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> opensearchingestion() {
         return Optional.ofNullable(this.opensearchingestion);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> opensearchserverless() {
         return Optional.ofNullable(this.opensearchserverless);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> opensearchservice() {
         return Optional.ofNullable(this.opensearchservice);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> opsworks() {
         return Optional.ofNullable(this.opsworks);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> organizations() {
         return Optional.ofNullable(this.organizations);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> osis() {
         return Optional.ofNullable(this.osis);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> outposts() {
         return Optional.ofNullable(this.outposts);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> pcaconnectorad() {
         return Optional.ofNullable(this.pcaconnectorad);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> pinpoint() {
         return Optional.ofNullable(this.pinpoint);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> pipes() {
         return Optional.ofNullable(this.pipes);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> polly() {
         return Optional.ofNullable(this.polly);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> pricing() {
         return Optional.ofNullable(this.pricing);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> prometheus() {
         return Optional.ofNullable(this.prometheus);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> prometheusservice() {
         return Optional.ofNullable(this.prometheusservice);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> qbusiness() {
         return Optional.ofNullable(this.qbusiness);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> qldb() {
         return Optional.ofNullable(this.qldb);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> quicksight() {
         return Optional.ofNullable(this.quicksight);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ram() {
         return Optional.ofNullable(this.ram);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> rbin() {
         return Optional.ofNullable(this.rbin);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> rds() {
         return Optional.ofNullable(this.rds);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> recyclebin() {
         return Optional.ofNullable(this.recyclebin);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> redshift() {
         return Optional.ofNullable(this.redshift);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> redshiftdata() {
         return Optional.ofNullable(this.redshiftdata);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> redshiftdataapiservice() {
         return Optional.ofNullable(this.redshiftdataapiservice);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> redshiftserverless() {
         return Optional.ofNullable(this.redshiftserverless);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> rekognition() {
         return Optional.ofNullable(this.rekognition);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> resourceexplorer2() {
         return Optional.ofNullable(this.resourceexplorer2);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> resourcegroups() {
         return Optional.ofNullable(this.resourcegroups);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> resourcegroupstagging() {
         return Optional.ofNullable(this.resourcegroupstagging);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> resourcegroupstaggingapi() {
         return Optional.ofNullable(this.resourcegroupstaggingapi);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> rolesanywhere() {
         return Optional.ofNullable(this.rolesanywhere);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> route53() {
         return Optional.ofNullable(this.route53);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> route53domains() {
         return Optional.ofNullable(this.route53domains);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> route53recoverycontrolconfig() {
         return Optional.ofNullable(this.route53recoverycontrolconfig);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> route53recoveryreadiness() {
         return Optional.ofNullable(this.route53recoveryreadiness);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> route53resolver() {
         return Optional.ofNullable(this.route53resolver);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> rum() {
         return Optional.ofNullable(this.rum);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> s3() {
         return Optional.ofNullable(this.s3);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> s3api() {
         return Optional.ofNullable(this.s3api);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> s3control() {
         return Optional.ofNullable(this.s3control);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> s3outposts() {
         return Optional.ofNullable(this.s3outposts);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> sagemaker() {
         return Optional.ofNullable(this.sagemaker);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> scheduler() {
         return Optional.ofNullable(this.scheduler);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> schemas() {
         return Optional.ofNullable(this.schemas);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> sdb() {
         return Optional.ofNullable(this.sdb);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> secretsmanager() {
         return Optional.ofNullable(this.secretsmanager);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> securityhub() {
         return Optional.ofNullable(this.securityhub);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> securitylake() {
         return Optional.ofNullable(this.securitylake);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> serverlessapplicationrepository() {
         return Optional.ofNullable(this.serverlessapplicationrepository);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> serverlessapprepo() {
         return Optional.ofNullable(this.serverlessapprepo);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> serverlessrepo() {
         return Optional.ofNullable(this.serverlessrepo);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> servicecatalog() {
         return Optional.ofNullable(this.servicecatalog);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> servicecatalogappregistry() {
         return Optional.ofNullable(this.servicecatalogappregistry);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> servicediscovery() {
         return Optional.ofNullable(this.servicediscovery);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> servicequotas() {
         return Optional.ofNullable(this.servicequotas);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ses() {
         return Optional.ofNullable(this.ses);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> sesv2() {
         return Optional.ofNullable(this.sesv2);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> sfn() {
         return Optional.ofNullable(this.sfn);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> shield() {
         return Optional.ofNullable(this.shield);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> signer() {
         return Optional.ofNullable(this.signer);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> simpledb() {
         return Optional.ofNullable(this.simpledb);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> sns() {
         return Optional.ofNullable(this.sns);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> sqs() {
         return Optional.ofNullable(this.sqs);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ssm() {
         return Optional.ofNullable(this.ssm);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ssmcontacts() {
         return Optional.ofNullable(this.ssmcontacts);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ssmincidents() {
         return Optional.ofNullable(this.ssmincidents);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ssmsap() {
         return Optional.ofNullable(this.ssmsap);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> sso() {
         return Optional.ofNullable(this.sso);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ssoadmin() {
         return Optional.ofNullable(this.ssoadmin);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> stepfunctions() {
         return Optional.ofNullable(this.stepfunctions);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> storagegateway() {
         return Optional.ofNullable(this.storagegateway);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> sts() {
         return Optional.ofNullable(this.sts);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> swf() {
         return Optional.ofNullable(this.swf);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> synthetics() {
         return Optional.ofNullable(this.synthetics);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> timestreamwrite() {
         return Optional.ofNullable(this.timestreamwrite);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> transcribe() {
         return Optional.ofNullable(this.transcribe);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> transcribeservice() {
         return Optional.ofNullable(this.transcribeservice);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> transfer() {
         return Optional.ofNullable(this.transfer);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> verifiedpermissions() {
         return Optional.ofNullable(this.verifiedpermissions);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> vpclattice() {
         return Optional.ofNullable(this.vpclattice);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> waf() {
         return Optional.ofNullable(this.waf);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> wafregional() {
         return Optional.ofNullable(this.wafregional);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> wafv2() {
         return Optional.ofNullable(this.wafv2);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> wellarchitected() {
         return Optional.ofNullable(this.wellarchitected);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> worklink() {
         return Optional.ofNullable(this.worklink);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> workspaces() {
         return Optional.ofNullable(this.workspaces);
     }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> xray() {
         return Optional.ofNullable(this.xray);
     }

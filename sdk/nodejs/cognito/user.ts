@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *     attributes: {
  *         example: "true",
  *         foo: "bar",
- *         email: "no-reply@domain.example",
+ *         email: "no-reply@example.com",
  *         email_verified: "true",
  *     },
  * });

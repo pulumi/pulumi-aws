@@ -534,7 +534,7 @@ class User(pulumi.CustomResource):
             attributes={
                 "example": "true",
                 "foo": "bar",
-                "email": "no-reply@domain.example",
+                "email": "no-reply@example.com",
                 "email_verified": "true",
             })
         ```
@@ -615,7 +615,7 @@ class User(pulumi.CustomResource):
             attributes={
                 "example": "true",
                 "foo": "bar",
-                "email": "no-reply@domain.example",
+                "email": "no-reply@example.com",
                 "email_verified": "true",
             })
         ```

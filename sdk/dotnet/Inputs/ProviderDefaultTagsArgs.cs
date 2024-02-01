@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Inputs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags to default across all resources
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

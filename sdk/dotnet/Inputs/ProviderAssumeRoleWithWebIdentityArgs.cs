@@ -12,23 +12,39 @@ namespace Pulumi.Aws.Inputs
 
     public sealed class ProviderAssumeRoleWithWebIdentityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+        /// </summary>
         [Input("duration")]
         public Input<string>? Duration { get; set; }
 
+        /// <summary>
+        /// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
         [Input("policyArns")]
         private InputList<string>? _policyArns;
+
+        /// <summary>
+        /// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+        /// </summary>
         public InputList<string> PolicyArns
         {
             get => _policyArns ?? (_policyArns = new InputList<string>());
             set => _policyArns = value;
         }
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// An identifier for the assumed role session.
+        /// </summary>
         [Input("sessionName")]
         public Input<string>? SessionName { get; set; }
 
