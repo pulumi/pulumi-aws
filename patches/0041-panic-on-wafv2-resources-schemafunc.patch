@@ -1,0 +1,230 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Venelin <venelin@pulumi.com>
+Date: Thu, 1 Feb 2024 11:56:17 +0000
+Subject: [PATCH 41/41] panic on wafv2 schema funcs
+
+
+diff --git a/internal/service/wafv2/ip_set.go b/internal/service/wafv2/ip_set.go
+index 3595c224ab..b4b2575591 100644
+--- a/internal/service/wafv2/ip_set.go
++++ b/internal/service/wafv2/ip_set.go
+@@ -56,6 +56,7 @@ func ResourceIPSet() *schema.Resource {
+ 		},
+ 
+ 		SchemaFunc: func() map[string]*schema.Schema {
++			panic("WAFV2 resource schema func called!")
+ 			return map[string]*schema.Schema{
+ 				"addresses": {
+ 					Type:     schema.TypeSet,
+@@ -147,7 +148,6 @@ func resourceIPSetCreate(ctx context.Context, d *schema.ResourceData, meta inter
+ 	}
+ 
+ 	output, err := conn.CreateIPSetWithContext(ctx, input)
+-
+ 	if err != nil {
+ 		return diag.Errorf("creating WAFv2 IPSet (%s): %s", name, err)
+ 	}
+@@ -206,7 +206,6 @@ func resourceIPSetUpdate(ctx context.Context, d *schema.ResourceData, meta inter
+ 
+ 		log.Printf("[INFO] Updating WAFv2 IPSet: %s", input)
+ 		_, err := conn.UpdateIPSetWithContext(ctx, input)
+-
+ 		if err != nil {
+ 			return diag.Errorf("updating WAFv2 IPSet (%s): %s", d.Id(), err)
+ 		}
+diff --git a/internal/service/wafv2/ip_set_data_source.go b/internal/service/wafv2/ip_set_data_source.go
+index fecabb3d9f..0b82d2c01f 100644
+--- a/internal/service/wafv2/ip_set_data_source.go
++++ b/internal/service/wafv2/ip_set_data_source.go
+@@ -22,6 +22,7 @@ func DataSourceIPSet() *schema.Resource {
+ 		ReadWithoutTimeout: dataSourceIPSetRead,
+ 
+ 		SchemaFunc: func() map[string]*schema.Schema {
++			panic("WAFV2 resource schema func called!")
+ 			return map[string]*schema.Schema{
+ 				"addresses": {
+ 					Type:     schema.TypeSet,
+@@ -97,7 +98,6 @@ func dataSourceIPSetRead(ctx context.Context, d *schema.ResourceData, meta inter
+ 		Name:  foundIpSet.Name,
+ 		Scope: aws.String(d.Get("scope").(string)),
+ 	})
+-
+ 	if err != nil {
+ 		return sdkdiag.AppendErrorf(diags, "reading WAFv2 IPSet: %s", err)
+ 	}
+diff --git a/internal/service/wafv2/regex_pattern_set.go b/internal/service/wafv2/regex_pattern_set.go
+index 8c2a86d8ea..e1f789d61c 100644
+--- a/internal/service/wafv2/regex_pattern_set.go
++++ b/internal/service/wafv2/regex_pattern_set.go
+@@ -54,6 +54,7 @@ func ResourceRegexPatternSet() *schema.Resource {
+ 		},
+ 
+ 		SchemaFunc: func() map[string]*schema.Schema {
++			panic("WAFV2 resource schema func called!")
+ 			return map[string]*schema.Schema{
+ 				"arn": {
+ 					Type:     schema.TypeString,
+@@ -126,7 +127,6 @@ func resourceRegexPatternSetCreate(ctx context.Context, d *schema.ResourceData,
+ 	}
+ 
+ 	output, err := conn.CreateRegexPatternSetWithContext(ctx, input)
+-
+ 	if err != nil {
+ 		return diag.Errorf("creating WAFv2 RegexPatternSet (%s): %s", name, err)
+ 	}
+@@ -186,7 +186,6 @@ func resourceRegexPatternSetUpdate(ctx context.Context, d *schema.ResourceData,
+ 
+ 		log.Printf("[INFO] Updating WAFv2 RegexPatternSet: %s", input)
+ 		_, err := conn.UpdateRegexPatternSetWithContext(ctx, input)
+-
+ 		if err != nil {
+ 			return diag.Errorf("updating WAFv2 RegexPatternSet (%s): %s", d.Id(), err)
+ 		}
+diff --git a/internal/service/wafv2/regex_pattern_set_data_source.go b/internal/service/wafv2/regex_pattern_set_data_source.go
+index b0965ff813..6c6b2e6a33 100644
+--- a/internal/service/wafv2/regex_pattern_set_data_source.go
++++ b/internal/service/wafv2/regex_pattern_set_data_source.go
+@@ -21,6 +21,7 @@ func DataSourceRegexPatternSet() *schema.Resource {
+ 		ReadWithoutTimeout: dataSourceRegexPatternSetRead,
+ 
+ 		SchemaFunc: func() map[string]*schema.Schema {
++			panic("WAFV2 resource schema func called!")
+ 			return map[string]*schema.Schema{
+ 				"arn": {
+ 					Type:     schema.TypeString,
+@@ -99,7 +100,6 @@ func dataSourceRegexPatternSetRead(ctx context.Context, d *schema.ResourceData,
+ 		Name:  foundRegexPatternSet.Name,
+ 		Scope: aws.String(d.Get("scope").(string)),
+ 	})
+-
+ 	if err != nil {
+ 		return sdkdiag.AppendErrorf(diags, "reading WAFv2 RegexPatternSet: %s", err)
+ 	}
+diff --git a/internal/service/wafv2/rule_group.go b/internal/service/wafv2/rule_group.go
+index bf0a0440ed..a6e7e426fc 100644
+--- a/internal/service/wafv2/rule_group.go
++++ b/internal/service/wafv2/rule_group.go
+@@ -59,6 +59,7 @@ func ResourceRuleGroup() *schema.Resource {
+ 		},
+ 
+ 		SchemaFunc: func() map[string]*schema.Schema {
++			panic("WAFV2 resource schema func called!")
+ 			return map[string]*schema.Schema{
+ 				"arn": {
+ 					Type:     schema.TypeString,
+@@ -177,7 +178,6 @@ func resourceRuleGroupCreate(ctx context.Context, d *schema.ResourceData, meta i
+ 	outputRaw, err := tfresource.RetryWhenAWSErrCodeEquals(ctx, ruleGroupCreateTimeout, func() (interface{}, error) {
+ 		return conn.CreateRuleGroupWithContext(ctx, input)
+ 	}, wafv2.ErrCodeWAFUnavailableEntityException)
+-
+ 	if err != nil {
+ 		return diag.Errorf("creating WAFv2 RuleGroup (%s): %s", name, err)
+ 	}
+@@ -247,7 +247,6 @@ func resourceRuleGroupUpdate(ctx context.Context, d *schema.ResourceData, meta i
+ 		_, err := tfresource.RetryWhenAWSErrCodeEquals(ctx, ruleGroupUpdateTimeout, func() (interface{}, error) {
+ 			return conn.UpdateRuleGroupWithContext(ctx, input)
+ 		}, wafv2.ErrCodeWAFUnavailableEntityException)
+-
+ 		if err != nil {
+ 			return diag.Errorf("updating WAFv2 RuleGroup (%s): %s", d.Id(), err)
+ 		}
+diff --git a/internal/service/wafv2/rule_group_data_source.go b/internal/service/wafv2/rule_group_data_source.go
+index df3c50c5f9..0b7d122208 100644
+--- a/internal/service/wafv2/rule_group_data_source.go
++++ b/internal/service/wafv2/rule_group_data_source.go
+@@ -21,6 +21,7 @@ func DataSourceRuleGroup() *schema.Resource {
+ 		ReadWithoutTimeout: dataSourceRuleGroupRead,
+ 
+ 		SchemaFunc: func() map[string]*schema.Schema {
++			panic("WAFV2 resource schema func called!")
+ 			return map[string]*schema.Schema{
+ 				"arn": {
+ 					Type:     schema.TypeString,
+diff --git a/internal/service/wafv2/web_acl.go b/internal/service/wafv2/web_acl.go
+index 0b2155da15..8529aa6fe8 100644
+--- a/internal/service/wafv2/web_acl.go
++++ b/internal/service/wafv2/web_acl.go
+@@ -58,6 +58,7 @@ func ResourceWebACL() *schema.Resource {
+ 		},
+ 
+ 		SchemaFunc: func() map[string]*schema.Schema {
++			panic("WAFV2 resource schema func called!")
+ 			return map[string]*schema.Schema{
+ 				"arn": {
+ 					Type:     schema.TypeString,
+@@ -204,7 +205,6 @@ func resourceWebACLCreate(ctx context.Context, d *schema.ResourceData, meta inte
+ 	outputRaw, err := tfresource.RetryWhenAWSErrCodeEquals(ctx, webACLCreateTimeout, func() (interface{}, error) {
+ 		return conn.CreateWebACLWithContext(ctx, input)
+ 	}, wafv2.ErrCodeWAFUnavailableEntityException)
+-
+ 	if err != nil {
+ 		return diag.Errorf("creating WAFv2 WebACL (%s): %s", name, err)
+ 	}
+diff --git a/internal/service/wafv2/web_acl_association.go b/internal/service/wafv2/web_acl_association.go
+index 705d135742..0df63da85f 100644
+--- a/internal/service/wafv2/web_acl_association.go
++++ b/internal/service/wafv2/web_acl_association.go
+@@ -37,6 +37,7 @@ func ResourceWebACLAssociation() *schema.Resource {
+ 		},
+ 
+ 		SchemaFunc: func() map[string]*schema.Schema {
++			panic("WAFV2 resource schema func called!")
+ 			return map[string]*schema.Schema{
+ 				"resource_arn": {
+ 					Type:         schema.TypeString,
+@@ -70,7 +71,6 @@ func resourceWebACLAssociationCreate(ctx context.Context, d *schema.ResourceData
+ 	_, err := tfresource.RetryWhenAWSErrCodeEquals(ctx, d.Timeout(schema.TimeoutCreate), func() (interface{}, error) {
+ 		return conn.AssociateWebACLWithContext(ctx, input)
+ 	}, wafv2.ErrCodeWAFUnavailableEntityException)
+-
+ 	if err != nil {
+ 		return diag.Errorf("creating WAFv2 WebACL Association (%s): %s", id, err)
+ 	}
+@@ -84,7 +84,6 @@ func resourceWebACLAssociationRead(ctx context.Context, d *schema.ResourceData,
+ 	conn := meta.(*conns.AWSClient).WAFV2Conn(ctx)
+ 
+ 	_, resourceARN, err := WebACLAssociationParseResourceID(d.Id())
+-
+ 	if err != nil {
+ 		return diag.FromErr(err)
+ 	}
+@@ -111,7 +110,6 @@ func resourceWebACLAssociationDelete(ctx context.Context, d *schema.ResourceData
+ 	conn := meta.(*conns.AWSClient).WAFV2Conn(ctx)
+ 
+ 	_, resourceARN, err := WebACLAssociationParseResourceID(d.Id())
+-
+ 	if err != nil {
+ 		return diag.FromErr(err)
+ 	}
+diff --git a/internal/service/wafv2/web_acl_data_source.go b/internal/service/wafv2/web_acl_data_source.go
+index f4a4bf9d39..e27e0c9584 100644
+--- a/internal/service/wafv2/web_acl_data_source.go
++++ b/internal/service/wafv2/web_acl_data_source.go
+@@ -21,6 +21,7 @@ func DataSourceWebACL() *schema.Resource {
+ 		ReadWithoutTimeout: dataSourceWebACLRead,
+ 
+ 		SchemaFunc: func() map[string]*schema.Schema {
++			panic("WAFV2 resource schema func called!")
+ 			return map[string]*schema.Schema{
+ 				"arn": {
+ 					Type:     schema.TypeString,
+diff --git a/internal/service/wafv2/web_acl_logging_configuration.go b/internal/service/wafv2/web_acl_logging_configuration.go
+index 368b7b8a7f..f0565705e3 100644
+--- a/internal/service/wafv2/web_acl_logging_configuration.go
++++ b/internal/service/wafv2/web_acl_logging_configuration.go
+@@ -38,6 +38,7 @@ func ResourceWebACLLoggingConfiguration() *schema.Resource {
+ 		},
+ 
+ 		SchemaFunc: func() map[string]*schema.Schema {
++			panic("WAFV2 resource schema func called!")
+ 			return map[string]*schema.Schema{
+ 				"log_destination_configs": {
+ 					Type:     schema.TypeSet,
+@@ -197,7 +198,6 @@ func resourceWebACLLoggingConfigurationPut(ctx context.Context, d *schema.Resour
+ 	}
+ 
+ 	output, err := conn.PutLoggingConfigurationWithContext(ctx, input)
+-
+ 	if err != nil {
+ 		return sdkdiag.AppendErrorf(diags, "putting WAFv2 WebACL Logging Configuration (%s): %s", resourceARN, err)
+ 	}

@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:32:49 +0000
-Subject: [PATCH 08/40] Add EKS cluster certificate_authorities (plural)
+Subject: [PATCH 08/41] Add EKS cluster certificate_authorities (plural)
 
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go

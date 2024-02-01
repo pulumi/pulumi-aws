@@ -269,6 +269,76 @@ func TestOtherFailureErrorMessage(t *testing.T) {
 	}]`)
 }
 
+func TestCheckConfigAndConfigure(t *testing.T) {
+	t.Setenv("AWS_SKIP_CREDENTIALS_VALIDATION", "true")
+	replaySequence(t, `
+	[
+		{
+			"method": "/pulumirpc.ResourceProvider/CheckConfig",
+			"request": {
+				"urn": "urn:pulumi:dev::new_bucket::pulumi:providers:aws::default_6_10_0",
+				"olds": {
+					"region": "us-east-1",
+					"skipCredentialsValidation": "true",
+					"skipMetadataApiCheck": "true",
+					"skipRegionValidation": "true",
+					"version": "6.10.0"
+				},
+				"news": {
+					"region": "us-east-1",
+					"version": "6.19.0",
+					"skipCredentialsValidation": "true"
+				}
+			},
+			"response": {
+				"inputs": {
+					"region": "us-east-1",
+					"skipCredentialsValidation": "true",
+					"skipMetadataApiCheck": "true",
+					"skipRegionValidation": "true",
+					"version": "6.19.0"
+				}
+			},
+			"metadata": {
+				"kind": "resource",
+				"mode": "client",
+				"name": "aws"
+			}
+		},
+		{
+			"method": "/pulumirpc.ResourceProvider/Configure",
+			"request": {
+				"variables": {
+					"aws:config:region": "us-east-1",
+					"aws:config:skipCredentialsValidation": "true",
+					"aws:config:skipMetadataApiCheck": "true",
+					"aws:config:skipRegionValidation": "true"
+				},
+				"args": {
+					"region": "us-east-1",
+					"skipCredentialsValidation": "true",
+					"skipMetadataApiCheck": "true",
+					"skipRegionValidation": "true",
+					"version": "6.19.0"
+				},
+				"acceptSecrets": true,
+				"acceptResources": true,
+				"sendsOldInputs": true,
+				"sendsOldInputsToDelete": true
+			},
+			"response": {
+				"supportsPreview": true
+			},
+			"metadata": {
+				"kind": "resource",
+				"mode": "client",
+				"name": "aws"
+			}
+		}
+	]
+	`)
+}
+
 func replaySequence(t *testing.T, sequence string) {
 	info := *Provider()
 	ctx := context.Background()
