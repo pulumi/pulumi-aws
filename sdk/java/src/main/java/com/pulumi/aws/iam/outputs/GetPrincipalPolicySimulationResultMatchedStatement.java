@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPrincipalPolicySimulationResultMatchedStatement {
+    /**
+     * @return Identifier of one of the policies used as input to the simulation.
+     * 
+     */
     private String sourcePolicyId;
+    /**
+     * @return The type of the policy identified in source_policy_id.
+     * 
+     */
     private String sourcePolicyType;
 
     private GetPrincipalPolicySimulationResultMatchedStatement() {}
+    /**
+     * @return Identifier of one of the policies used as input to the simulation.
+     * 
+     */
     public String sourcePolicyId() {
         return this.sourcePolicyId;
     }
+    /**
+     * @return The type of the policy identified in source_policy_id.
+     * 
+     */
     public String sourcePolicyType() {
         return this.sourcePolicyType;
     }

@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Inputs
     {
         [Input("keyPrefixes")]
         private InputList<string>? _keyPrefixes;
+
+        /// <summary>
+        /// Resource tag key prefixes to ignore across all resources.
+        /// </summary>
         public InputList<string> KeyPrefixes
         {
             get => _keyPrefixes ?? (_keyPrefixes = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.Aws.Inputs
 
         [Input("keys")]
         private InputList<string>? _keys;
+
+        /// <summary>
+        /// Resource tag keys to ignore across all resources.
+        /// </summary>
         public InputList<string> Keys
         {
             get => _keys ?? (_keys = new InputList<string>());

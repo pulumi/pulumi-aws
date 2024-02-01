@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type InstanceConnectEndpointTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete *string `pulumi:"delete"`
 }
 
@@ -30,7 +32,9 @@ type InstanceConnectEndpointTimeoutsInput interface {
 }
 
 type InstanceConnectEndpointTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete pulumi.StringPtrInput `pulumi:"delete"`
 }
 
@@ -111,10 +115,12 @@ func (o InstanceConnectEndpointTimeoutsOutput) ToInstanceConnectEndpointTimeouts
 	}).(InstanceConnectEndpointTimeoutsPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o InstanceConnectEndpointTimeoutsOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceConnectEndpointTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o InstanceConnectEndpointTimeoutsOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceConnectEndpointTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
 }
@@ -143,6 +149,7 @@ func (o InstanceConnectEndpointTimeoutsPtrOutput) Elem() InstanceConnectEndpoint
 	}).(InstanceConnectEndpointTimeoutsOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 func (o InstanceConnectEndpointTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpointTimeouts) *string {
 		if v == nil {
@@ -152,6 +159,7 @@ func (o InstanceConnectEndpointTimeoutsPtrOutput) Create() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 func (o InstanceConnectEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpointTimeouts) *string {
 		if v == nil {

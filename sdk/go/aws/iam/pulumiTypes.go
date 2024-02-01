@@ -1135,7 +1135,9 @@ func (o GetPrincipalPolicySimulationResultArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetPrincipalPolicySimulationResultMatchedStatement struct {
-	SourcePolicyId   string `pulumi:"sourcePolicyId"`
+	// Identifier of one of the policies used as input to the simulation.
+	SourcePolicyId string `pulumi:"sourcePolicyId"`
+	// The type of the policy identified in source_policy_id.
 	SourcePolicyType string `pulumi:"sourcePolicyType"`
 }
 
@@ -1151,7 +1153,9 @@ type GetPrincipalPolicySimulationResultMatchedStatementInput interface {
 }
 
 type GetPrincipalPolicySimulationResultMatchedStatementArgs struct {
-	SourcePolicyId   pulumi.StringInput `pulumi:"sourcePolicyId"`
+	// Identifier of one of the policies used as input to the simulation.
+	SourcePolicyId pulumi.StringInput `pulumi:"sourcePolicyId"`
+	// The type of the policy identified in source_policy_id.
 	SourcePolicyType pulumi.StringInput `pulumi:"sourcePolicyType"`
 }
 
@@ -1206,10 +1210,12 @@ func (o GetPrincipalPolicySimulationResultMatchedStatementOutput) ToGetPrincipal
 	return o
 }
 
+// Identifier of one of the policies used as input to the simulation.
 func (o GetPrincipalPolicySimulationResultMatchedStatementOutput) SourcePolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalPolicySimulationResultMatchedStatement) string { return v.SourcePolicyId }).(pulumi.StringOutput)
 }
 
+// The type of the policy identified in source_policy_id.
 func (o GetPrincipalPolicySimulationResultMatchedStatementOutput) SourcePolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalPolicySimulationResultMatchedStatement) string { return v.SourcePolicyType }).(pulumi.StringOutput)
 }
