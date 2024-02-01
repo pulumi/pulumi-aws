@@ -16,16 +16,32 @@ public final class ProviderIgnoreTagsArgs extends com.pulumi.resources.ResourceA
 
     public static final ProviderIgnoreTagsArgs Empty = new ProviderIgnoreTagsArgs();
 
+    /**
+     * Resource tag key prefixes to ignore across all resources.
+     * 
+     */
     @Import(name="keyPrefixes")
     private @Nullable Output<List<String>> keyPrefixes;
 
+    /**
+     * @return Resource tag key prefixes to ignore across all resources.
+     * 
+     */
     public Optional<Output<List<String>>> keyPrefixes() {
         return Optional.ofNullable(this.keyPrefixes);
     }
 
+    /**
+     * Resource tag keys to ignore across all resources.
+     * 
+     */
     @Import(name="keys")
     private @Nullable Output<List<String>> keys;
 
+    /**
+     * @return Resource tag keys to ignore across all resources.
+     * 
+     */
     public Optional<Output<List<String>>> keys() {
         return Optional.ofNullable(this.keys);
     }
@@ -55,28 +71,64 @@ public final class ProviderIgnoreTagsArgs extends com.pulumi.resources.ResourceA
             $ = new ProviderIgnoreTagsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param keyPrefixes Resource tag key prefixes to ignore across all resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyPrefixes(@Nullable Output<List<String>> keyPrefixes) {
             $.keyPrefixes = keyPrefixes;
             return this;
         }
 
+        /**
+         * @param keyPrefixes Resource tag key prefixes to ignore across all resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyPrefixes(List<String> keyPrefixes) {
             return keyPrefixes(Output.of(keyPrefixes));
         }
 
+        /**
+         * @param keyPrefixes Resource tag key prefixes to ignore across all resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyPrefixes(String... keyPrefixes) {
             return keyPrefixes(List.of(keyPrefixes));
         }
 
+        /**
+         * @param keys Resource tag keys to ignore across all resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keys(@Nullable Output<List<String>> keys) {
             $.keys = keys;
             return this;
         }
 
+        /**
+         * @param keys Resource tag keys to ignore across all resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keys(List<String> keys) {
             return keys(Output.of(keys));
         }
 
+        /**
+         * @param keys Resource tag keys to ignore across all resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keys(String... keys) {
             return keys(List.of(keys));
         }

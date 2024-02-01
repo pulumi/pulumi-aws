@@ -75,306 +75,1167 @@ export interface GetRegionsFilterArgs {
 }
 
 export interface ProviderAssumeRole {
+    /**
+     * The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+     */
     duration?: pulumi.Input<string>;
+    /**
+     * A unique identifier that might be required when you assume a role in another account.
+     */
     externalId?: pulumi.Input<string>;
+    /**
+     * IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+     */
     policy?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+     */
     policyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * An identifier for the assumed role session.
+     */
     sessionName?: pulumi.Input<string>;
+    /**
+     * Source identity specified by the principal assuming the role.
+     */
     sourceIdentity?: pulumi.Input<string>;
+    /**
+     * Assume role session tags.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Assume role session tag keys to pass to any subsequent sessions.
+     */
     transitiveTagKeys?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ProviderAssumeRoleWithWebIdentity {
+    /**
+     * The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+     */
     duration?: pulumi.Input<string>;
+    /**
+     * IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+     */
     policy?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+     */
     policyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+     */
     roleArn?: pulumi.Input<string>;
+    /**
+     * An identifier for the assumed role session.
+     */
     sessionName?: pulumi.Input<string>;
     webIdentityToken?: pulumi.Input<string>;
     webIdentityTokenFile?: pulumi.Input<string>;
 }
 
 export interface ProviderDefaultTags {
+    /**
+     * Resource tags to default across all resources
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 export interface ProviderEndpoint {
+    /**
+     * Use this to override the default service endpoint URL
+     */
     accessanalyzer?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     account?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     acm?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     acmpca?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     amg?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     amp?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     amplify?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     apigateway?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     apigatewayv2?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     appautoscaling?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     appconfig?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     appfabric?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     appflow?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     appintegrations?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     appintegrationsservice?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     applicationautoscaling?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     applicationinsights?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     appmesh?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     appregistry?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     apprunner?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     appstream?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     appsync?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     athena?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     auditmanager?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     autoscaling?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     autoscalingplans?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     backup?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     batch?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     beanstalk?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     bedrock?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     budgets?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ce?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     chime?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     chimesdkmediapipelines?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     chimesdkvoice?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cleanrooms?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloud9?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudcontrol?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudcontrolapi?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudformation?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudfront?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudhsm?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudhsmv2?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudsearch?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudtrail?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudwatch?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudwatchevents?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudwatchevidently?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudwatchlog?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudwatchlogs?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudwatchobservabilityaccessmanager?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudwatchrum?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     codeartifact?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     codebuild?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     codecatalyst?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     codecommit?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     codedeploy?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     codeguruprofiler?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     codegurureviewer?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     codepipeline?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     codestarconnections?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     codestarnotifications?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cognitoidentity?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cognitoidentityprovider?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cognitoidp?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     comprehend?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     computeoptimizer?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     config?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     configservice?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     connect?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     connectcases?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     controltower?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     costandusagereportservice?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     costexplorer?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cur?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     customerprofiles?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     databasemigration?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     databasemigrationservice?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     dataexchange?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     datapipeline?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     datasync?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     dax?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     deploy?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     detective?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     devicefarm?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     directconnect?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     directoryservice?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     dlm?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     dms?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     docdb?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     docdbelastic?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ds?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     dynamodb?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ec2?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ecr?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ecrpublic?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ecs?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     efs?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     eks?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     elasticache?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     elasticbeanstalk?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     elasticloadbalancing?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     elasticloadbalancingv2?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     elasticsearch?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     elasticsearchservice?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     elastictranscoder?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     elb?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     elbv2?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     emr?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     emrcontainers?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     emrserverless?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     es?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     eventbridge?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     events?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     evidently?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     finspace?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     firehose?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     fis?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     fms?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     fsx?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     gamelift?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     glacier?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     globalaccelerator?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     glue?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     grafana?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     greengrass?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     groundstation?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     guardduty?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     healthlake?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     iam?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     identitystore?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     imagebuilder?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     inspector?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     inspector2?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     inspectorv2?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     internetmonitor?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     iot?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     iotanalytics?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     iotevents?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ivs?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ivschat?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     kafka?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     kafkaconnect?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     kendra?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     keyspaces?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     kinesis?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     kinesisanalytics?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     kinesisanalyticsv2?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     kinesisvideo?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     kms?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     lakeformation?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     lambda?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     launchwizard?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     lex?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     lexmodelbuilding?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     lexmodelbuildingservice?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     lexmodels?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     lexmodelsv2?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     lexv2models?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     licensemanager?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     lightsail?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     location?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     locationservice?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     logs?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     lookoutmetrics?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     m2?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     macie2?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     managedgrafana?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     mediaconnect?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     mediaconvert?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     medialive?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     mediapackage?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     mediapackagev2?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     mediastore?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     memorydb?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     mq?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     msk?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     mwaa?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     neptune?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     networkfirewall?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     networkmanager?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     oam?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     opensearch?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     opensearchingestion?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     opensearchserverless?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     opensearchservice?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     opsworks?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     organizations?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     osis?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     outposts?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     pcaconnectorad?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     pinpoint?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     pipes?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     polly?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     pricing?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     prometheus?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     prometheusservice?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     qbusiness?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     qldb?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     quicksight?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ram?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     rbin?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     rds?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     recyclebin?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     redshift?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     redshiftdata?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     redshiftdataapiservice?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     redshiftserverless?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     rekognition?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     resourceexplorer2?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     resourcegroups?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     resourcegroupstagging?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     resourcegroupstaggingapi?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     rolesanywhere?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     route53?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     route53domains?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     route53recoverycontrolconfig?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     route53recoveryreadiness?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     route53resolver?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     rum?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     s3?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     s3api?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     s3control?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     s3outposts?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     sagemaker?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     scheduler?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     schemas?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     sdb?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     secretsmanager?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     securityhub?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     securitylake?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     serverlessapplicationrepository?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     serverlessapprepo?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     serverlessrepo?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     servicecatalog?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     servicecatalogappregistry?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     servicediscovery?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     servicequotas?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ses?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     sesv2?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     sfn?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     shield?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     signer?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     simpledb?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     sns?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     sqs?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ssm?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ssmcontacts?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ssmincidents?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ssmsap?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     sso?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ssoadmin?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     stepfunctions?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     storagegateway?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     sts?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     swf?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     synthetics?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     timestreamwrite?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     transcribe?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     transcribeservice?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     transfer?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     verifiedpermissions?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     vpclattice?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     waf?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     wafregional?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     wafv2?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     wellarchitected?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     worklink?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     workspaces?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     xray?: pulumi.Input<string>;
 }
 
 export interface ProviderIgnoreTags {
+    /**
+     * Resource tag key prefixes to ignore across all resources.
+     */
     keyPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Resource tag keys to ignore across all resources.
+     */
     keys?: pulumi.Input<pulumi.Input<string>[]>;
 }
 export namespace accessanalyzer {
@@ -1265,7 +2126,13 @@ export namespace amp {
     }
 
     export interface ScraperTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
     }
 
@@ -8956,8 +9823,17 @@ export namespace batch {
     }
 
     export interface JobQueueTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: pulumi.Input<string>;
     }
 
@@ -17313,8 +18189,17 @@ export namespace docdb {
     }
 
     export interface ElasticClusterTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: pulumi.Input<string>;
     }
 
@@ -17529,7 +18414,13 @@ export namespace dynamodb {
 
 export namespace ebs {
     export interface FastSnapshotRestoreTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
     }
 
@@ -22968,7 +23859,13 @@ export namespace ec2transitgateway {
     }
 
     export interface InstanceConnectEndpointTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
     }
 }
@@ -24444,8 +25341,17 @@ export namespace elasticache {
     }
 
     export interface ServerlessCacheTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: pulumi.Input<string>;
     }
 
@@ -36259,8 +37165,17 @@ export namespace lex {
     }
 
     export interface V2modelsBotLocaleTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: pulumi.Input<string>;
     }
 
@@ -36299,8 +37214,17 @@ export namespace lex {
     }
 
     export interface V2modelsBotTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: pulumi.Input<string>;
     }
 
@@ -36309,7 +37233,13 @@ export namespace lex {
     }
 
     export interface V2modelsBotVersionTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
     }
 
@@ -47443,8 +48373,17 @@ export namespace lex {
     }
 
     export interface V2modelsIntentTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: pulumi.Input<string>;
     }
 }
@@ -53395,7 +54334,13 @@ export namespace opensearch {
     }
 
     export interface ServerlessCollectionTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
     }
 
@@ -53419,8 +54364,17 @@ export namespace opensearch {
     }
 
     export interface ServerlessVpcEndpointTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: pulumi.Input<string>;
     }
 
@@ -56769,7 +57723,13 @@ export namespace quicksight {
     }
 
     export interface NamespaceTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
     }
 
@@ -57046,8 +58006,17 @@ export namespace quicksight {
     }
 
     export interface VpcConnectionTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: pulumi.Input<string>;
     }
 }
@@ -57233,7 +58202,13 @@ export namespace rds {
     }
 
     export interface ExportTaskTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
     }
 
@@ -57765,15 +58740,30 @@ export namespace redshiftserverless {
 
 export namespace rekognition {
     export interface ProjectTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
     }
 }
 
 export namespace resourceexplorer {
     export interface IndexTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: pulumi.Input<string>;
     }
 
@@ -58405,7 +59395,13 @@ export namespace route53domains {
     }
 
     export interface DelegationSignerRecordTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
     }
 
@@ -65307,8 +66303,17 @@ export namespace securitylake {
     }
 
     export interface DataLakeTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: pulumi.Input<string>;
     }
 }
@@ -66001,20 +67006,47 @@ export namespace sfn {
 
 export namespace shield {
     export interface ApplicationLayerAutomaticResponseTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: pulumi.Input<string>;
     }
 
     export interface DrtAccessLogBucketAssociationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+         */
         read?: pulumi.Input<string>;
     }
 
     export interface DrtAccessRoleArnAssociationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+         */
         read?: pulumi.Input<string>;
     }
 }
@@ -77375,8 +78407,17 @@ export namespace worklink {
 
 export namespace workspaces {
     export interface ConnectionAliasTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
         delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
         update?: pulumi.Input<string>;
     }
 

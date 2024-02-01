@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Iam.Outputs
     [OutputType]
     public sealed class GetPrincipalPolicySimulationResultMatchedStatementResult
     {
+        /// <summary>
+        /// Identifier of one of the policies used as input to the simulation.
+        /// </summary>
         public readonly string SourcePolicyId;
+        /// <summary>
+        /// The type of the policy identified in source_policy_id.
+        /// </summary>
         public readonly string SourcePolicyType;
 
         [OutputConstructor]

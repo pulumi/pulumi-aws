@@ -12,27 +12,67 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AssumeRoleWithWebIdentity {
+    /**
+     * @return The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+     * 
+     */
     private @Nullable String duration;
+    /**
+     * @return IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+     * 
+     */
     private @Nullable String policy;
+    /**
+     * @return Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+     * 
+     */
     private @Nullable List<String> policyArns;
+    /**
+     * @return Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+     * 
+     */
     private @Nullable String roleArn;
+    /**
+     * @return An identifier for the assumed role session.
+     * 
+     */
     private @Nullable String sessionName;
     private @Nullable String webIdentityToken;
     private @Nullable String webIdentityTokenFile;
 
     private AssumeRoleWithWebIdentity() {}
+    /**
+     * @return The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+     * 
+     */
     public Optional<String> duration() {
         return Optional.ofNullable(this.duration);
     }
+    /**
+     * @return IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+     * 
+     */
     public Optional<String> policy() {
         return Optional.ofNullable(this.policy);
     }
+    /**
+     * @return Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+     * 
+     */
     public List<String> policyArns() {
         return this.policyArns == null ? List.of() : this.policyArns;
     }
+    /**
+     * @return Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+     * 
+     */
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
+    /**
+     * @return An identifier for the assumed role session.
+     * 
+     */
     public Optional<String> sessionName() {
         return Optional.ofNullable(this.sessionName);
     }

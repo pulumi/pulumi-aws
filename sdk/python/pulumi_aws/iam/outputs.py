@@ -497,17 +497,27 @@ class GetPrincipalPolicySimulationResultMatchedStatementResult(dict):
     def __init__(__self__, *,
                  source_policy_id: str,
                  source_policy_type: str):
+        """
+        :param str source_policy_id: Identifier of one of the policies used as input to the simulation.
+        :param str source_policy_type: The type of the policy identified in source_policy_id.
+        """
         pulumi.set(__self__, "source_policy_id", source_policy_id)
         pulumi.set(__self__, "source_policy_type", source_policy_type)
 
     @property
     @pulumi.getter(name="sourcePolicyId")
     def source_policy_id(self) -> str:
+        """
+        Identifier of one of the policies used as input to the simulation.
+        """
         return pulumi.get(self, "source_policy_id")
 
     @property
     @pulumi.getter(name="sourcePolicyType")
     def source_policy_type(self) -> str:
+        """
+        The type of the policy identified in source_policy_id.
+        """
         return pulumi.get(self, "source_policy_type")
 
 
