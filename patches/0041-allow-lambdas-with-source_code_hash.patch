@@ -1,0 +1,141 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Venelin <venelin@pulumi.com>
+Date: Thu, 1 Feb 2024 20:07:48 +0000
+Subject: [PATCH 41/41] allow lambdas with source_code_hash
+
+
+diff --git a/internal/service/lambda/function.go b/internal/service/lambda/function.go
+index f7a47a0df7..2250da925a 100644
+--- a/internal/service/lambda/function.go
++++ b/internal/service/lambda/function.go
+@@ -169,7 +169,7 @@ func ResourceFunction() *schema.Resource {
+ 			"filename": {
+ 				Type:         schema.TypeString,
+ 				Optional:     true,
+-				ExactlyOneOf: []string{"filename", "image_uri", "s3_bucket"},
++				ExactlyOneOf: []string{"filename", "image_uri", "s3_bucket", "source_code_hash"},
+ 			},
+ 			"function_name": {
+ 				Type:         schema.TypeString,
+@@ -208,7 +208,7 @@ func ResourceFunction() *schema.Resource {
+ 			"image_uri": {
+ 				Type:         schema.TypeString,
+ 				Optional:     true,
+-				ExactlyOneOf: []string{"filename", "image_uri", "s3_bucket"},
++				ExactlyOneOf: []string{"filename", "image_uri", "s3_bucket", "source_code_hash"},
+ 			},
+ 			"invoke_arn": {
+ 				Type:     schema.TypeString,
+@@ -324,7 +324,7 @@ func ResourceFunction() *schema.Resource {
+ 			"s3_bucket": {
+ 				Type:         schema.TypeString,
+ 				Optional:     true,
+-				ExactlyOneOf: []string{"filename", "image_uri", "s3_bucket"},
++				ExactlyOneOf: []string{"filename", "image_uri", "s3_bucket", "source_code_hash"},
+ 				RequiredWith: []string{"s3_key"},
+ 			},
+ 			"s3_key": {
+@@ -491,7 +491,6 @@ func resourceFunctionCreate(ctx context.Context, d *schema.ResourceData, meta in
+ 		defer conns.GlobalMutexKV.Unlock(mutexKey)
+ 
+ 		zipFile, err := readFileContents(v.(string))
+-
+ 		if err != nil {
+ 			return sdkdiag.AppendErrorf(diags, "reading ZIP file (%s): %s", v, err)
+ 		}
+@@ -586,7 +585,6 @@ func resourceFunctionCreate(ctx context.Context, d *schema.ResourceData, meta in
+ 	_, err := retryFunctionOp(ctx, func() (interface{}, error) {
+ 		return conn.CreateFunction(ctx, input)
+ 	})
+-
+ 	if err != nil {
+ 		return sdkdiag.AppendErrorf(diags, "creating Lambda Function (%s): %s", functionName, err)
+ 	}
+@@ -610,7 +608,6 @@ func resourceFunctionCreate(ctx context.Context, d *schema.ResourceData, meta in
+ 			FunctionName:                 aws.String(d.Id()),
+ 			ReservedConcurrentExecutions: aws.Int32(int32(v)),
+ 		})
+-
+ 		if err != nil {
+ 			return sdkdiag.AppendErrorf(diags, "setting Lambda Function (%s) concurrency: %s", d.Id(), err)
+ 		}
+@@ -726,7 +723,6 @@ func resourceFunctionRead(ctx context.Context, d *schema.ResourceData, meta inte
+ 		d.Set("version", function.Version)
+ 	} else {
+ 		latest, err := findLatestFunctionVersionByName(ctx, conn, d.Id())
+-
+ 		if err != nil {
+ 			return sdkdiag.AppendErrorf(diags, "reading Lambda Function (%s) latest version: %s", d.Id(), err)
+ 		}
+@@ -752,7 +748,6 @@ func resourceFunctionRead(ctx context.Context, d *schema.ResourceData, meta inte
+ 			output, err := conn.GetFunctionCodeSigningConfig(ctx, &lambda.GetFunctionCodeSigningConfigInput{
+ 				FunctionName: aws.String(d.Id()),
+ 			})
+-
+ 			if err != nil {
+ 				return sdkdiag.AppendErrorf(diags, "reading Lambda Function (%s) code signing config: %s", d.Id(), err)
+ 			}
+@@ -778,7 +773,6 @@ func resourceFunctionUpdate(ctx context.Context, d *schema.ResourceData, meta in
+ 				CodeSigningConfigArn: aws.String(v.(string)),
+ 				FunctionName:         aws.String(d.Id()),
+ 			})
+-
+ 			if err != nil {
+ 				return sdkdiag.AppendErrorf(diags, "setting Lambda Function (%s) code signing config: %s", d.Id(), err)
+ 			}
+@@ -786,7 +780,6 @@ func resourceFunctionUpdate(ctx context.Context, d *schema.ResourceData, meta in
+ 			_, err := conn.DeleteFunctionCodeSigningConfig(ctx, &lambda.DeleteFunctionCodeSigningConfigInput{
+ 				FunctionName: aws.String(d.Id()),
+ 			})
+-
+ 			if err != nil {
+ 				return sdkdiag.AppendErrorf(diags, "deleting Lambda Function (%s) code signing config: %s", d.Id(), err)
+ 			}
+@@ -921,7 +914,6 @@ func resourceFunctionUpdate(ctx context.Context, d *schema.ResourceData, meta in
+ 		_, err := retryFunctionOp(ctx, func() (interface{}, error) {
+ 			return conn.UpdateFunctionConfiguration(ctx, input)
+ 		})
+-
+ 		if err != nil {
+ 			return sdkdiag.AppendErrorf(diags, "updating Lambda Function (%s) configuration: %s", d.Id(), err)
+ 		}
+@@ -950,7 +942,6 @@ func resourceFunctionUpdate(ctx context.Context, d *schema.ResourceData, meta in
+ 			defer conns.GlobalMutexKV.Unlock(mutexKey)
+ 
+ 			zipFile, err := readFileContents(v.(string))
+-
+ 			if err != nil {
+ 				// As filename isn't set in resourceFunctionRead(), don't ovewrite the last known good value.
+ 				old, _ := d.GetChange("filename")
+@@ -971,7 +962,6 @@ func resourceFunctionUpdate(ctx context.Context, d *schema.ResourceData, meta in
+ 		}
+ 
+ 		_, err := conn.UpdateFunctionCode(ctx, input)
+-
+ 		if err != nil {
+ 			var ipve *types.InvalidParameterValueException
+ 			if errors.As(err, &ipve) && strings.Contains(ipve.ErrorMessage(), "Error occurred while GetObject.") {
+@@ -996,7 +986,6 @@ func resourceFunctionUpdate(ctx context.Context, d *schema.ResourceData, meta in
+ 				FunctionName:                 aws.String(d.Id()),
+ 				ReservedConcurrentExecutions: aws.Int32(int32(v)),
+ 			})
+-
+ 			if err != nil {
+ 				return sdkdiag.AppendErrorf(diags, "setting Lambda Function (%s) concurrency: %s", d.Id(), err)
+ 			}
+@@ -1004,7 +993,6 @@ func resourceFunctionUpdate(ctx context.Context, d *schema.ResourceData, meta in
+ 			_, err := conn.DeleteFunctionConcurrency(ctx, &lambda.DeleteFunctionConcurrencyInput{
+ 				FunctionName: aws.String(d.Id()),
+ 			})
+-
+ 			if err != nil {
+ 				return sdkdiag.AppendErrorf(diags, "deleting Lambda Function (%s) concurrency: %s", d.Id(), err)
+ 			}
+@@ -1028,7 +1016,6 @@ func resourceFunctionUpdate(ctx context.Context, d *schema.ResourceData, meta in
+ 				return false, err
+ 			},
+ 		)
+-
+ 		if err != nil {
+ 			return sdkdiag.AppendErrorf(diags, "publishing Lambda Function (%s) version: %s", d.Id(), err)
+ 		}

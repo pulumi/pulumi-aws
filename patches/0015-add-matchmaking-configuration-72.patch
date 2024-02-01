@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Lee Briggs <jaxxstorm@users.noreply.github.com>
 Date: Wed, 21 Dec 2022 12:23:59 -0800
-Subject: [PATCH 15/40] add matchmaking configuration (#72)
+Subject: [PATCH 15/41] add matchmaking configuration (#72)
 
 * add matchmaking configuration
 * add matchmaking rule set
