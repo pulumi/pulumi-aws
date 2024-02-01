@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IgnoreTags {
+    /**
+     * @return Resource tag key prefixes to ignore across all resources.
+     * 
+     */
     private @Nullable List<String> keyPrefixes;
+    /**
+     * @return Resource tag keys to ignore across all resources.
+     * 
+     */
     private @Nullable List<String> keys;
 
     private IgnoreTags() {}
+    /**
+     * @return Resource tag key prefixes to ignore across all resources.
+     * 
+     */
     public List<String> keyPrefixes() {
         return this.keyPrefixes == null ? List.of() : this.keyPrefixes;
     }
+    /**
+     * @return Resource tag keys to ignore across all resources.
+     * 
+     */
     public List<String> keys() {
         return this.keys == null ? List.of() : this.keys;
     }
