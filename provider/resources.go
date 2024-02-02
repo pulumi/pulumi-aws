@@ -3528,7 +3528,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 						return strings.ToLower(name)
 					}),
-					// Website only accepts a single value in the AWS API but is not marked MaxItems==1 in the TF
+					// Website only accepts a single value in the AWS
+					// API but is not marked MaxItems==1 in the TF
 					// provider.
 					"website": {
 						Name: "website",
@@ -3549,6 +3550,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
+				Docs: &tfbridge.DocInfo{Source: "../../../../docs/resource/aws_s3_bucket_legacy.md"},
 			},
 			"aws_s3_bucket_inventory":    {Tok: awsResource(s3Mod, "Inventory")},
 			"aws_s3_bucket_metric":       {Tok: awsResource(s3Mod, "BucketMetric")},
