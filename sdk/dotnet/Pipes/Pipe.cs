@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Pipes
     ///     var sourceRolePolicy = new Aws.Iam.RolePolicy("sourceRolePolicy", new()
     ///     {
     ///         Role = exampleRole.Id,
-    ///         Policy = sourceQueue.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2012-10-17",
     ///             ["Statement"] = new[]
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Pipes
     ///                     },
     ///                     ["Resource"] = new[]
     ///                     {
-    ///                         arn,
+    ///                         sourceQueue.Arn,
     ///                     },
     ///                 },
     ///             },
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Pipes
     ///     var targetRolePolicy = new Aws.Iam.RolePolicy("targetRolePolicy", new()
     ///     {
     ///         Role = exampleRole.Id,
-    ///         Policy = targetQueue.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2012-10-17",
     ///             ["Statement"] = new[]
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Pipes
     ///                     },
     ///                     ["Resource"] = new[]
     ///                     {
-    ///                         arn,
+    ///                         targetQueue.Arn,
     ///                     },
     ///                 },
     ///             },

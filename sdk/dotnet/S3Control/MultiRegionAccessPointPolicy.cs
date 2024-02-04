@@ -50,35 +50,34 @@ namespace Pulumi.Aws.S3Control
     ///         Details = new Aws.S3Control.Inputs.MultiRegionAccessPointPolicyDetailsArgs
     ///         {
     ///             Name = exampleMultiRegionAccessPoint.Id.Apply(id =&gt; id.Split(":"))[1],
-    ///             Policy = Output.Tuple(currentCallerIdentity, currentPartition, currentCallerIdentity, exampleMultiRegionAccessPoint.Alias).Apply(values =&gt;
+    ///             Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 var currentCallerIdentity = values.Item1;
-    ///                 var currentPartition = values.Item2;
-    ///                 var currentCallerIdentity1 = values.Item3;
-    ///                 var @alias = values.Item4;
-    ///                 return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 ["Version"] = "2012-10-17",
+    ///                 ["Statement"] = new[]
     ///                 {
-    ///                     ["Version"] = "2012-10-17",
-    ///                     ["Statement"] = new[]
+    ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         ["Sid"] = "Example",
+    ///                         ["Effect"] = "Allow",
+    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["Sid"] = "Example",
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 ["AWS"] = currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                             },
-    ///                             ["Action"] = new[]
-    ///                             {
-    ///                                 "s3:GetObject",
-    ///                                 "s3:PutObject",
-    ///                             },
-    ///                             ["Resource"] = $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3::{currentCallerIdentity1.AccountId}:accesspoint/{@alias}/object/*",
+    ///                             ["AWS"] = currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                         },
+    ///                         ["Action"] = new[]
+    ///                         {
+    ///                             "s3:GetObject",
+    ///                             "s3:PutObject",
+    ///                         },
+    ///                         ["Resource"] = Output.Tuple(currentPartition, currentCallerIdentity, exampleMultiRegionAccessPoint.Alias).Apply(values =&gt;
+    ///                         {
+    ///                             var currentPartition = values.Item1;
+    ///                             var currentCallerIdentity = values.Item2;
+    ///                             var @alias = values.Item3;
+    ///                             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:accesspoint/{@alias}/object/*";
+    ///                         }),
     ///                     },
-    ///                 });
-    ///             }),
+    ///                 },
+    ///             })),
     ///         },
     ///     });
     /// 

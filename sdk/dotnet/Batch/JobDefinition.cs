@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Batch
     ///         {
     ///             "FARGATE",
     ///         },
-    ///         ContainerProperties = ecsTaskExecutionRole.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         ContainerProperties = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["command"] = new[]
     ///             {
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Batch
     ///                     ["value"] = "512",
     ///                 },
     ///             },
-    ///             ["executionRoleArn"] = arn,
+    ///             ["executionRoleArn"] = ecsTaskExecutionRole.Arn,
     ///         })),
     ///     });
     /// 
