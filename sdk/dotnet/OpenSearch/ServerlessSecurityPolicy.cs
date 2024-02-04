@@ -230,7 +230,7 @@ namespace Pulumi.Aws.OpenSearch
     ///     {
     ///         Type = "network",
     ///         Description = "Mixed access for marketing and sales",
-    ///         Policy = JsonSerializer.Serialize(new[]
+    ///         Policy = JsonSerializer.Serialize(new object?[]
     ///         {
     ///             new Dictionary&lt;string, object?&gt;
     ///             {

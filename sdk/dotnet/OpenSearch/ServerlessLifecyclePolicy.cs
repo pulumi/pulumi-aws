@@ -29,7 +29,7 @@ namespace Pulumi.Aws.OpenSearch
     ///         Type = "retention",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Rules"] = new[]
+    ///             ["Rules"] = new object?[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {

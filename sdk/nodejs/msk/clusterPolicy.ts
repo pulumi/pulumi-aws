@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  * const currentPartition = aws.getPartition({});
  * const example = new aws.msk.ClusterPolicy("example", {
  *     clusterArn: aws_msk_cluster.example.arn,
- *     policy: Promise.all([currentPartition, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity]) => JSON.stringify({
+ *     policy: JSON.stringify({
  *         Version: "2012-10-17",
  *         Statement: [{
  *             Sid: "ExampleMskClusterPolicy",
  *             Effect: "Allow",
  *             Principal: {
- *                 AWS: `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`,
+ *                 AWS: Promise.all([currentPartition, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity]) => `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`),
  *             },
  *             Action: [
  *                 "kafka:Describe*",
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *             ],
  *             Resource: aws_msk_cluster.example.arn,
  *         }],
- *     })),
+ *     }),
  * });
  * ```
  *

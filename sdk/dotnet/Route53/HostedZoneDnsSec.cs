@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Route53
     ///         KeyUsage = "SIGN_VERIFY",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Statement"] = new[]
+    ///             ["Statement"] = new object?[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {

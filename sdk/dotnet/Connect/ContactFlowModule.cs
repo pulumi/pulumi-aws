@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Connect
     ///         {
     ///             ["Version"] = "2019-10-30",
     ///             ["StartAction"] = "12345678-1234-1234-1234-123456789012",
-    ///             ["Actions"] = new[]
+    ///             ["Actions"] = new object?[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {

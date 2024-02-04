@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Ecs
     ///     var service = new Aws.Ecs.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
-    ///         ContainerDefinitions = JsonSerializer.Serialize(new[]
+    ///         ContainerDefinitions = JsonSerializer.Serialize(new object?[]
     ///         {
     ///             new Dictionary&lt;string, object?&gt;
     ///             {

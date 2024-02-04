@@ -170,7 +170,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
                 ),
             )],
         ))
-        example_object_lambda_access_point_policy = aws.s3control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", policy=example_object_lambda_access_point.arn.apply(lambda arn: json.dumps({
+        example_object_lambda_access_point_policy = aws.s3control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", policy=pulumi.Output.json_dumps({
             "Version": "2008-10-17",
             "Statement": [{
                 "Effect": "Allow",
@@ -178,9 +178,9 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
                 "Principal": {
                     "AWS": data["aws_caller_identity"]["current"]["account_id"],
                 },
-                "Resource": arn,
+                "Resource": example_object_lambda_access_point.arn,
             }],
-        })))
+        }))
         ```
 
         ## Import
@@ -226,7 +226,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
                 ),
             )],
         ))
-        example_object_lambda_access_point_policy = aws.s3control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", policy=example_object_lambda_access_point.arn.apply(lambda arn: json.dumps({
+        example_object_lambda_access_point_policy = aws.s3control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", policy=pulumi.Output.json_dumps({
             "Version": "2008-10-17",
             "Statement": [{
                 "Effect": "Allow",
@@ -234,9 +234,9 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
                 "Principal": {
                     "AWS": data["aws_caller_identity"]["current"]["account_id"],
                 },
-                "Resource": arn,
+                "Resource": example_object_lambda_access_point.arn,
             }],
-        })))
+        }))
         ```
 
         ## Import

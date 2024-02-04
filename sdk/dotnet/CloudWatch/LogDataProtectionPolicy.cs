@@ -32,11 +32,11 @@ namespace Pulumi.Aws.CloudWatch
     ///     var exampleLogDataProtectionPolicy = new Aws.CloudWatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy", new()
     ///     {
     ///         LogGroupName = exampleLogGroup.Name,
-    ///         PolicyDocument = exampleBucketV2.Bucket.Apply(bucket =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         PolicyDocument = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Name"] = "Example",
     ///             ["Version"] = "2021-06-01",
-    ///             ["Statement"] = new[]
+    ///             ["Statement"] = new object?[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                             {
     ///                                 ["S3"] = new Dictionary&lt;string, object?&gt;
     ///                                 {
-    ///                                     ["Bucket"] = bucket,
+    ///                                     ["Bucket"] = exampleBucketV2.Bucket,
     ///                                 },
     ///                             },
     ///                         },

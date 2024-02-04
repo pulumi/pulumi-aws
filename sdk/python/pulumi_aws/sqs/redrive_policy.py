@@ -113,16 +113,16 @@ class RedrivePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         queue = aws.sqs.Queue("queue")
-        ddl = aws.sqs.Queue("ddl", redrive_allow_policy=queue.arn.apply(lambda arn: json.dumps({
+        ddl = aws.sqs.Queue("ddl", redrive_allow_policy=pulumi.Output.json_dumps({
             "redrivePermission": "byQueue",
-            "sourceQueueArns": [arn],
-        })))
+            "sourceQueueArns": [queue.arn],
+        }))
         redrive_policy = aws.sqs.RedrivePolicy("redrivePolicy",
             queue_url=queue.id,
-            redrive_policy=ddl.arn.apply(lambda arn: json.dumps({
-                "deadLetterTargetArn": arn,
+            redrive_policy=pulumi.Output.json_dumps({
+                "deadLetterTargetArn": ddl.arn,
                 "maxReceiveCount": 4,
-            })))
+            }))
         ```
 
         ## Import
@@ -160,16 +160,16 @@ class RedrivePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         queue = aws.sqs.Queue("queue")
-        ddl = aws.sqs.Queue("ddl", redrive_allow_policy=queue.arn.apply(lambda arn: json.dumps({
+        ddl = aws.sqs.Queue("ddl", redrive_allow_policy=pulumi.Output.json_dumps({
             "redrivePermission": "byQueue",
-            "sourceQueueArns": [arn],
-        })))
+            "sourceQueueArns": [queue.arn],
+        }))
         redrive_policy = aws.sqs.RedrivePolicy("redrivePolicy",
             queue_url=queue.id,
-            redrive_policy=ddl.arn.apply(lambda arn: json.dumps({
-                "deadLetterTargetArn": arn,
+            redrive_policy=pulumi.Output.json_dumps({
+                "deadLetterTargetArn": ddl.arn,
                 "maxReceiveCount": 4,
-            })))
+            }))
         ```
 
         ## Import

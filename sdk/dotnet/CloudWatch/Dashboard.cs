@@ -28,7 +28,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         DashboardName = "my-dashboard",
     ///         DashboardBody = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["widgets"] = new[]
+    ///             ["widgets"] = new object?[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {

@@ -92,7 +92,7 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["Rules"] = new[]
+    ///                 ["Rules"] = new object?[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
