@@ -141,7 +141,7 @@ namespace Pulumi.Aws.ElastiCache
         /// Represents the information required for client programs to connect to a cache node. See config below for details.
         /// </summary>
         [Output("endpoints")]
-        public Output<ImmutableArray<ImmutableDictionary<string, object>>> Endpoints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServerlessCacheEndpoint>> Endpoints { get; private set; } = null!;
 
         /// <summary>
         /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.ElastiCache
         /// Represents the information required for client programs to connect to a cache node. See config below for details.
         /// </summary>
         [Output("readerEndpoints")]
-        public Output<ImmutableArray<ImmutableDictionary<string, object>>> ReaderEndpoints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServerlessCacheReaderEndpoint>> ReaderEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
@@ -427,14 +427,14 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Description { get; set; }
 
         [Input("endpoints")]
-        private InputList<ImmutableDictionary<string, object>>? _endpoints;
+        private InputList<Inputs.ServerlessCacheEndpointGetArgs>? _endpoints;
 
         /// <summary>
         /// Represents the information required for client programs to connect to a cache node. See config below for details.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> Endpoints
+        public InputList<Inputs.ServerlessCacheEndpointGetArgs> Endpoints
         {
-            get => _endpoints ?? (_endpoints = new InputList<ImmutableDictionary<string, object>>());
+            get => _endpoints ?? (_endpoints = new InputList<Inputs.ServerlessCacheEndpointGetArgs>());
             set => _endpoints = value;
         }
 
@@ -472,14 +472,14 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Name { get; set; }
 
         [Input("readerEndpoints")]
-        private InputList<ImmutableDictionary<string, object>>? _readerEndpoints;
+        private InputList<Inputs.ServerlessCacheReaderEndpointGetArgs>? _readerEndpoints;
 
         /// <summary>
         /// Represents the information required for client programs to connect to a cache node. See config below for details.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> ReaderEndpoints
+        public InputList<Inputs.ServerlessCacheReaderEndpointGetArgs> ReaderEndpoints
         {
-            get => _readerEndpoints ?? (_readerEndpoints = new InputList<ImmutableDictionary<string, object>>());
+            get => _readerEndpoints ?? (_readerEndpoints = new InputList<Inputs.ServerlessCacheReaderEndpointGetArgs>());
             set => _readerEndpoints = value;
         }
 

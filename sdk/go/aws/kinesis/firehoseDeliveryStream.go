@@ -842,7 +842,7 @@ import (
 //
 // ```
 //
-//	NoteImport does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
+//	Note: Import does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
 type FirehoseDeliveryStream struct {
 	pulumi.CustomResourceState
 

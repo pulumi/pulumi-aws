@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetProfilingGroupResult',
@@ -52,7 +53,7 @@ class GetProfilingGroupResult:
 
     @property
     @pulumi.getter(name="agentOrchestrationConfigs")
-    def agent_orchestration_configs(self) -> Sequence[Mapping[str, Any]]:
+    def agent_orchestration_configs(self) -> Sequence['outputs.GetProfilingGroupAgentOrchestrationConfigResult']:
         """
         Profiling Group agent orchestration config
         """
@@ -94,7 +95,7 @@ class GetProfilingGroupResult:
 
     @property
     @pulumi.getter(name="profilingStatuses")
-    def profiling_statuses(self) -> Sequence[Mapping[str, Any]]:
+    def profiling_statuses(self) -> Sequence['outputs.GetProfilingGroupProfilingStatusResult']:
         """
         The status of the Profiling Group.
         """

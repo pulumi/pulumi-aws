@@ -11,6 +11,8 @@ from .. import _utilities
 
 __all__ = [
     'ProfilingGroupAgentOrchestrationConfig',
+    'GetProfilingGroupAgentOrchestrationConfigResult',
+    'GetProfilingGroupProfilingStatusResult',
 ]
 
 @pulumi.output_type
@@ -46,5 +48,43 @@ class ProfilingGroupAgentOrchestrationConfig(dict):
         (Required) Boolean that specifies whether the profiling agent collects profiling data or
         """
         return pulumi.get(self, "profiling_enabled")
+
+
+@pulumi.output_type
+class GetProfilingGroupAgentOrchestrationConfigResult(dict):
+    def __init__(__self__, *,
+                 profiling_enabled: bool):
+        pulumi.set(__self__, "profiling_enabled", profiling_enabled)
+
+    @property
+    @pulumi.getter(name="profilingEnabled")
+    def profiling_enabled(self) -> bool:
+        return pulumi.get(self, "profiling_enabled")
+
+
+@pulumi.output_type
+class GetProfilingGroupProfilingStatusResult(dict):
+    def __init__(__self__, *,
+                 latest_agent_orchestrated_at: str,
+                 latest_agent_profile_reported_at: str,
+                 latest_aggregated_profiles: Sequence[Any]):
+        pulumi.set(__self__, "latest_agent_orchestrated_at", latest_agent_orchestrated_at)
+        pulumi.set(__self__, "latest_agent_profile_reported_at", latest_agent_profile_reported_at)
+        pulumi.set(__self__, "latest_aggregated_profiles", latest_aggregated_profiles)
+
+    @property
+    @pulumi.getter(name="latestAgentOrchestratedAt")
+    def latest_agent_orchestrated_at(self) -> str:
+        return pulumi.get(self, "latest_agent_orchestrated_at")
+
+    @property
+    @pulumi.getter(name="latestAgentProfileReportedAt")
+    def latest_agent_profile_reported_at(self) -> str:
+        return pulumi.get(self, "latest_agent_profile_reported_at")
+
+    @property
+    @pulumi.getter(name="latestAggregatedProfiles")
+    def latest_aggregated_profiles(self) -> Sequence[Any]:
+        return pulumi.get(self, "latest_aggregated_profiles")
 
 

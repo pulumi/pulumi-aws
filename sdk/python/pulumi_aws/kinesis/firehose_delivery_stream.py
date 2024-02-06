@@ -1079,7 +1079,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         ```sh
          $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
         ```
-         NoteImport does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
+         Note: Import does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1605,7 +1605,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         ```sh
          $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
         ```
-         NoteImport does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
+         Note: Import does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
 
         :param str resource_name: The name of the resource.
         :param FirehoseDeliveryStreamArgs args: The arguments to use to populate this resource's properties.

@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'PolicyStoreValidationSettings',
     'SchemaDefinition',
+    'GetPolicyStoreValidationSettingResult',
 ]
 
 @pulumi.output_type
@@ -52,5 +53,17 @@ class SchemaDefinition(dict):
         A JSON string representation of the schema.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetPolicyStoreValidationSettingResult(dict):
+    def __init__(__self__, *,
+                 mode: str):
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        return pulumi.get(self, "mode")
 
 

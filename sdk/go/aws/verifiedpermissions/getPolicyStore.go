@@ -66,7 +66,7 @@ type LookupPolicyStoreResult struct {
 	// The date the Policy Store was last updated.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	// Validation settings for the policy store.
-	ValidationSettings []map[string]interface{} `pulumi:"validationSettings"`
+	ValidationSettings []GetPolicyStoreValidationSetting `pulumi:"validationSettings"`
 }
 
 func LookupPolicyStoreOutput(ctx *pulumi.Context, args LookupPolicyStoreOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyStoreResultOutput {
@@ -131,8 +131,8 @@ func (o LookupPolicyStoreResultOutput) LastUpdatedDate() pulumi.StringOutput {
 }
 
 // Validation settings for the policy store.
-func (o LookupPolicyStoreResultOutput) ValidationSettings() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v LookupPolicyStoreResult) []map[string]interface{} { return v.ValidationSettings }).(pulumi.MapArrayOutput)
+func (o LookupPolicyStoreResultOutput) ValidationSettings() GetPolicyStoreValidationSettingArrayOutput {
+	return o.ApplyT(func(v LookupPolicyStoreResult) []GetPolicyStoreValidationSetting { return v.ValidationSettings }).(GetPolicyStoreValidationSettingArrayOutput)
 }
 
 func init() {

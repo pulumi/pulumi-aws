@@ -50,7 +50,9 @@ import javax.annotation.Nullable;
  *             .metaStoreManagerRoleArn(aws_iam_role.meta_store_manager().arn())
  *             .configuration(DataLakeConfigurationArgs.builder()
  *                 .region(&#34;eu-west-1&#34;)
- *                 .encryptionConfigurations(Map.of(&#34;kmsKeyId&#34;, &#34;S3_MANAGED_KEY&#34;))
+ *                 .encryptionConfigurations(DataLakeConfigurationEncryptionConfigurationArgs.builder()
+ *                     .kmsKeyId(&#34;S3_MANAGED_KEY&#34;)
+ *                     .build())
  *                 .lifecycleConfiguration(DataLakeConfigurationLifecycleConfigurationArgs.builder()
  *                     .transitions(                    
  *                         DataLakeConfigurationLifecycleConfigurationTransitionArgs.builder()
@@ -98,7 +100,9 @@ import javax.annotation.Nullable;
  *             .metaStoreManagerRoleArn(aws_iam_role.meta_store_manager().arn())
  *             .configuration(DataLakeConfigurationArgs.builder()
  *                 .region(&#34;eu-west-1&#34;)
- *                 .encryptionConfigurations(Map.of(&#34;kmsKeyId&#34;, &#34;S3_MANAGED_KEY&#34;))
+ *                 .encryptionConfigurations(DataLakeConfigurationEncryptionConfigurationArgs.builder()
+ *                     .kmsKeyId(&#34;S3_MANAGED_KEY&#34;)
+ *                     .build())
  *                 .build())
  *             .build());
  * 

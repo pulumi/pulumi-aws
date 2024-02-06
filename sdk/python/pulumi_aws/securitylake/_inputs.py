@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'AwsLogSourceSourceArgs',
     'DataLakeConfigurationArgs',
+    'DataLakeConfigurationEncryptionConfigurationArgs',
     'DataLakeConfigurationLifecycleConfigurationArgs',
     'DataLakeConfigurationLifecycleConfigurationExpirationArgs',
     'DataLakeConfigurationLifecycleConfigurationTransitionArgs',
@@ -92,12 +93,12 @@ class AwsLogSourceSourceArgs:
 class DataLakeConfigurationArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[str],
-                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]]] = None,
                  lifecycle_configuration: Optional[pulumi.Input['DataLakeConfigurationLifecycleConfigurationArgs']] = None,
                  replication_configuration: Optional[pulumi.Input['DataLakeConfigurationReplicationConfigurationArgs']] = None):
         """
         :param pulumi.Input[str] region: The AWS Regions where Security Lake is automatically enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] encryption_configurations: Provides encryption details of Amazon Security Lake object.
+        :param pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]] encryption_configurations: Provides encryption details of Amazon Security Lake object.
         :param pulumi.Input['DataLakeConfigurationLifecycleConfigurationArgs'] lifecycle_configuration: Provides lifecycle details of Amazon Security Lake object.
         :param pulumi.Input['DataLakeConfigurationReplicationConfigurationArgs'] replication_configuration: Provides replication details of Amazon Security Lake object.
         """
@@ -123,14 +124,14 @@ class DataLakeConfigurationArgs:
 
     @property
     @pulumi.getter(name="encryptionConfigurations")
-    def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]]]:
         """
         Provides encryption details of Amazon Security Lake object.
         """
         return pulumi.get(self, "encryption_configurations")
 
     @encryption_configurations.setter
-    def encryption_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def encryption_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]]]):
         pulumi.set(self, "encryption_configurations", value)
 
     @property
@@ -156,6 +157,28 @@ class DataLakeConfigurationArgs:
     @replication_configuration.setter
     def replication_configuration(self, value: Optional[pulumi.Input['DataLakeConfigurationReplicationConfigurationArgs']]):
         pulumi.set(self, "replication_configuration", value)
+
+
+@pulumi.input_type
+class DataLakeConfigurationEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_key_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] kms_key_id: The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+        """
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Input[str]:
+        """
+        The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kms_key_id", value)
 
 
 @pulumi.input_type

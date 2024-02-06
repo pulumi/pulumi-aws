@@ -32,9 +32,9 @@ import (
 //				MetaStoreManagerRoleArn: pulumi.Any(aws_iam_role.Meta_store_manager.Arn),
 //				Configuration: &securitylake.DataLakeConfigurationArgs{
 //					Region: pulumi.String("eu-west-1"),
-//					EncryptionConfigurations: pulumi.MapArray{
-//						pulumi.Map{
-//							"kmsKeyId": pulumi.Any("S3_MANAGED_KEY"),
+//					EncryptionConfigurations: securitylake.DataLakeConfigurationEncryptionConfigurationArray{
+//						&securitylake.DataLakeConfigurationEncryptionConfigurationArgs{
+//							KmsKeyId: pulumi.String("S3_MANAGED_KEY"),
 //						},
 //					},
 //					LifecycleConfiguration: &securitylake.DataLakeConfigurationLifecycleConfigurationArgs{
@@ -80,9 +80,9 @@ import (
 //				MetaStoreManagerRoleArn: pulumi.Any(aws_iam_role.Meta_store_manager.Arn),
 //				Configuration: &securitylake.DataLakeConfigurationArgs{
 //					Region: pulumi.String("eu-west-1"),
-//					EncryptionConfigurations: pulumi.MapArray{
-//						pulumi.Map{
-//							"kmsKeyId": pulumi.Any("S3_MANAGED_KEY"),
+//					EncryptionConfigurations: securitylake.DataLakeConfigurationEncryptionConfigurationArray{
+//						&securitylake.DataLakeConfigurationEncryptionConfigurationArgs{
+//							KmsKeyId: pulumi.String("S3_MANAGED_KEY"),
 //						},
 //					},
 //				},

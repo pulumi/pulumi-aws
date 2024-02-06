@@ -25340,6 +25340,28 @@ export namespace elasticache {
         maximum: pulumi.Input<number>;
     }
 
+    export interface ServerlessCacheEndpoint {
+        /**
+         * The DNS hostname of the cache node.
+         */
+        address: pulumi.Input<string>;
+        /**
+         * The port number that the cache engine is listening on. Set as integer.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface ServerlessCacheReaderEndpoint {
+        /**
+         * The DNS hostname of the cache node.
+         */
+        address: pulumi.Input<string>;
+        /**
+         * The port number that the cache engine is listening on. Set as integer.
+         */
+        port: pulumi.Input<number>;
+    }
+
     export interface ServerlessCacheTimeouts {
         /**
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
@@ -66247,7 +66269,7 @@ export namespace securitylake {
         /**
          * Provides encryption details of Amazon Security Lake object.
          */
-        encryptionConfigurations?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+        encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.securitylake.DataLakeConfigurationEncryptionConfiguration>[]>;
         /**
          * Provides lifecycle details of Amazon Security Lake object.
          */
@@ -66260,6 +66282,13 @@ export namespace securitylake {
          * Provides replication details of Amazon Security Lake object.
          */
         replicationConfiguration?: pulumi.Input<inputs.securitylake.DataLakeConfigurationReplicationConfiguration>;
+    }
+
+    export interface DataLakeConfigurationEncryptionConfiguration {
+        /**
+         * The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+         */
+        kmsKeyId: pulumi.Input<string>;
     }
 
     export interface DataLakeConfigurationLifecycleConfiguration {

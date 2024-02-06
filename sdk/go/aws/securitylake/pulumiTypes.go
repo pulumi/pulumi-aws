@@ -209,7 +209,7 @@ func (o AwsLogSourceSourcePtrOutput) SourceVersion() pulumi.StringPtrOutput {
 
 type DataLakeConfiguration struct {
 	// Provides encryption details of Amazon Security Lake object.
-	EncryptionConfigurations []map[string]interface{} `pulumi:"encryptionConfigurations"`
+	EncryptionConfigurations []DataLakeConfigurationEncryptionConfiguration `pulumi:"encryptionConfigurations"`
 	// Provides lifecycle details of Amazon Security Lake object.
 	LifecycleConfiguration *DataLakeConfigurationLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// The AWS Regions where Security Lake is automatically enabled.
@@ -231,7 +231,7 @@ type DataLakeConfigurationInput interface {
 
 type DataLakeConfigurationArgs struct {
 	// Provides encryption details of Amazon Security Lake object.
-	EncryptionConfigurations pulumi.MapArrayInput `pulumi:"encryptionConfigurations"`
+	EncryptionConfigurations DataLakeConfigurationEncryptionConfigurationArrayInput `pulumi:"encryptionConfigurations"`
 	// Provides lifecycle details of Amazon Security Lake object.
 	LifecycleConfiguration DataLakeConfigurationLifecycleConfigurationPtrInput `pulumi:"lifecycleConfiguration"`
 	// The AWS Regions where Security Lake is automatically enabled.
@@ -318,8 +318,10 @@ func (o DataLakeConfigurationOutput) ToDataLakeConfigurationPtrOutputWithContext
 }
 
 // Provides encryption details of Amazon Security Lake object.
-func (o DataLakeConfigurationOutput) EncryptionConfigurations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v DataLakeConfiguration) []map[string]interface{} { return v.EncryptionConfigurations }).(pulumi.MapArrayOutput)
+func (o DataLakeConfigurationOutput) EncryptionConfigurations() DataLakeConfigurationEncryptionConfigurationArrayOutput {
+	return o.ApplyT(func(v DataLakeConfiguration) []DataLakeConfigurationEncryptionConfiguration {
+		return v.EncryptionConfigurations
+	}).(DataLakeConfigurationEncryptionConfigurationArrayOutput)
 }
 
 // Provides lifecycle details of Amazon Security Lake object.
@@ -366,13 +368,13 @@ func (o DataLakeConfigurationPtrOutput) Elem() DataLakeConfigurationOutput {
 }
 
 // Provides encryption details of Amazon Security Lake object.
-func (o DataLakeConfigurationPtrOutput) EncryptionConfigurations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v *DataLakeConfiguration) []map[string]interface{} {
+func (o DataLakeConfigurationPtrOutput) EncryptionConfigurations() DataLakeConfigurationEncryptionConfigurationArrayOutput {
+	return o.ApplyT(func(v *DataLakeConfiguration) []DataLakeConfigurationEncryptionConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.EncryptionConfigurations
-	}).(pulumi.MapArrayOutput)
+	}).(DataLakeConfigurationEncryptionConfigurationArrayOutput)
 }
 
 // Provides lifecycle details of Amazon Security Lake object.
@@ -403,6 +405,103 @@ func (o DataLakeConfigurationPtrOutput) ReplicationConfiguration() DataLakeConfi
 		}
 		return v.ReplicationConfiguration
 	}).(DataLakeConfigurationReplicationConfigurationPtrOutput)
+}
+
+type DataLakeConfigurationEncryptionConfiguration struct {
+	// The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+}
+
+// DataLakeConfigurationEncryptionConfigurationInput is an input type that accepts DataLakeConfigurationEncryptionConfigurationArgs and DataLakeConfigurationEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `DataLakeConfigurationEncryptionConfigurationInput` via:
+//
+//	DataLakeConfigurationEncryptionConfigurationArgs{...}
+type DataLakeConfigurationEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToDataLakeConfigurationEncryptionConfigurationOutput() DataLakeConfigurationEncryptionConfigurationOutput
+	ToDataLakeConfigurationEncryptionConfigurationOutputWithContext(context.Context) DataLakeConfigurationEncryptionConfigurationOutput
+}
+
+type DataLakeConfigurationEncryptionConfigurationArgs struct {
+	// The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+}
+
+func (DataLakeConfigurationEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i DataLakeConfigurationEncryptionConfigurationArgs) ToDataLakeConfigurationEncryptionConfigurationOutput() DataLakeConfigurationEncryptionConfigurationOutput {
+	return i.ToDataLakeConfigurationEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataLakeConfigurationEncryptionConfigurationArgs) ToDataLakeConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) DataLakeConfigurationEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeConfigurationEncryptionConfigurationOutput)
+}
+
+// DataLakeConfigurationEncryptionConfigurationArrayInput is an input type that accepts DataLakeConfigurationEncryptionConfigurationArray and DataLakeConfigurationEncryptionConfigurationArrayOutput values.
+// You can construct a concrete instance of `DataLakeConfigurationEncryptionConfigurationArrayInput` via:
+//
+//	DataLakeConfigurationEncryptionConfigurationArray{ DataLakeConfigurationEncryptionConfigurationArgs{...} }
+type DataLakeConfigurationEncryptionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDataLakeConfigurationEncryptionConfigurationArrayOutput() DataLakeConfigurationEncryptionConfigurationArrayOutput
+	ToDataLakeConfigurationEncryptionConfigurationArrayOutputWithContext(context.Context) DataLakeConfigurationEncryptionConfigurationArrayOutput
+}
+
+type DataLakeConfigurationEncryptionConfigurationArray []DataLakeConfigurationEncryptionConfigurationInput
+
+func (DataLakeConfigurationEncryptionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataLakeConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i DataLakeConfigurationEncryptionConfigurationArray) ToDataLakeConfigurationEncryptionConfigurationArrayOutput() DataLakeConfigurationEncryptionConfigurationArrayOutput {
+	return i.ToDataLakeConfigurationEncryptionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DataLakeConfigurationEncryptionConfigurationArray) ToDataLakeConfigurationEncryptionConfigurationArrayOutputWithContext(ctx context.Context) DataLakeConfigurationEncryptionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeConfigurationEncryptionConfigurationArrayOutput)
+}
+
+type DataLakeConfigurationEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataLakeConfigurationEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o DataLakeConfigurationEncryptionConfigurationOutput) ToDataLakeConfigurationEncryptionConfigurationOutput() DataLakeConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o DataLakeConfigurationEncryptionConfigurationOutput) ToDataLakeConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) DataLakeConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+// The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+func (o DataLakeConfigurationEncryptionConfigurationOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v DataLakeConfigurationEncryptionConfiguration) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+type DataLakeConfigurationEncryptionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DataLakeConfigurationEncryptionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataLakeConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o DataLakeConfigurationEncryptionConfigurationArrayOutput) ToDataLakeConfigurationEncryptionConfigurationArrayOutput() DataLakeConfigurationEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o DataLakeConfigurationEncryptionConfigurationArrayOutput) ToDataLakeConfigurationEncryptionConfigurationArrayOutputWithContext(ctx context.Context) DataLakeConfigurationEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o DataLakeConfigurationEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) DataLakeConfigurationEncryptionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataLakeConfigurationEncryptionConfiguration {
+		return vs[0].([]DataLakeConfigurationEncryptionConfiguration)[vs[1].(int)]
+	}).(DataLakeConfigurationEncryptionConfigurationOutput)
 }
 
 type DataLakeConfigurationLifecycleConfiguration struct {
@@ -1144,6 +1243,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsLogSourceSourcePtrInput)(nil)).Elem(), AwsLogSourceSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationInput)(nil)).Elem(), DataLakeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationPtrInput)(nil)).Elem(), DataLakeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationEncryptionConfigurationInput)(nil)).Elem(), DataLakeConfigurationEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationEncryptionConfigurationArrayInput)(nil)).Elem(), DataLakeConfigurationEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationLifecycleConfigurationInput)(nil)).Elem(), DataLakeConfigurationLifecycleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationLifecycleConfigurationPtrInput)(nil)).Elem(), DataLakeConfigurationLifecycleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationLifecycleConfigurationExpirationInput)(nil)).Elem(), DataLakeConfigurationLifecycleConfigurationExpirationArgs{})
@@ -1158,6 +1259,8 @@ func init() {
 	pulumi.RegisterOutputType(AwsLogSourceSourcePtrOutput{})
 	pulumi.RegisterOutputType(DataLakeConfigurationOutput{})
 	pulumi.RegisterOutputType(DataLakeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataLakeConfigurationEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(DataLakeConfigurationEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DataLakeConfigurationLifecycleConfigurationOutput{})
 	pulumi.RegisterOutputType(DataLakeConfigurationLifecycleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeConfigurationLifecycleConfigurationExpirationOutput{})

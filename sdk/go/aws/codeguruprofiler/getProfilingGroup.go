@@ -58,7 +58,7 @@ type LookupProfilingGroupArgs struct {
 // A collection of values returned by getProfilingGroup.
 type LookupProfilingGroupResult struct {
 	// Profiling Group agent orchestration config
-	AgentOrchestrationConfigs []map[string]interface{} `pulumi:"agentOrchestrationConfigs"`
+	AgentOrchestrationConfigs []GetProfilingGroupAgentOrchestrationConfig `pulumi:"agentOrchestrationConfigs"`
 	// ARN of the Profiling Group.
 	Arn string `pulumi:"arn"`
 	// The compute platform of the profiling group.
@@ -68,7 +68,7 @@ type LookupProfilingGroupResult struct {
 	Id        string `pulumi:"id"`
 	Name      string `pulumi:"name"`
 	// The status of the Profiling Group.
-	ProfilingStatuses []map[string]interface{} `pulumi:"profilingStatuses"`
+	ProfilingStatuses []GetProfilingGroupProfilingStatus `pulumi:"profilingStatuses"`
 	// Mapping of Key-Value tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Timestamp when Profiling Group was updated.
@@ -114,8 +114,10 @@ func (o LookupProfilingGroupResultOutput) ToLookupProfilingGroupResultOutputWith
 }
 
 // Profiling Group agent orchestration config
-func (o LookupProfilingGroupResultOutput) AgentOrchestrationConfigs() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v LookupProfilingGroupResult) []map[string]interface{} { return v.AgentOrchestrationConfigs }).(pulumi.MapArrayOutput)
+func (o LookupProfilingGroupResultOutput) AgentOrchestrationConfigs() GetProfilingGroupAgentOrchestrationConfigArrayOutput {
+	return o.ApplyT(func(v LookupProfilingGroupResult) []GetProfilingGroupAgentOrchestrationConfig {
+		return v.AgentOrchestrationConfigs
+	}).(GetProfilingGroupAgentOrchestrationConfigArrayOutput)
 }
 
 // ARN of the Profiling Group.
@@ -142,8 +144,8 @@ func (o LookupProfilingGroupResultOutput) Name() pulumi.StringOutput {
 }
 
 // The status of the Profiling Group.
-func (o LookupProfilingGroupResultOutput) ProfilingStatuses() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v LookupProfilingGroupResult) []map[string]interface{} { return v.ProfilingStatuses }).(pulumi.MapArrayOutput)
+func (o LookupProfilingGroupResultOutput) ProfilingStatuses() GetProfilingGroupProfilingStatusArrayOutput {
+	return o.ApplyT(func(v LookupProfilingGroupResult) []GetProfilingGroupProfilingStatus { return v.ProfilingStatuses }).(GetProfilingGroupProfilingStatusArrayOutput)
 }
 
 // Mapping of Key-Value tags for the resource.

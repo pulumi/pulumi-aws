@@ -4,11 +4,12 @@
 package com.pulumi.aws.elasticache.inputs;
 
 import com.pulumi.aws.elasticache.inputs.ServerlessCacheCacheUsageLimitsArgs;
+import com.pulumi.aws.elasticache.inputs.ServerlessCacheEndpointArgs;
+import com.pulumi.aws.elasticache.inputs.ServerlessCacheReaderEndpointArgs;
 import com.pulumi.aws.elasticache.inputs.ServerlessCacheTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -101,13 +102,13 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="endpoints")
-    private @Nullable Output<List<Map<String,Object>>> endpoints;
+    private @Nullable Output<List<ServerlessCacheEndpointArgs>> endpoints;
 
     /**
      * @return Represents the information required for client programs to connect to a cache node. See config below for details.
      * 
      */
-    public Optional<Output<List<Map<String,Object>>>> endpoints() {
+    public Optional<Output<List<ServerlessCacheEndpointArgs>>> endpoints() {
         return Optional.ofNullable(this.endpoints);
     }
 
@@ -197,13 +198,13 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="readerEndpoints")
-    private @Nullable Output<List<Map<String,Object>>> readerEndpoints;
+    private @Nullable Output<List<ServerlessCacheReaderEndpointArgs>> readerEndpoints;
 
     /**
      * @return Represents the information required for client programs to connect to a cache node. See config below for details.
      * 
      */
-    public Optional<Output<List<Map<String,Object>>>> readerEndpoints() {
+    public Optional<Output<List<ServerlessCacheReaderEndpointArgs>>> readerEndpoints() {
         return Optional.ofNullable(this.readerEndpoints);
     }
 
@@ -493,7 +494,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder endpoints(@Nullable Output<List<Map<String,Object>>> endpoints) {
+        public Builder endpoints(@Nullable Output<List<ServerlessCacheEndpointArgs>> endpoints) {
             $.endpoints = endpoints;
             return this;
         }
@@ -504,7 +505,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder endpoints(List<Map<String,Object>> endpoints) {
+        public Builder endpoints(List<ServerlessCacheEndpointArgs> endpoints) {
             return endpoints(Output.of(endpoints));
         }
 
@@ -514,7 +515,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder endpoints(Map<String,Object>... endpoints) {
+        public Builder endpoints(ServerlessCacheEndpointArgs... endpoints) {
             return endpoints(List.of(endpoints));
         }
 
@@ -635,7 +636,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder readerEndpoints(@Nullable Output<List<Map<String,Object>>> readerEndpoints) {
+        public Builder readerEndpoints(@Nullable Output<List<ServerlessCacheReaderEndpointArgs>> readerEndpoints) {
             $.readerEndpoints = readerEndpoints;
             return this;
         }
@@ -646,7 +647,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder readerEndpoints(List<Map<String,Object>> readerEndpoints) {
+        public Builder readerEndpoints(List<ServerlessCacheReaderEndpointArgs> readerEndpoints) {
             return readerEndpoints(Output.of(readerEndpoints));
         }
 
@@ -656,7 +657,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder readerEndpoints(Map<String,Object>... readerEndpoints) {
+        public Builder readerEndpoints(ServerlessCacheReaderEndpointArgs... readerEndpoints) {
             return readerEndpoints(List.of(readerEndpoints));
         }
 
