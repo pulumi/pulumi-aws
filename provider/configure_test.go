@@ -29,6 +29,9 @@ import (
 )
 
 func TestCheckConfigWithUnknownKeys(t *testing.T) {
+	// Double checking that this is a failure, but no longer over-fitting the test on the exact
+	// error message. See pulumi/pulumi-terraform-bridge codebase instead for controlling the
+	// generated error message.
 	replaySequence(t, strings.ReplaceAll(`
 	[{
 	  "method": "/pulumirpc.ResourceProvider/CheckConfig",
@@ -48,7 +51,7 @@ func TestCheckConfigWithUnknownKeys(t *testing.T) {
 	  },
 	  "response": {
             "inputs": "*",
-            "failures": [{"reason": "could not validate provider configuration: Invalid or unknown key. Check '''pulumi config get aws:unknownKey'''."}]
+            "failures": [{"reason": "*"}]
 	  }
 	}]`, "'''", "`"))
 }
