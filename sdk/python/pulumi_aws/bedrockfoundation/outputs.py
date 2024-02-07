@@ -16,23 +16,23 @@ __all__ = [
 @pulumi.output_type
 class GetModelsModelSummaryResult(dict):
     def __init__(__self__, *,
-                 customizations_supporteds: Sequence[str],
-                 inference_types_supporteds: Sequence[str],
-                 input_modalities: Sequence[str],
+                 customizations_supporteds: Sequence[Any],
+                 inference_types_supporteds: Sequence[Any],
+                 input_modalities: Sequence[Any],
                  model_arn: str,
                  model_id: str,
                  model_name: str,
-                 output_modalities: Sequence[str],
+                 output_modalities: Sequence[Any],
                  provider_name: str,
                  response_streaming_supported: bool):
         """
-        :param Sequence[str] customizations_supporteds: Customizations that the model supports.
-        :param Sequence[str] inference_types_supporteds: Inference types that the model supports.
-        :param Sequence[str] input_modalities: Input modalities that the model supports.
+        :param Sequence[Any] customizations_supporteds: Customizations that the model supports.
+        :param Sequence[Any] inference_types_supporteds: Inference types that the model supports.
+        :param Sequence[Any] input_modalities: Input modalities that the model supports.
         :param str model_arn: Model ARN.
         :param str model_id: Model identifier.
         :param str model_name: Model name.
-        :param Sequence[str] output_modalities: Output modalities that the model supports.
+        :param Sequence[Any] output_modalities: Output modalities that the model supports.
         :param str provider_name: Model provider name.
         :param bool response_streaming_supported: Indicates whether the model supports streaming.
         """
@@ -48,7 +48,7 @@ class GetModelsModelSummaryResult(dict):
 
     @property
     @pulumi.getter(name="customizationsSupporteds")
-    def customizations_supporteds(self) -> Sequence[str]:
+    def customizations_supporteds(self) -> Sequence[Any]:
         """
         Customizations that the model supports.
         """
@@ -56,7 +56,7 @@ class GetModelsModelSummaryResult(dict):
 
     @property
     @pulumi.getter(name="inferenceTypesSupporteds")
-    def inference_types_supporteds(self) -> Sequence[str]:
+    def inference_types_supporteds(self) -> Sequence[Any]:
         """
         Inference types that the model supports.
         """
@@ -64,7 +64,7 @@ class GetModelsModelSummaryResult(dict):
 
     @property
     @pulumi.getter(name="inputModalities")
-    def input_modalities(self) -> Sequence[str]:
+    def input_modalities(self) -> Sequence[Any]:
         """
         Input modalities that the model supports.
         """
@@ -96,7 +96,7 @@ class GetModelsModelSummaryResult(dict):
 
     @property
     @pulumi.getter(name="outputModalities")
-    def output_modalities(self) -> Sequence[str]:
+    def output_modalities(self) -> Sequence[Any]:
         """
         Output modalities that the model supports.
         """

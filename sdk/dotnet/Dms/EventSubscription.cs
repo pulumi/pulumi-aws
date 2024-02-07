@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Dms
         public Output<string> SnsTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// Ids of sources to listen to.
+        /// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         /// </summary>
         [Output("sourceIds")]
         public Output<ImmutableArray<string>> SourceIds { get; private set; } = null!;
@@ -190,11 +190,11 @@ namespace Pulumi.Aws.Dms
         [Input("snsTopicArn", required: true)]
         public Input<string> SnsTopicArn { get; set; } = null!;
 
-        [Input("sourceIds", required: true)]
+        [Input("sourceIds")]
         private InputList<string>? _sourceIds;
 
         /// <summary>
-        /// Ids of sources to listen to.
+        /// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         /// </summary>
         public InputList<string> SourceIds
         {
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Dms
         private InputList<string>? _sourceIds;
 
         /// <summary>
-        /// Ids of sources to listen to.
+        /// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         /// </summary>
         public InputList<string> SourceIds
         {

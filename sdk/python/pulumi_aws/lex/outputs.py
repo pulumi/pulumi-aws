@@ -963,6 +963,79 @@ __all__ = [
     'V2modelsIntentSampleUtterance',
     'V2modelsIntentSlotPriority',
     'V2modelsIntentTimeouts',
+    'V2modelsSlotMultipleValuesSetting',
+    'V2modelsSlotObfuscationSetting',
+    'V2modelsSlotTimeouts',
+    'V2modelsSlotTypeCompositeSlotTypeSetting',
+    'V2modelsSlotTypeExternalSourceSetting',
+    'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting',
+    'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource',
+    'V2modelsSlotTypeSlotTypeValues',
+    'V2modelsSlotTypeSlotTypeValuesSynonym',
+    'V2modelsSlotTypeTimeouts',
+    'V2modelsSlotTypeValueSelectionSetting',
+    'V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting',
+    'V2modelsSlotTypeValueSelectionSettingRegexFilter',
+    'V2modelsSlotValueElicitationSetting',
+    'V2modelsSlotValueElicitationSettingDefaultValueSpecification',
+    'V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList',
+    'V2modelsSlotValueElicitationSettingPromptSpecification',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButton',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButton',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification',
+    'V2modelsSlotValueElicitationSettingSampleUtterance',
+    'V2modelsSlotValueElicitationSettingSlotResolutionSetting',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecification',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButton',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessage',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessage',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButton',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButton',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButton',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage',
     'GetSlotTypeEnumerationValueResult',
 ]
 
@@ -42569,6 +42642,2533 @@ class V2modelsIntentTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class V2modelsSlotMultipleValuesSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowMultipleValues":
+            suggest = "allow_multiple_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotMultipleValuesSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotMultipleValuesSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotMultipleValuesSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_multiple_values: Optional[bool] = None):
+        """
+        :param bool allow_multiple_values: Whether a slot can return multiple values. When `true`, the slot may return more than one value in a response. When `false`, the slot returns only a single value. Multi-value slots are only available in the `en-US` locale.
+        """
+        if allow_multiple_values is not None:
+            pulumi.set(__self__, "allow_multiple_values", allow_multiple_values)
+
+    @property
+    @pulumi.getter(name="allowMultipleValues")
+    def allow_multiple_values(self) -> Optional[bool]:
+        """
+        Whether a slot can return multiple values. When `true`, the slot may return more than one value in a response. When `false`, the slot returns only a single value. Multi-value slots are only available in the `en-US` locale.
+        """
+        return pulumi.get(self, "allow_multiple_values")
+
+
+@pulumi.output_type
+class V2modelsSlotObfuscationSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "obfuscationSettingType":
+            suggest = "obfuscation_setting_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotObfuscationSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotObfuscationSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotObfuscationSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 obfuscation_setting_type: str):
+        """
+        :param str obfuscation_setting_type: Whether Amazon Lex obscures slot values in conversation logs. Valid values are `DefaultObfuscation` and `None`.
+        """
+        pulumi.set(__self__, "obfuscation_setting_type", obfuscation_setting_type)
+
+    @property
+    @pulumi.getter(name="obfuscationSettingType")
+    def obfuscation_setting_type(self) -> str:
+        """
+        Whether Amazon Lex obscures slot values in conversation logs. Valid values are `DefaultObfuscation` and `None`.
+        """
+        return pulumi.get(self, "obfuscation_setting_type")
+
+
+@pulumi.output_type
+class V2modelsSlotTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class V2modelsSlotTypeCompositeSlotTypeSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subSlots":
+            suggest = "sub_slots"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotTypeCompositeSlotTypeSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotTypeCompositeSlotTypeSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotTypeCompositeSlotTypeSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sub_slots: Sequence[Any]):
+        """
+        :param Sequence[Any] sub_slots: Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+        """
+        pulumi.set(__self__, "sub_slots", sub_slots)
+
+    @property
+    @pulumi.getter(name="subSlots")
+    def sub_slots(self) -> Sequence[Any]:
+        """
+        Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+        """
+        return pulumi.get(self, "sub_slots")
+
+
+@pulumi.output_type
+class V2modelsSlotTypeExternalSourceSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "grammarSlotTypeSetting":
+            suggest = "grammar_slot_type_setting"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotTypeExternalSourceSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotTypeExternalSourceSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotTypeExternalSourceSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 grammar_slot_type_setting: Optional['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting'] = None):
+        """
+        :param 'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs' grammar_slot_type_setting: Settings required for a slot type based on a grammar that you provide. See `grammar_slot_type_setting` argument reference below.
+        """
+        if grammar_slot_type_setting is not None:
+            pulumi.set(__self__, "grammar_slot_type_setting", grammar_slot_type_setting)
+
+    @property
+    @pulumi.getter(name="grammarSlotTypeSetting")
+    def grammar_slot_type_setting(self) -> Optional['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting']:
+        """
+        Settings required for a slot type based on a grammar that you provide. See `grammar_slot_type_setting` argument reference below.
+        """
+        return pulumi.get(self, "grammar_slot_type_setting")
+
+
+@pulumi.output_type
+class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting(dict):
+    def __init__(__self__, *,
+                 source: Optional['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource'] = None):
+        """
+        :param 'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs' source: Source of the grammar used to create the slot type. See `grammar_slot_type_source` argument reference below.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource']:
+        """
+        Source of the grammar used to create the slot type. See `grammar_slot_type_source` argument reference below.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "s3BucketName":
+            suggest = "s3_bucket_name"
+        elif key == "s3ObjectKey":
+            suggest = "s3_object_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: str,
+                 s3_bucket_name: str,
+                 s3_object_key: str):
+        """
+        :param str kms_key_arn: KMS key required to decrypt the contents of the grammar, if any.
+        :param str s3_bucket_name: Name of the Amazon S3 bucket that contains the grammar source.
+        :param str s3_object_key: Path to the grammar in the Amazon S3 bucket.
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        pulumi.set(__self__, "s3_object_key", s3_object_key)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> str:
+        """
+        KMS key required to decrypt the contents of the grammar, if any.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> str:
+        """
+        Name of the Amazon S3 bucket that contains the grammar source.
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+    @property
+    @pulumi.getter(name="s3ObjectKey")
+    def s3_object_key(self) -> str:
+        """
+        Path to the grammar in the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "s3_object_key")
+
+
+@pulumi.output_type
+class V2modelsSlotTypeSlotTypeValues(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "slotTypeValues":
+            suggest = "slot_type_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotTypeSlotTypeValues. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotTypeSlotTypeValues.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotTypeSlotTypeValues.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 slot_type_values: Sequence[Any],
+                 synonyms: Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSynonym']] = None):
+        """
+        :param Sequence[Any] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+        :param Sequence['V2modelsSlotTypeSlotTypeValuesSynonymArgs'] synonyms: Additional values related to the slot type entry. See `sample_value` argument reference below.
+        """
+        pulumi.set(__self__, "slot_type_values", slot_type_values)
+        if synonyms is not None:
+            pulumi.set(__self__, "synonyms", synonyms)
+
+    @property
+    @pulumi.getter(name="slotTypeValues")
+    def slot_type_values(self) -> Sequence[Any]:
+        """
+        List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+        """
+        return pulumi.get(self, "slot_type_values")
+
+    @property
+    @pulumi.getter
+    def synonyms(self) -> Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSynonym']]:
+        """
+        Additional values related to the slot type entry. See `sample_value` argument reference below.
+        """
+        return pulumi.get(self, "synonyms")
+
+
+@pulumi.output_type
+class V2modelsSlotTypeSlotTypeValuesSynonym(dict):
+    def __init__(__self__, *,
+                 value: str):
+        """
+        :param str value: Value that can be used for a slot type.
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value that can be used for a slot type.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotTypeTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class V2modelsSlotTypeValueSelectionSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resolutionStrategy":
+            suggest = "resolution_strategy"
+        elif key == "advancedRecognitionSettings":
+            suggest = "advanced_recognition_settings"
+        elif key == "regexFilters":
+            suggest = "regex_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotTypeValueSelectionSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotTypeValueSelectionSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotTypeValueSelectionSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resolution_strategy: str,
+                 advanced_recognition_settings: Optional[Sequence['outputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting']] = None,
+                 regex_filters: Optional[Sequence['outputs.V2modelsSlotTypeValueSelectionSettingRegexFilter']] = None):
+        """
+        :param str resolution_strategy: Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+        :param Sequence['V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs'] advanced_recognition_settings: Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advanced_recognition_setting` argument reference] below.
+        :param Sequence['V2modelsSlotTypeValueSelectionSettingRegexFilterArgs'] regex_filters: Used to validate the value of the slot. See [`regex_filter` argument reference] below.
+        """
+        pulumi.set(__self__, "resolution_strategy", resolution_strategy)
+        if advanced_recognition_settings is not None:
+            pulumi.set(__self__, "advanced_recognition_settings", advanced_recognition_settings)
+        if regex_filters is not None:
+            pulumi.set(__self__, "regex_filters", regex_filters)
+
+    @property
+    @pulumi.getter(name="resolutionStrategy")
+    def resolution_strategy(self) -> str:
+        """
+        Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+        """
+        return pulumi.get(self, "resolution_strategy")
+
+    @property
+    @pulumi.getter(name="advancedRecognitionSettings")
+    def advanced_recognition_settings(self) -> Optional[Sequence['outputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting']]:
+        """
+        Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advanced_recognition_setting` argument reference] below.
+        """
+        return pulumi.get(self, "advanced_recognition_settings")
+
+    @property
+    @pulumi.getter(name="regexFilters")
+    def regex_filters(self) -> Optional[Sequence['outputs.V2modelsSlotTypeValueSelectionSettingRegexFilter']]:
+        """
+        Used to validate the value of the slot. See [`regex_filter` argument reference] below.
+        """
+        return pulumi.get(self, "regex_filters")
+
+
+@pulumi.output_type
+class V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioRecognitionSetting":
+            suggest = "audio_recognition_setting"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_recognition_setting: Optional[str] = None):
+        if audio_recognition_setting is not None:
+            pulumi.set(__self__, "audio_recognition_setting", audio_recognition_setting)
+
+    @property
+    @pulumi.getter(name="audioRecognitionSetting")
+    def audio_recognition_setting(self) -> Optional[str]:
+        return pulumi.get(self, "audio_recognition_setting")
+
+
+@pulumi.output_type
+class V2modelsSlotTypeValueSelectionSettingRegexFilter(dict):
+    def __init__(__self__, *,
+                 pattern: str):
+        """
+        :param str pattern: Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\\⁠u").
+               Represent Unicode characters with four digits, for example "\\⁠u0041" or "\\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+        """
+        pulumi.set(__self__, "pattern", pattern)
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\\⁠u").
+        Represent Unicode characters with four digits, for example "\\⁠u0041" or "\\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+        """
+        return pulumi.get(self, "pattern")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "promptSpecification":
+            suggest = "prompt_specification"
+        elif key == "slotConstraint":
+            suggest = "slot_constraint"
+        elif key == "defaultValueSpecifications":
+            suggest = "default_value_specifications"
+        elif key == "sampleUtterances":
+            suggest = "sample_utterances"
+        elif key == "slotResolutionSettings":
+            suggest = "slot_resolution_settings"
+        elif key == "waitAndContinueSpecifications":
+            suggest = "wait_and_continue_specifications"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prompt_specification: 'outputs.V2modelsSlotValueElicitationSettingPromptSpecification',
+                 slot_constraint: str,
+                 default_value_specifications: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingDefaultValueSpecification']] = None,
+                 sample_utterances: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingSampleUtterance']] = None,
+                 slot_resolution_settings: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingSlotResolutionSetting']] = None,
+                 wait_and_continue_specifications: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecification']] = None):
+        pulumi.set(__self__, "prompt_specification", prompt_specification)
+        pulumi.set(__self__, "slot_constraint", slot_constraint)
+        if default_value_specifications is not None:
+            pulumi.set(__self__, "default_value_specifications", default_value_specifications)
+        if sample_utterances is not None:
+            pulumi.set(__self__, "sample_utterances", sample_utterances)
+        if slot_resolution_settings is not None:
+            pulumi.set(__self__, "slot_resolution_settings", slot_resolution_settings)
+        if wait_and_continue_specifications is not None:
+            pulumi.set(__self__, "wait_and_continue_specifications", wait_and_continue_specifications)
+
+    @property
+    @pulumi.getter(name="promptSpecification")
+    def prompt_specification(self) -> 'outputs.V2modelsSlotValueElicitationSettingPromptSpecification':
+        return pulumi.get(self, "prompt_specification")
+
+    @property
+    @pulumi.getter(name="slotConstraint")
+    def slot_constraint(self) -> str:
+        return pulumi.get(self, "slot_constraint")
+
+    @property
+    @pulumi.getter(name="defaultValueSpecifications")
+    def default_value_specifications(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingDefaultValueSpecification']]:
+        return pulumi.get(self, "default_value_specifications")
+
+    @property
+    @pulumi.getter(name="sampleUtterances")
+    def sample_utterances(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingSampleUtterance']]:
+        return pulumi.get(self, "sample_utterances")
+
+    @property
+    @pulumi.getter(name="slotResolutionSettings")
+    def slot_resolution_settings(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingSlotResolutionSetting']]:
+        return pulumi.get(self, "slot_resolution_settings")
+
+    @property
+    @pulumi.getter(name="waitAndContinueSpecifications")
+    def wait_and_continue_specifications(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecification']]:
+        return pulumi.get(self, "wait_and_continue_specifications")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingDefaultValueSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValueLists":
+            suggest = "default_value_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingDefaultValueSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingDefaultValueSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingDefaultValueSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_value_lists: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList']] = None):
+        if default_value_lists is not None:
+            pulumi.set(__self__, "default_value_lists", default_value_lists)
+
+    @property
+    @pulumi.getter(name="defaultValueLists")
+    def default_value_lists(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList']]:
+        return pulumi.get(self, "default_value_lists")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_value: str):
+        pulumi.set(__self__, "default_value", default_value)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> str:
+        return pulumi.get(self, "default_value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRetries":
+            suggest = "max_retries"
+        elif key == "allowInterrupt":
+            suggest = "allow_interrupt"
+        elif key == "messageGroups":
+            suggest = "message_groups"
+        elif key == "messageSelectionStrategy":
+            suggest = "message_selection_strategy"
+        elif key == "promptAttemptsSpecifications":
+            suggest = "prompt_attempts_specifications"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingPromptSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_retries: int,
+                 allow_interrupt: Optional[bool] = None,
+                 message_groups: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup']] = None,
+                 message_selection_strategy: Optional[str] = None,
+                 prompt_attempts_specifications: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification']] = None):
+        pulumi.set(__self__, "max_retries", max_retries)
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if message_groups is not None:
+            pulumi.set(__self__, "message_groups", message_groups)
+        if message_selection_strategy is not None:
+            pulumi.set(__self__, "message_selection_strategy", message_selection_strategy)
+        if prompt_attempts_specifications is not None:
+            pulumi.set(__self__, "prompt_attempts_specifications", prompt_attempts_specifications)
+
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> int:
+        return pulumi.get(self, "max_retries")
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[bool]:
+        return pulumi.get(self, "allow_interrupt")
+
+    @property
+    @pulumi.getter(name="messageGroups")
+    def message_groups(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup']]:
+        return pulumi.get(self, "message_groups")
+
+    @property
+    @pulumi.getter(name="messageSelectionStrategy")
+    def message_selection_strategy(self) -> Optional[str]:
+        return pulumi.get(self, "message_selection_strategy")
+
+    @property
+    @pulumi.getter(name="promptAttemptsSpecifications")
+    def prompt_attempts_specifications(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification']]:
+        return pulumi.get(self, "prompt_attempts_specifications")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup(dict):
+    def __init__(__self__, *,
+                 message: 'outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage',
+                 variations: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation']] = None):
+        pulumi.set(__self__, "message", message)
+        if variations is not None:
+            pulumi.set(__self__, "variations", variations)
+
+    @property
+    @pulumi.getter
+    def message(self) -> 'outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage':
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def variations(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation']]:
+        return pulumi.get(self, "variations")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customPayloads":
+            suggest = "custom_payloads"
+        elif key == "imageResponseCard":
+            suggest = "image_response_card"
+        elif key == "plainTextMessage":
+            suggest = "plain_text_message"
+        elif key == "ssmlMessage":
+            suggest = "ssml_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_payloads: Sequence[Any],
+                 image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard'] = None,
+                 plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage'] = None,
+                 ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage'] = None):
+        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayloads")
+    def custom_payloads(self) -> Sequence[Any]:
+        return pulumi.get(self, "custom_payloads")
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard']:
+        return pulumi.get(self, "image_response_card")
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage']:
+        return pulumi.get(self, "plain_text_message")
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage']:
+        return pulumi.get(self, "ssml_message")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 title: str,
+                 buttons: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButton']] = None,
+                 image_url: Optional[str] = None,
+                 subtitle: Optional[str] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButton']]:
+        return pulumi.get(self, "buttons")
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[str]:
+        return pulumi.get(self, "image_url")
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[str]:
+        return pulumi.get(self, "subtitle")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButton(dict):
+    def __init__(__self__, *,
+                 text: str,
+                 value: str):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        return pulumi.get(self, "text")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customPayloads":
+            suggest = "custom_payloads"
+        elif key == "imageResponseCard":
+            suggest = "image_response_card"
+        elif key == "plainTextMessage":
+            suggest = "plain_text_message"
+        elif key == "ssmlMessage":
+            suggest = "ssml_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_payloads: Sequence[Any],
+                 image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard'] = None,
+                 plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage'] = None,
+                 ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage'] = None):
+        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayloads")
+    def custom_payloads(self) -> Sequence[Any]:
+        return pulumi.get(self, "custom_payloads")
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard']:
+        return pulumi.get(self, "image_response_card")
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage']:
+        return pulumi.get(self, "plain_text_message")
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage']:
+        return pulumi.get(self, "ssml_message")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 title: str,
+                 buttons: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButton']] = None,
+                 image_url: Optional[str] = None,
+                 subtitle: Optional[str] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButton']]:
+        return pulumi.get(self, "buttons")
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[str]:
+        return pulumi.get(self, "image_url")
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[str]:
+        return pulumi.get(self, "subtitle")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButton(dict):
+    def __init__(__self__, *,
+                 text: str,
+                 value: str):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        return pulumi.get(self, "text")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedInputTypes":
+            suggest = "allowed_input_types"
+        elif key == "mapBlockKey":
+            suggest = "map_block_key"
+        elif key == "allowInterrupt":
+            suggest = "allow_interrupt"
+        elif key == "audioAndDtmfInputSpecification":
+            suggest = "audio_and_dtmf_input_specification"
+        elif key == "textInputSpecification":
+            suggest = "text_input_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_input_types: 'outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes',
+                 map_block_key: str,
+                 allow_interrupt: Optional[bool] = None,
+                 audio_and_dtmf_input_specification: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification'] = None,
+                 text_input_specification: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification'] = None):
+        pulumi.set(__self__, "allowed_input_types", allowed_input_types)
+        pulumi.set(__self__, "map_block_key", map_block_key)
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if audio_and_dtmf_input_specification is not None:
+            pulumi.set(__self__, "audio_and_dtmf_input_specification", audio_and_dtmf_input_specification)
+        if text_input_specification is not None:
+            pulumi.set(__self__, "text_input_specification", text_input_specification)
+
+    @property
+    @pulumi.getter(name="allowedInputTypes")
+    def allowed_input_types(self) -> 'outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes':
+        return pulumi.get(self, "allowed_input_types")
+
+    @property
+    @pulumi.getter(name="mapBlockKey")
+    def map_block_key(self) -> str:
+        return pulumi.get(self, "map_block_key")
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[bool]:
+        return pulumi.get(self, "allow_interrupt")
+
+    @property
+    @pulumi.getter(name="audioAndDtmfInputSpecification")
+    def audio_and_dtmf_input_specification(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification']:
+        return pulumi.get(self, "audio_and_dtmf_input_specification")
+
+    @property
+    @pulumi.getter(name="textInputSpecification")
+    def text_input_specification(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification']:
+        return pulumi.get(self, "text_input_specification")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowAudioInput":
+            suggest = "allow_audio_input"
+        elif key == "allowDtmfInput":
+            suggest = "allow_dtmf_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_audio_input: bool,
+                 allow_dtmf_input: bool):
+        pulumi.set(__self__, "allow_audio_input", allow_audio_input)
+        pulumi.set(__self__, "allow_dtmf_input", allow_dtmf_input)
+
+    @property
+    @pulumi.getter(name="allowAudioInput")
+    def allow_audio_input(self) -> bool:
+        return pulumi.get(self, "allow_audio_input")
+
+    @property
+    @pulumi.getter(name="allowDtmfInput")
+    def allow_dtmf_input(self) -> bool:
+        return pulumi.get(self, "allow_dtmf_input")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTimeoutMs":
+            suggest = "start_timeout_ms"
+        elif key == "audioSpecification":
+            suggest = "audio_specification"
+        elif key == "dtmfSpecification":
+            suggest = "dtmf_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 start_timeout_ms: int,
+                 audio_specification: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification'] = None,
+                 dtmf_specification: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification'] = None):
+        pulumi.set(__self__, "start_timeout_ms", start_timeout_ms)
+        if audio_specification is not None:
+            pulumi.set(__self__, "audio_specification", audio_specification)
+        if dtmf_specification is not None:
+            pulumi.set(__self__, "dtmf_specification", dtmf_specification)
+
+    @property
+    @pulumi.getter(name="startTimeoutMs")
+    def start_timeout_ms(self) -> int:
+        return pulumi.get(self, "start_timeout_ms")
+
+    @property
+    @pulumi.getter(name="audioSpecification")
+    def audio_specification(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification']:
+        return pulumi.get(self, "audio_specification")
+
+    @property
+    @pulumi.getter(name="dtmfSpecification")
+    def dtmf_specification(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification']:
+        return pulumi.get(self, "dtmf_specification")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTimeoutMs":
+            suggest = "end_timeout_ms"
+        elif key == "maxLengthMs":
+            suggest = "max_length_ms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_timeout_ms: int,
+                 max_length_ms: int):
+        pulumi.set(__self__, "end_timeout_ms", end_timeout_ms)
+        pulumi.set(__self__, "max_length_ms", max_length_ms)
+
+    @property
+    @pulumi.getter(name="endTimeoutMs")
+    def end_timeout_ms(self) -> int:
+        return pulumi.get(self, "end_timeout_ms")
+
+    @property
+    @pulumi.getter(name="maxLengthMs")
+    def max_length_ms(self) -> int:
+        return pulumi.get(self, "max_length_ms")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deletionCharacter":
+            suggest = "deletion_character"
+        elif key == "endCharacter":
+            suggest = "end_character"
+        elif key == "endTimeoutMs":
+            suggest = "end_timeout_ms"
+        elif key == "maxLength":
+            suggest = "max_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deletion_character: str,
+                 end_character: str,
+                 end_timeout_ms: int,
+                 max_length: int):
+        pulumi.set(__self__, "deletion_character", deletion_character)
+        pulumi.set(__self__, "end_character", end_character)
+        pulumi.set(__self__, "end_timeout_ms", end_timeout_ms)
+        pulumi.set(__self__, "max_length", max_length)
+
+    @property
+    @pulumi.getter(name="deletionCharacter")
+    def deletion_character(self) -> str:
+        return pulumi.get(self, "deletion_character")
+
+    @property
+    @pulumi.getter(name="endCharacter")
+    def end_character(self) -> str:
+        return pulumi.get(self, "end_character")
+
+    @property
+    @pulumi.getter(name="endTimeoutMs")
+    def end_timeout_ms(self) -> int:
+        return pulumi.get(self, "end_timeout_ms")
+
+    @property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> int:
+        return pulumi.get(self, "max_length")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTimeoutMs":
+            suggest = "start_timeout_ms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 start_timeout_ms: int):
+        pulumi.set(__self__, "start_timeout_ms", start_timeout_ms)
+
+    @property
+    @pulumi.getter(name="startTimeoutMs")
+    def start_timeout_ms(self) -> int:
+        return pulumi.get(self, "start_timeout_ms")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingSampleUtterance(dict):
+    def __init__(__self__, *,
+                 utterance: str):
+        pulumi.set(__self__, "utterance", utterance)
+
+    @property
+    @pulumi.getter
+    def utterance(self) -> str:
+        return pulumi.get(self, "utterance")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingSlotResolutionSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "slotResolutionStrategy":
+            suggest = "slot_resolution_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingSlotResolutionSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingSlotResolutionSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingSlotResolutionSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 slot_resolution_strategy: str):
+        pulumi.set(__self__, "slot_resolution_strategy", slot_resolution_strategy)
+
+    @property
+    @pulumi.getter(name="slotResolutionStrategy")
+    def slot_resolution_strategy(self) -> str:
+        return pulumi.get(self, "slot_resolution_strategy")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "continueResponses":
+            suggest = "continue_responses"
+        elif key == "stillWaitingResponses":
+            suggest = "still_waiting_responses"
+        elif key == "waitingResponses":
+            suggest = "waiting_responses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 active: Optional[bool] = None,
+                 continue_responses: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse']] = None,
+                 still_waiting_responses: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse']] = None,
+                 waiting_responses: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse']] = None):
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if continue_responses is not None:
+            pulumi.set(__self__, "continue_responses", continue_responses)
+        if still_waiting_responses is not None:
+            pulumi.set(__self__, "still_waiting_responses", still_waiting_responses)
+        if waiting_responses is not None:
+            pulumi.set(__self__, "waiting_responses", waiting_responses)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[bool]:
+        return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter(name="continueResponses")
+    def continue_responses(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse']]:
+        return pulumi.get(self, "continue_responses")
+
+    @property
+    @pulumi.getter(name="stillWaitingResponses")
+    def still_waiting_responses(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse']]:
+        return pulumi.get(self, "still_waiting_responses")
+
+    @property
+    @pulumi.getter(name="waitingResponses")
+    def waiting_responses(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse']]:
+        return pulumi.get(self, "waiting_responses")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowInterrupt":
+            suggest = "allow_interrupt"
+        elif key == "messageGroups":
+            suggest = "message_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_interrupt: Optional[bool] = None,
+                 message_groups: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup']] = None):
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if message_groups is not None:
+            pulumi.set(__self__, "message_groups", message_groups)
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[bool]:
+        return pulumi.get(self, "allow_interrupt")
+
+    @property
+    @pulumi.getter(name="messageGroups")
+    def message_groups(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup']]:
+        return pulumi.get(self, "message_groups")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup(dict):
+    def __init__(__self__, *,
+                 message: 'outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage',
+                 variations: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation']] = None):
+        pulumi.set(__self__, "message", message)
+        if variations is not None:
+            pulumi.set(__self__, "variations", variations)
+
+    @property
+    @pulumi.getter
+    def message(self) -> 'outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage':
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def variations(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation']]:
+        return pulumi.get(self, "variations")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customPayloads":
+            suggest = "custom_payloads"
+        elif key == "imageResponseCard":
+            suggest = "image_response_card"
+        elif key == "plainTextMessage":
+            suggest = "plain_text_message"
+        elif key == "ssmlMessage":
+            suggest = "ssml_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_payloads: Sequence[Any],
+                 image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard'] = None,
+                 plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage'] = None,
+                 ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage'] = None):
+        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayloads")
+    def custom_payloads(self) -> Sequence[Any]:
+        return pulumi.get(self, "custom_payloads")
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard']:
+        return pulumi.get(self, "image_response_card")
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage']:
+        return pulumi.get(self, "plain_text_message")
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage']:
+        return pulumi.get(self, "ssml_message")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 title: str,
+                 buttons: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButton']] = None,
+                 image_url: Optional[str] = None,
+                 subtitle: Optional[str] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButton']]:
+        return pulumi.get(self, "buttons")
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[str]:
+        return pulumi.get(self, "image_url")
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[str]:
+        return pulumi.get(self, "subtitle")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButton(dict):
+    def __init__(__self__, *,
+                 text: str,
+                 value: str):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        return pulumi.get(self, "text")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customPayloads":
+            suggest = "custom_payloads"
+        elif key == "imageResponseCard":
+            suggest = "image_response_card"
+        elif key == "plainTextMessage":
+            suggest = "plain_text_message"
+        elif key == "ssmlMessage":
+            suggest = "ssml_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_payloads: Sequence[Any],
+                 image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard'] = None,
+                 plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessage'] = None,
+                 ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessage'] = None):
+        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayloads")
+    def custom_payloads(self) -> Sequence[Any]:
+        return pulumi.get(self, "custom_payloads")
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard']:
+        return pulumi.get(self, "image_response_card")
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessage']:
+        return pulumi.get(self, "plain_text_message")
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessage']:
+        return pulumi.get(self, "ssml_message")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 title: str,
+                 buttons: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton']] = None,
+                 image_url: Optional[str] = None,
+                 subtitle: Optional[str] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton']]:
+        return pulumi.get(self, "buttons")
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[str]:
+        return pulumi.get(self, "image_url")
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[str]:
+        return pulumi.get(self, "subtitle")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton(dict):
+    def __init__(__self__, *,
+                 text: str,
+                 value: str):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        return pulumi.get(self, "text")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "frequencyInSeconds":
+            suggest = "frequency_in_seconds"
+        elif key == "timeoutInSeconds":
+            suggest = "timeout_in_seconds"
+        elif key == "allowInterrupt":
+            suggest = "allow_interrupt"
+        elif key == "messageGroups":
+            suggest = "message_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 frequency_in_seconds: int,
+                 timeout_in_seconds: int,
+                 allow_interrupt: Optional[bool] = None,
+                 message_groups: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup']] = None):
+        pulumi.set(__self__, "frequency_in_seconds", frequency_in_seconds)
+        pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if message_groups is not None:
+            pulumi.set(__self__, "message_groups", message_groups)
+
+    @property
+    @pulumi.getter(name="frequencyInSeconds")
+    def frequency_in_seconds(self) -> int:
+        return pulumi.get(self, "frequency_in_seconds")
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> int:
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[bool]:
+        return pulumi.get(self, "allow_interrupt")
+
+    @property
+    @pulumi.getter(name="messageGroups")
+    def message_groups(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup']]:
+        return pulumi.get(self, "message_groups")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup(dict):
+    def __init__(__self__, *,
+                 message: 'outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage',
+                 variations: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation']] = None):
+        pulumi.set(__self__, "message", message)
+        if variations is not None:
+            pulumi.set(__self__, "variations", variations)
+
+    @property
+    @pulumi.getter
+    def message(self) -> 'outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage':
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def variations(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation']]:
+        return pulumi.get(self, "variations")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customPayloads":
+            suggest = "custom_payloads"
+        elif key == "imageResponseCard":
+            suggest = "image_response_card"
+        elif key == "plainTextMessage":
+            suggest = "plain_text_message"
+        elif key == "ssmlMessage":
+            suggest = "ssml_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_payloads: Sequence[Any],
+                 image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard'] = None,
+                 plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage'] = None,
+                 ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage'] = None):
+        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayloads")
+    def custom_payloads(self) -> Sequence[Any]:
+        return pulumi.get(self, "custom_payloads")
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard']:
+        return pulumi.get(self, "image_response_card")
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage']:
+        return pulumi.get(self, "plain_text_message")
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage']:
+        return pulumi.get(self, "ssml_message")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 title: str,
+                 buttons: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButton']] = None,
+                 image_url: Optional[str] = None,
+                 subtitle: Optional[str] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButton']]:
+        return pulumi.get(self, "buttons")
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[str]:
+        return pulumi.get(self, "image_url")
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[str]:
+        return pulumi.get(self, "subtitle")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButton(dict):
+    def __init__(__self__, *,
+                 text: str,
+                 value: str):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        return pulumi.get(self, "text")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customPayloads":
+            suggest = "custom_payloads"
+        elif key == "imageResponseCard":
+            suggest = "image_response_card"
+        elif key == "plainTextMessage":
+            suggest = "plain_text_message"
+        elif key == "ssmlMessage":
+            suggest = "ssml_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_payloads: Sequence[Any],
+                 image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard'] = None,
+                 plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage'] = None,
+                 ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage'] = None):
+        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayloads")
+    def custom_payloads(self) -> Sequence[Any]:
+        return pulumi.get(self, "custom_payloads")
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard']:
+        return pulumi.get(self, "image_response_card")
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage']:
+        return pulumi.get(self, "plain_text_message")
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage']:
+        return pulumi.get(self, "ssml_message")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 title: str,
+                 buttons: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButton']] = None,
+                 image_url: Optional[str] = None,
+                 subtitle: Optional[str] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButton']]:
+        return pulumi.get(self, "buttons")
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[str]:
+        return pulumi.get(self, "image_url")
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[str]:
+        return pulumi.get(self, "subtitle")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButton(dict):
+    def __init__(__self__, *,
+                 text: str,
+                 value: str):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        return pulumi.get(self, "text")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowInterrupt":
+            suggest = "allow_interrupt"
+        elif key == "messageGroups":
+            suggest = "message_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_interrupt: Optional[bool] = None,
+                 message_groups: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup']] = None):
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if message_groups is not None:
+            pulumi.set(__self__, "message_groups", message_groups)
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[bool]:
+        return pulumi.get(self, "allow_interrupt")
+
+    @property
+    @pulumi.getter(name="messageGroups")
+    def message_groups(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup']]:
+        return pulumi.get(self, "message_groups")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup(dict):
+    def __init__(__self__, *,
+                 message: 'outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage',
+                 variations: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation']] = None):
+        pulumi.set(__self__, "message", message)
+        if variations is not None:
+            pulumi.set(__self__, "variations", variations)
+
+    @property
+    @pulumi.getter
+    def message(self) -> 'outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage':
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def variations(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation']]:
+        return pulumi.get(self, "variations")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customPayloads":
+            suggest = "custom_payloads"
+        elif key == "imageResponseCard":
+            suggest = "image_response_card"
+        elif key == "plainTextMessage":
+            suggest = "plain_text_message"
+        elif key == "ssmlMessage":
+            suggest = "ssml_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_payloads: Sequence[Any],
+                 image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard'] = None,
+                 plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage'] = None,
+                 ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage'] = None):
+        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayloads")
+    def custom_payloads(self) -> Sequence[Any]:
+        return pulumi.get(self, "custom_payloads")
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard']:
+        return pulumi.get(self, "image_response_card")
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage']:
+        return pulumi.get(self, "plain_text_message")
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage']:
+        return pulumi.get(self, "ssml_message")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 title: str,
+                 buttons: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButton']] = None,
+                 image_url: Optional[str] = None,
+                 subtitle: Optional[str] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButton']]:
+        return pulumi.get(self, "buttons")
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[str]:
+        return pulumi.get(self, "image_url")
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[str]:
+        return pulumi.get(self, "subtitle")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButton(dict):
+    def __init__(__self__, *,
+                 text: str,
+                 value: str):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        return pulumi.get(self, "text")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customPayloads":
+            suggest = "custom_payloads"
+        elif key == "imageResponseCard":
+            suggest = "image_response_card"
+        elif key == "plainTextMessage":
+            suggest = "plain_text_message"
+        elif key == "ssmlMessage":
+            suggest = "ssml_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_payloads: Sequence[Any],
+                 image_response_card: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard'] = None,
+                 plain_text_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage'] = None,
+                 ssml_message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage'] = None):
+        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayloads")
+    def custom_payloads(self) -> Sequence[Any]:
+        return pulumi.get(self, "custom_payloads")
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard']:
+        return pulumi.get(self, "image_response_card")
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage']:
+        return pulumi.get(self, "plain_text_message")
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage']:
+        return pulumi.get(self, "ssml_message")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 title: str,
+                 buttons: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton']] = None,
+                 image_url: Optional[str] = None,
+                 subtitle: Optional[str] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton']]:
+        return pulumi.get(self, "buttons")
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[str]:
+        return pulumi.get(self, "image_url")
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[str]:
+        return pulumi.get(self, "subtitle")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton(dict):
+    def __init__(__self__, *,
+                 text: str,
+                 value: str):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        return pulumi.get(self, "text")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

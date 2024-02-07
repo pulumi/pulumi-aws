@@ -45,6 +45,7 @@ __all__ = [
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -91,6 +92,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -118,6 +120,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -138,6 +141,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern',
@@ -158,6 +162,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern',
@@ -178,6 +183,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -198,6 +204,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -218,6 +225,7 @@ __all__ = [
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -238,6 +246,7 @@ __all__ = [
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll',
+    'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern',
@@ -258,6 +267,7 @@ __all__ = [
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll',
+    'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern',
@@ -278,6 +288,7 @@ __all__ = [
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -298,6 +309,7 @@ __all__ = [
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -370,6 +382,7 @@ __all__ = [
     'WebAclRuleStatementByteMatchStatementFieldToMatchHeader',
     'WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -438,6 +451,7 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeader',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -465,6 +479,7 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -485,6 +500,7 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern',
@@ -505,6 +521,7 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern',
@@ -525,6 +542,7 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -545,6 +563,7 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeader',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -586,6 +605,7 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -613,6 +633,7 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -633,6 +654,7 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern',
@@ -653,6 +675,7 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern',
@@ -673,6 +696,7 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -693,6 +717,7 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -713,6 +738,7 @@ __all__ = [
     'WebAclRuleStatementRegexMatchStatementFieldToMatchHeader',
     'WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -733,6 +759,7 @@ __all__ = [
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader',
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern',
@@ -771,6 +798,7 @@ __all__ = [
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader',
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody',
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern',
@@ -791,6 +819,7 @@ __all__ = [
     'WebAclRuleStatementSqliMatchStatementFieldToMatchHeader',
     'WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -811,6 +840,7 @@ __all__ = [
     'WebAclRuleStatementXssMatchStatementFieldToMatchHeader',
     'WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern',
     'WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll',
+    'WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint',
     'WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern',
@@ -2018,6 +2048,8 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -2046,6 +2078,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
                  all_query_arguments: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody'] = None,
@@ -2058,6 +2091,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -2072,6 +2106,8 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -2112,6 +2148,14 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
         Inspect the cookies in the web request. See Cookies below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect the request headers. See Header Order below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -2465,6 +2509,41 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dic
 class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type
@@ -3961,6 +4040,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -3989,6 +4070,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  all_query_arguments: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody'] = None,
@@ -4001,6 +4083,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -4015,6 +4098,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -4055,6 +4140,14 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         Inspect the cookies in the web request. See Cookies below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect the request headers. See Header Order below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -4408,6 +4501,41 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type
@@ -4995,6 +5123,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -5023,6 +5153,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  all_query_arguments: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody'] = None,
@@ -5035,6 +5166,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -5049,6 +5181,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -5089,6 +5223,14 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         Inspect the cookies in the web request. See Cookies below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect the request headers. See Header Order below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -5445,6 +5587,41 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5759,6 +5936,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -5787,6 +5966,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  all_query_arguments: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody'] = None,
@@ -5799,6 +5979,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -5813,6 +5994,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -5853,6 +6036,14 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         Inspect the cookies in the web request. See Cookies below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect the request headers. See Header Order below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -6209,6 +6400,41 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -6536,6 +6762,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -6564,6 +6792,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  all_query_arguments: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody'] = None,
@@ -6576,6 +6805,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -6590,6 +6820,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -6630,6 +6862,14 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         Inspect the cookies in the web request. See Cookies below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect the request headers. See Header Order below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -6986,6 +7226,41 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -7289,6 +7564,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -7317,6 +7594,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  all_query_arguments: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody'] = None,
@@ -7329,6 +7607,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -7343,6 +7622,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -7383,6 +7664,14 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         Inspect the cookies in the web request. See Cookies below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect the request headers. See Header Order below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -7739,6 +8028,41 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8042,6 +8366,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -8070,6 +8396,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  all_query_arguments: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody'] = None,
@@ -8082,6 +8409,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -8096,6 +8424,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -8136,6 +8466,14 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         Inspect the cookies in the web request. See Cookies below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect the request headers. See Header Order below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -8492,6 +8830,41 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8808,6 +9181,8 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -8836,6 +9211,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
                  all_query_arguments: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody'] = None,
@@ -8848,6 +9224,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -8862,6 +9239,8 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -8902,6 +9281,14 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
         Inspect the cookies in the web request. See Cookies below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect the request headers. See Header Order below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -9258,6 +9645,41 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -9572,6 +9994,8 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -9600,6 +10024,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
                  all_query_arguments: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody'] = None,
@@ -9612,6 +10037,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -9626,6 +10052,8 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -9666,6 +10094,14 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
         Inspect the cookies in the web request. See Cookies below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect the request headers. See Header Order below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -10022,6 +10458,41 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderM
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -10349,6 +10820,8 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -10377,6 +10850,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
                  all_query_arguments: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody'] = None,
@@ -10389,6 +10863,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -10403,6 +10878,8 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -10443,6 +10920,14 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
         Inspect the cookies in the web request. See Cookies below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect the request headers. See Header Order below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -10799,6 +11284,41 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatter
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -11102,6 +11622,8 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -11130,6 +11652,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
                  all_query_arguments: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody'] = None,
@@ -11142,6 +11665,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -11156,6 +11680,8 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -11196,6 +11722,14 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
         Inspect the cookies in the web request. See Cookies below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect the request headers. See Header Order below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -11552,6 +12086,41 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(
 
 
 @pulumi.output_type
+class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -11855,6 +12424,8 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -11883,6 +12454,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
                  all_query_arguments: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody'] = None,
@@ -11895,6 +12467,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -11909,6 +12482,8 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -11949,6 +12524,14 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
         Inspect the cookies in the web request. See Cookies below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect the request headers. See Header Order below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -12302,6 +12885,41 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict
 class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type
@@ -14703,6 +15321,8 @@ class WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -14731,6 +15351,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
                  all_query_arguments: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody'] = None,
@@ -14743,6 +15364,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
         :param 'WebAclRuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementByteMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementByteMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -14758,6 +15380,8 @@ class WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -14798,6 +15422,14 @@ class WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -15154,6 +15786,41 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dict):
 class WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type
@@ -17820,6 +18487,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -17848,6 +18517,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
                  all_query_arguments: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody'] = None,
@@ -17860,6 +18530,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -17875,6 +18546,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -17915,6 +18588,14 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -18271,6 +18952,41 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type
@@ -18854,6 +19570,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -18882,6 +19600,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
                  all_query_arguments: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody'] = None,
@@ -18894,6 +19613,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -18909,6 +19629,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -18949,6 +19671,14 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -19308,6 +20038,41 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 
 
 @pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -19618,6 +20383,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -19646,6 +20413,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
                  all_query_arguments: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody'] = None,
@@ -19658,6 +20426,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -19673,6 +20442,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -19713,6 +20484,14 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -20072,6 +20851,41 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 
 
 @pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -20395,6 +21209,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -20423,6 +21239,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
                  all_query_arguments: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody'] = None,
@@ -20435,6 +21252,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -20450,6 +21268,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -20490,6 +21310,14 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -20849,6 +21677,41 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 
 
 @pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -21148,6 +22011,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -21176,6 +22041,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
                  all_query_arguments: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody'] = None,
@@ -21188,6 +22054,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -21203,6 +22070,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -21243,6 +22112,14 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -21602,6 +22479,41 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 
 
 @pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -21901,6 +22813,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -21929,6 +22843,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
                  all_query_arguments: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody'] = None,
@@ -21941,6 +22856,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -21956,6 +22872,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -21996,6 +22914,14 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -22352,6 +23278,41 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type
@@ -23592,6 +24553,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -23620,6 +24583,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
                  all_query_arguments: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody'] = None,
@@ -23632,6 +24596,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -23647,6 +24612,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -23687,6 +24654,14 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -24043,6 +25018,41 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type
@@ -24626,6 +25636,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -24654,6 +25666,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
                  all_query_arguments: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody'] = None,
@@ -24666,6 +25679,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -24681,6 +25695,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -24721,6 +25737,14 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -25080,6 +26104,41 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 
 
 @pulumi.output_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -25390,6 +26449,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -25418,6 +26479,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
                  all_query_arguments: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody'] = None,
@@ -25430,6 +26492,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -25445,6 +26508,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -25485,6 +26550,14 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -25844,6 +26917,41 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 
 
 @pulumi.output_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -26167,6 +27275,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -26195,6 +27305,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
                  all_query_arguments: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody'] = None,
@@ -26207,6 +27318,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -26222,6 +27334,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -26262,6 +27376,14 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -26621,6 +27743,41 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 
 
 @pulumi.output_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -26920,6 +28077,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -26948,6 +28107,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
                  all_query_arguments: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody'] = None,
@@ -26960,6 +28120,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -26975,6 +28136,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -27015,6 +28178,14 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -27374,6 +28545,41 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 
 
 @pulumi.output_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -27673,6 +28879,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -27701,6 +28909,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
                  all_query_arguments: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody'] = None,
@@ -27713,6 +28922,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -27728,6 +28938,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -27768,6 +28980,14 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -28127,6 +29347,41 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 
 
 @pulumi.output_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -28439,6 +29694,8 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -28467,6 +29724,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
                  all_query_arguments: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody'] = None,
@@ -28479,6 +29737,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
         :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -28494,6 +29753,8 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -28534,6 +29795,14 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -28893,6 +30162,41 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(di
 
 
 @pulumi.output_type
+class WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -29203,6 +30507,8 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -29231,6 +30537,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
                  all_query_arguments: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody'] = None,
@@ -29243,6 +30550,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -29258,6 +30566,8 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -29298,6 +30608,14 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -29654,6 +30972,41 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatc
 class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type
@@ -30668,6 +32021,8 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -30696,6 +32051,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
                  all_query_arguments: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody'] = None,
@@ -30708,6 +32064,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
         :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -30723,6 +32080,8 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -30763,6 +32122,14 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -31122,6 +32489,41 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAl
 
 
 @pulumi.output_type
+class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -31421,6 +32823,8 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -31449,6 +32853,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
                  all_query_arguments: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody'] = None,
@@ -31461,6 +32866,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -31476,6 +32882,8 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -31516,6 +32924,14 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -31875,6 +33291,41 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dic
 
 
 @pulumi.output_type
+class WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
+
+
+@pulumi.output_type
 class WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -32174,6 +33625,8 @@ class WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
         suggest = None
         if key == "allQueryArguments":
             suggest = "all_query_arguments"
+        elif key == "headerOrders":
+            suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
         elif key == "jsonBody":
@@ -32202,6 +33655,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
                  all_query_arguments: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments'] = None,
                  body: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchBody'] = None,
                  cookies: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchCookies'] = None,
+                 header_orders: Optional[Sequence['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody'] = None,
@@ -32214,6 +33668,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
         :param 'WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
         :param 'WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
         :param 'WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         :param 'WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
@@ -32229,6 +33684,8 @@ class WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "body", body)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
+        if header_orders is not None:
+            pulumi.set(__self__, "header_orders", header_orders)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
@@ -32269,6 +33726,14 @@ class WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
         Inspect the cookies in the web request. See `cookies` below for details.
         """
         return pulumi.get(self, "cookies")
+
+    @property
+    @pulumi.getter(name="headerOrders")
+    def header_orders(self) -> Optional[Sequence['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder']]:
+        """
+        Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        """
+        return pulumi.get(self, "header_orders")
 
     @property
     @pulumi.getter
@@ -32625,6 +34090,41 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict):
 class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oversizeHandling":
+            suggest = "oversize_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oversize_handling: str):
+        """
+        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
+
+    @property
+    @pulumi.getter(name="oversizeHandling")
+    def oversize_handling(self) -> str:
+        """
+        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        """
+        return pulumi.get(self, "oversize_handling")
 
 
 @pulumi.output_type

@@ -608,6 +608,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.masterUsername);
     }
     /**
+     * Specifies if the Redshift cluster is multi-AZ.
+     * 
+     */
+    @Export(name="multiAz", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> multiAz;
+
+    /**
+     * @return Specifies if the Redshift cluster is multi-AZ.
+     * 
+     */
+    public Output<Optional<Boolean>> multiAz() {
+        return Codegen.optional(this.multiAz);
+    }
+    /**
      * The node type to be provisioned for the cluster.
      * 
      */

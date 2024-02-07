@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Eks
         public string ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
         /// </summary>
         [Input("principalArn", required: true)]
         public string PrincipalArn { get; set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Eks
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
         /// </summary>
         [Input("principalArn", required: true)]
         public Input<string> PrincipalArn { get; set; } = null!;

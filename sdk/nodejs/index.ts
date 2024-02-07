@@ -99,6 +99,7 @@ import * as autoscaling from "./autoscaling";
 import * as autoscalingplans from "./autoscalingplans";
 import * as backup from "./backup";
 import * as batch from "./batch";
+import * as bedrock from "./bedrock";
 import * as bedrockfoundation from "./bedrockfoundation";
 import * as bedrockmodel from "./bedrockmodel";
 import * as budgets from "./budgets";
@@ -302,6 +303,7 @@ export {
     autoscalingplans,
     backup,
     batch,
+    bedrock,
     bedrockfoundation,
     bedrockmodel,
     budgets,

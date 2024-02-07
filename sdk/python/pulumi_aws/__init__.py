@@ -71,6 +71,8 @@ if typing.TYPE_CHECKING:
     backup = __backup
     import pulumi_aws.batch as __batch
     batch = __batch
+    import pulumi_aws.bedrock as __bedrock
+    bedrock = __bedrock
     import pulumi_aws.bedrockfoundation as __bedrockfoundation
     bedrockfoundation = __bedrockfoundation
     import pulumi_aws.bedrockmodel as __bedrockmodel
@@ -446,6 +448,7 @@ else:
     autoscalingplans = _utilities.lazy_import('pulumi_aws.autoscalingplans')
     backup = _utilities.lazy_import('pulumi_aws.backup')
     batch = _utilities.lazy_import('pulumi_aws.batch')
+    bedrock = _utilities.lazy_import('pulumi_aws.bedrock')
     bedrockfoundation = _utilities.lazy_import('pulumi_aws.bedrockfoundation')
     bedrockmodel = _utilities.lazy_import('pulumi_aws.bedrockmodel')
     budgets = _utilities.lazy_import('pulumi_aws.budgets')
@@ -1783,6 +1786,14 @@ _utilities.register(
   "fqn": "pulumi_aws.batch",
   "classes": {
    "aws:batch/schedulingPolicy:SchedulingPolicy": "SchedulingPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/customModel",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/customModel:CustomModel": "CustomModel"
   }
  },
  {
@@ -6771,6 +6782,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lex/v2modelsSlot",
+  "fqn": "pulumi_aws.lex",
+  "classes": {
+   "aws:lex/v2modelsSlot:V2modelsSlot": "V2modelsSlot"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lex/v2modelsSlotType",
+  "fqn": "pulumi_aws.lex",
+  "classes": {
+   "aws:lex/v2modelsSlotType:V2modelsSlotType": "V2modelsSlotType"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "licensemanager/association",
   "fqn": "pulumi_aws.licensemanager",
   "classes": {
@@ -8603,6 +8630,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "rekognition/collection",
+  "fqn": "pulumi_aws.rekognition",
+  "classes": {
+   "aws:rekognition/collection:Collection": "Collection"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "rekognition/project",
   "fqn": "pulumi_aws.rekognition",
   "classes": {
@@ -10051,6 +10086,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sesv2/emailIdentityPolicy",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy": "EmailIdentityPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sfn/activity",
   "fqn": "pulumi_aws.sfn",
   "classes": {
@@ -10247,6 +10290,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ssm",
   "classes": {
    "aws:ssm/association:Association": "Association"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssm/contactsRotation",
+  "fqn": "pulumi_aws.ssm",
+  "classes": {
+   "aws:ssm/contactsRotation:ContactsRotation": "ContactsRotation"
   }
  },
  {

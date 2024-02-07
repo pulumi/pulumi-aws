@@ -139,18 +139,18 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
         return this.snsTopicArn;
     }
     /**
-     * Ids of sources to listen to.
+     * Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
     @Export(name="sourceIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> sourceIds;
+    private Output</* @Nullable */ List<String>> sourceIds;
 
     /**
-     * @return Ids of sources to listen to.
+     * @return Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
-    public Output<List<String>> sourceIds() {
-        return this.sourceIds;
+    public Output<Optional<List<String>>> sourceIds() {
+        return Codegen.optional(this.sourceIds);
     }
     /**
      * Type of source for events. Valid values: `replication-instance` or `replication-task`

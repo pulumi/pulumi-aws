@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementByteMatchStatementFieldTo
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementByteMatchStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementByteMatchStatementFieldToMatchCookies;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementByteMatchStatementFieldToMatchHeader;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementByteMatchStatementFieldToMatchMethod;
@@ -37,6 +38,11 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatch {
      * 
      */
     private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchCookies cookies;
+    /**
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * 
+     */
+    private @Nullable List<WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder> headerOrders;
     /**
      * @return Inspect the request headers. See `headers` below for details.
      * 
@@ -99,6 +105,13 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatch {
      */
     public Optional<WebAclRuleStatementByteMatchStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+    /**
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * 
+     */
+    public List<WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder> headerOrders() {
+        return this.headerOrders == null ? List.of() : this.headerOrders;
     }
     /**
      * @return Inspect the request headers. See `headers` below for details.
@@ -169,6 +182,7 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatch {
         private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchBody body;
         private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchCookies cookies;
+        private @Nullable List<WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder> headerOrders;
         private @Nullable List<WebAclRuleStatementByteMatchStatementFieldToMatchHeader> headers;
         private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
         private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody jsonBody;
@@ -183,6 +197,7 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatch {
     	      this.allQueryArguments = defaults.allQueryArguments;
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
+    	      this.headerOrders = defaults.headerOrders;
     	      this.headers = defaults.headers;
     	      this.ja3Fingerprint = defaults.ja3Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
@@ -210,6 +225,15 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatch {
 
             this.cookies = cookies;
             return this;
+        }
+        @CustomType.Setter
+        public Builder headerOrders(@Nullable List<WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder> headerOrders) {
+
+            this.headerOrders = headerOrders;
+            return this;
+        }
+        public Builder headerOrders(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder... headerOrders) {
+            return headerOrders(List.of(headerOrders));
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<WebAclRuleStatementByteMatchStatementFieldToMatchHeader> headers) {
@@ -267,6 +291,7 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatch {
             _resultValue.allQueryArguments = allQueryArguments;
             _resultValue.body = body;
             _resultValue.cookies = cookies;
+            _resultValue.headerOrders = headerOrders;
             _resultValue.headers = headers;
             _resultValue.ja3Fingerprint = ja3Fingerprint;
             _resultValue.jsonBody = jsonBody;

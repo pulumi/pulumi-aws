@@ -93,6 +93,8 @@ type LookupClusterResult struct {
 	ManualSnapshotRetentionPeriod int `pulumi:"manualSnapshotRetentionPeriod"`
 	// Username for the master DB user
 	MasterUsername string `pulumi:"masterUsername"`
+	// If the cluster is a Multi-AZ deployment
+	MultiAz bool `pulumi:"multiAz"`
 	// Cluster node type
 	NodeType string `pulumi:"nodeType"`
 	// Number of nodes in the cluster
@@ -305,6 +307,11 @@ func (o LookupClusterResultOutput) ManualSnapshotRetentionPeriod() pulumi.IntOut
 // Username for the master DB user
 func (o LookupClusterResultOutput) MasterUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.MasterUsername }).(pulumi.StringOutput)
+}
+
+// If the cluster is a Multi-AZ deployment
+func (o LookupClusterResultOutput) MultiAz() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupClusterResult) bool { return v.MultiAz }).(pulumi.BoolOutput)
 }
 
 // Cluster node type

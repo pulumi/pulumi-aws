@@ -4,6 +4,8 @@
 package com.pulumi.aws.ssm;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.ssm.inputs.GetContactsRotationArgs;
+import com.pulumi.aws.ssm.inputs.GetContactsRotationPlainArgs;
 import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
 import com.pulumi.aws.ssm.inputs.GetDocumentPlainArgs;
 import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
@@ -16,6 +18,7 @@ import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
 import com.pulumi.aws.ssm.inputs.GetParametersByPathPlainArgs;
 import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
 import com.pulumi.aws.ssm.inputs.GetPatchBaselinePlainArgs;
+import com.pulumi.aws.ssm.outputs.GetContactsRotationResult;
 import com.pulumi.aws.ssm.outputs.GetDocumentResult;
 import com.pulumi.aws.ssm.outputs.GetInstancesResult;
 import com.pulumi.aws.ssm.outputs.GetMaintenanceWindowsResult;
@@ -29,6 +32,150 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class SsmFunctions {
+    /**
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetContactsRotationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getContactsRotation(GetContactsRotationArgs.builder()
+     *             .arn(&#34;arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetContactsRotationResult> getContactsRotation(GetContactsRotationArgs args) {
+        return getContactsRotation(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetContactsRotationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getContactsRotation(GetContactsRotationArgs.builder()
+     *             .arn(&#34;arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetContactsRotationResult> getContactsRotationPlain(GetContactsRotationPlainArgs args) {
+        return getContactsRotationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetContactsRotationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getContactsRotation(GetContactsRotationArgs.builder()
+     *             .arn(&#34;arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetContactsRotationResult> getContactsRotation(GetContactsRotationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ssm/getContactsRotation:getContactsRotation", TypeShape.of(GetContactsRotationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetContactsRotationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getContactsRotation(GetContactsRotationArgs.builder()
+     *             .arn(&#34;arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetContactsRotationResult> getContactsRotationPlain(GetContactsRotationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ssm/getContactsRotation:getContactsRotation", TypeShape.of(GetContactsRotationResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Gets the contents of the specified Systems Manager document.
      * 

@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EmailIdentityFeedbackAttributes{}
 	case "aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes":
 		r = &EmailIdentityMailFromAttributes{}
+	case "aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy":
+		r = &EmailIdentityPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -95,6 +97,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sesv2/emailIdentityMailFromAttributes",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sesv2/emailIdentityPolicy",
 		&module{version},
 	)
 }

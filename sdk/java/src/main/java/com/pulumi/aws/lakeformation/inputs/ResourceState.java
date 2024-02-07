@@ -36,6 +36,25 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Flag to enable AWS LakeFormation hybrid access permission mode.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
+    @Import(name="hybridAccessEnabled")
+    private @Nullable Output<Boolean> hybridAccessEnabled;
+
+    /**
+     * @return Flag to enable AWS LakeFormation hybrid access permission mode.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
+    public Optional<Output<Boolean>> hybridAccessEnabled() {
+        return Optional.ofNullable(this.hybridAccessEnabled);
+    }
+
+    /**
      * Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
@@ -68,8 +87,6 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
     /**
      * Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
      * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-     * 
      */
     @Import(name="useServiceLinkedRole")
     private @Nullable Output<Boolean> useServiceLinkedRole;
@@ -77,20 +94,27 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
      * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-     * 
      */
     public Optional<Output<Boolean>> useServiceLinkedRole() {
         return Optional.ofNullable(this.useServiceLinkedRole);
+    }
+
+    @Import(name="withFederation")
+    private @Nullable Output<Boolean> withFederation;
+
+    public Optional<Output<Boolean>> withFederation() {
+        return Optional.ofNullable(this.withFederation);
     }
 
     private ResourceState() {}
 
     private ResourceState(ResourceState $) {
         this.arn = $.arn;
+        this.hybridAccessEnabled = $.hybridAccessEnabled;
         this.lastModified = $.lastModified;
         this.roleArn = $.roleArn;
         this.useServiceLinkedRole = $.useServiceLinkedRole;
+        this.withFederation = $.withFederation;
     }
 
     public static Builder builder() {
@@ -134,6 +158,31 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param hybridAccessEnabled Flag to enable AWS LakeFormation hybrid access permission mode.
+         * 
+         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hybridAccessEnabled(@Nullable Output<Boolean> hybridAccessEnabled) {
+            $.hybridAccessEnabled = hybridAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param hybridAccessEnabled Flag to enable AWS LakeFormation hybrid access permission mode.
+         * 
+         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hybridAccessEnabled(Boolean hybridAccessEnabled) {
+            return hybridAccessEnabled(Output.of(hybridAccessEnabled));
         }
 
         /**
@@ -181,8 +230,6 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param useServiceLinkedRole Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
          * 
-         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-         * 
          * @return builder
          * 
          */
@@ -194,13 +241,20 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param useServiceLinkedRole Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
          * 
-         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-         * 
          * @return builder
          * 
          */
         public Builder useServiceLinkedRole(Boolean useServiceLinkedRole) {
             return useServiceLinkedRole(Output.of(useServiceLinkedRole));
+        }
+
+        public Builder withFederation(@Nullable Output<Boolean> withFederation) {
+            $.withFederation = withFederation;
+            return this;
+        }
+
+        public Builder withFederation(Boolean withFederation) {
+            return withFederation(Output.of(withFederation));
         }
 
         public ResourceState build() {

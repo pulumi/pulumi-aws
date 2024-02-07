@@ -30,7 +30,7 @@ type StudioLifecycleConfig struct {
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 	StudioLifecycleConfigAppType pulumi.StringOutput `pulumi:"studioLifecycleConfigAppType"`
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
 	StudioLifecycleConfigContent pulumi.StringOutput `pulumi:"studioLifecycleConfigContent"`
@@ -89,7 +89,7 @@ func GetStudioLifecycleConfig(ctx *pulumi.Context,
 type studioLifecycleConfigState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
 	Arn *string `pulumi:"arn"`
-	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 	StudioLifecycleConfigAppType *string `pulumi:"studioLifecycleConfigAppType"`
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
 	StudioLifecycleConfigContent *string `pulumi:"studioLifecycleConfigContent"`
@@ -106,7 +106,7 @@ type studioLifecycleConfigState struct {
 type StudioLifecycleConfigState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
 	Arn pulumi.StringPtrInput
-	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 	StudioLifecycleConfigAppType pulumi.StringPtrInput
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
 	StudioLifecycleConfigContent pulumi.StringPtrInput
@@ -125,7 +125,7 @@ func (StudioLifecycleConfigState) ElementType() reflect.Type {
 }
 
 type studioLifecycleConfigArgs struct {
-	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 	StudioLifecycleConfigAppType string `pulumi:"studioLifecycleConfigAppType"`
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
 	StudioLifecycleConfigContent string `pulumi:"studioLifecycleConfigContent"`
@@ -137,7 +137,7 @@ type studioLifecycleConfigArgs struct {
 
 // The set of arguments for constructing a StudioLifecycleConfig resource.
 type StudioLifecycleConfigArgs struct {
-	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 	StudioLifecycleConfigAppType pulumi.StringInput
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
 	StudioLifecycleConfigContent pulumi.StringInput
@@ -239,7 +239,7 @@ func (o StudioLifecycleConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 func (o StudioLifecycleConfigOutput) StudioLifecycleConfigAppType() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.StudioLifecycleConfigAppType }).(pulumi.StringOutput)
 }

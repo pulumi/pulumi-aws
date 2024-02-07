@@ -59,6 +59,12 @@ export class Resource extends pulumi.CustomResource {
      */
     public readonly arn!: pulumi.Output<string>;
     /**
+     * Flag to enable AWS LakeFormation hybrid access permission mode.
+     *
+     * > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     */
+    public readonly hybridAccessEnabled!: pulumi.Output<boolean>;
+    /**
      * Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
@@ -68,10 +74,9 @@ export class Resource extends pulumi.CustomResource {
     public readonly roleArn!: pulumi.Output<string>;
     /**
      * Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-     *
-     * > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      */
     public readonly useServiceLinkedRole!: pulumi.Output<boolean | undefined>;
+    public readonly withFederation!: pulumi.Output<boolean>;
 
     /**
      * Create a Resource resource with the given unique name, arguments, and options.
@@ -87,17 +92,21 @@ export class Resource extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ResourceState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["hybridAccessEnabled"] = state ? state.hybridAccessEnabled : undefined;
             resourceInputs["lastModified"] = state ? state.lastModified : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["useServiceLinkedRole"] = state ? state.useServiceLinkedRole : undefined;
+            resourceInputs["withFederation"] = state ? state.withFederation : undefined;
         } else {
             const args = argsOrState as ResourceArgs | undefined;
             if ((!args || args.arn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'arn'");
             }
             resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["hybridAccessEnabled"] = args ? args.hybridAccessEnabled : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["useServiceLinkedRole"] = args ? args.useServiceLinkedRole : undefined;
+            resourceInputs["withFederation"] = args ? args.withFederation : undefined;
             resourceInputs["lastModified"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -116,6 +125,12 @@ export interface ResourceState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * Flag to enable AWS LakeFormation hybrid access permission mode.
+     *
+     * > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     */
+    hybridAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
     lastModified?: pulumi.Input<string>;
@@ -125,10 +140,9 @@ export interface ResourceState {
     roleArn?: pulumi.Input<string>;
     /**
      * Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-     *
-     * > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      */
     useServiceLinkedRole?: pulumi.Input<boolean>;
+    withFederation?: pulumi.Input<boolean>;
 }
 
 /**
@@ -142,13 +156,18 @@ export interface ResourceArgs {
      */
     arn: pulumi.Input<string>;
     /**
+     * Flag to enable AWS LakeFormation hybrid access permission mode.
+     *
+     * > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     */
+    hybridAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * Role that has read/write access to the resource.
      */
     roleArn?: pulumi.Input<string>;
     /**
      * Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-     *
-     * > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      */
     useServiceLinkedRole?: pulumi.Input<boolean>;
+    withFederation?: pulumi.Input<boolean>;
 }

@@ -85,9 +85,9 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly snsTopicArn!: pulumi.Output<string>;
     /**
-     * Ids of sources to listen to.
+     * Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
      */
-    public readonly sourceIds!: pulumi.Output<string[]>;
+    public readonly sourceIds!: pulumi.Output<string[] | undefined>;
     /**
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      */
@@ -132,9 +132,6 @@ export class EventSubscription extends pulumi.CustomResource {
             }
             if ((!args || args.snsTopicArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snsTopicArn'");
-            }
-            if ((!args || args.sourceIds === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sourceIds'");
             }
             if ((!args || args.sourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceType'");
@@ -181,7 +178,7 @@ export interface EventSubscriptionState {
      */
     snsTopicArn?: pulumi.Input<string>;
     /**
-     * Ids of sources to listen to.
+     * Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
      */
     sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -221,9 +218,9 @@ export interface EventSubscriptionArgs {
      */
     snsTopicArn: pulumi.Input<string>;
     /**
-     * Ids of sources to listen to.
+     * Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
      */
-    sourceIds: pulumi.Input<pulumi.Input<string>[]>;
+    sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      */

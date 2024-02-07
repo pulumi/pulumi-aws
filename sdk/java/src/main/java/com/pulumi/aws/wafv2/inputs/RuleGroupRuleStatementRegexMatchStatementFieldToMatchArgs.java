@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementFiel
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethodArgs;
@@ -69,6 +70,21 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs ext
      */
     public Optional<Output<RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesArgs>> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+
+    /**
+     * Inspect the request headers. See Header Order below for details.
+     * 
+     */
+    @Import(name="headerOrders")
+    private @Nullable Output<List<RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArgs>> headerOrders;
+
+    /**
+     * @return Inspect the request headers. See Header Order below for details.
+     * 
+     */
+    public Optional<Output<List<RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArgs>>> headerOrders() {
+        return Optional.ofNullable(this.headerOrders);
     }
 
     /**
@@ -189,6 +205,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs ext
         this.allQueryArguments = $.allQueryArguments;
         this.body = $.body;
         this.cookies = $.cookies;
+        this.headerOrders = $.headerOrders;
         this.headers = $.headers;
         this.ja3Fingerprint = $.ja3Fingerprint;
         this.jsonBody = $.jsonBody;
@@ -278,6 +295,37 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs ext
          */
         public Builder cookies(RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesArgs cookies) {
             return cookies(Output.of(cookies));
+        }
+
+        /**
+         * @param headerOrders Inspect the request headers. See Header Order below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headerOrders(@Nullable Output<List<RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArgs>> headerOrders) {
+            $.headerOrders = headerOrders;
+            return this;
+        }
+
+        /**
+         * @param headerOrders Inspect the request headers. See Header Order below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headerOrders(List<RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArgs> headerOrders) {
+            return headerOrders(Output.of(headerOrders));
+        }
+
+        /**
+         * @param headerOrders Inspect the request headers. See Header Order below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headerOrders(RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArgs... headerOrders) {
+            return headerOrders(List.of(headerOrders));
         }
 
         /**

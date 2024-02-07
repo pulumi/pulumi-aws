@@ -170,7 +170,7 @@ import (
 //			_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
 //				Principal: pulumi.Any(aws_iam_role.Workflow_role.Arn),
 //				Permissions: pulumi.StringArray{
-//					pulumi.String("ALL"),
+//					pulumi.String("DATA_LOCATION_ACCESS"),
 //				},
 //				DataLocation: &lakeformation.PermissionsDataLocationArgs{
 //					Arn: pulumi.Any(aws_lakeformation_resource.Example.Arn),

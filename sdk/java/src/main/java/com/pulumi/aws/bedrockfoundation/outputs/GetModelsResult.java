@@ -27,7 +27,7 @@ public final class GetModelsResult {
      * @return List of model summary objects. See `model_summaries`.
      * 
      */
-    private @Nullable List<GetModelsModelSummary> modelSummaries;
+    private List<GetModelsModelSummary> modelSummaries;
 
     private GetModelsResult() {}
     public Optional<String> byCustomizationType() {
@@ -54,7 +54,7 @@ public final class GetModelsResult {
      * 
      */
     public List<GetModelsModelSummary> modelSummaries() {
-        return this.modelSummaries == null ? List.of() : this.modelSummaries;
+        return this.modelSummaries;
     }
 
     public static Builder builder() {
@@ -71,7 +71,7 @@ public final class GetModelsResult {
         private @Nullable String byOutputModality;
         private @Nullable String byProvider;
         private String id;
-        private @Nullable List<GetModelsModelSummary> modelSummaries;
+        private List<GetModelsModelSummary> modelSummaries;
         public Builder() {}
         public Builder(GetModelsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -116,8 +116,10 @@ public final class GetModelsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder modelSummaries(@Nullable List<GetModelsModelSummary> modelSummaries) {
-
+        public Builder modelSummaries(List<GetModelsModelSummary> modelSummaries) {
+            if (modelSummaries == null) {
+              throw new MissingRequiredPropertyException("GetModelsResult", "modelSummaries");
+            }
             this.modelSummaries = modelSummaries;
             return this;
         }

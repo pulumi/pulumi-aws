@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementByteMatchStatementFieldToM
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementByteMatchStatementFieldToMatchBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementByteMatchStatementFieldToMatchCookiesArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementByteMatchStatementFieldToMatchHeaderArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs;
@@ -69,6 +70,21 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchArgs extends
      */
     public Optional<Output<WebAclRuleStatementByteMatchStatementFieldToMatchCookiesArgs>> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+
+    /**
+     * Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * 
+     */
+    @Import(name="headerOrders")
+    private @Nullable Output<List<WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs>> headerOrders;
+
+    /**
+     * @return Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+     * 
+     */
+    public Optional<Output<List<WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs>>> headerOrders() {
+        return Optional.ofNullable(this.headerOrders);
     }
 
     /**
@@ -197,6 +213,7 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchArgs extends
         this.allQueryArguments = $.allQueryArguments;
         this.body = $.body;
         this.cookies = $.cookies;
+        this.headerOrders = $.headerOrders;
         this.headers = $.headers;
         this.ja3Fingerprint = $.ja3Fingerprint;
         this.jsonBody = $.jsonBody;
@@ -286,6 +303,37 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchArgs extends
          */
         public Builder cookies(WebAclRuleStatementByteMatchStatementFieldToMatchCookiesArgs cookies) {
             return cookies(Output.of(cookies));
+        }
+
+        /**
+         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headerOrders(@Nullable Output<List<WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs>> headerOrders) {
+            $.headerOrders = headerOrders;
+            return this;
+        }
+
+        /**
+         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headerOrders(List<WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs> headerOrders) {
+            return headerOrders(Output.of(headerOrders));
+        }
+
+        /**
+         * @param headerOrders Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headerOrders(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs... headerOrders) {
+            return headerOrders(List.of(headerOrders));
         }
 
         /**

@@ -39,7 +39,7 @@ export interface GetAccessEntryArgs {
      */
     clusterName: string;
     /**
-     * The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      */
     principalArn: string;
     tags?: {[key: string]: string};
@@ -114,7 +114,7 @@ export interface GetAccessEntryOutputArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      */
     principalArn: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

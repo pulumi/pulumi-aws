@@ -509,7 +509,7 @@ class Permissions(pulumi.CustomResource):
 
         example = aws.lakeformation.Permissions("example",
             principal=aws_iam_role["workflow_role"]["arn"],
-            permissions=["ALL"],
+            permissions=["DATA_LOCATION_ACCESS"],
             data_location=aws.lakeformation.PermissionsDataLocationArgs(
                 arn=aws_lakeformation_resource["example"]["arn"],
             ))
@@ -678,7 +678,7 @@ class Permissions(pulumi.CustomResource):
 
         example = aws.lakeformation.Permissions("example",
             principal=aws_iam_role["workflow_role"]["arn"],
-            permissions=["ALL"],
+            permissions=["DATA_LOCATION_ACCESS"],
             data_location=aws.lakeformation.PermissionsDataLocationArgs(
                 arn=aws_lakeformation_resource["example"]["arn"],
             ))

@@ -32,14 +32,14 @@ public final class GetAccessEntryPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      * 
      */
     @Import(name="principalArn", required=true)
     private String principalArn;
 
     /**
-     * @return The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * @return The IAM Principal ARN which requires Authentication access to the EKS cluster.
      * 
      */
     public String principalArn() {
@@ -91,7 +91,7 @@ public final class GetAccessEntryPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param principalArn The IAM Princial ARN which requires Authentication access to the EKS cluster.
+         * @param principalArn The IAM Principal ARN which requires Authentication access to the EKS cluster.
          * 
          * @return builder
          * 

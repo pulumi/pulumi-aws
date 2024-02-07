@@ -84,7 +84,7 @@ export class AccessPolicyAssociation extends pulumi.CustomResource {
      */
     public readonly policyArn!: pulumi.Output<string>;
     /**
-     * The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      */
     public readonly principalArn!: pulumi.Output<string>;
 
@@ -158,7 +158,7 @@ export interface AccessPolicyAssociationState {
      */
     policyArn?: pulumi.Input<string>;
     /**
-     * The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      */
     principalArn?: pulumi.Input<string>;
 }
@@ -180,7 +180,7 @@ export interface AccessPolicyAssociationArgs {
      */
     policyArn: pulumi.Input<string>;
     /**
-     * The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      */
     principalArn: pulumi.Input<string>;
 }

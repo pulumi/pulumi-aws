@@ -15,23 +15,30 @@ __all__ = ['ResourceArgs', 'Resource']
 class ResourceArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
+                 hybrid_access_enabled: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 use_service_linked_role: Optional[pulumi.Input[bool]] = None):
+                 use_service_linked_role: Optional[pulumi.Input[bool]] = None,
+                 with_federation: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Resource resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the resource.
                
                The following arguments are optional:
-        :param pulumi.Input[str] role_arn: Role that has read/write access to the resource.
-        :param pulumi.Input[bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+        :param pulumi.Input[bool] hybrid_access_enabled: Flag to enable AWS LakeFormation hybrid access permission mode.
                
                > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        :param pulumi.Input[str] role_arn: Role that has read/write access to the resource.
+        :param pulumi.Input[bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
         """
         pulumi.set(__self__, "arn", arn)
+        if hybrid_access_enabled is not None:
+            pulumi.set(__self__, "hybrid_access_enabled", hybrid_access_enabled)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if use_service_linked_role is not None:
             pulumi.set(__self__, "use_service_linked_role", use_service_linked_role)
+        if with_federation is not None:
+            pulumi.set(__self__, "with_federation", with_federation)
 
     @property
     @pulumi.getter
@@ -46,6 +53,20 @@ class ResourceArgs:
     @arn.setter
     def arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="hybridAccessEnabled")
+    def hybrid_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to enable AWS LakeFormation hybrid access permission mode.
+
+        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        """
+        return pulumi.get(self, "hybrid_access_enabled")
+
+    @hybrid_access_enabled.setter
+    def hybrid_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hybrid_access_enabled", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -64,8 +85,6 @@ class ResourceArgs:
     def use_service_linked_role(self) -> Optional[pulumi.Input[bool]]:
         """
         Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-
-        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
         return pulumi.get(self, "use_service_linked_role")
 
@@ -73,33 +92,49 @@ class ResourceArgs:
     def use_service_linked_role(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_service_linked_role", value)
 
+    @property
+    @pulumi.getter(name="withFederation")
+    def with_federation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "with_federation")
+
+    @with_federation.setter
+    def with_federation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "with_federation", value)
+
 
 @pulumi.input_type
 class _ResourceState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 hybrid_access_enabled: Optional[pulumi.Input[bool]] = None,
                  last_modified: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 use_service_linked_role: Optional[pulumi.Input[bool]] = None):
+                 use_service_linked_role: Optional[pulumi.Input[bool]] = None,
+                 with_federation: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Resource resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the resource.
                
                The following arguments are optional:
+        :param pulumi.Input[bool] hybrid_access_enabled: Flag to enable AWS LakeFormation hybrid access permission mode.
+               
+               > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         :param pulumi.Input[str] last_modified: Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[str] role_arn: Role that has read/write access to the resource.
         :param pulumi.Input[bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-               
-               > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if hybrid_access_enabled is not None:
+            pulumi.set(__self__, "hybrid_access_enabled", hybrid_access_enabled)
         if last_modified is not None:
             pulumi.set(__self__, "last_modified", last_modified)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if use_service_linked_role is not None:
             pulumi.set(__self__, "use_service_linked_role", use_service_linked_role)
+        if with_federation is not None:
+            pulumi.set(__self__, "with_federation", with_federation)
 
     @property
     @pulumi.getter
@@ -114,6 +149,20 @@ class _ResourceState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="hybridAccessEnabled")
+    def hybrid_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to enable AWS LakeFormation hybrid access permission mode.
+
+        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        """
+        return pulumi.get(self, "hybrid_access_enabled")
+
+    @hybrid_access_enabled.setter
+    def hybrid_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hybrid_access_enabled", value)
 
     @property
     @pulumi.getter(name="lastModified")
@@ -144,14 +193,21 @@ class _ResourceState:
     def use_service_linked_role(self) -> Optional[pulumi.Input[bool]]:
         """
         Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-
-        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
         return pulumi.get(self, "use_service_linked_role")
 
     @use_service_linked_role.setter
     def use_service_linked_role(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_service_linked_role", value)
+
+    @property
+    @pulumi.getter(name="withFederation")
+    def with_federation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "with_federation")
+
+    @with_federation.setter
+    def with_federation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "with_federation", value)
 
 
 class Resource(pulumi.CustomResource):
@@ -160,8 +216,10 @@ class Resource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 hybrid_access_enabled: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  use_service_linked_role: Optional[pulumi.Input[bool]] = None,
+                 with_federation: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Registers a Lake Formation resource (e.g., S3 bucket) as managed by the Data Catalog. In other words, the S3 path is added to the data lake.
@@ -186,10 +244,11 @@ class Resource(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the resource.
                
                The following arguments are optional:
-        :param pulumi.Input[str] role_arn: Role that has read/write access to the resource.
-        :param pulumi.Input[bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+        :param pulumi.Input[bool] hybrid_access_enabled: Flag to enable AWS LakeFormation hybrid access permission mode.
                
                > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        :param pulumi.Input[str] role_arn: Role that has read/write access to the resource.
+        :param pulumi.Input[bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
         """
         ...
     @overload
@@ -231,8 +290,10 @@ class Resource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 hybrid_access_enabled: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  use_service_linked_role: Optional[pulumi.Input[bool]] = None,
+                 with_federation: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -245,8 +306,10 @@ class Resource(pulumi.CustomResource):
             if arn is None and not opts.urn:
                 raise TypeError("Missing required property 'arn'")
             __props__.__dict__["arn"] = arn
+            __props__.__dict__["hybrid_access_enabled"] = hybrid_access_enabled
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["use_service_linked_role"] = use_service_linked_role
+            __props__.__dict__["with_federation"] = with_federation
             __props__.__dict__["last_modified"] = None
         super(Resource, __self__).__init__(
             'aws:lakeformation/resource:Resource',
@@ -259,9 +322,11 @@ class Resource(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            hybrid_access_enabled: Optional[pulumi.Input[bool]] = None,
             last_modified: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
-            use_service_linked_role: Optional[pulumi.Input[bool]] = None) -> 'Resource':
+            use_service_linked_role: Optional[pulumi.Input[bool]] = None,
+            with_federation: Optional[pulumi.Input[bool]] = None) -> 'Resource':
         """
         Get an existing Resource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -272,20 +337,23 @@ class Resource(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the resource.
                
                The following arguments are optional:
+        :param pulumi.Input[bool] hybrid_access_enabled: Flag to enable AWS LakeFormation hybrid access permission mode.
+               
+               > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         :param pulumi.Input[str] last_modified: Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[str] role_arn: Role that has read/write access to the resource.
         :param pulumi.Input[bool] use_service_linked_role: Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-               
-               > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ResourceState.__new__(_ResourceState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["hybrid_access_enabled"] = hybrid_access_enabled
         __props__.__dict__["last_modified"] = last_modified
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["use_service_linked_role"] = use_service_linked_role
+        __props__.__dict__["with_federation"] = with_federation
         return Resource(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -297,6 +365,16 @@ class Resource(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="hybridAccessEnabled")
+    def hybrid_access_enabled(self) -> pulumi.Output[bool]:
+        """
+        Flag to enable AWS LakeFormation hybrid access permission mode.
+
+        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        """
+        return pulumi.get(self, "hybrid_access_enabled")
 
     @property
     @pulumi.getter(name="lastModified")
@@ -319,8 +397,11 @@ class Resource(pulumi.CustomResource):
     def use_service_linked_role(self) -> pulumi.Output[Optional[bool]]:
         """
         Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-
-        > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         """
         return pulumi.get(self, "use_service_linked_role")
+
+    @property
+    @pulumi.getter(name="withFederation")
+    def with_federation(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "with_federation")
 

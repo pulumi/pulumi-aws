@@ -88,14 +88,14 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
      * 
      */
     @Import(name="lifecyclePolicies")
     private @Nullable Output<List<FileSystemLifecyclePolicyArgs>> lifecyclePolicies;
 
     /**
-     * @return A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+     * @return A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
      * 
      */
     public Optional<Output<List<FileSystemLifecyclePolicyArgs>>> lifecyclePolicies() {
@@ -118,14 +118,14 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
      * 
      */
     @Import(name="protection")
     private @Nullable Output<FileSystemProtectionArgs> protection;
 
     /**
-     * @return A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+     * @return A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
      * 
      */
     public Optional<Output<FileSystemProtectionArgs>> protection() {
@@ -301,7 +301,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lifecyclePolicies A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+         * @param lifecyclePolicies A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lifecyclePolicies A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+         * @param lifecyclePolicies A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lifecyclePolicies A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+         * @param lifecyclePolicies A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protection A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+         * @param protection A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protection A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+         * @param protection A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
          * 
          * @return builder
          * 

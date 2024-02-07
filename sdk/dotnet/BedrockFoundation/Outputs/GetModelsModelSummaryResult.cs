@@ -16,15 +16,15 @@ namespace Pulumi.Aws.BedrockFoundation.Outputs
         /// <summary>
         /// Customizations that the model supports.
         /// </summary>
-        public readonly ImmutableArray<string> CustomizationsSupporteds;
+        public readonly ImmutableArray<object> CustomizationsSupporteds;
         /// <summary>
         /// Inference types that the model supports.
         /// </summary>
-        public readonly ImmutableArray<string> InferenceTypesSupporteds;
+        public readonly ImmutableArray<object> InferenceTypesSupporteds;
         /// <summary>
         /// Input modalities that the model supports.
         /// </summary>
-        public readonly ImmutableArray<string> InputModalities;
+        public readonly ImmutableArray<object> InputModalities;
         /// <summary>
         /// Model ARN.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.BedrockFoundation.Outputs
         /// <summary>
         /// Output modalities that the model supports.
         /// </summary>
-        public readonly ImmutableArray<string> OutputModalities;
+        public readonly ImmutableArray<object> OutputModalities;
         /// <summary>
         /// Model provider name.
         /// </summary>
@@ -52,11 +52,11 @@ namespace Pulumi.Aws.BedrockFoundation.Outputs
 
         [OutputConstructor]
         private GetModelsModelSummaryResult(
-            ImmutableArray<string> customizationsSupporteds,
+            ImmutableArray<object> customizationsSupporteds,
 
-            ImmutableArray<string> inferenceTypesSupporteds,
+            ImmutableArray<object> inferenceTypesSupporteds,
 
-            ImmutableArray<string> inputModalities,
+            ImmutableArray<object> inputModalities,
 
             string modelArn,
 
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.BedrockFoundation.Outputs
 
             string modelName,
 
-            ImmutableArray<string> outputModalities,
+            ImmutableArray<object> outputModalities,
 
             string providerName,
 

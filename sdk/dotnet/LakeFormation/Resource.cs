@@ -52,6 +52,14 @@ namespace Pulumi.Aws.LakeFormation
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Flag to enable AWS LakeFormation hybrid access permission mode.
+        /// 
+        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        /// </summary>
+        [Output("hybridAccessEnabled")]
+        public Output<bool> HybridAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Output("lastModified")]
@@ -65,11 +73,12 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-        /// 
-        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         /// </summary>
         [Output("useServiceLinkedRole")]
         public Output<bool?> UseServiceLinkedRole { get; private set; } = null!;
+
+        [Output("withFederation")]
+        public Output<bool> WithFederation { get; private set; } = null!;
 
 
         /// <summary>
@@ -126,6 +135,14 @@ namespace Pulumi.Aws.LakeFormation
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
+        /// Flag to enable AWS LakeFormation hybrid access permission mode.
+        /// 
+        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        /// </summary>
+        [Input("hybridAccessEnabled")]
+        public Input<bool>? HybridAccessEnabled { get; set; }
+
+        /// <summary>
         /// Role that has read/write access to the resource.
         /// </summary>
         [Input("roleArn")]
@@ -133,11 +150,12 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-        /// 
-        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         /// </summary>
         [Input("useServiceLinkedRole")]
         public Input<bool>? UseServiceLinkedRole { get; set; }
+
+        [Input("withFederation")]
+        public Input<bool>? WithFederation { get; set; }
 
         public ResourceArgs()
         {
@@ -156,6 +174,14 @@ namespace Pulumi.Aws.LakeFormation
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// Flag to enable AWS LakeFormation hybrid access permission mode.
+        /// 
+        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        /// </summary>
+        [Input("hybridAccessEnabled")]
+        public Input<bool>? HybridAccessEnabled { get; set; }
+
+        /// <summary>
         /// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Input("lastModified")]
@@ -169,11 +195,12 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
-        /// 
-        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         /// </summary>
         [Input("useServiceLinkedRole")]
         public Input<bool>? UseServiceLinkedRole { get; set; }
+
+        [Input("withFederation")]
+        public Input<bool>? WithFederation { get; set; }
 
         public ResourceState()
         {

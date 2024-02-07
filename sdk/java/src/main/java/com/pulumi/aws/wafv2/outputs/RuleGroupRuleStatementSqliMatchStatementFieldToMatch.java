@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFiel
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod;
@@ -37,6 +38,11 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
      * 
      */
     private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies cookies;
+    /**
+     * @return Inspect the request headers. See Header Order below for details.
+     * 
+     */
+    private @Nullable List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder> headerOrders;
     /**
      * @return Inspect the request headers. See Headers below for details.
      * 
@@ -95,6 +101,13 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
      */
     public Optional<RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
+    }
+    /**
+     * @return Inspect the request headers. See Header Order below for details.
+     * 
+     */
+    public List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder> headerOrders() {
+        return this.headerOrders == null ? List.of() : this.headerOrders;
     }
     /**
      * @return Inspect the request headers. See Headers below for details.
@@ -161,6 +174,7 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments allQueryArguments;
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody body;
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies cookies;
+        private @Nullable List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder> headerOrders;
         private @Nullable List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader> headers;
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody jsonBody;
@@ -175,6 +189,7 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
     	      this.allQueryArguments = defaults.allQueryArguments;
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
+    	      this.headerOrders = defaults.headerOrders;
     	      this.headers = defaults.headers;
     	      this.ja3Fingerprint = defaults.ja3Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
@@ -202,6 +217,15 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
 
             this.cookies = cookies;
             return this;
+        }
+        @CustomType.Setter
+        public Builder headerOrders(@Nullable List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder> headerOrders) {
+
+            this.headerOrders = headerOrders;
+            return this;
+        }
+        public Builder headerOrders(RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder... headerOrders) {
+            return headerOrders(List.of(headerOrders));
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader> headers) {
@@ -259,6 +283,7 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
             _resultValue.allQueryArguments = allQueryArguments;
             _resultValue.body = body;
             _resultValue.cookies = cookies;
+            _resultValue.headerOrders = headerOrders;
             _resultValue.headers = headers;
             _resultValue.ja3Fingerprint = ja3Fingerprint;
             _resultValue.jsonBody = jsonBody;

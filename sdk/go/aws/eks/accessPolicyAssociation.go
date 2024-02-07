@@ -70,7 +70,7 @@ type AccessPolicyAssociation struct {
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
 	// The ARN of the access policy that you're associating.
 	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
-	// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
 }
 
@@ -126,7 +126,7 @@ type accessPolicyAssociationState struct {
 	ModifiedAt *string `pulumi:"modifiedAt"`
 	// The ARN of the access policy that you're associating.
 	PolicyArn *string `pulumi:"policyArn"`
-	// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn *string `pulumi:"principalArn"`
 }
 
@@ -141,7 +141,7 @@ type AccessPolicyAssociationState struct {
 	ModifiedAt pulumi.StringPtrInput
 	// The ARN of the access policy that you're associating.
 	PolicyArn pulumi.StringPtrInput
-	// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn pulumi.StringPtrInput
 }
 
@@ -156,7 +156,7 @@ type accessPolicyAssociationArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The ARN of the access policy that you're associating.
 	PolicyArn string `pulumi:"policyArn"`
-	// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn string `pulumi:"principalArn"`
 }
 
@@ -168,7 +168,7 @@ type AccessPolicyAssociationArgs struct {
 	ClusterName pulumi.StringInput
 	// The ARN of the access policy that you're associating.
 	PolicyArn pulumi.StringInput
-	// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn pulumi.StringInput
 }
 
@@ -284,7 +284,7 @@ func (o AccessPolicyAssociationOutput) PolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.PolicyArn }).(pulumi.StringOutput)
 }
 
-// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 func (o AccessPolicyAssociationOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }

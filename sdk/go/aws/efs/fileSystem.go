@@ -100,7 +100,7 @@ type FileSystem struct {
 	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
 	LifecyclePolicies FileSystemLifecyclePolicyArrayOutput `pulumi:"lifecyclePolicies"`
 	// The value of the file system's `Name` tag.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -110,7 +110,7 @@ type FileSystem struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode pulumi.StringOutput `pulumi:"performanceMode"`
-	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
 	Protection FileSystemProtectionOutput `pulumi:"protection"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrOutput `pulumi:"provisionedThroughputInMibps"`
@@ -177,7 +177,7 @@ type fileSystemState struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
 	LifecyclePolicies []FileSystemLifecyclePolicy `pulumi:"lifecyclePolicies"`
 	// The value of the file system's `Name` tag.
 	Name *string `pulumi:"name"`
@@ -187,7 +187,7 @@ type fileSystemState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode *string `pulumi:"performanceMode"`
-	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
 	Protection *FileSystemProtection `pulumi:"protection"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps *float64 `pulumi:"provisionedThroughputInMibps"`
@@ -221,7 +221,7 @@ type FileSystemState struct {
 	Encrypted pulumi.BoolPtrInput
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
-	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
 	LifecyclePolicies FileSystemLifecyclePolicyArrayInput
 	// The value of the file system's `Name` tag.
 	Name pulumi.StringPtrInput
@@ -231,7 +231,7 @@ type FileSystemState struct {
 	OwnerId pulumi.StringPtrInput
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode pulumi.StringPtrInput
-	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
 	Protection FileSystemProtectionPtrInput
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrInput
@@ -263,11 +263,11 @@ type fileSystemArgs struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
 	LifecyclePolicies []FileSystemLifecyclePolicy `pulumi:"lifecyclePolicies"`
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode *string `pulumi:"performanceMode"`
-	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
 	Protection *FileSystemProtection `pulumi:"protection"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps *float64 `pulumi:"provisionedThroughputInMibps"`
@@ -290,11 +290,11 @@ type FileSystemArgs struct {
 	Encrypted pulumi.BoolPtrInput
 	// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
-	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+	// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
 	LifecyclePolicies FileSystemLifecyclePolicyArrayInput
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode pulumi.StringPtrInput
-	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+	// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
 	Protection FileSystemProtectionPtrInput
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrInput
@@ -429,7 +429,7 @@ func (o FileSystemOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
 func (o FileSystemOutput) LifecyclePolicies() FileSystemLifecyclePolicyArrayOutput {
 	return o.ApplyT(func(v *FileSystem) FileSystemLifecyclePolicyArrayOutput { return v.LifecyclePolicies }).(FileSystemLifecyclePolicyArrayOutput)
 }
@@ -454,7 +454,7 @@ func (o FileSystemOutput) PerformanceMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.PerformanceMode }).(pulumi.StringOutput)
 }
 
-// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
 func (o FileSystemOutput) Protection() FileSystemProtectionOutput {
 	return o.ApplyT(func(v *FileSystem) FileSystemProtectionOutput { return v.Protection }).(FileSystemProtectionOutput)
 }

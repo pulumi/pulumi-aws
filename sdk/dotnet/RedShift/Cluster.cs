@@ -286,6 +286,12 @@ namespace Pulumi.Aws.RedShift
         public Output<string?> MasterUsername { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if the Redshift cluster is multi-AZ.
+        /// </summary>
+        [Output("multiAz")]
+        public Output<bool?> MultiAz { get; private set; } = null!;
+
+        /// <summary>
         /// The node type to be provisioned for the cluster.
         /// </summary>
         [Output("nodeType")]
@@ -625,6 +631,12 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? MasterUsername { get; set; }
 
         /// <summary>
+        /// Specifies if the Redshift cluster is multi-AZ.
+        /// </summary>
+        [Input("multiAz")]
+        public Input<bool>? MultiAz { get; set; }
+
+        /// <summary>
         /// The node type to be provisioned for the cluster.
         /// </summary>
         [Input("nodeType", required: true)]
@@ -961,6 +973,12 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("masterUsername")]
         public Input<string>? MasterUsername { get; set; }
+
+        /// <summary>
+        /// Specifies if the Redshift cluster is multi-AZ.
+        /// </summary>
+        [Input("multiAz")]
+        public Input<bool>? MultiAz { get; set; }
 
         /// <summary>
         /// The node type to be provisioned for the cluster.

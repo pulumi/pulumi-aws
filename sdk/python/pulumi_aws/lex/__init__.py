@@ -17,5 +17,7 @@ from .v2models_bot import *
 from .v2models_bot_locale import *
 from .v2models_bot_version import *
 from .v2models_intent import *
+from .v2models_slot import *
+from .v2models_slot_type import *
 from ._inputs import *
 from . import outputs

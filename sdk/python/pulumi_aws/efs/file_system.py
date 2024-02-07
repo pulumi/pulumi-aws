@@ -35,9 +35,9 @@ class FileSystemArgs:
                user guide for more information.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
-        :param pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
-        :param pulumi.Input['FileSystemProtectionArgs'] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        :param pulumi.Input['FileSystemProtectionArgs'] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
@@ -118,7 +118,7 @@ class FileSystemArgs:
     @pulumi.getter(name="lifecyclePolicies")
     def lifecycle_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]]:
         """
-        A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
         """
         return pulumi.get(self, "lifecycle_policies")
 
@@ -142,7 +142,7 @@ class FileSystemArgs:
     @pulumi.getter
     def protection(self) -> Optional[pulumi.Input['FileSystemProtectionArgs']]:
         """
-        A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         """
         return pulumi.get(self, "protection")
 
@@ -220,12 +220,12 @@ class _FileSystemState:
         :param pulumi.Input[str] dns_name: The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
-        :param pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
         :param pulumi.Input[str] name: The value of the file system's `Name` tag.
         :param pulumi.Input[int] number_of_mount_targets: The current number of mount targets that the file system has.
         :param pulumi.Input[str] owner_id: The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
-        :param pulumi.Input['FileSystemProtectionArgs'] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        :param pulumi.Input['FileSystemProtectionArgs'] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Sequence[pulumi.Input['FileSystemSizeInByteArgs']]] size_in_bytes: The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -363,7 +363,7 @@ class _FileSystemState:
     @pulumi.getter(name="lifecyclePolicies")
     def lifecycle_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]]:
         """
-        A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
         """
         return pulumi.get(self, "lifecycle_policies")
 
@@ -423,7 +423,7 @@ class _FileSystemState:
     @pulumi.getter
     def protection(self) -> Optional[pulumi.Input['FileSystemProtectionArgs']]:
         """
-        A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         """
         return pulumi.get(self, "protection")
 
@@ -553,9 +553,9 @@ class FileSystem(pulumi.CustomResource):
                user guide for more information.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
-        :param pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        :param pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
@@ -698,12 +698,12 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] dns_name: The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]] lifecycle_policies: A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
         :param pulumi.Input[str] name: The value of the file system's `Name` tag.
         :param pulumi.Input[int] number_of_mount_targets: The current number of mount targets that the file system has.
         :param pulumi.Input[str] owner_id: The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
-        :param pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        :param pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemSizeInByteArgs']]]] size_in_bytes: The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -797,7 +797,7 @@ class FileSystem(pulumi.CustomResource):
     @pulumi.getter(name="lifecyclePolicies")
     def lifecycle_policies(self) -> pulumi.Output[Optional[Sequence['outputs.FileSystemLifecyclePolicy']]]:
         """
-        A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
         """
         return pulumi.get(self, "lifecycle_policies")
 
@@ -837,7 +837,7 @@ class FileSystem(pulumi.CustomResource):
     @pulumi.getter
     def protection(self) -> pulumi.Output['outputs.FileSystemProtection']:
         """
-        A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         """
         return pulumi.get(self, "protection")
 

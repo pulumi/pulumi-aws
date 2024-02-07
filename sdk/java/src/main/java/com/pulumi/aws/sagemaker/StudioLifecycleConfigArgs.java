@@ -18,14 +18,14 @@ public final class StudioLifecycleConfigArgs extends com.pulumi.resources.Resour
     public static final StudioLifecycleConfigArgs Empty = new StudioLifecycleConfigArgs();
 
     /**
-     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      * 
      */
     @Import(name="studioLifecycleConfigAppType", required=true)
     private Output<String> studioLifecycleConfigAppType;
 
     /**
-     * @return The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+     * @return The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      * 
      */
     public Output<String> studioLifecycleConfigAppType() {
@@ -105,7 +105,7 @@ public final class StudioLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param studioLifecycleConfigAppType The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+         * @param studioLifecycleConfigAppType The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class StudioLifecycleConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param studioLifecycleConfigAppType The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+         * @param studioLifecycleConfigAppType The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
          * 
          * @return builder
          * 

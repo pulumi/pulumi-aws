@@ -168,6 +168,11 @@ public final class GetClusterResult {
      */
     private String masterUsername;
     /**
+     * @return If the cluster is a Multi-AZ deployment
+     * 
+     */
+    private Boolean multiAz;
+    /**
      * @return Cluster node type
      * 
      */
@@ -428,6 +433,13 @@ public final class GetClusterResult {
         return this.masterUsername;
     }
     /**
+     * @return If the cluster is a Multi-AZ deployment
+     * 
+     */
+    public Boolean multiAz() {
+        return this.multiAz;
+    }
+    /**
      * @return Cluster node type
      * 
      */
@@ -531,6 +543,7 @@ public final class GetClusterResult {
         private String maintenanceTrackName;
         private Integer manualSnapshotRetentionPeriod;
         private String masterUsername;
+        private Boolean multiAz;
         private String nodeType;
         private Integer numberOfNodes;
         private Integer port;
@@ -574,6 +587,7 @@ public final class GetClusterResult {
     	      this.maintenanceTrackName = defaults.maintenanceTrackName;
     	      this.manualSnapshotRetentionPeriod = defaults.manualSnapshotRetentionPeriod;
     	      this.masterUsername = defaults.masterUsername;
+    	      this.multiAz = defaults.multiAz;
     	      this.nodeType = defaults.nodeType;
     	      this.numberOfNodes = defaults.numberOfNodes;
     	      this.port = defaults.port;
@@ -843,6 +857,14 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder multiAz(Boolean multiAz) {
+            if (multiAz == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "multiAz");
+            }
+            this.multiAz = multiAz;
+            return this;
+        }
+        @CustomType.Setter
         public Builder nodeType(String nodeType) {
             if (nodeType == null) {
               throw new MissingRequiredPropertyException("GetClusterResult", "nodeType");
@@ -948,6 +970,7 @@ public final class GetClusterResult {
             _resultValue.maintenanceTrackName = maintenanceTrackName;
             _resultValue.manualSnapshotRetentionPeriod = manualSnapshotRetentionPeriod;
             _resultValue.masterUsername = masterUsername;
+            _resultValue.multiAz = multiAz;
             _resultValue.nodeType = nodeType;
             _resultValue.numberOfNodes = numberOfNodes;
             _resultValue.port = port;

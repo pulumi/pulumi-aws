@@ -22,7 +22,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, allow_version_upgrade=None, aqua_configuration_status=None, arn=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation_enabled=None, bucket_name=None, cluster_identifier=None, cluster_namespace_arn=None, cluster_nodes=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, default_iam_role_arn=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, id=None, kms_key_id=None, log_destination_type=None, log_exports=None, maintenance_track_name=None, manual_snapshot_retention_period=None, master_username=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
+    def __init__(__self__, allow_version_upgrade=None, aqua_configuration_status=None, arn=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation_enabled=None, bucket_name=None, cluster_identifier=None, cluster_namespace_arn=None, cluster_nodes=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, default_iam_role_arn=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, id=None, kms_key_id=None, log_destination_type=None, log_exports=None, maintenance_track_name=None, manual_snapshot_retention_period=None, master_username=None, multi_az=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
         if allow_version_upgrade and not isinstance(allow_version_upgrade, bool):
             raise TypeError("Expected argument 'allow_version_upgrade' to be a bool")
         pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
@@ -116,6 +116,9 @@ class GetClusterResult:
         if master_username and not isinstance(master_username, str):
             raise TypeError("Expected argument 'master_username' to be a str")
         pulumi.set(__self__, "master_username", master_username)
+        if multi_az and not isinstance(multi_az, bool):
+            raise TypeError("Expected argument 'multi_az' to be a bool")
+        pulumi.set(__self__, "multi_az", multi_az)
         if node_type and not isinstance(node_type, str):
             raise TypeError("Expected argument 'node_type' to be a str")
         pulumi.set(__self__, "node_type", node_type)
@@ -390,6 +393,14 @@ class GetClusterResult:
         return pulumi.get(self, "master_username")
 
     @property
+    @pulumi.getter(name="multiAz")
+    def multi_az(self) -> bool:
+        """
+        If the cluster is a Multi-AZ deployment
+        """
+        return pulumi.get(self, "multi_az")
+
+    @property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> str:
         """
@@ -499,6 +510,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             maintenance_track_name=self.maintenance_track_name,
             manual_snapshot_retention_period=self.manual_snapshot_retention_period,
             master_username=self.master_username,
+            multi_az=self.multi_az,
             node_type=self.node_type,
             number_of_nodes=self.number_of_nodes,
             port=self.port,
@@ -558,6 +570,7 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         maintenance_track_name=pulumi.get(__ret__, 'maintenance_track_name'),
         manual_snapshot_retention_period=pulumi.get(__ret__, 'manual_snapshot_retention_period'),
         master_username=pulumi.get(__ret__, 'master_username'),
+        multi_az=pulumi.get(__ret__, 'multi_az'),
         node_type=pulumi.get(__ret__, 'node_type'),
         number_of_nodes=pulumi.get(__ret__, 'number_of_nodes'),
         port=pulumi.get(__ret__, 'port'),

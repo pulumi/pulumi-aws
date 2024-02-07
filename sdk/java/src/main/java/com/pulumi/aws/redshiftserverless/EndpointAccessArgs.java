@@ -33,6 +33,21 @@ public final class EndpointAccessArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+     * 
+     */
+    @Import(name="ownerAccount")
+    private @Nullable Output<String> ownerAccount;
+
+    /**
+     * @return The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+     * 
+     */
+    public Optional<Output<String>> ownerAccount() {
+        return Optional.ofNullable(this.ownerAccount);
+    }
+
+    /**
      * An array of VPC subnet IDs to associate with the endpoint.
      * 
      */
@@ -81,6 +96,7 @@ public final class EndpointAccessArgs extends com.pulumi.resources.ResourceArgs 
 
     private EndpointAccessArgs(EndpointAccessArgs $) {
         this.endpointName = $.endpointName;
+        this.ownerAccount = $.ownerAccount;
         this.subnetIds = $.subnetIds;
         this.vpcSecurityGroupIds = $.vpcSecurityGroupIds;
         this.workgroupName = $.workgroupName;
@@ -123,6 +139,27 @@ public final class EndpointAccessArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder endpointName(String endpointName) {
             return endpointName(Output.of(endpointName));
+        }
+
+        /**
+         * @param ownerAccount The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownerAccount(@Nullable Output<String> ownerAccount) {
+            $.ownerAccount = ownerAccount;
+            return this;
+        }
+
+        /**
+         * @param ownerAccount The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownerAccount(String ownerAccount) {
+            return ownerAccount(Output.of(ownerAccount));
         }
 
         /**
