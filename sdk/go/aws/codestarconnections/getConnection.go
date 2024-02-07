@@ -97,7 +97,7 @@ type LookupConnectionResult struct {
 	Id string `pulumi:"id"`
 	// Name of the CodeStar Connection. The name is unique in the calling AWS account.
 	Name string `pulumi:"name"`
-	// Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an codestarconnections.Host resource and use `hostArn` instead.
+	// Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub` and `GitLab`. For connections to GitHub Enterprise Server or GitLab Self-Managed instances, you must create an codestarconnections.Host resource and use `hostArn` instead.
 	ProviderType string `pulumi:"providerType"`
 	// Map of key-value resource tags to associate with the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -171,7 +171,7 @@ func (o LookupConnectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an codestarconnections.Host resource and use `hostArn` instead.
+// Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub` and `GitLab`. For connections to GitHub Enterprise Server or GitLab Self-Managed instances, you must create an codestarconnections.Host resource and use `hostArn` instead.
 func (o LookupConnectionResultOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.ProviderType }).(pulumi.StringOutput)
 }

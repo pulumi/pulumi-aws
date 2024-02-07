@@ -100,7 +100,7 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
-     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
      */
     public readonly lifecyclePolicies!: pulumi.Output<outputs.efs.FileSystemLifecyclePolicy[] | undefined>;
     /**
@@ -120,7 +120,7 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public readonly performanceMode!: pulumi.Output<string>;
     /**
-     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
      */
     public readonly protection!: pulumi.Output<outputs.efs.FileSystemProtection>;
     /**
@@ -241,7 +241,7 @@ export interface FileSystemState {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
      */
     lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemLifecyclePolicy>[]>;
     /**
@@ -261,7 +261,7 @@ export interface FileSystemState {
      */
     performanceMode?: pulumi.Input<string>;
     /**
-     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
      */
     protection?: pulumi.Input<inputs.efs.FileSystemProtection>;
     /**
@@ -312,7 +312,7 @@ export interface FileSystemArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
      */
     lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemLifecyclePolicy>[]>;
     /**
@@ -320,7 +320,7 @@ export interface FileSystemArgs {
      */
     performanceMode?: pulumi.Input<string>;
     /**
-     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
      */
     protection?: pulumi.Input<inputs.efs.FileSystemProtection>;
     /**

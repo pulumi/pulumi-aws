@@ -36,14 +36,14 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+     * Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
      * 
      */
     @Import(name="buildspec")
     private @Nullable Output<String> buildspec;
 
     /**
-     * @return Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+     * @return Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
      * 
      */
     public Optional<Output<String>> buildspec() {
@@ -193,7 +193,7 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildspec Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+         * @param buildspec Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildspec Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+         * @param buildspec Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
          * 
          * @return builder
          * 

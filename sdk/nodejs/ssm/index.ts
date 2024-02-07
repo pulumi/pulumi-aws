@@ -15,6 +15,11 @@ export type Association = import("./association").Association;
 export const Association: typeof import("./association").Association = null as any;
 utilities.lazyLoad(exports, ["Association"], () => require("./association"));
 
+export { ContactsRotationArgs, ContactsRotationState } from "./contactsRotation";
+export type ContactsRotation = import("./contactsRotation").ContactsRotation;
+export const ContactsRotation: typeof import("./contactsRotation").ContactsRotation = null as any;
+utilities.lazyLoad(exports, ["ContactsRotation"], () => require("./contactsRotation"));
+
 export { DefaultPatchBaselineArgs, DefaultPatchBaselineState } from "./defaultPatchBaseline";
 export type DefaultPatchBaseline = import("./defaultPatchBaseline").DefaultPatchBaseline;
 export const DefaultPatchBaseline: typeof import("./defaultPatchBaseline").DefaultPatchBaseline = null as any;
@@ -24,6 +29,11 @@ export { DocumentArgs, DocumentState } from "./document";
 export type Document = import("./document").Document;
 export const Document: typeof import("./document").Document = null as any;
 utilities.lazyLoad(exports, ["Document"], () => require("./document"));
+
+export { GetContactsRotationArgs, GetContactsRotationResult, GetContactsRotationOutputArgs } from "./getContactsRotation";
+export const getContactsRotation: typeof import("./getContactsRotation").getContactsRotation = null as any;
+export const getContactsRotationOutput: typeof import("./getContactsRotation").getContactsRotationOutput = null as any;
+utilities.lazyLoad(exports, ["getContactsRotation","getContactsRotationOutput"], () => require("./getContactsRotation"));
 
 export { GetDocumentArgs, GetDocumentResult, GetDocumentOutputArgs } from "./getDocument";
 export const getDocument: typeof import("./getDocument").getDocument = null as any;
@@ -108,6 +118,8 @@ const _module = {
                 return new Activation(name, <any>undefined, { urn })
             case "aws:ssm/association:Association":
                 return new Association(name, <any>undefined, { urn })
+            case "aws:ssm/contactsRotation:ContactsRotation":
+                return new ContactsRotation(name, <any>undefined, { urn })
             case "aws:ssm/defaultPatchBaseline:DefaultPatchBaseline":
                 return new DefaultPatchBaseline(name, <any>undefined, { urn })
             case "aws:ssm/document:Document":
@@ -135,6 +147,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "ssm/activation", _module)
 pulumi.runtime.registerResourceModule("aws", "ssm/association", _module)
+pulumi.runtime.registerResourceModule("aws", "ssm/contactsRotation", _module)
 pulumi.runtime.registerResourceModule("aws", "ssm/defaultPatchBaseline", _module)
 pulumi.runtime.registerResourceModule("aws", "ssm/document", _module)
 pulumi.runtime.registerResourceModule("aws", "ssm/maintenanceWindow", _module)

@@ -65,6 +65,16 @@ export type V2modelsIntent = import("./v2modelsIntent").V2modelsIntent;
 export const V2modelsIntent: typeof import("./v2modelsIntent").V2modelsIntent = null as any;
 utilities.lazyLoad(exports, ["V2modelsIntent"], () => require("./v2modelsIntent"));
 
+export { V2modelsSlotArgs, V2modelsSlotState } from "./v2modelsSlot";
+export type V2modelsSlot = import("./v2modelsSlot").V2modelsSlot;
+export const V2modelsSlot: typeof import("./v2modelsSlot").V2modelsSlot = null as any;
+utilities.lazyLoad(exports, ["V2modelsSlot"], () => require("./v2modelsSlot"));
+
+export { V2modelsSlotTypeArgs, V2modelsSlotTypeState } from "./v2modelsSlotType";
+export type V2modelsSlotType = import("./v2modelsSlotType").V2modelsSlotType;
+export const V2modelsSlotType: typeof import("./v2modelsSlotType").V2modelsSlotType = null as any;
+utilities.lazyLoad(exports, ["V2modelsSlotType"], () => require("./v2modelsSlotType"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -86,6 +96,10 @@ const _module = {
                 return new V2modelsBotVersion(name, <any>undefined, { urn })
             case "aws:lex/v2modelsIntent:V2modelsIntent":
                 return new V2modelsIntent(name, <any>undefined, { urn })
+            case "aws:lex/v2modelsSlot:V2modelsSlot":
+                return new V2modelsSlot(name, <any>undefined, { urn })
+            case "aws:lex/v2modelsSlotType:V2modelsSlotType":
+                return new V2modelsSlotType(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -99,3 +113,5 @@ pulumi.runtime.registerResourceModule("aws", "lex/v2modelsBot", _module)
 pulumi.runtime.registerResourceModule("aws", "lex/v2modelsBotLocale", _module)
 pulumi.runtime.registerResourceModule("aws", "lex/v2modelsBotVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "lex/v2modelsIntent", _module)
+pulumi.runtime.registerResourceModule("aws", "lex/v2modelsSlot", _module)
+pulumi.runtime.registerResourceModule("aws", "lex/v2modelsSlotType", _module)

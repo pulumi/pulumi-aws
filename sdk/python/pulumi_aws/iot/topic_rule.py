@@ -777,6 +777,8 @@ class TopicRule(pulumi.CustomResource):
                  timestreams: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleTimestreamArgs']]]]] = None,
                  __props__=None):
         """
+        Creates and manages an AWS IoT topic rule.
+
         ## Example Usage
 
         ```python
@@ -785,6 +787,23 @@ class TopicRule(pulumi.CustomResource):
 
         mytopic = aws.sns.Topic("mytopic")
         myerrortopic = aws.sns.Topic("myerrortopic")
+        rule = aws.iot.TopicRule("rule",
+            description="Example rule",
+            enabled=True,
+            sql="SELECT * FROM 'topic/test'",
+            sql_version="2016-03-23",
+            sns=[aws.iot.TopicRuleSnsArgs(
+                message_format="RAW",
+                role_arn=aws_iam_role["role"]["arn"],
+                target_arn=mytopic.arn,
+            )],
+            error_action=aws.iot.TopicRuleErrorActionArgs(
+                sns=aws.iot.TopicRuleErrorActionSnsArgs(
+                    message_format="RAW",
+                    role_arn=aws_iam_role["role"]["arn"],
+                    target_arn=myerrortopic.arn,
+                ),
+            ))
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -793,32 +812,15 @@ class TopicRule(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        rule = aws.iot.TopicRule("rule",
-            description="Example rule",
-            enabled=True,
-            sql="SELECT * FROM 'topic/test'",
-            sql_version="2016-03-23",
-            sns=[aws.iot.TopicRuleSnsArgs(
-                message_format="RAW",
-                role_arn=role.arn,
-                target_arn=mytopic.arn,
-            )],
-            error_action=aws.iot.TopicRuleErrorActionArgs(
-                sns=aws.iot.TopicRuleErrorActionSnsArgs(
-                    message_format="RAW",
-                    role_arn=role.arn,
-                    target_arn=myerrortopic.arn,
-                ),
-            ))
-        iam_policy_for_lambda_policy_document = mytopic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        myrole = aws.iam.Role("myrole", assume_role_policy=assume_role.json)
+        mypolicy_policy_document = mytopic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["sns:Publish"],
             resources=[arn],
         )]))
-        iam_policy_for_lambda_role_policy = aws.iam.RolePolicy("iamPolicyForLambdaRolePolicy",
-            role=role.id,
-            policy=iam_policy_for_lambda_policy_document.json)
+        mypolicy_role_policy = aws.iam.RolePolicy("mypolicyRolePolicy",
+            role=myrole.id,
+            policy=mypolicy_policy_document.json)
         ```
 
         ## Import
@@ -846,6 +848,8 @@ class TopicRule(pulumi.CustomResource):
                  args: TopicRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Creates and manages an AWS IoT topic rule.
+
         ## Example Usage
 
         ```python
@@ -854,6 +858,23 @@ class TopicRule(pulumi.CustomResource):
 
         mytopic = aws.sns.Topic("mytopic")
         myerrortopic = aws.sns.Topic("myerrortopic")
+        rule = aws.iot.TopicRule("rule",
+            description="Example rule",
+            enabled=True,
+            sql="SELECT * FROM 'topic/test'",
+            sql_version="2016-03-23",
+            sns=[aws.iot.TopicRuleSnsArgs(
+                message_format="RAW",
+                role_arn=aws_iam_role["role"]["arn"],
+                target_arn=mytopic.arn,
+            )],
+            error_action=aws.iot.TopicRuleErrorActionArgs(
+                sns=aws.iot.TopicRuleErrorActionSnsArgs(
+                    message_format="RAW",
+                    role_arn=aws_iam_role["role"]["arn"],
+                    target_arn=myerrortopic.arn,
+                ),
+            ))
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -862,32 +883,15 @@ class TopicRule(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        rule = aws.iot.TopicRule("rule",
-            description="Example rule",
-            enabled=True,
-            sql="SELECT * FROM 'topic/test'",
-            sql_version="2016-03-23",
-            sns=[aws.iot.TopicRuleSnsArgs(
-                message_format="RAW",
-                role_arn=role.arn,
-                target_arn=mytopic.arn,
-            )],
-            error_action=aws.iot.TopicRuleErrorActionArgs(
-                sns=aws.iot.TopicRuleErrorActionSnsArgs(
-                    message_format="RAW",
-                    role_arn=role.arn,
-                    target_arn=myerrortopic.arn,
-                ),
-            ))
-        iam_policy_for_lambda_policy_document = mytopic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        myrole = aws.iam.Role("myrole", assume_role_policy=assume_role.json)
+        mypolicy_policy_document = mytopic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["sns:Publish"],
             resources=[arn],
         )]))
-        iam_policy_for_lambda_role_policy = aws.iam.RolePolicy("iamPolicyForLambdaRolePolicy",
-            role=role.id,
-            policy=iam_policy_for_lambda_policy_document.json)
+        mypolicy_role_policy = aws.iam.RolePolicy("mypolicyRolePolicy",
+            role=myrole.id,
+            policy=mypolicy_policy_document.json)
         ```
 
         ## Import

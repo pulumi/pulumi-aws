@@ -46,6 +46,7 @@ class ClusterArgs:
                  master_password: Optional[pulumi.Input[str]] = None,
                  master_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
+                 multi_az: Optional[pulumi.Input[bool]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
                  owner_account: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -100,6 +101,7 @@ class ClusterArgs:
                Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         :param pulumi.Input[str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[str] master_username: Username for the master DB user.
+        :param pulumi.Input[bool] multi_az: Specifies if the Redshift cluster is multi-AZ.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
@@ -178,6 +180,8 @@ class ClusterArgs:
             pulumi.set(__self__, "master_password_secret_kms_key_id", master_password_secret_kms_key_id)
         if master_username is not None:
             pulumi.set(__self__, "master_username", master_username)
+        if multi_az is not None:
+            pulumi.set(__self__, "multi_az", multi_az)
         if number_of_nodes is not None:
             pulumi.set(__self__, "number_of_nodes", number_of_nodes)
         if owner_account is not None:
@@ -577,6 +581,18 @@ class ClusterArgs:
         pulumi.set(self, "master_username", value)
 
     @property
+    @pulumi.getter(name="multiAz")
+    def multi_az(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Redshift cluster is multi-AZ.
+        """
+        return pulumi.get(self, "multi_az")
+
+    @multi_az.setter
+    def multi_az(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multi_az", value)
+
+    @property
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> Optional[pulumi.Input[int]]:
         """
@@ -762,6 +778,7 @@ class _ClusterState:
                  master_password_secret_arn: Optional[pulumi.Input[str]] = None,
                  master_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
+                 multi_az: Optional[pulumi.Input[bool]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
                  owner_account: Optional[pulumi.Input[str]] = None,
@@ -822,6 +839,7 @@ class _ClusterState:
         :param pulumi.Input[str] master_password_secret_arn: ARN of the cluster admin credentials secret
         :param pulumi.Input[str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[str] master_username: Username for the master DB user.
+        :param pulumi.Input[bool] multi_az: Specifies if the Redshift cluster is multi-AZ.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
@@ -912,6 +930,8 @@ class _ClusterState:
             pulumi.set(__self__, "master_password_secret_kms_key_id", master_password_secret_kms_key_id)
         if master_username is not None:
             pulumi.set(__self__, "master_username", master_username)
+        if multi_az is not None:
+            pulumi.set(__self__, "multi_az", multi_az)
         if node_type is not None:
             pulumi.set(__self__, "node_type", node_type)
         if number_of_nodes is not None:
@@ -1366,6 +1386,18 @@ class _ClusterState:
         pulumi.set(self, "master_username", value)
 
     @property
+    @pulumi.getter(name="multiAz")
+    def multi_az(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Redshift cluster is multi-AZ.
+        """
+        return pulumi.get(self, "multi_az")
+
+    @multi_az.setter
+    def multi_az(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multi_az", value)
+
+    @property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1575,6 +1607,7 @@ class Cluster(pulumi.CustomResource):
                  master_password: Optional[pulumi.Input[str]] = None,
                  master_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
+                 multi_az: Optional[pulumi.Input[bool]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
                  owner_account: Optional[pulumi.Input[str]] = None,
@@ -1673,6 +1706,7 @@ class Cluster(pulumi.CustomResource):
                Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         :param pulumi.Input[str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[str] master_username: Username for the master DB user.
+        :param pulumi.Input[bool] multi_az: Specifies if the Redshift cluster is multi-AZ.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
@@ -1784,6 +1818,7 @@ class Cluster(pulumi.CustomResource):
                  master_password: Optional[pulumi.Input[str]] = None,
                  master_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
+                 multi_az: Optional[pulumi.Input[bool]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
                  owner_account: Optional[pulumi.Input[str]] = None,
@@ -1837,6 +1872,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["master_password"] = None if master_password is None else pulumi.Output.secret(master_password)
             __props__.__dict__["master_password_secret_kms_key_id"] = master_password_secret_kms_key_id
             __props__.__dict__["master_username"] = master_username
+            __props__.__dict__["multi_az"] = multi_az
             if node_type is None and not opts.urn:
                 raise TypeError("Missing required property 'node_type'")
             __props__.__dict__["node_type"] = node_type
@@ -1904,6 +1940,7 @@ class Cluster(pulumi.CustomResource):
             master_password_secret_arn: Optional[pulumi.Input[str]] = None,
             master_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
             master_username: Optional[pulumi.Input[str]] = None,
+            multi_az: Optional[pulumi.Input[bool]] = None,
             node_type: Optional[pulumi.Input[str]] = None,
             number_of_nodes: Optional[pulumi.Input[int]] = None,
             owner_account: Optional[pulumi.Input[str]] = None,
@@ -1969,6 +2006,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] master_password_secret_arn: ARN of the cluster admin credentials secret
         :param pulumi.Input[str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[str] master_username: Username for the master DB user.
+        :param pulumi.Input[bool] multi_az: Specifies if the Redshift cluster is multi-AZ.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
@@ -2026,6 +2064,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["master_password_secret_arn"] = master_password_secret_arn
         __props__.__dict__["master_password_secret_kms_key_id"] = master_password_secret_kms_key_id
         __props__.__dict__["master_username"] = master_username
+        __props__.__dict__["multi_az"] = multi_az
         __props__.__dict__["node_type"] = node_type
         __props__.__dict__["number_of_nodes"] = number_of_nodes
         __props__.__dict__["owner_account"] = owner_account
@@ -2326,6 +2365,14 @@ class Cluster(pulumi.CustomResource):
         Username for the master DB user.
         """
         return pulumi.get(self, "master_username")
+
+    @property
+    @pulumi.getter(name="multiAz")
+    def multi_az(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if the Redshift cluster is multi-AZ.
+        """
+        return pulumi.get(self, "multi_az")
 
     @property
     @pulumi.getter(name="nodeType")

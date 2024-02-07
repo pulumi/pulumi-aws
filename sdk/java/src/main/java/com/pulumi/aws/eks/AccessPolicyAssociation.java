@@ -136,14 +136,14 @@ public class AccessPolicyAssociation extends com.pulumi.resources.CustomResource
         return this.policyArn;
     }
     /**
-     * The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      * 
      */
     @Export(name="principalArn", refs={String.class}, tree="[0]")
     private Output<String> principalArn;
 
     /**
-     * @return The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * @return The IAM Principal ARN which requires Authentication access to the EKS cluster.
      * 
      */
     public Output<String> principalArn() {

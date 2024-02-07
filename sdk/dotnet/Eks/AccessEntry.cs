@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> ModifiedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ModifiedAt { get; set; }
 
         /// <summary>
-        /// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>

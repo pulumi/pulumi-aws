@@ -302,6 +302,1397 @@ func (o AssociationTargetArrayOutput) Index(i pulumi.IntInput) AssociationTarget
 	}).(AssociationTargetOutput)
 }
 
+type ContactsRotationRecurrence struct {
+	DailySettings []ContactsRotationRecurrenceDailySetting `pulumi:"dailySettings"`
+	// (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
+	MonthlySettings []ContactsRotationRecurrenceMonthlySetting `pulumi:"monthlySettings"`
+	// (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
+	NumberOfOnCalls int `pulumi:"numberOfOnCalls"`
+	// (Required) The number of days, weeks, or months a single rotation lasts.
+	RecurrenceMultiplier int `pulumi:"recurrenceMultiplier"`
+	// (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
+	ShiftCoverages []ContactsRotationRecurrenceShiftCoverage `pulumi:"shiftCoverages"`
+	// (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
+	WeeklySettings []ContactsRotationRecurrenceWeeklySetting `pulumi:"weeklySettings"`
+}
+
+// ContactsRotationRecurrenceInput is an input type that accepts ContactsRotationRecurrenceArgs and ContactsRotationRecurrenceOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceInput` via:
+//
+//	ContactsRotationRecurrenceArgs{...}
+type ContactsRotationRecurrenceInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceOutput() ContactsRotationRecurrenceOutput
+	ToContactsRotationRecurrenceOutputWithContext(context.Context) ContactsRotationRecurrenceOutput
+}
+
+type ContactsRotationRecurrenceArgs struct {
+	DailySettings ContactsRotationRecurrenceDailySettingArrayInput `pulumi:"dailySettings"`
+	// (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
+	MonthlySettings ContactsRotationRecurrenceMonthlySettingArrayInput `pulumi:"monthlySettings"`
+	// (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
+	NumberOfOnCalls pulumi.IntInput `pulumi:"numberOfOnCalls"`
+	// (Required) The number of days, weeks, or months a single rotation lasts.
+	RecurrenceMultiplier pulumi.IntInput `pulumi:"recurrenceMultiplier"`
+	// (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
+	ShiftCoverages ContactsRotationRecurrenceShiftCoverageArrayInput `pulumi:"shiftCoverages"`
+	// (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
+	WeeklySettings ContactsRotationRecurrenceWeeklySettingArrayInput `pulumi:"weeklySettings"`
+}
+
+func (ContactsRotationRecurrenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrence)(nil)).Elem()
+}
+
+func (i ContactsRotationRecurrenceArgs) ToContactsRotationRecurrenceOutput() ContactsRotationRecurrenceOutput {
+	return i.ToContactsRotationRecurrenceOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceArgs) ToContactsRotationRecurrenceOutputWithContext(ctx context.Context) ContactsRotationRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceOutput)
+}
+
+func (i ContactsRotationRecurrenceArgs) ToContactsRotationRecurrencePtrOutput() ContactsRotationRecurrencePtrOutput {
+	return i.ToContactsRotationRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceArgs) ToContactsRotationRecurrencePtrOutputWithContext(ctx context.Context) ContactsRotationRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceOutput).ToContactsRotationRecurrencePtrOutputWithContext(ctx)
+}
+
+// ContactsRotationRecurrencePtrInput is an input type that accepts ContactsRotationRecurrenceArgs, ContactsRotationRecurrencePtr and ContactsRotationRecurrencePtrOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrencePtrInput` via:
+//
+//	        ContactsRotationRecurrenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContactsRotationRecurrencePtrInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrencePtrOutput() ContactsRotationRecurrencePtrOutput
+	ToContactsRotationRecurrencePtrOutputWithContext(context.Context) ContactsRotationRecurrencePtrOutput
+}
+
+type contactsRotationRecurrencePtrType ContactsRotationRecurrenceArgs
+
+func ContactsRotationRecurrencePtr(v *ContactsRotationRecurrenceArgs) ContactsRotationRecurrencePtrInput {
+	return (*contactsRotationRecurrencePtrType)(v)
+}
+
+func (*contactsRotationRecurrencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactsRotationRecurrence)(nil)).Elem()
+}
+
+func (i *contactsRotationRecurrencePtrType) ToContactsRotationRecurrencePtrOutput() ContactsRotationRecurrencePtrOutput {
+	return i.ToContactsRotationRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i *contactsRotationRecurrencePtrType) ToContactsRotationRecurrencePtrOutputWithContext(ctx context.Context) ContactsRotationRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrencePtrOutput)
+}
+
+type ContactsRotationRecurrenceOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrence)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceOutput) ToContactsRotationRecurrenceOutput() ContactsRotationRecurrenceOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceOutput) ToContactsRotationRecurrenceOutputWithContext(ctx context.Context) ContactsRotationRecurrenceOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceOutput) ToContactsRotationRecurrencePtrOutput() ContactsRotationRecurrencePtrOutput {
+	return o.ToContactsRotationRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (o ContactsRotationRecurrenceOutput) ToContactsRotationRecurrencePtrOutputWithContext(ctx context.Context) ContactsRotationRecurrencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactsRotationRecurrence) *ContactsRotationRecurrence {
+		return &v
+	}).(ContactsRotationRecurrencePtrOutput)
+}
+
+func (o ContactsRotationRecurrenceOutput) DailySettings() ContactsRotationRecurrenceDailySettingArrayOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrence) []ContactsRotationRecurrenceDailySetting { return v.DailySettings }).(ContactsRotationRecurrenceDailySettingArrayOutput)
+}
+
+// (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
+func (o ContactsRotationRecurrenceOutput) MonthlySettings() ContactsRotationRecurrenceMonthlySettingArrayOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrence) []ContactsRotationRecurrenceMonthlySetting {
+		return v.MonthlySettings
+	}).(ContactsRotationRecurrenceMonthlySettingArrayOutput)
+}
+
+// (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
+func (o ContactsRotationRecurrenceOutput) NumberOfOnCalls() pulumi.IntOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrence) int { return v.NumberOfOnCalls }).(pulumi.IntOutput)
+}
+
+// (Required) The number of days, weeks, or months a single rotation lasts.
+func (o ContactsRotationRecurrenceOutput) RecurrenceMultiplier() pulumi.IntOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrence) int { return v.RecurrenceMultiplier }).(pulumi.IntOutput)
+}
+
+// (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
+func (o ContactsRotationRecurrenceOutput) ShiftCoverages() ContactsRotationRecurrenceShiftCoverageArrayOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrence) []ContactsRotationRecurrenceShiftCoverage { return v.ShiftCoverages }).(ContactsRotationRecurrenceShiftCoverageArrayOutput)
+}
+
+// (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
+func (o ContactsRotationRecurrenceOutput) WeeklySettings() ContactsRotationRecurrenceWeeklySettingArrayOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrence) []ContactsRotationRecurrenceWeeklySetting { return v.WeeklySettings }).(ContactsRotationRecurrenceWeeklySettingArrayOutput)
+}
+
+type ContactsRotationRecurrencePtrOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactsRotationRecurrence)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrencePtrOutput) ToContactsRotationRecurrencePtrOutput() ContactsRotationRecurrencePtrOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrencePtrOutput) ToContactsRotationRecurrencePtrOutputWithContext(ctx context.Context) ContactsRotationRecurrencePtrOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrencePtrOutput) Elem() ContactsRotationRecurrenceOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrence) ContactsRotationRecurrence {
+		if v != nil {
+			return *v
+		}
+		var ret ContactsRotationRecurrence
+		return ret
+	}).(ContactsRotationRecurrenceOutput)
+}
+
+func (o ContactsRotationRecurrencePtrOutput) DailySettings() ContactsRotationRecurrenceDailySettingArrayOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrence) []ContactsRotationRecurrenceDailySetting {
+		if v == nil {
+			return nil
+		}
+		return v.DailySettings
+	}).(ContactsRotationRecurrenceDailySettingArrayOutput)
+}
+
+// (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
+func (o ContactsRotationRecurrencePtrOutput) MonthlySettings() ContactsRotationRecurrenceMonthlySettingArrayOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrence) []ContactsRotationRecurrenceMonthlySetting {
+		if v == nil {
+			return nil
+		}
+		return v.MonthlySettings
+	}).(ContactsRotationRecurrenceMonthlySettingArrayOutput)
+}
+
+// (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
+func (o ContactsRotationRecurrencePtrOutput) NumberOfOnCalls() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrence) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.NumberOfOnCalls
+	}).(pulumi.IntPtrOutput)
+}
+
+// (Required) The number of days, weeks, or months a single rotation lasts.
+func (o ContactsRotationRecurrencePtrOutput) RecurrenceMultiplier() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrence) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.RecurrenceMultiplier
+	}).(pulumi.IntPtrOutput)
+}
+
+// (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
+func (o ContactsRotationRecurrencePtrOutput) ShiftCoverages() ContactsRotationRecurrenceShiftCoverageArrayOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrence) []ContactsRotationRecurrenceShiftCoverage {
+		if v == nil {
+			return nil
+		}
+		return v.ShiftCoverages
+	}).(ContactsRotationRecurrenceShiftCoverageArrayOutput)
+}
+
+// (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
+func (o ContactsRotationRecurrencePtrOutput) WeeklySettings() ContactsRotationRecurrenceWeeklySettingArrayOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrence) []ContactsRotationRecurrenceWeeklySetting {
+		if v == nil {
+			return nil
+		}
+		return v.WeeklySettings
+	}).(ContactsRotationRecurrenceWeeklySettingArrayOutput)
+}
+
+type ContactsRotationRecurrenceDailySetting struct {
+	// (Required) The hour of the day.
+	HourOfDay int `pulumi:"hourOfDay"`
+	// (Required) The minutes of the hour.
+	MinuteOfHour int `pulumi:"minuteOfHour"`
+}
+
+// ContactsRotationRecurrenceDailySettingInput is an input type that accepts ContactsRotationRecurrenceDailySettingArgs and ContactsRotationRecurrenceDailySettingOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceDailySettingInput` via:
+//
+//	ContactsRotationRecurrenceDailySettingArgs{...}
+type ContactsRotationRecurrenceDailySettingInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceDailySettingOutput() ContactsRotationRecurrenceDailySettingOutput
+	ToContactsRotationRecurrenceDailySettingOutputWithContext(context.Context) ContactsRotationRecurrenceDailySettingOutput
+}
+
+type ContactsRotationRecurrenceDailySettingArgs struct {
+	// (Required) The hour of the day.
+	HourOfDay pulumi.IntInput `pulumi:"hourOfDay"`
+	// (Required) The minutes of the hour.
+	MinuteOfHour pulumi.IntInput `pulumi:"minuteOfHour"`
+}
+
+func (ContactsRotationRecurrenceDailySettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceDailySetting)(nil)).Elem()
+}
+
+func (i ContactsRotationRecurrenceDailySettingArgs) ToContactsRotationRecurrenceDailySettingOutput() ContactsRotationRecurrenceDailySettingOutput {
+	return i.ToContactsRotationRecurrenceDailySettingOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceDailySettingArgs) ToContactsRotationRecurrenceDailySettingOutputWithContext(ctx context.Context) ContactsRotationRecurrenceDailySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceDailySettingOutput)
+}
+
+// ContactsRotationRecurrenceDailySettingArrayInput is an input type that accepts ContactsRotationRecurrenceDailySettingArray and ContactsRotationRecurrenceDailySettingArrayOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceDailySettingArrayInput` via:
+//
+//	ContactsRotationRecurrenceDailySettingArray{ ContactsRotationRecurrenceDailySettingArgs{...} }
+type ContactsRotationRecurrenceDailySettingArrayInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceDailySettingArrayOutput() ContactsRotationRecurrenceDailySettingArrayOutput
+	ToContactsRotationRecurrenceDailySettingArrayOutputWithContext(context.Context) ContactsRotationRecurrenceDailySettingArrayOutput
+}
+
+type ContactsRotationRecurrenceDailySettingArray []ContactsRotationRecurrenceDailySettingInput
+
+func (ContactsRotationRecurrenceDailySettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactsRotationRecurrenceDailySetting)(nil)).Elem()
+}
+
+func (i ContactsRotationRecurrenceDailySettingArray) ToContactsRotationRecurrenceDailySettingArrayOutput() ContactsRotationRecurrenceDailySettingArrayOutput {
+	return i.ToContactsRotationRecurrenceDailySettingArrayOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceDailySettingArray) ToContactsRotationRecurrenceDailySettingArrayOutputWithContext(ctx context.Context) ContactsRotationRecurrenceDailySettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceDailySettingArrayOutput)
+}
+
+type ContactsRotationRecurrenceDailySettingOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceDailySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceDailySetting)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceDailySettingOutput) ToContactsRotationRecurrenceDailySettingOutput() ContactsRotationRecurrenceDailySettingOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceDailySettingOutput) ToContactsRotationRecurrenceDailySettingOutputWithContext(ctx context.Context) ContactsRotationRecurrenceDailySettingOutput {
+	return o
+}
+
+// (Required) The hour of the day.
+func (o ContactsRotationRecurrenceDailySettingOutput) HourOfDay() pulumi.IntOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceDailySetting) int { return v.HourOfDay }).(pulumi.IntOutput)
+}
+
+// (Required) The minutes of the hour.
+func (o ContactsRotationRecurrenceDailySettingOutput) MinuteOfHour() pulumi.IntOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceDailySetting) int { return v.MinuteOfHour }).(pulumi.IntOutput)
+}
+
+type ContactsRotationRecurrenceDailySettingArrayOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceDailySettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactsRotationRecurrenceDailySetting)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceDailySettingArrayOutput) ToContactsRotationRecurrenceDailySettingArrayOutput() ContactsRotationRecurrenceDailySettingArrayOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceDailySettingArrayOutput) ToContactsRotationRecurrenceDailySettingArrayOutputWithContext(ctx context.Context) ContactsRotationRecurrenceDailySettingArrayOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceDailySettingArrayOutput) Index(i pulumi.IntInput) ContactsRotationRecurrenceDailySettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactsRotationRecurrenceDailySetting {
+		return vs[0].([]ContactsRotationRecurrenceDailySetting)[vs[1].(int)]
+	}).(ContactsRotationRecurrenceDailySettingOutput)
+}
+
+type ContactsRotationRecurrenceMonthlySetting struct {
+	// (Required) The day of the month when monthly recurring on-call rotations begin.
+	DayOfMonth int `pulumi:"dayOfMonth"`
+	// (Required) The hand off time. See Hand Off Time for more details.
+	HandOffTime *ContactsRotationRecurrenceMonthlySettingHandOffTime `pulumi:"handOffTime"`
+}
+
+// ContactsRotationRecurrenceMonthlySettingInput is an input type that accepts ContactsRotationRecurrenceMonthlySettingArgs and ContactsRotationRecurrenceMonthlySettingOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceMonthlySettingInput` via:
+//
+//	ContactsRotationRecurrenceMonthlySettingArgs{...}
+type ContactsRotationRecurrenceMonthlySettingInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceMonthlySettingOutput() ContactsRotationRecurrenceMonthlySettingOutput
+	ToContactsRotationRecurrenceMonthlySettingOutputWithContext(context.Context) ContactsRotationRecurrenceMonthlySettingOutput
+}
+
+type ContactsRotationRecurrenceMonthlySettingArgs struct {
+	// (Required) The day of the month when monthly recurring on-call rotations begin.
+	DayOfMonth pulumi.IntInput `pulumi:"dayOfMonth"`
+	// (Required) The hand off time. See Hand Off Time for more details.
+	HandOffTime ContactsRotationRecurrenceMonthlySettingHandOffTimePtrInput `pulumi:"handOffTime"`
+}
+
+func (ContactsRotationRecurrenceMonthlySettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceMonthlySetting)(nil)).Elem()
+}
+
+func (i ContactsRotationRecurrenceMonthlySettingArgs) ToContactsRotationRecurrenceMonthlySettingOutput() ContactsRotationRecurrenceMonthlySettingOutput {
+	return i.ToContactsRotationRecurrenceMonthlySettingOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceMonthlySettingArgs) ToContactsRotationRecurrenceMonthlySettingOutputWithContext(ctx context.Context) ContactsRotationRecurrenceMonthlySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceMonthlySettingOutput)
+}
+
+// ContactsRotationRecurrenceMonthlySettingArrayInput is an input type that accepts ContactsRotationRecurrenceMonthlySettingArray and ContactsRotationRecurrenceMonthlySettingArrayOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceMonthlySettingArrayInput` via:
+//
+//	ContactsRotationRecurrenceMonthlySettingArray{ ContactsRotationRecurrenceMonthlySettingArgs{...} }
+type ContactsRotationRecurrenceMonthlySettingArrayInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceMonthlySettingArrayOutput() ContactsRotationRecurrenceMonthlySettingArrayOutput
+	ToContactsRotationRecurrenceMonthlySettingArrayOutputWithContext(context.Context) ContactsRotationRecurrenceMonthlySettingArrayOutput
+}
+
+type ContactsRotationRecurrenceMonthlySettingArray []ContactsRotationRecurrenceMonthlySettingInput
+
+func (ContactsRotationRecurrenceMonthlySettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactsRotationRecurrenceMonthlySetting)(nil)).Elem()
+}
+
+func (i ContactsRotationRecurrenceMonthlySettingArray) ToContactsRotationRecurrenceMonthlySettingArrayOutput() ContactsRotationRecurrenceMonthlySettingArrayOutput {
+	return i.ToContactsRotationRecurrenceMonthlySettingArrayOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceMonthlySettingArray) ToContactsRotationRecurrenceMonthlySettingArrayOutputWithContext(ctx context.Context) ContactsRotationRecurrenceMonthlySettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceMonthlySettingArrayOutput)
+}
+
+type ContactsRotationRecurrenceMonthlySettingOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceMonthlySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceMonthlySetting)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceMonthlySettingOutput) ToContactsRotationRecurrenceMonthlySettingOutput() ContactsRotationRecurrenceMonthlySettingOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceMonthlySettingOutput) ToContactsRotationRecurrenceMonthlySettingOutputWithContext(ctx context.Context) ContactsRotationRecurrenceMonthlySettingOutput {
+	return o
+}
+
+// (Required) The day of the month when monthly recurring on-call rotations begin.
+func (o ContactsRotationRecurrenceMonthlySettingOutput) DayOfMonth() pulumi.IntOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceMonthlySetting) int { return v.DayOfMonth }).(pulumi.IntOutput)
+}
+
+// (Required) The hand off time. See Hand Off Time for more details.
+func (o ContactsRotationRecurrenceMonthlySettingOutput) HandOffTime() ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceMonthlySetting) *ContactsRotationRecurrenceMonthlySettingHandOffTime {
+		return v.HandOffTime
+	}).(ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput)
+}
+
+type ContactsRotationRecurrenceMonthlySettingArrayOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceMonthlySettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactsRotationRecurrenceMonthlySetting)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceMonthlySettingArrayOutput) ToContactsRotationRecurrenceMonthlySettingArrayOutput() ContactsRotationRecurrenceMonthlySettingArrayOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceMonthlySettingArrayOutput) ToContactsRotationRecurrenceMonthlySettingArrayOutputWithContext(ctx context.Context) ContactsRotationRecurrenceMonthlySettingArrayOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceMonthlySettingArrayOutput) Index(i pulumi.IntInput) ContactsRotationRecurrenceMonthlySettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactsRotationRecurrenceMonthlySetting {
+		return vs[0].([]ContactsRotationRecurrenceMonthlySetting)[vs[1].(int)]
+	}).(ContactsRotationRecurrenceMonthlySettingOutput)
+}
+
+type ContactsRotationRecurrenceMonthlySettingHandOffTime struct {
+	// (Required) The hour of the day.
+	HourOfDay int `pulumi:"hourOfDay"`
+	// (Required) The minutes of the hour.
+	MinuteOfHour int `pulumi:"minuteOfHour"`
+}
+
+// ContactsRotationRecurrenceMonthlySettingHandOffTimeInput is an input type that accepts ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs and ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceMonthlySettingHandOffTimeInput` via:
+//
+//	ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs{...}
+type ContactsRotationRecurrenceMonthlySettingHandOffTimeInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceMonthlySettingHandOffTimeOutput() ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput
+	ToContactsRotationRecurrenceMonthlySettingHandOffTimeOutputWithContext(context.Context) ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput
+}
+
+type ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs struct {
+	// (Required) The hour of the day.
+	HourOfDay pulumi.IntInput `pulumi:"hourOfDay"`
+	// (Required) The minutes of the hour.
+	MinuteOfHour pulumi.IntInput `pulumi:"minuteOfHour"`
+}
+
+func (ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceMonthlySettingHandOffTime)(nil)).Elem()
+}
+
+func (i ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs) ToContactsRotationRecurrenceMonthlySettingHandOffTimeOutput() ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput {
+	return i.ToContactsRotationRecurrenceMonthlySettingHandOffTimeOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs) ToContactsRotationRecurrenceMonthlySettingHandOffTimeOutputWithContext(ctx context.Context) ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput)
+}
+
+func (i ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs) ToContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput() ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput {
+	return i.ToContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs) ToContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput).ToContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutputWithContext(ctx)
+}
+
+// ContactsRotationRecurrenceMonthlySettingHandOffTimePtrInput is an input type that accepts ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs, ContactsRotationRecurrenceMonthlySettingHandOffTimePtr and ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceMonthlySettingHandOffTimePtrInput` via:
+//
+//	        ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContactsRotationRecurrenceMonthlySettingHandOffTimePtrInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput() ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput
+	ToContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutputWithContext(context.Context) ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput
+}
+
+type contactsRotationRecurrenceMonthlySettingHandOffTimePtrType ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs
+
+func ContactsRotationRecurrenceMonthlySettingHandOffTimePtr(v *ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs) ContactsRotationRecurrenceMonthlySettingHandOffTimePtrInput {
+	return (*contactsRotationRecurrenceMonthlySettingHandOffTimePtrType)(v)
+}
+
+func (*contactsRotationRecurrenceMonthlySettingHandOffTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactsRotationRecurrenceMonthlySettingHandOffTime)(nil)).Elem()
+}
+
+func (i *contactsRotationRecurrenceMonthlySettingHandOffTimePtrType) ToContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput() ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput {
+	return i.ToContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutputWithContext(context.Background())
+}
+
+func (i *contactsRotationRecurrenceMonthlySettingHandOffTimePtrType) ToContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput)
+}
+
+type ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceMonthlySettingHandOffTime)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput) ToContactsRotationRecurrenceMonthlySettingHandOffTimeOutput() ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput) ToContactsRotationRecurrenceMonthlySettingHandOffTimeOutputWithContext(ctx context.Context) ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput) ToContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput() ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput {
+	return o.ToContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutputWithContext(context.Background())
+}
+
+func (o ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput) ToContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactsRotationRecurrenceMonthlySettingHandOffTime) *ContactsRotationRecurrenceMonthlySettingHandOffTime {
+		return &v
+	}).(ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput)
+}
+
+// (Required) The hour of the day.
+func (o ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput) HourOfDay() pulumi.IntOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceMonthlySettingHandOffTime) int { return v.HourOfDay }).(pulumi.IntOutput)
+}
+
+// (Required) The minutes of the hour.
+func (o ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput) MinuteOfHour() pulumi.IntOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceMonthlySettingHandOffTime) int { return v.MinuteOfHour }).(pulumi.IntOutput)
+}
+
+type ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactsRotationRecurrenceMonthlySettingHandOffTime)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput) ToContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput() ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput) ToContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput) Elem() ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrenceMonthlySettingHandOffTime) ContactsRotationRecurrenceMonthlySettingHandOffTime {
+		if v != nil {
+			return *v
+		}
+		var ret ContactsRotationRecurrenceMonthlySettingHandOffTime
+		return ret
+	}).(ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput)
+}
+
+// (Required) The hour of the day.
+func (o ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput) HourOfDay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrenceMonthlySettingHandOffTime) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.HourOfDay
+	}).(pulumi.IntPtrOutput)
+}
+
+// (Required) The minutes of the hour.
+func (o ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput) MinuteOfHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrenceMonthlySettingHandOffTime) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinuteOfHour
+	}).(pulumi.IntPtrOutput)
+}
+
+type ContactsRotationRecurrenceShiftCoverage struct {
+	// (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
+	CoverageTimes []ContactsRotationRecurrenceShiftCoverageCoverageTime `pulumi:"coverageTimes"`
+	MapBlockKey   string                                                `pulumi:"mapBlockKey"`
+}
+
+// ContactsRotationRecurrenceShiftCoverageInput is an input type that accepts ContactsRotationRecurrenceShiftCoverageArgs and ContactsRotationRecurrenceShiftCoverageOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceShiftCoverageInput` via:
+//
+//	ContactsRotationRecurrenceShiftCoverageArgs{...}
+type ContactsRotationRecurrenceShiftCoverageInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceShiftCoverageOutput() ContactsRotationRecurrenceShiftCoverageOutput
+	ToContactsRotationRecurrenceShiftCoverageOutputWithContext(context.Context) ContactsRotationRecurrenceShiftCoverageOutput
+}
+
+type ContactsRotationRecurrenceShiftCoverageArgs struct {
+	// (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
+	CoverageTimes ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayInput `pulumi:"coverageTimes"`
+	MapBlockKey   pulumi.StringInput                                            `pulumi:"mapBlockKey"`
+}
+
+func (ContactsRotationRecurrenceShiftCoverageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverage)(nil)).Elem()
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageArgs) ToContactsRotationRecurrenceShiftCoverageOutput() ContactsRotationRecurrenceShiftCoverageOutput {
+	return i.ToContactsRotationRecurrenceShiftCoverageOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageArgs) ToContactsRotationRecurrenceShiftCoverageOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceShiftCoverageOutput)
+}
+
+// ContactsRotationRecurrenceShiftCoverageArrayInput is an input type that accepts ContactsRotationRecurrenceShiftCoverageArray and ContactsRotationRecurrenceShiftCoverageArrayOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceShiftCoverageArrayInput` via:
+//
+//	ContactsRotationRecurrenceShiftCoverageArray{ ContactsRotationRecurrenceShiftCoverageArgs{...} }
+type ContactsRotationRecurrenceShiftCoverageArrayInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceShiftCoverageArrayOutput() ContactsRotationRecurrenceShiftCoverageArrayOutput
+	ToContactsRotationRecurrenceShiftCoverageArrayOutputWithContext(context.Context) ContactsRotationRecurrenceShiftCoverageArrayOutput
+}
+
+type ContactsRotationRecurrenceShiftCoverageArray []ContactsRotationRecurrenceShiftCoverageInput
+
+func (ContactsRotationRecurrenceShiftCoverageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactsRotationRecurrenceShiftCoverage)(nil)).Elem()
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageArray) ToContactsRotationRecurrenceShiftCoverageArrayOutput() ContactsRotationRecurrenceShiftCoverageArrayOutput {
+	return i.ToContactsRotationRecurrenceShiftCoverageArrayOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageArray) ToContactsRotationRecurrenceShiftCoverageArrayOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceShiftCoverageArrayOutput)
+}
+
+type ContactsRotationRecurrenceShiftCoverageOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceShiftCoverageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverage)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageOutput) ToContactsRotationRecurrenceShiftCoverageOutput() ContactsRotationRecurrenceShiftCoverageOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageOutput) ToContactsRotationRecurrenceShiftCoverageOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageOutput {
+	return o
+}
+
+// (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
+func (o ContactsRotationRecurrenceShiftCoverageOutput) CoverageTimes() ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceShiftCoverage) []ContactsRotationRecurrenceShiftCoverageCoverageTime {
+		return v.CoverageTimes
+	}).(ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput)
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageOutput) MapBlockKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceShiftCoverage) string { return v.MapBlockKey }).(pulumi.StringOutput)
+}
+
+type ContactsRotationRecurrenceShiftCoverageArrayOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceShiftCoverageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactsRotationRecurrenceShiftCoverage)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageArrayOutput) ToContactsRotationRecurrenceShiftCoverageArrayOutput() ContactsRotationRecurrenceShiftCoverageArrayOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageArrayOutput) ToContactsRotationRecurrenceShiftCoverageArrayOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageArrayOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageArrayOutput) Index(i pulumi.IntInput) ContactsRotationRecurrenceShiftCoverageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactsRotationRecurrenceShiftCoverage {
+		return vs[0].([]ContactsRotationRecurrenceShiftCoverage)[vs[1].(int)]
+	}).(ContactsRotationRecurrenceShiftCoverageOutput)
+}
+
+type ContactsRotationRecurrenceShiftCoverageCoverageTime struct {
+	// (Required) The end time of the on-call shift. See Hand Off Time for more details.
+	End *ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd `pulumi:"end"`
+	// (Required) The start time of the on-call shift. See Hand Off Time for more details.
+	Start *ContactsRotationRecurrenceShiftCoverageCoverageTimeStart `pulumi:"start"`
+}
+
+// ContactsRotationRecurrenceShiftCoverageCoverageTimeInput is an input type that accepts ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs and ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceShiftCoverageCoverageTimeInput` via:
+//
+//	ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs{...}
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceShiftCoverageCoverageTimeOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput
+	ToContactsRotationRecurrenceShiftCoverageCoverageTimeOutputWithContext(context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput
+}
+
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs struct {
+	// (Required) The end time of the on-call shift. See Hand Off Time for more details.
+	End ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrInput `pulumi:"end"`
+	// (Required) The start time of the on-call shift. See Hand Off Time for more details.
+	Start ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrInput `pulumi:"start"`
+}
+
+func (ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverageCoverageTime)(nil)).Elem()
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs) ToContactsRotationRecurrenceShiftCoverageCoverageTimeOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput {
+	return i.ToContactsRotationRecurrenceShiftCoverageCoverageTimeOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs) ToContactsRotationRecurrenceShiftCoverageCoverageTimeOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput)
+}
+
+// ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayInput is an input type that accepts ContactsRotationRecurrenceShiftCoverageCoverageTimeArray and ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayInput` via:
+//
+//	ContactsRotationRecurrenceShiftCoverageCoverageTimeArray{ ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs{...} }
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput
+	ToContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutputWithContext(context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput
+}
+
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeArray []ContactsRotationRecurrenceShiftCoverageCoverageTimeInput
+
+func (ContactsRotationRecurrenceShiftCoverageCoverageTimeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactsRotationRecurrenceShiftCoverageCoverageTime)(nil)).Elem()
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageCoverageTimeArray) ToContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput {
+	return i.ToContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageCoverageTimeArray) ToContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput)
+}
+
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverageCoverageTime)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput {
+	return o
+}
+
+// (Required) The end time of the on-call shift. See Hand Off Time for more details.
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput) End() ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceShiftCoverageCoverageTime) *ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd {
+		return v.End
+	}).(ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput)
+}
+
+// (Required) The start time of the on-call shift. See Hand Off Time for more details.
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput) Start() ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceShiftCoverageCoverageTime) *ContactsRotationRecurrenceShiftCoverageCoverageTimeStart {
+		return v.Start
+	}).(ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput)
+}
+
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactsRotationRecurrenceShiftCoverageCoverageTime)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput) Index(i pulumi.IntInput) ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactsRotationRecurrenceShiftCoverageCoverageTime {
+		return vs[0].([]ContactsRotationRecurrenceShiftCoverageCoverageTime)[vs[1].(int)]
+	}).(ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput)
+}
+
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd struct {
+	// (Required) The hour of the day.
+	HourOfDay int `pulumi:"hourOfDay"`
+	// (Required) The minutes of the hour.
+	MinuteOfHour int `pulumi:"minuteOfHour"`
+}
+
+// ContactsRotationRecurrenceShiftCoverageCoverageTimeEndInput is an input type that accepts ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs and ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceShiftCoverageCoverageTimeEndInput` via:
+//
+//	ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs{...}
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeEndInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput
+	ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutputWithContext(context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput
+}
+
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs struct {
+	// (Required) The hour of the day.
+	HourOfDay pulumi.IntInput `pulumi:"hourOfDay"`
+	// (Required) The minutes of the hour.
+	MinuteOfHour pulumi.IntInput `pulumi:"minuteOfHour"`
+}
+
+func (ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd)(nil)).Elem()
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs) ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput {
+	return i.ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs) ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput)
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs) ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput {
+	return i.ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs) ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput).ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutputWithContext(ctx)
+}
+
+// ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrInput is an input type that accepts ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs, ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtr and ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrInput` via:
+//
+//	        ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput
+	ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutputWithContext(context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput
+}
+
+type contactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrType ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs
+
+func ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtr(v *ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs) ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrInput {
+	return (*contactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrType)(v)
+}
+
+func (*contactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd)(nil)).Elem()
+}
+
+func (i *contactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrType) ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput {
+	return i.ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutputWithContext(context.Background())
+}
+
+func (i *contactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrType) ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput)
+}
+
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput {
+	return o.ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutputWithContext(context.Background())
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd) *ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd {
+		return &v
+	}).(ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput)
+}
+
+// (Required) The hour of the day.
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput) HourOfDay() pulumi.IntOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd) int { return v.HourOfDay }).(pulumi.IntOutput)
+}
+
+// (Required) The minutes of the hour.
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput) MinuteOfHour() pulumi.IntOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd) int { return v.MinuteOfHour }).(pulumi.IntOutput)
+}
+
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput) Elem() ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd) ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd {
+		if v != nil {
+			return *v
+		}
+		var ret ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd
+		return ret
+	}).(ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput)
+}
+
+// (Required) The hour of the day.
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput) HourOfDay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.HourOfDay
+	}).(pulumi.IntPtrOutput)
+}
+
+// (Required) The minutes of the hour.
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput) MinuteOfHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinuteOfHour
+	}).(pulumi.IntPtrOutput)
+}
+
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeStart struct {
+	// (Required) The hour of the day.
+	HourOfDay int `pulumi:"hourOfDay"`
+	// (Required) The minutes of the hour.
+	MinuteOfHour int `pulumi:"minuteOfHour"`
+}
+
+// ContactsRotationRecurrenceShiftCoverageCoverageTimeStartInput is an input type that accepts ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs and ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceShiftCoverageCoverageTimeStartInput` via:
+//
+//	ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs{...}
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeStartInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput
+	ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutputWithContext(context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput
+}
+
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs struct {
+	// (Required) The hour of the day.
+	HourOfDay pulumi.IntInput `pulumi:"hourOfDay"`
+	// (Required) The minutes of the hour.
+	MinuteOfHour pulumi.IntInput `pulumi:"minuteOfHour"`
+}
+
+func (ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverageCoverageTimeStart)(nil)).Elem()
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs) ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput {
+	return i.ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs) ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput)
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs) ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput {
+	return i.ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs) ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput).ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutputWithContext(ctx)
+}
+
+// ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrInput is an input type that accepts ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs, ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtr and ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrInput` via:
+//
+//	        ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput
+	ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutputWithContext(context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput
+}
+
+type contactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrType ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs
+
+func ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtr(v *ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs) ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrInput {
+	return (*contactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrType)(v)
+}
+
+func (*contactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactsRotationRecurrenceShiftCoverageCoverageTimeStart)(nil)).Elem()
+}
+
+func (i *contactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrType) ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput {
+	return i.ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutputWithContext(context.Background())
+}
+
+func (i *contactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrType) ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput)
+}
+
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverageCoverageTimeStart)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput {
+	return o.ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutputWithContext(context.Background())
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactsRotationRecurrenceShiftCoverageCoverageTimeStart) *ContactsRotationRecurrenceShiftCoverageCoverageTimeStart {
+		return &v
+	}).(ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput)
+}
+
+// (Required) The hour of the day.
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput) HourOfDay() pulumi.IntOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceShiftCoverageCoverageTimeStart) int { return v.HourOfDay }).(pulumi.IntOutput)
+}
+
+// (Required) The minutes of the hour.
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput) MinuteOfHour() pulumi.IntOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceShiftCoverageCoverageTimeStart) int { return v.MinuteOfHour }).(pulumi.IntOutput)
+}
+
+type ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactsRotationRecurrenceShiftCoverageCoverageTimeStart)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput() ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput) ToContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput) Elem() ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrenceShiftCoverageCoverageTimeStart) ContactsRotationRecurrenceShiftCoverageCoverageTimeStart {
+		if v != nil {
+			return *v
+		}
+		var ret ContactsRotationRecurrenceShiftCoverageCoverageTimeStart
+		return ret
+	}).(ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput)
+}
+
+// (Required) The hour of the day.
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput) HourOfDay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrenceShiftCoverageCoverageTimeStart) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.HourOfDay
+	}).(pulumi.IntPtrOutput)
+}
+
+// (Required) The minutes of the hour.
+func (o ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput) MinuteOfHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrenceShiftCoverageCoverageTimeStart) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinuteOfHour
+	}).(pulumi.IntPtrOutput)
+}
+
+type ContactsRotationRecurrenceWeeklySetting struct {
+	// (Required) The day of the week when the shift coverage occurs.
+	DayOfWeek string `pulumi:"dayOfWeek"`
+	// (Required) The hand off time. See Hand Off Time for more details.
+	HandOffTime *ContactsRotationRecurrenceWeeklySettingHandOffTime `pulumi:"handOffTime"`
+}
+
+// ContactsRotationRecurrenceWeeklySettingInput is an input type that accepts ContactsRotationRecurrenceWeeklySettingArgs and ContactsRotationRecurrenceWeeklySettingOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceWeeklySettingInput` via:
+//
+//	ContactsRotationRecurrenceWeeklySettingArgs{...}
+type ContactsRotationRecurrenceWeeklySettingInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceWeeklySettingOutput() ContactsRotationRecurrenceWeeklySettingOutput
+	ToContactsRotationRecurrenceWeeklySettingOutputWithContext(context.Context) ContactsRotationRecurrenceWeeklySettingOutput
+}
+
+type ContactsRotationRecurrenceWeeklySettingArgs struct {
+	// (Required) The day of the week when the shift coverage occurs.
+	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
+	// (Required) The hand off time. See Hand Off Time for more details.
+	HandOffTime ContactsRotationRecurrenceWeeklySettingHandOffTimePtrInput `pulumi:"handOffTime"`
+}
+
+func (ContactsRotationRecurrenceWeeklySettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceWeeklySetting)(nil)).Elem()
+}
+
+func (i ContactsRotationRecurrenceWeeklySettingArgs) ToContactsRotationRecurrenceWeeklySettingOutput() ContactsRotationRecurrenceWeeklySettingOutput {
+	return i.ToContactsRotationRecurrenceWeeklySettingOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceWeeklySettingArgs) ToContactsRotationRecurrenceWeeklySettingOutputWithContext(ctx context.Context) ContactsRotationRecurrenceWeeklySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceWeeklySettingOutput)
+}
+
+// ContactsRotationRecurrenceWeeklySettingArrayInput is an input type that accepts ContactsRotationRecurrenceWeeklySettingArray and ContactsRotationRecurrenceWeeklySettingArrayOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceWeeklySettingArrayInput` via:
+//
+//	ContactsRotationRecurrenceWeeklySettingArray{ ContactsRotationRecurrenceWeeklySettingArgs{...} }
+type ContactsRotationRecurrenceWeeklySettingArrayInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceWeeklySettingArrayOutput() ContactsRotationRecurrenceWeeklySettingArrayOutput
+	ToContactsRotationRecurrenceWeeklySettingArrayOutputWithContext(context.Context) ContactsRotationRecurrenceWeeklySettingArrayOutput
+}
+
+type ContactsRotationRecurrenceWeeklySettingArray []ContactsRotationRecurrenceWeeklySettingInput
+
+func (ContactsRotationRecurrenceWeeklySettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactsRotationRecurrenceWeeklySetting)(nil)).Elem()
+}
+
+func (i ContactsRotationRecurrenceWeeklySettingArray) ToContactsRotationRecurrenceWeeklySettingArrayOutput() ContactsRotationRecurrenceWeeklySettingArrayOutput {
+	return i.ToContactsRotationRecurrenceWeeklySettingArrayOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceWeeklySettingArray) ToContactsRotationRecurrenceWeeklySettingArrayOutputWithContext(ctx context.Context) ContactsRotationRecurrenceWeeklySettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceWeeklySettingArrayOutput)
+}
+
+type ContactsRotationRecurrenceWeeklySettingOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceWeeklySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceWeeklySetting)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceWeeklySettingOutput) ToContactsRotationRecurrenceWeeklySettingOutput() ContactsRotationRecurrenceWeeklySettingOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceWeeklySettingOutput) ToContactsRotationRecurrenceWeeklySettingOutputWithContext(ctx context.Context) ContactsRotationRecurrenceWeeklySettingOutput {
+	return o
+}
+
+// (Required) The day of the week when the shift coverage occurs.
+func (o ContactsRotationRecurrenceWeeklySettingOutput) DayOfWeek() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceWeeklySetting) string { return v.DayOfWeek }).(pulumi.StringOutput)
+}
+
+// (Required) The hand off time. See Hand Off Time for more details.
+func (o ContactsRotationRecurrenceWeeklySettingOutput) HandOffTime() ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceWeeklySetting) *ContactsRotationRecurrenceWeeklySettingHandOffTime {
+		return v.HandOffTime
+	}).(ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput)
+}
+
+type ContactsRotationRecurrenceWeeklySettingArrayOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceWeeklySettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactsRotationRecurrenceWeeklySetting)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceWeeklySettingArrayOutput) ToContactsRotationRecurrenceWeeklySettingArrayOutput() ContactsRotationRecurrenceWeeklySettingArrayOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceWeeklySettingArrayOutput) ToContactsRotationRecurrenceWeeklySettingArrayOutputWithContext(ctx context.Context) ContactsRotationRecurrenceWeeklySettingArrayOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceWeeklySettingArrayOutput) Index(i pulumi.IntInput) ContactsRotationRecurrenceWeeklySettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactsRotationRecurrenceWeeklySetting {
+		return vs[0].([]ContactsRotationRecurrenceWeeklySetting)[vs[1].(int)]
+	}).(ContactsRotationRecurrenceWeeklySettingOutput)
+}
+
+type ContactsRotationRecurrenceWeeklySettingHandOffTime struct {
+	// (Required) The hour of the day.
+	HourOfDay int `pulumi:"hourOfDay"`
+	// (Required) The minutes of the hour.
+	MinuteOfHour int `pulumi:"minuteOfHour"`
+}
+
+// ContactsRotationRecurrenceWeeklySettingHandOffTimeInput is an input type that accepts ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs and ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceWeeklySettingHandOffTimeInput` via:
+//
+//	ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs{...}
+type ContactsRotationRecurrenceWeeklySettingHandOffTimeInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceWeeklySettingHandOffTimeOutput() ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput
+	ToContactsRotationRecurrenceWeeklySettingHandOffTimeOutputWithContext(context.Context) ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput
+}
+
+type ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs struct {
+	// (Required) The hour of the day.
+	HourOfDay pulumi.IntInput `pulumi:"hourOfDay"`
+	// (Required) The minutes of the hour.
+	MinuteOfHour pulumi.IntInput `pulumi:"minuteOfHour"`
+}
+
+func (ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceWeeklySettingHandOffTime)(nil)).Elem()
+}
+
+func (i ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs) ToContactsRotationRecurrenceWeeklySettingHandOffTimeOutput() ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput {
+	return i.ToContactsRotationRecurrenceWeeklySettingHandOffTimeOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs) ToContactsRotationRecurrenceWeeklySettingHandOffTimeOutputWithContext(ctx context.Context) ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput)
+}
+
+func (i ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs) ToContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput() ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput {
+	return i.ToContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutputWithContext(context.Background())
+}
+
+func (i ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs) ToContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput).ToContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutputWithContext(ctx)
+}
+
+// ContactsRotationRecurrenceWeeklySettingHandOffTimePtrInput is an input type that accepts ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs, ContactsRotationRecurrenceWeeklySettingHandOffTimePtr and ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput values.
+// You can construct a concrete instance of `ContactsRotationRecurrenceWeeklySettingHandOffTimePtrInput` via:
+//
+//	        ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContactsRotationRecurrenceWeeklySettingHandOffTimePtrInput interface {
+	pulumi.Input
+
+	ToContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput() ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput
+	ToContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutputWithContext(context.Context) ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput
+}
+
+type contactsRotationRecurrenceWeeklySettingHandOffTimePtrType ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs
+
+func ContactsRotationRecurrenceWeeklySettingHandOffTimePtr(v *ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs) ContactsRotationRecurrenceWeeklySettingHandOffTimePtrInput {
+	return (*contactsRotationRecurrenceWeeklySettingHandOffTimePtrType)(v)
+}
+
+func (*contactsRotationRecurrenceWeeklySettingHandOffTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactsRotationRecurrenceWeeklySettingHandOffTime)(nil)).Elem()
+}
+
+func (i *contactsRotationRecurrenceWeeklySettingHandOffTimePtrType) ToContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput() ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput {
+	return i.ToContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutputWithContext(context.Background())
+}
+
+func (i *contactsRotationRecurrenceWeeklySettingHandOffTimePtrType) ToContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput)
+}
+
+type ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactsRotationRecurrenceWeeklySettingHandOffTime)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput) ToContactsRotationRecurrenceWeeklySettingHandOffTimeOutput() ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput) ToContactsRotationRecurrenceWeeklySettingHandOffTimeOutputWithContext(ctx context.Context) ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput) ToContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput() ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput {
+	return o.ToContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutputWithContext(context.Background())
+}
+
+func (o ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput) ToContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactsRotationRecurrenceWeeklySettingHandOffTime) *ContactsRotationRecurrenceWeeklySettingHandOffTime {
+		return &v
+	}).(ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput)
+}
+
+// (Required) The hour of the day.
+func (o ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput) HourOfDay() pulumi.IntOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceWeeklySettingHandOffTime) int { return v.HourOfDay }).(pulumi.IntOutput)
+}
+
+// (Required) The minutes of the hour.
+func (o ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput) MinuteOfHour() pulumi.IntOutput {
+	return o.ApplyT(func(v ContactsRotationRecurrenceWeeklySettingHandOffTime) int { return v.MinuteOfHour }).(pulumi.IntOutput)
+}
+
+type ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput struct{ *pulumi.OutputState }
+
+func (ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactsRotationRecurrenceWeeklySettingHandOffTime)(nil)).Elem()
+}
+
+func (o ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput) ToContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput() ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput) ToContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutputWithContext(ctx context.Context) ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput {
+	return o
+}
+
+func (o ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput) Elem() ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrenceWeeklySettingHandOffTime) ContactsRotationRecurrenceWeeklySettingHandOffTime {
+		if v != nil {
+			return *v
+		}
+		var ret ContactsRotationRecurrenceWeeklySettingHandOffTime
+		return ret
+	}).(ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput)
+}
+
+// (Required) The hour of the day.
+func (o ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput) HourOfDay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrenceWeeklySettingHandOffTime) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.HourOfDay
+	}).(pulumi.IntPtrOutput)
+}
+
+// (Required) The minutes of the hour.
+func (o ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput) MinuteOfHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContactsRotationRecurrenceWeeklySettingHandOffTime) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinuteOfHour
+	}).(pulumi.IntPtrOutput)
+}
+
 type DocumentAttachmentsSource struct {
 	// The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
 	Key string `pulumi:"key"`
@@ -3000,6 +4391,130 @@ func (o ResourceDataSyncS3DestinationPtrOutput) SyncFormat() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetContactsRotationRecurrence struct {
+	DailySettings        []interface{} `pulumi:"dailySettings"`
+	MonthlySettings      []interface{} `pulumi:"monthlySettings"`
+	NumberOfOnCalls      int           `pulumi:"numberOfOnCalls"`
+	RecurrenceMultiplier int           `pulumi:"recurrenceMultiplier"`
+	ShiftCoverages       []interface{} `pulumi:"shiftCoverages"`
+	WeeklySettings       []interface{} `pulumi:"weeklySettings"`
+}
+
+// GetContactsRotationRecurrenceInput is an input type that accepts GetContactsRotationRecurrenceArgs and GetContactsRotationRecurrenceOutput values.
+// You can construct a concrete instance of `GetContactsRotationRecurrenceInput` via:
+//
+//	GetContactsRotationRecurrenceArgs{...}
+type GetContactsRotationRecurrenceInput interface {
+	pulumi.Input
+
+	ToGetContactsRotationRecurrenceOutput() GetContactsRotationRecurrenceOutput
+	ToGetContactsRotationRecurrenceOutputWithContext(context.Context) GetContactsRotationRecurrenceOutput
+}
+
+type GetContactsRotationRecurrenceArgs struct {
+	DailySettings        pulumi.ArrayInput `pulumi:"dailySettings"`
+	MonthlySettings      pulumi.ArrayInput `pulumi:"monthlySettings"`
+	NumberOfOnCalls      pulumi.IntInput   `pulumi:"numberOfOnCalls"`
+	RecurrenceMultiplier pulumi.IntInput   `pulumi:"recurrenceMultiplier"`
+	ShiftCoverages       pulumi.ArrayInput `pulumi:"shiftCoverages"`
+	WeeklySettings       pulumi.ArrayInput `pulumi:"weeklySettings"`
+}
+
+func (GetContactsRotationRecurrenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContactsRotationRecurrence)(nil)).Elem()
+}
+
+func (i GetContactsRotationRecurrenceArgs) ToGetContactsRotationRecurrenceOutput() GetContactsRotationRecurrenceOutput {
+	return i.ToGetContactsRotationRecurrenceOutputWithContext(context.Background())
+}
+
+func (i GetContactsRotationRecurrenceArgs) ToGetContactsRotationRecurrenceOutputWithContext(ctx context.Context) GetContactsRotationRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContactsRotationRecurrenceOutput)
+}
+
+// GetContactsRotationRecurrenceArrayInput is an input type that accepts GetContactsRotationRecurrenceArray and GetContactsRotationRecurrenceArrayOutput values.
+// You can construct a concrete instance of `GetContactsRotationRecurrenceArrayInput` via:
+//
+//	GetContactsRotationRecurrenceArray{ GetContactsRotationRecurrenceArgs{...} }
+type GetContactsRotationRecurrenceArrayInput interface {
+	pulumi.Input
+
+	ToGetContactsRotationRecurrenceArrayOutput() GetContactsRotationRecurrenceArrayOutput
+	ToGetContactsRotationRecurrenceArrayOutputWithContext(context.Context) GetContactsRotationRecurrenceArrayOutput
+}
+
+type GetContactsRotationRecurrenceArray []GetContactsRotationRecurrenceInput
+
+func (GetContactsRotationRecurrenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContactsRotationRecurrence)(nil)).Elem()
+}
+
+func (i GetContactsRotationRecurrenceArray) ToGetContactsRotationRecurrenceArrayOutput() GetContactsRotationRecurrenceArrayOutput {
+	return i.ToGetContactsRotationRecurrenceArrayOutputWithContext(context.Background())
+}
+
+func (i GetContactsRotationRecurrenceArray) ToGetContactsRotationRecurrenceArrayOutputWithContext(ctx context.Context) GetContactsRotationRecurrenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContactsRotationRecurrenceArrayOutput)
+}
+
+type GetContactsRotationRecurrenceOutput struct{ *pulumi.OutputState }
+
+func (GetContactsRotationRecurrenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContactsRotationRecurrence)(nil)).Elem()
+}
+
+func (o GetContactsRotationRecurrenceOutput) ToGetContactsRotationRecurrenceOutput() GetContactsRotationRecurrenceOutput {
+	return o
+}
+
+func (o GetContactsRotationRecurrenceOutput) ToGetContactsRotationRecurrenceOutputWithContext(ctx context.Context) GetContactsRotationRecurrenceOutput {
+	return o
+}
+
+func (o GetContactsRotationRecurrenceOutput) DailySettings() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetContactsRotationRecurrence) []interface{} { return v.DailySettings }).(pulumi.ArrayOutput)
+}
+
+func (o GetContactsRotationRecurrenceOutput) MonthlySettings() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetContactsRotationRecurrence) []interface{} { return v.MonthlySettings }).(pulumi.ArrayOutput)
+}
+
+func (o GetContactsRotationRecurrenceOutput) NumberOfOnCalls() pulumi.IntOutput {
+	return o.ApplyT(func(v GetContactsRotationRecurrence) int { return v.NumberOfOnCalls }).(pulumi.IntOutput)
+}
+
+func (o GetContactsRotationRecurrenceOutput) RecurrenceMultiplier() pulumi.IntOutput {
+	return o.ApplyT(func(v GetContactsRotationRecurrence) int { return v.RecurrenceMultiplier }).(pulumi.IntOutput)
+}
+
+func (o GetContactsRotationRecurrenceOutput) ShiftCoverages() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetContactsRotationRecurrence) []interface{} { return v.ShiftCoverages }).(pulumi.ArrayOutput)
+}
+
+func (o GetContactsRotationRecurrenceOutput) WeeklySettings() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetContactsRotationRecurrence) []interface{} { return v.WeeklySettings }).(pulumi.ArrayOutput)
+}
+
+type GetContactsRotationRecurrenceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetContactsRotationRecurrenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContactsRotationRecurrence)(nil)).Elem()
+}
+
+func (o GetContactsRotationRecurrenceArrayOutput) ToGetContactsRotationRecurrenceArrayOutput() GetContactsRotationRecurrenceArrayOutput {
+	return o
+}
+
+func (o GetContactsRotationRecurrenceArrayOutput) ToGetContactsRotationRecurrenceArrayOutputWithContext(ctx context.Context) GetContactsRotationRecurrenceArrayOutput {
+	return o
+}
+
+func (o GetContactsRotationRecurrenceArrayOutput) Index(i pulumi.IntInput) GetContactsRotationRecurrenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetContactsRotationRecurrence {
+		return vs[0].([]GetContactsRotationRecurrence)[vs[1].(int)]
+	}).(GetContactsRotationRecurrenceOutput)
+}
+
 type GetInstancesFilter struct {
 	// Name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
 	Name string `pulumi:"name"`
@@ -3677,6 +5192,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationOutputLocationPtrInput)(nil)).Elem(), AssociationOutputLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationTargetInput)(nil)).Elem(), AssociationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationTargetArrayInput)(nil)).Elem(), AssociationTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceInput)(nil)).Elem(), ContactsRotationRecurrenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrencePtrInput)(nil)).Elem(), ContactsRotationRecurrenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceDailySettingInput)(nil)).Elem(), ContactsRotationRecurrenceDailySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceDailySettingArrayInput)(nil)).Elem(), ContactsRotationRecurrenceDailySettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceMonthlySettingInput)(nil)).Elem(), ContactsRotationRecurrenceMonthlySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceMonthlySettingArrayInput)(nil)).Elem(), ContactsRotationRecurrenceMonthlySettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceMonthlySettingHandOffTimeInput)(nil)).Elem(), ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceMonthlySettingHandOffTimePtrInput)(nil)).Elem(), ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverageInput)(nil)).Elem(), ContactsRotationRecurrenceShiftCoverageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverageArrayInput)(nil)).Elem(), ContactsRotationRecurrenceShiftCoverageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverageCoverageTimeInput)(nil)).Elem(), ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayInput)(nil)).Elem(), ContactsRotationRecurrenceShiftCoverageCoverageTimeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverageCoverageTimeEndInput)(nil)).Elem(), ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrInput)(nil)).Elem(), ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverageCoverageTimeStartInput)(nil)).Elem(), ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrInput)(nil)).Elem(), ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceWeeklySettingInput)(nil)).Elem(), ContactsRotationRecurrenceWeeklySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceWeeklySettingArrayInput)(nil)).Elem(), ContactsRotationRecurrenceWeeklySettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceWeeklySettingHandOffTimeInput)(nil)).Elem(), ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceWeeklySettingHandOffTimePtrInput)(nil)).Elem(), ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceInput)(nil)).Elem(), DocumentAttachmentsSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceArrayInput)(nil)).Elem(), DocumentAttachmentsSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentParameterInput)(nil)).Elem(), DocumentParameterArgs{})
@@ -3713,6 +5248,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineSourceArrayInput)(nil)).Elem(), PatchBaselineSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncS3DestinationInput)(nil)).Elem(), ResourceDataSyncS3DestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncS3DestinationPtrInput)(nil)).Elem(), ResourceDataSyncS3DestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContactsRotationRecurrenceInput)(nil)).Elem(), GetContactsRotationRecurrenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContactsRotationRecurrenceArrayInput)(nil)).Elem(), GetContactsRotationRecurrenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstancesFilterInput)(nil)).Elem(), GetInstancesFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstancesFilterArrayInput)(nil)).Elem(), GetInstancesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMaintenanceWindowsFilterInput)(nil)).Elem(), GetMaintenanceWindowsFilterArgs{})
@@ -3729,6 +5266,26 @@ func init() {
 	pulumi.RegisterOutputType(AssociationOutputLocationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationTargetOutput{})
 	pulumi.RegisterOutputType(AssociationTargetArrayOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrencePtrOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceDailySettingOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceDailySettingArrayOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceMonthlySettingOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceMonthlySettingArrayOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceMonthlySettingHandOffTimeOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceMonthlySettingHandOffTimePtrOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceShiftCoverageOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceShiftCoverageArrayOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceShiftCoverageCoverageTimeOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceShiftCoverageCoverageTimeArrayOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceShiftCoverageCoverageTimeEndOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceShiftCoverageCoverageTimeEndPtrOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceShiftCoverageCoverageTimeStartOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceShiftCoverageCoverageTimeStartPtrOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceWeeklySettingOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceWeeklySettingArrayOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceWeeklySettingHandOffTimeOutput{})
+	pulumi.RegisterOutputType(ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput{})
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceOutput{})
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceArrayOutput{})
 	pulumi.RegisterOutputType(DocumentParameterOutput{})
@@ -3765,6 +5322,8 @@ func init() {
 	pulumi.RegisterOutputType(PatchBaselineSourceArrayOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationPtrOutput{})
+	pulumi.RegisterOutputType(GetContactsRotationRecurrenceOutput{})
+	pulumi.RegisterOutputType(GetContactsRotationRecurrenceArrayOutput{})
 	pulumi.RegisterOutputType(GetInstancesFilterOutput{})
 	pulumi.RegisterOutputType(GetInstancesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetMaintenanceWindowsFilterOutput{})

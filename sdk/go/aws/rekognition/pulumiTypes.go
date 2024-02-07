@@ -13,6 +13,143 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type CollectionTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// CollectionTimeoutsInput is an input type that accepts CollectionTimeoutsArgs and CollectionTimeoutsOutput values.
+// You can construct a concrete instance of `CollectionTimeoutsInput` via:
+//
+//	CollectionTimeoutsArgs{...}
+type CollectionTimeoutsInput interface {
+	pulumi.Input
+
+	ToCollectionTimeoutsOutput() CollectionTimeoutsOutput
+	ToCollectionTimeoutsOutputWithContext(context.Context) CollectionTimeoutsOutput
+}
+
+type CollectionTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (CollectionTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionTimeouts)(nil)).Elem()
+}
+
+func (i CollectionTimeoutsArgs) ToCollectionTimeoutsOutput() CollectionTimeoutsOutput {
+	return i.ToCollectionTimeoutsOutputWithContext(context.Background())
+}
+
+func (i CollectionTimeoutsArgs) ToCollectionTimeoutsOutputWithContext(ctx context.Context) CollectionTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectionTimeoutsOutput)
+}
+
+func (i CollectionTimeoutsArgs) ToCollectionTimeoutsPtrOutput() CollectionTimeoutsPtrOutput {
+	return i.ToCollectionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i CollectionTimeoutsArgs) ToCollectionTimeoutsPtrOutputWithContext(ctx context.Context) CollectionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectionTimeoutsOutput).ToCollectionTimeoutsPtrOutputWithContext(ctx)
+}
+
+// CollectionTimeoutsPtrInput is an input type that accepts CollectionTimeoutsArgs, CollectionTimeoutsPtr and CollectionTimeoutsPtrOutput values.
+// You can construct a concrete instance of `CollectionTimeoutsPtrInput` via:
+//
+//	        CollectionTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CollectionTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToCollectionTimeoutsPtrOutput() CollectionTimeoutsPtrOutput
+	ToCollectionTimeoutsPtrOutputWithContext(context.Context) CollectionTimeoutsPtrOutput
+}
+
+type collectionTimeoutsPtrType CollectionTimeoutsArgs
+
+func CollectionTimeoutsPtr(v *CollectionTimeoutsArgs) CollectionTimeoutsPtrInput {
+	return (*collectionTimeoutsPtrType)(v)
+}
+
+func (*collectionTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectionTimeouts)(nil)).Elem()
+}
+
+func (i *collectionTimeoutsPtrType) ToCollectionTimeoutsPtrOutput() CollectionTimeoutsPtrOutput {
+	return i.ToCollectionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *collectionTimeoutsPtrType) ToCollectionTimeoutsPtrOutputWithContext(ctx context.Context) CollectionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectionTimeoutsPtrOutput)
+}
+
+type CollectionTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (CollectionTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionTimeouts)(nil)).Elem()
+}
+
+func (o CollectionTimeoutsOutput) ToCollectionTimeoutsOutput() CollectionTimeoutsOutput {
+	return o
+}
+
+func (o CollectionTimeoutsOutput) ToCollectionTimeoutsOutputWithContext(ctx context.Context) CollectionTimeoutsOutput {
+	return o
+}
+
+func (o CollectionTimeoutsOutput) ToCollectionTimeoutsPtrOutput() CollectionTimeoutsPtrOutput {
+	return o.ToCollectionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionTimeoutsOutput) ToCollectionTimeoutsPtrOutputWithContext(ctx context.Context) CollectionTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollectionTimeouts) *CollectionTimeouts {
+		return &v
+	}).(CollectionTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CollectionTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CollectionTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type CollectionTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (CollectionTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectionTimeouts)(nil)).Elem()
+}
+
+func (o CollectionTimeoutsPtrOutput) ToCollectionTimeoutsPtrOutput() CollectionTimeoutsPtrOutput {
+	return o
+}
+
+func (o CollectionTimeoutsPtrOutput) ToCollectionTimeoutsPtrOutputWithContext(ctx context.Context) CollectionTimeoutsPtrOutput {
+	return o
+}
+
+func (o CollectionTimeoutsPtrOutput) Elem() CollectionTimeoutsOutput {
+	return o.ApplyT(func(v *CollectionTimeouts) CollectionTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret CollectionTimeouts
+		return ret
+	}).(CollectionTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CollectionTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CollectionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type ProjectTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -170,8 +307,12 @@ func (o ProjectTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionTimeoutsInput)(nil)).Elem(), CollectionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionTimeoutsPtrInput)(nil)).Elem(), CollectionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTimeoutsInput)(nil)).Elem(), ProjectTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTimeoutsPtrInput)(nil)).Elem(), ProjectTimeoutsArgs{})
+	pulumi.RegisterOutputType(CollectionTimeoutsOutput{})
+	pulumi.RegisterOutputType(CollectionTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ProjectTimeoutsOutput{})
 	pulumi.RegisterOutputType(ProjectTimeoutsPtrOutput{})
 }

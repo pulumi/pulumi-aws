@@ -33,7 +33,7 @@ public final class GetConnectionResult {
      */
     private String name;
     /**
-     * @return Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an aws.codestarconnections.Host resource and use `host_arn` instead.
+     * @return Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub` and `GitLab`. For connections to GitHub Enterprise Server or GitLab Self-Managed instances, you must create an aws.codestarconnections.Host resource and use `host_arn` instead.
      * 
      */
     private String providerType;
@@ -76,7 +76,7 @@ public final class GetConnectionResult {
         return this.name;
     }
     /**
-     * @return Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an aws.codestarconnections.Host resource and use `host_arn` instead.
+     * @return Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub` and `GitLab`. For connections to GitHub Enterprise Server or GitLab Self-Managed instances, you must create an aws.codestarconnections.Host resource and use `host_arn` instead.
      * 
      */
     public String providerType() {

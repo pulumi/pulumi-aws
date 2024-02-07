@@ -68,7 +68,7 @@ type AccessEntry struct {
 	KubernetesGroups pulumi.StringArrayOutput `pulumi:"kubernetesGroups"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
-	// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	//
 	// The following arguments are optional:
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
@@ -134,7 +134,7 @@ type accessEntryState struct {
 	KubernetesGroups []string `pulumi:"kubernetesGroups"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 	ModifiedAt *string `pulumi:"modifiedAt"`
-	// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	//
 	// The following arguments are optional:
 	PrincipalArn *string `pulumi:"principalArn"`
@@ -161,7 +161,7 @@ type AccessEntryState struct {
 	KubernetesGroups pulumi.StringArrayInput
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 	ModifiedAt pulumi.StringPtrInput
-	// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	//
 	// The following arguments are optional:
 	PrincipalArn pulumi.StringPtrInput
@@ -186,7 +186,7 @@ type accessEntryArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
 	KubernetesGroups []string `pulumi:"kubernetesGroups"`
-	// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	//
 	// The following arguments are optional:
 	PrincipalArn string `pulumi:"principalArn"`
@@ -204,7 +204,7 @@ type AccessEntryArgs struct {
 	ClusterName pulumi.StringInput
 	// List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
 	KubernetesGroups pulumi.StringArrayInput
-	// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	//
 	// The following arguments are optional:
 	PrincipalArn pulumi.StringInput
@@ -328,7 +328,7 @@ func (o AccessEntryOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessEntry) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
-// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 //
 // The following arguments are optional:
 func (o AccessEntryOutput) PrincipalArn() pulumi.StringOutput {

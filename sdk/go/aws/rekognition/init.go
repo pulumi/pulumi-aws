@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:rekognition/collection:Collection":
+		r = &Collection{}
 	case "aws:rekognition/project:Project":
 		r = &Project{}
 	default:
@@ -36,6 +38,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"rekognition/collection",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"rekognition/project",

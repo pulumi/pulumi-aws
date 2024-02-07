@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> PolicyArn { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
         /// </summary>
         [Output("principalArn")]
         public Output<string> PrincipalArn { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Eks
         public Input<string> PolicyArn { get; set; } = null!;
 
         /// <summary>
-        /// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
         /// </summary>
         [Input("principalArn", required: true)]
         public Input<string> PrincipalArn { get; set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? PolicyArn { get; set; }
 
         /// <summary>
-        /// The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
         /// </summary>
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }

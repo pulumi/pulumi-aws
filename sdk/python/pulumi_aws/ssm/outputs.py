@@ -14,6 +14,16 @@ from ._enums import *
 __all__ = [
     'AssociationOutputLocation',
     'AssociationTarget',
+    'ContactsRotationRecurrence',
+    'ContactsRotationRecurrenceDailySetting',
+    'ContactsRotationRecurrenceMonthlySetting',
+    'ContactsRotationRecurrenceMonthlySettingHandOffTime',
+    'ContactsRotationRecurrenceShiftCoverage',
+    'ContactsRotationRecurrenceShiftCoverageCoverageTime',
+    'ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd',
+    'ContactsRotationRecurrenceShiftCoverageCoverageTimeStart',
+    'ContactsRotationRecurrenceWeeklySetting',
+    'ContactsRotationRecurrenceWeeklySettingHandOffTime',
     'DocumentAttachmentsSource',
     'DocumentParameter',
     'MaintenanceWindowTargetTarget',
@@ -32,6 +42,7 @@ __all__ = [
     'PatchBaselineGlobalFilter',
     'PatchBaselineSource',
     'ResourceDataSyncS3Destination',
+    'GetContactsRotationRecurrenceResult',
     'GetInstancesFilterResult',
     'GetMaintenanceWindowsFilterResult',
     'GetPatchBaselineApprovalRuleResult',
@@ -134,6 +145,520 @@ class AssociationTarget(dict):
         A list of instance IDs or tag values. AWS currently limits this list size to one value.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ContactsRotationRecurrence(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberOfOnCalls":
+            suggest = "number_of_on_calls"
+        elif key == "recurrenceMultiplier":
+            suggest = "recurrence_multiplier"
+        elif key == "dailySettings":
+            suggest = "daily_settings"
+        elif key == "monthlySettings":
+            suggest = "monthly_settings"
+        elif key == "shiftCoverages":
+            suggest = "shift_coverages"
+        elif key == "weeklySettings":
+            suggest = "weekly_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContactsRotationRecurrence. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContactsRotationRecurrence.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContactsRotationRecurrence.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 number_of_on_calls: int,
+                 recurrence_multiplier: int,
+                 daily_settings: Optional[Sequence['outputs.ContactsRotationRecurrenceDailySetting']] = None,
+                 monthly_settings: Optional[Sequence['outputs.ContactsRotationRecurrenceMonthlySetting']] = None,
+                 shift_coverages: Optional[Sequence['outputs.ContactsRotationRecurrenceShiftCoverage']] = None,
+                 weekly_settings: Optional[Sequence['outputs.ContactsRotationRecurrenceWeeklySetting']] = None):
+        """
+        :param int number_of_on_calls: (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
+        :param int recurrence_multiplier: (Required) The number of days, weeks, or months a single rotation lasts.
+        :param Sequence['ContactsRotationRecurrenceMonthlySettingArgs'] monthly_settings: (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
+        :param Sequence['ContactsRotationRecurrenceShiftCoverageArgs'] shift_coverages: (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
+        :param Sequence['ContactsRotationRecurrenceWeeklySettingArgs'] weekly_settings: (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
+        """
+        pulumi.set(__self__, "number_of_on_calls", number_of_on_calls)
+        pulumi.set(__self__, "recurrence_multiplier", recurrence_multiplier)
+        if daily_settings is not None:
+            pulumi.set(__self__, "daily_settings", daily_settings)
+        if monthly_settings is not None:
+            pulumi.set(__self__, "monthly_settings", monthly_settings)
+        if shift_coverages is not None:
+            pulumi.set(__self__, "shift_coverages", shift_coverages)
+        if weekly_settings is not None:
+            pulumi.set(__self__, "weekly_settings", weekly_settings)
+
+    @property
+    @pulumi.getter(name="numberOfOnCalls")
+    def number_of_on_calls(self) -> int:
+        """
+        (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
+        """
+        return pulumi.get(self, "number_of_on_calls")
+
+    @property
+    @pulumi.getter(name="recurrenceMultiplier")
+    def recurrence_multiplier(self) -> int:
+        """
+        (Required) The number of days, weeks, or months a single rotation lasts.
+        """
+        return pulumi.get(self, "recurrence_multiplier")
+
+    @property
+    @pulumi.getter(name="dailySettings")
+    def daily_settings(self) -> Optional[Sequence['outputs.ContactsRotationRecurrenceDailySetting']]:
+        return pulumi.get(self, "daily_settings")
+
+    @property
+    @pulumi.getter(name="monthlySettings")
+    def monthly_settings(self) -> Optional[Sequence['outputs.ContactsRotationRecurrenceMonthlySetting']]:
+        """
+        (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
+        """
+        return pulumi.get(self, "monthly_settings")
+
+    @property
+    @pulumi.getter(name="shiftCoverages")
+    def shift_coverages(self) -> Optional[Sequence['outputs.ContactsRotationRecurrenceShiftCoverage']]:
+        """
+        (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
+        """
+        return pulumi.get(self, "shift_coverages")
+
+    @property
+    @pulumi.getter(name="weeklySettings")
+    def weekly_settings(self) -> Optional[Sequence['outputs.ContactsRotationRecurrenceWeeklySetting']]:
+        """
+        (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
+        """
+        return pulumi.get(self, "weekly_settings")
+
+
+@pulumi.output_type
+class ContactsRotationRecurrenceDailySetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hourOfDay":
+            suggest = "hour_of_day"
+        elif key == "minuteOfHour":
+            suggest = "minute_of_hour"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContactsRotationRecurrenceDailySetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContactsRotationRecurrenceDailySetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContactsRotationRecurrenceDailySetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hour_of_day: int,
+                 minute_of_hour: int):
+        """
+        :param int hour_of_day: (Required) The hour of the day.
+        :param int minute_of_hour: (Required) The minutes of the hour.
+        """
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> int:
+        """
+        (Required) The hour of the day.
+        """
+        return pulumi.get(self, "hour_of_day")
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> int:
+        """
+        (Required) The minutes of the hour.
+        """
+        return pulumi.get(self, "minute_of_hour")
+
+
+@pulumi.output_type
+class ContactsRotationRecurrenceMonthlySetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfMonth":
+            suggest = "day_of_month"
+        elif key == "handOffTime":
+            suggest = "hand_off_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContactsRotationRecurrenceMonthlySetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContactsRotationRecurrenceMonthlySetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContactsRotationRecurrenceMonthlySetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_month: int,
+                 hand_off_time: Optional['outputs.ContactsRotationRecurrenceMonthlySettingHandOffTime'] = None):
+        """
+        :param int day_of_month: (Required) The day of the month when monthly recurring on-call rotations begin.
+        :param 'ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs' hand_off_time: (Required) The hand off time. See Hand Off Time for more details.
+        """
+        pulumi.set(__self__, "day_of_month", day_of_month)
+        if hand_off_time is not None:
+            pulumi.set(__self__, "hand_off_time", hand_off_time)
+
+    @property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> int:
+        """
+        (Required) The day of the month when monthly recurring on-call rotations begin.
+        """
+        return pulumi.get(self, "day_of_month")
+
+    @property
+    @pulumi.getter(name="handOffTime")
+    def hand_off_time(self) -> Optional['outputs.ContactsRotationRecurrenceMonthlySettingHandOffTime']:
+        """
+        (Required) The hand off time. See Hand Off Time for more details.
+        """
+        return pulumi.get(self, "hand_off_time")
+
+
+@pulumi.output_type
+class ContactsRotationRecurrenceMonthlySettingHandOffTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hourOfDay":
+            suggest = "hour_of_day"
+        elif key == "minuteOfHour":
+            suggest = "minute_of_hour"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContactsRotationRecurrenceMonthlySettingHandOffTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContactsRotationRecurrenceMonthlySettingHandOffTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContactsRotationRecurrenceMonthlySettingHandOffTime.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hour_of_day: int,
+                 minute_of_hour: int):
+        """
+        :param int hour_of_day: (Required) The hour of the day.
+        :param int minute_of_hour: (Required) The minutes of the hour.
+        """
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> int:
+        """
+        (Required) The hour of the day.
+        """
+        return pulumi.get(self, "hour_of_day")
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> int:
+        """
+        (Required) The minutes of the hour.
+        """
+        return pulumi.get(self, "minute_of_hour")
+
+
+@pulumi.output_type
+class ContactsRotationRecurrenceShiftCoverage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mapBlockKey":
+            suggest = "map_block_key"
+        elif key == "coverageTimes":
+            suggest = "coverage_times"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContactsRotationRecurrenceShiftCoverage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContactsRotationRecurrenceShiftCoverage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContactsRotationRecurrenceShiftCoverage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 map_block_key: str,
+                 coverage_times: Optional[Sequence['outputs.ContactsRotationRecurrenceShiftCoverageCoverageTime']] = None):
+        """
+        :param Sequence['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs'] coverage_times: (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
+        """
+        pulumi.set(__self__, "map_block_key", map_block_key)
+        if coverage_times is not None:
+            pulumi.set(__self__, "coverage_times", coverage_times)
+
+    @property
+    @pulumi.getter(name="mapBlockKey")
+    def map_block_key(self) -> str:
+        return pulumi.get(self, "map_block_key")
+
+    @property
+    @pulumi.getter(name="coverageTimes")
+    def coverage_times(self) -> Optional[Sequence['outputs.ContactsRotationRecurrenceShiftCoverageCoverageTime']]:
+        """
+        (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
+        """
+        return pulumi.get(self, "coverage_times")
+
+
+@pulumi.output_type
+class ContactsRotationRecurrenceShiftCoverageCoverageTime(dict):
+    def __init__(__self__, *,
+                 end: Optional['outputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd'] = None,
+                 start: Optional['outputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeStart'] = None):
+        """
+        :param 'ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs' end: (Required) The end time of the on-call shift. See Hand Off Time for more details.
+        :param 'ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs' start: (Required) The start time of the on-call shift. See Hand Off Time for more details.
+        """
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional['outputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd']:
+        """
+        (Required) The end time of the on-call shift. See Hand Off Time for more details.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional['outputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeStart']:
+        """
+        (Required) The start time of the on-call shift. See Hand Off Time for more details.
+        """
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hourOfDay":
+            suggest = "hour_of_day"
+        elif key == "minuteOfHour":
+            suggest = "minute_of_hour"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hour_of_day: int,
+                 minute_of_hour: int):
+        """
+        :param int hour_of_day: (Required) The hour of the day.
+        :param int minute_of_hour: (Required) The minutes of the hour.
+        """
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> int:
+        """
+        (Required) The hour of the day.
+        """
+        return pulumi.get(self, "hour_of_day")
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> int:
+        """
+        (Required) The minutes of the hour.
+        """
+        return pulumi.get(self, "minute_of_hour")
+
+
+@pulumi.output_type
+class ContactsRotationRecurrenceShiftCoverageCoverageTimeStart(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hourOfDay":
+            suggest = "hour_of_day"
+        elif key == "minuteOfHour":
+            suggest = "minute_of_hour"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContactsRotationRecurrenceShiftCoverageCoverageTimeStart. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContactsRotationRecurrenceShiftCoverageCoverageTimeStart.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContactsRotationRecurrenceShiftCoverageCoverageTimeStart.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hour_of_day: int,
+                 minute_of_hour: int):
+        """
+        :param int hour_of_day: (Required) The hour of the day.
+        :param int minute_of_hour: (Required) The minutes of the hour.
+        """
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> int:
+        """
+        (Required) The hour of the day.
+        """
+        return pulumi.get(self, "hour_of_day")
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> int:
+        """
+        (Required) The minutes of the hour.
+        """
+        return pulumi.get(self, "minute_of_hour")
+
+
+@pulumi.output_type
+class ContactsRotationRecurrenceWeeklySetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "handOffTime":
+            suggest = "hand_off_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContactsRotationRecurrenceWeeklySetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContactsRotationRecurrenceWeeklySetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContactsRotationRecurrenceWeeklySetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_week: str,
+                 hand_off_time: Optional['outputs.ContactsRotationRecurrenceWeeklySettingHandOffTime'] = None):
+        """
+        :param str day_of_week: (Required) The day of the week when the shift coverage occurs.
+        :param 'ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs' hand_off_time: (Required) The hand off time. See Hand Off Time for more details.
+        """
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        if hand_off_time is not None:
+            pulumi.set(__self__, "hand_off_time", hand_off_time)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> str:
+        """
+        (Required) The day of the week when the shift coverage occurs.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="handOffTime")
+    def hand_off_time(self) -> Optional['outputs.ContactsRotationRecurrenceWeeklySettingHandOffTime']:
+        """
+        (Required) The hand off time. See Hand Off Time for more details.
+        """
+        return pulumi.get(self, "hand_off_time")
+
+
+@pulumi.output_type
+class ContactsRotationRecurrenceWeeklySettingHandOffTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hourOfDay":
+            suggest = "hour_of_day"
+        elif key == "minuteOfHour":
+            suggest = "minute_of_hour"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContactsRotationRecurrenceWeeklySettingHandOffTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContactsRotationRecurrenceWeeklySettingHandOffTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContactsRotationRecurrenceWeeklySettingHandOffTime.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hour_of_day: int,
+                 minute_of_hour: int):
+        """
+        :param int hour_of_day: (Required) The hour of the day.
+        :param int minute_of_hour: (Required) The minutes of the hour.
+        """
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> int:
+        """
+        (Required) The hour of the day.
+        """
+        return pulumi.get(self, "hour_of_day")
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> int:
+        """
+        (Required) The minutes of the hour.
+        """
+        return pulumi.get(self, "minute_of_hour")
 
 
 @pulumi.output_type
@@ -1099,6 +1624,53 @@ class ResourceDataSyncS3Destination(dict):
         A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
         """
         return pulumi.get(self, "sync_format")
+
+
+@pulumi.output_type
+class GetContactsRotationRecurrenceResult(dict):
+    def __init__(__self__, *,
+                 daily_settings: Sequence[Any],
+                 monthly_settings: Sequence[Any],
+                 number_of_on_calls: int,
+                 recurrence_multiplier: int,
+                 shift_coverages: Sequence[Any],
+                 weekly_settings: Sequence[Any]):
+        pulumi.set(__self__, "daily_settings", daily_settings)
+        pulumi.set(__self__, "monthly_settings", monthly_settings)
+        pulumi.set(__self__, "number_of_on_calls", number_of_on_calls)
+        pulumi.set(__self__, "recurrence_multiplier", recurrence_multiplier)
+        pulumi.set(__self__, "shift_coverages", shift_coverages)
+        pulumi.set(__self__, "weekly_settings", weekly_settings)
+
+    @property
+    @pulumi.getter(name="dailySettings")
+    def daily_settings(self) -> Sequence[Any]:
+        return pulumi.get(self, "daily_settings")
+
+    @property
+    @pulumi.getter(name="monthlySettings")
+    def monthly_settings(self) -> Sequence[Any]:
+        return pulumi.get(self, "monthly_settings")
+
+    @property
+    @pulumi.getter(name="numberOfOnCalls")
+    def number_of_on_calls(self) -> int:
+        return pulumi.get(self, "number_of_on_calls")
+
+    @property
+    @pulumi.getter(name="recurrenceMultiplier")
+    def recurrence_multiplier(self) -> int:
+        return pulumi.get(self, "recurrence_multiplier")
+
+    @property
+    @pulumi.getter(name="shiftCoverages")
+    def shift_coverages(self) -> Sequence[Any]:
+        return pulumi.get(self, "shift_coverages")
+
+    @property
+    @pulumi.getter(name="weeklySettings")
+    def weekly_settings(self) -> Sequence[Any]:
+        return pulumi.get(self, "weekly_settings")
 
 
 @pulumi.output_type

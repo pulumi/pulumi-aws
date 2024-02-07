@@ -80,18 +80,18 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Ids of sources to listen to.
+     * Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
-    @Import(name="sourceIds", required=true)
-    private Output<List<String>> sourceIds;
+    @Import(name="sourceIds")
+    private @Nullable Output<List<String>> sourceIds;
 
     /**
-     * @return Ids of sources to listen to.
+     * @return Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
-    public Output<List<String>> sourceIds() {
-        return this.sourceIds;
+    public Optional<Output<List<String>>> sourceIds() {
+        return Optional.ofNullable(this.sourceIds);
     }
 
     /**
@@ -249,18 +249,18 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceIds Ids of sources to listen to.
+         * @param sourceIds Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
          * 
          * @return builder
          * 
          */
-        public Builder sourceIds(Output<List<String>> sourceIds) {
+        public Builder sourceIds(@Nullable Output<List<String>> sourceIds) {
             $.sourceIds = sourceIds;
             return this;
         }
 
         /**
-         * @param sourceIds Ids of sources to listen to.
+         * @param sourceIds Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceIds Ids of sources to listen to.
+         * @param sourceIds Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
          * 
          * @return builder
          * 
@@ -327,9 +327,6 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
             }
             if ($.snsTopicArn == null) {
                 throw new MissingRequiredPropertyException("EventSubscriptionArgs", "snsTopicArn");
-            }
-            if ($.sourceIds == null) {
-                throw new MissingRequiredPropertyException("EventSubscriptionArgs", "sourceIds");
             }
             if ($.sourceType == null) {
                 throw new MissingRequiredPropertyException("EventSubscriptionArgs", "sourceType");

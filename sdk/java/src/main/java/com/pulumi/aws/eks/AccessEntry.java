@@ -136,7 +136,7 @@ public class AccessEntry extends com.pulumi.resources.CustomResource {
         return this.modifiedAt;
     }
     /**
-     * The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      * 
      * The following arguments are optional:
      * 
@@ -145,7 +145,7 @@ public class AccessEntry extends com.pulumi.resources.CustomResource {
     private Output<String> principalArn;
 
     /**
-     * @return The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * @return The IAM Principal ARN which requires Authentication access to the EKS cluster.
      * 
      * The following arguments are optional:
      * 

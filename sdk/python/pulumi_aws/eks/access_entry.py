@@ -23,7 +23,7 @@ class AccessEntryArgs:
         """
         The set of arguments for constructing a AccessEntry resource.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
-        :param pulumi.Input[str] principal_arn: The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        :param pulumi.Input[str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
@@ -58,7 +58,7 @@ class AccessEntryArgs:
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Input[str]:
         """
-        The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        The IAM Principal ARN which requires Authentication access to the EKS cluster.
 
         The following arguments are optional:
         """
@@ -137,7 +137,7 @@ class _AccessEntryState:
         :param pulumi.Input[str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-        :param pulumi.Input[str] principal_arn: The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        :param pulumi.Input[str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -233,7 +233,7 @@ class _AccessEntryState:
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        The IAM Principal ARN which requires Authentication access to the EKS cluster.
 
         The following arguments are optional:
         """
@@ -338,7 +338,7 @@ class AccessEntry(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
-        :param pulumi.Input[str] principal_arn: The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        :param pulumi.Input[str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -456,7 +456,7 @@ class AccessEntry(pulumi.CustomResource):
         :param pulumi.Input[str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-        :param pulumi.Input[str] principal_arn: The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        :param pulumi.Input[str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -524,7 +524,7 @@ class AccessEntry(pulumi.CustomResource):
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Output[str]:
         """
-        The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        The IAM Principal ARN which requires Authentication access to the EKS cluster.
 
         The following arguments are optional:
         """

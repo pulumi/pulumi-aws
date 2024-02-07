@@ -7,5 +7,4 @@ import typing
 # Export this package's modules as members:
 from .get_model import *
 from .get_models import *
-from ._inputs import *
 from . import outputs

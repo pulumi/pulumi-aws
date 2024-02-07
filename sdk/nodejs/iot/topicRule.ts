@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Creates and manages an AWS IoT topic rule.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -16,6 +18,24 @@ import * as utilities from "../utilities";
  *
  * const mytopic = new aws.sns.Topic("mytopic", {});
  * const myerrortopic = new aws.sns.Topic("myerrortopic", {});
+ * const rule = new aws.iot.TopicRule("rule", {
+ *     description: "Example rule",
+ *     enabled: true,
+ *     sql: "SELECT * FROM 'topic/test'",
+ *     sqlVersion: "2016-03-23",
+ *     sns: [{
+ *         messageFormat: "RAW",
+ *         roleArn: aws_iam_role.role.arn,
+ *         targetArn: mytopic.arn,
+ *     }],
+ *     errorAction: {
+ *         sns: {
+ *             messageFormat: "RAW",
+ *             roleArn: aws_iam_role.role.arn,
+ *             targetArn: myerrortopic.arn,
+ *         },
+ *     },
+ * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -26,35 +46,17 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const rule = new aws.iot.TopicRule("rule", {
- *     description: "Example rule",
- *     enabled: true,
- *     sql: "SELECT * FROM 'topic/test'",
- *     sqlVersion: "2016-03-23",
- *     sns: [{
- *         messageFormat: "RAW",
- *         roleArn: role.arn,
- *         targetArn: mytopic.arn,
- *     }],
- *     errorAction: {
- *         sns: {
- *             messageFormat: "RAW",
- *             roleArn: role.arn,
- *             targetArn: myerrortopic.arn,
- *         },
- *     },
- * });
- * const iamPolicyForLambdaPolicyDocument = mytopic.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ * const myrole = new aws.iam.Role("myrole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const mypolicyPolicyDocument = mytopic.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["sns:Publish"],
  *         resources: [arn],
  *     }],
  * }));
- * const iamPolicyForLambdaRolePolicy = new aws.iam.RolePolicy("iamPolicyForLambdaRolePolicy", {
- *     role: role.id,
- *     policy: iamPolicyForLambdaPolicyDocument.apply(iamPolicyForLambdaPolicyDocument => iamPolicyForLambdaPolicyDocument.json),
+ * const mypolicyRolePolicy = new aws.iam.RolePolicy("mypolicyRolePolicy", {
+ *     role: myrole.id,
+ *     policy: mypolicyPolicyDocument.apply(mypolicyPolicyDocument => mypolicyPolicyDocument.json),
  * });
  * ```
  *

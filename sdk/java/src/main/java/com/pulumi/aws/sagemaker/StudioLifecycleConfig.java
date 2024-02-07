@@ -47,14 +47,14 @@ public class StudioLifecycleConfig extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      * 
      */
     @Export(name="studioLifecycleConfigAppType", refs={String.class}, tree="[0]")
     private Output<String> studioLifecycleConfigAppType;
 
     /**
-     * @return The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+     * @return The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      * 
      */
     public Output<String> studioLifecycleConfigAppType() {

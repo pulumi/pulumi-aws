@@ -75,7 +75,8 @@ const (
 	backupMod                   = "Backup"                   // Backup
 	batchMod                    = "Batch"                    // Batch
 	bedrockFoundationMod        = "BedrockFoundation"        // BedrockFoundation
-	bedrockModelMod             = "BedrockModel"             // BedrockFoundation
+	bedrockModelMod             = "BedrockModel"             // BedrockModel
+	bedrockMod                  = "Bedrock"                  // Bedrock
 	budgetsMod                  = "Budgets"                  // Budgets
 	chimeMod                    = "Chime"                    // Chime
 	chimeSDKMediaPipelinesMod   = "ChimeSDKMediaPipelines"   // Chime SDK Media Pipelines
@@ -282,6 +283,7 @@ var moduleMap = map[string]string{
 	"batch":                           batchMod,
 	"bedrock_foundation":              bedrockFoundationMod,
 	"bedrock_model":                   bedrockModelMod,
+	"bedrock":                         bedrockMod,
 	"budgets":                         budgetsMod,
 	"ce":                              costExplorerMod,
 	"chime":                           chimeMod,

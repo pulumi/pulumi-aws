@@ -25,7 +25,7 @@ class AccessPolicyAssociationArgs:
         :param pulumi.Input['AccessPolicyAssociationAccessScopeArgs'] access_scope: The configuration block to determine the scope of the access. See `access_scope` Block below.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
         :param pulumi.Input[str] policy_arn: The ARN of the access policy that you're associating.
-        :param pulumi.Input[str] principal_arn: The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        :param pulumi.Input[str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
         """
         pulumi.set(__self__, "access_scope", access_scope)
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -72,7 +72,7 @@ class AccessPolicyAssociationArgs:
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Input[str]:
         """
-        The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        The IAM Principal ARN which requires Authentication access to the EKS cluster.
         """
         return pulumi.get(self, "principal_arn")
 
@@ -97,7 +97,7 @@ class _AccessPolicyAssociationState:
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
         :param pulumi.Input[str] policy_arn: The ARN of the access policy that you're associating.
-        :param pulumi.Input[str] principal_arn: The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        :param pulumi.Input[str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
         """
         if access_scope is not None:
             pulumi.set(__self__, "access_scope", access_scope)
@@ -176,7 +176,7 @@ class _AccessPolicyAssociationState:
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        The IAM Principal ARN which requires Authentication access to the EKS cluster.
         """
         return pulumi.get(self, "principal_arn")
 
@@ -227,7 +227,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccessPolicyAssociationAccessScopeArgs']] access_scope: The configuration block to determine the scope of the access. See `access_scope` Block below.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
         :param pulumi.Input[str] policy_arn: The ARN of the access policy that you're associating.
-        :param pulumi.Input[str] principal_arn: The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        :param pulumi.Input[str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
         """
         ...
     @overload
@@ -332,7 +332,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
         :param pulumi.Input[str] policy_arn: The ARN of the access policy that you're associating.
-        :param pulumi.Input[str] principal_arn: The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        :param pulumi.Input[str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -390,7 +390,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Output[str]:
         """
-        The IAM Princial ARN which requires Authentication access to the EKS cluster.
+        The IAM Principal ARN which requires Authentication access to the EKS cluster.
         """
         return pulumi.get(self, "principal_arn")
 

@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         /// </summary>
         [Output("studioLifecycleConfigAppType")]
         public Output<string> StudioLifecycleConfigAppType { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class StudioLifecycleConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         /// </summary>
         [Input("studioLifecycleConfigAppType", required: true)]
         public Input<string> StudioLifecycleConfigAppType { get; set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         /// </summary>
         [Input("studioLifecycleConfigAppType")]
         public Input<string>? StudioLifecycleConfigAppType { get; set; }

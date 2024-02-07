@@ -188,7 +188,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Permissions(&#34;example&#34;, PermissionsArgs.builder()        
  *             .principal(aws_iam_role.workflow_role().arn())
- *             .permissions(&#34;ALL&#34;)
+ *             .permissions(&#34;DATA_LOCATION_ACCESS&#34;)
  *             .dataLocation(PermissionsDataLocationArgs.builder()
  *                 .arn(aws_lakeformation_resource.example().arn())
  *                 .build())
