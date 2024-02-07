@@ -3,12 +3,11 @@
 
 package com.pulumi.aws.verifiedpermissions.outputs;
 
+import com.pulumi.aws.verifiedpermissions.outputs.GetPolicyStoreValidationSetting;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -34,7 +33,7 @@ public final class GetPolicyStoreResult {
      * @return Validation settings for the policy store.
      * 
      */
-    private List<Map<String,Object>> validationSettings;
+    private List<GetPolicyStoreValidationSetting> validationSettings;
 
     private GetPolicyStoreResult() {}
     /**
@@ -68,7 +67,7 @@ public final class GetPolicyStoreResult {
      * @return Validation settings for the policy store.
      * 
      */
-    public List<Map<String,Object>> validationSettings() {
+    public List<GetPolicyStoreValidationSetting> validationSettings() {
         return this.validationSettings;
     }
 
@@ -86,7 +85,7 @@ public final class GetPolicyStoreResult {
         private String description;
         private String id;
         private String lastUpdatedDate;
-        private List<Map<String,Object>> validationSettings;
+        private List<GetPolicyStoreValidationSetting> validationSettings;
         public Builder() {}
         public Builder(GetPolicyStoreResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -139,12 +138,15 @@ public final class GetPolicyStoreResult {
             return this;
         }
         @CustomType.Setter
-        public Builder validationSettings(List<Map<String,Object>> validationSettings) {
+        public Builder validationSettings(List<GetPolicyStoreValidationSetting> validationSettings) {
             if (validationSettings == null) {
               throw new MissingRequiredPropertyException("GetPolicyStoreResult", "validationSettings");
             }
             this.validationSettings = validationSettings;
             return this;
+        }
+        public Builder validationSettings(GetPolicyStoreValidationSetting... validationSettings) {
+            return validationSettings(List.of(validationSettings));
         }
         public GetPolicyStoreResult build() {
             final var _resultValue = new GetPolicyStoreResult();

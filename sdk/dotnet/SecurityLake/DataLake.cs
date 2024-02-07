@@ -30,9 +30,9 @@ namespace Pulumi.Aws.SecurityLake
     ///             Region = "eu-west-1",
     ///             EncryptionConfigurations = new[]
     ///             {
-    ///                 
+    ///                 new Aws.SecurityLake.Inputs.DataLakeConfigurationEncryptionConfigurationArgs
     ///                 {
-    ///                     { "kmsKeyId", "S3_MANAGED_KEY" },
+    ///                     KmsKeyId = "S3_MANAGED_KEY",
     ///                 },
     ///             },
     ///             LifecycleConfiguration = new Aws.SecurityLake.Inputs.DataLakeConfigurationLifecycleConfigurationArgs
@@ -78,9 +78,9 @@ namespace Pulumi.Aws.SecurityLake
     ///             Region = "eu-west-1",
     ///             EncryptionConfigurations = new[]
     ///             {
-    ///                 
+    ///                 new Aws.SecurityLake.Inputs.DataLakeConfigurationEncryptionConfigurationArgs
     ///                 {
-    ///                     { "kmsKeyId", "S3_MANAGED_KEY" },
+    ///                     KmsKeyId = "S3_MANAGED_KEY",
     ///                 },
     ///             },
     ///         },

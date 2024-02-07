@@ -254,13 +254,13 @@ class _ServerlessCacheState:
                  create_time: Optional[pulumi.Input[str]] = None,
                  daily_snapshot_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  full_engine_version: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  major_engine_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 reader_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 reader_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_arns_to_restores: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -277,7 +277,7 @@ class _ServerlessCacheState:
         :param pulumi.Input[str] create_time: Timestamp of when the serverless cache was created.
         :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
         :param pulumi.Input[str] description: User-provided description for the serverless cache. The default is NULL.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]] endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] full_engine_version: The name and version number of the engine the serverless cache is compatible with.
         :param pulumi.Input[str] kms_key_id: ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
@@ -286,7 +286,7 @@ class _ServerlessCacheState:
         :param pulumi.Input[str] name: The Cluster name which serves as a unique identifier to the serverless cache
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
         :param pulumi.Input[int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
@@ -403,14 +403,14 @@ class _ServerlessCacheState:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]]]:
         """
         Represents the information required for client programs to connect to a cache node. See config below for details.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @property
@@ -478,14 +478,14 @@ class _ServerlessCacheState:
 
     @property
     @pulumi.getter(name="readerEndpoints")
-    def reader_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def reader_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]]]:
         """
         Represents the information required for client programs to connect to a cache node. See config below for details.
         """
         return pulumi.get(self, "reader_endpoints")
 
     @reader_endpoints.setter
-    def reader_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def reader_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]]]):
         pulumi.set(self, "reader_endpoints", value)
 
     @property
@@ -839,13 +839,13 @@ class ServerlessCache(pulumi.CustomResource):
             create_time: Optional[pulumi.Input[str]] = None,
             daily_snapshot_time: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessCacheEndpointArgs']]]]] = None,
             engine: Optional[pulumi.Input[str]] = None,
             full_engine_version: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             major_engine_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            reader_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+            reader_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessCacheReaderEndpointArgs']]]]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             snapshot_arns_to_restores: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -867,7 +867,7 @@ class ServerlessCache(pulumi.CustomResource):
         :param pulumi.Input[str] create_time: Timestamp of when the serverless cache was created.
         :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
         :param pulumi.Input[str] description: User-provided description for the serverless cache. The default is NULL.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessCacheEndpointArgs']]]] endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] full_engine_version: The name and version number of the engine the serverless cache is compatible with.
         :param pulumi.Input[str] kms_key_id: ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
@@ -876,7 +876,7 @@ class ServerlessCache(pulumi.CustomResource):
         :param pulumi.Input[str] name: The Cluster name which serves as a unique identifier to the serverless cache
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessCacheReaderEndpointArgs']]]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
         :param pulumi.Input[int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
@@ -954,7 +954,7 @@ class ServerlessCache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> pulumi.Output[Sequence[Mapping[str, Any]]]:
+    def endpoints(self) -> pulumi.Output[Sequence['outputs.ServerlessCacheEndpoint']]:
         """
         Represents the information required for client programs to connect to a cache node. See config below for details.
         """
@@ -1005,7 +1005,7 @@ class ServerlessCache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readerEndpoints")
-    def reader_endpoints(self) -> pulumi.Output[Sequence[Mapping[str, Any]]]:
+    def reader_endpoints(self) -> pulumi.Output[Sequence['outputs.ServerlessCacheReaderEndpoint']]:
         """
         Represents the information required for client programs to connect to a cache node. See config below for details.
         """

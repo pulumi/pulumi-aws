@@ -121,7 +121,7 @@ export class ServerlessCache extends pulumi.CustomResource {
     /**
      * Represents the information required for client programs to connect to a cache node. See config below for details.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<{[key: string]: any}[]>;
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint[]>;
     /**
      * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
      */
@@ -148,7 +148,7 @@ export class ServerlessCache extends pulumi.CustomResource {
     /**
      * Represents the information required for client programs to connect to a cache node. See config below for details.
      */
-    public /*out*/ readonly readerEndpoints!: pulumi.Output<{[key: string]: any}[]>;
+    public /*out*/ readonly readerEndpoints!: pulumi.Output<outputs.elasticache.ServerlessCacheReaderEndpoint[]>;
     /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      */
@@ -278,7 +278,7 @@ export interface ServerlessCacheState {
     /**
      * Represents the information required for client programs to connect to a cache node. See config below for details.
      */
-    endpoints?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheEndpoint>[]>;
     /**
      * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
      */
@@ -305,7 +305,7 @@ export interface ServerlessCacheState {
     /**
      * Represents the information required for client programs to connect to a cache node. See config below for details.
      */
-    readerEndpoints?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    readerEndpoints?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheReaderEndpoint>[]>;
     /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      */

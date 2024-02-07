@@ -7,13 +7,14 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.elasticache.ServerlessCacheArgs;
 import com.pulumi.aws.elasticache.inputs.ServerlessCacheState;
 import com.pulumi.aws.elasticache.outputs.ServerlessCacheCacheUsageLimits;
+import com.pulumi.aws.elasticache.outputs.ServerlessCacheEndpoint;
+import com.pulumi.aws.elasticache.outputs.ServerlessCacheReaderEndpoint;
 import com.pulumi.aws.elasticache.outputs.ServerlessCacheTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -202,14 +203,14 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
      * Represents the information required for client programs to connect to a cache node. See config below for details.
      * 
      */
-    @Export(name="endpoints", refs={List.class,Map.class,String.class,Object.class}, tree="[0,[1,2,3]]")
-    private Output<List<Map<String,Object>>> endpoints;
+    @Export(name="endpoints", refs={List.class,ServerlessCacheEndpoint.class}, tree="[0,1]")
+    private Output<List<ServerlessCacheEndpoint>> endpoints;
 
     /**
      * @return Represents the information required for client programs to connect to a cache node. See config below for details.
      * 
      */
-    public Output<List<Map<String,Object>>> endpoints() {
+    public Output<List<ServerlessCacheEndpoint>> endpoints() {
         return this.endpoints;
     }
     /**
@@ -292,14 +293,14 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
      * Represents the information required for client programs to connect to a cache node. See config below for details.
      * 
      */
-    @Export(name="readerEndpoints", refs={List.class,Map.class,String.class,Object.class}, tree="[0,[1,2,3]]")
-    private Output<List<Map<String,Object>>> readerEndpoints;
+    @Export(name="readerEndpoints", refs={List.class,ServerlessCacheReaderEndpoint.class}, tree="[0,1]")
+    private Output<List<ServerlessCacheReaderEndpoint>> readerEndpoints;
 
     /**
      * @return Represents the information required for client programs to connect to a cache node. See config below for details.
      * 
      */
-    public Output<List<Map<String,Object>>> readerEndpoints() {
+    public Output<List<ServerlessCacheReaderEndpoint>> readerEndpoints() {
         return this.readerEndpoints;
     }
     /**

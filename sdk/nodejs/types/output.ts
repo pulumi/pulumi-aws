@@ -14700,6 +14700,16 @@ export namespace codedeploy {
 }
 
 export namespace codeguruprofiler {
+    export interface GetProfilingGroupAgentOrchestrationConfig {
+        profilingEnabled: boolean;
+    }
+
+    export interface GetProfilingGroupProfilingStatus {
+        latestAgentOrchestratedAt: string;
+        latestAgentProfileReportedAt: string;
+        latestAggregatedProfiles: any[];
+    }
+
     export interface ProfilingGroupAgentOrchestrationConfig {
         /**
          * (Required) Boolean that specifies whether the profiling agent collects profiling data or
@@ -29365,6 +29375,28 @@ export namespace elasticache {
          * The upper limit for data storage the cache is set to use. Set as Integer.
          */
         maximum: number;
+    }
+
+    export interface ServerlessCacheEndpoint {
+        /**
+         * The DNS hostname of the cache node.
+         */
+        address: string;
+        /**
+         * The port number that the cache engine is listening on. Set as integer.
+         */
+        port: number;
+    }
+
+    export interface ServerlessCacheReaderEndpoint {
+        /**
+         * The DNS hostname of the cache node.
+         */
+        address: string;
+        /**
+         * The port number that the cache engine is listening on. Set as integer.
+         */
+        port: number;
     }
 
     export interface ServerlessCacheTimeouts {
@@ -72651,7 +72683,7 @@ export namespace securitylake {
         /**
          * Provides encryption details of Amazon Security Lake object.
          */
-        encryptionConfigurations: {[key: string]: any}[];
+        encryptionConfigurations: outputs.securitylake.DataLakeConfigurationEncryptionConfiguration[];
         /**
          * Provides lifecycle details of Amazon Security Lake object.
          */
@@ -72664,6 +72696,13 @@ export namespace securitylake {
          * Provides replication details of Amazon Security Lake object.
          */
         replicationConfiguration?: outputs.securitylake.DataLakeConfigurationReplicationConfiguration;
+    }
+
+    export interface DataLakeConfigurationEncryptionConfiguration {
+        /**
+         * The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+         */
+        kmsKeyId: string;
     }
 
     export interface DataLakeConfigurationLifecycleConfiguration {
@@ -75676,6 +75715,10 @@ export namespace verifiedaccess {
 }
 
 export namespace verifiedpermissions {
+    export interface GetPolicyStoreValidationSetting {
+        mode: string;
+    }
+
     export interface PolicyStoreValidationSettings {
         /**
          * The mode for the validation settings. Valid values: `OFF`, `STRICT`.

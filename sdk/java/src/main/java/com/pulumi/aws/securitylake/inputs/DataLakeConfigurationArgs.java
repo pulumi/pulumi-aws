@@ -3,15 +3,14 @@
 
 package com.pulumi.aws.securitylake.inputs;
 
+import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationEncryptionConfigurationArgs;
 import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationLifecycleConfigurationArgs;
 import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationReplicationConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -26,13 +25,13 @@ public final class DataLakeConfigurationArgs extends com.pulumi.resources.Resour
      * 
      */
     @Import(name="encryptionConfigurations")
-    private @Nullable Output<List<Map<String,Object>>> encryptionConfigurations;
+    private @Nullable Output<List<DataLakeConfigurationEncryptionConfigurationArgs>> encryptionConfigurations;
 
     /**
      * @return Provides encryption details of Amazon Security Lake object.
      * 
      */
-    public Optional<Output<List<Map<String,Object>>>> encryptionConfigurations() {
+    public Optional<Output<List<DataLakeConfigurationEncryptionConfigurationArgs>>> encryptionConfigurations() {
         return Optional.ofNullable(this.encryptionConfigurations);
     }
 
@@ -114,7 +113,7 @@ public final class DataLakeConfigurationArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder encryptionConfigurations(@Nullable Output<List<Map<String,Object>>> encryptionConfigurations) {
+        public Builder encryptionConfigurations(@Nullable Output<List<DataLakeConfigurationEncryptionConfigurationArgs>> encryptionConfigurations) {
             $.encryptionConfigurations = encryptionConfigurations;
             return this;
         }
@@ -125,7 +124,7 @@ public final class DataLakeConfigurationArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder encryptionConfigurations(List<Map<String,Object>> encryptionConfigurations) {
+        public Builder encryptionConfigurations(List<DataLakeConfigurationEncryptionConfigurationArgs> encryptionConfigurations) {
             return encryptionConfigurations(Output.of(encryptionConfigurations));
         }
 
@@ -135,7 +134,7 @@ public final class DataLakeConfigurationArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder encryptionConfigurations(Map<String,Object>... encryptionConfigurations) {
+        public Builder encryptionConfigurations(DataLakeConfigurationEncryptionConfigurationArgs... encryptionConfigurations) {
             return encryptionConfigurations(List.of(encryptionConfigurations));
         }
 
