@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:05:11 +0000
-Subject: [PATCH 03/40] Add S3 legacy bucket to resources
+Subject: [PATCH 03/39] Add S3 legacy bucket to resources
 
 This preserves the old S3 Resource in the SDK, by duplicating the code
 as a new service (in internal/service/s3legacy), and making an explicit
@@ -14,10 +14,10 @@ scheme for registration: see
 https://github.com/hashicorp/terraform-provider-aws/pull/29717.
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 670b34912f..5ada603fe3 100644
+index 6c8f39dedc..78f3e1985d 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
-@@ -13,6 +13,8 @@ import (
+@@ -12,6 +12,8 @@ import (
  
  	"github.com/YakDriver/regexache"
  	"github.com/aws/aws-sdk-go-v2/aws"

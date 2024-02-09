@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Wed, 7 Feb 2024 12:24:44 -0500
-Subject: [PATCH 36/36] Fix tags_all Computed for PF resources
+Subject: [PATCH 36/39] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/amp/scraper.go b/internal/service/amp/scraper.go
@@ -18,7 +18,7 @@ index df5e6e5717..d89097e695 100644
  		Blocks: map[string]schema.Block{
  			"destination": schema.ListNestedBlock{
 diff --git a/internal/service/bedrock/custom_model.go b/internal/service/bedrock/custom_model.go
-index 785ef799aa..5ee190f362 100644
+index 88557aa20f..4d01c25a06 100644
 --- a/internal/service/bedrock/custom_model.go
 +++ b/internal/service/bedrock/custom_model.go
 @@ -137,7 +137,7 @@ func (r *customModelResource) Schema(ctx context.Context, request resource.Schem
@@ -70,10 +70,10 @@ index 11242d1636..ea24792626 100644
  	}
  
 diff --git a/internal/service/securitylake/data_lake.go b/internal/service/securitylake/data_lake.go
-index 4d66e5ef6d..08e6ebe091 100644
+index 316a385ed2..c7e5a50d45 100644
 --- a/internal/service/securitylake/data_lake.go
 +++ b/internal/service/securitylake/data_lake.go
-@@ -75,7 +75,7 @@ func (r *dataLakeResource) Schema(ctx context.Context, req resource.SchemaReques
+@@ -72,7 +72,7 @@ func (r *dataLakeResource) Schema(ctx context.Context, request resource.SchemaRe
  			},
  			"s3_bucket_arn":   framework.ARNAttributeComputedOnly(),
  			names.AttrTags:    tftags.TagsAttribute(),

@@ -1,11 +1,11 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Thu, 30 Nov 2023 14:28:37 -0500
-Subject: [PATCH 31/40] Optimize startup performance
+Subject: [PATCH 31/39] Optimize startup performance
 
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 9cb4bee62e..a7e018f9db 100644
+index f87981e88d..5bafc235fd 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -305,7 +305,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
