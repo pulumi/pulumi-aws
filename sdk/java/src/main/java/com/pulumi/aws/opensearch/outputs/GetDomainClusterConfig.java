@@ -47,6 +47,10 @@ public final class GetDomainClusterConfig {
      * 
      */
     private String instanceType;
+    /**
+     * @return Whether a multi-AZ domain is turned on with a standby AZ.
+     * 
+     */
     private Boolean multiAzWithStandbyEnabled;
     /**
      * @return Number of warm nodes in the cluster.
@@ -117,6 +121,10 @@ public final class GetDomainClusterConfig {
     public String instanceType() {
         return this.instanceType;
     }
+    /**
+     * @return Whether a multi-AZ domain is turned on with a standby AZ.
+     * 
+     */
     public Boolean multiAzWithStandbyEnabled() {
         return this.multiAzWithStandbyEnabled;
     }

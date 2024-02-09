@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Stream name of the logs in CloudWatch Logs.
+        /// Prefix of the log stream name of the logs in CloudWatch Logs.
         /// </summary>
         [Input("streamName")]
         public Input<string>? StreamName { get; set; }

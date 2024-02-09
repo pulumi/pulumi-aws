@@ -39,6 +39,7 @@ import * as utilities from "../utilities";
  *
  * Low-downtime updates are only available for DB Instances using MySQL and MariaDB,
  * as other engines are not supported by RDS Blue/Green deployments.
+ * They cannot be used with DB Instances with replicas.
  *
  * Backups must be enabled to use low-downtime updates.
  *
@@ -315,15 +316,31 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
-     * The ID of the Directory Service Active Directory domain to create the instance in.
+     * The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      */
     public readonly domain!: pulumi.Output<string | undefined>;
     /**
-     * The name of the IAM role to be used when making API calls to the Directory Service.
+     * The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    public readonly domainAuthSecretArn!: pulumi.Output<string | undefined>;
+    /**
+     * The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    public readonly domainDnsIps!: pulumi.Output<string[] | undefined>;
+    /**
+     * The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    public readonly domainFqdn!: pulumi.Output<string>;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      */
     public readonly domainIamRoleName!: pulumi.Output<string | undefined>;
     /**
-     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+     * The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    public readonly domainOu!: pulumi.Output<string | undefined>;
+    /**
+     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      */
     public readonly enabledCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     /**
@@ -618,7 +635,11 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["deleteAutomatedBackups"] = state ? state.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["domainAuthSecretArn"] = state ? state.domainAuthSecretArn : undefined;
+            resourceInputs["domainDnsIps"] = state ? state.domainDnsIps : undefined;
+            resourceInputs["domainFqdn"] = state ? state.domainFqdn : undefined;
             resourceInputs["domainIamRoleName"] = state ? state.domainIamRoleName : undefined;
+            resourceInputs["domainOu"] = state ? state.domainOu : undefined;
             resourceInputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["engine"] = state ? state.engine : undefined;
@@ -695,7 +716,11 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["deleteAutomatedBackups"] = args ? args.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["domainAuthSecretArn"] = args ? args.domainAuthSecretArn : undefined;
+            resourceInputs["domainDnsIps"] = args ? args.domainDnsIps : undefined;
+            resourceInputs["domainFqdn"] = args ? args.domainFqdn : undefined;
             resourceInputs["domainIamRoleName"] = args ? args.domainIamRoleName : undefined;
+            resourceInputs["domainOu"] = args ? args.domainOu : undefined;
             resourceInputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
@@ -870,15 +895,31 @@ export interface InstanceState {
      */
     deletionProtection?: pulumi.Input<boolean>;
     /**
-     * The ID of the Directory Service Active Directory domain to create the instance in.
+     * The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      */
     domain?: pulumi.Input<string>;
     /**
-     * The name of the IAM role to be used when making API calls to the Directory Service.
+     * The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainAuthSecretArn?: pulumi.Input<string>;
+    /**
+     * The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainDnsIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainFqdn?: pulumi.Input<string>;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      */
     domainIamRoleName?: pulumi.Input<string>;
     /**
-     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+     * The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainOu?: pulumi.Input<string>;
+    /**
+     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      */
     enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -1244,15 +1285,31 @@ export interface InstanceArgs {
      */
     deletionProtection?: pulumi.Input<boolean>;
     /**
-     * The ID of the Directory Service Active Directory domain to create the instance in.
+     * The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      */
     domain?: pulumi.Input<string>;
     /**
-     * The name of the IAM role to be used when making API calls to the Directory Service.
+     * The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainAuthSecretArn?: pulumi.Input<string>;
+    /**
+     * The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainDnsIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainFqdn?: pulumi.Input<string>;
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domainFqdn`, `domainOu`, `domainAuthSecretArn` and a `domainDnsIps`.
      */
     domainIamRoleName?: pulumi.Input<string>;
     /**
-     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+     * The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domainIamRoleName`.
+     */
+    domainOu?: pulumi.Input<string>;
+    /**
+     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      */
     enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**

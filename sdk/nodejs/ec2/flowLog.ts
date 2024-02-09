@@ -152,7 +152,7 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly logDestinationType!: pulumi.Output<string | undefined>;
     /**
-     * The fields to include in the flow log record, in the order in which they should appear.
+     * The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
      */
     public readonly logFormat!: pulumi.Output<string>;
     /**
@@ -289,7 +289,7 @@ export interface FlowLogState {
      */
     logDestinationType?: pulumi.Input<string>;
     /**
-     * The fields to include in the flow log record, in the order in which they should appear.
+     * The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
      */
     logFormat?: pulumi.Input<string>;
     /**
@@ -366,7 +366,7 @@ export interface FlowLogArgs {
      */
     logDestinationType?: pulumi.Input<string>;
     /**
-     * The fields to include in the flow log record, in the order in which they should appear.
+     * The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
      */
     logFormat?: pulumi.Input<string>;
     /**

@@ -14,6 +14,7 @@ __all__ = [
     'EndpointLoadBalancerOptions',
     'EndpointNetworkInterfaceOptions',
     'EndpointSseSpecification',
+    'GroupSseConfiguration',
     'InstanceLoggingConfigurationAccessLogs',
     'InstanceLoggingConfigurationAccessLogsCloudwatchLogs',
     'InstanceLoggingConfigurationAccessLogsKinesisDataFirehose',
@@ -162,6 +163,52 @@ class EndpointSseSpecification(dict):
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_arn")
+
+
+@pulumi.output_type
+class GroupSseConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerManagedKeyEnabled":
+            suggest = "customer_managed_key_enabled"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupSseConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupSseConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupSseConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_managed_key_enabled: Optional[bool] = None,
+                 kms_key_arn: Optional[str] = None):
+        """
+        :param str kms_key_arn: ARN of the KMS key to use.
+        """
+        if customer_managed_key_enabled is not None:
+            pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEnabled")
+    def customer_managed_key_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "customer_managed_key_enabled")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        """
+        ARN of the KMS key to use.
+        """
         return pulumi.get(self, "kms_key_arn")
 
 

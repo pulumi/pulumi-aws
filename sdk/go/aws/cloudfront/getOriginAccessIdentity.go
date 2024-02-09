@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.LookupOriginAccessIdentity(ctx, &cloudfront.LookupOriginAccessIdentityArgs{
-//				Id: "EDFDVBD632BHDS5",
+//				Id: "E1ZAKK699EOLAL",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -52,7 +52,7 @@ func LookupOriginAccessIdentity(ctx *pulumi.Context, args *LookupOriginAccessIde
 
 // A collection of arguments for invoking getOriginAccessIdentity.
 type LookupOriginAccessIdentityArgs struct {
-	// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+	// The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
 	Id string `pulumi:"id"`
 }
 
@@ -95,7 +95,7 @@ func LookupOriginAccessIdentityOutput(ctx *pulumi.Context, args LookupOriginAcce
 
 // A collection of arguments for invoking getOriginAccessIdentity.
 type LookupOriginAccessIdentityOutputArgs struct {
-	// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+	// The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 

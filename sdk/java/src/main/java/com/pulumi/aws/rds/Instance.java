@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  * 
  * Low-downtime updates are only available for DB Instances using MySQL and MariaDB,
  * as other engines are not supported by RDS Blue/Green deployments.
+ * They cannot be used with DB Instances with replicas.
  * 
  * Backups must be enabled to use low-downtime updates.
  * 
@@ -779,42 +780,98 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deletionProtection);
     }
     /**
-     * The ID of the Directory Service Active Directory domain to create the instance in.
+     * The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domain;
 
     /**
-     * @return The ID of the Directory Service Active Directory domain to create the instance in.
+     * @return The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
     public Output<Optional<String>> domain() {
         return Codegen.optional(this.domain);
     }
     /**
-     * The name of the IAM role to be used when making API calls to the Directory Service.
+     * The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    @Export(name="domainAuthSecretArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> domainAuthSecretArn;
+
+    /**
+     * @return The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    public Output<Optional<String>> domainAuthSecretArn() {
+        return Codegen.optional(this.domainAuthSecretArn);
+    }
+    /**
+     * The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    @Export(name="domainDnsIps", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> domainDnsIps;
+
+    /**
+     * @return The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    public Output<Optional<List<String>>> domainDnsIps() {
+        return Codegen.optional(this.domainDnsIps);
+    }
+    /**
+     * The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    @Export(name="domainFqdn", refs={String.class}, tree="[0]")
+    private Output<String> domainFqdn;
+
+    /**
+     * @return The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    public Output<String> domainFqdn() {
+        return this.domainFqdn;
+    }
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
     @Export(name="domainIamRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domainIamRoleName;
 
     /**
-     * @return The name of the IAM role to be used when making API calls to the Directory Service.
+     * @return The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
     public Output<Optional<String>> domainIamRoleName() {
         return Codegen.optional(this.domainIamRoleName);
     }
     /**
-     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+     * The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    @Export(name="domainOu", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> domainOu;
+
+    /**
+     * @return The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    public Output<Optional<String>> domainOu() {
+        return Codegen.optional(this.domainOu);
+    }
+    /**
+     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * 
      */
     @Export(name="enabledCloudwatchLogsExports", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> enabledCloudwatchLogsExports;
 
     /**
-     * @return Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+     * @return Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * 
      */
     public Output<Optional<List<String>>> enabledCloudwatchLogsExports() {

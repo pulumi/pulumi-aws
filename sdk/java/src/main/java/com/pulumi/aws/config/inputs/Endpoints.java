@@ -165,6 +165,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String bedrockagent;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String budgets;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1572,6 +1577,13 @@ public final class Endpoints {
      */
     public Optional<String> bedrock() {
         return Optional.ofNullable(this.bedrock);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> bedrockagent() {
+        return Optional.ofNullable(this.bedrockagent);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3293,6 +3305,7 @@ public final class Endpoints {
         private @Nullable String batch;
         private @Nullable String beanstalk;
         private @Nullable String bedrock;
+        private @Nullable String bedrockagent;
         private @Nullable String budgets;
         private @Nullable String ce;
         private @Nullable String chime;
@@ -3566,6 +3579,7 @@ public final class Endpoints {
     	      this.batch = defaults.batch;
     	      this.beanstalk = defaults.beanstalk;
     	      this.bedrock = defaults.bedrock;
+    	      this.bedrockagent = defaults.bedrockagent;
     	      this.budgets = defaults.budgets;
     	      this.ce = defaults.ce;
     	      this.chime = defaults.chime;
@@ -3986,6 +4000,12 @@ public final class Endpoints {
         public Builder bedrock(@Nullable String bedrock) {
 
             this.bedrock = bedrock;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bedrockagent(@Nullable String bedrockagent) {
+
+            this.bedrockagent = bedrockagent;
             return this;
         }
         @CustomType.Setter
@@ -5460,6 +5480,7 @@ public final class Endpoints {
             _resultValue.batch = batch;
             _resultValue.beanstalk = beanstalk;
             _resultValue.bedrock = bedrock;
+            _resultValue.bedrockagent = bedrockagent;
             _resultValue.budgets = budgets;
             _resultValue.ce = ce;
             _resultValue.chime = chime;

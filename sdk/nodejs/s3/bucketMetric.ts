@@ -40,6 +40,25 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Add metrics configuration with S3 object filter for S3 Access Point
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.s3.BucketV2("example", {});
+ * const example_access_point = new aws.s3.AccessPoint("example-access-point", {bucket: example.id});
+ * const example_filtered = new aws.s3.BucketMetric("example-filtered", {
+ *     bucket: example.id,
+ *     filter: {
+ *         accessPoint: example_access_point.arn,
+ *         tags: {
+ *             priority: "high",
+ *             "class": "blue",
+ *         },
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *

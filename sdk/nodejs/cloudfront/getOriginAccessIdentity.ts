@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.cloudfront.getOriginAccessIdentity({
- *     id: "EDFDVBD632BHDS5",
+ *     id: "E1ZAKK699EOLAL",
  * });
  * ```
  */
@@ -33,7 +33,7 @@ export function getOriginAccessIdentity(args: GetOriginAccessIdentityArgs, opts?
  */
 export interface GetOriginAccessIdentityArgs {
     /**
-     * The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+     * The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
      */
     id: string;
 }
@@ -87,7 +87,7 @@ export interface GetOriginAccessIdentityResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.cloudfront.getOriginAccessIdentity({
- *     id: "EDFDVBD632BHDS5",
+ *     id: "E1ZAKK699EOLAL",
  * });
  * ```
  */
@@ -100,7 +100,7 @@ export function getOriginAccessIdentityOutput(args: GetOriginAccessIdentityOutpu
  */
 export interface GetOriginAccessIdentityOutputArgs {
     /**
-     * The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+     * The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
      */
     id: pulumi.Input<string>;
 }

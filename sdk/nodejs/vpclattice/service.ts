@@ -60,7 +60,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+     * ARN of the service.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -76,7 +76,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly customDomainName!: pulumi.Output<string | undefined>;
     /**
-     * Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+     * DNS name of the service.
      */
     public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.vpclattice.ServiceDnsEntry[]>;
     /**
@@ -146,7 +146,7 @@ export class Service extends pulumi.CustomResource {
  */
 export interface ServiceState {
     /**
-     * ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+     * ARN of the service.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -162,7 +162,7 @@ export interface ServiceState {
      */
     customDomainName?: pulumi.Input<string>;
     /**
-     * Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+     * DNS name of the service.
      */
     dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceDnsEntry>[]>;
     /**

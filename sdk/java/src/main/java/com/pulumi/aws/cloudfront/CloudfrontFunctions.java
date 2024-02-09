@@ -1528,7 +1528,7 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
-     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .id(&#34;E1ZAKK699EOLAL&#34;)
      *             .build());
      * 
      *     }
@@ -1567,7 +1567,7 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
-     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .id(&#34;E1ZAKK699EOLAL&#34;)
      *             .build());
      * 
      *     }
@@ -1606,7 +1606,7 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
-     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .id(&#34;E1ZAKK699EOLAL&#34;)
      *             .build());
      * 
      *     }
@@ -1645,7 +1645,7 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
-     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .id(&#34;E1ZAKK699EOLAL&#34;)
      *             .build());
      * 
      *     }

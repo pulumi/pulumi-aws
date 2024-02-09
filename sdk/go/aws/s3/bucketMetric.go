@@ -82,6 +82,48 @@ import (
 //	}
 //
 // ```
+// ### Add metrics configuration with S3 object filter for S3 Access Point
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewAccessPoint(ctx, "example-access-point", &s3.AccessPointArgs{
+//				Bucket: example.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
+//				Bucket: example.ID(),
+//				Filter: &s3.BucketMetricFilterArgs{
+//					AccessPoint: example_access_point.Arn,
+//					Tags: pulumi.StringMap{
+//						"priority": pulumi.String("high"),
+//						"class":    pulumi.String("blue"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpclattice/service:Service")
 public class Service extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the service. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * ARN of the service.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the service. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * @return ARN of the service.
      * 
      */
     public Output<String> arn() {
@@ -120,14 +120,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customDomainName);
     }
     /**
-     * Concise description. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * DNS name of the service.
      * 
      */
     @Export(name="dnsEntries", refs={List.class,ServiceDnsEntry.class}, tree="[0,1]")
     private Output<List<ServiceDnsEntry>> dnsEntries;
 
     /**
-     * @return Concise description. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * @return DNS name of the service.
      * 
      */
     public Output<List<ServiceDnsEntry>> dnsEntries() {

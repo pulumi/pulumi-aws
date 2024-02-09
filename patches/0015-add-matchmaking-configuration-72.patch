@@ -10,10 +10,10 @@ Subject: [PATCH 15/40] add matchmaking configuration (#72)
 * add resource docs
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index c0cbe4ca3e..9cb4bee62e 100644
+index 86047574ce..f87981e88d 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
-@@ -15,6 +15,7 @@ import (
+@@ -14,6 +14,7 @@ import (
  	"github.com/aws/aws-sdk-go-v2/aws"
  
  	"github.com/hashicorp/terraform-provider-aws/internal/service/ecr"

@@ -159,9 +159,17 @@ public class ResourceServer extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<ResourceServerScope>>> scopes() {
         return Codegen.optional(this.scopes);
     }
+    /**
+     * User pool the client belongs to.
+     * 
+     */
     @Export(name="userPoolId", refs={String.class}, tree="[0]")
     private Output<String> userPoolId;
 
+    /**
+     * @return User pool the client belongs to.
+     * 
+     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }

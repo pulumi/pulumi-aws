@@ -414,6 +414,7 @@ class DomainClusterConfig(dict):
         :param str dedicated_master_type: Instance type of the dedicated main nodes in the cluster.
         :param int instance_count: Number of instances in the cluster.
         :param str instance_type: Instance type of data nodes in the cluster.
+        :param bool multi_az_with_standby_enabled: Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
         :param int warm_count: Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
         :param bool warm_enabled: Whether to enable warm storage.
         :param str warm_type: Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
@@ -496,6 +497,9 @@ class DomainClusterConfig(dict):
     @property
     @pulumi.getter(name="multiAzWithStandbyEnabled")
     def multi_az_with_standby_enabled(self) -> Optional[bool]:
+        """
+        Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+        """
         return pulumi.get(self, "multi_az_with_standby_enabled")
 
     @property
@@ -705,7 +709,7 @@ class DomainDomainEndpointOptions(dict):
         :param str custom_endpoint_certificate_arn: ACM certificate ARN for your custom endpoint.
         :param bool custom_endpoint_enabled: Whether to enable custom endpoint for the OpenSearch domain.
         :param bool enforce_https: Whether or not to require HTTPS. Defaults to `true`.
-        :param str tls_security_policy: Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+        :param str tls_security_policy: Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
         """
         if custom_endpoint is not None:
             pulumi.set(__self__, "custom_endpoint", custom_endpoint)
@@ -754,7 +758,7 @@ class DomainDomainEndpointOptions(dict):
     @pulumi.getter(name="tlsSecurityPolicy")
     def tls_security_policy(self) -> Optional[str]:
         """
-        Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+        Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "tls_security_policy")
 
@@ -2022,6 +2026,7 @@ class GetDomainClusterConfigResult(dict):
         :param str dedicated_master_type: Instance type of the dedicated master nodes in the cluster.
         :param int instance_count: Number of instances in the cluster.
         :param str instance_type: Instance type of data nodes in the cluster.
+        :param bool multi_az_with_standby_enabled: Whether a multi-AZ domain is turned on with a standby AZ.
         :param int warm_count: Number of warm nodes in the cluster.
         :param str warm_type: Instance type for the OpenSearch cluster's warm nodes.
         :param Sequence['GetDomainClusterConfigZoneAwarenessConfigArgs'] zone_awareness_configs: Configuration block containing zone awareness settings.
@@ -2093,6 +2098,9 @@ class GetDomainClusterConfigResult(dict):
     @property
     @pulumi.getter(name="multiAzWithStandbyEnabled")
     def multi_az_with_standby_enabled(self) -> bool:
+        """
+        Whether a multi-AZ domain is turned on with a standby AZ.
+        """
         return pulumi.get(self, "multi_az_with_standby_enabled")
 
     @property

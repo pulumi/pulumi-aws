@@ -31,11 +31,19 @@ namespace Pulumi.Aws.LB.Inputs
         public Input<Inputs.ListenerRuleActionFixedResponseGetArgs>? FixedResponse { get; set; }
 
         /// <summary>
-        /// Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+        /// Configuration block for creating an action that distributes requests among one or more target groups.
+        /// Specify only if `type` is `forward`.
+        /// Cannot be specified with `target_group_arn`.
         /// </summary>
         [Input("forward")]
         public Input<Inputs.ListenerRuleActionForwardGetArgs>? Forward { get; set; }
 
+        /// <summary>
+        /// Order for the action.
+        /// The action with the lowest value for order is performed first.
+        /// Valid values are between `1` and `50000`.
+        /// Defaults to the position in the list of actions.
+        /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }
 
@@ -46,7 +54,10 @@ namespace Pulumi.Aws.LB.Inputs
         public Input<Inputs.ListenerRuleActionRedirectGetArgs>? Redirect { get; set; }
 
         /// <summary>
-        /// The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+        /// ARN of the Target Group to which to route traffic.
+        /// Specify only if `type` is `forward` and you want to route to a single target group.
+        /// To route to one or more target groups, use a `forward` block instead.
+        /// Cannot be specified with `forward`.
         /// </summary>
         [Input("targetGroupArn")]
         public Input<string>? TargetGroupArn { get; set; }

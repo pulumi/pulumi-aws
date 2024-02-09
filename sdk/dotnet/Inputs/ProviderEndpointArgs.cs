@@ -195,6 +195,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("bedrockagent")]
+        public Input<string>? Bedrockagent { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("budgets")]
         public Input<string>? Budgets { get; set; }
 

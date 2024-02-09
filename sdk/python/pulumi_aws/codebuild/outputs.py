@@ -732,7 +732,7 @@ class ProjectLogsConfigCloudwatchLogs(dict):
         """
         :param str group_name: Group name of the logs in CloudWatch Logs.
         :param str status: Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
-        :param str stream_name: Stream name of the logs in CloudWatch Logs.
+        :param str stream_name: Prefix of the log stream name of the logs in CloudWatch Logs.
         """
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
@@ -761,7 +761,7 @@ class ProjectLogsConfigCloudwatchLogs(dict):
     @pulumi.getter(name="streamName")
     def stream_name(self) -> Optional[str]:
         """
-        Stream name of the logs in CloudWatch Logs.
+        Prefix of the log stream name of the logs in CloudWatch Logs.
         """
         return pulumi.get(self, "stream_name")
 

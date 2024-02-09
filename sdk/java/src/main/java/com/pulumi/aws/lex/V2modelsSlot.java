@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .botId(aws_lexv2models_bot.example().id())
  *             .botVersion(aws_lexv2models_bot_version.example().bot_version())
  *             .intentId(aws_lexv2models_intent.example().id())
- *             .localeId(aws_lexv2models_locale.example().locale_id())
+ *             .localeId(aws_lexv2models_bot_locale.example().locale_id())
  *             .build());
  * 
  *     }

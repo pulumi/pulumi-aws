@@ -14,6 +14,10 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketMetricFilter
     {
         /// <summary>
+        /// S3 Access Point ARN for filtering (singular).
+        /// </summary>
+        public readonly string? AccessPoint;
+        /// <summary>
         /// Object prefix for filtering (singular).
         /// </summary>
         public readonly string? Prefix;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.S3.Outputs
 
         [OutputConstructor]
         private BucketMetricFilter(
+            string? accessPoint,
+
             string? prefix,
 
             ImmutableDictionary<string, string>? tags)
         {
+            AccessPoint = accessPoint;
             Prefix = prefix;
             Tags = tags;
         }

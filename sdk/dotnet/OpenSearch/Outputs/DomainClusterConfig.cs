@@ -37,6 +37,9 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// Instance type of data nodes in the cluster.
         /// </summary>
         public readonly string? InstanceType;
+        /// <summary>
+        /// Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+        /// </summary>
         public readonly bool? MultiAzWithStandbyEnabled;
         /// <summary>
         /// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.

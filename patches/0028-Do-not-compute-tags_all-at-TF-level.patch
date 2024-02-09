@@ -5,10 +5,10 @@ Subject: [PATCH 28/40] Do not compute tags_all at TF level
 
 
 diff --git a/internal/framework/base.go b/internal/framework/base.go
-index e8b29c9440..23a2d18ada 100644
+index 94dbf5e792..494a2effba 100644
 --- a/internal/framework/base.go
 +++ b/internal/framework/base.go
-@@ -69,6 +69,12 @@ func (r *ResourceWithConfigure) Configure(_ context.Context, request resource.Co
+@@ -70,6 +70,12 @@ func (r *ResourceWithConfigure) Configure(_ context.Context, request resource.Co
  
  // SetTagsAll calculates the new value for the `tags_all` attribute.
  func (r *ResourceWithConfigure) SetTagsAll(ctx context.Context, request resource.ModifyPlanRequest, response *resource.ModifyPlanResponse) {

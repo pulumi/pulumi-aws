@@ -93,6 +93,52 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Add metrics configuration with S3 object filter for S3 Access Point
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.AccessPoint;
+ * import com.pulumi.aws.s3.AccessPointArgs;
+ * import com.pulumi.aws.s3.BucketMetric;
+ * import com.pulumi.aws.s3.BucketMetricArgs;
+ * import com.pulumi.aws.s3.inputs.BucketMetricFilterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new BucketV2(&#34;example&#34;);
+ * 
+ *         var example_access_point = new AccessPoint(&#34;example-access-point&#34;, AccessPointArgs.builder()        
+ *             .bucket(example.id())
+ *             .build());
+ * 
+ *         var example_filtered = new BucketMetric(&#34;example-filtered&#34;, BucketMetricArgs.builder()        
+ *             .bucket(example.id())
+ *             .filter(BucketMetricFilterArgs.builder()
+ *                 .accessPoint(example_access_point.arn())
+ *                 .tags(Map.ofEntries(
+ *                     Map.entry(&#34;priority&#34;, &#34;high&#34;),
+ *                     Map.entry(&#34;class&#34;, &#34;blue&#34;)
+ *                 ))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

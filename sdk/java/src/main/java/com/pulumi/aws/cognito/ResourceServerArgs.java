@@ -63,9 +63,17 @@ public final class ResourceServerArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.scopes);
     }
 
+    /**
+     * User pool the client belongs to.
+     * 
+     */
     @Import(name="userPoolId", required=true)
     private Output<String> userPoolId;
 
+    /**
+     * @return User pool the client belongs to.
+     * 
+     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }
@@ -170,11 +178,23 @@ public final class ResourceServerArgs extends com.pulumi.resources.ResourceArgs 
             return scopes(List.of(scopes));
         }
 
+        /**
+         * @param userPoolId User pool the client belongs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userPoolId(Output<String> userPoolId) {
             $.userPoolId = userPoolId;
             return this;
         }
 
+        /**
+         * @param userPoolId User pool the client belongs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userPoolId(String userPoolId) {
             return userPoolId(Output.of(userPoolId));
         }

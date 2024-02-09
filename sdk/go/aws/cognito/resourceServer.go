@@ -101,8 +101,9 @@ type ResourceServer struct {
 	// A list of all scopes configured for this resource server in the format identifier/scope_name.
 	ScopeIdentifiers pulumi.StringArrayOutput `pulumi:"scopeIdentifiers"`
 	// A list of Authorization Scope.
-	Scopes     ResourceServerScopeArrayOutput `pulumi:"scopes"`
-	UserPoolId pulumi.StringOutput            `pulumi:"userPoolId"`
+	Scopes ResourceServerScopeArrayOutput `pulumi:"scopes"`
+	// User pool the client belongs to.
+	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
 // NewResourceServer registers a new resource with the given unique name, arguments, and options.
@@ -148,8 +149,9 @@ type resourceServerState struct {
 	// A list of all scopes configured for this resource server in the format identifier/scope_name.
 	ScopeIdentifiers []string `pulumi:"scopeIdentifiers"`
 	// A list of Authorization Scope.
-	Scopes     []ResourceServerScope `pulumi:"scopes"`
-	UserPoolId *string               `pulumi:"userPoolId"`
+	Scopes []ResourceServerScope `pulumi:"scopes"`
+	// User pool the client belongs to.
+	UserPoolId *string `pulumi:"userPoolId"`
 }
 
 type ResourceServerState struct {
@@ -160,7 +162,8 @@ type ResourceServerState struct {
 	// A list of all scopes configured for this resource server in the format identifier/scope_name.
 	ScopeIdentifiers pulumi.StringArrayInput
 	// A list of Authorization Scope.
-	Scopes     ResourceServerScopeArrayInput
+	Scopes ResourceServerScopeArrayInput
+	// User pool the client belongs to.
 	UserPoolId pulumi.StringPtrInput
 }
 
@@ -174,8 +177,9 @@ type resourceServerArgs struct {
 	// A name for the resource server.
 	Name *string `pulumi:"name"`
 	// A list of Authorization Scope.
-	Scopes     []ResourceServerScope `pulumi:"scopes"`
-	UserPoolId string                `pulumi:"userPoolId"`
+	Scopes []ResourceServerScope `pulumi:"scopes"`
+	// User pool the client belongs to.
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a ResourceServer resource.
@@ -185,7 +189,8 @@ type ResourceServerArgs struct {
 	// A name for the resource server.
 	Name pulumi.StringPtrInput
 	// A list of Authorization Scope.
-	Scopes     ResourceServerScopeArrayInput
+	Scopes ResourceServerScopeArrayInput
+	// User pool the client belongs to.
 	UserPoolId pulumi.StringInput
 }
 
@@ -296,6 +301,7 @@ func (o ResourceServerOutput) Scopes() ResourceServerScopeArrayOutput {
 	return o.ApplyT(func(v *ResourceServer) ResourceServerScopeArrayOutput { return v.Scopes }).(ResourceServerScopeArrayOutput)
 }
 
+// User pool the client belongs to.
 func (o ResourceServerOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceServer) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

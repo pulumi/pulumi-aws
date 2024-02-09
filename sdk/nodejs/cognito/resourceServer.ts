@@ -92,6 +92,9 @@ export class ResourceServer extends pulumi.CustomResource {
      * A list of Authorization Scope.
      */
     public readonly scopes!: pulumi.Output<outputs.cognito.ResourceServerScope[] | undefined>;
+    /**
+     * User pool the client belongs to.
+     */
     public readonly userPoolId!: pulumi.Output<string>;
 
     /**
@@ -151,6 +154,9 @@ export interface ResourceServerState {
      * A list of Authorization Scope.
      */
     scopes?: pulumi.Input<pulumi.Input<inputs.cognito.ResourceServerScope>[]>;
+    /**
+     * User pool the client belongs to.
+     */
     userPoolId?: pulumi.Input<string>;
 }
 
@@ -170,5 +176,8 @@ export interface ResourceServerArgs {
      * A list of Authorization Scope.
      */
     scopes?: pulumi.Input<pulumi.Input<inputs.cognito.ResourceServerScope>[]>;
+    /**
+     * User pool the client belongs to.
+     */
     userPoolId: pulumi.Input<string>;
 }

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Lex
     ///         BotId = aws_lexv2models_bot.Example.Id,
     ///         BotVersion = aws_lexv2models_bot_version.Example.Bot_version,
     ///         IntentId = aws_lexv2models_intent.Example.Id,
-    ///         LocaleId = aws_lexv2models_locale.Example.Locale_id,
+    ///         LocaleId = aws_lexv2models_bot_locale.Example.Locale_id,
     ///     });
     /// 
     /// });

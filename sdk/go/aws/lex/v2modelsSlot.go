@@ -33,7 +33,7 @@ import (
 //				BotId:      pulumi.Any(aws_lexv2models_bot.Example.Id),
 //				BotVersion: pulumi.Any(aws_lexv2models_bot_version.Example.Bot_version),
 //				IntentId:   pulumi.Any(aws_lexv2models_intent.Example.Id),
-//				LocaleId:   pulumi.Any(aws_lexv2models_locale.Example.Locale_id),
+//				LocaleId:   pulumi.Any(aws_lexv2models_bot_locale.Example.Locale_id),
 //			})
 //			if err != nil {
 //				return err

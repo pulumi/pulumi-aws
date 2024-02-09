@@ -68,23 +68,41 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+     * Configuration block for creating an action that distributes requests among one or more target groups.
+     * Specify only if `type` is `forward`.
+     * Cannot be specified with `target_group_arn`.
      * 
      */
     @Import(name="forward")
     private @Nullable Output<ListenerRuleActionForwardArgs> forward;
 
     /**
-     * @return Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+     * @return Configuration block for creating an action that distributes requests among one or more target groups.
+     * Specify only if `type` is `forward`.
+     * Cannot be specified with `target_group_arn`.
      * 
      */
     public Optional<Output<ListenerRuleActionForwardArgs>> forward() {
         return Optional.ofNullable(this.forward);
     }
 
+    /**
+     * Order for the action.
+     * The action with the lowest value for order is performed first.
+     * Valid values are between `1` and `50000`.
+     * Defaults to the position in the list of actions.
+     * 
+     */
     @Import(name="order")
     private @Nullable Output<Integer> order;
 
+    /**
+     * @return Order for the action.
+     * The action with the lowest value for order is performed first.
+     * Valid values are between `1` and `50000`.
+     * Defaults to the position in the list of actions.
+     * 
+     */
     public Optional<Output<Integer>> order() {
         return Optional.ofNullable(this.order);
     }
@@ -105,14 +123,20 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+     * ARN of the Target Group to which to route traffic.
+     * Specify only if `type` is `forward` and you want to route to a single target group.
+     * To route to one or more target groups, use a `forward` block instead.
+     * Cannot be specified with `forward`.
      * 
      */
     @Import(name="targetGroupArn")
     private @Nullable Output<String> targetGroupArn;
 
     /**
-     * @return The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+     * @return ARN of the Target Group to which to route traffic.
+     * Specify only if `type` is `forward` and you want to route to a single target group.
+     * To route to one or more target groups, use a `forward` block instead.
+     * Cannot be specified with `forward`.
      * 
      */
     public Optional<Output<String>> targetGroupArn() {
@@ -229,7 +253,9 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param forward Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+         * @param forward Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `target_group_arn`.
          * 
          * @return builder
          * 
@@ -240,7 +266,9 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param forward Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+         * @param forward Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `target_group_arn`.
          * 
          * @return builder
          * 
@@ -249,11 +277,29 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
             return forward(Output.of(forward));
         }
 
+        /**
+         * @param order Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(@Nullable Output<Integer> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }
@@ -280,7 +326,10 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param targetGroupArn The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * @param targetGroupArn ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          * 
          * @return builder
          * 
@@ -291,7 +340,10 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param targetGroupArn The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * @param targetGroupArn ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          * 
          * @return builder
          * 

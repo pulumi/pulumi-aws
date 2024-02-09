@@ -45,6 +45,10 @@ public final class DomainClusterConfig {
      * 
      */
     private @Nullable String instanceType;
+    /**
+     * @return Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+     * 
+     */
     private @Nullable Boolean multiAzWithStandbyEnabled;
     /**
      * @return Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
@@ -115,6 +119,10 @@ public final class DomainClusterConfig {
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
+    /**
+     * @return Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+     * 
+     */
     public Optional<Boolean> multiAzWithStandbyEnabled() {
         return Optional.ofNullable(this.multiAzWithStandbyEnabled);
     }

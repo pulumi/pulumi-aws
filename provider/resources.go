@@ -182,6 +182,7 @@ const (
 	opensearchMod               = "OpenSearch"               // OpenSearch
 	opsworksMod                 = "OpsWorks"                 // OpsWorks
 	organizationsMod            = "Organizations"            // Organizations
+	osisMod                     = "OpenSearchIngest"         // Open Search Ingestion Service
 	outpostsMod                 = "Outposts"                 // Outposts
 	pinpointMod                 = "Pinpoint"                 // Pinpoint
 	pipesMod                    = "Pipes"                    // Pipes
@@ -391,6 +392,7 @@ var moduleMap = map[string]string{
 	"opensearch":                      opensearchMod,
 	"opsworks":                        opsworksMod,
 	"organizations":                   organizationsMod,
+	"osis":                            osisMod,
 	"outposts":                        outpostsMod,
 	"pinpoint":                        pinpointMod,
 	"pipes":                           pipesMod,

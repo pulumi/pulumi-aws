@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -70,6 +73,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly policyDocument!: pulumi.Output<string | undefined>;
     /**
+     * Configuration block to use KMS keys for server-side encryption.
+     */
+    public readonly sseConfiguration!: pulumi.Output<outputs.verifiedaccess.GroupSseConfiguration>;
+    /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -111,6 +118,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
+            resourceInputs["sseConfiguration"] = state ? state.sseConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["verifiedaccessGroupArn"] = state ? state.verifiedaccessGroupArn : undefined;
@@ -123,6 +131,7 @@ export class Group extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["sseConfiguration"] = args ? args.sseConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["verifiedaccessInstanceId"] = args ? args.verifiedaccessInstanceId : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
@@ -169,6 +178,10 @@ export interface GroupState {
      */
     policyDocument?: pulumi.Input<string>;
     /**
+     * Configuration block to use KMS keys for server-side encryption.
+     */
+    sseConfiguration?: pulumi.Input<inputs.verifiedaccess.GroupSseConfiguration>;
+    /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -204,6 +217,10 @@ export interface GroupArgs {
      * The policy document that is associated with this resource.
      */
     policyDocument?: pulumi.Input<string>;
+    /**
+     * Configuration block to use KMS keys for server-side encryption.
+     */
+    sseConfiguration?: pulumi.Input<inputs.verifiedaccess.GroupSseConfiguration>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

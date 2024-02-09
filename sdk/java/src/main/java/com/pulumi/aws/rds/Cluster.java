@@ -207,6 +207,9 @@ import javax.annotation.Nullable;
  * 
  * &gt; More information about RDS Serverless v2 Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html).
  * 
+ * &gt; **Note:** Unlike Serverless v1, in Serverless v2 the `storage_encrypted` value is set to `false` by default.
+ * This is because Serverless v1 uses the `serverless` `engine_mode`, but Serverless v2 uses the `provisioned` `engine_mode`.
+ * 
  * To create a Serverless v2 RDS cluster, you must additionally specify the `engine_mode` and `serverlessv2_scaling_configuration` attributes. An `aws.rds.ClusterInstance` resource must also be added to the cluster with the `instance_class` attribute specified.
  * ```java
  * package generated_program;
@@ -240,6 +243,7 @@ import javax.annotation.Nullable;
  *             .databaseName(&#34;test&#34;)
  *             .masterUsername(&#34;test&#34;)
  *             .masterPassword(&#34;must_be_eight_characters&#34;)
+ *             .storageEncrypted(true)
  *             .serverlessv2ScalingConfiguration(ClusterServerlessv2ScalingConfigurationArgs.builder()
  *                 .maxCapacity(1)
  *                 .minCapacity(0.5)

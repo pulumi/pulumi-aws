@@ -12,6 +12,11 @@ from . import outputs
 
 __all__ = [
     'AwsLogSourceSource',
+    'CustomLogSourceAttribute',
+    'CustomLogSourceConfiguration',
+    'CustomLogSourceConfigurationCrawlerConfiguration',
+    'CustomLogSourceConfigurationProviderIdentity',
+    'CustomLogSourceProviderDetail',
     'DataLakeConfiguration',
     'DataLakeConfigurationEncryptionConfiguration',
     'DataLakeConfigurationLifecycleConfiguration',
@@ -91,6 +96,244 @@ class AwsLogSourceSource(dict):
         The version for a AWS source. This must be a Regionally unique value.
         """
         return pulumi.get(self, "source_version")
+
+
+@pulumi.output_type
+class CustomLogSourceAttribute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crawlerArn":
+            suggest = "crawler_arn"
+        elif key == "databaseArn":
+            suggest = "database_arn"
+        elif key == "tableArn":
+            suggest = "table_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomLogSourceAttribute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomLogSourceAttribute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomLogSourceAttribute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crawler_arn: str,
+                 database_arn: str,
+                 table_arn: str):
+        """
+        :param str crawler_arn: The ARN of the AWS Glue crawler.
+        :param str database_arn: The ARN of the AWS Glue database where results are written.
+        :param str table_arn: The ARN of the AWS Glue table.
+        """
+        pulumi.set(__self__, "crawler_arn", crawler_arn)
+        pulumi.set(__self__, "database_arn", database_arn)
+        pulumi.set(__self__, "table_arn", table_arn)
+
+    @property
+    @pulumi.getter(name="crawlerArn")
+    def crawler_arn(self) -> str:
+        """
+        The ARN of the AWS Glue crawler.
+        """
+        return pulumi.get(self, "crawler_arn")
+
+    @property
+    @pulumi.getter(name="databaseArn")
+    def database_arn(self) -> str:
+        """
+        The ARN of the AWS Glue database where results are written.
+        """
+        return pulumi.get(self, "database_arn")
+
+    @property
+    @pulumi.getter(name="tableArn")
+    def table_arn(self) -> str:
+        """
+        The ARN of the AWS Glue table.
+        """
+        return pulumi.get(self, "table_arn")
+
+
+@pulumi.output_type
+class CustomLogSourceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crawlerConfiguration":
+            suggest = "crawler_configuration"
+        elif key == "providerIdentity":
+            suggest = "provider_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomLogSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomLogSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomLogSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crawler_configuration: Optional['outputs.CustomLogSourceConfigurationCrawlerConfiguration'] = None,
+                 provider_identity: Optional['outputs.CustomLogSourceConfigurationProviderIdentity'] = None):
+        """
+        :param 'CustomLogSourceConfigurationCrawlerConfigurationArgs' crawler_configuration: The configuration for the Glue Crawler for the third-party custom source.
+        :param 'CustomLogSourceConfigurationProviderIdentityArgs' provider_identity: The identity of the log provider for the third-party custom source.
+        """
+        if crawler_configuration is not None:
+            pulumi.set(__self__, "crawler_configuration", crawler_configuration)
+        if provider_identity is not None:
+            pulumi.set(__self__, "provider_identity", provider_identity)
+
+    @property
+    @pulumi.getter(name="crawlerConfiguration")
+    def crawler_configuration(self) -> Optional['outputs.CustomLogSourceConfigurationCrawlerConfiguration']:
+        """
+        The configuration for the Glue Crawler for the third-party custom source.
+        """
+        return pulumi.get(self, "crawler_configuration")
+
+    @property
+    @pulumi.getter(name="providerIdentity")
+    def provider_identity(self) -> Optional['outputs.CustomLogSourceConfigurationProviderIdentity']:
+        """
+        The identity of the log provider for the third-party custom source.
+        """
+        return pulumi.get(self, "provider_identity")
+
+
+@pulumi.output_type
+class CustomLogSourceConfigurationCrawlerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomLogSourceConfigurationCrawlerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomLogSourceConfigurationCrawlerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomLogSourceConfigurationCrawlerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: str):
+        """
+        :param str role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+        """
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class CustomLogSourceConfigurationProviderIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalId":
+            suggest = "external_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomLogSourceConfigurationProviderIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomLogSourceConfigurationProviderIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomLogSourceConfigurationProviderIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_id: str,
+                 principal: str):
+        """
+        :param str external_id: The external ID used to estalish trust relationship with the AWS identity.
+        :param str principal: The AWS identity principal.
+        """
+        pulumi.set(__self__, "external_id", external_id)
+        pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> str:
+        """
+        The external ID used to estalish trust relationship with the AWS identity.
+        """
+        return pulumi.get(self, "external_id")
+
+    @property
+    @pulumi.getter
+    def principal(self) -> str:
+        """
+        The AWS identity principal.
+        """
+        return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class CustomLogSourceProviderDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomLogSourceProviderDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomLogSourceProviderDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomLogSourceProviderDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location: str,
+                 role_arn: str):
+        """
+        :param str location: The location of the partition in the Amazon S3 bucket for Security Lake.
+        :param str role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The location of the partition in the Amazon S3 bucket for Security Lake.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+        """
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type

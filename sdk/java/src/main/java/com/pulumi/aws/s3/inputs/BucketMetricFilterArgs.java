@@ -17,6 +17,21 @@ public final class BucketMetricFilterArgs extends com.pulumi.resources.ResourceA
     public static final BucketMetricFilterArgs Empty = new BucketMetricFilterArgs();
 
     /**
+     * S3 Access Point ARN for filtering (singular).
+     * 
+     */
+    @Import(name="accessPoint")
+    private @Nullable Output<String> accessPoint;
+
+    /**
+     * @return S3 Access Point ARN for filtering (singular).
+     * 
+     */
+    public Optional<Output<String>> accessPoint() {
+        return Optional.ofNullable(this.accessPoint);
+    }
+
+    /**
      * Object prefix for filtering (singular).
      * 
      */
@@ -49,6 +64,7 @@ public final class BucketMetricFilterArgs extends com.pulumi.resources.ResourceA
     private BucketMetricFilterArgs() {}
 
     private BucketMetricFilterArgs(BucketMetricFilterArgs $) {
+        this.accessPoint = $.accessPoint;
         this.prefix = $.prefix;
         this.tags = $.tags;
     }
@@ -69,6 +85,27 @@ public final class BucketMetricFilterArgs extends com.pulumi.resources.ResourceA
 
         public Builder(BucketMetricFilterArgs defaults) {
             $ = new BucketMetricFilterArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accessPoint S3 Access Point ARN for filtering (singular).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessPoint(@Nullable Output<String> accessPoint) {
+            $.accessPoint = accessPoint;
+            return this;
+        }
+
+        /**
+         * @param accessPoint S3 Access Point ARN for filtering (singular).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessPoint(String accessPoint) {
+            return accessPoint(Output.of(accessPoint));
         }
 
         /**

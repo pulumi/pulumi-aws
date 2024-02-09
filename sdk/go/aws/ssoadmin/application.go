@@ -14,6 +14,10 @@ import (
 
 // Resource for managing an AWS SSO Admin Application.
 //
+// > The `CreateApplication` API only supports custom OAuth 2.0 applications.
+// Creation of 3rd party SAML or OAuth 2.0 applications require setup to be done through the associated app service or AWS console.
+// See this issue for additional context.
+//
 // ## Example Usage
 //
 // ## Import

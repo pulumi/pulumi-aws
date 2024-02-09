@@ -109,14 +109,14 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The fields to include in the flow log record, in the order in which they should appear.
+     * The fields to include in the flow log record. Accepted format example: `&#34;$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}&#34;`.
      * 
      */
     @Import(name="logFormat")
     private @Nullable Output<String> logFormat;
 
     /**
-     * @return The fields to include in the flow log record, in the order in which they should appear.
+     * @return The fields to include in the flow log record. Accepted format example: `&#34;$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}&#34;`.
      * 
      */
     public Optional<Output<String>> logFormat() {
@@ -422,7 +422,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logFormat The fields to include in the flow log record, in the order in which they should appear.
+         * @param logFormat The fields to include in the flow log record. Accepted format example: `&#34;$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}&#34;`.
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logFormat The fields to include in the flow log record, in the order in which they should appear.
+         * @param logFormat The fields to include in the flow log record. Accepted format example: `&#34;$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}&#34;`.
          * 
          * @return builder
          * 

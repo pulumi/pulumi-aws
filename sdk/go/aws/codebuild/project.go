@@ -305,7 +305,7 @@ type Project struct {
 	PublicProjectAlias pulumi.StringOutput `pulumi:"publicProjectAlias"`
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 	QueuedTimeout pulumi.IntPtrOutput `pulumi:"queuedTimeout"`
-	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `projectVisibility` is `PUBLIC_READ`.
 	ResourceAccessRole pulumi.StringPtrOutput `pulumi:"resourceAccessRole"`
 	// Configuration block. Detailed below.
 	SecondaryArtifacts ProjectSecondaryArtifactArrayOutput `pulumi:"secondaryArtifacts"`
@@ -411,7 +411,7 @@ type projectState struct {
 	PublicProjectAlias *string `pulumi:"publicProjectAlias"`
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 	QueuedTimeout *int `pulumi:"queuedTimeout"`
-	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `projectVisibility` is `PUBLIC_READ`.
 	ResourceAccessRole *string `pulumi:"resourceAccessRole"`
 	// Configuration block. Detailed below.
 	SecondaryArtifacts []ProjectSecondaryArtifact `pulumi:"secondaryArtifacts"`
@@ -472,7 +472,7 @@ type ProjectState struct {
 	PublicProjectAlias pulumi.StringPtrInput
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 	QueuedTimeout pulumi.IntPtrInput
-	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `projectVisibility` is `PUBLIC_READ`.
 	ResourceAccessRole pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	SecondaryArtifacts ProjectSecondaryArtifactArrayInput
@@ -531,7 +531,7 @@ type projectArgs struct {
 	ProjectVisibility *string `pulumi:"projectVisibility"`
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 	QueuedTimeout *int `pulumi:"queuedTimeout"`
-	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `projectVisibility` is `PUBLIC_READ`.
 	ResourceAccessRole *string `pulumi:"resourceAccessRole"`
 	// Configuration block. Detailed below.
 	SecondaryArtifacts []ProjectSecondaryArtifact `pulumi:"secondaryArtifacts"`
@@ -583,7 +583,7 @@ type ProjectArgs struct {
 	ProjectVisibility pulumi.StringPtrInput
 	// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
 	QueuedTimeout pulumi.IntPtrInput
-	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+	// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `projectVisibility` is `PUBLIC_READ`.
 	ResourceAccessRole pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	SecondaryArtifacts ProjectSecondaryArtifactArrayInput
@@ -777,7 +777,7 @@ func (o ProjectOutput) QueuedTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.IntPtrOutput { return v.QueuedTimeout }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `projectVisibility` is `PUBLIC_READ`.
 func (o ProjectOutput) ResourceAccessRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.ResourceAccessRole }).(pulumi.StringPtrOutput)
 }

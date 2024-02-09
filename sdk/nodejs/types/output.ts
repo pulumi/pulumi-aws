@@ -413,11 +413,17 @@ export namespace alb {
          */
         fixedResponse?: outputs.alb.ListenerDefaultActionFixedResponse;
         /**
-         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
+         * Detailed below.
          */
         forward?: outputs.alb.ListenerDefaultActionForward;
         /**
-         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
          */
         order: number;
         /**
@@ -425,7 +431,10 @@ export namespace alb {
          */
         redirect?: outputs.alb.ListenerDefaultActionRedirect;
         /**
-         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: string;
         /**
@@ -636,16 +645,27 @@ export namespace alb {
          */
         fixedResponse?: outputs.alb.ListenerRuleActionFixedResponse;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
          */
         forward?: outputs.alb.ListenerRuleActionForward;
+        /**
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
+         */
         order: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: outputs.alb.ListenerRuleActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: string;
         /**
@@ -14192,7 +14212,7 @@ export namespace codebuild {
          */
         status?: string;
         /**
-         * Stream name of the logs in CloudWatch Logs.
+         * Prefix of the log stream name of the logs in CloudWatch Logs.
          */
         streamName?: string;
     }
@@ -16218,6 +16238,10 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        bedrockagent?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         budgets?: string;
         /**
          * Use this to override the default service endpoint URL
@@ -18138,6 +18162,16 @@ export namespace connect {
          * The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
          */
         phoneType: string;
+    }
+
+}
+
+export namespace controltower {
+    export interface LandingZoneDriftStatus {
+        /**
+         * The drift status of the landing zone.
+         */
+        status: string;
     }
 
 }
@@ -31131,14 +31165,14 @@ export namespace emr {
 
     export interface InstanceFleetLaunchSpecificationsOnDemandSpecification {
         /**
-         * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         * Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
          */
         allocationStrategy: string;
     }
 
     export interface InstanceFleetLaunchSpecificationsSpotSpecification {
         /**
-         * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         * Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
          */
         allocationStrategy: string;
         /**
@@ -41645,11 +41679,17 @@ export namespace lb {
          */
         fixedResponse?: outputs.lb.ListenerDefaultActionFixedResponse;
         /**
-         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
+         * Detailed below.
          */
         forward?: outputs.lb.ListenerDefaultActionForward;
         /**
-         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
          */
         order: number;
         /**
@@ -41657,7 +41697,10 @@ export namespace lb {
          */
         redirect?: outputs.lb.ListenerDefaultActionRedirect;
         /**
-         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: string;
         /**
@@ -41868,16 +41911,27 @@ export namespace lb {
          */
         fixedResponse?: outputs.lb.ListenerRuleActionFixedResponse;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
          */
         forward?: outputs.lb.ListenerRuleActionForward;
+        /**
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
+         */
         order: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: outputs.lb.ListenerRuleActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: string;
         /**
@@ -60308,6 +60362,9 @@ export namespace opensearch {
          * Instance type of data nodes in the cluster.
          */
         instanceType?: string;
+        /**
+         * Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+         */
         multiAzWithStandbyEnabled?: boolean;
         /**
          * Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
@@ -60382,7 +60439,7 @@ export namespace opensearch {
          */
         enforceHttps?: boolean;
         /**
-         * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+         * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
          */
         tlsSecurityPolicy: string;
     }
@@ -60616,6 +60673,9 @@ export namespace opensearch {
          * Instance type of data nodes in the cluster.
          */
         instanceType: string;
+        /**
+         * Whether a multi-AZ domain is turned on with a standby AZ.
+         */
         multiAzWithStandbyEnabled: boolean;
         /**
          * Number of warm nodes in the cluster.
@@ -60921,6 +60981,67 @@ export namespace opensearch {
          */
         subnetIds: string[];
         vpcId: string;
+    }
+
+}
+
+export namespace opensearchingest {
+    export interface PipelineBufferOptions {
+        /**
+         * Whether persistent buffering should be enabled.
+         */
+        persistentBufferEnabled: boolean;
+    }
+
+    export interface PipelineEncryptionAtRestOptions {
+        /**
+         * The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
+         */
+        kmsKeyArn: string;
+    }
+
+    export interface PipelineLogPublishingOptions {
+        /**
+         * The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
+         */
+        cloudwatchLogDestination?: outputs.opensearchingest.PipelineLogPublishingOptionsCloudwatchLogDestination;
+        /**
+         * Whether logs should be published.
+         */
+        isLoggingEnabled?: boolean;
+    }
+
+    export interface PipelineLogPublishingOptionsCloudwatchLogDestination {
+        /**
+         * The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
+         */
+        logGroup: string;
+    }
+
+    export interface PipelineTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface PipelineVpcOptions {
+        /**
+         * A list of security groups associated with the VPC endpoint.
+         */
+        securityGroupIds?: string[];
+        /**
+         * A list of subnet IDs associated with the VPC endpoint.
+         */
+        subnetIds: string[];
     }
 
 }
@@ -67259,6 +67380,10 @@ export namespace s3 {
 
     export interface BucketMetricFilter {
         /**
+         * S3 Access Point ARN for filtering (singular).
+         */
+        accessPoint?: string;
+        /**
          * Object prefix for filtering (singular).
          */
         prefix?: string;
@@ -73256,6 +73381,61 @@ export namespace securitylake {
         sourceVersion: string;
     }
 
+    export interface CustomLogSourceAttribute {
+        /**
+         * The ARN of the AWS Glue crawler.
+         */
+        crawlerArn: string;
+        /**
+         * The ARN of the AWS Glue database where results are written.
+         */
+        databaseArn: string;
+        /**
+         * The ARN of the AWS Glue table.
+         */
+        tableArn: string;
+    }
+
+    export interface CustomLogSourceConfiguration {
+        /**
+         * The configuration for the Glue Crawler for the third-party custom source.
+         */
+        crawlerConfiguration?: outputs.securitylake.CustomLogSourceConfigurationCrawlerConfiguration;
+        /**
+         * The identity of the log provider for the third-party custom source.
+         */
+        providerIdentity?: outputs.securitylake.CustomLogSourceConfigurationProviderIdentity;
+    }
+
+    export interface CustomLogSourceConfigurationCrawlerConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+         */
+        roleArn: string;
+    }
+
+    export interface CustomLogSourceConfigurationProviderIdentity {
+        /**
+         * The external ID used to estalish trust relationship with the AWS identity.
+         */
+        externalId: string;
+        /**
+         * The AWS identity principal.
+         */
+        principal: string;
+    }
+
+    export interface CustomLogSourceProviderDetail {
+        /**
+         * The location of the partition in the Amazon S3 bucket for Security Lake.
+         */
+        location: string;
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+         */
+        roleArn: string;
+    }
+
     export interface DataLakeConfiguration {
         /**
          * Provides encryption details of Amazon Security Lake object.
@@ -76314,6 +76494,14 @@ export namespace verifiedaccess {
 
     export interface EndpointSseSpecification {
         customerManagedKeyEnabled?: boolean;
+        kmsKeyArn?: string;
+    }
+
+    export interface GroupSseConfiguration {
+        customerManagedKeyEnabled?: boolean;
+        /**
+         * ARN of the KMS key to use.
+         */
         kmsKeyArn?: string;
     }
 
