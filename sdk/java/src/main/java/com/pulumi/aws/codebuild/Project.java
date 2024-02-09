@@ -492,14 +492,14 @@ public class Project extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.queuedTimeout);
     }
     /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds.
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
      * 
      */
     @Export(name="resourceAccessRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceAccessRole;
 
     /**
-     * @return The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds.
+     * @return The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
      * 
      */
     public Output<Optional<String>> resourceAccessRole() {

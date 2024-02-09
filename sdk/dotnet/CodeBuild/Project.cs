@@ -395,7 +395,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<int?> QueuedTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
         /// </summary>
         [Output("resourceAccessRole")]
         public Output<string?> ResourceAccessRole { get; private set; } = null!;
@@ -597,7 +597,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<int>? QueuedTimeout { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
         /// </summary>
         [Input("resourceAccessRole")]
         public Input<string>? ResourceAccessRole { get; set; }
@@ -793,7 +793,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<int>? QueuedTimeout { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
         /// </summary>
         [Input("resourceAccessRole")]
         public Input<string>? ResourceAccessRole { get; set; }

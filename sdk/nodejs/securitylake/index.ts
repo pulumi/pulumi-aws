@@ -10,6 +10,11 @@ export type AwsLogSource = import("./awsLogSource").AwsLogSource;
 export const AwsLogSource: typeof import("./awsLogSource").AwsLogSource = null as any;
 utilities.lazyLoad(exports, ["AwsLogSource"], () => require("./awsLogSource"));
 
+export { CustomLogSourceArgs, CustomLogSourceState } from "./customLogSource";
+export type CustomLogSource = import("./customLogSource").CustomLogSource;
+export const CustomLogSource: typeof import("./customLogSource").CustomLogSource = null as any;
+utilities.lazyLoad(exports, ["CustomLogSource"], () => require("./customLogSource"));
+
 export { DataLakeArgs, DataLakeState } from "./dataLake";
 export type DataLake = import("./dataLake").DataLake;
 export const DataLake: typeof import("./dataLake").DataLake = null as any;
@@ -22,6 +27,8 @@ const _module = {
         switch (type) {
             case "aws:securitylake/awsLogSource:AwsLogSource":
                 return new AwsLogSource(name, <any>undefined, { urn })
+            case "aws:securitylake/customLogSource:CustomLogSource":
+                return new CustomLogSource(name, <any>undefined, { urn })
             case "aws:securitylake/dataLake:DataLake":
                 return new DataLake(name, <any>undefined, { urn })
             default:
@@ -30,4 +37,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "securitylake/awsLogSource", _module)
+pulumi.runtime.registerResourceModule("aws", "securitylake/customLogSource", _module)
 pulumi.runtime.registerResourceModule("aws", "securitylake/dataLake", _module)

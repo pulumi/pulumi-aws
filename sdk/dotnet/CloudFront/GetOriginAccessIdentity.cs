@@ -30,7 +30,7 @@ namespace Pulumi.Aws.CloudFront
         /// {
         ///     var example = Aws.CloudFront.GetOriginAccessIdentity.Invoke(new()
         ///     {
-        ///         Id = "EDFDVBD632BHDS5",
+        ///         Id = "E1ZAKK699EOLAL",
         ///     });
         /// 
         /// });
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.CloudFront
         /// {
         ///     var example = Aws.CloudFront.GetOriginAccessIdentity.Invoke(new()
         ///     {
-        ///         Id = "EDFDVBD632BHDS5",
+        ///         Id = "E1ZAKK699EOLAL",
         ///     });
         /// 
         /// });
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetOriginAccessIdentityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+        /// The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetOriginAccessIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+        /// The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

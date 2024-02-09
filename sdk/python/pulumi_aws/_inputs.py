@@ -339,6 +339,7 @@ class ProviderEndpointArgs:
                  batch: Optional[pulumi.Input[str]] = None,
                  beanstalk: Optional[pulumi.Input[str]] = None,
                  bedrock: Optional[pulumi.Input[str]] = None,
+                 bedrockagent: Optional[pulumi.Input[str]] = None,
                  budgets: Optional[pulumi.Input[str]] = None,
                  ce: Optional[pulumi.Input[str]] = None,
                  chime: Optional[pulumi.Input[str]] = None,
@@ -610,6 +611,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] batch: Use this to override the default service endpoint URL
         :param pulumi.Input[str] beanstalk: Use this to override the default service endpoint URL
         :param pulumi.Input[str] bedrock: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] bedrockagent: Use this to override the default service endpoint URL
         :param pulumi.Input[str] budgets: Use this to override the default service endpoint URL
         :param pulumi.Input[str] ce: Use this to override the default service endpoint URL
         :param pulumi.Input[str] chime: Use this to override the default service endpoint URL
@@ -911,6 +913,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "beanstalk", beanstalk)
         if bedrock is not None:
             pulumi.set(__self__, "bedrock", bedrock)
+        if bedrockagent is not None:
+            pulumi.set(__self__, "bedrockagent", bedrockagent)
         if budgets is not None:
             pulumi.set(__self__, "budgets", budgets)
         if ce is not None:
@@ -1751,6 +1755,18 @@ class ProviderEndpointArgs:
     @bedrock.setter
     def bedrock(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bedrock", value)
+
+    @property
+    @pulumi.getter
+    def bedrockagent(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "bedrockagent")
+
+    @bedrockagent.setter
+    def bedrockagent(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bedrockagent", value)
 
     @property
     @pulumi.getter

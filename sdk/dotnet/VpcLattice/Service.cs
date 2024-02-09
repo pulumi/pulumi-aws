@@ -44,7 +44,7 @@ namespace Pulumi.Aws.VpcLattice
     public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        /// ARN of the service.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string?> CustomDomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        /// DNS name of the service.
         /// </summary>
         [Output("dnsEntries")]
         public Output<ImmutableArray<Outputs.ServiceDnsEntry>> DnsEntries { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        /// ARN of the service.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputList<Inputs.ServiceDnsEntryGetArgs>? _dnsEntries;
 
         /// <summary>
-        /// Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        /// DNS name of the service.
         /// </summary>
         public InputList<Inputs.ServiceDnsEntryGetArgs> DnsEntries
         {

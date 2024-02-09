@@ -11,24 +11,41 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS VPC Lattice Listener.
  *
  * ## Example Usage
+ * ### Fixed response action
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleService = new aws.vpclattice.Service("exampleService", {});
+ * const exampleListener = new aws.vpclattice.Listener("exampleListener", {
+ *     protocol: "HTTPS",
+ *     serviceIdentifier: exampleService.id,
+ *     defaultAction: {
+ *         fixedResponse: {
+ *             statusCode: 404,
+ *         },
+ *     },
+ * });
+ * ```
  * ### Forward action
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.vpclattice.Service("test", {});
+ * const exampleService = new aws.vpclattice.Service("exampleService", {});
  * const exampleTargetGroup = new aws.vpclattice.TargetGroup("exampleTargetGroup", {
  *     type: "INSTANCE",
  *     config: {
  *         port: 80,
  *         protocol: "HTTP",
- *         vpcIdentifier: aws_vpc.test.id,
+ *         vpcIdentifier: aws_vpc.example.id,
  *     },
  * });
  * const exampleListener = new aws.vpclattice.Listener("exampleListener", {
  *     protocol: "HTTP",
- *     serviceIdentifier: aws_vpclattice_service.example.id,
+ *     serviceIdentifier: exampleService.id,
  *     defaultAction: {
  *         forwards: [{
  *             targetGroups: [{
@@ -44,13 +61,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.vpclattice.Service("test", {});
+ * const exampleService = new aws.vpclattice.Service("exampleService", {});
  * const example1 = new aws.vpclattice.TargetGroup("example1", {
  *     type: "INSTANCE",
  *     config: {
  *         port: 80,
  *         protocol: "HTTP",
- *         vpcIdentifier: aws_vpc.test.id,
+ *         vpcIdentifier: aws_vpc.example.id,
  *     },
  * });
  * const example2 = new aws.vpclattice.TargetGroup("example2", {
@@ -58,12 +75,12 @@ import * as utilities from "../utilities";
  *     config: {
  *         port: 8080,
  *         protocol: "HTTP",
- *         vpcIdentifier: aws_vpc.test.id,
+ *         vpcIdentifier: aws_vpc.example.id,
  *     },
  * });
- * const example = new aws.vpclattice.Listener("example", {
+ * const exampleListener = new aws.vpclattice.Listener("exampleListener", {
  *     protocol: "HTTP",
- *     serviceIdentifier: aws_vpclattice_service.example.id,
+ *     serviceIdentifier: exampleService.id,
  *     defaultAction: {
  *         forwards: [{
  *             targetGroups: [

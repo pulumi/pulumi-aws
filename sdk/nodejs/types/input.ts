@@ -269,6 +269,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    bedrockagent?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     budgets?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
@@ -1473,11 +1477,17 @@ export namespace alb {
          */
         fixedResponse?: pulumi.Input<inputs.alb.ListenerDefaultActionFixedResponse>;
         /**
-         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
+         * Detailed below.
          */
         forward?: pulumi.Input<inputs.alb.ListenerDefaultActionForward>;
         /**
-         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
          */
         order?: pulumi.Input<number>;
         /**
@@ -1485,7 +1495,10 @@ export namespace alb {
          */
         redirect?: pulumi.Input<inputs.alb.ListenerDefaultActionRedirect>;
         /**
-         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: pulumi.Input<string>;
         /**
@@ -1696,16 +1709,27 @@ export namespace alb {
          */
         fixedResponse?: pulumi.Input<inputs.alb.ListenerRuleActionFixedResponse>;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
          */
         forward?: pulumi.Input<inputs.alb.ListenerRuleActionForward>;
+        /**
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
+         */
         order?: pulumi.Input<number>;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: pulumi.Input<inputs.alb.ListenerRuleActionRedirect>;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: pulumi.Input<string>;
         /**
@@ -13144,7 +13168,7 @@ export namespace codebuild {
          */
         status?: pulumi.Input<string>;
         /**
-         * Stream name of the logs in CloudWatch Logs.
+         * Prefix of the log stream name of the logs in CloudWatch Logs.
          */
         streamName?: pulumi.Input<string>;
     }
@@ -15410,6 +15434,15 @@ export namespace connect {
          * The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
          */
         phoneType: pulumi.Input<string>;
+    }
+}
+
+export namespace controltower {
+    export interface LandingZoneDriftStatus {
+        /**
+         * The drift status of the landing zone.
+         */
+        status?: pulumi.Input<string>;
     }
 }
 
@@ -26765,14 +26798,14 @@ export namespace emr {
 
     export interface InstanceFleetLaunchSpecificationsOnDemandSpecification {
         /**
-         * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         * Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
          */
         allocationStrategy: pulumi.Input<string>;
     }
 
     export interface InstanceFleetLaunchSpecificationsSpotSpecification {
         /**
-         * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         * Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
          */
         allocationStrategy: pulumi.Input<string>;
         /**
@@ -36130,11 +36163,17 @@ export namespace lb {
          */
         fixedResponse?: pulumi.Input<inputs.lb.ListenerDefaultActionFixedResponse>;
         /**
-         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
+         * Detailed below.
          */
         forward?: pulumi.Input<inputs.lb.ListenerDefaultActionForward>;
         /**
-         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
          */
         order?: pulumi.Input<number>;
         /**
@@ -36142,7 +36181,10 @@ export namespace lb {
          */
         redirect?: pulumi.Input<inputs.lb.ListenerDefaultActionRedirect>;
         /**
-         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: pulumi.Input<string>;
         /**
@@ -36353,16 +36395,27 @@ export namespace lb {
          */
         fixedResponse?: pulumi.Input<inputs.lb.ListenerRuleActionFixedResponse>;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
          */
         forward?: pulumi.Input<inputs.lb.ListenerRuleActionForward>;
+        /**
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
+         */
         order?: pulumi.Input<number>;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: pulumi.Input<inputs.lb.ListenerRuleActionRedirect>;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: pulumi.Input<string>;
         /**
@@ -54419,6 +54472,9 @@ export namespace opensearch {
          * Instance type of data nodes in the cluster.
          */
         instanceType?: pulumi.Input<string>;
+        /**
+         * Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+         */
         multiAzWithStandbyEnabled?: pulumi.Input<boolean>;
         /**
          * Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
@@ -54493,7 +54549,7 @@ export namespace opensearch {
          */
         enforceHttps?: pulumi.Input<boolean>;
         /**
-         * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+         * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
          */
         tlsSecurityPolicy?: pulumi.Input<string>;
     }
@@ -54854,6 +54910,66 @@ export namespace opensearch {
          */
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
         vpcId?: pulumi.Input<string>;
+    }
+}
+
+export namespace opensearchingest {
+    export interface PipelineBufferOptions {
+        /**
+         * Whether persistent buffering should be enabled.
+         */
+        persistentBufferEnabled: pulumi.Input<boolean>;
+    }
+
+    export interface PipelineEncryptionAtRestOptions {
+        /**
+         * The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
+         */
+        kmsKeyArn: pulumi.Input<string>;
+    }
+
+    export interface PipelineLogPublishingOptions {
+        /**
+         * The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
+         */
+        cloudwatchLogDestination?: pulumi.Input<inputs.opensearchingest.PipelineLogPublishingOptionsCloudwatchLogDestination>;
+        /**
+         * Whether logs should be published.
+         */
+        isLoggingEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface PipelineLogPublishingOptionsCloudwatchLogDestination {
+        /**
+         * The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
+         */
+        logGroup: pulumi.Input<string>;
+    }
+
+    export interface PipelineTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
+    export interface PipelineVpcOptions {
+        /**
+         * A list of security groups associated with the VPC endpoint.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of subnet IDs associated with the VPC endpoint.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -60759,6 +60875,10 @@ export namespace s3 {
     }
 
     export interface BucketMetricFilter {
+        /**
+         * S3 Access Point ARN for filtering (singular).
+         */
+        accessPoint?: pulumi.Input<string>;
         /**
          * Object prefix for filtering (singular).
          */
@@ -66715,6 +66835,61 @@ export namespace securitylake {
         sourceVersion?: pulumi.Input<string>;
     }
 
+    export interface CustomLogSourceAttribute {
+        /**
+         * The ARN of the AWS Glue crawler.
+         */
+        crawlerArn: pulumi.Input<string>;
+        /**
+         * The ARN of the AWS Glue database where results are written.
+         */
+        databaseArn: pulumi.Input<string>;
+        /**
+         * The ARN of the AWS Glue table.
+         */
+        tableArn: pulumi.Input<string>;
+    }
+
+    export interface CustomLogSourceConfiguration {
+        /**
+         * The configuration for the Glue Crawler for the third-party custom source.
+         */
+        crawlerConfiguration?: pulumi.Input<inputs.securitylake.CustomLogSourceConfigurationCrawlerConfiguration>;
+        /**
+         * The identity of the log provider for the third-party custom source.
+         */
+        providerIdentity?: pulumi.Input<inputs.securitylake.CustomLogSourceConfigurationProviderIdentity>;
+    }
+
+    export interface CustomLogSourceConfigurationCrawlerConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    export interface CustomLogSourceConfigurationProviderIdentity {
+        /**
+         * The external ID used to estalish trust relationship with the AWS identity.
+         */
+        externalId: pulumi.Input<string>;
+        /**
+         * The AWS identity principal.
+         */
+        principal: pulumi.Input<string>;
+    }
+
+    export interface CustomLogSourceProviderDetail {
+        /**
+         * The location of the partition in the Amazon S3 bucket for Security Lake.
+         */
+        location: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
     export interface DataLakeConfiguration {
         /**
          * Provides encryption details of Amazon Security Lake object.
@@ -69352,6 +69527,14 @@ export namespace verifiedaccess {
 
     export interface EndpointSseSpecification {
         customerManagedKeyEnabled?: pulumi.Input<boolean>;
+        kmsKeyArn?: pulumi.Input<string>;
+    }
+
+    export interface GroupSseConfiguration {
+        customerManagedKeyEnabled?: pulumi.Input<boolean>;
+        /**
+         * ARN of the KMS key to use.
+         */
         kmsKeyArn?: pulumi.Input<string>;
     }
 

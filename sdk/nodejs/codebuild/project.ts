@@ -293,7 +293,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly queuedTimeout!: pulumi.Output<number | undefined>;
     /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `projectVisibility` is `PUBLIC_READ`.
      */
     public readonly resourceAccessRole!: pulumi.Output<string | undefined>;
     /**
@@ -499,7 +499,7 @@ export interface ProjectState {
      */
     queuedTimeout?: pulumi.Input<number>;
     /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `projectVisibility` is `PUBLIC_READ`.
      */
     resourceAccessRole?: pulumi.Input<string>;
     /**
@@ -605,7 +605,7 @@ export interface ProjectArgs {
      */
     queuedTimeout?: pulumi.Input<number>;
     /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `projectVisibility` is `PUBLIC_READ`.
      */
     resourceAccessRole?: pulumi.Input<string>;
     /**

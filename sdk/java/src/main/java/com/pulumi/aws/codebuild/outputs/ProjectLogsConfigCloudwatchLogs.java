@@ -22,7 +22,7 @@ public final class ProjectLogsConfigCloudwatchLogs {
      */
     private @Nullable String status;
     /**
-     * @return Stream name of the logs in CloudWatch Logs.
+     * @return Prefix of the log stream name of the logs in CloudWatch Logs.
      * 
      */
     private @Nullable String streamName;
@@ -43,7 +43,7 @@ public final class ProjectLogsConfigCloudwatchLogs {
         return Optional.ofNullable(this.status);
     }
     /**
-     * @return Stream name of the logs in CloudWatch Logs.
+     * @return Prefix of the log stream name of the logs in CloudWatch Logs.
      * 
      */
     public Optional<String> streamName() {

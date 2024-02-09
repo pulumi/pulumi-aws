@@ -209,6 +209,7 @@ import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
 import * as oam from "./oam";
 import * as opensearch from "./opensearch";
+import * as opensearchingest from "./opensearchingest";
 import * as opsworks from "./opsworks";
 import * as organizations from "./organizations";
 import * as outposts from "./outposts";
@@ -413,6 +414,7 @@ export {
     networkmanager,
     oam,
     opensearch,
+    opensearchingest,
     opsworks,
     organizations,
     outposts,

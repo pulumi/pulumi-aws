@@ -1681,7 +1681,7 @@ type ProjectLogsConfigCloudwatchLogs struct {
 	GroupName *string `pulumi:"groupName"`
 	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
 	Status *string `pulumi:"status"`
-	// Stream name of the logs in CloudWatch Logs.
+	// Prefix of the log stream name of the logs in CloudWatch Logs.
 	StreamName *string `pulumi:"streamName"`
 }
 
@@ -1701,7 +1701,7 @@ type ProjectLogsConfigCloudwatchLogsArgs struct {
 	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
 	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Stream name of the logs in CloudWatch Logs.
+	// Prefix of the log stream name of the logs in CloudWatch Logs.
 	StreamName pulumi.StringPtrInput `pulumi:"streamName"`
 }
 
@@ -1792,7 +1792,7 @@ func (o ProjectLogsConfigCloudwatchLogsOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectLogsConfigCloudwatchLogs) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Stream name of the logs in CloudWatch Logs.
+// Prefix of the log stream name of the logs in CloudWatch Logs.
 func (o ProjectLogsConfigCloudwatchLogsOutput) StreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectLogsConfigCloudwatchLogs) *string { return v.StreamName }).(pulumi.StringPtrOutput)
 }
@@ -1841,7 +1841,7 @@ func (o ProjectLogsConfigCloudwatchLogsPtrOutput) Status() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Stream name of the logs in CloudWatch Logs.
+// Prefix of the log stream name of the logs in CloudWatch Logs.
 func (o ProjectLogsConfigCloudwatchLogsPtrOutput) StreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectLogsConfigCloudwatchLogs) *string {
 		if v == nil {

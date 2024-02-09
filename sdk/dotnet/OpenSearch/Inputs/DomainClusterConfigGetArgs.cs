@@ -48,6 +48,9 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
+        /// <summary>
+        /// Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+        /// </summary>
         [Input("multiAzWithStandbyEnabled")]
         public Input<bool>? MultiAzWithStandbyEnabled { get; set; }
 

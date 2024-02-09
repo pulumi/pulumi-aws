@@ -22,6 +22,46 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS VPC Lattice Listener.
  * 
  * ## Example Usage
+ * ### Fixed response action
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.vpclattice.Service;
+ * import com.pulumi.aws.vpclattice.Listener;
+ * import com.pulumi.aws.vpclattice.ListenerArgs;
+ * import com.pulumi.aws.vpclattice.inputs.ListenerDefaultActionArgs;
+ * import com.pulumi.aws.vpclattice.inputs.ListenerDefaultActionFixedResponseArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleService = new Service(&#34;exampleService&#34;);
+ * 
+ *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
+ *             .protocol(&#34;HTTPS&#34;)
+ *             .serviceIdentifier(exampleService.id())
+ *             .defaultAction(ListenerDefaultActionArgs.builder()
+ *                 .fixedResponse(ListenerDefaultActionFixedResponseArgs.builder()
+ *                     .statusCode(404)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Forward action
  * ```java
  * package generated_program;
@@ -49,20 +89,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Service(&#34;test&#34;);
+ *         var exampleService = new Service(&#34;exampleService&#34;);
  * 
  *         var exampleTargetGroup = new TargetGroup(&#34;exampleTargetGroup&#34;, TargetGroupArgs.builder()        
  *             .type(&#34;INSTANCE&#34;)
  *             .config(TargetGroupConfigArgs.builder()
  *                 .port(80)
  *                 .protocol(&#34;HTTP&#34;)
- *                 .vpcIdentifier(aws_vpc.test().id())
+ *                 .vpcIdentifier(aws_vpc.example().id())
  *                 .build())
  *             .build());
  * 
  *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
  *             .protocol(&#34;HTTP&#34;)
- *             .serviceIdentifier(aws_vpclattice_service.example().id())
+ *             .serviceIdentifier(exampleService.id())
  *             .defaultAction(ListenerDefaultActionArgs.builder()
  *                 .forwards(ListenerDefaultActionForwardArgs.builder()
  *                     .targetGroups(ListenerDefaultActionForwardTargetGroupArgs.builder()
@@ -102,14 +142,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Service(&#34;test&#34;);
+ *         var exampleService = new Service(&#34;exampleService&#34;);
  * 
  *         var example1 = new TargetGroup(&#34;example1&#34;, TargetGroupArgs.builder()        
  *             .type(&#34;INSTANCE&#34;)
  *             .config(TargetGroupConfigArgs.builder()
  *                 .port(80)
  *                 .protocol(&#34;HTTP&#34;)
- *                 .vpcIdentifier(aws_vpc.test().id())
+ *                 .vpcIdentifier(aws_vpc.example().id())
  *                 .build())
  *             .build());
  * 
@@ -118,13 +158,13 @@ import javax.annotation.Nullable;
  *             .config(TargetGroupConfigArgs.builder()
  *                 .port(8080)
  *                 .protocol(&#34;HTTP&#34;)
- *                 .vpcIdentifier(aws_vpc.test().id())
+ *                 .vpcIdentifier(aws_vpc.example().id())
  *                 .build())
  *             .build());
  * 
- *         var example = new Listener(&#34;example&#34;, ListenerArgs.builder()        
+ *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
  *             .protocol(&#34;HTTP&#34;)
- *             .serviceIdentifier(aws_vpclattice_service.example().id())
+ *             .serviceIdentifier(exampleService.id())
  *             .defaultAction(ListenerDefaultActionArgs.builder()
  *                 .forwards(ListenerDefaultActionForwardArgs.builder()
  *                     .targetGroups(                    

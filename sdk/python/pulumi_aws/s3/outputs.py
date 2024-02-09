@@ -2171,17 +2171,46 @@ class BucketLoggingV2TargetObjectKeyFormatSimplePrefix(dict):
 
 @pulumi.output_type
 class BucketMetricFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPoint":
+            suggest = "access_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMetricFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMetricFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMetricFilter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 access_point: Optional[str] = None,
                  prefix: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
+        :param str access_point: S3 Access Point ARN for filtering (singular).
         :param str prefix: Object prefix for filtering (singular).
         :param Mapping[str, str] tags: Object tags for filtering (up to 10).
         """
+        if access_point is not None:
+            pulumi.set(__self__, "access_point", access_point)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="accessPoint")
+    def access_point(self) -> Optional[str]:
+        """
+        S3 Access Point ARN for filtering (singular).
+        """
+        return pulumi.get(self, "access_point")
 
     @property
     @pulumi.getter

@@ -97,6 +97,9 @@ namespace Pulumi.Aws.Cognito
         [Output("scopes")]
         public Output<ImmutableArray<Outputs.ResourceServerScope>> Scopes { get; private set; } = null!;
 
+        /// <summary>
+        /// User pool the client belongs to.
+        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
@@ -170,6 +173,9 @@ namespace Pulumi.Aws.Cognito
             set => _scopes = value;
         }
 
+        /// <summary>
+        /// User pool the client belongs to.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
@@ -217,6 +223,9 @@ namespace Pulumi.Aws.Cognito
             set => _scopes = value;
         }
 
+        /// <summary>
+        /// User pool the client belongs to.
+        /// </summary>
         [Input("userPoolId")]
         public Input<string>? UserPoolId { get; set; }
 

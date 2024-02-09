@@ -13,6 +13,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketMetricFilter {
     /**
+     * @return S3 Access Point ARN for filtering (singular).
+     * 
+     */
+    private @Nullable String accessPoint;
+    /**
      * @return Object prefix for filtering (singular).
      * 
      */
@@ -24,6 +29,13 @@ public final class BucketMetricFilter {
     private @Nullable Map<String,String> tags;
 
     private BucketMetricFilter() {}
+    /**
+     * @return S3 Access Point ARN for filtering (singular).
+     * 
+     */
+    public Optional<String> accessPoint() {
+        return Optional.ofNullable(this.accessPoint);
+    }
     /**
      * @return Object prefix for filtering (singular).
      * 
@@ -48,15 +60,23 @@ public final class BucketMetricFilter {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String accessPoint;
         private @Nullable String prefix;
         private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(BucketMetricFilter defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accessPoint = defaults.accessPoint;
     	      this.prefix = defaults.prefix;
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder accessPoint(@Nullable String accessPoint) {
+
+            this.accessPoint = accessPoint;
+            return this;
+        }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
 
@@ -71,6 +91,7 @@ public final class BucketMetricFilter {
         }
         public BucketMetricFilter build() {
             final var _resultValue = new BucketMetricFilter();
+            _resultValue.accessPoint = accessPoint;
             _resultValue.prefix = prefix;
             _resultValue.tags = tags;
             return _resultValue;

@@ -2091,16 +2091,32 @@ class BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs:
 @pulumi.input_type
 class BucketMetricFilterArgs:
     def __init__(__self__, *,
+                 access_point: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
+        :param pulumi.Input[str] access_point: S3 Access Point ARN for filtering (singular).
         :param pulumi.Input[str] prefix: Object prefix for filtering (singular).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Object tags for filtering (up to 10).
         """
+        if access_point is not None:
+            pulumi.set(__self__, "access_point", access_point)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="accessPoint")
+    def access_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        S3 Access Point ARN for filtering (singular).
+        """
+        return pulumi.get(self, "access_point")
+
+    @access_point.setter
+    def access_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_point", value)
 
     @property
     @pulumi.getter

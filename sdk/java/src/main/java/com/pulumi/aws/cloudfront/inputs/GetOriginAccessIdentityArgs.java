@@ -15,14 +15,14 @@ public final class GetOriginAccessIdentityArgs extends com.pulumi.resources.Invo
     public static final GetOriginAccessIdentityArgs Empty = new GetOriginAccessIdentityArgs();
 
     /**
-     * The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+     * The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+     * @return The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
      * 
      */
     public Output<String> id() {
@@ -54,7 +54,7 @@ public final class GetOriginAccessIdentityArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param id The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+         * @param id The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GetOriginAccessIdentityArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param id The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+         * @param id The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
          * 
          * @return builder
          * 

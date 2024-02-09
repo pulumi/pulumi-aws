@@ -39,7 +39,7 @@ class FlowLogArgs:
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
+        :param pulumi.Input[str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         :param pulumi.Input[str] log_group_name: **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
@@ -162,7 +162,7 @@ class FlowLogArgs:
     @pulumi.getter(name="logFormat")
     def log_format(self) -> Optional[pulumi.Input[str]]:
         """
-        The fields to include in the flow log record, in the order in which they should appear.
+        The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         """
         return pulumi.get(self, "log_format")
 
@@ -302,7 +302,7 @@ class _FlowLogState:
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
+        :param pulumi.Input[str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         :param pulumi.Input[str] log_group_name: **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
@@ -445,7 +445,7 @@ class _FlowLogState:
     @pulumi.getter(name="logFormat")
     def log_format(self) -> Optional[pulumi.Input[str]]:
         """
-        The fields to include in the flow log record, in the order in which they should appear.
+        The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         """
         return pulumi.get(self, "log_format")
 
@@ -680,7 +680,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
+        :param pulumi.Input[str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         :param pulumi.Input[str] log_group_name: **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
@@ -878,7 +878,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
+        :param pulumi.Input[str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         :param pulumi.Input[str] log_group_name: **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
@@ -975,7 +975,7 @@ class FlowLog(pulumi.CustomResource):
     @pulumi.getter(name="logFormat")
     def log_format(self) -> pulumi.Output[str]:
         """
-        The fields to include in the flow log record, in the order in which they should appear.
+        The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         """
         return pulumi.get(self, "log_format")
 

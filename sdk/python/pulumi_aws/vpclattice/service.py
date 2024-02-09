@@ -119,11 +119,11 @@ class _ServiceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Service resources.
-        :param pulumi.Input[str] arn: ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        :param pulumi.Input[str] arn: ARN of the service.
         :param pulumi.Input[str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[str] custom_domain_name: Custom domain name of the service.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceDnsEntryArgs']]] dns_entries: Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDnsEntryArgs']]] dns_entries: DNS name of the service.
         :param pulumi.Input[str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
                
                The following arguments are optional:
@@ -157,7 +157,7 @@ class _ServiceState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        ARN of the service.
         """
         return pulumi.get(self, "arn")
 
@@ -205,7 +205,7 @@ class _ServiceState:
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDnsEntryArgs']]]]:
         """
-        Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        DNS name of the service.
         """
         return pulumi.get(self, "dns_entries")
 
@@ -406,11 +406,11 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        :param pulumi.Input[str] arn: ARN of the service.
         :param pulumi.Input[str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[str] custom_domain_name: Custom domain name of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDnsEntryArgs']]]] dns_entries: Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDnsEntryArgs']]]] dns_entries: DNS name of the service.
         :param pulumi.Input[str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
                
                The following arguments are optional:
@@ -437,7 +437,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        ARN of the service. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        ARN of the service.
         """
         return pulumi.get(self, "arn")
 
@@ -469,7 +469,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> pulumi.Output[Sequence['outputs.ServiceDnsEntry']]:
         """
-        Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        DNS name of the service.
         """
         return pulumi.get(self, "dns_entries")
 

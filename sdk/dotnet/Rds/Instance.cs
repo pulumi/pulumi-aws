@@ -41,6 +41,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// Low-downtime updates are only available for DB Instances using MySQL and MariaDB,
     /// as other engines are not supported by RDS Blue/Green deployments.
+    /// They cannot be used with DB Instances with replicas.
     /// 
     /// Backups must be enabled to use low-downtime updates.
     /// 
@@ -381,19 +382,43 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Directory Service Active Directory domain to create the instance in.
+        /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
         [Output("domain")]
         public Output<string?> Domain { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the IAM role to be used when making API calls to the Directory Service.
+        /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Output("domainAuthSecretArn")]
+        public Output<string?> DomainAuthSecretArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Output("domainDnsIps")]
+        public Output<ImmutableArray<string>> DomainDnsIps { get; private set; } = null!;
+
+        /// <summary>
+        /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Output("domainFqdn")]
+        public Output<string> DomainFqdn { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
         [Output("domainIamRoleName")]
         public Output<string?> DomainIamRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+        /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Output("domainOu")]
+        public Output<string?> DomainOu { get; private set; } = null!;
+
+        /// <summary>
+        /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         /// </summary>
         [Output("enabledCloudwatchLogsExports")]
         public Output<ImmutableArray<string>> EnabledCloudwatchLogsExports { get; private set; } = null!;
@@ -939,22 +964,52 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// The ID of the Directory Service Active Directory domain to create the instance in.
+        /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The name of the IAM role to be used when making API calls to the Directory Service.
+        /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainAuthSecretArn")]
+        public Input<string>? DomainAuthSecretArn { get; set; }
+
+        [Input("domainDnsIps")]
+        private InputList<string>? _domainDnsIps;
+
+        /// <summary>
+        /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        public InputList<string> DomainDnsIps
+        {
+            get => _domainDnsIps ?? (_domainDnsIps = new InputList<string>());
+            set => _domainDnsIps = value;
+        }
+
+        /// <summary>
+        /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainFqdn")]
+        public Input<string>? DomainFqdn { get; set; }
+
+        /// <summary>
+        /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
         [Input("domainIamRoleName")]
         public Input<string>? DomainIamRoleName { get; set; }
+
+        /// <summary>
+        /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainOu")]
+        public Input<string>? DomainOu { get; set; }
 
         [Input("enabledCloudwatchLogsExports")]
         private InputList<string>? _enabledCloudwatchLogsExports;
 
         /// <summary>
-        /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+        /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {
@@ -1437,22 +1492,52 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// The ID of the Directory Service Active Directory domain to create the instance in.
+        /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The name of the IAM role to be used when making API calls to the Directory Service.
+        /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainAuthSecretArn")]
+        public Input<string>? DomainAuthSecretArn { get; set; }
+
+        [Input("domainDnsIps")]
+        private InputList<string>? _domainDnsIps;
+
+        /// <summary>
+        /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        public InputList<string> DomainDnsIps
+        {
+            get => _domainDnsIps ?? (_domainDnsIps = new InputList<string>());
+            set => _domainDnsIps = value;
+        }
+
+        /// <summary>
+        /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainFqdn")]
+        public Input<string>? DomainFqdn { get; set; }
+
+        /// <summary>
+        /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
         [Input("domainIamRoleName")]
         public Input<string>? DomainIamRoleName { get; set; }
+
+        /// <summary>
+        /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainOu")]
+        public Input<string>? DomainOu { get; set; }
 
         [Input("enabledCloudwatchLogsExports")]
         private InputList<string>? _enabledCloudwatchLogsExports;
 
         /// <summary>
-        /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+        /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         /// </summary>
         public InputList<string> EnabledCloudwatchLogsExports
         {

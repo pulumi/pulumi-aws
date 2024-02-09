@@ -751,8 +751,9 @@ type DomainClusterConfig struct {
 	// Number of instances in the cluster.
 	InstanceCount *int `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
-	InstanceType              *string `pulumi:"instanceType"`
-	MultiAzWithStandbyEnabled *bool   `pulumi:"multiAzWithStandbyEnabled"`
+	InstanceType *string `pulumi:"instanceType"`
+	// Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+	MultiAzWithStandbyEnabled *bool `pulumi:"multiAzWithStandbyEnabled"`
 	// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
 	WarmCount *int `pulumi:"warmCount"`
 	// Whether to enable warm storage.
@@ -788,8 +789,9 @@ type DomainClusterConfigArgs struct {
 	// Number of instances in the cluster.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
-	InstanceType              pulumi.StringPtrInput `pulumi:"instanceType"`
-	MultiAzWithStandbyEnabled pulumi.BoolPtrInput   `pulumi:"multiAzWithStandbyEnabled"`
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+	MultiAzWithStandbyEnabled pulumi.BoolPtrInput `pulumi:"multiAzWithStandbyEnabled"`
 	// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
 	WarmCount pulumi.IntPtrInput `pulumi:"warmCount"`
 	// Whether to enable warm storage.
@@ -909,6 +911,7 @@ func (o DomainClusterConfigOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
 func (o DomainClusterConfigOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.MultiAzWithStandbyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1022,6 +1025,7 @@ func (o DomainClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
 func (o DomainClusterConfigPtrOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *bool {
 		if v == nil {
@@ -1558,7 +1562,7 @@ type DomainDomainEndpointOptions struct {
 	CustomEndpointEnabled *bool `pulumi:"customEndpointEnabled"`
 	// Whether or not to require HTTPS. Defaults to `true`.
 	EnforceHttps *bool `pulumi:"enforceHttps"`
-	// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+	// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
 	TlsSecurityPolicy *string `pulumi:"tlsSecurityPolicy"`
 }
 
@@ -1582,7 +1586,7 @@ type DomainDomainEndpointOptionsArgs struct {
 	CustomEndpointEnabled pulumi.BoolPtrInput `pulumi:"customEndpointEnabled"`
 	// Whether or not to require HTTPS. Defaults to `true`.
 	EnforceHttps pulumi.BoolPtrInput `pulumi:"enforceHttps"`
-	// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+	// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
 	TlsSecurityPolicy pulumi.StringPtrInput `pulumi:"tlsSecurityPolicy"`
 }
 
@@ -1683,7 +1687,7 @@ func (o DomainDomainEndpointOptionsOutput) EnforceHttps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainDomainEndpointOptions) *bool { return v.EnforceHttps }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
 func (o DomainDomainEndpointOptionsOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.TlsSecurityPolicy }).(pulumi.StringPtrOutput)
 }
@@ -1752,7 +1756,7 @@ func (o DomainDomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
 func (o DomainDomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDomainEndpointOptions) *string {
 		if v == nil {
@@ -5673,8 +5677,9 @@ type GetDomainClusterConfig struct {
 	// Number of instances in the cluster.
 	InstanceCount int `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
-	InstanceType              string `pulumi:"instanceType"`
-	MultiAzWithStandbyEnabled bool   `pulumi:"multiAzWithStandbyEnabled"`
+	InstanceType string `pulumi:"instanceType"`
+	// Whether a multi-AZ domain is turned on with a standby AZ.
+	MultiAzWithStandbyEnabled bool `pulumi:"multiAzWithStandbyEnabled"`
 	// Number of warm nodes in the cluster.
 	WarmCount int `pulumi:"warmCount"`
 	// Warm storage is enabled.
@@ -5710,8 +5715,9 @@ type GetDomainClusterConfigArgs struct {
 	// Number of instances in the cluster.
 	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
-	InstanceType              pulumi.StringInput `pulumi:"instanceType"`
-	MultiAzWithStandbyEnabled pulumi.BoolInput   `pulumi:"multiAzWithStandbyEnabled"`
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// Whether a multi-AZ domain is turned on with a standby AZ.
+	MultiAzWithStandbyEnabled pulumi.BoolInput `pulumi:"multiAzWithStandbyEnabled"`
 	// Number of warm nodes in the cluster.
 	WarmCount pulumi.IntInput `pulumi:"warmCount"`
 	// Warm storage is enabled.
@@ -5805,6 +5811,7 @@ func (o GetDomainClusterConfigOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainClusterConfig) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+// Whether a multi-AZ domain is turned on with a standby AZ.
 func (o GetDomainClusterConfigOutput) MultiAzWithStandbyEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainClusterConfig) bool { return v.MultiAzWithStandbyEnabled }).(pulumi.BoolOutput)
 }

@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .aws_log_source import *
+from .custom_log_source import *
 from .data_lake import *
 from ._inputs import *
 from . import outputs

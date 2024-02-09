@@ -424,7 +424,7 @@ class V2modelsSlot(pulumi.CustomResource):
             bot_id=aws_lexv2models_bot["example"]["id"],
             bot_version=aws_lexv2models_bot_version["example"]["bot_version"],
             intent_id=aws_lexv2models_intent["example"]["id"],
-            locale_id=aws_lexv2models_locale["example"]["locale_id"])
+            locale_id=aws_lexv2models_bot_locale["example"]["locale_id"])
         ```
 
         ## Import
@@ -470,7 +470,7 @@ class V2modelsSlot(pulumi.CustomResource):
             bot_id=aws_lexv2models_bot["example"]["id"],
             bot_version=aws_lexv2models_bot_version["example"]["bot_version"],
             intent_id=aws_lexv2models_intent["example"]["id"],
-            locale_id=aws_lexv2models_locale["example"]["locale_id"])
+            locale_id=aws_lexv2models_bot_locale["example"]["locale_id"])
         ```
 
         ## Import

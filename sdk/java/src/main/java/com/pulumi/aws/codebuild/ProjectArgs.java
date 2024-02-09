@@ -242,14 +242,14 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds.
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
      * 
      */
     @Import(name="resourceAccessRole")
     private @Nullable Output<String> resourceAccessRole;
 
     /**
-     * @return The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds.
+     * @return The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
      * 
      */
     public Optional<Output<String>> resourceAccessRole() {
@@ -731,7 +731,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceAccessRole The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds.
+         * @param resourceAccessRole The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
          * 
          * @return builder
          * 
@@ -742,7 +742,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceAccessRole The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds.
+         * @param resourceAccessRole The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
          * 
          * @return builder
          * 

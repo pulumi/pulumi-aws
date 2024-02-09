@@ -267,6 +267,7 @@ class Endpoints(dict):
                  batch: Optional[str] = None,
                  beanstalk: Optional[str] = None,
                  bedrock: Optional[str] = None,
+                 bedrockagent: Optional[str] = None,
                  budgets: Optional[str] = None,
                  ce: Optional[str] = None,
                  chime: Optional[str] = None,
@@ -538,6 +539,7 @@ class Endpoints(dict):
         :param str batch: Use this to override the default service endpoint URL
         :param str beanstalk: Use this to override the default service endpoint URL
         :param str bedrock: Use this to override the default service endpoint URL
+        :param str bedrockagent: Use this to override the default service endpoint URL
         :param str budgets: Use this to override the default service endpoint URL
         :param str ce: Use this to override the default service endpoint URL
         :param str chime: Use this to override the default service endpoint URL
@@ -839,6 +841,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "beanstalk", beanstalk)
         if bedrock is not None:
             pulumi.set(__self__, "bedrock", bedrock)
+        if bedrockagent is not None:
+            pulumi.set(__self__, "bedrockagent", bedrockagent)
         if budgets is not None:
             pulumi.set(__self__, "budgets", budgets)
         if ce is not None:
@@ -1559,6 +1563,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "bedrock")
+
+    @property
+    @pulumi.getter
+    def bedrockagent(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "bedrockagent")
 
     @property
     @pulumi.getter

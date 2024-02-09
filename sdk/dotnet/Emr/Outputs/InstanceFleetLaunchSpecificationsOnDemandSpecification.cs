@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Emr.Outputs
     public sealed class InstanceFleetLaunchSpecificationsOnDemandSpecification
     {
         /// <summary>
-        /// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        /// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
         /// </summary>
         public readonly string AllocationStrategy;
 

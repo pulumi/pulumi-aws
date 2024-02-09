@@ -19,14 +19,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     public static final ServiceState Empty = new ServiceState();
 
     /**
-     * ARN of the service. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * ARN of the service.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the service. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * @return ARN of the service.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -79,14 +79,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Concise description. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * DNS name of the service.
      * 
      */
     @Import(name="dnsEntries")
     private @Nullable Output<List<ServiceDnsEntryArgs>> dnsEntries;
 
     /**
-     * @return Concise description. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * @return DNS name of the service.
      * 
      */
     public Optional<Output<List<ServiceDnsEntryArgs>>> dnsEntries() {
@@ -198,7 +198,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the service. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+         * @param arn ARN of the service.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the service. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+         * @param arn ARN of the service.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsEntries Concise description. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+         * @param dnsEntries DNS name of the service.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsEntries Concise description. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+         * @param dnsEntries DNS name of the service.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsEntries Concise description. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+         * @param dnsEntries DNS name of the service.
          * 
          * @return builder
          * 

@@ -375,14 +375,14 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logDestinationType);
     }
     /**
-     * The fields to include in the flow log record, in the order in which they should appear.
+     * The fields to include in the flow log record. Accepted format example: `&#34;$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}&#34;`.
      * 
      */
     @Export(name="logFormat", refs={String.class}, tree="[0]")
     private Output<String> logFormat;
 
     /**
-     * @return The fields to include in the flow log record, in the order in which they should appear.
+     * @return The fields to include in the flow log record. Accepted format example: `&#34;$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}&#34;`.
      * 
      */
     public Output<String> logFormat() {
