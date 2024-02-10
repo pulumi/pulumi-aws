@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Wed, 7 Feb 2024 12:08:03 -0500
-Subject: [PATCH 39/40] Restore legacy bucket
+Subject: [PATCH 39/41] Restore legacy bucket
 
 
 diff --git a/go.mod b/go.mod
