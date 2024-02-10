@@ -145,7 +145,7 @@ namespace Pulumi.Aws
         [Input("accessKey")]
         public Input<string>? AccessKey { get; set; }
 
-        [Input("allowedAccountIds", json: true)]
+        [Input("allowedAccountIds")]
         private InputList<string>? _allowedAccountIds;
         public InputList<string> AllowedAccountIds
         {
@@ -153,10 +153,10 @@ namespace Pulumi.Aws
             set => _allowedAccountIds = value;
         }
 
-        [Input("assumeRole", json: true)]
+        [Input("assumeRole")]
         public Input<Inputs.ProviderAssumeRoleArgs>? AssumeRole { get; set; }
 
-        [Input("assumeRoleWithWebIdentity", json: true)]
+        [Input("assumeRoleWithWebIdentity")]
         public Input<Inputs.ProviderAssumeRoleWithWebIdentityArgs>? AssumeRoleWithWebIdentity { get; set; }
 
         /// <summary>
@@ -169,7 +169,7 @@ namespace Pulumi.Aws
         /// <summary>
         /// Configuration block with settings to default resource tags across all resources.
         /// </summary>
-        [Input("defaultTags", json: true)]
+        [Input("defaultTags")]
         public Input<Inputs.ProviderDefaultTagsArgs>? DefaultTags { get; set; }
 
         /// <summary>
@@ -186,7 +186,7 @@ namespace Pulumi.Aws
         [Input("ec2MetadataServiceEndpointMode")]
         public Input<string>? Ec2MetadataServiceEndpointMode { get; set; }
 
-        [Input("endpoints", json: true)]
+        [Input("endpoints")]
         private InputList<Inputs.ProviderEndpointArgs>? _endpoints;
         public InputList<Inputs.ProviderEndpointArgs> Endpoints
         {
@@ -194,7 +194,7 @@ namespace Pulumi.Aws
             set => _endpoints = value;
         }
 
-        [Input("forbiddenAccountIds", json: true)]
+        [Input("forbiddenAccountIds")]
         private InputList<string>? _forbiddenAccountIds;
         public InputList<string> ForbiddenAccountIds
         {
@@ -219,19 +219,19 @@ namespace Pulumi.Aws
         /// <summary>
         /// Configuration block with settings to ignore resource tags across all resources.
         /// </summary>
-        [Input("ignoreTags", json: true)]
+        [Input("ignoreTags")]
         public Input<Inputs.ProviderIgnoreTagsArgs>? IgnoreTags { get; set; }
 
         /// <summary>
         /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
         /// </summary>
-        [Input("insecure", json: true)]
+        [Input("insecure")]
         public Input<bool>? Insecure { get; set; }
 
         /// <summary>
         /// The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         /// </summary>
-        [Input("maxRetries", json: true)]
+        [Input("maxRetries")]
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
@@ -273,7 +273,7 @@ namespace Pulumi.Aws
         /// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
         /// Specific to the Amazon S3 service.
         /// </summary>
-        [Input("s3UsePathStyle", json: true)]
+        [Input("s3UsePathStyle")]
         public Input<bool>? S3UsePathStyle { get; set; }
 
         /// <summary>
@@ -282,7 +282,7 @@ namespace Pulumi.Aws
         [Input("secretKey")]
         public Input<string>? SecretKey { get; set; }
 
-        [Input("sharedConfigFiles", json: true)]
+        [Input("sharedConfigFiles")]
         private InputList<string>? _sharedConfigFiles;
 
         /// <summary>
@@ -294,7 +294,7 @@ namespace Pulumi.Aws
             set => _sharedConfigFiles = value;
         }
 
-        [Input("sharedCredentialsFiles", json: true)]
+        [Input("sharedCredentialsFiles")]
         private InputList<string>? _sharedCredentialsFiles;
 
         /// <summary>
@@ -310,26 +310,26 @@ namespace Pulumi.Aws
         /// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
         /// available/implemented.
         /// </summary>
-        [Input("skipCredentialsValidation", json: true)]
+        [Input("skipCredentialsValidation")]
         public Input<bool>? SkipCredentialsValidation { get; set; }
 
         /// <summary>
         /// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
         /// </summary>
-        [Input("skipMetadataApiCheck", json: true)]
+        [Input("skipMetadataApiCheck")]
         public Input<bool>? SkipMetadataApiCheck { get; set; }
 
         /// <summary>
         /// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
         /// not public (yet).
         /// </summary>
-        [Input("skipRegionValidation", json: true)]
+        [Input("skipRegionValidation")]
         public Input<bool>? SkipRegionValidation { get; set; }
 
         /// <summary>
         /// Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
         /// </summary>
-        [Input("skipRequestingAccountId", json: true)]
+        [Input("skipRequestingAccountId")]
         public Input<bool>? SkipRequestingAccountId { get; set; }
 
         /// <summary>
@@ -347,13 +347,13 @@ namespace Pulumi.Aws
         /// <summary>
         /// Resolve an endpoint with DualStack capability
         /// </summary>
-        [Input("useDualstackEndpoint", json: true)]
+        [Input("useDualstackEndpoint")]
         public Input<bool>? UseDualstackEndpoint { get; set; }
 
         /// <summary>
         /// Resolve an endpoint with FIPS capability
         /// </summary>
-        [Input("useFipsEndpoint", json: true)]
+        [Input("useFipsEndpoint")]
         public Input<bool>? UseFipsEndpoint { get; set; }
 
         public ProviderArgs()
