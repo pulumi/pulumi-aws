@@ -1,11 +1,11 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Venelin <venelin@pulumi.com>
-Date: Thu, 1 Feb 2024 20:07:48 +0000
-Subject: [PATCH 41/41] allow lambdas with source_code_hash
+Date: Mon, 12 Feb 2024 14:02:14 +0000
+Subject: [PATCH 42/42] allow lambdas with source_code_hash
 
 
 diff --git a/internal/service/lambda/function.go b/internal/service/lambda/function.go
-index f7a47a0df7..2250da925a 100644
+index ba93ca7987..b637a47437 100644
 --- a/internal/service/lambda/function.go
 +++ b/internal/service/lambda/function.go
 @@ -169,7 +169,7 @@ func ResourceFunction() *schema.Resource {
@@ -26,7 +26,7 @@ index f7a47a0df7..2250da925a 100644
  			},
  			"invoke_arn": {
  				Type:     schema.TypeString,
-@@ -324,7 +324,7 @@ func ResourceFunction() *schema.Resource {
+@@ -326,7 +326,7 @@ func ResourceFunction() *schema.Resource {
  			"s3_bucket": {
  				Type:         schema.TypeString,
  				Optional:     true,
@@ -35,3 +35,11 @@ index f7a47a0df7..2250da925a 100644
  				RequiredWith: []string{"s3_key"},
  			},
  			"s3_key": {
+@@ -375,6 +375,7 @@ func ResourceFunction() *schema.Resource {
+ 				Optional:         true,
+ 				Computed:         true,
+ 				DiffSuppressFunc: verify.SuppressMissingOptionalConfigurationBlock,
++				ExactlyOneOf: []string{"filename", "image_uri", "s3_bucket", "source_code_hash"},
+ 			},
+ 			"source_code_size": {
+ 				Type:     schema.TypeInt,
