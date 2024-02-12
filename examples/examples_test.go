@@ -12,8 +12,8 @@ import (
 	"testing"
 	"time"
 
+	testutils "github.com/pulumi/providertest/replay"
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
-	testutils "github.com/pulumi/pulumi-terraform-bridge/testing/x"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -584,6 +584,594 @@ func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
   ]
 	`
 	replay(t, repro)
+}
+
+func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
+  replay(t, `
+  [{
+    "method": "/pulumirpc.ResourceProvider/Check",
+    "request": {
+        "urn": "urn:pulumi:imported::repro_lambda::aws:lambda/function:Function::mylambda",
+        "olds": {
+            "__defaults": [],
+            "architectures": [
+                "x86_64"
+            ],
+            "environment": {
+                "__defaults": [],
+                "variables": {
+                    "__defaults": [],
+                    "foo": "bar"
+                }
+            },
+            "ephemeralStorage": {
+                "__defaults": [],
+                "size": 512
+            },
+            "handler": "index.test",
+            "loggingConfig": {
+                "__defaults": [],
+                "logFormat": "Text",
+                "logGroup": "/aws/lambda/testLambda-83906f2"
+            },
+            "name": "testLambda-83906f2",
+            "packageType": "Zip",
+            "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
+            "runtime": "nodejs18.x",
+            "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+            "tracingConfig": {
+                "__defaults": [],
+                "mode": "PassThrough"
+            }
+        },
+        "news": {
+            "__defaults": [],
+            "architectures": [
+                "x86_64"
+            ],
+            "environment": {
+                "__defaults": [],
+                "variables": {
+                    "__defaults": [],
+                    "foo": "bar"
+                }
+            },
+            "ephemeralStorage": {
+                "__defaults": [],
+                "size": 512
+            },
+            "handler": "index.test",
+            "loggingConfig": {
+                "__defaults": [],
+                "logFormat": "Text",
+                "logGroup": "/aws/lambda/testLambda-83906f2"
+            },
+            "name": "testLambda-83906f2",
+            "packageType": "Zip",
+            "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
+            "runtime": "nodejs18.x",
+            "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+            "tracingConfig": {
+                "__defaults": [],
+                "mode": "PassThrough"
+            }
+        },
+        "randomSeed": "MpcMRlpQV7R8mD8Nmx9KpLPPIyFTHsB8HA4kxXdWTfo="
+    },
+    "response": {
+        "inputs": {
+            "__defaults": [
+                "memorySize",
+                "publish",
+                "reservedConcurrentExecutions",
+                "skipDestroy",
+                "timeout"
+            ],
+            "architectures": [
+                "x86_64"
+            ],
+            "environment": {
+                "__defaults": [],
+                "variables": {
+                    "__defaults": [],
+                    "foo": "bar"
+                }
+            },
+            "ephemeralStorage": {
+                "__defaults": [],
+                "size": 512
+            },
+            "handler": "index.test",
+            "loggingConfig": {
+                "__defaults": [
+                    "applicationLogLevel",
+                    "systemLogLevel"
+                ],
+                "applicationLogLevel": "",
+                "logFormat": "Text",
+                "logGroup": "/aws/lambda/testLambda-83906f2",
+                "systemLogLevel": ""
+            },
+            "memorySize": 128,
+            "name": "testLambda-83906f2",
+            "packageType": "Zip",
+            "publish": false,
+            "reservedConcurrentExecutions": -1,
+            "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
+            "runtime": "nodejs18.x",
+            "skipDestroy": false,
+            "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+            "timeout": 3,
+            "tracingConfig": {
+                "__defaults": [],
+                "mode": "PassThrough"
+            }
+        }
+    },
+    "metadata": {
+        "kind": "resource",
+        "mode": "client",
+        "name": "aws"
+    }
+}]`)
+}
+
+func TestSourceCodeHashUpdatedLambdaFails(t *testing.T) {
+  // Update requires a Configure, otherwise the AWS provider segfaults.
+
+  // Error looks like this but contains a request ID so we can't match it.
+  // "rpc error: code = Unknown desc = updating urn:pulumi:imported::repro_lambda::aws:lambda/function:Function::mylambda: 1 error occurred:\n\t* updating Lambda Function (testLambda-83906f2) code: operation error Lambda: UpdateFunctionCode, https response error StatusCode: 400, RequestID: 0f21440c-eafb-40c9-a018-6d63b857fe28, api error ValidationException: 2 validation errors detected: Value '' at 's3Key' failed to satisfy constraint: Member must have length greater than or equal to 1; Value '' at 's3Bucket' failed to satisfy constraint: Member must have length greater than or equal to 3\n\n"
+  replay(t, `[
+    {
+      "method": "/pulumirpc.ResourceProvider/Configure",
+      "request": {
+          "variables": {
+              "aws:config:region": "us-west-2",
+              "aws:config:skipCredentialsValidation": "false",
+              "aws:config:skipMetadataApiCheck": "true",
+              "aws:config:skipRegionValidation": "true"
+          },
+          "args": {
+              "region": "us-west-2",
+              "skipCredentialsValidation": "false",
+              "skipMetadataApiCheck": "true",
+              "skipRegionValidation": "true",
+              "version": "6.19.0"
+          },
+          "acceptSecrets": true,
+          "acceptResources": true,
+          "sendsOldInputs": true,
+          "sendsOldInputsToDelete": true
+      },
+      "response": {
+          "supportsPreview": true
+      },
+      "metadata": {
+          "kind": "resource",
+          "mode": "client",
+          "name": "aws"
+      }
+  },
+  {
+    "method": "/pulumirpc.ResourceProvider/Update",
+    "request": {
+        "id": "testLambda-83906f2",
+        "urn": "urn:pulumi:imported::repro_lambda::aws:lambda/function:Function::mylambda",
+        "olds": {
+            "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":600000000000,\"update\":600000000000}}",
+            "architectures": [
+                "x86_64"
+            ],
+            "arn": "arn:aws:lambda:us-west-2:616138583583:function:testLambda-83906f2",
+            "codeSigningConfigArn": "",
+            "deadLetterConfig": null,
+            "description": "",
+            "environment": {
+                "variables": {
+                    "foo": "bar"
+                }
+            },
+            "ephemeralStorage": {
+                "size": 512
+            },
+            "fileSystemConfig": null,
+            "handler": "index.test",
+            "id": "testLambda-83906f2",
+            "imageConfig": null,
+            "imageUri": "",
+            "invokeArn": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:616138583583:function:testLambda-83906f2/invocations",
+            "kmsKeyArn": "",
+            "lastModified": "*",
+            "layers": [],
+            "loggingConfig": {
+                "applicationLogLevel": "",
+                "logFormat": "Text",
+                "logGroup": "/aws/lambda/testLambda-83906f2",
+                "systemLogLevel": ""
+            },
+            "memorySize": 128,
+            "name": "testLambda-83906f2",
+            "packageType": "Zip",
+            "qualifiedArn": "arn:aws:lambda:us-west-2:616138583583:function:testLambda-83906f2:$LATEST",
+            "qualifiedInvokeArn": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:616138583583:function:testLambda-83906f2:$LATEST/invocations",
+            "reservedConcurrentExecutions": -1,
+            "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
+            "runtime": "nodejs18.x",
+            "signingJobArn": "",
+            "signingProfileVersionArn": "",
+            "skipDestroy": false,
+            "snapStart": null,
+            "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+            "sourceCodeSize": 156,
+            "tags": {},
+            "tagsAll": {},
+            "timeout": 3,
+            "tracingConfig": {
+                "mode": "PassThrough"
+            },
+            "version": "$LATEST",
+            "vpcConfig": null
+        },
+        "news": {
+            "__defaults": [
+                "memorySize",
+                "publish",
+                "reservedConcurrentExecutions",
+                "skipDestroy",
+                "timeout"
+            ],
+            "architectures": [
+                "x86_64"
+            ],
+            "environment": {
+                "__defaults": [],
+                "variables": {
+                    "foo": "bar"
+                }
+            },
+            "ephemeralStorage": {
+                "__defaults": [],
+                "size": 512
+            },
+            "handler": "index.test",
+            "loggingConfig": {
+                "__defaults": [
+                    "applicationLogLevel",
+                    "systemLogLevel"
+                ],
+                "applicationLogLevel": "",
+                "logFormat": "Text",
+                "logGroup": "/aws/lambda/testLambda-83906f2",
+                "systemLogLevel": ""
+            },
+            "memorySize": 128,
+            "name": "testLambda-83906f2",
+            "packageType": "Zip",
+            "publish": false,
+            "reservedConcurrentExecutions": -1,
+            "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
+            "runtime": "nodejs18.x",
+            "skipDestroy": false,
+            "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRt=",
+            "timeout": 3,
+            "tracingConfig": {
+                "__defaults": [],
+                "mode": "PassThrough"
+            }
+        },
+        "oldInputs": {
+            "__defaults": [
+                "memorySize",
+                "publish",
+                "reservedConcurrentExecutions",
+                "skipDestroy",
+                "timeout"
+            ],
+            "architectures": [
+                "x86_64"
+            ],
+            "environment": {
+                "__defaults": [],
+                "variables": {
+                    "foo": "bar"
+                }
+            },
+            "ephemeralStorage": {
+                "__defaults": [],
+                "size": 512
+            },
+            "handler": "index.test",
+            "loggingConfig": {
+                "__defaults": [
+                    "applicationLogLevel",
+                    "systemLogLevel"
+                ],
+                "applicationLogLevel": "",
+                "logFormat": "Text",
+                "logGroup": "/aws/lambda/testLambda-83906f2",
+                "systemLogLevel": ""
+            },
+            "memorySize": 128,
+            "name": "testLambda-83906f2",
+            "packageType": "Zip",
+            "publish": false,
+            "reservedConcurrentExecutions": -1,
+            "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
+            "runtime": "nodejs18.x",
+            "skipDestroy": false,
+            "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+            "timeout": 3,
+            "tracingConfig": {
+                "__defaults": [],
+                "mode": "PassThrough"
+            }
+        }
+    },
+    "errors": [
+        "*"
+    ],
+    "metadata": {
+        "kind": "resource",
+        "mode": "client",
+        "name": "aws"
+    }
+}]`) 
+  }
+
+
+func TestSourceCodeHashImportedLambdaOtherPropertyUpdatesCleanly(t *testing.T) {
+  replay(t, `[
+    {
+      "method": "/pulumirpc.ResourceProvider/Configure",
+      "request": {
+          "variables": {
+              "aws:config:region": "us-west-2",
+              "aws:config:skipCredentialsValidation": "false",
+              "aws:config:skipMetadataApiCheck": "true",
+              "aws:config:skipRegionValidation": "true"
+          },
+          "args": {
+              "region": "us-west-2",
+              "skipCredentialsValidation": "false",
+              "skipMetadataApiCheck": "true",
+              "skipRegionValidation": "true",
+              "version": "6.19.0"
+          },
+          "acceptSecrets": true,
+          "acceptResources": true,
+          "sendsOldInputs": true,
+          "sendsOldInputsToDelete": true
+      },
+      "response": {
+          "supportsPreview": true
+      },
+      "metadata": {
+          "kind": "resource",
+          "mode": "client",
+          "name": "aws"
+      }
+    },
+    {
+      "method": "/pulumirpc.ResourceProvider/Update",
+      "request": {
+          "id": "testLambda-75be8be",
+          "urn": "urn:pulumi:imported::repro_lambda::aws:lambda/function:Function::mylambda",
+          "olds": {
+              "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":600000000000,\"update\":600000000000}}",
+              "architectures": [
+                  "x86_64"
+              ],
+              "arn": "arn:aws:lambda:us-west-2:616138583583:function:testLambda-75be8be",
+              "codeSigningConfigArn": "",
+              "deadLetterConfig": null,
+              "description": "",
+              "environment": {
+                  "variables": {
+                      "foo": "bar"
+                  }
+              },
+              "ephemeralStorage": {
+                  "size": 512
+              },
+              "fileSystemConfig": null,
+              "handler": "index.test",
+              "id": "testLambda-75be8be",
+              "imageConfig": null,
+              "imageUri": "",
+              "invokeArn": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:616138583583:function:testLambda-75be8be/invocations",
+              "kmsKeyArn": "",
+              "lastModified": "*",
+              "layers": [],
+              "loggingConfig": {
+                  "applicationLogLevel": "",
+                  "logFormat": "Text",
+                  "logGroup": "/aws/lambda/testLambda-75be8be",
+                  "systemLogLevel": ""
+              },
+              "memorySize": 128,
+              "name": "testLambda-75be8be",
+              "packageType": "Zip",
+              "qualifiedArn": "arn:aws:lambda:us-west-2:616138583583:function:testLambda-75be8be:$LATEST",
+              "qualifiedInvokeArn": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:616138583583:function:testLambda-75be8be:$LATEST/invocations",
+              "reservedConcurrentExecutions": -1,
+              "role": "arn:aws:iam::616138583583:role/iamForLambda-2333d3b",
+              "runtime": "nodejs18.x",
+              "signingJobArn": "",
+              "signingProfileVersionArn": "",
+              "skipDestroy": false,
+              "snapStart": null,
+              "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+              "sourceCodeSize": 156,
+              "tags": {},
+              "tagsAll": {},
+              "timeout": 3,
+              "tracingConfig": {
+                  "mode": "PassThrough"
+              },
+              "version": "$LATEST",
+              "vpcConfig": null
+          },
+          "news": {
+              "__defaults": [
+                  "memorySize",
+                  "publish",
+                  "reservedConcurrentExecutions",
+                  "skipDestroy",
+                  "timeout"
+              ],
+              "architectures": [
+                  "x86_64"
+              ],
+              "environment": {
+                  "__defaults": [],
+                  "variables": {
+                      "foo": "bar"
+                  }
+              },
+              "ephemeralStorage": {
+                  "__defaults": [],
+                  "size": 512
+              },
+              "handler": "index.test",
+              "loggingConfig": {
+                  "__defaults": [
+                      "applicationLogLevel",
+                      "systemLogLevel"
+                  ],
+                  "applicationLogLevel": "",
+                  "logFormat": "Text",
+                  "logGroup": "/aws/lambda/testLambda-75be8be",
+                  "systemLogLevel": ""
+              },
+              "memorySize": 128,
+              "name": "testLambda-75be8be",
+              "packageType": "Zip",
+              "publish": false,
+              "reservedConcurrentExecutions": -1,
+              "role": "arn:aws:iam::616138583583:role/iamForLambda-2333d3b",
+              "runtime": "nodejs20.x",
+              "skipDestroy": false,
+              "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+              "timeout": 3,
+              "tracingConfig": {
+                  "__defaults": [],
+                  "mode": "PassThrough"
+              }
+          },
+          "oldInputs": {
+              "__defaults": [
+                  "memorySize",
+                  "publish",
+                  "reservedConcurrentExecutions",
+                  "skipDestroy",
+                  "timeout"
+              ],
+              "architectures": [
+                  "x86_64"
+              ],
+              "environment": {
+                  "__defaults": [],
+                  "variables": {
+                      "foo": "bar"
+                  }
+              },
+              "ephemeralStorage": {
+                  "__defaults": [],
+                  "size": 512
+              },
+              "handler": "index.test",
+              "loggingConfig": {
+                  "__defaults": [
+                      "applicationLogLevel",
+                      "systemLogLevel"
+                  ],
+                  "applicationLogLevel": "",
+                  "logFormat": "Text",
+                  "logGroup": "/aws/lambda/testLambda-75be8be",
+                  "systemLogLevel": ""
+              },
+              "memorySize": 128,
+              "name": "testLambda-75be8be",
+              "packageType": "Zip",
+              "publish": false,
+              "reservedConcurrentExecutions": -1,
+              "role": "arn:aws:iam::616138583583:role/iamForLambda-2333d3b",
+              "runtime": "nodejs18.x",
+              "skipDestroy": false,
+              "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+              "timeout": 3,
+              "tracingConfig": {
+                  "__defaults": [],
+                  "mode": "PassThrough"
+              }
+          }
+      },
+      "response": {
+          "properties": {
+              "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":600000000000,\"update\":600000000000}}",
+              "architectures": [
+                  "x86_64"
+              ],
+              "arn": "arn:aws:lambda:us-west-2:616138583583:function:testLambda-75be8be",
+              "codeSigningConfigArn": "",
+              "deadLetterConfig": null,
+              "description": "",
+              "environment": {
+                  "variables": {
+                      "foo": "bar"
+                  }
+              },
+              "ephemeralStorage": {
+                  "size": 512
+              },
+              "fileSystemConfig": null,
+              "handler": "index.test",
+              "id": "testLambda-75be8be",
+              "imageConfig": null,
+              "imageUri": "",
+              "invokeArn": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:616138583583:function:testLambda-75be8be/invocations",
+              "kmsKeyArn": "",
+              "lastModified": "*",
+              "layers": [],
+              "loggingConfig": {
+                  "applicationLogLevel": "",
+                  "logFormat": "Text",
+                  "logGroup": "/aws/lambda/testLambda-75be8be",
+                  "systemLogLevel": ""
+              },
+              "memorySize": 128,
+              "name": "testLambda-75be8be",
+              "packageType": "Zip",
+              "publish": false,
+              "qualifiedArn": "arn:aws:lambda:us-west-2:616138583583:function:testLambda-75be8be:$LATEST",
+              "qualifiedInvokeArn": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:616138583583:function:testLambda-75be8be:$LATEST/invocations",
+              "replacementSecurityGroupIds": [],
+              "reservedConcurrentExecutions": -1,
+              "role": "arn:aws:iam::616138583583:role/iamForLambda-2333d3b",
+              "runtime": "nodejs20.x",
+              "signingJobArn": "",
+              "signingProfileVersionArn": "",
+              "skipDestroy": false,
+              "snapStart": null,
+              "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+              "sourceCodeSize": 156,
+              "tags": {},
+              "tagsAll": {},
+              "timeout": 3,
+              "tracingConfig": {
+                  "mode": "PassThrough"
+              },
+              "version": "$LATEST",
+              "vpcConfig": null
+          }
+      },
+      "metadata": {
+          "kind": "resource",
+          "mode": "client",
+          "name": "aws"
+      }
+  }
+  ]`)
 }
 
 // A lot of tests do not currently refresh cleanly. The work to root cause each tests has not been
