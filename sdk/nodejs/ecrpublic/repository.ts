@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         aboutText: "About Text",
  *         architectures: ["ARM"],
  *         description: "Description",
- *         logoImageBlob: fs.readFileSync(image.png, { encoding: "base64" }),
+ *         logoImageBlob: Buffer.from(fs.readFileSync(image.png, 'binary')).toString('base64'),
  *         operatingSystems: ["Linux"],
  *         usageText: "Usage Text",
  *     },

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // See https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html
@@ -232,6 +233,12 @@ func (in *runtimePtr) ToRuntimePtrOutput() RuntimePtrOutput {
 
 func (in *runtimePtr) ToRuntimePtrOutputWithContext(ctx context.Context) RuntimePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuntimePtrOutput)
+}
+
+func (in *runtimePtr) ToOutput(ctx context.Context) pulumix.Output[*Runtime] {
+	return pulumix.Output[*Runtime]{
+		OutputState: in.ToRuntimePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

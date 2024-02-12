@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A Region represents any valid Amazon region that may be targeted with deployments.
@@ -234,6 +235,12 @@ func (in *regionPtr) ToRegionPtrOutput() RegionPtrOutput {
 
 func (in *regionPtr) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RegionPtrOutput)
+}
+
+func (in *regionPtr) ToOutput(ctx context.Context) pulumix.Output[*Region] {
+	return pulumix.Output[*Region]{
+		OutputState: in.ToRegionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {
