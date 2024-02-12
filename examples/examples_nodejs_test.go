@@ -17,6 +17,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/aws/aws-sdk-go/service/s3"
+	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -564,4 +566,29 @@ func getAwsSession(t *testing.T) *session.Session {
 	})
 	require.NoError(t, err)
 	return sess
+}
+
+func TestUpdateImportedLambda(t *testing.T) {
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	
+	test := pulumitest.NewPulumiTest(t, "lambda-import-ts", 
+	// opttest.DownloadProviderVersion("aws", "5.28.0"))
+	opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")))
+
+	test.SetConfig("runtime", "nodejs18.x")
+	res := test.Up()
+	lambdaName := res.Outputs["lambda_name"]
+	lambdaRole := res.Outputs["lambda_role"]
+
+	secondStack := test.InstallStack("new_stack")
+
+	// Check that we can reimport the lambda.
+	secondStack.SetConfig("lambda_name", lambdaName.Value.(string))
+	secondStack.SetConfig("runtime", "nodejs18.x")
+	secondStack.SetConfig("lambda_role", lambdaRole.Value.(string))
+	secondStack.Up()
+
+	secondStack.SetConfig("runtime", "nodejs16.x")
+	res = secondStack.Up()
 }
