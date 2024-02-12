@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type RecordType string
@@ -193,6 +194,12 @@ func (in *recordTypePtr) ToRecordTypePtrOutput() RecordTypePtrOutput {
 
 func (in *recordTypePtr) ToRecordTypePtrOutputWithContext(ctx context.Context) RecordTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RecordTypePtrOutput)
+}
+
+func (in *recordTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RecordType] {
+	return pulumix.Output[*RecordType]{
+		OutputState: in.ToRecordTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

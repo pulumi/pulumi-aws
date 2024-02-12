@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type InstancePlatform string
@@ -185,6 +186,12 @@ func (in *instancePlatformPtr) ToInstancePlatformPtrOutput() InstancePlatformPtr
 
 func (in *instancePlatformPtr) ToInstancePlatformPtrOutputWithContext(ctx context.Context) InstancePlatformPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstancePlatformPtrOutput)
+}
+
+func (in *instancePlatformPtr) ToOutput(ctx context.Context) pulumix.Output[*InstancePlatform] {
+	return pulumix.Output[*InstancePlatform]{
+		OutputState: in.ToInstancePlatformPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type InstanceType string
@@ -1308,6 +1315,12 @@ func (in *instanceTypePtr) ToInstanceTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceTypePtrOutput)
 }
 
+func (in *instanceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceType] {
+	return pulumix.Output[*InstanceType]{
+		OutputState: in.ToInstanceTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The strategy of the placement group determines how the instances are organized within the group.
 // See https://docs.aws.amazon.com/cli/latest/reference/ec2/create-placement-group.html
 type PlacementStrategy string
@@ -1476,6 +1489,12 @@ func (in *placementStrategyPtr) ToPlacementStrategyPtrOutput() PlacementStrategy
 
 func (in *placementStrategyPtr) ToPlacementStrategyPtrOutputWithContext(ctx context.Context) PlacementStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PlacementStrategyPtrOutput)
+}
+
+func (in *placementStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*PlacementStrategy] {
+	return pulumix.Output[*PlacementStrategy]{
+		OutputState: in.ToPlacementStrategyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ProtocolType string
@@ -1647,6 +1666,12 @@ func (in *protocolTypePtr) ToProtocolTypePtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(ProtocolTypePtrOutput)
 }
 
+func (in *protocolTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ProtocolType] {
+	return pulumix.Output[*ProtocolType]{
+		OutputState: in.ToProtocolTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type Tenancy string
 
 const (
@@ -1810,6 +1835,12 @@ func (in *tenancyPtr) ToTenancyPtrOutput() TenancyPtrOutput {
 
 func (in *tenancyPtr) ToTenancyPtrOutputWithContext(ctx context.Context) TenancyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TenancyPtrOutput)
+}
+
+func (in *tenancyPtr) ToOutput(ctx context.Context) pulumix.Output[*Tenancy] {
+	return pulumix.Output[*Tenancy]{
+		OutputState: in.ToTenancyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {
