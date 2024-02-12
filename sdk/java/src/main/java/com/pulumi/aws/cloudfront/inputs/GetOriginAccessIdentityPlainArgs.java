@@ -14,14 +14,14 @@ public final class GetOriginAccessIdentityPlainArgs extends com.pulumi.resources
     public static final GetOriginAccessIdentityPlainArgs Empty = new GetOriginAccessIdentityPlainArgs();
 
     /**
-     * The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+     * The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
      * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
-     * @return The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+     * @return The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
      * 
      */
     public String id() {
@@ -53,7 +53,7 @@ public final class GetOriginAccessIdentityPlainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param id The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+         * @param id The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
          * 
          * @return builder
          * 

@@ -13,6 +13,7 @@ __all__ = [
     'EndpointLoadBalancerOptionsArgs',
     'EndpointNetworkInterfaceOptionsArgs',
     'EndpointSseSpecificationArgs',
+    'GroupSseConfigurationArgs',
     'InstanceLoggingConfigurationAccessLogsArgs',
     'InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs',
     'InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs',
@@ -138,6 +139,41 @@ class EndpointSseSpecificationArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+
+@pulumi.input_type
+class GroupSseConfigurationArgs:
+    def __init__(__self__, *,
+                 customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kms_key_arn: ARN of the KMS key to use.
+        """
+        if customer_managed_key_enabled is not None:
+            pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEnabled")
+    def customer_managed_key_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "customer_managed_key_enabled")
+
+    @customer_managed_key_enabled.setter
+    def customer_managed_key_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "customer_managed_key_enabled", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the KMS key to use.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter

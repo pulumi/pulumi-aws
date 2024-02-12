@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: guineveresaenger <guinevere@pulumi.com>
+Date: Fri, 9 Feb 2024 15:25:41 -0800
+Subject: [PATCH 41/41] Include CloudWatch Logging section in Lambda Example
+
+
+diff --git a/website/docs/r/lambda_function.html.markdown b/website/docs/r/lambda_function.html.markdown
+index 29ab71f69f..212521e7e5 100644
+--- a/website/docs/r/lambda_function.html.markdown
++++ b/website/docs/r/lambda_function.html.markdown
+@@ -186,7 +186,7 @@ resource "aws_efs_access_point" "access_point_for_lambda" {
+ 
+ Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the [aws_lambda_function_event_invoke_config resource](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function_event_invoke_config).
+ 
+-## CloudWatch Logging and Permissions
++### CloudWatch Logging and Permissions
+ 
+ For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
+ 

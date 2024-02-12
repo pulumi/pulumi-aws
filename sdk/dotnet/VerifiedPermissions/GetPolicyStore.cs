@@ -120,7 +120,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// <summary>
         /// Validation settings for the policy store.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> ValidationSettings;
+        public readonly ImmutableArray<Outputs.GetPolicyStoreValidationSettingResult> ValidationSettings;
 
         [OutputConstructor]
         private GetPolicyStoreResult(
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.VerifiedPermissions
 
             string lastUpdatedDate,
 
-            ImmutableArray<ImmutableDictionary<string, object>> validationSettings)
+            ImmutableArray<Outputs.GetPolicyStoreValidationSettingResult> validationSettings)
         {
             Arn = arn;
             CreatedDate = createdDate;

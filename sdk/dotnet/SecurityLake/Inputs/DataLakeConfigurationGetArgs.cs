@@ -13,14 +13,14 @@ namespace Pulumi.Aws.SecurityLake.Inputs
     public sealed class DataLakeConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryptionConfigurations")]
-        private InputList<ImmutableDictionary<string, object>>? _encryptionConfigurations;
+        private InputList<Inputs.DataLakeConfigurationEncryptionConfigurationGetArgs>? _encryptionConfigurations;
 
         /// <summary>
         /// Provides encryption details of Amazon Security Lake object.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> EncryptionConfigurations
+        public InputList<Inputs.DataLakeConfigurationEncryptionConfigurationGetArgs> EncryptionConfigurations
         {
-            get => _encryptionConfigurations ?? (_encryptionConfigurations = new InputList<ImmutableDictionary<string, object>>());
+            get => _encryptionConfigurations ?? (_encryptionConfigurations = new InputList<Inputs.DataLakeConfigurationEncryptionConfigurationGetArgs>());
             set => _encryptionConfigurations = value;
         }
 

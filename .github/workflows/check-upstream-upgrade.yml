@@ -15,7 +15,7 @@ jobs:
             sdk/go.sum
         go-version: 1.21.x
     - name: Checkout Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         submodules: true
     - name: Unshallow clone for tags

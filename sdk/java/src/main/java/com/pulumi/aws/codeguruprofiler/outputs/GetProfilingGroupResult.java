@@ -3,9 +3,10 @@
 
 package com.pulumi.aws.codeguruprofiler.outputs;
 
+import com.pulumi.aws.codeguruprofiler.outputs.GetProfilingGroupAgentOrchestrationConfig;
+import com.pulumi.aws.codeguruprofiler.outputs.GetProfilingGroupProfilingStatus;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,7 @@ public final class GetProfilingGroupResult {
      * @return Profiling Group agent orchestration config
      * 
      */
-    private List<Map<String,Object>> agentOrchestrationConfigs;
+    private List<GetProfilingGroupAgentOrchestrationConfig> agentOrchestrationConfigs;
     /**
      * @return ARN of the Profiling Group.
      * 
@@ -39,7 +40,7 @@ public final class GetProfilingGroupResult {
      * @return The status of the Profiling Group.
      * 
      */
-    private List<Map<String,Object>> profilingStatuses;
+    private List<GetProfilingGroupProfilingStatus> profilingStatuses;
     /**
      * @return Mapping of Key-Value tags for the resource.
      * 
@@ -56,7 +57,7 @@ public final class GetProfilingGroupResult {
      * @return Profiling Group agent orchestration config
      * 
      */
-    public List<Map<String,Object>> agentOrchestrationConfigs() {
+    public List<GetProfilingGroupAgentOrchestrationConfig> agentOrchestrationConfigs() {
         return this.agentOrchestrationConfigs;
     }
     /**
@@ -90,7 +91,7 @@ public final class GetProfilingGroupResult {
      * @return The status of the Profiling Group.
      * 
      */
-    public List<Map<String,Object>> profilingStatuses() {
+    public List<GetProfilingGroupProfilingStatus> profilingStatuses() {
         return this.profilingStatuses;
     }
     /**
@@ -117,13 +118,13 @@ public final class GetProfilingGroupResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<Map<String,Object>> agentOrchestrationConfigs;
+        private List<GetProfilingGroupAgentOrchestrationConfig> agentOrchestrationConfigs;
         private String arn;
         private String computePlatform;
         private String createdAt;
         private String id;
         private String name;
-        private List<Map<String,Object>> profilingStatuses;
+        private List<GetProfilingGroupProfilingStatus> profilingStatuses;
         private Map<String,String> tags;
         private String updatedAt;
         public Builder() {}
@@ -141,12 +142,15 @@ public final class GetProfilingGroupResult {
         }
 
         @CustomType.Setter
-        public Builder agentOrchestrationConfigs(List<Map<String,Object>> agentOrchestrationConfigs) {
+        public Builder agentOrchestrationConfigs(List<GetProfilingGroupAgentOrchestrationConfig> agentOrchestrationConfigs) {
             if (agentOrchestrationConfigs == null) {
               throw new MissingRequiredPropertyException("GetProfilingGroupResult", "agentOrchestrationConfigs");
             }
             this.agentOrchestrationConfigs = agentOrchestrationConfigs;
             return this;
+        }
+        public Builder agentOrchestrationConfigs(GetProfilingGroupAgentOrchestrationConfig... agentOrchestrationConfigs) {
+            return agentOrchestrationConfigs(List.of(agentOrchestrationConfigs));
         }
         @CustomType.Setter
         public Builder arn(String arn) {
@@ -189,12 +193,15 @@ public final class GetProfilingGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder profilingStatuses(List<Map<String,Object>> profilingStatuses) {
+        public Builder profilingStatuses(List<GetProfilingGroupProfilingStatus> profilingStatuses) {
             if (profilingStatuses == null) {
               throw new MissingRequiredPropertyException("GetProfilingGroupResult", "profilingStatuses");
             }
             this.profilingStatuses = profilingStatuses;
             return this;
+        }
+        public Builder profilingStatuses(GetProfilingGroupProfilingStatus... profilingStatuses) {
+            return profilingStatuses(List.of(profilingStatuses));
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {

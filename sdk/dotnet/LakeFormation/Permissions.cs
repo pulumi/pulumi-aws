@@ -149,7 +149,7 @@ namespace Pulumi.Aws.LakeFormation
     ///         Principal = aws_iam_role.Workflow_role.Arn,
     ///         PermissionDetails = new[]
     ///         {
-    ///             "ALL",
+    ///             "DATA_LOCATION_ACCESS",
     ///         },
     ///         DataLocation = new Aws.LakeFormation.Inputs.PermissionsDataLocationArgs
     ///         {

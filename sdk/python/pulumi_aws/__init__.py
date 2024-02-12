@@ -71,6 +71,8 @@ if typing.TYPE_CHECKING:
     backup = __backup
     import pulumi_aws.batch as __batch
     batch = __batch
+    import pulumi_aws.bedrock as __bedrock
+    bedrock = __bedrock
     import pulumi_aws.bedrockfoundation as __bedrockfoundation
     bedrockfoundation = __bedrockfoundation
     import pulumi_aws.bedrockmodel as __bedrockmodel
@@ -289,6 +291,8 @@ if typing.TYPE_CHECKING:
     oam = __oam
     import pulumi_aws.opensearch as __opensearch
     opensearch = __opensearch
+    import pulumi_aws.opensearchingest as __opensearchingest
+    opensearchingest = __opensearchingest
     import pulumi_aws.opsworks as __opsworks
     opsworks = __opsworks
     import pulumi_aws.organizations as __organizations
@@ -446,6 +450,7 @@ else:
     autoscalingplans = _utilities.lazy_import('pulumi_aws.autoscalingplans')
     backup = _utilities.lazy_import('pulumi_aws.backup')
     batch = _utilities.lazy_import('pulumi_aws.batch')
+    bedrock = _utilities.lazy_import('pulumi_aws.bedrock')
     bedrockfoundation = _utilities.lazy_import('pulumi_aws.bedrockfoundation')
     bedrockmodel = _utilities.lazy_import('pulumi_aws.bedrockmodel')
     budgets = _utilities.lazy_import('pulumi_aws.budgets')
@@ -555,6 +560,7 @@ else:
     networkmanager = _utilities.lazy_import('pulumi_aws.networkmanager')
     oam = _utilities.lazy_import('pulumi_aws.oam')
     opensearch = _utilities.lazy_import('pulumi_aws.opensearch')
+    opensearchingest = _utilities.lazy_import('pulumi_aws.opensearchingest')
     opsworks = _utilities.lazy_import('pulumi_aws.opsworks')
     organizations = _utilities.lazy_import('pulumi_aws.organizations')
     outposts = _utilities.lazy_import('pulumi_aws.outposts')
@@ -1787,6 +1793,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/customModel",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/customModel:CustomModel": "CustomModel"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrockmodel/invocationLoggingConfiguration",
   "fqn": "pulumi_aws.bedrockmodel",
   "classes": {
@@ -2895,6 +2909,14 @@ _utilities.register(
   "fqn": "pulumi_aws.controltower",
   "classes": {
    "aws:controltower/controlTowerControl:ControlTowerControl": "ControlTowerControl"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "controltower/landingZone",
+  "fqn": "pulumi_aws.controltower",
+  "classes": {
+   "aws:controltower/landingZone:LandingZone": "LandingZone"
   }
  },
  {
@@ -6771,6 +6793,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lex/v2modelsSlot",
+  "fqn": "pulumi_aws.lex",
+  "classes": {
+   "aws:lex/v2modelsSlot:V2modelsSlot": "V2modelsSlot"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lex/v2modelsSlotType",
+  "fqn": "pulumi_aws.lex",
+  "classes": {
+   "aws:lex/v2modelsSlotType:V2modelsSlotType": "V2modelsSlotType"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "licensemanager/association",
   "fqn": "pulumi_aws.licensemanager",
   "classes": {
@@ -7715,6 +7753,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "opensearchingest/pipeline",
+  "fqn": "pulumi_aws.opensearchingest",
+  "classes": {
+   "aws:opensearchingest/pipeline:Pipeline": "Pipeline"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "opsworks/application",
   "fqn": "pulumi_aws.opsworks",
   "classes": {
@@ -8435,6 +8481,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "redshift/dataShareAuthorization",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/dataShareAuthorization:DataShareAuthorization": "DataShareAuthorization"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "redshift/endpointAccess",
   "fqn": "pulumi_aws.redshift",
   "classes": {
@@ -8599,6 +8653,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshiftserverless",
   "classes": {
    "aws:redshiftserverless/workgroup:Workgroup": "Workgroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rekognition/collection",
+  "fqn": "pulumi_aws.rekognition",
+  "classes": {
+   "aws:rekognition/collection:Collection": "Collection"
   }
  },
  {
@@ -9683,6 +9745,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "securitylake/customLogSource",
+  "fqn": "pulumi_aws.securitylake",
+  "classes": {
+   "aws:securitylake/customLogSource:CustomLogSource": "CustomLogSource"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "securitylake/dataLake",
   "fqn": "pulumi_aws.securitylake",
   "classes": {
@@ -10051,6 +10121,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sesv2/emailIdentityPolicy",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy": "EmailIdentityPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sfn/activity",
   "fqn": "pulumi_aws.sfn",
   "classes": {
@@ -10247,6 +10325,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ssm",
   "classes": {
    "aws:ssm/association:Association": "Association"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssm/contactsRotation",
+  "fqn": "pulumi_aws.ssm",
+  "classes": {
+   "aws:ssm/contactsRotation:ContactsRotation": "ContactsRotation"
   }
  },
  {

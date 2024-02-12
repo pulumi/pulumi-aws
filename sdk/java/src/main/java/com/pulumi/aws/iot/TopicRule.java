@@ -38,6 +38,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Creates and manages an AWS IoT topic rule.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -46,15 +48,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iot.TopicRule;
  * import com.pulumi.aws.iot.TopicRuleArgs;
  * import com.pulumi.aws.iot.inputs.TopicRuleSnsArgs;
  * import com.pulumi.aws.iot.inputs.TopicRuleErrorActionArgs;
  * import com.pulumi.aws.iot.inputs.TopicRuleErrorActionSnsArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
  * import java.util.List;
@@ -74,6 +76,25 @@ import javax.annotation.Nullable;
  * 
  *         var myerrortopic = new Topic(&#34;myerrortopic&#34;);
  * 
+ *         var rule = new TopicRule(&#34;rule&#34;, TopicRuleArgs.builder()        
+ *             .description(&#34;Example rule&#34;)
+ *             .enabled(true)
+ *             .sql(&#34;SELECT * FROM &#39;topic/test&#39;&#34;)
+ *             .sqlVersion(&#34;2016-03-23&#34;)
+ *             .sns(TopicRuleSnsArgs.builder()
+ *                 .messageFormat(&#34;RAW&#34;)
+ *                 .roleArn(aws_iam_role.role().arn())
+ *                 .targetArn(mytopic.arn())
+ *                 .build())
+ *             .errorAction(TopicRuleErrorActionArgs.builder()
+ *                 .sns(TopicRuleErrorActionSnsArgs.builder()
+ *                     .messageFormat(&#34;RAW&#34;)
+ *                     .roleArn(aws_iam_role.role().arn())
+ *                     .targetArn(myerrortopic.arn())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
@@ -85,30 +106,11 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *         var myrole = new Role(&#34;myrole&#34;, RoleArgs.builder()        
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var rule = new TopicRule(&#34;rule&#34;, TopicRuleArgs.builder()        
- *             .description(&#34;Example rule&#34;)
- *             .enabled(true)
- *             .sql(&#34;SELECT * FROM &#39;topic/test&#39;&#34;)
- *             .sqlVersion(&#34;2016-03-23&#34;)
- *             .sns(TopicRuleSnsArgs.builder()
- *                 .messageFormat(&#34;RAW&#34;)
- *                 .roleArn(role.arn())
- *                 .targetArn(mytopic.arn())
- *                 .build())
- *             .errorAction(TopicRuleErrorActionArgs.builder()
- *                 .sns(TopicRuleErrorActionSnsArgs.builder()
- *                     .messageFormat(&#34;RAW&#34;)
- *                     .roleArn(role.arn())
- *                     .targetArn(myerrortopic.arn())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         final var iamPolicyForLambdaPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var mypolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;sns:Publish&#34;)
@@ -116,9 +118,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var iamPolicyForLambdaRolePolicy = new RolePolicy(&#34;iamPolicyForLambdaRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(role.id())
- *             .policy(iamPolicyForLambdaPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(iamPolicyForLambdaPolicyDocument -&gt; iamPolicyForLambdaPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *         var mypolicyRolePolicy = new RolePolicy(&#34;mypolicyRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .role(myrole.id())
+ *             .policy(mypolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(mypolicyPolicyDocument -&gt; mypolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

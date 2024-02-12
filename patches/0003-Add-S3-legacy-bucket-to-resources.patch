@@ -14,10 +14,10 @@ scheme for registration: see
 https://github.com/hashicorp/terraform-provider-aws/pull/29717.
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 670b34912f..5ada603fe3 100644
+index 6c8f39dedc..78f3e1985d 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
-@@ -13,6 +13,8 @@ import (
+@@ -12,6 +12,8 @@ import (
  
  	"github.com/YakDriver/regexache"
  	"github.com/aws/aws-sdk-go-v2/aws"

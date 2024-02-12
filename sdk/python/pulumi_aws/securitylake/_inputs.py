@@ -11,7 +11,13 @@ from .. import _utilities
 
 __all__ = [
     'AwsLogSourceSourceArgs',
+    'CustomLogSourceAttributeArgs',
+    'CustomLogSourceConfigurationArgs',
+    'CustomLogSourceConfigurationCrawlerConfigurationArgs',
+    'CustomLogSourceConfigurationProviderIdentityArgs',
+    'CustomLogSourceProviderDetailArgs',
     'DataLakeConfigurationArgs',
+    'DataLakeConfigurationEncryptionConfigurationArgs',
     'DataLakeConfigurationLifecycleConfigurationArgs',
     'DataLakeConfigurationLifecycleConfigurationExpirationArgs',
     'DataLakeConfigurationLifecycleConfigurationTransitionArgs',
@@ -89,15 +95,202 @@ class AwsLogSourceSourceArgs:
 
 
 @pulumi.input_type
+class CustomLogSourceAttributeArgs:
+    def __init__(__self__, *,
+                 crawler_arn: pulumi.Input[str],
+                 database_arn: pulumi.Input[str],
+                 table_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] crawler_arn: The ARN of the AWS Glue crawler.
+        :param pulumi.Input[str] database_arn: The ARN of the AWS Glue database where results are written.
+        :param pulumi.Input[str] table_arn: The ARN of the AWS Glue table.
+        """
+        pulumi.set(__self__, "crawler_arn", crawler_arn)
+        pulumi.set(__self__, "database_arn", database_arn)
+        pulumi.set(__self__, "table_arn", table_arn)
+
+    @property
+    @pulumi.getter(name="crawlerArn")
+    def crawler_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the AWS Glue crawler.
+        """
+        return pulumi.get(self, "crawler_arn")
+
+    @crawler_arn.setter
+    def crawler_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "crawler_arn", value)
+
+    @property
+    @pulumi.getter(name="databaseArn")
+    def database_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the AWS Glue database where results are written.
+        """
+        return pulumi.get(self, "database_arn")
+
+    @database_arn.setter
+    def database_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_arn", value)
+
+    @property
+    @pulumi.getter(name="tableArn")
+    def table_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the AWS Glue table.
+        """
+        return pulumi.get(self, "table_arn")
+
+    @table_arn.setter
+    def table_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_arn", value)
+
+
+@pulumi.input_type
+class CustomLogSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 crawler_configuration: Optional[pulumi.Input['CustomLogSourceConfigurationCrawlerConfigurationArgs']] = None,
+                 provider_identity: Optional[pulumi.Input['CustomLogSourceConfigurationProviderIdentityArgs']] = None):
+        """
+        :param pulumi.Input['CustomLogSourceConfigurationCrawlerConfigurationArgs'] crawler_configuration: The configuration for the Glue Crawler for the third-party custom source.
+        :param pulumi.Input['CustomLogSourceConfigurationProviderIdentityArgs'] provider_identity: The identity of the log provider for the third-party custom source.
+        """
+        if crawler_configuration is not None:
+            pulumi.set(__self__, "crawler_configuration", crawler_configuration)
+        if provider_identity is not None:
+            pulumi.set(__self__, "provider_identity", provider_identity)
+
+    @property
+    @pulumi.getter(name="crawlerConfiguration")
+    def crawler_configuration(self) -> Optional[pulumi.Input['CustomLogSourceConfigurationCrawlerConfigurationArgs']]:
+        """
+        The configuration for the Glue Crawler for the third-party custom source.
+        """
+        return pulumi.get(self, "crawler_configuration")
+
+    @crawler_configuration.setter
+    def crawler_configuration(self, value: Optional[pulumi.Input['CustomLogSourceConfigurationCrawlerConfigurationArgs']]):
+        pulumi.set(self, "crawler_configuration", value)
+
+    @property
+    @pulumi.getter(name="providerIdentity")
+    def provider_identity(self) -> Optional[pulumi.Input['CustomLogSourceConfigurationProviderIdentityArgs']]:
+        """
+        The identity of the log provider for the third-party custom source.
+        """
+        return pulumi.get(self, "provider_identity")
+
+    @provider_identity.setter
+    def provider_identity(self, value: Optional[pulumi.Input['CustomLogSourceConfigurationProviderIdentityArgs']]):
+        pulumi.set(self, "provider_identity", value)
+
+
+@pulumi.input_type
+class CustomLogSourceConfigurationCrawlerConfigurationArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
+class CustomLogSourceConfigurationProviderIdentityArgs:
+    def __init__(__self__, *,
+                 external_id: pulumi.Input[str],
+                 principal: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] external_id: The external ID used to estalish trust relationship with the AWS identity.
+        :param pulumi.Input[str] principal: The AWS identity principal.
+        """
+        pulumi.set(__self__, "external_id", external_id)
+        pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> pulumi.Input[str]:
+        """
+        The external ID used to estalish trust relationship with the AWS identity.
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "external_id", value)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input[str]:
+        """
+        The AWS identity principal.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal", value)
+
+
+@pulumi.input_type
+class CustomLogSourceProviderDetailArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input[str],
+                 role_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] location: The location of the partition in the Amazon S3 bucket for Security Lake.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[str]:
+        """
+        The location of the partition in the Amazon S3 bucket for Security Lake.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
 class DataLakeConfigurationArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[str],
-                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]]] = None,
                  lifecycle_configuration: Optional[pulumi.Input['DataLakeConfigurationLifecycleConfigurationArgs']] = None,
                  replication_configuration: Optional[pulumi.Input['DataLakeConfigurationReplicationConfigurationArgs']] = None):
         """
         :param pulumi.Input[str] region: The AWS Regions where Security Lake is automatically enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] encryption_configurations: Provides encryption details of Amazon Security Lake object.
+        :param pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]] encryption_configurations: Provides encryption details of Amazon Security Lake object.
         :param pulumi.Input['DataLakeConfigurationLifecycleConfigurationArgs'] lifecycle_configuration: Provides lifecycle details of Amazon Security Lake object.
         :param pulumi.Input['DataLakeConfigurationReplicationConfigurationArgs'] replication_configuration: Provides replication details of Amazon Security Lake object.
         """
@@ -123,14 +316,14 @@ class DataLakeConfigurationArgs:
 
     @property
     @pulumi.getter(name="encryptionConfigurations")
-    def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+    def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]]]:
         """
         Provides encryption details of Amazon Security Lake object.
         """
         return pulumi.get(self, "encryption_configurations")
 
     @encryption_configurations.setter
-    def encryption_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+    def encryption_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]]]):
         pulumi.set(self, "encryption_configurations", value)
 
     @property
@@ -156,6 +349,28 @@ class DataLakeConfigurationArgs:
     @replication_configuration.setter
     def replication_configuration(self, value: Optional[pulumi.Input['DataLakeConfigurationReplicationConfigurationArgs']]):
         pulumi.set(self, "replication_configuration", value)
+
+
+@pulumi.input_type
+class DataLakeConfigurationEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_key_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] kms_key_id: The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+        """
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Input[str]:
+        """
+        The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kms_key_id", value)
 
 
 @pulumi.input_type

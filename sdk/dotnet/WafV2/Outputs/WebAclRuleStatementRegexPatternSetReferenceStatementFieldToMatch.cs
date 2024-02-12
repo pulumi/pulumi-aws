@@ -26,6 +26,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies? Cookies;
         /// <summary>
+        /// Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder> HeaderOrders;
+        /// <summary>
         /// Inspect the request headers. See `headers` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader> Headers;
@@ -66,6 +70,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies? cookies,
 
+            ImmutableArray<Outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder> headerOrders,
+
             ImmutableArray<Outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader> headers,
 
             Outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint? ja3Fingerprint,
@@ -85,6 +91,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             AllQueryArguments = allQueryArguments;
             Body = body;
             Cookies = cookies;
+            HeaderOrders = headerOrders;
             Headers = headers;
             Ja3Fingerprint = ja3Fingerprint;
             JsonBody = jsonBody;

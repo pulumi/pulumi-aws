@@ -1010,6 +1010,218 @@ func (o ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput) Index(i pulumi.
 	}).(ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput)
 }
 
+type ServerlessCacheEndpoint struct {
+	// The DNS hostname of the cache node.
+	Address string `pulumi:"address"`
+	// The port number that the cache engine is listening on. Set as integer.
+	Port int `pulumi:"port"`
+}
+
+// ServerlessCacheEndpointInput is an input type that accepts ServerlessCacheEndpointArgs and ServerlessCacheEndpointOutput values.
+// You can construct a concrete instance of `ServerlessCacheEndpointInput` via:
+//
+//	ServerlessCacheEndpointArgs{...}
+type ServerlessCacheEndpointInput interface {
+	pulumi.Input
+
+	ToServerlessCacheEndpointOutput() ServerlessCacheEndpointOutput
+	ToServerlessCacheEndpointOutputWithContext(context.Context) ServerlessCacheEndpointOutput
+}
+
+type ServerlessCacheEndpointArgs struct {
+	// The DNS hostname of the cache node.
+	Address pulumi.StringInput `pulumi:"address"`
+	// The port number that the cache engine is listening on. Set as integer.
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (ServerlessCacheEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheEndpoint)(nil)).Elem()
+}
+
+func (i ServerlessCacheEndpointArgs) ToServerlessCacheEndpointOutput() ServerlessCacheEndpointOutput {
+	return i.ToServerlessCacheEndpointOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheEndpointArgs) ToServerlessCacheEndpointOutputWithContext(ctx context.Context) ServerlessCacheEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheEndpointOutput)
+}
+
+// ServerlessCacheEndpointArrayInput is an input type that accepts ServerlessCacheEndpointArray and ServerlessCacheEndpointArrayOutput values.
+// You can construct a concrete instance of `ServerlessCacheEndpointArrayInput` via:
+//
+//	ServerlessCacheEndpointArray{ ServerlessCacheEndpointArgs{...} }
+type ServerlessCacheEndpointArrayInput interface {
+	pulumi.Input
+
+	ToServerlessCacheEndpointArrayOutput() ServerlessCacheEndpointArrayOutput
+	ToServerlessCacheEndpointArrayOutputWithContext(context.Context) ServerlessCacheEndpointArrayOutput
+}
+
+type ServerlessCacheEndpointArray []ServerlessCacheEndpointInput
+
+func (ServerlessCacheEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCacheEndpoint)(nil)).Elem()
+}
+
+func (i ServerlessCacheEndpointArray) ToServerlessCacheEndpointArrayOutput() ServerlessCacheEndpointArrayOutput {
+	return i.ToServerlessCacheEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheEndpointArray) ToServerlessCacheEndpointArrayOutputWithContext(ctx context.Context) ServerlessCacheEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheEndpointArrayOutput)
+}
+
+type ServerlessCacheEndpointOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheEndpoint)(nil)).Elem()
+}
+
+func (o ServerlessCacheEndpointOutput) ToServerlessCacheEndpointOutput() ServerlessCacheEndpointOutput {
+	return o
+}
+
+func (o ServerlessCacheEndpointOutput) ToServerlessCacheEndpointOutputWithContext(ctx context.Context) ServerlessCacheEndpointOutput {
+	return o
+}
+
+// The DNS hostname of the cache node.
+func (o ServerlessCacheEndpointOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerlessCacheEndpoint) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// The port number that the cache engine is listening on. Set as integer.
+func (o ServerlessCacheEndpointOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v ServerlessCacheEndpoint) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type ServerlessCacheEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCacheEndpoint)(nil)).Elem()
+}
+
+func (o ServerlessCacheEndpointArrayOutput) ToServerlessCacheEndpointArrayOutput() ServerlessCacheEndpointArrayOutput {
+	return o
+}
+
+func (o ServerlessCacheEndpointArrayOutput) ToServerlessCacheEndpointArrayOutputWithContext(ctx context.Context) ServerlessCacheEndpointArrayOutput {
+	return o
+}
+
+func (o ServerlessCacheEndpointArrayOutput) Index(i pulumi.IntInput) ServerlessCacheEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerlessCacheEndpoint {
+		return vs[0].([]ServerlessCacheEndpoint)[vs[1].(int)]
+	}).(ServerlessCacheEndpointOutput)
+}
+
+type ServerlessCacheReaderEndpoint struct {
+	// The DNS hostname of the cache node.
+	Address string `pulumi:"address"`
+	// The port number that the cache engine is listening on. Set as integer.
+	Port int `pulumi:"port"`
+}
+
+// ServerlessCacheReaderEndpointInput is an input type that accepts ServerlessCacheReaderEndpointArgs and ServerlessCacheReaderEndpointOutput values.
+// You can construct a concrete instance of `ServerlessCacheReaderEndpointInput` via:
+//
+//	ServerlessCacheReaderEndpointArgs{...}
+type ServerlessCacheReaderEndpointInput interface {
+	pulumi.Input
+
+	ToServerlessCacheReaderEndpointOutput() ServerlessCacheReaderEndpointOutput
+	ToServerlessCacheReaderEndpointOutputWithContext(context.Context) ServerlessCacheReaderEndpointOutput
+}
+
+type ServerlessCacheReaderEndpointArgs struct {
+	// The DNS hostname of the cache node.
+	Address pulumi.StringInput `pulumi:"address"`
+	// The port number that the cache engine is listening on. Set as integer.
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (ServerlessCacheReaderEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheReaderEndpoint)(nil)).Elem()
+}
+
+func (i ServerlessCacheReaderEndpointArgs) ToServerlessCacheReaderEndpointOutput() ServerlessCacheReaderEndpointOutput {
+	return i.ToServerlessCacheReaderEndpointOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheReaderEndpointArgs) ToServerlessCacheReaderEndpointOutputWithContext(ctx context.Context) ServerlessCacheReaderEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheReaderEndpointOutput)
+}
+
+// ServerlessCacheReaderEndpointArrayInput is an input type that accepts ServerlessCacheReaderEndpointArray and ServerlessCacheReaderEndpointArrayOutput values.
+// You can construct a concrete instance of `ServerlessCacheReaderEndpointArrayInput` via:
+//
+//	ServerlessCacheReaderEndpointArray{ ServerlessCacheReaderEndpointArgs{...} }
+type ServerlessCacheReaderEndpointArrayInput interface {
+	pulumi.Input
+
+	ToServerlessCacheReaderEndpointArrayOutput() ServerlessCacheReaderEndpointArrayOutput
+	ToServerlessCacheReaderEndpointArrayOutputWithContext(context.Context) ServerlessCacheReaderEndpointArrayOutput
+}
+
+type ServerlessCacheReaderEndpointArray []ServerlessCacheReaderEndpointInput
+
+func (ServerlessCacheReaderEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCacheReaderEndpoint)(nil)).Elem()
+}
+
+func (i ServerlessCacheReaderEndpointArray) ToServerlessCacheReaderEndpointArrayOutput() ServerlessCacheReaderEndpointArrayOutput {
+	return i.ToServerlessCacheReaderEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheReaderEndpointArray) ToServerlessCacheReaderEndpointArrayOutputWithContext(ctx context.Context) ServerlessCacheReaderEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheReaderEndpointArrayOutput)
+}
+
+type ServerlessCacheReaderEndpointOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheReaderEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheReaderEndpoint)(nil)).Elem()
+}
+
+func (o ServerlessCacheReaderEndpointOutput) ToServerlessCacheReaderEndpointOutput() ServerlessCacheReaderEndpointOutput {
+	return o
+}
+
+func (o ServerlessCacheReaderEndpointOutput) ToServerlessCacheReaderEndpointOutputWithContext(ctx context.Context) ServerlessCacheReaderEndpointOutput {
+	return o
+}
+
+// The DNS hostname of the cache node.
+func (o ServerlessCacheReaderEndpointOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerlessCacheReaderEndpoint) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// The port number that the cache engine is listening on. Set as integer.
+func (o ServerlessCacheReaderEndpointOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v ServerlessCacheReaderEndpoint) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type ServerlessCacheReaderEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheReaderEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCacheReaderEndpoint)(nil)).Elem()
+}
+
+func (o ServerlessCacheReaderEndpointArrayOutput) ToServerlessCacheReaderEndpointArrayOutput() ServerlessCacheReaderEndpointArrayOutput {
+	return o
+}
+
+func (o ServerlessCacheReaderEndpointArrayOutput) ToServerlessCacheReaderEndpointArrayOutputWithContext(ctx context.Context) ServerlessCacheReaderEndpointArrayOutput {
+	return o
+}
+
+func (o ServerlessCacheReaderEndpointArrayOutput) Index(i pulumi.IntInput) ServerlessCacheReaderEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerlessCacheReaderEndpoint {
+		return vs[0].([]ServerlessCacheReaderEndpoint)[vs[1].(int)]
+	}).(ServerlessCacheReaderEndpointOutput)
+}
+
 type ServerlessCacheTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -1824,6 +2036,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsDataStoragePtrInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsDataStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsEcpuPerSecondInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsEcpuPerSecondArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheEndpointInput)(nil)).Elem(), ServerlessCacheEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheEndpointArrayInput)(nil)).Elem(), ServerlessCacheEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheReaderEndpointInput)(nil)).Elem(), ServerlessCacheReaderEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheReaderEndpointArrayInput)(nil)).Elem(), ServerlessCacheReaderEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheTimeoutsInput)(nil)).Elem(), ServerlessCacheTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheTimeoutsPtrInput)(nil)).Elem(), ServerlessCacheTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModeInput)(nil)).Elem(), UserAuthenticationModeArgs{})
@@ -1852,6 +2068,10 @@ func init() {
 	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsDataStoragePtrOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsEcpuPerSecondArrayOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheEndpointOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheEndpointArrayOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheReaderEndpointOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheReaderEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheTimeoutsOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModeOutput{})

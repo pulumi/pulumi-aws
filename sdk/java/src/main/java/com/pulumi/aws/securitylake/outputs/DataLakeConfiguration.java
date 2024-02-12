@@ -3,14 +3,13 @@
 
 package com.pulumi.aws.securitylake.outputs;
 
+import com.pulumi.aws.securitylake.outputs.DataLakeConfigurationEncryptionConfiguration;
 import com.pulumi.aws.securitylake.outputs.DataLakeConfigurationLifecycleConfiguration;
 import com.pulumi.aws.securitylake.outputs.DataLakeConfigurationReplicationConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,7 @@ public final class DataLakeConfiguration {
      * @return Provides encryption details of Amazon Security Lake object.
      * 
      */
-    private @Nullable List<Map<String,Object>> encryptionConfigurations;
+    private @Nullable List<DataLakeConfigurationEncryptionConfiguration> encryptionConfigurations;
     /**
      * @return Provides lifecycle details of Amazon Security Lake object.
      * 
@@ -43,7 +42,7 @@ public final class DataLakeConfiguration {
      * @return Provides encryption details of Amazon Security Lake object.
      * 
      */
-    public List<Map<String,Object>> encryptionConfigurations() {
+    public List<DataLakeConfigurationEncryptionConfiguration> encryptionConfigurations() {
         return this.encryptionConfigurations == null ? List.of() : this.encryptionConfigurations;
     }
     /**
@@ -77,7 +76,7 @@ public final class DataLakeConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<Map<String,Object>> encryptionConfigurations;
+        private @Nullable List<DataLakeConfigurationEncryptionConfiguration> encryptionConfigurations;
         private @Nullable DataLakeConfigurationLifecycleConfiguration lifecycleConfiguration;
         private String region;
         private @Nullable DataLakeConfigurationReplicationConfiguration replicationConfiguration;
@@ -91,10 +90,13 @@ public final class DataLakeConfiguration {
         }
 
         @CustomType.Setter
-        public Builder encryptionConfigurations(@Nullable List<Map<String,Object>> encryptionConfigurations) {
+        public Builder encryptionConfigurations(@Nullable List<DataLakeConfigurationEncryptionConfiguration> encryptionConfigurations) {
 
             this.encryptionConfigurations = encryptionConfigurations;
             return this;
+        }
+        public Builder encryptionConfigurations(DataLakeConfigurationEncryptionConfiguration... encryptionConfigurations) {
+            return encryptionConfigurations(List.of(encryptionConfigurations));
         }
         @CustomType.Setter
         public Builder lifecycleConfiguration(@Nullable DataLakeConfigurationLifecycleConfiguration lifecycleConfiguration) {

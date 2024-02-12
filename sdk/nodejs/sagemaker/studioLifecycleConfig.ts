@@ -50,7 +50,7 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      */
     public readonly studioLifecycleConfigAppType!: pulumi.Output<string>;
     /**
@@ -125,7 +125,7 @@ export interface StudioLifecycleConfigState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      */
     studioLifecycleConfigAppType?: pulumi.Input<string>;
     /**
@@ -153,7 +153,7 @@ export interface StudioLifecycleConfigState {
  */
 export interface StudioLifecycleConfigArgs {
     /**
-     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      */
     studioLifecycleConfigAppType: pulumi.Input<string>;
     /**

@@ -3,11 +3,9 @@
 
 package com.pulumi.aws.bedrockfoundation.inputs;
 
-import com.pulumi.aws.bedrockfoundation.inputs.GetModelsModelSummaryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -77,21 +75,6 @@ public final class GetModelsArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.byProvider);
     }
 
-    /**
-     * List of model summary objects. See `model_summaries`.
-     * 
-     */
-    @Import(name="modelSummaries")
-    private @Nullable Output<List<GetModelsModelSummaryArgs>> modelSummaries;
-
-    /**
-     * @return List of model summary objects. See `model_summaries`.
-     * 
-     */
-    public Optional<Output<List<GetModelsModelSummaryArgs>>> modelSummaries() {
-        return Optional.ofNullable(this.modelSummaries);
-    }
-
     private GetModelsArgs() {}
 
     private GetModelsArgs(GetModelsArgs $) {
@@ -99,7 +82,6 @@ public final class GetModelsArgs extends com.pulumi.resources.InvokeArgs {
         this.byInferenceType = $.byInferenceType;
         this.byOutputModality = $.byOutputModality;
         this.byProvider = $.byProvider;
-        this.modelSummaries = $.modelSummaries;
     }
 
     public static Builder builder() {
@@ -202,37 +184,6 @@ public final class GetModelsArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder byProvider(String byProvider) {
             return byProvider(Output.of(byProvider));
-        }
-
-        /**
-         * @param modelSummaries List of model summary objects. See `model_summaries`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder modelSummaries(@Nullable Output<List<GetModelsModelSummaryArgs>> modelSummaries) {
-            $.modelSummaries = modelSummaries;
-            return this;
-        }
-
-        /**
-         * @param modelSummaries List of model summary objects. See `model_summaries`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder modelSummaries(List<GetModelsModelSummaryArgs> modelSummaries) {
-            return modelSummaries(Output.of(modelSummaries));
-        }
-
-        /**
-         * @param modelSummaries List of model summary objects. See `model_summaries`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder modelSummaries(GetModelsModelSummaryArgs... modelSummaries) {
-            return modelSummaries(List.of(modelSummaries));
         }
 
         public GetModelsArgs build() {

@@ -61,6 +61,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> EndpointName { get; private set; } = null!;
 
         /// <summary>
+        /// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+        /// </summary>
+        [Output("ownerAccount")]
+        public Output<string?> OwnerAccount { get; private set; } = null!;
+
+        /// <summary>
         /// The port that Amazon Redshift Serverless listens on.
         /// </summary>
         [Output("port")]
@@ -142,6 +148,12 @@ namespace Pulumi.Aws.RedshiftServerless
         [Input("endpointName", required: true)]
         public Input<string> EndpointName { get; set; } = null!;
 
+        /// <summary>
+        /// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+        /// </summary>
+        [Input("ownerAccount")]
+        public Input<string>? OwnerAccount { get; set; }
+
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
 
@@ -197,6 +209,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
+
+        /// <summary>
+        /// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+        /// </summary>
+        [Input("ownerAccount")]
+        public Input<string>? OwnerAccount { get; set; }
 
         /// <summary>
         /// The port that Amazon Redshift Serverless listens on.

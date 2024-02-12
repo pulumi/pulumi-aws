@@ -150,9 +150,217 @@ func (o ProfilingGroupAgentOrchestrationConfigPtrOutput) ProfilingEnabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetProfilingGroupAgentOrchestrationConfig struct {
+	ProfilingEnabled bool `pulumi:"profilingEnabled"`
+}
+
+// GetProfilingGroupAgentOrchestrationConfigInput is an input type that accepts GetProfilingGroupAgentOrchestrationConfigArgs and GetProfilingGroupAgentOrchestrationConfigOutput values.
+// You can construct a concrete instance of `GetProfilingGroupAgentOrchestrationConfigInput` via:
+//
+//	GetProfilingGroupAgentOrchestrationConfigArgs{...}
+type GetProfilingGroupAgentOrchestrationConfigInput interface {
+	pulumi.Input
+
+	ToGetProfilingGroupAgentOrchestrationConfigOutput() GetProfilingGroupAgentOrchestrationConfigOutput
+	ToGetProfilingGroupAgentOrchestrationConfigOutputWithContext(context.Context) GetProfilingGroupAgentOrchestrationConfigOutput
+}
+
+type GetProfilingGroupAgentOrchestrationConfigArgs struct {
+	ProfilingEnabled pulumi.BoolInput `pulumi:"profilingEnabled"`
+}
+
+func (GetProfilingGroupAgentOrchestrationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProfilingGroupAgentOrchestrationConfig)(nil)).Elem()
+}
+
+func (i GetProfilingGroupAgentOrchestrationConfigArgs) ToGetProfilingGroupAgentOrchestrationConfigOutput() GetProfilingGroupAgentOrchestrationConfigOutput {
+	return i.ToGetProfilingGroupAgentOrchestrationConfigOutputWithContext(context.Background())
+}
+
+func (i GetProfilingGroupAgentOrchestrationConfigArgs) ToGetProfilingGroupAgentOrchestrationConfigOutputWithContext(ctx context.Context) GetProfilingGroupAgentOrchestrationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProfilingGroupAgentOrchestrationConfigOutput)
+}
+
+// GetProfilingGroupAgentOrchestrationConfigArrayInput is an input type that accepts GetProfilingGroupAgentOrchestrationConfigArray and GetProfilingGroupAgentOrchestrationConfigArrayOutput values.
+// You can construct a concrete instance of `GetProfilingGroupAgentOrchestrationConfigArrayInput` via:
+//
+//	GetProfilingGroupAgentOrchestrationConfigArray{ GetProfilingGroupAgentOrchestrationConfigArgs{...} }
+type GetProfilingGroupAgentOrchestrationConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetProfilingGroupAgentOrchestrationConfigArrayOutput() GetProfilingGroupAgentOrchestrationConfigArrayOutput
+	ToGetProfilingGroupAgentOrchestrationConfigArrayOutputWithContext(context.Context) GetProfilingGroupAgentOrchestrationConfigArrayOutput
+}
+
+type GetProfilingGroupAgentOrchestrationConfigArray []GetProfilingGroupAgentOrchestrationConfigInput
+
+func (GetProfilingGroupAgentOrchestrationConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProfilingGroupAgentOrchestrationConfig)(nil)).Elem()
+}
+
+func (i GetProfilingGroupAgentOrchestrationConfigArray) ToGetProfilingGroupAgentOrchestrationConfigArrayOutput() GetProfilingGroupAgentOrchestrationConfigArrayOutput {
+	return i.ToGetProfilingGroupAgentOrchestrationConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetProfilingGroupAgentOrchestrationConfigArray) ToGetProfilingGroupAgentOrchestrationConfigArrayOutputWithContext(ctx context.Context) GetProfilingGroupAgentOrchestrationConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProfilingGroupAgentOrchestrationConfigArrayOutput)
+}
+
+type GetProfilingGroupAgentOrchestrationConfigOutput struct{ *pulumi.OutputState }
+
+func (GetProfilingGroupAgentOrchestrationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProfilingGroupAgentOrchestrationConfig)(nil)).Elem()
+}
+
+func (o GetProfilingGroupAgentOrchestrationConfigOutput) ToGetProfilingGroupAgentOrchestrationConfigOutput() GetProfilingGroupAgentOrchestrationConfigOutput {
+	return o
+}
+
+func (o GetProfilingGroupAgentOrchestrationConfigOutput) ToGetProfilingGroupAgentOrchestrationConfigOutputWithContext(ctx context.Context) GetProfilingGroupAgentOrchestrationConfigOutput {
+	return o
+}
+
+func (o GetProfilingGroupAgentOrchestrationConfigOutput) ProfilingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetProfilingGroupAgentOrchestrationConfig) bool { return v.ProfilingEnabled }).(pulumi.BoolOutput)
+}
+
+type GetProfilingGroupAgentOrchestrationConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetProfilingGroupAgentOrchestrationConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProfilingGroupAgentOrchestrationConfig)(nil)).Elem()
+}
+
+func (o GetProfilingGroupAgentOrchestrationConfigArrayOutput) ToGetProfilingGroupAgentOrchestrationConfigArrayOutput() GetProfilingGroupAgentOrchestrationConfigArrayOutput {
+	return o
+}
+
+func (o GetProfilingGroupAgentOrchestrationConfigArrayOutput) ToGetProfilingGroupAgentOrchestrationConfigArrayOutputWithContext(ctx context.Context) GetProfilingGroupAgentOrchestrationConfigArrayOutput {
+	return o
+}
+
+func (o GetProfilingGroupAgentOrchestrationConfigArrayOutput) Index(i pulumi.IntInput) GetProfilingGroupAgentOrchestrationConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProfilingGroupAgentOrchestrationConfig {
+		return vs[0].([]GetProfilingGroupAgentOrchestrationConfig)[vs[1].(int)]
+	}).(GetProfilingGroupAgentOrchestrationConfigOutput)
+}
+
+type GetProfilingGroupProfilingStatus struct {
+	LatestAgentOrchestratedAt    string        `pulumi:"latestAgentOrchestratedAt"`
+	LatestAgentProfileReportedAt string        `pulumi:"latestAgentProfileReportedAt"`
+	LatestAggregatedProfiles     []interface{} `pulumi:"latestAggregatedProfiles"`
+}
+
+// GetProfilingGroupProfilingStatusInput is an input type that accepts GetProfilingGroupProfilingStatusArgs and GetProfilingGroupProfilingStatusOutput values.
+// You can construct a concrete instance of `GetProfilingGroupProfilingStatusInput` via:
+//
+//	GetProfilingGroupProfilingStatusArgs{...}
+type GetProfilingGroupProfilingStatusInput interface {
+	pulumi.Input
+
+	ToGetProfilingGroupProfilingStatusOutput() GetProfilingGroupProfilingStatusOutput
+	ToGetProfilingGroupProfilingStatusOutputWithContext(context.Context) GetProfilingGroupProfilingStatusOutput
+}
+
+type GetProfilingGroupProfilingStatusArgs struct {
+	LatestAgentOrchestratedAt    pulumi.StringInput `pulumi:"latestAgentOrchestratedAt"`
+	LatestAgentProfileReportedAt pulumi.StringInput `pulumi:"latestAgentProfileReportedAt"`
+	LatestAggregatedProfiles     pulumi.ArrayInput  `pulumi:"latestAggregatedProfiles"`
+}
+
+func (GetProfilingGroupProfilingStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProfilingGroupProfilingStatus)(nil)).Elem()
+}
+
+func (i GetProfilingGroupProfilingStatusArgs) ToGetProfilingGroupProfilingStatusOutput() GetProfilingGroupProfilingStatusOutput {
+	return i.ToGetProfilingGroupProfilingStatusOutputWithContext(context.Background())
+}
+
+func (i GetProfilingGroupProfilingStatusArgs) ToGetProfilingGroupProfilingStatusOutputWithContext(ctx context.Context) GetProfilingGroupProfilingStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProfilingGroupProfilingStatusOutput)
+}
+
+// GetProfilingGroupProfilingStatusArrayInput is an input type that accepts GetProfilingGroupProfilingStatusArray and GetProfilingGroupProfilingStatusArrayOutput values.
+// You can construct a concrete instance of `GetProfilingGroupProfilingStatusArrayInput` via:
+//
+//	GetProfilingGroupProfilingStatusArray{ GetProfilingGroupProfilingStatusArgs{...} }
+type GetProfilingGroupProfilingStatusArrayInput interface {
+	pulumi.Input
+
+	ToGetProfilingGroupProfilingStatusArrayOutput() GetProfilingGroupProfilingStatusArrayOutput
+	ToGetProfilingGroupProfilingStatusArrayOutputWithContext(context.Context) GetProfilingGroupProfilingStatusArrayOutput
+}
+
+type GetProfilingGroupProfilingStatusArray []GetProfilingGroupProfilingStatusInput
+
+func (GetProfilingGroupProfilingStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProfilingGroupProfilingStatus)(nil)).Elem()
+}
+
+func (i GetProfilingGroupProfilingStatusArray) ToGetProfilingGroupProfilingStatusArrayOutput() GetProfilingGroupProfilingStatusArrayOutput {
+	return i.ToGetProfilingGroupProfilingStatusArrayOutputWithContext(context.Background())
+}
+
+func (i GetProfilingGroupProfilingStatusArray) ToGetProfilingGroupProfilingStatusArrayOutputWithContext(ctx context.Context) GetProfilingGroupProfilingStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProfilingGroupProfilingStatusArrayOutput)
+}
+
+type GetProfilingGroupProfilingStatusOutput struct{ *pulumi.OutputState }
+
+func (GetProfilingGroupProfilingStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProfilingGroupProfilingStatus)(nil)).Elem()
+}
+
+func (o GetProfilingGroupProfilingStatusOutput) ToGetProfilingGroupProfilingStatusOutput() GetProfilingGroupProfilingStatusOutput {
+	return o
+}
+
+func (o GetProfilingGroupProfilingStatusOutput) ToGetProfilingGroupProfilingStatusOutputWithContext(ctx context.Context) GetProfilingGroupProfilingStatusOutput {
+	return o
+}
+
+func (o GetProfilingGroupProfilingStatusOutput) LatestAgentOrchestratedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProfilingGroupProfilingStatus) string { return v.LatestAgentOrchestratedAt }).(pulumi.StringOutput)
+}
+
+func (o GetProfilingGroupProfilingStatusOutput) LatestAgentProfileReportedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProfilingGroupProfilingStatus) string { return v.LatestAgentProfileReportedAt }).(pulumi.StringOutput)
+}
+
+func (o GetProfilingGroupProfilingStatusOutput) LatestAggregatedProfiles() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetProfilingGroupProfilingStatus) []interface{} { return v.LatestAggregatedProfiles }).(pulumi.ArrayOutput)
+}
+
+type GetProfilingGroupProfilingStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetProfilingGroupProfilingStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProfilingGroupProfilingStatus)(nil)).Elem()
+}
+
+func (o GetProfilingGroupProfilingStatusArrayOutput) ToGetProfilingGroupProfilingStatusArrayOutput() GetProfilingGroupProfilingStatusArrayOutput {
+	return o
+}
+
+func (o GetProfilingGroupProfilingStatusArrayOutput) ToGetProfilingGroupProfilingStatusArrayOutputWithContext(ctx context.Context) GetProfilingGroupProfilingStatusArrayOutput {
+	return o
+}
+
+func (o GetProfilingGroupProfilingStatusArrayOutput) Index(i pulumi.IntInput) GetProfilingGroupProfilingStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProfilingGroupProfilingStatus {
+		return vs[0].([]GetProfilingGroupProfilingStatus)[vs[1].(int)]
+	}).(GetProfilingGroupProfilingStatusOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfilingGroupAgentOrchestrationConfigInput)(nil)).Elem(), ProfilingGroupAgentOrchestrationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfilingGroupAgentOrchestrationConfigPtrInput)(nil)).Elem(), ProfilingGroupAgentOrchestrationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProfilingGroupAgentOrchestrationConfigInput)(nil)).Elem(), GetProfilingGroupAgentOrchestrationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProfilingGroupAgentOrchestrationConfigArrayInput)(nil)).Elem(), GetProfilingGroupAgentOrchestrationConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProfilingGroupProfilingStatusInput)(nil)).Elem(), GetProfilingGroupProfilingStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProfilingGroupProfilingStatusArrayInput)(nil)).Elem(), GetProfilingGroupProfilingStatusArray{})
 	pulumi.RegisterOutputType(ProfilingGroupAgentOrchestrationConfigOutput{})
 	pulumi.RegisterOutputType(ProfilingGroupAgentOrchestrationConfigPtrOutput{})
+	pulumi.RegisterOutputType(GetProfilingGroupAgentOrchestrationConfigOutput{})
+	pulumi.RegisterOutputType(GetProfilingGroupAgentOrchestrationConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetProfilingGroupProfilingStatusOutput{})
+	pulumi.RegisterOutputType(GetProfilingGroupProfilingStatusArrayOutput{})
 }

@@ -62,6 +62,39 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// ### Add metrics configuration with S3 object filter for S3 Access Point
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketV2("example");
+    /// 
+    ///     var example_access_point = new Aws.S3.AccessPoint("example-access-point", new()
+    ///     {
+    ///         Bucket = example.Id,
+    ///     });
+    /// 
+    ///     var example_filtered = new Aws.S3.BucketMetric("example-filtered", new()
+    ///     {
+    ///         Bucket = example.Id,
+    ///         Filter = new Aws.S3.Inputs.BucketMetricFilterArgs
+    ///         {
+    ///             AccessPoint = example_access_point.Arn,
+    ///             Tags = 
+    ///             {
+    ///                 { "priority", "high" },
+    ///                 { "class", "blue" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

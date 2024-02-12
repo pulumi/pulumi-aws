@@ -99,6 +99,7 @@ import * as autoscaling from "./autoscaling";
 import * as autoscalingplans from "./autoscalingplans";
 import * as backup from "./backup";
 import * as batch from "./batch";
+import * as bedrock from "./bedrock";
 import * as bedrockfoundation from "./bedrockfoundation";
 import * as bedrockmodel from "./bedrockmodel";
 import * as budgets from "./budgets";
@@ -208,6 +209,7 @@ import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
 import * as oam from "./oam";
 import * as opensearch from "./opensearch";
+import * as opensearchingest from "./opensearchingest";
 import * as opsworks from "./opsworks";
 import * as organizations from "./organizations";
 import * as outposts from "./outposts";
@@ -302,6 +304,7 @@ export {
     autoscalingplans,
     backup,
     batch,
+    bedrock,
     bedrockfoundation,
     bedrockmodel,
     budgets,
@@ -411,6 +414,7 @@ export {
     networkmanager,
     oam,
     opensearch,
+    opensearchingest,
     opsworks,
     organizations,
     outposts,

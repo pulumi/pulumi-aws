@@ -170,6 +170,8 @@ type Cluster struct {
 	MasterPasswordSecretKmsKeyId pulumi.StringOutput `pulumi:"masterPasswordSecretKmsKeyId"`
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrOutput `pulumi:"masterUsername"`
+	// Specifies if the Redshift cluster is multi-AZ.
+	MultiAz pulumi.BoolPtrOutput `pulumi:"multiAz"`
 	// The node type to be provisioned for the cluster.
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -330,6 +332,8 @@ type clusterState struct {
 	MasterPasswordSecretKmsKeyId *string `pulumi:"masterPasswordSecretKmsKeyId"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
+	// Specifies if the Redshift cluster is multi-AZ.
+	MultiAz *bool `pulumi:"multiAz"`
 	// The node type to be provisioned for the cluster.
 	NodeType *string `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -447,6 +451,8 @@ type ClusterState struct {
 	MasterPasswordSecretKmsKeyId pulumi.StringPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
+	// Specifies if the Redshift cluster is multi-AZ.
+	MultiAz pulumi.BoolPtrInput
 	// The node type to be provisioned for the cluster.
 	NodeType pulumi.StringPtrInput
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -558,6 +564,8 @@ type clusterArgs struct {
 	MasterPasswordSecretKmsKeyId *string `pulumi:"masterPasswordSecretKmsKeyId"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
+	// Specifies if the Redshift cluster is multi-AZ.
+	MultiAz *bool `pulumi:"multiAz"`
 	// The node type to be provisioned for the cluster.
 	NodeType string `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -662,6 +670,8 @@ type ClusterArgs struct {
 	MasterPasswordSecretKmsKeyId pulumi.StringPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
+	// Specifies if the Redshift cluster is multi-AZ.
+	MultiAz pulumi.BoolPtrInput
 	// The node type to be provisioned for the cluster.
 	NodeType pulumi.StringInput
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -961,6 +971,11 @@ func (o ClusterOutput) MasterPasswordSecretKmsKeyId() pulumi.StringOutput {
 // Username for the master DB user.
 func (o ClusterOutput) MasterUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterUsername }).(pulumi.StringPtrOutput)
+}
+
+// Specifies if the Redshift cluster is multi-AZ.
+func (o ClusterOutput) MultiAz() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.MultiAz }).(pulumi.BoolPtrOutput)
 }
 
 // The node type to be provisioned for the cluster.

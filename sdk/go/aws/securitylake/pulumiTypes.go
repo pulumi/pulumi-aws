@@ -207,9 +207,683 @@ func (o AwsLogSourceSourcePtrOutput) SourceVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type CustomLogSourceAttribute struct {
+	// The ARN of the AWS Glue crawler.
+	CrawlerArn string `pulumi:"crawlerArn"`
+	// The ARN of the AWS Glue database where results are written.
+	DatabaseArn string `pulumi:"databaseArn"`
+	// The ARN of the AWS Glue table.
+	TableArn string `pulumi:"tableArn"`
+}
+
+// CustomLogSourceAttributeInput is an input type that accepts CustomLogSourceAttributeArgs and CustomLogSourceAttributeOutput values.
+// You can construct a concrete instance of `CustomLogSourceAttributeInput` via:
+//
+//	CustomLogSourceAttributeArgs{...}
+type CustomLogSourceAttributeInput interface {
+	pulumi.Input
+
+	ToCustomLogSourceAttributeOutput() CustomLogSourceAttributeOutput
+	ToCustomLogSourceAttributeOutputWithContext(context.Context) CustomLogSourceAttributeOutput
+}
+
+type CustomLogSourceAttributeArgs struct {
+	// The ARN of the AWS Glue crawler.
+	CrawlerArn pulumi.StringInput `pulumi:"crawlerArn"`
+	// The ARN of the AWS Glue database where results are written.
+	DatabaseArn pulumi.StringInput `pulumi:"databaseArn"`
+	// The ARN of the AWS Glue table.
+	TableArn pulumi.StringInput `pulumi:"tableArn"`
+}
+
+func (CustomLogSourceAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLogSourceAttribute)(nil)).Elem()
+}
+
+func (i CustomLogSourceAttributeArgs) ToCustomLogSourceAttributeOutput() CustomLogSourceAttributeOutput {
+	return i.ToCustomLogSourceAttributeOutputWithContext(context.Background())
+}
+
+func (i CustomLogSourceAttributeArgs) ToCustomLogSourceAttributeOutputWithContext(ctx context.Context) CustomLogSourceAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLogSourceAttributeOutput)
+}
+
+// CustomLogSourceAttributeArrayInput is an input type that accepts CustomLogSourceAttributeArray and CustomLogSourceAttributeArrayOutput values.
+// You can construct a concrete instance of `CustomLogSourceAttributeArrayInput` via:
+//
+//	CustomLogSourceAttributeArray{ CustomLogSourceAttributeArgs{...} }
+type CustomLogSourceAttributeArrayInput interface {
+	pulumi.Input
+
+	ToCustomLogSourceAttributeArrayOutput() CustomLogSourceAttributeArrayOutput
+	ToCustomLogSourceAttributeArrayOutputWithContext(context.Context) CustomLogSourceAttributeArrayOutput
+}
+
+type CustomLogSourceAttributeArray []CustomLogSourceAttributeInput
+
+func (CustomLogSourceAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomLogSourceAttribute)(nil)).Elem()
+}
+
+func (i CustomLogSourceAttributeArray) ToCustomLogSourceAttributeArrayOutput() CustomLogSourceAttributeArrayOutput {
+	return i.ToCustomLogSourceAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i CustomLogSourceAttributeArray) ToCustomLogSourceAttributeArrayOutputWithContext(ctx context.Context) CustomLogSourceAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLogSourceAttributeArrayOutput)
+}
+
+type CustomLogSourceAttributeOutput struct{ *pulumi.OutputState }
+
+func (CustomLogSourceAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLogSourceAttribute)(nil)).Elem()
+}
+
+func (o CustomLogSourceAttributeOutput) ToCustomLogSourceAttributeOutput() CustomLogSourceAttributeOutput {
+	return o
+}
+
+func (o CustomLogSourceAttributeOutput) ToCustomLogSourceAttributeOutputWithContext(ctx context.Context) CustomLogSourceAttributeOutput {
+	return o
+}
+
+// The ARN of the AWS Glue crawler.
+func (o CustomLogSourceAttributeOutput) CrawlerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomLogSourceAttribute) string { return v.CrawlerArn }).(pulumi.StringOutput)
+}
+
+// The ARN of the AWS Glue database where results are written.
+func (o CustomLogSourceAttributeOutput) DatabaseArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomLogSourceAttribute) string { return v.DatabaseArn }).(pulumi.StringOutput)
+}
+
+// The ARN of the AWS Glue table.
+func (o CustomLogSourceAttributeOutput) TableArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomLogSourceAttribute) string { return v.TableArn }).(pulumi.StringOutput)
+}
+
+type CustomLogSourceAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomLogSourceAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomLogSourceAttribute)(nil)).Elem()
+}
+
+func (o CustomLogSourceAttributeArrayOutput) ToCustomLogSourceAttributeArrayOutput() CustomLogSourceAttributeArrayOutput {
+	return o
+}
+
+func (o CustomLogSourceAttributeArrayOutput) ToCustomLogSourceAttributeArrayOutputWithContext(ctx context.Context) CustomLogSourceAttributeArrayOutput {
+	return o
+}
+
+func (o CustomLogSourceAttributeArrayOutput) Index(i pulumi.IntInput) CustomLogSourceAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomLogSourceAttribute {
+		return vs[0].([]CustomLogSourceAttribute)[vs[1].(int)]
+	}).(CustomLogSourceAttributeOutput)
+}
+
+type CustomLogSourceConfiguration struct {
+	// The configuration for the Glue Crawler for the third-party custom source.
+	CrawlerConfiguration *CustomLogSourceConfigurationCrawlerConfiguration `pulumi:"crawlerConfiguration"`
+	// The identity of the log provider for the third-party custom source.
+	ProviderIdentity *CustomLogSourceConfigurationProviderIdentity `pulumi:"providerIdentity"`
+}
+
+// CustomLogSourceConfigurationInput is an input type that accepts CustomLogSourceConfigurationArgs and CustomLogSourceConfigurationOutput values.
+// You can construct a concrete instance of `CustomLogSourceConfigurationInput` via:
+//
+//	CustomLogSourceConfigurationArgs{...}
+type CustomLogSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToCustomLogSourceConfigurationOutput() CustomLogSourceConfigurationOutput
+	ToCustomLogSourceConfigurationOutputWithContext(context.Context) CustomLogSourceConfigurationOutput
+}
+
+type CustomLogSourceConfigurationArgs struct {
+	// The configuration for the Glue Crawler for the third-party custom source.
+	CrawlerConfiguration CustomLogSourceConfigurationCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
+	// The identity of the log provider for the third-party custom source.
+	ProviderIdentity CustomLogSourceConfigurationProviderIdentityPtrInput `pulumi:"providerIdentity"`
+}
+
+func (CustomLogSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLogSourceConfiguration)(nil)).Elem()
+}
+
+func (i CustomLogSourceConfigurationArgs) ToCustomLogSourceConfigurationOutput() CustomLogSourceConfigurationOutput {
+	return i.ToCustomLogSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i CustomLogSourceConfigurationArgs) ToCustomLogSourceConfigurationOutputWithContext(ctx context.Context) CustomLogSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLogSourceConfigurationOutput)
+}
+
+func (i CustomLogSourceConfigurationArgs) ToCustomLogSourceConfigurationPtrOutput() CustomLogSourceConfigurationPtrOutput {
+	return i.ToCustomLogSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CustomLogSourceConfigurationArgs) ToCustomLogSourceConfigurationPtrOutputWithContext(ctx context.Context) CustomLogSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLogSourceConfigurationOutput).ToCustomLogSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// CustomLogSourceConfigurationPtrInput is an input type that accepts CustomLogSourceConfigurationArgs, CustomLogSourceConfigurationPtr and CustomLogSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `CustomLogSourceConfigurationPtrInput` via:
+//
+//	        CustomLogSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomLogSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCustomLogSourceConfigurationPtrOutput() CustomLogSourceConfigurationPtrOutput
+	ToCustomLogSourceConfigurationPtrOutputWithContext(context.Context) CustomLogSourceConfigurationPtrOutput
+}
+
+type customLogSourceConfigurationPtrType CustomLogSourceConfigurationArgs
+
+func CustomLogSourceConfigurationPtr(v *CustomLogSourceConfigurationArgs) CustomLogSourceConfigurationPtrInput {
+	return (*customLogSourceConfigurationPtrType)(v)
+}
+
+func (*customLogSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLogSourceConfiguration)(nil)).Elem()
+}
+
+func (i *customLogSourceConfigurationPtrType) ToCustomLogSourceConfigurationPtrOutput() CustomLogSourceConfigurationPtrOutput {
+	return i.ToCustomLogSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *customLogSourceConfigurationPtrType) ToCustomLogSourceConfigurationPtrOutputWithContext(ctx context.Context) CustomLogSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLogSourceConfigurationPtrOutput)
+}
+
+type CustomLogSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CustomLogSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLogSourceConfiguration)(nil)).Elem()
+}
+
+func (o CustomLogSourceConfigurationOutput) ToCustomLogSourceConfigurationOutput() CustomLogSourceConfigurationOutput {
+	return o
+}
+
+func (o CustomLogSourceConfigurationOutput) ToCustomLogSourceConfigurationOutputWithContext(ctx context.Context) CustomLogSourceConfigurationOutput {
+	return o
+}
+
+func (o CustomLogSourceConfigurationOutput) ToCustomLogSourceConfigurationPtrOutput() CustomLogSourceConfigurationPtrOutput {
+	return o.ToCustomLogSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLogSourceConfigurationOutput) ToCustomLogSourceConfigurationPtrOutputWithContext(ctx context.Context) CustomLogSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLogSourceConfiguration) *CustomLogSourceConfiguration {
+		return &v
+	}).(CustomLogSourceConfigurationPtrOutput)
+}
+
+// The configuration for the Glue Crawler for the third-party custom source.
+func (o CustomLogSourceConfigurationOutput) CrawlerConfiguration() CustomLogSourceConfigurationCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v CustomLogSourceConfiguration) *CustomLogSourceConfigurationCrawlerConfiguration {
+		return v.CrawlerConfiguration
+	}).(CustomLogSourceConfigurationCrawlerConfigurationPtrOutput)
+}
+
+// The identity of the log provider for the third-party custom source.
+func (o CustomLogSourceConfigurationOutput) ProviderIdentity() CustomLogSourceConfigurationProviderIdentityPtrOutput {
+	return o.ApplyT(func(v CustomLogSourceConfiguration) *CustomLogSourceConfigurationProviderIdentity {
+		return v.ProviderIdentity
+	}).(CustomLogSourceConfigurationProviderIdentityPtrOutput)
+}
+
+type CustomLogSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomLogSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLogSourceConfiguration)(nil)).Elem()
+}
+
+func (o CustomLogSourceConfigurationPtrOutput) ToCustomLogSourceConfigurationPtrOutput() CustomLogSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o CustomLogSourceConfigurationPtrOutput) ToCustomLogSourceConfigurationPtrOutputWithContext(ctx context.Context) CustomLogSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o CustomLogSourceConfigurationPtrOutput) Elem() CustomLogSourceConfigurationOutput {
+	return o.ApplyT(func(v *CustomLogSourceConfiguration) CustomLogSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CustomLogSourceConfiguration
+		return ret
+	}).(CustomLogSourceConfigurationOutput)
+}
+
+// The configuration for the Glue Crawler for the third-party custom source.
+func (o CustomLogSourceConfigurationPtrOutput) CrawlerConfiguration() CustomLogSourceConfigurationCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v *CustomLogSourceConfiguration) *CustomLogSourceConfigurationCrawlerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CrawlerConfiguration
+	}).(CustomLogSourceConfigurationCrawlerConfigurationPtrOutput)
+}
+
+// The identity of the log provider for the third-party custom source.
+func (o CustomLogSourceConfigurationPtrOutput) ProviderIdentity() CustomLogSourceConfigurationProviderIdentityPtrOutput {
+	return o.ApplyT(func(v *CustomLogSourceConfiguration) *CustomLogSourceConfigurationProviderIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.ProviderIdentity
+	}).(CustomLogSourceConfigurationProviderIdentityPtrOutput)
+}
+
+type CustomLogSourceConfigurationCrawlerConfiguration struct {
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// CustomLogSourceConfigurationCrawlerConfigurationInput is an input type that accepts CustomLogSourceConfigurationCrawlerConfigurationArgs and CustomLogSourceConfigurationCrawlerConfigurationOutput values.
+// You can construct a concrete instance of `CustomLogSourceConfigurationCrawlerConfigurationInput` via:
+//
+//	CustomLogSourceConfigurationCrawlerConfigurationArgs{...}
+type CustomLogSourceConfigurationCrawlerConfigurationInput interface {
+	pulumi.Input
+
+	ToCustomLogSourceConfigurationCrawlerConfigurationOutput() CustomLogSourceConfigurationCrawlerConfigurationOutput
+	ToCustomLogSourceConfigurationCrawlerConfigurationOutputWithContext(context.Context) CustomLogSourceConfigurationCrawlerConfigurationOutput
+}
+
+type CustomLogSourceConfigurationCrawlerConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (CustomLogSourceConfigurationCrawlerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLogSourceConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i CustomLogSourceConfigurationCrawlerConfigurationArgs) ToCustomLogSourceConfigurationCrawlerConfigurationOutput() CustomLogSourceConfigurationCrawlerConfigurationOutput {
+	return i.ToCustomLogSourceConfigurationCrawlerConfigurationOutputWithContext(context.Background())
+}
+
+func (i CustomLogSourceConfigurationCrawlerConfigurationArgs) ToCustomLogSourceConfigurationCrawlerConfigurationOutputWithContext(ctx context.Context) CustomLogSourceConfigurationCrawlerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLogSourceConfigurationCrawlerConfigurationOutput)
+}
+
+func (i CustomLogSourceConfigurationCrawlerConfigurationArgs) ToCustomLogSourceConfigurationCrawlerConfigurationPtrOutput() CustomLogSourceConfigurationCrawlerConfigurationPtrOutput {
+	return i.ToCustomLogSourceConfigurationCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CustomLogSourceConfigurationCrawlerConfigurationArgs) ToCustomLogSourceConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) CustomLogSourceConfigurationCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLogSourceConfigurationCrawlerConfigurationOutput).ToCustomLogSourceConfigurationCrawlerConfigurationPtrOutputWithContext(ctx)
+}
+
+// CustomLogSourceConfigurationCrawlerConfigurationPtrInput is an input type that accepts CustomLogSourceConfigurationCrawlerConfigurationArgs, CustomLogSourceConfigurationCrawlerConfigurationPtr and CustomLogSourceConfigurationCrawlerConfigurationPtrOutput values.
+// You can construct a concrete instance of `CustomLogSourceConfigurationCrawlerConfigurationPtrInput` via:
+//
+//	        CustomLogSourceConfigurationCrawlerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomLogSourceConfigurationCrawlerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCustomLogSourceConfigurationCrawlerConfigurationPtrOutput() CustomLogSourceConfigurationCrawlerConfigurationPtrOutput
+	ToCustomLogSourceConfigurationCrawlerConfigurationPtrOutputWithContext(context.Context) CustomLogSourceConfigurationCrawlerConfigurationPtrOutput
+}
+
+type customLogSourceConfigurationCrawlerConfigurationPtrType CustomLogSourceConfigurationCrawlerConfigurationArgs
+
+func CustomLogSourceConfigurationCrawlerConfigurationPtr(v *CustomLogSourceConfigurationCrawlerConfigurationArgs) CustomLogSourceConfigurationCrawlerConfigurationPtrInput {
+	return (*customLogSourceConfigurationCrawlerConfigurationPtrType)(v)
+}
+
+func (*customLogSourceConfigurationCrawlerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLogSourceConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i *customLogSourceConfigurationCrawlerConfigurationPtrType) ToCustomLogSourceConfigurationCrawlerConfigurationPtrOutput() CustomLogSourceConfigurationCrawlerConfigurationPtrOutput {
+	return i.ToCustomLogSourceConfigurationCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *customLogSourceConfigurationCrawlerConfigurationPtrType) ToCustomLogSourceConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) CustomLogSourceConfigurationCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLogSourceConfigurationCrawlerConfigurationPtrOutput)
+}
+
+type CustomLogSourceConfigurationCrawlerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CustomLogSourceConfigurationCrawlerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLogSourceConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o CustomLogSourceConfigurationCrawlerConfigurationOutput) ToCustomLogSourceConfigurationCrawlerConfigurationOutput() CustomLogSourceConfigurationCrawlerConfigurationOutput {
+	return o
+}
+
+func (o CustomLogSourceConfigurationCrawlerConfigurationOutput) ToCustomLogSourceConfigurationCrawlerConfigurationOutputWithContext(ctx context.Context) CustomLogSourceConfigurationCrawlerConfigurationOutput {
+	return o
+}
+
+func (o CustomLogSourceConfigurationCrawlerConfigurationOutput) ToCustomLogSourceConfigurationCrawlerConfigurationPtrOutput() CustomLogSourceConfigurationCrawlerConfigurationPtrOutput {
+	return o.ToCustomLogSourceConfigurationCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLogSourceConfigurationCrawlerConfigurationOutput) ToCustomLogSourceConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) CustomLogSourceConfigurationCrawlerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLogSourceConfigurationCrawlerConfiguration) *CustomLogSourceConfigurationCrawlerConfiguration {
+		return &v
+	}).(CustomLogSourceConfigurationCrawlerConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+func (o CustomLogSourceConfigurationCrawlerConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomLogSourceConfigurationCrawlerConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type CustomLogSourceConfigurationCrawlerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomLogSourceConfigurationCrawlerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLogSourceConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o CustomLogSourceConfigurationCrawlerConfigurationPtrOutput) ToCustomLogSourceConfigurationCrawlerConfigurationPtrOutput() CustomLogSourceConfigurationCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o CustomLogSourceConfigurationCrawlerConfigurationPtrOutput) ToCustomLogSourceConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) CustomLogSourceConfigurationCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o CustomLogSourceConfigurationCrawlerConfigurationPtrOutput) Elem() CustomLogSourceConfigurationCrawlerConfigurationOutput {
+	return o.ApplyT(func(v *CustomLogSourceConfigurationCrawlerConfiguration) CustomLogSourceConfigurationCrawlerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CustomLogSourceConfigurationCrawlerConfiguration
+		return ret
+	}).(CustomLogSourceConfigurationCrawlerConfigurationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+func (o CustomLogSourceConfigurationCrawlerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomLogSourceConfigurationCrawlerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type CustomLogSourceConfigurationProviderIdentity struct {
+	// The external ID used to estalish trust relationship with the AWS identity.
+	ExternalId string `pulumi:"externalId"`
+	// The AWS identity principal.
+	Principal string `pulumi:"principal"`
+}
+
+// CustomLogSourceConfigurationProviderIdentityInput is an input type that accepts CustomLogSourceConfigurationProviderIdentityArgs and CustomLogSourceConfigurationProviderIdentityOutput values.
+// You can construct a concrete instance of `CustomLogSourceConfigurationProviderIdentityInput` via:
+//
+//	CustomLogSourceConfigurationProviderIdentityArgs{...}
+type CustomLogSourceConfigurationProviderIdentityInput interface {
+	pulumi.Input
+
+	ToCustomLogSourceConfigurationProviderIdentityOutput() CustomLogSourceConfigurationProviderIdentityOutput
+	ToCustomLogSourceConfigurationProviderIdentityOutputWithContext(context.Context) CustomLogSourceConfigurationProviderIdentityOutput
+}
+
+type CustomLogSourceConfigurationProviderIdentityArgs struct {
+	// The external ID used to estalish trust relationship with the AWS identity.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The AWS identity principal.
+	Principal pulumi.StringInput `pulumi:"principal"`
+}
+
+func (CustomLogSourceConfigurationProviderIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLogSourceConfigurationProviderIdentity)(nil)).Elem()
+}
+
+func (i CustomLogSourceConfigurationProviderIdentityArgs) ToCustomLogSourceConfigurationProviderIdentityOutput() CustomLogSourceConfigurationProviderIdentityOutput {
+	return i.ToCustomLogSourceConfigurationProviderIdentityOutputWithContext(context.Background())
+}
+
+func (i CustomLogSourceConfigurationProviderIdentityArgs) ToCustomLogSourceConfigurationProviderIdentityOutputWithContext(ctx context.Context) CustomLogSourceConfigurationProviderIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLogSourceConfigurationProviderIdentityOutput)
+}
+
+func (i CustomLogSourceConfigurationProviderIdentityArgs) ToCustomLogSourceConfigurationProviderIdentityPtrOutput() CustomLogSourceConfigurationProviderIdentityPtrOutput {
+	return i.ToCustomLogSourceConfigurationProviderIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i CustomLogSourceConfigurationProviderIdentityArgs) ToCustomLogSourceConfigurationProviderIdentityPtrOutputWithContext(ctx context.Context) CustomLogSourceConfigurationProviderIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLogSourceConfigurationProviderIdentityOutput).ToCustomLogSourceConfigurationProviderIdentityPtrOutputWithContext(ctx)
+}
+
+// CustomLogSourceConfigurationProviderIdentityPtrInput is an input type that accepts CustomLogSourceConfigurationProviderIdentityArgs, CustomLogSourceConfigurationProviderIdentityPtr and CustomLogSourceConfigurationProviderIdentityPtrOutput values.
+// You can construct a concrete instance of `CustomLogSourceConfigurationProviderIdentityPtrInput` via:
+//
+//	        CustomLogSourceConfigurationProviderIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomLogSourceConfigurationProviderIdentityPtrInput interface {
+	pulumi.Input
+
+	ToCustomLogSourceConfigurationProviderIdentityPtrOutput() CustomLogSourceConfigurationProviderIdentityPtrOutput
+	ToCustomLogSourceConfigurationProviderIdentityPtrOutputWithContext(context.Context) CustomLogSourceConfigurationProviderIdentityPtrOutput
+}
+
+type customLogSourceConfigurationProviderIdentityPtrType CustomLogSourceConfigurationProviderIdentityArgs
+
+func CustomLogSourceConfigurationProviderIdentityPtr(v *CustomLogSourceConfigurationProviderIdentityArgs) CustomLogSourceConfigurationProviderIdentityPtrInput {
+	return (*customLogSourceConfigurationProviderIdentityPtrType)(v)
+}
+
+func (*customLogSourceConfigurationProviderIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLogSourceConfigurationProviderIdentity)(nil)).Elem()
+}
+
+func (i *customLogSourceConfigurationProviderIdentityPtrType) ToCustomLogSourceConfigurationProviderIdentityPtrOutput() CustomLogSourceConfigurationProviderIdentityPtrOutput {
+	return i.ToCustomLogSourceConfigurationProviderIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *customLogSourceConfigurationProviderIdentityPtrType) ToCustomLogSourceConfigurationProviderIdentityPtrOutputWithContext(ctx context.Context) CustomLogSourceConfigurationProviderIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLogSourceConfigurationProviderIdentityPtrOutput)
+}
+
+type CustomLogSourceConfigurationProviderIdentityOutput struct{ *pulumi.OutputState }
+
+func (CustomLogSourceConfigurationProviderIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLogSourceConfigurationProviderIdentity)(nil)).Elem()
+}
+
+func (o CustomLogSourceConfigurationProviderIdentityOutput) ToCustomLogSourceConfigurationProviderIdentityOutput() CustomLogSourceConfigurationProviderIdentityOutput {
+	return o
+}
+
+func (o CustomLogSourceConfigurationProviderIdentityOutput) ToCustomLogSourceConfigurationProviderIdentityOutputWithContext(ctx context.Context) CustomLogSourceConfigurationProviderIdentityOutput {
+	return o
+}
+
+func (o CustomLogSourceConfigurationProviderIdentityOutput) ToCustomLogSourceConfigurationProviderIdentityPtrOutput() CustomLogSourceConfigurationProviderIdentityPtrOutput {
+	return o.ToCustomLogSourceConfigurationProviderIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLogSourceConfigurationProviderIdentityOutput) ToCustomLogSourceConfigurationProviderIdentityPtrOutputWithContext(ctx context.Context) CustomLogSourceConfigurationProviderIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLogSourceConfigurationProviderIdentity) *CustomLogSourceConfigurationProviderIdentity {
+		return &v
+	}).(CustomLogSourceConfigurationProviderIdentityPtrOutput)
+}
+
+// The external ID used to estalish trust relationship with the AWS identity.
+func (o CustomLogSourceConfigurationProviderIdentityOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomLogSourceConfigurationProviderIdentity) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The AWS identity principal.
+func (o CustomLogSourceConfigurationProviderIdentityOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomLogSourceConfigurationProviderIdentity) string { return v.Principal }).(pulumi.StringOutput)
+}
+
+type CustomLogSourceConfigurationProviderIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomLogSourceConfigurationProviderIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLogSourceConfigurationProviderIdentity)(nil)).Elem()
+}
+
+func (o CustomLogSourceConfigurationProviderIdentityPtrOutput) ToCustomLogSourceConfigurationProviderIdentityPtrOutput() CustomLogSourceConfigurationProviderIdentityPtrOutput {
+	return o
+}
+
+func (o CustomLogSourceConfigurationProviderIdentityPtrOutput) ToCustomLogSourceConfigurationProviderIdentityPtrOutputWithContext(ctx context.Context) CustomLogSourceConfigurationProviderIdentityPtrOutput {
+	return o
+}
+
+func (o CustomLogSourceConfigurationProviderIdentityPtrOutput) Elem() CustomLogSourceConfigurationProviderIdentityOutput {
+	return o.ApplyT(func(v *CustomLogSourceConfigurationProviderIdentity) CustomLogSourceConfigurationProviderIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret CustomLogSourceConfigurationProviderIdentity
+		return ret
+	}).(CustomLogSourceConfigurationProviderIdentityOutput)
+}
+
+// The external ID used to estalish trust relationship with the AWS identity.
+func (o CustomLogSourceConfigurationProviderIdentityPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomLogSourceConfigurationProviderIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS identity principal.
+func (o CustomLogSourceConfigurationProviderIdentityPtrOutput) Principal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomLogSourceConfigurationProviderIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Principal
+	}).(pulumi.StringPtrOutput)
+}
+
+type CustomLogSourceProviderDetail struct {
+	// The location of the partition in the Amazon S3 bucket for Security Lake.
+	Location string `pulumi:"location"`
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// CustomLogSourceProviderDetailInput is an input type that accepts CustomLogSourceProviderDetailArgs and CustomLogSourceProviderDetailOutput values.
+// You can construct a concrete instance of `CustomLogSourceProviderDetailInput` via:
+//
+//	CustomLogSourceProviderDetailArgs{...}
+type CustomLogSourceProviderDetailInput interface {
+	pulumi.Input
+
+	ToCustomLogSourceProviderDetailOutput() CustomLogSourceProviderDetailOutput
+	ToCustomLogSourceProviderDetailOutputWithContext(context.Context) CustomLogSourceProviderDetailOutput
+}
+
+type CustomLogSourceProviderDetailArgs struct {
+	// The location of the partition in the Amazon S3 bucket for Security Lake.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (CustomLogSourceProviderDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLogSourceProviderDetail)(nil)).Elem()
+}
+
+func (i CustomLogSourceProviderDetailArgs) ToCustomLogSourceProviderDetailOutput() CustomLogSourceProviderDetailOutput {
+	return i.ToCustomLogSourceProviderDetailOutputWithContext(context.Background())
+}
+
+func (i CustomLogSourceProviderDetailArgs) ToCustomLogSourceProviderDetailOutputWithContext(ctx context.Context) CustomLogSourceProviderDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLogSourceProviderDetailOutput)
+}
+
+// CustomLogSourceProviderDetailArrayInput is an input type that accepts CustomLogSourceProviderDetailArray and CustomLogSourceProviderDetailArrayOutput values.
+// You can construct a concrete instance of `CustomLogSourceProviderDetailArrayInput` via:
+//
+//	CustomLogSourceProviderDetailArray{ CustomLogSourceProviderDetailArgs{...} }
+type CustomLogSourceProviderDetailArrayInput interface {
+	pulumi.Input
+
+	ToCustomLogSourceProviderDetailArrayOutput() CustomLogSourceProviderDetailArrayOutput
+	ToCustomLogSourceProviderDetailArrayOutputWithContext(context.Context) CustomLogSourceProviderDetailArrayOutput
+}
+
+type CustomLogSourceProviderDetailArray []CustomLogSourceProviderDetailInput
+
+func (CustomLogSourceProviderDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomLogSourceProviderDetail)(nil)).Elem()
+}
+
+func (i CustomLogSourceProviderDetailArray) ToCustomLogSourceProviderDetailArrayOutput() CustomLogSourceProviderDetailArrayOutput {
+	return i.ToCustomLogSourceProviderDetailArrayOutputWithContext(context.Background())
+}
+
+func (i CustomLogSourceProviderDetailArray) ToCustomLogSourceProviderDetailArrayOutputWithContext(ctx context.Context) CustomLogSourceProviderDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLogSourceProviderDetailArrayOutput)
+}
+
+type CustomLogSourceProviderDetailOutput struct{ *pulumi.OutputState }
+
+func (CustomLogSourceProviderDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomLogSourceProviderDetail)(nil)).Elem()
+}
+
+func (o CustomLogSourceProviderDetailOutput) ToCustomLogSourceProviderDetailOutput() CustomLogSourceProviderDetailOutput {
+	return o
+}
+
+func (o CustomLogSourceProviderDetailOutput) ToCustomLogSourceProviderDetailOutputWithContext(ctx context.Context) CustomLogSourceProviderDetailOutput {
+	return o
+}
+
+// The location of the partition in the Amazon S3 bucket for Security Lake.
+func (o CustomLogSourceProviderDetailOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomLogSourceProviderDetail) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+func (o CustomLogSourceProviderDetailOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomLogSourceProviderDetail) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type CustomLogSourceProviderDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomLogSourceProviderDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomLogSourceProviderDetail)(nil)).Elem()
+}
+
+func (o CustomLogSourceProviderDetailArrayOutput) ToCustomLogSourceProviderDetailArrayOutput() CustomLogSourceProviderDetailArrayOutput {
+	return o
+}
+
+func (o CustomLogSourceProviderDetailArrayOutput) ToCustomLogSourceProviderDetailArrayOutputWithContext(ctx context.Context) CustomLogSourceProviderDetailArrayOutput {
+	return o
+}
+
+func (o CustomLogSourceProviderDetailArrayOutput) Index(i pulumi.IntInput) CustomLogSourceProviderDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomLogSourceProviderDetail {
+		return vs[0].([]CustomLogSourceProviderDetail)[vs[1].(int)]
+	}).(CustomLogSourceProviderDetailOutput)
+}
+
 type DataLakeConfiguration struct {
 	// Provides encryption details of Amazon Security Lake object.
-	EncryptionConfigurations []map[string]interface{} `pulumi:"encryptionConfigurations"`
+	EncryptionConfigurations []DataLakeConfigurationEncryptionConfiguration `pulumi:"encryptionConfigurations"`
 	// Provides lifecycle details of Amazon Security Lake object.
 	LifecycleConfiguration *DataLakeConfigurationLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// The AWS Regions where Security Lake is automatically enabled.
@@ -231,7 +905,7 @@ type DataLakeConfigurationInput interface {
 
 type DataLakeConfigurationArgs struct {
 	// Provides encryption details of Amazon Security Lake object.
-	EncryptionConfigurations pulumi.MapArrayInput `pulumi:"encryptionConfigurations"`
+	EncryptionConfigurations DataLakeConfigurationEncryptionConfigurationArrayInput `pulumi:"encryptionConfigurations"`
 	// Provides lifecycle details of Amazon Security Lake object.
 	LifecycleConfiguration DataLakeConfigurationLifecycleConfigurationPtrInput `pulumi:"lifecycleConfiguration"`
 	// The AWS Regions where Security Lake is automatically enabled.
@@ -318,8 +992,10 @@ func (o DataLakeConfigurationOutput) ToDataLakeConfigurationPtrOutputWithContext
 }
 
 // Provides encryption details of Amazon Security Lake object.
-func (o DataLakeConfigurationOutput) EncryptionConfigurations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v DataLakeConfiguration) []map[string]interface{} { return v.EncryptionConfigurations }).(pulumi.MapArrayOutput)
+func (o DataLakeConfigurationOutput) EncryptionConfigurations() DataLakeConfigurationEncryptionConfigurationArrayOutput {
+	return o.ApplyT(func(v DataLakeConfiguration) []DataLakeConfigurationEncryptionConfiguration {
+		return v.EncryptionConfigurations
+	}).(DataLakeConfigurationEncryptionConfigurationArrayOutput)
 }
 
 // Provides lifecycle details of Amazon Security Lake object.
@@ -366,13 +1042,13 @@ func (o DataLakeConfigurationPtrOutput) Elem() DataLakeConfigurationOutput {
 }
 
 // Provides encryption details of Amazon Security Lake object.
-func (o DataLakeConfigurationPtrOutput) EncryptionConfigurations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v *DataLakeConfiguration) []map[string]interface{} {
+func (o DataLakeConfigurationPtrOutput) EncryptionConfigurations() DataLakeConfigurationEncryptionConfigurationArrayOutput {
+	return o.ApplyT(func(v *DataLakeConfiguration) []DataLakeConfigurationEncryptionConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.EncryptionConfigurations
-	}).(pulumi.MapArrayOutput)
+	}).(DataLakeConfigurationEncryptionConfigurationArrayOutput)
 }
 
 // Provides lifecycle details of Amazon Security Lake object.
@@ -403,6 +1079,103 @@ func (o DataLakeConfigurationPtrOutput) ReplicationConfiguration() DataLakeConfi
 		}
 		return v.ReplicationConfiguration
 	}).(DataLakeConfigurationReplicationConfigurationPtrOutput)
+}
+
+type DataLakeConfigurationEncryptionConfiguration struct {
+	// The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+}
+
+// DataLakeConfigurationEncryptionConfigurationInput is an input type that accepts DataLakeConfigurationEncryptionConfigurationArgs and DataLakeConfigurationEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `DataLakeConfigurationEncryptionConfigurationInput` via:
+//
+//	DataLakeConfigurationEncryptionConfigurationArgs{...}
+type DataLakeConfigurationEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToDataLakeConfigurationEncryptionConfigurationOutput() DataLakeConfigurationEncryptionConfigurationOutput
+	ToDataLakeConfigurationEncryptionConfigurationOutputWithContext(context.Context) DataLakeConfigurationEncryptionConfigurationOutput
+}
+
+type DataLakeConfigurationEncryptionConfigurationArgs struct {
+	// The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+}
+
+func (DataLakeConfigurationEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i DataLakeConfigurationEncryptionConfigurationArgs) ToDataLakeConfigurationEncryptionConfigurationOutput() DataLakeConfigurationEncryptionConfigurationOutput {
+	return i.ToDataLakeConfigurationEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataLakeConfigurationEncryptionConfigurationArgs) ToDataLakeConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) DataLakeConfigurationEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeConfigurationEncryptionConfigurationOutput)
+}
+
+// DataLakeConfigurationEncryptionConfigurationArrayInput is an input type that accepts DataLakeConfigurationEncryptionConfigurationArray and DataLakeConfigurationEncryptionConfigurationArrayOutput values.
+// You can construct a concrete instance of `DataLakeConfigurationEncryptionConfigurationArrayInput` via:
+//
+//	DataLakeConfigurationEncryptionConfigurationArray{ DataLakeConfigurationEncryptionConfigurationArgs{...} }
+type DataLakeConfigurationEncryptionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDataLakeConfigurationEncryptionConfigurationArrayOutput() DataLakeConfigurationEncryptionConfigurationArrayOutput
+	ToDataLakeConfigurationEncryptionConfigurationArrayOutputWithContext(context.Context) DataLakeConfigurationEncryptionConfigurationArrayOutput
+}
+
+type DataLakeConfigurationEncryptionConfigurationArray []DataLakeConfigurationEncryptionConfigurationInput
+
+func (DataLakeConfigurationEncryptionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataLakeConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i DataLakeConfigurationEncryptionConfigurationArray) ToDataLakeConfigurationEncryptionConfigurationArrayOutput() DataLakeConfigurationEncryptionConfigurationArrayOutput {
+	return i.ToDataLakeConfigurationEncryptionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DataLakeConfigurationEncryptionConfigurationArray) ToDataLakeConfigurationEncryptionConfigurationArrayOutputWithContext(ctx context.Context) DataLakeConfigurationEncryptionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeConfigurationEncryptionConfigurationArrayOutput)
+}
+
+type DataLakeConfigurationEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataLakeConfigurationEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o DataLakeConfigurationEncryptionConfigurationOutput) ToDataLakeConfigurationEncryptionConfigurationOutput() DataLakeConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o DataLakeConfigurationEncryptionConfigurationOutput) ToDataLakeConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) DataLakeConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+// The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+func (o DataLakeConfigurationEncryptionConfigurationOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v DataLakeConfigurationEncryptionConfiguration) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+type DataLakeConfigurationEncryptionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DataLakeConfigurationEncryptionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataLakeConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o DataLakeConfigurationEncryptionConfigurationArrayOutput) ToDataLakeConfigurationEncryptionConfigurationArrayOutput() DataLakeConfigurationEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o DataLakeConfigurationEncryptionConfigurationArrayOutput) ToDataLakeConfigurationEncryptionConfigurationArrayOutputWithContext(ctx context.Context) DataLakeConfigurationEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o DataLakeConfigurationEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) DataLakeConfigurationEncryptionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataLakeConfigurationEncryptionConfiguration {
+		return vs[0].([]DataLakeConfigurationEncryptionConfiguration)[vs[1].(int)]
+	}).(DataLakeConfigurationEncryptionConfigurationOutput)
 }
 
 type DataLakeConfigurationLifecycleConfiguration struct {
@@ -1142,8 +1915,20 @@ func (o DataLakeTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsLogSourceSourceInput)(nil)).Elem(), AwsLogSourceSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AwsLogSourceSourcePtrInput)(nil)).Elem(), AwsLogSourceSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLogSourceAttributeInput)(nil)).Elem(), CustomLogSourceAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLogSourceAttributeArrayInput)(nil)).Elem(), CustomLogSourceAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLogSourceConfigurationInput)(nil)).Elem(), CustomLogSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLogSourceConfigurationPtrInput)(nil)).Elem(), CustomLogSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLogSourceConfigurationCrawlerConfigurationInput)(nil)).Elem(), CustomLogSourceConfigurationCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLogSourceConfigurationCrawlerConfigurationPtrInput)(nil)).Elem(), CustomLogSourceConfigurationCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLogSourceConfigurationProviderIdentityInput)(nil)).Elem(), CustomLogSourceConfigurationProviderIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLogSourceConfigurationProviderIdentityPtrInput)(nil)).Elem(), CustomLogSourceConfigurationProviderIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLogSourceProviderDetailInput)(nil)).Elem(), CustomLogSourceProviderDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLogSourceProviderDetailArrayInput)(nil)).Elem(), CustomLogSourceProviderDetailArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationInput)(nil)).Elem(), DataLakeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationPtrInput)(nil)).Elem(), DataLakeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationEncryptionConfigurationInput)(nil)).Elem(), DataLakeConfigurationEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationEncryptionConfigurationArrayInput)(nil)).Elem(), DataLakeConfigurationEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationLifecycleConfigurationInput)(nil)).Elem(), DataLakeConfigurationLifecycleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationLifecycleConfigurationPtrInput)(nil)).Elem(), DataLakeConfigurationLifecycleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeConfigurationLifecycleConfigurationExpirationInput)(nil)).Elem(), DataLakeConfigurationLifecycleConfigurationExpirationArgs{})
@@ -1156,8 +1941,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeTimeoutsPtrInput)(nil)).Elem(), DataLakeTimeoutsArgs{})
 	pulumi.RegisterOutputType(AwsLogSourceSourceOutput{})
 	pulumi.RegisterOutputType(AwsLogSourceSourcePtrOutput{})
+	pulumi.RegisterOutputType(CustomLogSourceAttributeOutput{})
+	pulumi.RegisterOutputType(CustomLogSourceAttributeArrayOutput{})
+	pulumi.RegisterOutputType(CustomLogSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(CustomLogSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CustomLogSourceConfigurationCrawlerConfigurationOutput{})
+	pulumi.RegisterOutputType(CustomLogSourceConfigurationCrawlerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CustomLogSourceConfigurationProviderIdentityOutput{})
+	pulumi.RegisterOutputType(CustomLogSourceConfigurationProviderIdentityPtrOutput{})
+	pulumi.RegisterOutputType(CustomLogSourceProviderDetailOutput{})
+	pulumi.RegisterOutputType(CustomLogSourceProviderDetailArrayOutput{})
 	pulumi.RegisterOutputType(DataLakeConfigurationOutput{})
 	pulumi.RegisterOutputType(DataLakeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataLakeConfigurationEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(DataLakeConfigurationEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DataLakeConfigurationLifecycleConfigurationOutput{})
 	pulumi.RegisterOutputType(DataLakeConfigurationLifecycleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeConfigurationLifecycleConfigurationExpirationOutput{})

@@ -225,9 +225,9 @@ class DataLake(pulumi.CustomResource):
             meta_store_manager_role_arn=aws_iam_role["meta_store_manager"]["arn"],
             configuration=aws.securitylake.DataLakeConfigurationArgs(
                 region="eu-west-1",
-                encryption_configurations=[{
-                    "kmsKeyId": "S3_MANAGED_KEY",
-                }],
+                encryption_configurations=[aws.securitylake.DataLakeConfigurationEncryptionConfigurationArgs(
+                    kms_key_id="S3_MANAGED_KEY",
+                )],
                 lifecycle_configuration=aws.securitylake.DataLakeConfigurationLifecycleConfigurationArgs(
                     transitions=[
                         aws.securitylake.DataLakeConfigurationLifecycleConfigurationTransitionArgs(
@@ -255,9 +255,9 @@ class DataLake(pulumi.CustomResource):
             meta_store_manager_role_arn=aws_iam_role["meta_store_manager"]["arn"],
             configuration=aws.securitylake.DataLakeConfigurationArgs(
                 region="eu-west-1",
-                encryption_configurations=[{
-                    "kmsKeyId": "S3_MANAGED_KEY",
-                }],
+                encryption_configurations=[aws.securitylake.DataLakeConfigurationEncryptionConfigurationArgs(
+                    kms_key_id="S3_MANAGED_KEY",
+                )],
             ))
         ```
 
@@ -294,9 +294,9 @@ class DataLake(pulumi.CustomResource):
             meta_store_manager_role_arn=aws_iam_role["meta_store_manager"]["arn"],
             configuration=aws.securitylake.DataLakeConfigurationArgs(
                 region="eu-west-1",
-                encryption_configurations=[{
-                    "kmsKeyId": "S3_MANAGED_KEY",
-                }],
+                encryption_configurations=[aws.securitylake.DataLakeConfigurationEncryptionConfigurationArgs(
+                    kms_key_id="S3_MANAGED_KEY",
+                )],
                 lifecycle_configuration=aws.securitylake.DataLakeConfigurationLifecycleConfigurationArgs(
                     transitions=[
                         aws.securitylake.DataLakeConfigurationLifecycleConfigurationTransitionArgs(
@@ -324,9 +324,9 @@ class DataLake(pulumi.CustomResource):
             meta_store_manager_role_arn=aws_iam_role["meta_store_manager"]["arn"],
             configuration=aws.securitylake.DataLakeConfigurationArgs(
                 region="eu-west-1",
-                encryption_configurations=[{
-                    "kmsKeyId": "S3_MANAGED_KEY",
-                }],
+                encryption_configurations=[aws.securitylake.DataLakeConfigurationEncryptionConfigurationArgs(
+                    kms_key_id="S3_MANAGED_KEY",
+                )],
             ))
         ```
 

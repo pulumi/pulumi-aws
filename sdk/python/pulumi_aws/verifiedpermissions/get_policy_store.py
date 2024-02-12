@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetPolicyStoreResult',
@@ -77,7 +78,7 @@ class GetPolicyStoreResult:
 
     @property
     @pulumi.getter(name="validationSettings")
-    def validation_settings(self) -> Sequence[Mapping[str, Any]]:
+    def validation_settings(self) -> Sequence['outputs.GetPolicyStoreValidationSettingResult']:
         """
         Validation settings for the policy store.
         """

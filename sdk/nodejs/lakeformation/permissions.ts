@@ -100,7 +100,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.lakeformation.Permissions("example", {
  *     principal: aws_iam_role.workflow_role.arn,
- *     permissions: ["ALL"],
+ *     permissions: ["DATA_LOCATION_ACCESS"],
  *     dataLocation: {
  *         arn: aws_lakeformation_resource.example.arn,
  *     },

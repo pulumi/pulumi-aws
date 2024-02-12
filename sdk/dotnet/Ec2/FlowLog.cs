@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> LogDestinationType { get; private set; } = null!;
 
         /// <summary>
-        /// The fields to include in the flow log record, in the order in which they should appear.
+        /// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         /// </summary>
         [Output("logFormat")]
         public Output<string> LogFormat { get; private set; } = null!;
@@ -349,7 +349,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LogDestinationType { get; set; }
 
         /// <summary>
-        /// The fields to include in the flow log record, in the order in which they should appear.
+        /// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         /// </summary>
         [Input("logFormat")]
         public Input<string>? LogFormat { get; set; }
@@ -462,7 +462,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LogDestinationType { get; set; }
 
         /// <summary>
-        /// The fields to include in the flow log record, in the order in which they should appear.
+        /// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         /// </summary>
         [Input("logFormat")]
         public Input<string>? LogFormat { get; set; }

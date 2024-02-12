@@ -71,6 +71,12 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<string?> PolicyDocument { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block to use KMS keys for server-side encryption.
+        /// </summary>
+        [Output("sseConfiguration")]
+        public Output<Outputs.GroupSseConfiguration> SseConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -161,6 +167,12 @@ namespace Pulumi.Aws.VerifiedAccess
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
 
+        /// <summary>
+        /// Configuration block to use KMS keys for server-side encryption.
+        /// </summary>
+        [Input("sseConfiguration")]
+        public Input<Inputs.GroupSseConfigurationArgs>? SseConfiguration { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -224,6 +236,12 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
+
+        /// <summary>
+        /// Configuration block to use KMS keys for server-side encryption.
+        /// </summary>
+        [Input("sseConfiguration")]
+        public Input<Inputs.GroupSseConfigurationGetArgs>? SseConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

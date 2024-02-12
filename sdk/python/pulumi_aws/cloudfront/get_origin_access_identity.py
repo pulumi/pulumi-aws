@@ -133,11 +133,11 @@ def get_origin_access_identity(id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.cloudfront.get_origin_access_identity(id="EDFDVBD632BHDS5")
+    example = aws.cloudfront.get_origin_access_identity(id="E1ZAKK699EOLAL")
     ```
 
 
-    :param str id: The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+    :param str id: The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -168,10 +168,10 @@ def get_origin_access_identity_output(id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.cloudfront.get_origin_access_identity(id="EDFDVBD632BHDS5")
+    example = aws.cloudfront.get_origin_access_identity(id="E1ZAKK699EOLAL")
     ```
 
 
-    :param str id: The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+    :param str id: The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
     """
     ...

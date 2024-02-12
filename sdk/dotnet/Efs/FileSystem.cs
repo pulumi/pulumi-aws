@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Efs
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
         /// </summary>
         [Output("lifecyclePolicies")]
         public Output<ImmutableArray<Outputs.FileSystemLifecyclePolicy>> LifecyclePolicies { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Efs
         public Output<string> PerformanceMode { get; private set; } = null!;
 
         /// <summary>
-        /// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        /// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         /// </summary>
         [Output("protection")]
         public Output<Outputs.FileSystemProtection> Protection { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Efs
         private InputList<Inputs.FileSystemLifecyclePolicyArgs>? _lifecyclePolicies;
 
         /// <summary>
-        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
         /// </summary>
         public InputList<Inputs.FileSystemLifecyclePolicyArgs> LifecyclePolicies
         {
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Efs
         public Input<string>? PerformanceMode { get; set; }
 
         /// <summary>
-        /// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        /// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         /// </summary>
         [Input("protection")]
         public Input<Inputs.FileSystemProtectionArgs>? Protection { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.Aws.Efs
         private InputList<Inputs.FileSystemLifecyclePolicyGetArgs>? _lifecyclePolicies;
 
         /// <summary>
-        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
         /// </summary>
         public InputList<Inputs.FileSystemLifecyclePolicyGetArgs> LifecyclePolicies
         {
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.Efs
         public Input<string>? PerformanceMode { get; set; }
 
         /// <summary>
-        /// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object (documented below).
+        /// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         /// </summary>
         [Input("protection")]
         public Input<Inputs.FileSystemProtectionGetArgs>? Protection { get; set; }

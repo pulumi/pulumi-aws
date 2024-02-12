@@ -469,6 +469,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="bedrockagent")
+    private @Nullable Output<String> bedrockagent;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> bedrockagent() {
+        return Optional.ofNullable(this.bedrockagent);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="budgets")
     private @Nullable Output<String> budgets;
 
@@ -4098,6 +4113,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.batch = $.batch;
         this.beanstalk = $.beanstalk;
         this.bedrock = $.bedrock;
+        this.bedrockagent = $.bedrockagent;
         this.budgets = $.budgets;
         this.ce = $.ce;
         this.chime = $.chime;
@@ -4986,6 +5002,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder bedrock(String bedrock) {
             return bedrock(Output.of(bedrock));
+        }
+
+        /**
+         * @param bedrockagent Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bedrockagent(@Nullable Output<String> bedrockagent) {
+            $.bedrockagent = bedrockagent;
+            return this;
+        }
+
+        /**
+         * @param bedrockagent Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bedrockagent(String bedrockagent) {
+            return bedrockagent(Output.of(bedrockagent));
         }
 
         /**

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:securitylake/awsLogSource:AwsLogSource":
 		r = &AwsLogSource{}
+	case "aws:securitylake/customLogSource:CustomLogSource":
+		r = &CustomLogSource{}
 	case "aws:securitylake/dataLake:DataLake":
 		r = &DataLake{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"securitylake/awsLogSource",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"securitylake/customLogSource",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

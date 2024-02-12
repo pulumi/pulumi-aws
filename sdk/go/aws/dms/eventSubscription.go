@@ -74,7 +74,7 @@ type EventSubscription struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// SNS topic arn to send events on.
 	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
-	// Ids of sources to listen to.
+	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 	SourceIds pulumi.StringArrayOutput `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringOutput `pulumi:"sourceType"`
@@ -98,9 +98,6 @@ func NewEventSubscription(ctx *pulumi.Context,
 	}
 	if args.SnsTopicArn == nil {
 		return nil, errors.New("invalid value for required argument 'SnsTopicArn'")
-	}
-	if args.SourceIds == nil {
-		return nil, errors.New("invalid value for required argument 'SourceIds'")
 	}
 	if args.SourceType == nil {
 		return nil, errors.New("invalid value for required argument 'SourceType'")
@@ -142,7 +139,7 @@ type eventSubscriptionState struct {
 	Name *string `pulumi:"name"`
 	// SNS topic arn to send events on.
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
-	// Ids of sources to listen to.
+	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 	SourceIds []string `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType *string `pulumi:"sourceType"`
@@ -165,7 +162,7 @@ type EventSubscriptionState struct {
 	Name pulumi.StringPtrInput
 	// SNS topic arn to send events on.
 	SnsTopicArn pulumi.StringPtrInput
-	// Ids of sources to listen to.
+	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 	SourceIds pulumi.StringArrayInput
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringPtrInput
@@ -190,7 +187,7 @@ type eventSubscriptionArgs struct {
 	Name *string `pulumi:"name"`
 	// SNS topic arn to send events on.
 	SnsTopicArn string `pulumi:"snsTopicArn"`
-	// Ids of sources to listen to.
+	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 	SourceIds []string `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType string `pulumi:"sourceType"`
@@ -208,7 +205,7 @@ type EventSubscriptionArgs struct {
 	Name pulumi.StringPtrInput
 	// SNS topic arn to send events on.
 	SnsTopicArn pulumi.StringInput
-	// Ids of sources to listen to.
+	// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 	SourceIds pulumi.StringArrayInput
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringInput
@@ -328,7 +325,7 @@ func (o EventSubscriptionOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
 
-// Ids of sources to listen to.
+// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
 func (o EventSubscriptionOutput) SourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringArrayOutput { return v.SourceIds }).(pulumi.StringArrayOutput)
 }

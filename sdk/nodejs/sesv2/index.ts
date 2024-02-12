@@ -50,6 +50,11 @@ export type EmailIdentityMailFromAttributes = import("./emailIdentityMailFromAtt
 export const EmailIdentityMailFromAttributes: typeof import("./emailIdentityMailFromAttributes").EmailIdentityMailFromAttributes = null as any;
 utilities.lazyLoad(exports, ["EmailIdentityMailFromAttributes"], () => require("./emailIdentityMailFromAttributes"));
 
+export { EmailIdentityPolicyArgs, EmailIdentityPolicyState } from "./emailIdentityPolicy";
+export type EmailIdentityPolicy = import("./emailIdentityPolicy").EmailIdentityPolicy;
+export const EmailIdentityPolicy: typeof import("./emailIdentityPolicy").EmailIdentityPolicy = null as any;
+utilities.lazyLoad(exports, ["EmailIdentityPolicy"], () => require("./emailIdentityPolicy"));
+
 export { GetConfigurationSetArgs, GetConfigurationSetResult, GetConfigurationSetOutputArgs } from "./getConfigurationSet";
 export const getConfigurationSet: typeof import("./getConfigurationSet").getConfigurationSet = null as any;
 export const getConfigurationSetOutput: typeof import("./getConfigurationSet").getConfigurationSetOutput = null as any;
@@ -93,6 +98,8 @@ const _module = {
                 return new EmailIdentityFeedbackAttributes(name, <any>undefined, { urn })
             case "aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes":
                 return new EmailIdentityMailFromAttributes(name, <any>undefined, { urn })
+            case "aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy":
+                return new EmailIdentityPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -107,3 +114,4 @@ pulumi.runtime.registerResourceModule("aws", "sesv2/dedicatedIpPool", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentity", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentityFeedbackAttributes", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentityMailFromAttributes", _module)
+pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentityPolicy", _module)

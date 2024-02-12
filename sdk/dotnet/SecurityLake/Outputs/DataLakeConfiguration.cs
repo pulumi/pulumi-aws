@@ -16,7 +16,7 @@ namespace Pulumi.Aws.SecurityLake.Outputs
         /// <summary>
         /// Provides encryption details of Amazon Security Lake object.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> EncryptionConfigurations;
+        public readonly ImmutableArray<Outputs.DataLakeConfigurationEncryptionConfiguration> EncryptionConfigurations;
         /// <summary>
         /// Provides lifecycle details of Amazon Security Lake object.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.SecurityLake.Outputs
 
         [OutputConstructor]
         private DataLakeConfiguration(
-            ImmutableArray<ImmutableDictionary<string, object>> encryptionConfigurations,
+            ImmutableArray<Outputs.DataLakeConfigurationEncryptionConfiguration> encryptionConfigurations,
 
             Outputs.DataLakeConfigurationLifecycleConfiguration? lifecycleConfiguration,
 

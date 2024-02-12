@@ -4535,7 +4535,7 @@ func (o InstanceFleetLaunchSpecificationsPtrOutput) SpotSpecifications() Instanc
 }
 
 type InstanceFleetLaunchSpecificationsOnDemandSpecification struct {
-	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
 	AllocationStrategy string `pulumi:"allocationStrategy"`
 }
 
@@ -4551,7 +4551,7 @@ type InstanceFleetLaunchSpecificationsOnDemandSpecificationInput interface {
 }
 
 type InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs struct {
-	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
 	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
 }
 
@@ -4606,7 +4606,7 @@ func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToInstance
 	return o
 }
 
-// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
 func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceFleetLaunchSpecificationsOnDemandSpecification) string { return v.AllocationStrategy }).(pulumi.StringOutput)
 }
@@ -4632,7 +4632,7 @@ func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) Index
 }
 
 type InstanceFleetLaunchSpecificationsSpotSpecification struct {
-	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
 	AllocationStrategy string `pulumi:"allocationStrategy"`
 	// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
@@ -4654,7 +4654,7 @@ type InstanceFleetLaunchSpecificationsSpotSpecificationInput interface {
 }
 
 type InstanceFleetLaunchSpecificationsSpotSpecificationArgs struct {
-	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
 	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
 	// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
@@ -4715,7 +4715,7 @@ func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToInstanceFlee
 	return o
 }
 
-// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
 func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceFleetLaunchSpecificationsSpotSpecification) string { return v.AllocationStrategy }).(pulumi.StringOutput)
 }

@@ -82,8 +82,6 @@ type GetModelsArgs struct {
 	ByOutputModality *string `pulumi:"byOutputModality"`
 	// Model provider to filter on.
 	ByProvider *string `pulumi:"byProvider"`
-	// List of model summary objects. See `modelSummaries`.
-	ModelSummaries []GetModelsModelSummary `pulumi:"modelSummaries"`
 }
 
 // A collection of values returned by getModels.
@@ -121,8 +119,6 @@ type GetModelsOutputArgs struct {
 	ByOutputModality pulumi.StringPtrInput `pulumi:"byOutputModality"`
 	// Model provider to filter on.
 	ByProvider pulumi.StringPtrInput `pulumi:"byProvider"`
-	// List of model summary objects. See `modelSummaries`.
-	ModelSummaries GetModelsModelSummaryArrayInput `pulumi:"modelSummaries"`
 }
 
 func (GetModelsOutputArgs) ElementType() reflect.Type {

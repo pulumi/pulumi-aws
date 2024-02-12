@@ -413,11 +413,17 @@ export namespace alb {
          */
         fixedResponse?: outputs.alb.ListenerDefaultActionFixedResponse;
         /**
-         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
+         * Detailed below.
          */
         forward?: outputs.alb.ListenerDefaultActionForward;
         /**
-         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
          */
         order: number;
         /**
@@ -425,7 +431,10 @@ export namespace alb {
          */
         redirect?: outputs.alb.ListenerDefaultActionRedirect;
         /**
-         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: string;
         /**
@@ -636,16 +645,27 @@ export namespace alb {
          */
         fixedResponse?: outputs.alb.ListenerRuleActionFixedResponse;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
          */
         forward?: outputs.alb.ListenerRuleActionForward;
+        /**
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
+         */
         order: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: outputs.alb.ListenerRuleActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: string;
         /**
@@ -10403,20 +10423,137 @@ export namespace batch {
 
 }
 
+export namespace bedrock {
+    export interface CustomModelOutputDataConfig {
+        /**
+         * The S3 URI where the validation data is stored.
+         */
+        s3Uri: string;
+    }
+
+    export interface CustomModelTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+    }
+
+    export interface CustomModelTrainingDataConfig {
+        /**
+         * The S3 URI where the validation data is stored.
+         */
+        s3Uri: string;
+    }
+
+    export interface CustomModelTrainingMetric {
+        /**
+         * Loss metric associated with the customization job.
+         */
+        trainingLoss: number;
+    }
+
+    export interface CustomModelValidationDataConfig {
+        /**
+         * Information about the validators.
+         */
+        validators?: outputs.bedrock.CustomModelValidationDataConfigValidator[];
+    }
+
+    export interface CustomModelValidationDataConfigValidator {
+        /**
+         * The S3 URI where the validation data is stored.
+         */
+        s3Uri: string;
+    }
+
+    export interface CustomModelValidationMetric {
+        /**
+         * The validation loss associated with the validator.
+         */
+        validationLoss: number;
+    }
+
+    export interface CustomModelVpcConfig {
+        /**
+         * VPC configuration security group IDs.
+         */
+        securityGroupIds: string[];
+        /**
+         * VPC configuration subnets.
+         */
+        subnetIds: string[];
+    }
+
+    export interface GetCustomModelOutputDataConfig {
+        /**
+         * The S3 URI where the validation data is stored..
+         */
+        s3Uri: string;
+    }
+
+    export interface GetCustomModelTrainingDataConfig {
+        /**
+         * The S3 URI where the validation data is stored..
+         */
+        s3Uri: string;
+    }
+
+    export interface GetCustomModelTrainingMetric {
+        /**
+         * Loss metric associated with the customization job.
+         */
+        trainingLoss: number;
+    }
+
+    export interface GetCustomModelValidationDataConfig {
+        /**
+         * Information about the validators.
+         */
+        validators: any[];
+    }
+
+    export interface GetCustomModelValidationMetric {
+        /**
+         * The validation loss associated with the validator.
+         */
+        validationLoss: number;
+    }
+
+    export interface GetCustomModelsModelSummary {
+        /**
+         * Creation time of the model.
+         */
+        creationTime: string;
+        /**
+         * The ARN of the custom model.
+         */
+        modelArn: string;
+        /**
+         * The name of the custom model.
+         */
+        modelName: string;
+    }
+
+}
+
 export namespace bedrockfoundation {
     export interface GetModelsModelSummary {
         /**
          * Customizations that the model supports.
          */
-        customizationsSupporteds: string[];
+        customizationsSupporteds: any[];
         /**
          * Inference types that the model supports.
          */
-        inferenceTypesSupporteds: string[];
+        inferenceTypesSupporteds: any[];
         /**
          * Input modalities that the model supports.
          */
-        inputModalities: string[];
+        inputModalities: any[];
         /**
          * Model ARN.
          */
@@ -10432,7 +10569,7 @@ export namespace bedrockfoundation {
         /**
          * Output modalities that the model supports.
          */
-        outputModalities: string[];
+        outputModalities: any[];
         /**
          * Model provider name.
          */
@@ -14075,7 +14212,7 @@ export namespace codebuild {
          */
         status?: string;
         /**
-         * Stream name of the logs in CloudWatch Logs.
+         * Prefix of the log stream name of the logs in CloudWatch Logs.
          */
         streamName?: string;
     }
@@ -14216,7 +14353,7 @@ export namespace codebuild {
          */
         buildStatusConfig?: outputs.codebuild.ProjectSourceBuildStatusConfig;
         /**
-         * Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+         * Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
          */
         buildspec?: string;
         /**
@@ -14700,6 +14837,16 @@ export namespace codedeploy {
 }
 
 export namespace codeguruprofiler {
+    export interface GetProfilingGroupAgentOrchestrationConfig {
+        profilingEnabled: boolean;
+    }
+
+    export interface GetProfilingGroupProfilingStatus {
+        latestAgentOrchestratedAt: string;
+        latestAgentProfileReportedAt: string;
+        latestAggregatedProfiles: any[];
+    }
+
     export interface ProfilingGroupAgentOrchestrationConfig {
         /**
          * (Required) Boolean that specifies whether the profiling agent collects profiling data or
@@ -16088,6 +16235,10 @@ export namespace config {
          * Use this to override the default service endpoint URL
          */
         bedrock?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
+        bedrockagent?: string;
         /**
          * Use this to override the default service endpoint URL
          */
@@ -18011,6 +18162,16 @@ export namespace connect {
          * The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
          */
         phoneType: string;
+    }
+
+}
+
+export namespace controltower {
+    export interface LandingZoneDriftStatus {
+        /**
+         * The drift status of the landing zone.
+         */
+        status: string;
     }
 
 }
@@ -28674,11 +28835,11 @@ export namespace efs {
 
     export interface FileSystemLifecyclePolicy {
         /**
-         * Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+         * Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
          */
         transitionToArchive?: string;
         /**
-         * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+         * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
          */
         transitionToIa?: string;
         /**
@@ -29365,6 +29526,28 @@ export namespace elasticache {
          * The upper limit for data storage the cache is set to use. Set as Integer.
          */
         maximum: number;
+    }
+
+    export interface ServerlessCacheEndpoint {
+        /**
+         * The DNS hostname of the cache node.
+         */
+        address: string;
+        /**
+         * The port number that the cache engine is listening on. Set as integer.
+         */
+        port: number;
+    }
+
+    export interface ServerlessCacheReaderEndpoint {
+        /**
+         * The DNS hostname of the cache node.
+         */
+        address: string;
+        /**
+         * The port number that the cache engine is listening on. Set as integer.
+         */
+        port: number;
     }
 
     export interface ServerlessCacheTimeouts {
@@ -30982,14 +31165,14 @@ export namespace emr {
 
     export interface InstanceFleetLaunchSpecificationsOnDemandSpecification {
         /**
-         * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         * Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
          */
         allocationStrategy: string;
     }
 
     export interface InstanceFleetLaunchSpecificationsSpotSpecification {
         /**
-         * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         * Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
          */
         allocationStrategy: string;
         /**
@@ -41496,11 +41679,17 @@ export namespace lb {
          */
         fixedResponse?: outputs.lb.ListenerDefaultActionFixedResponse;
         /**
-         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
+         * Detailed below.
          */
         forward?: outputs.lb.ListenerDefaultActionForward;
         /**
-         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
          */
         order: number;
         /**
@@ -41508,7 +41697,10 @@ export namespace lb {
          */
         redirect?: outputs.lb.ListenerDefaultActionRedirect;
         /**
-         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: string;
         /**
@@ -41719,16 +41911,27 @@ export namespace lb {
          */
         fixedResponse?: outputs.lb.ListenerRuleActionFixedResponse;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
          */
         forward?: outputs.lb.ListenerRuleActionForward;
+        /**
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
+         */
         order: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: outputs.lb.ListenerRuleActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: string;
         /**
@@ -53771,6 +53974,459 @@ export namespace lex {
         update?: string;
     }
 
+    export interface V2modelsSlotMultipleValuesSetting {
+        /**
+         * Whether a slot can return multiple values. When `true`, the slot may return more than one value in a response. When `false`, the slot returns only a single value. Multi-value slots are only available in the `en-US` locale.
+         */
+        allowMultipleValues?: boolean;
+    }
+
+    export interface V2modelsSlotObfuscationSetting {
+        /**
+         * Whether Amazon Lex obscures slot values in conversation logs. Valid values are `DefaultObfuscation` and `None`.
+         */
+        obfuscationSettingType: string;
+    }
+
+    export interface V2modelsSlotTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface V2modelsSlotTypeCompositeSlotTypeSetting {
+        /**
+         * Subslots in the composite slot. Contains filtered or unexported fields. See [`subSlotTypeComposition` argument reference] below.
+         */
+        subSlots: any[];
+    }
+
+    export interface V2modelsSlotTypeExternalSourceSetting {
+        /**
+         * Settings required for a slot type based on a grammar that you provide. See `grammarSlotTypeSetting` argument reference below.
+         */
+        grammarSlotTypeSetting?: outputs.lex.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting;
+    }
+
+    export interface V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting {
+        /**
+         * Source of the grammar used to create the slot type. See `grammarSlotTypeSource` argument reference below.
+         */
+        source?: outputs.lex.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource;
+    }
+
+    export interface V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource {
+        /**
+         * KMS key required to decrypt the contents of the grammar, if any.
+         */
+        kmsKeyArn: string;
+        /**
+         * Name of the Amazon S3 bucket that contains the grammar source.
+         */
+        s3BucketName: string;
+        /**
+         * Path to the grammar in the Amazon S3 bucket.
+         */
+        s3ObjectKey: string;
+    }
+
+    export interface V2modelsSlotTypeSlotTypeValues {
+        /**
+         * List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slotTypeValues` argument reference below.
+         */
+        slotTypeValues: any[];
+        /**
+         * Additional values related to the slot type entry. See `sampleValue` argument reference below.
+         */
+        synonyms?: outputs.lex.V2modelsSlotTypeSlotTypeValuesSynonym[];
+    }
+
+    export interface V2modelsSlotTypeSlotTypeValuesSynonym {
+        /**
+         * Value that can be used for a slot type.
+         */
+        value: string;
+    }
+
+    export interface V2modelsSlotTypeTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface V2modelsSlotTypeValueSelectionSetting {
+        /**
+         * Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advancedRecognitionSetting` argument reference] below.
+         */
+        advancedRecognitionSettings?: outputs.lex.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting[];
+        /**
+         * Used to validate the value of the slot. See [`regexFilter` argument reference] below.
+         */
+        regexFilters?: outputs.lex.V2modelsSlotTypeValueSelectionSettingRegexFilter[];
+        /**
+         * Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+         */
+        resolutionStrategy: string;
+    }
+
+    export interface V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting {
+        audioRecognitionSetting?: string;
+    }
+
+    export interface V2modelsSlotTypeValueSelectionSettingRegexFilter {
+        /**
+         * Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\⁠u").
+         * Represent Unicode characters with four digits, for example "\⁠u0041" or "\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+         */
+        pattern: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSetting {
+        defaultValueSpecifications?: outputs.lex.V2modelsSlotValueElicitationSettingDefaultValueSpecification[];
+        promptSpecification: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecification;
+        sampleUtterances?: outputs.lex.V2modelsSlotValueElicitationSettingSampleUtterance[];
+        slotConstraint: string;
+        slotResolutionSettings?: outputs.lex.V2modelsSlotValueElicitationSettingSlotResolutionSetting[];
+        waitAndContinueSpecifications?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecification[];
+    }
+
+    export interface V2modelsSlotValueElicitationSettingDefaultValueSpecification {
+        defaultValueLists?: outputs.lex.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList[];
+    }
+
+    export interface V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList {
+        defaultValue: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecification {
+        allowInterrupt?: boolean;
+        maxRetries: number;
+        messageGroups?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup[];
+        messageSelectionStrategy?: string;
+        promptAttemptsSpecifications?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification[];
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup {
+        message: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage;
+        variations?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation[];
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage {
+        customPayloads: any[];
+        imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation {
+        customPayloads: any[];
+        imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification {
+        allowInterrupt?: boolean;
+        allowedInputTypes: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes;
+        audioAndDtmfInputSpecification?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification;
+        mapBlockKey: string;
+        textInputSpecification?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes {
+        allowAudioInput: boolean;
+        allowDtmfInput: boolean;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification {
+        audioSpecification?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification;
+        dtmfSpecification?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification;
+        startTimeoutMs: number;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification {
+        endTimeoutMs: number;
+        maxLengthMs: number;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification {
+        deletionCharacter: string;
+        endCharacter: string;
+        endTimeoutMs: number;
+        maxLength: number;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification {
+        startTimeoutMs: number;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingSampleUtterance {
+        utterance: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingSlotResolutionSetting {
+        slotResolutionStrategy: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecification {
+        active?: boolean;
+        continueResponses?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse[];
+        stillWaitingResponses?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse[];
+        waitingResponses?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse[];
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse {
+        allowInterrupt?: boolean;
+        messageGroups?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup[];
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup {
+        message: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage;
+        variations?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage {
+        customPayloads: any[];
+        imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation {
+        customPayloads: any[];
+        imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse {
+        allowInterrupt?: boolean;
+        frequencyInSeconds: number;
+        messageGroups?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup[];
+        timeoutInSeconds: number;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup {
+        message: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage;
+        variations?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage {
+        customPayloads: any[];
+        imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation {
+        customPayloads: any[];
+        imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse {
+        allowInterrupt?: boolean;
+        messageGroups?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup[];
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup {
+        message: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage;
+        variations?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation[];
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
+        customPayloads: any[];
+        imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation {
+        customPayloads: any[];
+        imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard;
+        plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage;
+        ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard {
+        buttons?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton[];
+        imageUrl?: string;
+        subtitle?: string;
+        title: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton {
+        text: string;
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage {
+        value: string;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage {
+        value: string;
+    }
+
 }
 
 export namespace licensemanager {
@@ -59706,6 +60362,9 @@ export namespace opensearch {
          * Instance type of data nodes in the cluster.
          */
         instanceType?: string;
+        /**
+         * Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+         */
         multiAzWithStandbyEnabled?: boolean;
         /**
          * Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
@@ -59780,7 +60439,7 @@ export namespace opensearch {
          */
         enforceHttps?: boolean;
         /**
-         * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+         * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
          */
         tlsSecurityPolicy: string;
     }
@@ -60014,6 +60673,9 @@ export namespace opensearch {
          * Instance type of data nodes in the cluster.
          */
         instanceType: string;
+        /**
+         * Whether a multi-AZ domain is turned on with a standby AZ.
+         */
         multiAzWithStandbyEnabled: boolean;
         /**
          * Number of warm nodes in the cluster.
@@ -60319,6 +60981,67 @@ export namespace opensearch {
          */
         subnetIds: string[];
         vpcId: string;
+    }
+
+}
+
+export namespace opensearchingest {
+    export interface PipelineBufferOptions {
+        /**
+         * Whether persistent buffering should be enabled.
+         */
+        persistentBufferEnabled: boolean;
+    }
+
+    export interface PipelineEncryptionAtRestOptions {
+        /**
+         * The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
+         */
+        kmsKeyArn: string;
+    }
+
+    export interface PipelineLogPublishingOptions {
+        /**
+         * The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
+         */
+        cloudwatchLogDestination?: outputs.opensearchingest.PipelineLogPublishingOptionsCloudwatchLogDestination;
+        /**
+         * Whether logs should be published.
+         */
+        isLoggingEnabled?: boolean;
+    }
+
+    export interface PipelineLogPublishingOptionsCloudwatchLogDestination {
+        /**
+         * The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
+         */
+        logGroup: string;
+    }
+
+    export interface PipelineTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface PipelineVpcOptions {
+        /**
+         * A list of security groups associated with the VPC endpoint.
+         */
+        securityGroupIds?: string[];
+        /**
+         * A list of subnet IDs associated with the VPC endpoint.
+         */
+        subnetIds: string[];
     }
 
 }
@@ -65234,6 +65957,13 @@ export namespace redshiftserverless {
 }
 
 export namespace rekognition {
+    export interface CollectionTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+    }
+
     export interface ProjectTimeouts {
         /**
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
@@ -66649,6 +67379,10 @@ export namespace s3 {
     }
 
     export interface BucketMetricFilter {
+        /**
+         * S3 Access Point ARN for filtering (singular).
+         */
+        accessPoint?: string;
         /**
          * Object prefix for filtering (singular).
          */
@@ -72647,11 +73381,66 @@ export namespace securitylake {
         sourceVersion: string;
     }
 
+    export interface CustomLogSourceAttribute {
+        /**
+         * The ARN of the AWS Glue crawler.
+         */
+        crawlerArn: string;
+        /**
+         * The ARN of the AWS Glue database where results are written.
+         */
+        databaseArn: string;
+        /**
+         * The ARN of the AWS Glue table.
+         */
+        tableArn: string;
+    }
+
+    export interface CustomLogSourceConfiguration {
+        /**
+         * The configuration for the Glue Crawler for the third-party custom source.
+         */
+        crawlerConfiguration?: outputs.securitylake.CustomLogSourceConfigurationCrawlerConfiguration;
+        /**
+         * The identity of the log provider for the third-party custom source.
+         */
+        providerIdentity?: outputs.securitylake.CustomLogSourceConfigurationProviderIdentity;
+    }
+
+    export interface CustomLogSourceConfigurationCrawlerConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+         */
+        roleArn: string;
+    }
+
+    export interface CustomLogSourceConfigurationProviderIdentity {
+        /**
+         * The external ID used to estalish trust relationship with the AWS identity.
+         */
+        externalId: string;
+        /**
+         * The AWS identity principal.
+         */
+        principal: string;
+    }
+
+    export interface CustomLogSourceProviderDetail {
+        /**
+         * The location of the partition in the Amazon S3 bucket for Security Lake.
+         */
+        location: string;
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+         */
+        roleArn: string;
+    }
+
     export interface DataLakeConfiguration {
         /**
          * Provides encryption details of Amazon Security Lake object.
          */
-        encryptionConfigurations: {[key: string]: any}[];
+        encryptionConfigurations: outputs.securitylake.DataLakeConfigurationEncryptionConfiguration[];
         /**
          * Provides lifecycle details of Amazon Security Lake object.
          */
@@ -72664,6 +73453,13 @@ export namespace securitylake {
          * Provides replication details of Amazon Security Lake object.
          */
         replicationConfiguration?: outputs.securitylake.DataLakeConfigurationReplicationConfiguration;
+    }
+
+    export interface DataLakeConfigurationEncryptionConfiguration {
+        /**
+         * The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
+         */
+        kmsKeyId: string;
     }
 
     export interface DataLakeConfigurationLifecycleConfiguration {
@@ -73852,6 +74648,126 @@ export namespace ssm {
         values: string[];
     }
 
+    export interface ContactsRotationRecurrence {
+        dailySettings?: outputs.ssm.ContactsRotationRecurrenceDailySetting[];
+        /**
+         * (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
+         */
+        monthlySettings?: outputs.ssm.ContactsRotationRecurrenceMonthlySetting[];
+        /**
+         * (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
+         */
+        numberOfOnCalls: number;
+        /**
+         * (Required) The number of days, weeks, or months a single rotation lasts.
+         */
+        recurrenceMultiplier: number;
+        /**
+         * (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
+         */
+        shiftCoverages?: outputs.ssm.ContactsRotationRecurrenceShiftCoverage[];
+        /**
+         * (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
+         */
+        weeklySettings?: outputs.ssm.ContactsRotationRecurrenceWeeklySetting[];
+    }
+
+    export interface ContactsRotationRecurrenceDailySetting {
+        /**
+         * (Required) The hour of the day.
+         */
+        hourOfDay: number;
+        /**
+         * (Required) The minutes of the hour.
+         */
+        minuteOfHour: number;
+    }
+
+    export interface ContactsRotationRecurrenceMonthlySetting {
+        /**
+         * (Required) The day of the month when monthly recurring on-call rotations begin.
+         */
+        dayOfMonth: number;
+        /**
+         * (Required) The hand off time. See Hand Off Time for more details.
+         */
+        handOffTime?: outputs.ssm.ContactsRotationRecurrenceMonthlySettingHandOffTime;
+    }
+
+    export interface ContactsRotationRecurrenceMonthlySettingHandOffTime {
+        /**
+         * (Required) The hour of the day.
+         */
+        hourOfDay: number;
+        /**
+         * (Required) The minutes of the hour.
+         */
+        minuteOfHour: number;
+    }
+
+    export interface ContactsRotationRecurrenceShiftCoverage {
+        /**
+         * (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
+         */
+        coverageTimes?: outputs.ssm.ContactsRotationRecurrenceShiftCoverageCoverageTime[];
+        mapBlockKey: string;
+    }
+
+    export interface ContactsRotationRecurrenceShiftCoverageCoverageTime {
+        /**
+         * (Required) The end time of the on-call shift. See Hand Off Time for more details.
+         */
+        end?: outputs.ssm.ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd;
+        /**
+         * (Required) The start time of the on-call shift. See Hand Off Time for more details.
+         */
+        start?: outputs.ssm.ContactsRotationRecurrenceShiftCoverageCoverageTimeStart;
+    }
+
+    export interface ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd {
+        /**
+         * (Required) The hour of the day.
+         */
+        hourOfDay: number;
+        /**
+         * (Required) The minutes of the hour.
+         */
+        minuteOfHour: number;
+    }
+
+    export interface ContactsRotationRecurrenceShiftCoverageCoverageTimeStart {
+        /**
+         * (Required) The hour of the day.
+         */
+        hourOfDay: number;
+        /**
+         * (Required) The minutes of the hour.
+         */
+        minuteOfHour: number;
+    }
+
+    export interface ContactsRotationRecurrenceWeeklySetting {
+        /**
+         * (Required) The day of the week when the shift coverage occurs.
+         */
+        dayOfWeek: string;
+        /**
+         * (Required) The hand off time. See Hand Off Time for more details.
+         */
+        handOffTime?: outputs.ssm.ContactsRotationRecurrenceWeeklySettingHandOffTime;
+    }
+
+    export interface ContactsRotationRecurrenceWeeklySettingHandOffTime {
+        /**
+         * (Required) The hour of the day.
+         */
+        hourOfDay: number;
+        /**
+         * (Required) The minutes of the hour.
+         */
+        minuteOfHour: number;
+    }
+
     export interface DocumentAttachmentsSource {
         /**
          * The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
@@ -73878,6 +74794,15 @@ export namespace ssm {
          */
         name: string;
         type: string;
+    }
+
+    export interface GetContactsRotationRecurrence {
+        dailySettings: any[];
+        monthlySettings: any[];
+        numberOfOnCalls: number;
+        recurrenceMultiplier: number;
+        shiftCoverages: any[];
+        weeklySettings: any[];
     }
 
     export interface GetInstancesFilter {
@@ -75572,6 +76497,14 @@ export namespace verifiedaccess {
         kmsKeyArn?: string;
     }
 
+    export interface GroupSseConfiguration {
+        customerManagedKeyEnabled?: boolean;
+        /**
+         * ARN of the KMS key to use.
+         */
+        kmsKeyArn?: string;
+    }
+
     export interface InstanceLoggingConfigurationAccessLogs {
         /**
          * A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
@@ -75676,6 +76609,10 @@ export namespace verifiedaccess {
 }
 
 export namespace verifiedpermissions {
+    export interface GetPolicyStoreValidationSetting {
+        mode: string;
+    }
+
     export interface PolicyStoreValidationSettings {
         /**
          * The mode for the validation settings. Valid values: `OFF`, `STRICT`.
@@ -76974,6 +77911,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies;
         /**
+         * Inspect the request headers. See Header Order below for details.
+         */
+        headerOrders?: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader[];
@@ -77072,6 +78013,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint {
@@ -77512,6 +78460,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies;
         /**
+         * Inspect the request headers. See Header Order below for details.
+         */
+        headerOrders?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader[];
@@ -77610,6 +78562,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint {
@@ -77787,6 +78746,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies;
         /**
+         * Inspect the request headers. See Header Order below for details.
+         */
+        headerOrders?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader[];
@@ -77885,6 +78848,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
@@ -77989,6 +78959,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies;
         /**
+         * Inspect the request headers. See Header Order below for details.
+         */
+        headerOrders?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader[];
@@ -78087,6 +79061,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
@@ -78195,6 +79176,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies;
         /**
+         * Inspect the request headers. See Header Order below for details.
+         */
+        headerOrders?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader[];
@@ -78295,6 +79280,13 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
+    }
+
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
         /**
          * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -78392,6 +79384,10 @@ export namespace wafv2 {
          * Inspect the cookies in the web request. See Cookies below for details.
          */
         cookies?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies;
+        /**
+         * Inspect the request headers. See Header Order below for details.
+         */
+        headerOrders?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder[];
         /**
          * Inspect the request headers. See Headers below for details.
          */
@@ -78493,6 +79489,13 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
+    }
+
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
         /**
          * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -78590,6 +79593,10 @@ export namespace wafv2 {
          * Inspect the cookies in the web request. See Cookies below for details.
          */
         cookies?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies;
+        /**
+         * Inspect the request headers. See Header Order below for details.
+         */
+        headerOrders?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder[];
         /**
          * Inspect the request headers. See Headers below for details.
          */
@@ -78689,6 +79696,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint {
@@ -78793,6 +79807,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies;
         /**
+         * Inspect the request headers. See Header Order below for details.
+         */
+        headerOrders?: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader[];
@@ -78891,6 +79909,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
@@ -78995,6 +80020,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies;
         /**
+         * Inspect the request headers. See Header Order below for details.
+         */
+        headerOrders?: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader[];
@@ -79093,6 +80122,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
@@ -79201,6 +80237,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies;
         /**
+         * Inspect the request headers. See Header Order below for details.
+         */
+        headerOrders?: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader[];
@@ -79301,6 +80341,13 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
+    }
+
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
         /**
          * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -79398,6 +80445,10 @@ export namespace wafv2 {
          * Inspect the cookies in the web request. See Cookies below for details.
          */
         cookies?: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies;
+        /**
+         * Inspect the request headers. See Header Order below for details.
+         */
+        headerOrders?: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder[];
         /**
          * Inspect the request headers. See Headers below for details.
          */
@@ -79499,6 +80550,13 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
+    }
+
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
         /**
          * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -79596,6 +80654,10 @@ export namespace wafv2 {
          * Inspect the cookies in the web request. See Cookies below for details.
          */
         cookies?: outputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies;
+        /**
+         * Inspect the request headers. See Header Order below for details.
+         */
+        headerOrders?: outputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrder[];
         /**
          * Inspect the request headers. See Headers below for details.
          */
@@ -79695,6 +80757,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint {
@@ -80349,6 +81418,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchCookies;
         /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: outputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchHeader[];
@@ -80450,6 +81523,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint {
@@ -81169,6 +82249,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookies;
         /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeader[];
@@ -81270,6 +82354,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint {
@@ -81445,6 +82536,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies;
         /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader[];
@@ -81548,6 +82643,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
         /**
          * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -81647,6 +82749,10 @@ export namespace wafv2 {
          * Inspect the cookies in the web request. See `cookies` below for details.
          */
         cookies?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies;
+        /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder[];
         /**
          * Inspect the request headers. See `headers` below for details.
          */
@@ -81749,6 +82855,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
@@ -81855,6 +82968,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies;
         /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader[];
@@ -81958,6 +83075,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
         /**
          * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -82053,6 +83177,10 @@ export namespace wafv2 {
          * Inspect the cookies in the web request. See `cookies` below for details.
          */
         cookies?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies;
+        /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder[];
         /**
          * Inspect the request headers. See `headers` below for details.
          */
@@ -82157,6 +83285,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
         /**
          * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -82252,6 +83387,10 @@ export namespace wafv2 {
          * Inspect the cookies in the web request. See `cookies` below for details.
          */
         cookies?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookies;
+        /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder[];
         /**
          * Inspect the request headers. See `headers` below for details.
          */
@@ -82354,6 +83493,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint {
@@ -82723,6 +83869,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies;
         /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader[];
@@ -82824,6 +83974,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint {
@@ -82999,6 +84156,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies;
         /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader[];
@@ -83102,6 +84263,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
+    }
+
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
         /**
          * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -83201,6 +84369,10 @@ export namespace wafv2 {
          * Inspect the cookies in the web request. See `cookies` below for details.
          */
         cookies?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies;
+        /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder[];
         /**
          * Inspect the request headers. See `headers` below for details.
          */
@@ -83303,6 +84475,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
@@ -83409,6 +84588,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies;
         /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader[];
@@ -83512,6 +84695,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
+    }
+
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
         /**
          * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -83607,6 +84797,10 @@ export namespace wafv2 {
          * Inspect the cookies in the web request. See `cookies` below for details.
          */
         cookies?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies;
+        /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder[];
         /**
          * Inspect the request headers. See `headers` below for details.
          */
@@ -83711,6 +84905,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
+    }
+
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
         /**
          * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -83806,6 +85007,10 @@ export namespace wafv2 {
          * Inspect the cookies in the web request. See `cookies` below for details.
          */
         cookies?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies;
+        /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder[];
         /**
          * Inspect the request headers. See `headers` below for details.
          */
@@ -83910,6 +85115,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
+    }
+
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint {
         /**
          * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -84009,6 +85221,10 @@ export namespace wafv2 {
          * Inspect the cookies in the web request. See `cookies` below for details.
          */
         cookies?: outputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchCookies;
+        /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOrder[];
         /**
          * Inspect the request headers. See `headers` below for details.
          */
@@ -84113,6 +85329,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
+    }
+
     export interface WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
         /**
          * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -84212,6 +85435,10 @@ export namespace wafv2 {
          * Inspect the cookies in the web request. See `cookies` below for details.
          */
         cookies?: outputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies;
+        /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder[];
         /**
          * Inspect the request headers. See `headers` below for details.
          */
@@ -84314,6 +85541,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
@@ -84598,6 +85832,10 @@ export namespace wafv2 {
          */
         cookies?: outputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies;
         /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder[];
+        /**
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: outputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader[];
@@ -84701,6 +85939,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
+    }
+
     export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
         /**
          * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -84796,6 +86041,10 @@ export namespace wafv2 {
          * Inspect the cookies in the web request. See `cookies` below for details.
          */
         cookies?: outputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchCookies;
+        /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder[];
         /**
          * Inspect the request headers. See `headers` below for details.
          */
@@ -84900,6 +86149,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
+    }
+
     export interface WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
         /**
          * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -84995,6 +86251,10 @@ export namespace wafv2 {
          * Inspect the cookies in the web request. See `cookies` below for details.
          */
         cookies?: outputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchCookies;
+        /**
+         * Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `headerOrder` below for details.
+         */
+        headerOrders?: outputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder[];
         /**
          * Inspect the request headers. See `headers` below for details.
          */
@@ -85097,6 +86357,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: string;
     }
 
     export interface WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint {

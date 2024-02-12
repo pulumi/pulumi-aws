@@ -20,7 +20,7 @@ class StudioLifecycleConfigArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a StudioLifecycleConfig resource.
-        :param pulumi.Input[str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        :param pulumi.Input[str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         :param pulumi.Input[str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -35,7 +35,7 @@ class StudioLifecycleConfigArgs:
     @pulumi.getter(name="studioLifecycleConfigAppType")
     def studio_lifecycle_config_app_type(self) -> pulumi.Input[str]:
         """
-        The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         """
         return pulumi.get(self, "studio_lifecycle_config_app_type")
 
@@ -92,7 +92,7 @@ class _StudioLifecycleConfigState:
         """
         Input properties used for looking up and filtering StudioLifecycleConfig resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
-        :param pulumi.Input[str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        :param pulumi.Input[str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         :param pulumi.Input[str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -130,7 +130,7 @@ class _StudioLifecycleConfigState:
     @pulumi.getter(name="studioLifecycleConfigAppType")
     def studio_lifecycle_config_app_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         """
         return pulumi.get(self, "studio_lifecycle_config_app_type")
 
@@ -215,7 +215,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        :param pulumi.Input[str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         :param pulumi.Input[str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -305,7 +305,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
-        :param pulumi.Input[str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        :param pulumi.Input[str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         :param pulumi.Input[str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -335,7 +335,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
     @pulumi.getter(name="studioLifecycleConfigAppType")
     def studio_lifecycle_config_app_type(self) -> pulumi.Output[str]:
         """
-        The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+        The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         """
         return pulumi.get(self, "studio_lifecycle_config_app_type")
 

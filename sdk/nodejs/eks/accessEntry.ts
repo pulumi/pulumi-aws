@@ -81,7 +81,7 @@ export class AccessEntry extends pulumi.CustomResource {
      */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     /**
-     * The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      *
      * The following arguments are optional:
      */
@@ -179,7 +179,7 @@ export interface AccessEntryState {
      */
     modifiedAt?: pulumi.Input<string>;
     /**
-     * The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      *
      * The following arguments are optional:
      */
@@ -217,7 +217,7 @@ export interface AccessEntryArgs {
      */
     kubernetesGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      *
      * The following arguments are optional:
      */

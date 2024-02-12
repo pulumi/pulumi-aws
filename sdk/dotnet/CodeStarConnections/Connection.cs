@@ -121,7 +121,7 @@ namespace Pulumi.Aws.CodeStarConnections
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
+        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         /// </summary>
         [Output("providerType")]
         public Output<string> ProviderType { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.CodeStarConnections
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
+        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.CodeStarConnections
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
+        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }

@@ -129,18 +129,6 @@ namespace Pulumi.Aws.BedrockFoundation
         [Input("byProvider")]
         public string? ByProvider { get; set; }
 
-        [Input("modelSummaries")]
-        private List<Inputs.GetModelsModelSummaryArgs>? _modelSummaries;
-
-        /// <summary>
-        /// List of model summary objects. See `model_summaries`.
-        /// </summary>
-        public List<Inputs.GetModelsModelSummaryArgs> ModelSummaries
-        {
-            get => _modelSummaries ?? (_modelSummaries = new List<Inputs.GetModelsModelSummaryArgs>());
-            set => _modelSummaries = value;
-        }
-
         public GetModelsArgs()
         {
         }
@@ -172,18 +160,6 @@ namespace Pulumi.Aws.BedrockFoundation
         /// </summary>
         [Input("byProvider")]
         public Input<string>? ByProvider { get; set; }
-
-        [Input("modelSummaries")]
-        private InputList<Inputs.GetModelsModelSummaryInputArgs>? _modelSummaries;
-
-        /// <summary>
-        /// List of model summary objects. See `model_summaries`.
-        /// </summary>
-        public InputList<Inputs.GetModelsModelSummaryInputArgs> ModelSummaries
-        {
-            get => _modelSummaries ?? (_modelSummaries = new InputList<Inputs.GetModelsModelSummaryInputArgs>());
-            set => _modelSummaries = value;
-        }
 
         public GetModelsInvokeArgs()
         {

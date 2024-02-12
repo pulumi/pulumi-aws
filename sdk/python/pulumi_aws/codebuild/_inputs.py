@@ -723,7 +723,7 @@ class ProjectLogsConfigCloudwatchLogsArgs:
         """
         :param pulumi.Input[str] group_name: Group name of the logs in CloudWatch Logs.
         :param pulumi.Input[str] status: Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
-        :param pulumi.Input[str] stream_name: Stream name of the logs in CloudWatch Logs.
+        :param pulumi.Input[str] stream_name: Prefix of the log stream name of the logs in CloudWatch Logs.
         """
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
@@ -760,7 +760,7 @@ class ProjectLogsConfigCloudwatchLogsArgs:
     @pulumi.getter(name="streamName")
     def stream_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Stream name of the logs in CloudWatch Logs.
+        Prefix of the log stream name of the logs in CloudWatch Logs.
         """
         return pulumi.get(self, "stream_name")
 
@@ -1266,7 +1266,7 @@ class ProjectSourceArgs:
         """
         :param pulumi.Input[str] type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         :param pulumi.Input['ProjectSourceBuildStatusConfigArgs'] build_status_config: Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
-        :param pulumi.Input[str] buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+        :param pulumi.Input[str] buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
         :param pulumi.Input[int] git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
         :param pulumi.Input['ProjectSourceGitSubmodulesConfigArgs'] git_submodules_config: Configuration block. Detailed below.
         :param pulumi.Input[bool] insecure_ssl: Ignore SSL warnings when connecting to source control.
@@ -1317,7 +1317,7 @@ class ProjectSourceArgs:
     @pulumi.getter
     def buildspec(self) -> Optional[pulumi.Input[str]]:
         """
-        Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+        Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
         """
         return pulumi.get(self, "buildspec")
 

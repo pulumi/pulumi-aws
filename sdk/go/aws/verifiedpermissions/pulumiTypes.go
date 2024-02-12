@@ -295,13 +295,111 @@ func (o SchemaDefinitionPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetPolicyStoreValidationSetting struct {
+	Mode string `pulumi:"mode"`
+}
+
+// GetPolicyStoreValidationSettingInput is an input type that accepts GetPolicyStoreValidationSettingArgs and GetPolicyStoreValidationSettingOutput values.
+// You can construct a concrete instance of `GetPolicyStoreValidationSettingInput` via:
+//
+//	GetPolicyStoreValidationSettingArgs{...}
+type GetPolicyStoreValidationSettingInput interface {
+	pulumi.Input
+
+	ToGetPolicyStoreValidationSettingOutput() GetPolicyStoreValidationSettingOutput
+	ToGetPolicyStoreValidationSettingOutputWithContext(context.Context) GetPolicyStoreValidationSettingOutput
+}
+
+type GetPolicyStoreValidationSettingArgs struct {
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (GetPolicyStoreValidationSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyStoreValidationSetting)(nil)).Elem()
+}
+
+func (i GetPolicyStoreValidationSettingArgs) ToGetPolicyStoreValidationSettingOutput() GetPolicyStoreValidationSettingOutput {
+	return i.ToGetPolicyStoreValidationSettingOutputWithContext(context.Background())
+}
+
+func (i GetPolicyStoreValidationSettingArgs) ToGetPolicyStoreValidationSettingOutputWithContext(ctx context.Context) GetPolicyStoreValidationSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyStoreValidationSettingOutput)
+}
+
+// GetPolicyStoreValidationSettingArrayInput is an input type that accepts GetPolicyStoreValidationSettingArray and GetPolicyStoreValidationSettingArrayOutput values.
+// You can construct a concrete instance of `GetPolicyStoreValidationSettingArrayInput` via:
+//
+//	GetPolicyStoreValidationSettingArray{ GetPolicyStoreValidationSettingArgs{...} }
+type GetPolicyStoreValidationSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetPolicyStoreValidationSettingArrayOutput() GetPolicyStoreValidationSettingArrayOutput
+	ToGetPolicyStoreValidationSettingArrayOutputWithContext(context.Context) GetPolicyStoreValidationSettingArrayOutput
+}
+
+type GetPolicyStoreValidationSettingArray []GetPolicyStoreValidationSettingInput
+
+func (GetPolicyStoreValidationSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyStoreValidationSetting)(nil)).Elem()
+}
+
+func (i GetPolicyStoreValidationSettingArray) ToGetPolicyStoreValidationSettingArrayOutput() GetPolicyStoreValidationSettingArrayOutput {
+	return i.ToGetPolicyStoreValidationSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyStoreValidationSettingArray) ToGetPolicyStoreValidationSettingArrayOutputWithContext(ctx context.Context) GetPolicyStoreValidationSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyStoreValidationSettingArrayOutput)
+}
+
+type GetPolicyStoreValidationSettingOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyStoreValidationSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyStoreValidationSetting)(nil)).Elem()
+}
+
+func (o GetPolicyStoreValidationSettingOutput) ToGetPolicyStoreValidationSettingOutput() GetPolicyStoreValidationSettingOutput {
+	return o
+}
+
+func (o GetPolicyStoreValidationSettingOutput) ToGetPolicyStoreValidationSettingOutputWithContext(ctx context.Context) GetPolicyStoreValidationSettingOutput {
+	return o
+}
+
+func (o GetPolicyStoreValidationSettingOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyStoreValidationSetting) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type GetPolicyStoreValidationSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyStoreValidationSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyStoreValidationSetting)(nil)).Elem()
+}
+
+func (o GetPolicyStoreValidationSettingArrayOutput) ToGetPolicyStoreValidationSettingArrayOutput() GetPolicyStoreValidationSettingArrayOutput {
+	return o
+}
+
+func (o GetPolicyStoreValidationSettingArrayOutput) ToGetPolicyStoreValidationSettingArrayOutputWithContext(ctx context.Context) GetPolicyStoreValidationSettingArrayOutput {
+	return o
+}
+
+func (o GetPolicyStoreValidationSettingArrayOutput) Index(i pulumi.IntInput) GetPolicyStoreValidationSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyStoreValidationSetting {
+		return vs[0].([]GetPolicyStoreValidationSetting)[vs[1].(int)]
+	}).(GetPolicyStoreValidationSettingOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreValidationSettingsInput)(nil)).Elem(), PolicyStoreValidationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreValidationSettingsPtrInput)(nil)).Elem(), PolicyStoreValidationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDefinitionInput)(nil)).Elem(), SchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDefinitionPtrInput)(nil)).Elem(), SchemaDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyStoreValidationSettingInput)(nil)).Elem(), GetPolicyStoreValidationSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyStoreValidationSettingArrayInput)(nil)).Elem(), GetPolicyStoreValidationSettingArray{})
 	pulumi.RegisterOutputType(PolicyStoreValidationSettingsOutput{})
 	pulumi.RegisterOutputType(PolicyStoreValidationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SchemaDefinitionOutput{})
 	pulumi.RegisterOutputType(SchemaDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(GetPolicyStoreValidationSettingOutput{})
+	pulumi.RegisterOutputType(GetPolicyStoreValidationSettingArrayOutput{})
 }

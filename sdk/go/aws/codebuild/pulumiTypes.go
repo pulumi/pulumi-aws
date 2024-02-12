@@ -1681,7 +1681,7 @@ type ProjectLogsConfigCloudwatchLogs struct {
 	GroupName *string `pulumi:"groupName"`
 	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
 	Status *string `pulumi:"status"`
-	// Stream name of the logs in CloudWatch Logs.
+	// Prefix of the log stream name of the logs in CloudWatch Logs.
 	StreamName *string `pulumi:"streamName"`
 }
 
@@ -1701,7 +1701,7 @@ type ProjectLogsConfigCloudwatchLogsArgs struct {
 	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
 	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Stream name of the logs in CloudWatch Logs.
+	// Prefix of the log stream name of the logs in CloudWatch Logs.
 	StreamName pulumi.StringPtrInput `pulumi:"streamName"`
 }
 
@@ -1792,7 +1792,7 @@ func (o ProjectLogsConfigCloudwatchLogsOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectLogsConfigCloudwatchLogs) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Stream name of the logs in CloudWatch Logs.
+// Prefix of the log stream name of the logs in CloudWatch Logs.
 func (o ProjectLogsConfigCloudwatchLogsOutput) StreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectLogsConfigCloudwatchLogs) *string { return v.StreamName }).(pulumi.StringPtrOutput)
 }
@@ -1841,7 +1841,7 @@ func (o ProjectLogsConfigCloudwatchLogsPtrOutput) Status() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Stream name of the logs in CloudWatch Logs.
+// Prefix of the log stream name of the logs in CloudWatch Logs.
 func (o ProjectLogsConfigCloudwatchLogsPtrOutput) StreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectLogsConfigCloudwatchLogs) *string {
 		if v == nil {
@@ -2796,7 +2796,7 @@ func (o ProjectSecondarySourceVersionArrayOutput) Index(i pulumi.IntInput) Proje
 type ProjectSource struct {
 	// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 	BuildStatusConfig *ProjectSourceBuildStatusConfig `pulumi:"buildStatusConfig"`
-	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
 	Buildspec *string `pulumi:"buildspec"`
 	// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
 	GitCloneDepth *int `pulumi:"gitCloneDepth"`
@@ -2826,7 +2826,7 @@ type ProjectSourceInput interface {
 type ProjectSourceArgs struct {
 	// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 	BuildStatusConfig ProjectSourceBuildStatusConfigPtrInput `pulumi:"buildStatusConfig"`
-	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
 	Buildspec pulumi.StringPtrInput `pulumi:"buildspec"`
 	// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
 	GitCloneDepth pulumi.IntPtrInput `pulumi:"gitCloneDepth"`
@@ -2924,7 +2924,7 @@ func (o ProjectSourceOutput) BuildStatusConfig() ProjectSourceBuildStatusConfigP
 	return o.ApplyT(func(v ProjectSource) *ProjectSourceBuildStatusConfig { return v.BuildStatusConfig }).(ProjectSourceBuildStatusConfigPtrOutput)
 }
 
-// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
 func (o ProjectSourceOutput) Buildspec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *string { return v.Buildspec }).(pulumi.StringPtrOutput)
 }
@@ -2993,7 +2993,7 @@ func (o ProjectSourcePtrOutput) BuildStatusConfig() ProjectSourceBuildStatusConf
 	}).(ProjectSourceBuildStatusConfigPtrOutput)
 }
 
-// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
 func (o ProjectSourcePtrOutput) Buildspec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectSource) *string {
 		if v == nil {

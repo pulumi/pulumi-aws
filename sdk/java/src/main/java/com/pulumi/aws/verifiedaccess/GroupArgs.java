@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.verifiedaccess;
 
+import com.pulumi.aws.verifiedaccess.inputs.GroupSseConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -48,6 +49,21 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration block to use KMS keys for server-side encryption.
+     * 
+     */
+    @Import(name="sseConfiguration")
+    private @Nullable Output<GroupSseConfigurationArgs> sseConfiguration;
+
+    /**
+     * @return Configuration block to use KMS keys for server-side encryption.
+     * 
+     */
+    public Optional<Output<GroupSseConfigurationArgs>> sseConfiguration() {
+        return Optional.ofNullable(this.sseConfiguration);
+    }
+
+    /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -86,6 +102,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     private GroupArgs(GroupArgs $) {
         this.description = $.description;
         this.policyDocument = $.policyDocument;
+        this.sseConfiguration = $.sseConfiguration;
         this.tags = $.tags;
         this.verifiedaccessInstanceId = $.verifiedaccessInstanceId;
     }
@@ -148,6 +165,27 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
+        }
+
+        /**
+         * @param sseConfiguration Configuration block to use KMS keys for server-side encryption.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sseConfiguration(@Nullable Output<GroupSseConfigurationArgs> sseConfiguration) {
+            $.sseConfiguration = sseConfiguration;
+            return this;
+        }
+
+        /**
+         * @param sseConfiguration Configuration block to use KMS keys for server-side encryption.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sseConfiguration(GroupSseConfigurationArgs sseConfiguration) {
+            return sseConfiguration(Output.of(sseConfiguration));
         }
 
         /**

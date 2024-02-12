@@ -382,14 +382,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Directory Service Active Directory domain to create the instance in.
+     * The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
     /**
-     * @return The ID of the Directory Service Active Directory domain to create the instance in.
+     * @return The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
     public Optional<Output<String>> domain() {
@@ -397,14 +397,59 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the IAM role to be used when making API calls to the Directory Service.
+     * The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    @Import(name="domainAuthSecretArn")
+    private @Nullable Output<String> domainAuthSecretArn;
+
+    /**
+     * @return The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    public Optional<Output<String>> domainAuthSecretArn() {
+        return Optional.ofNullable(this.domainAuthSecretArn);
+    }
+
+    /**
+     * The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    @Import(name="domainDnsIps")
+    private @Nullable Output<List<String>> domainDnsIps;
+
+    /**
+     * @return The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    public Optional<Output<List<String>>> domainDnsIps() {
+        return Optional.ofNullable(this.domainDnsIps);
+    }
+
+    /**
+     * The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    @Import(name="domainFqdn")
+    private @Nullable Output<String> domainFqdn;
+
+    /**
+     * @return The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    public Optional<Output<String>> domainFqdn() {
+        return Optional.ofNullable(this.domainFqdn);
+    }
+
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
     @Import(name="domainIamRoleName")
     private @Nullable Output<String> domainIamRoleName;
 
     /**
-     * @return The name of the IAM role to be used when making API calls to the Directory Service.
+     * @return The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
     public Optional<Output<String>> domainIamRoleName() {
@@ -412,14 +457,29 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+     * The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    @Import(name="domainOu")
+    private @Nullable Output<String> domainOu;
+
+    /**
+     * @return The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+     * 
+     */
+    public Optional<Output<String>> domainOu() {
+        return Optional.ofNullable(this.domainOu);
+    }
+
+    /**
+     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * 
      */
     @Import(name="enabledCloudwatchLogsExports")
     private @Nullable Output<List<String>> enabledCloudwatchLogsExports;
 
     /**
-     * @return Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+     * @return Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * 
      */
     public Optional<Output<List<String>>> enabledCloudwatchLogsExports() {
@@ -1327,7 +1387,11 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.deleteAutomatedBackups = $.deleteAutomatedBackups;
         this.deletionProtection = $.deletionProtection;
         this.domain = $.domain;
+        this.domainAuthSecretArn = $.domainAuthSecretArn;
+        this.domainDnsIps = $.domainDnsIps;
+        this.domainFqdn = $.domainFqdn;
         this.domainIamRoleName = $.domainIamRoleName;
+        this.domainOu = $.domainOu;
         this.enabledCloudwatchLogsExports = $.enabledCloudwatchLogsExports;
         this.endpoint = $.endpoint;
         this.engine = $.engine;
@@ -1875,7 +1939,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain The ID of the Directory Service Active Directory domain to create the instance in.
+         * @param domain The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
          * 
          * @return builder
          * 
@@ -1886,7 +1950,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domain The ID of the Directory Service Active Directory domain to create the instance in.
+         * @param domain The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
          * 
          * @return builder
          * 
@@ -1896,7 +1960,80 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainIamRoleName The name of the IAM role to be used when making API calls to the Directory Service.
+         * @param domainAuthSecretArn The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainAuthSecretArn(@Nullable Output<String> domainAuthSecretArn) {
+            $.domainAuthSecretArn = domainAuthSecretArn;
+            return this;
+        }
+
+        /**
+         * @param domainAuthSecretArn The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainAuthSecretArn(String domainAuthSecretArn) {
+            return domainAuthSecretArn(Output.of(domainAuthSecretArn));
+        }
+
+        /**
+         * @param domainDnsIps The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainDnsIps(@Nullable Output<List<String>> domainDnsIps) {
+            $.domainDnsIps = domainDnsIps;
+            return this;
+        }
+
+        /**
+         * @param domainDnsIps The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainDnsIps(List<String> domainDnsIps) {
+            return domainDnsIps(Output.of(domainDnsIps));
+        }
+
+        /**
+         * @param domainDnsIps The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainDnsIps(String... domainDnsIps) {
+            return domainDnsIps(List.of(domainDnsIps));
+        }
+
+        /**
+         * @param domainFqdn The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainFqdn(@Nullable Output<String> domainFqdn) {
+            $.domainFqdn = domainFqdn;
+            return this;
+        }
+
+        /**
+         * @param domainFqdn The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainFqdn(String domainFqdn) {
+            return domainFqdn(Output.of(domainFqdn));
+        }
+
+        /**
+         * @param domainIamRoleName The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
          * 
          * @return builder
          * 
@@ -1907,7 +2044,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainIamRoleName The name of the IAM role to be used when making API calls to the Directory Service.
+         * @param domainIamRoleName The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
          * 
          * @return builder
          * 
@@ -1917,7 +2054,28 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledCloudwatchLogsExports Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+         * @param domainOu The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainOu(@Nullable Output<String> domainOu) {
+            $.domainOu = domainOu;
+            return this;
+        }
+
+        /**
+         * @param domainOu The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainOu(String domainOu) {
+            return domainOu(Output.of(domainOu));
+        }
+
+        /**
+         * @param enabledCloudwatchLogsExports Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
          * 
          * @return builder
          * 
@@ -1928,7 +2086,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledCloudwatchLogsExports Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+         * @param enabledCloudwatchLogsExports Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
          * 
          * @return builder
          * 
@@ -1938,7 +2096,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledCloudwatchLogsExports Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
+         * @param enabledCloudwatchLogsExports Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
          * 
          * @return builder
          * 

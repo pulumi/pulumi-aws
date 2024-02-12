@@ -92,14 +92,14 @@ public final class AccessPolicyAssociationState extends com.pulumi.resources.Res
     }
 
     /**
-     * The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      * 
      */
     @Import(name="principalArn")
     private @Nullable Output<String> principalArn;
 
     /**
-     * @return The IAM Princial ARN which requires Authentication access to the EKS cluster.
+     * @return The IAM Principal ARN which requires Authentication access to the EKS cluster.
      * 
      */
     public Optional<Output<String>> principalArn() {
@@ -241,7 +241,7 @@ public final class AccessPolicyAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param principalArn The IAM Princial ARN which requires Authentication access to the EKS cluster.
+         * @param principalArn The IAM Principal ARN which requires Authentication access to the EKS cluster.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class AccessPolicyAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param principalArn The IAM Princial ARN which requires Authentication access to the EKS cluster.
+         * @param principalArn The IAM Principal ARN which requires Authentication access to the EKS cluster.
          * 
          * @return builder
          * 

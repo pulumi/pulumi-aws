@@ -1,14 +1,14 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
-Date: Mon, 22 Jan 2024 22:42:01 -0500
+Date: Wed, 7 Feb 2024 12:08:03 -0500
 Subject: [PATCH 39/41] Restore legacy bucket
 
 
 diff --git a/go.mod b/go.mod
-index 1a6a8d3ae6..02a56c9316 100644
+index b4183120ac..ed52289442 100644
 --- a/go.mod
 +++ b/go.mod
-@@ -125,6 +125,7 @@ require (
+@@ -137,6 +137,7 @@ require (
  	github.com/gertd/go-pluralize v0.2.1
  	github.com/google/go-cmp v0.6.0
  	github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.21.0
@@ -17,7 +17,7 @@ index 1a6a8d3ae6..02a56c9316 100644
  	github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.47
  	github.com/hashicorp/awspolicyequivalence v1.6.0
 diff --git a/go.sum b/go.sum
-index 3d613ad6b9..8587c46b1d 100644
+index bfdeafc334..10c65af5fd 100644
 --- a/go.sum
 +++ b/go.sum
 @@ -18,6 +18,7 @@ github.com/apparentlymart/go-textseg/v15 v15.0.0 h1:uYvfpb3DyLSCGWnctWKGj857c6ew
@@ -25,10 +25,10 @@ index 3d613ad6b9..8587c46b1d 100644
  github.com/armon/go-radix v1.0.0 h1:F4z6KzEeeQIMeLFa97iZU6vupzoecKdU5TX24SNppXI=
  github.com/armon/go-radix v1.0.0/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
 +github.com/aws/aws-sdk-go v1.31.9/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
- github.com/aws/aws-sdk-go v1.49.24 h1:2ekq9ZvaoB2aRbTDfARzgVGUBB9N8XD2QYhFmTBlp+c=
- github.com/aws/aws-sdk-go v1.49.24/go.mod h1:LF8svs817+Nz+DmiMQKTO3ubZ/6IaTpq3TjupRn3Eqk=
+ github.com/aws/aws-sdk-go v1.50.13 h1:yeXram2g7q8uKkQkAEeZyk9FmPzxI4UpGwAZGZtEGmM=
+ github.com/aws/aws-sdk-go v1.50.13/go.mod h1:LF8svs817+Nz+DmiMQKTO3ubZ/6IaTpq3TjupRn3Eqk=
  github.com/aws/aws-sdk-go-v2 v1.24.1 h1:xAojnj+ktS95YZlDf0zxWBkbFtymPeDP+rvUQIH3uAU=
-@@ -316,6 +317,7 @@ github.com/go-logr/logr v1.3.0 h1:2y3SDp0ZXuc6/cjLSZ+Q3ir+QB9T/iG5yYRXqsagWSY=
+@@ -336,6 +337,7 @@ github.com/go-logr/logr v1.3.0 h1:2y3SDp0ZXuc6/cjLSZ+Q3ir+QB9T/iG5yYRXqsagWSY=
  github.com/go-logr/logr v1.3.0/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
  github.com/go-logr/stdr v1.2.2 h1:hSWxHoqTgW2S2qGc0LTAI563KZ5YKYRhT3MFKZMbjag=
  github.com/go-logr/stdr v1.2.2/go.mod h1:mMo/vtBO5dYbehREoey6XUKy/eSumjCCveDpRre4VKE=
@@ -36,8 +36,8 @@ index 3d613ad6b9..8587c46b1d 100644
  github.com/go-test/deep v1.1.0 h1:WOcxcdHcvdgThNXjw0t76K42FXTU7HpNQWHpA2HHNlg=
  github.com/go-test/deep v1.1.0/go.mod h1:5C2ZWiW0ErCdrYzpqxLbTX7MG14M9iiw8DgHncVwcsE=
  github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da h1:oI5xCqsCo564l8iNU+DwB5epxmsaqB+rhGL0m5jtYqE=
-@@ -334,6 +336,8 @@ github.com/google/uuid v1.3.1 h1:KjJaJ9iWZ3jOFZIf1Lqf4laDRCasjl0BCmnEGxkdLb4=
- github.com/google/uuid v1.3.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+@@ -354,6 +356,8 @@ github.com/google/uuid v1.4.0 h1:MtMxsa51/r9yyhkyLsVeVt0B+BGQZzpQiTQ4eHZ8bc4=
+ github.com/google/uuid v1.4.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
  github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.21.0 h1:IUypt/TbXiJBkBbE3926CgnjD8IltAitdn7Yive61DY=
  github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.21.0/go.mod h1:cdTE6F2pCKQobug+RqRaQp7Kz9hIEqiSvpPmb6E5G1w=
 +github.com/hashicorp/aws-sdk-go-base v1.1.0 h1:27urM3JAp6v+Oj/Ea5ULZwuFPK9cO1RUdEpV+rNdSAc=
@@ -45,7 +45,7 @@ index 3d613ad6b9..8587c46b1d 100644
  github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.46 h1:4HEbsW1qG5LQubjhlEwyCq4bEyvG+XvwYGYQ/PAtIP8=
  github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.46/go.mod h1:NBUTIFnvxeFb+YdNpecFB6t6oeUmWKz8jn0NexS5iJA=
  github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.47 h1:FAgLmKVkzcGE7/HaBg6389jupgs2pXjn7ctoOAnxcTg=
-@@ -405,6 +409,7 @@ github.com/imdario/mergo v0.3.16/go.mod h1:WBLT9ZmE3lPoWsEzCh9LPo3TiwVN+ZKEjmz+h
+@@ -425,6 +429,7 @@ github.com/imdario/mergo v0.3.16/go.mod h1:WBLT9ZmE3lPoWsEzCh9LPo3TiwVN+ZKEjmz+h
  github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 h1:BQSFePA1RWJOlocH6Fxy8MmwDt+yVQYULKfN0RoTN8A=
  github.com/jessevdk/go-flags v1.4.0/go.mod h1:4FA24M0QyGHXBuZZK/XkWh8h0e1EYbRYJSGM75WSRxI=
  github.com/jhump/protoreflect v1.15.1 h1:HUMERORf3I3ZdX05WaQ6MIpd/NJ434hTp5YiKgfCL6c=
@@ -53,7 +53,7 @@ index 3d613ad6b9..8587c46b1d 100644
  github.com/jmespath/go-jmespath v0.4.0 h1:BEgLn5cpjn8UN1mAw4NjwDrS35OdebyEtFe+9YPoQUg=
  github.com/jmespath/go-jmespath v0.4.0/go.mod h1:T8mJZnbsbmF+m6zOOFylbeCJqk5+pHWvzYPziyZiYoo=
  github.com/jmespath/go-jmespath/internal/testify v1.5.1 h1:shLQSRRSCCPj3f2gpwzGwWFoC7ycTf1rcQZHOlsJ6N8=
-@@ -516,6 +521,7 @@ golang.org/x/mod v0.14.0 h1:dGoOF9QVLYng8IHTm7BAyWqCqSheQ5pYWGhzW00YJr0=
+@@ -536,6 +541,7 @@ golang.org/x/mod v0.14.0 h1:dGoOF9QVLYng8IHTm7BAyWqCqSheQ5pYWGhzW00YJr0=
  golang.org/x/mod v0.14.0/go.mod h1:hTbmBsO62+eylJbnUtE2MGJUyE7QWk4xUqPFrRgJ+7c=
  golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3/go.mod h1:t9HGtf8HONx5eT2rtn7q6eTqICYqUVnKs3thJo3Qplg=
  golang.org/x/net v0.0.0-20190620200207-3b0461eec859/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
@@ -62,10 +62,18 @@ index 3d613ad6b9..8587c46b1d 100644
  golang.org/x/net v0.0.0-20220722155237-a158d28d115b/go.mod h1:XRhObCWvk6IyKnWLug+ECip1KBveYUHfp+8e9klMJ9c=
  golang.org/x/net v0.2.0/go.mod h1:KqCZLdyyvdV855qA2rE3GC2aiw5xGR5TEjj8smXukLY=
 diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
-index f29ee2f68f..8d738f06fa 100644
+index 344c1df114..046611fecb 100644
 --- a/internal/conns/awsclient.go
 +++ b/internal/conns/awsclient.go
-@@ -103,6 +103,10 @@ func (c *AWSClient) S3UsePathStyle() bool {
+@@ -16,7 +16,6 @@ import (
+ 	endpoints_sdkv1 "github.com/aws/aws-sdk-go/aws/endpoints"
+ 	session_sdkv1 "github.com/aws/aws-sdk-go/aws/session"
+ 	apigatewayv2_sdkv1 "github.com/aws/aws-sdk-go/service/apigatewayv2"
+-	mediaconvert_sdkv1 "github.com/aws/aws-sdk-go/service/mediaconvert"
+ 	s3_sdkv1 "github.com/aws/aws-sdk-go/service/s3"
+ 	baselogging "github.com/hashicorp/aws-sdk-go-base/v2/logging"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/errs"
+@@ -103,6 +102,10 @@ func (c *AWSClient) S3UsePathStyle() bool {
  	return c.s3UsePathStyle
  }
  
@@ -76,15 +84,6 @@ index f29ee2f68f..8d738f06fa 100644
  func (client *AWSClient) S3ConnURICleaningDisabled(ctx context.Context) *s3_sdkv1.S3 {
  	config := client.S3Conn(ctx).Config
  	config.DisableRestProtocolURICleaning = aws_sdkv2.Bool(true)
-@@ -175,7 +179,7 @@ func (c *AWSClient) DefaultKMSKeyPolicy() string {
- 			"Resource": "*"
- 		}
- 	]
--}	
-+}
- `, c.Partition, c.AccountID)
- }
- 
 diff --git a/internal/service/s3/service_package_bwcompat.go b/internal/service/s3/service_package_bwcompat.go
 new file mode 100644
 index 0000000000..4278d1e70a

@@ -145,7 +145,7 @@ type ServerlessCache struct {
 	// User-provided description for the serverless cache. The default is NULL.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Represents the information required for client programs to connect to a cache node. See config below for details.
-	Endpoints pulumi.MapArrayOutput `pulumi:"endpoints"`
+	Endpoints ServerlessCacheEndpointArrayOutput `pulumi:"endpoints"`
 	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// The name and version number of the engine the serverless cache is compatible with.
@@ -160,7 +160,7 @@ type ServerlessCache struct {
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Represents the information required for client programs to connect to a cache node. See config below for details.
-	ReaderEndpoints pulumi.MapArrayOutput `pulumi:"readerEndpoints"`
+	ReaderEndpoints ServerlessCacheReaderEndpointArrayOutput `pulumi:"readerEndpoints"`
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
@@ -228,7 +228,7 @@ type serverlessCacheState struct {
 	// User-provided description for the serverless cache. The default is NULL.
 	Description *string `pulumi:"description"`
 	// Represents the information required for client programs to connect to a cache node. See config below for details.
-	Endpoints []map[string]interface{} `pulumi:"endpoints"`
+	Endpoints []ServerlessCacheEndpoint `pulumi:"endpoints"`
 	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
 	Engine *string `pulumi:"engine"`
 	// The name and version number of the engine the serverless cache is compatible with.
@@ -243,7 +243,7 @@ type serverlessCacheState struct {
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Represents the information required for client programs to connect to a cache node. See config below for details.
-	ReaderEndpoints []map[string]interface{} `pulumi:"readerEndpoints"`
+	ReaderEndpoints []ServerlessCacheReaderEndpoint `pulumi:"readerEndpoints"`
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
@@ -275,7 +275,7 @@ type ServerlessCacheState struct {
 	// User-provided description for the serverless cache. The default is NULL.
 	Description pulumi.StringPtrInput
 	// Represents the information required for client programs to connect to a cache node. See config below for details.
-	Endpoints pulumi.MapArrayInput
+	Endpoints ServerlessCacheEndpointArrayInput
 	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
 	Engine pulumi.StringPtrInput
 	// The name and version number of the engine the serverless cache is compatible with.
@@ -290,7 +290,7 @@ type ServerlessCacheState struct {
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Represents the information required for client programs to connect to a cache node. See config below for details.
-	ReaderEndpoints pulumi.MapArrayInput
+	ReaderEndpoints ServerlessCacheReaderEndpointArrayInput
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
@@ -494,8 +494,8 @@ func (o ServerlessCacheOutput) Description() pulumi.StringOutput {
 }
 
 // Represents the information required for client programs to connect to a cache node. See config below for details.
-func (o ServerlessCacheOutput) Endpoints() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v *ServerlessCache) pulumi.MapArrayOutput { return v.Endpoints }).(pulumi.MapArrayOutput)
+func (o ServerlessCacheOutput) Endpoints() ServerlessCacheEndpointArrayOutput {
+	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheEndpointArrayOutput { return v.Endpoints }).(ServerlessCacheEndpointArrayOutput)
 }
 
 // Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
@@ -527,8 +527,8 @@ func (o ServerlessCacheOutput) Name() pulumi.StringOutput {
 }
 
 // Represents the information required for client programs to connect to a cache node. See config below for details.
-func (o ServerlessCacheOutput) ReaderEndpoints() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v *ServerlessCache) pulumi.MapArrayOutput { return v.ReaderEndpoints }).(pulumi.MapArrayOutput)
+func (o ServerlessCacheOutput) ReaderEndpoints() ServerlessCacheReaderEndpointArrayOutput {
+	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheReaderEndpointArrayOutput { return v.ReaderEndpoints }).(ServerlessCacheReaderEndpointArrayOutput)
 }
 
 // A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.

@@ -106,7 +106,7 @@ namespace Pulumi.Aws.CodeGuruProfiler
         /// <summary>
         /// Profiling Group agent orchestration config
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> AgentOrchestrationConfigs;
+        public readonly ImmutableArray<Outputs.GetProfilingGroupAgentOrchestrationConfigResult> AgentOrchestrationConfigs;
         /// <summary>
         /// ARN of the Profiling Group.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.CodeGuruProfiler
         /// <summary>
         /// The status of the Profiling Group.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, object>> ProfilingStatuses;
+        public readonly ImmutableArray<Outputs.GetProfilingGroupProfilingStatusResult> ProfilingStatuses;
         /// <summary>
         /// Mapping of Key-Value tags for the resource.
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.CodeGuruProfiler
 
         [OutputConstructor]
         private GetProfilingGroupResult(
-            ImmutableArray<ImmutableDictionary<string, object>> agentOrchestrationConfigs,
+            ImmutableArray<Outputs.GetProfilingGroupAgentOrchestrationConfigResult> agentOrchestrationConfigs,
 
             string arn,
 
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.CodeGuruProfiler
 
             string name,
 
-            ImmutableArray<ImmutableDictionary<string, object>> profilingStatuses,
+            ImmutableArray<Outputs.GetProfilingGroupProfilingStatusResult> profilingStatuses,
 
             ImmutableDictionary<string, string> tags,
 

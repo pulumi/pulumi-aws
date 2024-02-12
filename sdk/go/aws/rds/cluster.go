@@ -183,6 +183,9 @@ import (
 //
 // > More information about RDS Serverless v2 Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html).
 //
+// > **Note:** Unlike Serverless v1, in Serverless v2 the `storageEncrypted` value is set to `false` by default.
+// This is because Serverless v1 uses the `serverless` `engineMode`, but Serverless v2 uses the `provisioned` `engineMode`.
+//
 // To create a Serverless v2 RDS cluster, you must additionally specify the `engineMode` and `serverlessv2ScalingConfiguration` attributes. An `rds.ClusterInstance` resource must also be added to the cluster with the `instanceClass` attribute specified.
 //
 // ```go
@@ -205,6 +208,7 @@ import (
 //				DatabaseName:      pulumi.String("test"),
 //				MasterUsername:    pulumi.String("test"),
 //				MasterPassword:    pulumi.String("must_be_eight_characters"),
+//				StorageEncrypted:  pulumi.Bool(true),
 //				Serverlessv2ScalingConfiguration: &rds.ClusterServerlessv2ScalingConfigurationArgs{
 //					MaxCapacity: pulumi.Float64(1),
 //					MinCapacity: pulumi.Float64(0.5),

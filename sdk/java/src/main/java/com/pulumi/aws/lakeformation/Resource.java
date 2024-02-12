@@ -81,6 +81,24 @@ public class Resource extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * Flag to enable AWS LakeFormation hybrid access permission mode.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
+    @Export(name="hybridAccessEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> hybridAccessEnabled;
+
+    /**
+     * @return Flag to enable AWS LakeFormation hybrid access permission mode.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
+    public Output<Boolean> hybridAccessEnabled() {
+        return this.hybridAccessEnabled;
+    }
+    /**
      * Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
@@ -111,8 +129,6 @@ public class Resource extends com.pulumi.resources.CustomResource {
     /**
      * Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
      * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-     * 
      */
     @Export(name="useServiceLinkedRole", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useServiceLinkedRole;
@@ -120,11 +136,15 @@ public class Resource extends com.pulumi.resources.CustomResource {
     /**
      * @return Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
      * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-     * 
      */
     public Output<Optional<Boolean>> useServiceLinkedRole() {
         return Codegen.optional(this.useServiceLinkedRole);
+    }
+    @Export(name="withFederation", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> withFederation;
+
+    public Output<Boolean> withFederation() {
+        return this.withFederation;
     }
 
     /**

@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates and manages an AWS IoT topic rule.
+//
 // ## Example Usage
 //
 // ```go
@@ -32,6 +34,29 @@ import (
 // return err
 // }
 // myerrortopic, err := sns.NewTopic(ctx, "myerrortopic", nil)
+// if err != nil {
+// return err
+// }
+// _, err = iot.NewTopicRule(ctx, "rule", &iot.TopicRuleArgs{
+// Description: pulumi.String("Example rule"),
+// Enabled: pulumi.Bool(true),
+// Sql: pulumi.String("SELECT * FROM 'topic/test'"),
+// SqlVersion: pulumi.String("2016-03-23"),
+// Sns: iot.TopicRuleSnsArray{
+// &iot.TopicRuleSnsArgs{
+// MessageFormat: pulumi.String("RAW"),
+// RoleArn: pulumi.Any(aws_iam_role.Role.Arn),
+// TargetArn: mytopic.Arn,
+// },
+// },
+// ErrorAction: &iot.TopicRuleErrorActionArgs{
+// Sns: &iot.TopicRuleErrorActionSnsArgs{
+// MessageFormat: pulumi.String("RAW"),
+// RoleArn: pulumi.Any(aws_iam_role.Role.Arn),
+// TargetArn: myerrortopic.Arn,
+// },
+// },
+// })
 // if err != nil {
 // return err
 // }
@@ -56,36 +81,13 @@ import (
 // if err != nil {
 // return err
 // }
-// role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+// myrole, err := iam.NewRole(ctx, "myrole", &iam.RoleArgs{
 // AssumeRolePolicy: *pulumi.String(assumeRole.Json),
 // })
 // if err != nil {
 // return err
 // }
-// _, err = iot.NewTopicRule(ctx, "rule", &iot.TopicRuleArgs{
-// Description: pulumi.String("Example rule"),
-// Enabled: pulumi.Bool(true),
-// Sql: pulumi.String("SELECT * FROM 'topic/test'"),
-// SqlVersion: pulumi.String("2016-03-23"),
-// Sns: iot.TopicRuleSnsArray{
-// &iot.TopicRuleSnsArgs{
-// MessageFormat: pulumi.String("RAW"),
-// RoleArn: role.Arn,
-// TargetArn: mytopic.Arn,
-// },
-// },
-// ErrorAction: &iot.TopicRuleErrorActionArgs{
-// Sns: &iot.TopicRuleErrorActionSnsArgs{
-// MessageFormat: pulumi.String("RAW"),
-// RoleArn: role.Arn,
-// TargetArn: myerrortopic.Arn,
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// iamPolicyForLambdaPolicyDocument := mytopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// mypolicyPolicyDocument := mytopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -100,10 +102,10 @@ import (
 // },
 // }, nil), nil
 // }).(iam.GetPolicyDocumentResultOutput)
-// _, err = iam.NewRolePolicy(ctx, "iamPolicyForLambdaRolePolicy", &iam.RolePolicyArgs{
-// Role: role.ID(),
-// Policy: iamPolicyForLambdaPolicyDocument.ApplyT(func(iamPolicyForLambdaPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-// return &iamPolicyForLambdaPolicyDocument.Json, nil
+// _, err = iam.NewRolePolicy(ctx, "mypolicyRolePolicy", &iam.RolePolicyArgs{
+// Role: myrole.ID(),
+// Policy: mypolicyPolicyDocument.ApplyT(func(mypolicyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &mypolicyPolicyDocument.Json, nil
 // }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {

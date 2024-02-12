@@ -5345,6 +5345,8 @@ func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput) Elem() Bucket
 }
 
 type BucketMetricFilter struct {
+	// S3 Access Point ARN for filtering (singular).
+	AccessPoint *string `pulumi:"accessPoint"`
 	// Object prefix for filtering (singular).
 	Prefix *string `pulumi:"prefix"`
 	// Object tags for filtering (up to 10).
@@ -5363,6 +5365,8 @@ type BucketMetricFilterInput interface {
 }
 
 type BucketMetricFilterArgs struct {
+	// S3 Access Point ARN for filtering (singular).
+	AccessPoint pulumi.StringPtrInput `pulumi:"accessPoint"`
 	// Object prefix for filtering (singular).
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Object tags for filtering (up to 10).
@@ -5446,6 +5450,11 @@ func (o BucketMetricFilterOutput) ToBucketMetricFilterPtrOutputWithContext(ctx c
 	}).(BucketMetricFilterPtrOutput)
 }
 
+// S3 Access Point ARN for filtering (singular).
+func (o BucketMetricFilterOutput) AccessPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketMetricFilter) *string { return v.AccessPoint }).(pulumi.StringPtrOutput)
+}
+
 // Object prefix for filtering (singular).
 func (o BucketMetricFilterOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketMetricFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -5478,6 +5487,16 @@ func (o BucketMetricFilterPtrOutput) Elem() BucketMetricFilterOutput {
 		var ret BucketMetricFilter
 		return ret
 	}).(BucketMetricFilterOutput)
+}
+
+// S3 Access Point ARN for filtering (singular).
+func (o BucketMetricFilterPtrOutput) AccessPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketMetricFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessPoint
+	}).(pulumi.StringPtrOutput)
 }
 
 // Object prefix for filtering (singular).

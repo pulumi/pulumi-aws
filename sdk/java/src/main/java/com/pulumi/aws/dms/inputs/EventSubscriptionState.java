@@ -94,14 +94,14 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Ids of sources to listen to.
+     * Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
     @Import(name="sourceIds")
     private @Nullable Output<List<String>> sourceIds;
 
     /**
-     * @return Ids of sources to listen to.
+     * @return Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
     public Optional<Output<List<String>>> sourceIds() {
@@ -309,7 +309,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sourceIds Ids of sources to listen to.
+         * @param sourceIds Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sourceIds Ids of sources to listen to.
+         * @param sourceIds Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sourceIds Ids of sources to listen to.
+         * @param sourceIds Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
          * 
          * @return builder
          * 

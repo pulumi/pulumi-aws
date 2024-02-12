@@ -229,6 +229,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly masterUsername!: pulumi.Output<string | undefined>;
     /**
+     * Specifies if the Redshift cluster is multi-AZ.
+     */
+    public readonly multiAz!: pulumi.Output<boolean | undefined>;
+    /**
      * The node type to be provisioned for the cluster.
      */
     public readonly nodeType!: pulumi.Output<string>;
@@ -338,6 +342,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterPasswordSecretArn"] = state ? state.masterPasswordSecretArn : undefined;
             resourceInputs["masterPasswordSecretKmsKeyId"] = state ? state.masterPasswordSecretKmsKeyId : undefined;
             resourceInputs["masterUsername"] = state ? state.masterUsername : undefined;
+            resourceInputs["multiAz"] = state ? state.multiAz : undefined;
             resourceInputs["nodeType"] = state ? state.nodeType : undefined;
             resourceInputs["numberOfNodes"] = state ? state.numberOfNodes : undefined;
             resourceInputs["ownerAccount"] = state ? state.ownerAccount : undefined;
@@ -389,6 +394,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterPassword"] = args?.masterPassword ? pulumi.secret(args.masterPassword) : undefined;
             resourceInputs["masterPasswordSecretKmsKeyId"] = args ? args.masterPasswordSecretKmsKeyId : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
+            resourceInputs["multiAz"] = args ? args.multiAz : undefined;
             resourceInputs["nodeType"] = args ? args.nodeType : undefined;
             resourceInputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
             resourceInputs["ownerAccount"] = args ? args.ownerAccount : undefined;
@@ -568,6 +574,10 @@ export interface ClusterState {
      * Username for the master DB user.
      */
     masterUsername?: pulumi.Input<string>;
+    /**
+     * Specifies if the Redshift cluster is multi-AZ.
+     */
+    multiAz?: pulumi.Input<boolean>;
     /**
      * The node type to be provisioned for the cluster.
      */
@@ -764,6 +774,10 @@ export interface ClusterArgs {
      * Username for the master DB user.
      */
     masterUsername?: pulumi.Input<string>;
+    /**
+     * Specifies if the Redshift cluster is multi-AZ.
+     */
+    multiAz?: pulumi.Input<boolean>;
     /**
      * The node type to be provisioned for the cluster.
      */

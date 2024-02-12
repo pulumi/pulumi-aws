@@ -18,6 +18,8 @@ __all__ = [
     'ServerlessCacheCacheUsageLimitsArgs',
     'ServerlessCacheCacheUsageLimitsDataStorageArgs',
     'ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs',
+    'ServerlessCacheEndpointArgs',
+    'ServerlessCacheReaderEndpointArgs',
     'ServerlessCacheTimeoutsArgs',
     'UserAuthenticationModeArgs',
     'GetUserAuthenticationModeArgs',
@@ -404,6 +406,80 @@ class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs:
     @maximum.setter
     def maximum(self, value: pulumi.Input[int]):
         pulumi.set(self, "maximum", value)
+
+
+@pulumi.input_type
+class ServerlessCacheEndpointArgs:
+    def __init__(__self__, *,
+                 address: pulumi.Input[str],
+                 port: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] address: The DNS hostname of the cache node.
+        :param pulumi.Input[int] port: The port number that the cache engine is listening on. Set as integer.
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> pulumi.Input[str]:
+        """
+        The DNS hostname of the cache node.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The port number that the cache engine is listening on. Set as integer.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class ServerlessCacheReaderEndpointArgs:
+    def __init__(__self__, *,
+                 address: pulumi.Input[str],
+                 port: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] address: The DNS hostname of the cache node.
+        :param pulumi.Input[int] port: The port number that the cache engine is listening on. Set as integer.
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> pulumi.Input[str]:
+        """
+        The DNS hostname of the cache node.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The port number that the cache engine is listening on. Set as integer.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type
