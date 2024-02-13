@@ -569,12 +569,9 @@ func getAwsSession(t *testing.T) *session.Session {
 }
 
 func TestUpdateImportedLambda(t *testing.T) {
-	cwd, err := os.Getwd()
-	require.NoError(t, err)
-	
 	test := pulumitest.NewPulumiTest(t, "lambda-import-ts", 
-	// opttest.DownloadProviderVersion("aws", "5.28.0"))
-	opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")))
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+	)
 
 	test.SetConfig("runtime", "nodejs18.x")
 	res := test.Up()
@@ -591,4 +588,13 @@ func TestUpdateImportedLambda(t *testing.T) {
 
 	secondStack.SetConfig("runtime", "nodejs16.x")
 	res = secondStack.Up()
+}
+
+func TestNoCodeLambda(t *testing.T) {
+	test := pulumitest.NewPulumiTest(t, "no-code-lambda", 
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+	)
+	_, err := test.CurrentStack().Up(test.Context())
+	require.Error(t, err)
+	require.Contains(t, err.Error(), "ValidationException")
 }

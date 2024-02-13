@@ -27,7 +27,7 @@ const lambda = archive.getFile({
 
 const testLambda = new aws.lambda.Function("testLambda", {
     name: imported_lambda_name,
-    code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
+    code: imported_lambda_name ? undefined : new pulumi.asset.FileArchive("lambda_function_payload.zip"),
     role: imported_lambda_role || iamForLambda.arn,
     handler: "index.test",
     runtime: runtime || "nodejs18.x",
