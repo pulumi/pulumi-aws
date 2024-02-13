@@ -586,6 +586,136 @@ func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
 	replay(t, repro)
 }
 
+func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
+  replay(t, `
+  [{
+    "method": "/pulumirpc.ResourceProvider/Check",
+    "request": {
+        "urn": "urn:pulumi:imported::repro_lambda::aws:lambda/function:Function::mylambda",
+        "olds": {
+            "__defaults": [],
+            "architectures": [
+                "x86_64"
+            ],
+            "environment": {
+                "__defaults": [],
+                "variables": {
+                    "__defaults": [],
+                    "foo": "bar"
+                }
+            },
+            "ephemeralStorage": {
+                "__defaults": [],
+                "size": 512
+            },
+            "handler": "index.test",
+            "loggingConfig": {
+                "__defaults": [],
+                "logFormat": "Text",
+                "logGroup": "/aws/lambda/testLambda-83906f2"
+            },
+            "name": "testLambda-83906f2",
+            "packageType": "Zip",
+            "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
+            "runtime": "nodejs18.x",
+            "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+            "tracingConfig": {
+                "__defaults": [],
+                "mode": "PassThrough"
+            }
+        },
+        "news": {
+            "__defaults": [],
+            "architectures": [
+                "x86_64"
+            ],
+            "environment": {
+                "__defaults": [],
+                "variables": {
+                    "__defaults": [],
+                    "foo": "bar"
+                }
+            },
+            "ephemeralStorage": {
+                "__defaults": [],
+                "size": 512
+            },
+            "handler": "index.test",
+            "loggingConfig": {
+                "__defaults": [],
+                "logFormat": "Text",
+                "logGroup": "/aws/lambda/testLambda-83906f2"
+            },
+            "name": "testLambda-83906f2",
+            "packageType": "Zip",
+            "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
+            "runtime": "nodejs18.x",
+            "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+            "tracingConfig": {
+                "__defaults": [],
+                "mode": "PassThrough"
+            }
+        },
+        "randomSeed": "MpcMRlpQV7R8mD8Nmx9KpLPPIyFTHsB8HA4kxXdWTfo="
+    },
+    "response": {
+        "inputs": {
+            "__defaults": [
+                "memorySize",
+                "publish",
+                "reservedConcurrentExecutions",
+                "skipDestroy",
+                "timeout"
+            ],
+            "architectures": [
+                "x86_64"
+            ],
+            "environment": {
+                "__defaults": [],
+                "variables": {
+                    "__defaults": [],
+                    "foo": "bar"
+                }
+            },
+            "ephemeralStorage": {
+                "__defaults": [],
+                "size": 512
+            },
+            "handler": "index.test",
+            "loggingConfig": {
+                "__defaults": [
+                    "applicationLogLevel",
+                    "systemLogLevel"
+                ],
+                "applicationLogLevel": "",
+                "logFormat": "Text",
+                "logGroup": "/aws/lambda/testLambda-83906f2",
+                "systemLogLevel": ""
+            },
+            "memorySize": 128,
+            "name": "testLambda-83906f2",
+            "packageType": "Zip",
+            "publish": false,
+            "reservedConcurrentExecutions": -1,
+            "role": "arn:aws:iam::616138583583:role/iamForLambda-d5757fe",
+            "runtime": "nodejs18.x",
+            "skipDestroy": false,
+            "sourceCodeHash": "WUsPYQdwiMj+sDZzl3tNaSzS42vqVfng2CZtgcy+TRs=",
+            "timeout": 3,
+            "tracingConfig": {
+                "__defaults": [],
+                "mode": "PassThrough"
+            }
+        }
+    },
+    "metadata": {
+        "kind": "resource",
+        "mode": "client",
+        "name": "aws"
+    }
+}]`)
+}
+
 // A lot of tests do not currently refresh cleanly. The work to root cause each tests has not been
 // done yet but the common causes are listed here:
 //
