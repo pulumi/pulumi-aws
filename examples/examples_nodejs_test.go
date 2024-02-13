@@ -586,8 +586,9 @@ func TestUpdateImportedLambda(t *testing.T) {
 	secondStack.SetConfig("lambda_role", lambdaRole.Value.(string))
 	secondStack.Up()
 
+	// Check that we can change a property on the lambda
 	secondStack.SetConfig("runtime", "nodejs16.x")
-	res = secondStack.Up()
+	secondStack.Up()
 }
 
 func TestNoCodeLambda(t *testing.T) {
