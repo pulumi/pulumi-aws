@@ -586,6 +586,68 @@ func TestWrongStateMaxItemOneDiffProduced(t *testing.T) {
 	replay(t, repro)
 }
 
+// Regression test for https://github.com/pulumi/pulumi-aws/issues/3421
+func TestLBListenerCreatePanic(t *testing.T) {
+  replay(t, `[
+    {
+      "method": "/pulumirpc.ResourceProvider/Configure",
+      "request": {
+          "variables": {
+              "aws:config:region": "us-east-1",
+              "aws:config:skipCredentialsValidation": "false",
+              "aws:config:skipMetadataApiCheck": "true",
+              "aws:config:skipRegionValidation": "true"
+          },
+          "args": {
+              "region": "us-east-1",
+              "skipCredentialsValidation": "false",
+              "skipMetadataApiCheck": "true",
+              "skipRegionValidation": "true",
+              "version": "6.22.0"
+          },
+          "acceptSecrets": true,
+          "acceptResources": true,
+          "sendsOldInputs": true,
+          "sendsOldInputsToDelete": true
+      },
+      "response": {
+          "supportsPreview": true
+      },
+      "metadata": {
+          "kind": "resource",
+          "mode": "client",
+          "name": "aws"
+      }
+  },
+  {
+    "method": "/pulumirpc.ResourceProvider/Create",
+    "request": {
+        "urn": "urn:pulumi:dev::lb_panic::aws:lb/listener:Listener::payload-lb-listner-http",
+        "properties": {
+            "__defaults": [],
+            "defaultActions": [
+                {
+                    "__defaults": [],
+                    "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:616138583583:targetgroup/payload-tg-cae0e1a/92aa6f538c20f368",
+                    "type": "forward"
+                }
+            ],
+            "loadBalancerArn": "arn:aws:elasticloadbalancing:us-east-1:616138583583:loadbalancer/app/payload-lb-c49bc74/f9f2bdfb83b7984c",
+            "port": 80,
+            "protocol": "HTTP"
+        }
+    },
+    "errors": [
+        "rpc error: code = Unavailable desc = error reading from server: EOF"
+    ],
+    "metadata": {
+        "kind": "resource",
+        "mode": "client",
+        "name": "aws"
+    }
+}]`)
+}
+
 // A lot of tests do not currently refresh cleanly. The work to root cause each tests has not been
 // done yet but the common causes are listed here:
 //
