@@ -100,19 +100,10 @@ class ListenerDefaultAction(dict):
         :param 'ListenerDefaultActionAuthenticateCognitoArgs' authenticate_cognito: Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
         :param 'ListenerDefaultActionAuthenticateOidcArgs' authenticate_oidc: Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
         :param 'ListenerDefaultActionFixedResponseArgs' fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-        :param 'ListenerDefaultActionForwardArgs' forward: Configuration block for creating an action that distributes requests among one or more target groups.
-               Specify only if `type` is `forward`.
-               Cannot be specified with `target_group_arn`.
-               Detailed below.
-        :param int order: Order for the action.
-               The action with the lowest value for order is performed first.
-               Valid values are between `1` and `50000`.
-               Defaults to the position in the list of actions.
+        :param 'ListenerDefaultActionForwardArgs' forward: Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`. Detailed below.
+        :param int order: Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
         :param 'ListenerDefaultActionRedirectArgs' redirect: Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
-        :param str target_group_arn: ARN of the Target Group to which to route traffic.
-               Specify only if `type` is `forward` and you want to route to a single target group.
-               To route to one or more target groups, use a `forward` block instead.
-               Cannot be specified with `forward`.
+        :param str target_group_arn: ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
         """
         pulumi.set(__self__, "type", type)
         if authenticate_cognito is not None:
@@ -168,10 +159,7 @@ class ListenerDefaultAction(dict):
     @pulumi.getter
     def forward(self) -> Optional['outputs.ListenerDefaultActionForward']:
         """
-        Configuration block for creating an action that distributes requests among one or more target groups.
-        Specify only if `type` is `forward`.
-        Cannot be specified with `target_group_arn`.
-        Detailed below.
+        Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`. Detailed below.
         """
         return pulumi.get(self, "forward")
 
@@ -179,10 +167,7 @@ class ListenerDefaultAction(dict):
     @pulumi.getter
     def order(self) -> Optional[int]:
         """
-        Order for the action.
-        The action with the lowest value for order is performed first.
-        Valid values are between `1` and `50000`.
-        Defaults to the position in the list of actions.
+        Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
         """
         return pulumi.get(self, "order")
 
@@ -198,10 +183,7 @@ class ListenerDefaultAction(dict):
     @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[str]:
         """
-        ARN of the Target Group to which to route traffic.
-        Specify only if `type` is `forward` and you want to route to a single target group.
-        To route to one or more target groups, use a `forward` block instead.
-        Cannot be specified with `forward`.
+        ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
         """
         return pulumi.get(self, "target_group_arn")
 
@@ -894,18 +876,9 @@ class ListenerRuleAction(dict):
         :param 'ListenerRuleActionAuthenticateCognitoArgs' authenticate_cognito: Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
         :param 'ListenerRuleActionAuthenticateOidcArgs' authenticate_oidc: Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
         :param 'ListenerRuleActionFixedResponseArgs' fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-        :param 'ListenerRuleActionForwardArgs' forward: Configuration block for creating an action that distributes requests among one or more target groups.
-               Specify only if `type` is `forward`.
-               Cannot be specified with `target_group_arn`.
-        :param int order: Order for the action.
-               The action with the lowest value for order is performed first.
-               Valid values are between `1` and `50000`.
-               Defaults to the position in the list of actions.
+        :param 'ListenerRuleActionForwardArgs' forward: Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
         :param 'ListenerRuleActionRedirectArgs' redirect: Information for creating a redirect action. Required if `type` is `redirect`.
-        :param str target_group_arn: ARN of the Target Group to which to route traffic.
-               Specify only if `type` is `forward` and you want to route to a single target group.
-               To route to one or more target groups, use a `forward` block instead.
-               Cannot be specified with `forward`.
+        :param str target_group_arn: The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
         """
         pulumi.set(__self__, "type", type)
         if authenticate_cognito is not None:
@@ -959,21 +932,13 @@ class ListenerRuleAction(dict):
     @pulumi.getter
     def forward(self) -> Optional['outputs.ListenerRuleActionForward']:
         """
-        Configuration block for creating an action that distributes requests among one or more target groups.
-        Specify only if `type` is `forward`.
-        Cannot be specified with `target_group_arn`.
+        Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
         """
         return pulumi.get(self, "forward")
 
     @property
     @pulumi.getter
     def order(self) -> Optional[int]:
-        """
-        Order for the action.
-        The action with the lowest value for order is performed first.
-        Valid values are between `1` and `50000`.
-        Defaults to the position in the list of actions.
-        """
         return pulumi.get(self, "order")
 
     @property
@@ -988,10 +953,7 @@ class ListenerRuleAction(dict):
     @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[str]:
         """
-        ARN of the Target Group to which to route traffic.
-        Specify only if `type` is `forward` and you want to route to a single target group.
-        To route to one or more target groups, use a `forward` block instead.
-        Cannot be specified with `forward`.
+        The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
         """
         return pulumi.get(self, "target_group_arn")
 

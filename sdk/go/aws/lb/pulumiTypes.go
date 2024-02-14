@@ -20,22 +20,13 @@ type ListenerDefaultAction struct {
 	AuthenticateOidc *ListenerDefaultActionAuthenticateOidc `pulumi:"authenticateOidc"`
 	// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
 	FixedResponse *ListenerDefaultActionFixedResponse `pulumi:"fixedResponse"`
-	// Configuration block for creating an action that distributes requests among one or more target groups.
-	// Specify only if `type` is `forward`.
-	// Cannot be specified with `targetGroupArn`.
-	// Detailed below.
+	// Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
 	Forward *ListenerDefaultActionForward `pulumi:"forward"`
-	// Order for the action.
-	// The action with the lowest value for order is performed first.
-	// Valid values are between `1` and `50000`.
-	// Defaults to the position in the list of actions.
+	// Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
 	Order *int `pulumi:"order"`
 	// Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
 	Redirect *ListenerDefaultActionRedirect `pulumi:"redirect"`
-	// ARN of the Target Group to which to route traffic.
-	// Specify only if `type` is `forward` and you want to route to a single target group.
-	// To route to one or more target groups, use a `forward` block instead.
-	// Cannot be specified with `forward`.
+	// ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 	// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
 	//
@@ -61,22 +52,13 @@ type ListenerDefaultActionArgs struct {
 	AuthenticateOidc ListenerDefaultActionAuthenticateOidcPtrInput `pulumi:"authenticateOidc"`
 	// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
 	FixedResponse ListenerDefaultActionFixedResponsePtrInput `pulumi:"fixedResponse"`
-	// Configuration block for creating an action that distributes requests among one or more target groups.
-	// Specify only if `type` is `forward`.
-	// Cannot be specified with `targetGroupArn`.
-	// Detailed below.
+	// Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
 	Forward ListenerDefaultActionForwardPtrInput `pulumi:"forward"`
-	// Order for the action.
-	// The action with the lowest value for order is performed first.
-	// Valid values are between `1` and `50000`.
-	// Defaults to the position in the list of actions.
+	// Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
 	Order pulumi.IntPtrInput `pulumi:"order"`
 	// Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
 	Redirect ListenerDefaultActionRedirectPtrInput `pulumi:"redirect"`
-	// ARN of the Target Group to which to route traffic.
-	// Specify only if `type` is `forward` and you want to route to a single target group.
-	// To route to one or more target groups, use a `forward` block instead.
-	// Cannot be specified with `forward`.
+	// ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
 	// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
 	//
@@ -150,18 +132,12 @@ func (o ListenerDefaultActionOutput) FixedResponse() ListenerDefaultActionFixedR
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionFixedResponse { return v.FixedResponse }).(ListenerDefaultActionFixedResponsePtrOutput)
 }
 
-// Configuration block for creating an action that distributes requests among one or more target groups.
-// Specify only if `type` is `forward`.
-// Cannot be specified with `targetGroupArn`.
-// Detailed below.
+// Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
 func (o ListenerDefaultActionOutput) Forward() ListenerDefaultActionForwardPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionForward { return v.Forward }).(ListenerDefaultActionForwardPtrOutput)
 }
 
-// Order for the action.
-// The action with the lowest value for order is performed first.
-// Valid values are between `1` and `50000`.
-// Defaults to the position in the list of actions.
+// Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
 func (o ListenerDefaultActionOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
@@ -171,10 +147,7 @@ func (o ListenerDefaultActionOutput) Redirect() ListenerDefaultActionRedirectPtr
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionRedirect { return v.Redirect }).(ListenerDefaultActionRedirectPtrOutput)
 }
 
-// ARN of the Target Group to which to route traffic.
-// Specify only if `type` is `forward` and you want to route to a single target group.
-// To route to one or more target groups, use a `forward` block instead.
-// Cannot be specified with `forward`.
+// ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 func (o ListenerDefaultActionOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -1868,21 +1841,12 @@ type ListenerRuleAction struct {
 	AuthenticateOidc *ListenerRuleActionAuthenticateOidc `pulumi:"authenticateOidc"`
 	// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
 	FixedResponse *ListenerRuleActionFixedResponse `pulumi:"fixedResponse"`
-	// Configuration block for creating an action that distributes requests among one or more target groups.
-	// Specify only if `type` is `forward`.
-	// Cannot be specified with `targetGroupArn`.
+	// Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
 	Forward *ListenerRuleActionForward `pulumi:"forward"`
-	// Order for the action.
-	// The action with the lowest value for order is performed first.
-	// Valid values are between `1` and `50000`.
-	// Defaults to the position in the list of actions.
-	Order *int `pulumi:"order"`
+	Order   *int                       `pulumi:"order"`
 	// Information for creating a redirect action. Required if `type` is `redirect`.
 	Redirect *ListenerRuleActionRedirect `pulumi:"redirect"`
-	// ARN of the Target Group to which to route traffic.
-	// Specify only if `type` is `forward` and you want to route to a single target group.
-	// To route to one or more target groups, use a `forward` block instead.
-	// Cannot be specified with `forward`.
+	// The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 	// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
 	Type string `pulumi:"type"`
@@ -1906,21 +1870,12 @@ type ListenerRuleActionArgs struct {
 	AuthenticateOidc ListenerRuleActionAuthenticateOidcPtrInput `pulumi:"authenticateOidc"`
 	// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
 	FixedResponse ListenerRuleActionFixedResponsePtrInput `pulumi:"fixedResponse"`
-	// Configuration block for creating an action that distributes requests among one or more target groups.
-	// Specify only if `type` is `forward`.
-	// Cannot be specified with `targetGroupArn`.
+	// Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
 	Forward ListenerRuleActionForwardPtrInput `pulumi:"forward"`
-	// Order for the action.
-	// The action with the lowest value for order is performed first.
-	// Valid values are between `1` and `50000`.
-	// Defaults to the position in the list of actions.
-	Order pulumi.IntPtrInput `pulumi:"order"`
+	Order   pulumi.IntPtrInput                `pulumi:"order"`
 	// Information for creating a redirect action. Required if `type` is `redirect`.
 	Redirect ListenerRuleActionRedirectPtrInput `pulumi:"redirect"`
-	// ARN of the Target Group to which to route traffic.
-	// Specify only if `type` is `forward` and you want to route to a single target group.
-	// To route to one or more target groups, use a `forward` block instead.
-	// Cannot be specified with `forward`.
+	// The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
 	// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -1992,17 +1947,11 @@ func (o ListenerRuleActionOutput) FixedResponse() ListenerRuleActionFixedRespons
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleActionFixedResponse { return v.FixedResponse }).(ListenerRuleActionFixedResponsePtrOutput)
 }
 
-// Configuration block for creating an action that distributes requests among one or more target groups.
-// Specify only if `type` is `forward`.
-// Cannot be specified with `targetGroupArn`.
+// Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
 func (o ListenerRuleActionOutput) Forward() ListenerRuleActionForwardPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleActionForward { return v.Forward }).(ListenerRuleActionForwardPtrOutput)
 }
 
-// Order for the action.
-// The action with the lowest value for order is performed first.
-// Valid values are between `1` and `50000`.
-// Defaults to the position in the list of actions.
 func (o ListenerRuleActionOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
@@ -2012,10 +1961,7 @@ func (o ListenerRuleActionOutput) Redirect() ListenerRuleActionRedirectPtrOutput
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleActionRedirect { return v.Redirect }).(ListenerRuleActionRedirectPtrOutput)
 }
 
-// ARN of the Target Group to which to route traffic.
-// Specify only if `type` is `forward` and you want to route to a single target group.
-// To route to one or more target groups, use a `forward` block instead.
-// Cannot be specified with `forward`.
+// The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 func (o ListenerRuleActionOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
