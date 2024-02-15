@@ -35,7 +35,7 @@ runner:
 actions:
   preTest:
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-region: ${{ env.AWS_REGION }}
@@ -70,19 +70,19 @@ extraTests:
     timeout-minutes: 60
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.5.0
+      uses: jaxxstorm/action-install-gh-release@v1.10.0
       with:
         repo: pulumi/pulumictl
     - name: Make upstream
       run: make upstream
-    - uses: actions/setup-go@v4
+    - uses: actions/setup-go@v5
       with:
        go-version-file: 'provider/go.mod'
        cache-dependency-path: 'provider/go.sum'
@@ -106,19 +106,19 @@ extraTests:
     runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
     - name: Checkout Scripts Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ci-scripts
         repository: pulumi/scripts
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v5
       with:
         cache-dependency-path: |
             sdk/go.sum
@@ -128,16 +128,16 @@ extraTests:
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/actions@v4
+      uses: pulumi/actions@v5
       with:
         pulumi-version: v3.77.1
     - name: Setup Node
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODEVERSION }}
         registry-url: https://registry.npmjs.org
     - name: Download provider + tfgen binaries
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: ${{ env.PROVIDER }}-provider.tar.gz
         path: ${{ github.workspace }}/bin
@@ -148,7 +148,7 @@ extraTests:
 
         find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
     - name: Download SDK
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: ${{ matrix.language }}-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/
