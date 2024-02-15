@@ -149,7 +149,7 @@ make "$1"' failed to apply ${patch}. This is because there is a conflict between
 the checked out version of upstream and the patch set. To resolve this conflict
 run:
 
-    FROM=\$LAST_KNOWN_GOOD_COMMIT make upstream.rebase
+    FROM=\$LAST_KNOWN_GOOD_COMMIT TO=\$NEW_COMMIT make upstream.rebase
 
 This will walk you through resolving the conflict and producing a patch set that
 cleanly applies to the current upstream.
