@@ -34,18 +34,12 @@ public final class ListenerDefaultAction {
      */
     private @Nullable ListenerDefaultActionFixedResponse fixedResponse;
     /**
-     * @return Configuration block for creating an action that distributes requests among one or more target groups.
-     * Specify only if `type` is `forward`.
-     * Cannot be specified with `target_group_arn`.
-     * Detailed below.
+     * @return Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`. Detailed below.
      * 
      */
     private @Nullable ListenerDefaultActionForward forward;
     /**
-     * @return Order for the action.
-     * The action with the lowest value for order is performed first.
-     * Valid values are between `1` and `50000`.
-     * Defaults to the position in the list of actions.
+     * @return Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
      * 
      */
     private @Nullable Integer order;
@@ -55,10 +49,7 @@ public final class ListenerDefaultAction {
      */
     private @Nullable ListenerDefaultActionRedirect redirect;
     /**
-     * @return ARN of the Target Group to which to route traffic.
-     * Specify only if `type` is `forward` and you want to route to a single target group.
-     * To route to one or more target groups, use a `forward` block instead.
-     * Cannot be specified with `forward`.
+     * @return ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
      * 
      */
     private @Nullable String targetGroupArn;
@@ -93,20 +84,14 @@ public final class ListenerDefaultAction {
         return Optional.ofNullable(this.fixedResponse);
     }
     /**
-     * @return Configuration block for creating an action that distributes requests among one or more target groups.
-     * Specify only if `type` is `forward`.
-     * Cannot be specified with `target_group_arn`.
-     * Detailed below.
+     * @return Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`. Detailed below.
      * 
      */
     public Optional<ListenerDefaultActionForward> forward() {
         return Optional.ofNullable(this.forward);
     }
     /**
-     * @return Order for the action.
-     * The action with the lowest value for order is performed first.
-     * Valid values are between `1` and `50000`.
-     * Defaults to the position in the list of actions.
+     * @return Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
      * 
      */
     public Optional<Integer> order() {
@@ -120,10 +105,7 @@ public final class ListenerDefaultAction {
         return Optional.ofNullable(this.redirect);
     }
     /**
-     * @return ARN of the Target Group to which to route traffic.
-     * Specify only if `type` is `forward` and you want to route to a single target group.
-     * To route to one or more target groups, use a `forward` block instead.
-     * Cannot be specified with `forward`.
+     * @return ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
      * 
      */
     public Optional<String> targetGroupArn() {

@@ -413,17 +413,11 @@ export namespace alb {
          */
         fixedResponse?: outputs.alb.ListenerDefaultActionFixedResponse;
         /**
-         * Configuration block for creating an action that distributes requests among one or more target groups.
-         * Specify only if `type` is `forward`.
-         * Cannot be specified with `targetGroupArn`.
-         * Detailed below.
+         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
          */
         forward?: outputs.alb.ListenerDefaultActionForward;
         /**
-         * Order for the action.
-         * The action with the lowest value for order is performed first.
-         * Valid values are between `1` and `50000`.
-         * Defaults to the position in the list of actions.
+         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
          */
         order: number;
         /**
@@ -431,10 +425,7 @@ export namespace alb {
          */
         redirect?: outputs.alb.ListenerDefaultActionRedirect;
         /**
-         * ARN of the Target Group to which to route traffic.
-         * Specify only if `type` is `forward` and you want to route to a single target group.
-         * To route to one or more target groups, use a `forward` block instead.
-         * Cannot be specified with `forward`.
+         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**
@@ -645,27 +636,16 @@ export namespace alb {
          */
         fixedResponse?: outputs.alb.ListenerRuleActionFixedResponse;
         /**
-         * Configuration block for creating an action that distributes requests among one or more target groups.
-         * Specify only if `type` is `forward`.
-         * Cannot be specified with `targetGroupArn`.
+         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
          */
         forward?: outputs.alb.ListenerRuleActionForward;
-        /**
-         * Order for the action.
-         * The action with the lowest value for order is performed first.
-         * Valid values are between `1` and `50000`.
-         * Defaults to the position in the list of actions.
-         */
         order: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: outputs.alb.ListenerRuleActionRedirect;
         /**
-         * ARN of the Target Group to which to route traffic.
-         * Specify only if `type` is `forward` and you want to route to a single target group.
-         * To route to one or more target groups, use a `forward` block instead.
-         * Cannot be specified with `forward`.
+         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**
@@ -41679,17 +41659,11 @@ export namespace lb {
          */
         fixedResponse?: outputs.lb.ListenerDefaultActionFixedResponse;
         /**
-         * Configuration block for creating an action that distributes requests among one or more target groups.
-         * Specify only if `type` is `forward`.
-         * Cannot be specified with `targetGroupArn`.
-         * Detailed below.
+         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
          */
         forward?: outputs.lb.ListenerDefaultActionForward;
         /**
-         * Order for the action.
-         * The action with the lowest value for order is performed first.
-         * Valid values are between `1` and `50000`.
-         * Defaults to the position in the list of actions.
+         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
          */
         order: number;
         /**
@@ -41697,10 +41671,7 @@ export namespace lb {
          */
         redirect?: outputs.lb.ListenerDefaultActionRedirect;
         /**
-         * ARN of the Target Group to which to route traffic.
-         * Specify only if `type` is `forward` and you want to route to a single target group.
-         * To route to one or more target groups, use a `forward` block instead.
-         * Cannot be specified with `forward`.
+         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**
@@ -41911,27 +41882,16 @@ export namespace lb {
          */
         fixedResponse?: outputs.lb.ListenerRuleActionFixedResponse;
         /**
-         * Configuration block for creating an action that distributes requests among one or more target groups.
-         * Specify only if `type` is `forward`.
-         * Cannot be specified with `targetGroupArn`.
+         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
          */
         forward?: outputs.lb.ListenerRuleActionForward;
-        /**
-         * Order for the action.
-         * The action with the lowest value for order is performed first.
-         * Valid values are between `1` and `50000`.
-         * Defaults to the position in the list of actions.
-         */
         order: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: outputs.lb.ListenerRuleActionRedirect;
         /**
-         * ARN of the Target Group to which to route traffic.
-         * Specify only if `type` is `forward` and you want to route to a single target group.
-         * To route to one or more target groups, use a `forward` block instead.
-         * Cannot be specified with `forward`.
+         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**

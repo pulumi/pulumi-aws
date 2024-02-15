@@ -1,0 +1,7 @@
+name: regress-3421
+runtime: nodejs
+description: A minimal AWS TypeScript Pulumi program
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-typescript

@@ -540,6 +540,18 @@ func TestRegress2555(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestRegress3421(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+				Dir: "regress-3421",
+				SkipRefresh: true,
+			},
+		)
+	// Disable envRegion mangling
+	test.Config = nil
+	integration.ProgramTest(t, &test)
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	baseJS := integration.ProgramTestOptions{
