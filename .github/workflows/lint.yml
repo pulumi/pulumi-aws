@@ -47,7 +47,7 @@ jobs:
       with:
         submodules: true
     - name: Install go
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v5
       with:
         # The versions of golangci-lint and setup-go here cross-depend and need to update together.
         go-version: 1.21
@@ -63,7 +63,7 @@ jobs:
     - name: golangci-lint
       uses: golangci/golangci-lint-action@v3
       with:
-        version: v1.54.1
+        version: v1.55.2
         working-directory: provider
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
