@@ -303,7 +303,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Publish SDKs
-      uses: pulumi/pulumi-package-publisher@v0.0.13
+      uses: pulumi/pulumi-package-publisher@v0.0.14
       with:
         sdk: all
     - env:
@@ -444,7 +444,7 @@ jobs:
       uses: GoTestTools/gotestfmt-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        version: v2.4.0
+        version: v2.5.0
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
