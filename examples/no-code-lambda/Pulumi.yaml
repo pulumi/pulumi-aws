@@ -1,0 +1,34 @@
+name: no-code-lambda
+runtime: yaml
+description: A minimal AWS Pulumi YAML program
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-yaml
+resources:
+  iamForLambda:
+    type: aws:iam:Role
+    properties:
+      assumeRolePolicy: ${assumeRole.json}
+  testLambda:
+    type: aws:lambda:Function
+    properties:
+      role: ${iamForLambda.arn}
+      handler: index.test
+      runtime: nodejs18.x
+      environment:
+        variables:
+          foo: bar
+variables:
+  assumeRole:
+    fn::invoke:
+      Function: aws:iam:getPolicyDocument
+      Arguments:
+        statements:
+          - effect: Allow
+            principals:
+              - type: Service
+                identifiers:
+                  - lambda.amazonaws.com
+            actions:
+              - sts:AssumeRole

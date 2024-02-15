@@ -17,6 +17,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/aws/aws-sdk-go/service/s3"
+	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -576,4 +578,36 @@ func getAwsSession(t *testing.T) *session.Session {
 	})
 	require.NoError(t, err)
 	return sess
+}
+
+func TestUpdateImportedLambda(t *testing.T) {
+	test := pulumitest.NewPulumiTest(t, "lambda-import-ts", 
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+	)
+
+	test.SetConfig("runtime", "nodejs18.x")
+	res := test.Up()
+	lambdaName := res.Outputs["lambda_name"]
+	lambdaRole := res.Outputs["lambda_role"]
+
+	secondStack := test.InstallStack("new_stack")
+
+	// Check that we can reimport the lambda.
+	secondStack.SetConfig("lambda_name", lambdaName.Value.(string))
+	secondStack.SetConfig("runtime", "nodejs18.x")
+	secondStack.SetConfig("lambda_role", lambdaRole.Value.(string))
+	secondStack.Up()
+
+	// Check that we can change a property on the lambda
+	secondStack.SetConfig("runtime", "nodejs16.x")
+	secondStack.Up()
+}
+
+func TestNoCodeLambda(t *testing.T) {
+	test := pulumitest.NewPulumiTest(t, "no-code-lambda", 
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+	)
+	_, err := test.CurrentStack().Up(test.Context())
+	require.Error(t, err)
+	require.Contains(t, err.Error(), "ValidationException")
 }
