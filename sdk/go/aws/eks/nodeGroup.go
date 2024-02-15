@@ -78,6 +78,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ... other configurations ...
 //			_, err := eks.NewNodeGroup(ctx, "example", &eks.NodeGroupArgs{
 //				ScalingConfig: &eks.NodeGroupScalingConfigArgs{
 //					DesiredSize: pulumi.Int(2),

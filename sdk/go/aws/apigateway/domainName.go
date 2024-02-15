@@ -62,6 +62,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example DNS record using Route53.
+//			// Route53 is not specifically required; any DNS host can be used.
 //			_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
 //				Name:   exampleDomainName.DomainName,
 //				Type:   pulumi.String("A"),
@@ -118,6 +120,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example DNS record using Route53.
+//			// Route53 is not specifically required; any DNS host can be used.
 //			_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
 //				ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
 //				Name:   exampleDomainName.DomainName,
