@@ -47,7 +47,7 @@ jobs:
       with:
         submodules: true
     - name: Install go
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v5
       with:
         # The versions of golangci-lint and setup-go here cross-depend and need to update together.
         go-version: 1.21
