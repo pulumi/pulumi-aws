@@ -384,7 +384,7 @@ jobs:
       uses: GoTestTools/gotestfmt-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        version: v2.4.0
+        version: v2.5.0
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
