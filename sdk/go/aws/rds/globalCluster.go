@@ -195,6 +195,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ... other configuration ...
 //			exampleCluster, err := rds.NewCluster(ctx, "exampleCluster", nil)
 //			if err != nil {
 //				return err
