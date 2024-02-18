@@ -90,6 +90,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a new replication instance
 //			_, err = dms.NewReplicationInstance(ctx, "test", &dms.ReplicationInstanceArgs{
 //				AllocatedStorage:           pulumi.Int(20),
 //				ApplyImmediately:           pulumi.Bool(true),

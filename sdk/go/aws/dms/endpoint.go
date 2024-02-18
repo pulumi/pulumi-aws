@@ -30,6 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new endpoint
 //			_, err := dms.NewEndpoint(ctx, "test", &dms.EndpointArgs{
 //				CertificateArn:            pulumi.String("arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"),
 //				DatabaseName:              pulumi.String("test"),
