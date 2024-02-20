@@ -174,6 +174,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ... other configuration ...
 //			_, err := ec2.NewDefaultNetworkAcl(ctx, "default", nil)
 //			if err != nil {
 //				return err

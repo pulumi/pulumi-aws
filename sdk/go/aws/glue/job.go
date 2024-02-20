@@ -167,6 +167,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// ... other configuration ...
 //			_, err = glue.NewJob(ctx, "exampleJob", &glue.JobArgs{
 //				DefaultArguments: pulumi.StringMap{
 //					"--continuous-log-logGroup":          exampleLogGroup.Name,

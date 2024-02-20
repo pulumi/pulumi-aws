@@ -31,6 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ... other configuration, including potentially other tags ...
 //			testGroup, err := autoscaling.NewGroup(ctx, "testGroup", &autoscaling.GroupArgs{
 //				Tags: autoscaling.GroupTagArray{
 //					&autoscaling.GroupTagArgs{
