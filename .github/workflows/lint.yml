@@ -61,7 +61,7 @@ jobs:
       continue-on-error: true
       run: make upstream
     - name: golangci-lint
-      uses: golangci/golangci-lint-action@v3
+      uses: golangci/golangci-lint-action@v4
       with:
         version: v1.55.2
         working-directory: provider
