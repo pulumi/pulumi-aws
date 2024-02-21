@@ -113,7 +113,7 @@ class ResourcePolicy(pulumi.CustomResource):
         example_service_network = aws.vpclattice.ServiceNetwork("exampleServiceNetwork")
         example_resource_policy = aws.vpclattice.ResourcePolicy("exampleResourcePolicy",
             resource_arn=example_service_network.arn,
-            policy=example_service_network.arn.apply(lambda arn: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
                     "Sid": "test-pol-principals-6",
@@ -126,9 +126,9 @@ class ResourcePolicy(pulumi.CustomResource):
                         "vpc-lattice:CreateServiceNetworkServiceAssociation",
                         "vpc-lattice:GetServiceNetwork",
                     ],
-                    "Resource": arn,
+                    "Resource": example_service_network.arn,
                 }],
-            })))
+            }))
         ```
 
         ## Import
@@ -166,7 +166,7 @@ class ResourcePolicy(pulumi.CustomResource):
         example_service_network = aws.vpclattice.ServiceNetwork("exampleServiceNetwork")
         example_resource_policy = aws.vpclattice.ResourcePolicy("exampleResourcePolicy",
             resource_arn=example_service_network.arn,
-            policy=example_service_network.arn.apply(lambda arn: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
                     "Sid": "test-pol-principals-6",
@@ -179,9 +179,9 @@ class ResourcePolicy(pulumi.CustomResource):
                         "vpc-lattice:CreateServiceNetworkServiceAssociation",
                         "vpc-lattice:GetServiceNetwork",
                     ],
-                    "Resource": arn,
+                    "Resource": example_service_network.arn,
                 }],
-            })))
+            }))
         ```
 
         ## Import
