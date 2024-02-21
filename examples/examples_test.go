@@ -779,6 +779,113 @@ func TestLBPanic(t *testing.T) {
   ]`)
 }
 
+func TestLBPreview(t *testing.T) {
+  replay(t, `[
+    {
+      "method": "/pulumirpc.ResourceProvider/Configure",
+      "request": {
+          "variables": {
+              "aws:config:region": "us-east-1",
+              "aws:config:skipCredentialsValidation": "false",
+              "aws:config:skipMetadataApiCheck": "true",
+              "aws:config:skipRegionValidation": "true"
+          },
+          "args": {
+              "region": "us-east-1",
+              "skipCredentialsValidation": "false",
+              "skipMetadataApiCheck": "true",
+              "skipRegionValidation": "true",
+              "version": "6.22.0"
+          },
+          "acceptSecrets": true,
+          "acceptResources": true,
+          "sendsOldInputs": true,
+          "sendsOldInputsToDelete": true
+      },
+      "response": {
+          "supportsPreview": true
+      },
+      "metadata": {
+          "kind": "resource",
+          "mode": "client",
+          "name": "aws"
+      }
+    },
+    {
+      "method": "/pulumirpc.ResourceProvider/Create",
+      "request": {
+          "urn": "urn:pulumi:dev::lb_panic::aws:lb/listener:Listener::payload-lb-listner-http",
+          "properties": {
+              "__defaults": [],
+              "defaultActions": [
+                  {
+                      "__defaults": [],
+                      "authenticateCognito": null,
+                      "authenticateOidc": null,
+                      "fixedResponse": null,
+                      "forward": null,
+                      "redirect": {
+                          "__defaults": [
+                              "path",
+                              "port",
+                              "protocol",
+                              "query"
+                          ],
+                          "host": "google.com",
+                          "path": "/#{path}",
+                          "port": "#{port}",
+                          "protocol": "#{protocol}",
+                          "query": "#{query}",
+                          "statusCode": "HTTP_301"
+                      },
+                      "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:616138583583:targetgroup/payload-tg-0371ecb/2b75c3816ba75b87",
+                      "type": "forward"
+                  }
+              ],
+              "loadBalancerArn": "arn:aws:elasticloadbalancing:us-east-1:616138583583:loadbalancer/app/payload-lb-2e3ef69/a21275b819adf2f9",
+              "mutualAuthentication": null,
+              "port": 80,
+              "protocol": "HTTP"
+          },
+          "preview": true
+      },
+      "response": {
+          "properties": {
+              "__meta": "{\"_new_extra_shim\":{\"protocol\":\"HTTP\"},\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"update\":300000000000}}",
+              "alpnPolicy": null,
+              "arn": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+              "certificateArn": null,
+              "defaultActions": [
+                  {
+                      "authenticateCognito": null,
+                      "authenticateOidc": null,
+                      "fixedResponse": null,
+                      "forward": null,
+                      "order": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                      "redirect": null,
+                      "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:616138583583:targetgroup/payload-tg-0371ecb/2b75c3816ba75b87",
+                      "type": "forward"
+                  }
+              ],
+              "id": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+              "loadBalancerArn": "arn:aws:elasticloadbalancing:us-east-1:616138583583:loadbalancer/app/payload-lb-2e3ef69/a21275b819adf2f9",
+              "mutualAuthentication": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+              "port": 80,
+              "protocol": "HTTP",
+              "sslPolicy": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+              "tags": null,
+              "tagsAll": null
+          }
+      },
+      "metadata": {
+          "kind": "resource",
+          "mode": "client",
+          "name": "aws"
+      }
+  }
+  ]`)
+}
+
 // A lot of tests do not currently refresh cleanly. The work to root cause each tests has not been
 // done yet but the common causes are listed here:
 //
