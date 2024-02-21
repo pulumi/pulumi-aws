@@ -338,6 +338,21 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Determines whether a final DB snapshot is created before the DB instance is deleted.
+     * 
+     */
+    @Import(name="skipFinalSnapshot")
+    private @Nullable Output<Boolean> skipFinalSnapshot;
+
+    /**
+     * @return Determines whether a final DB snapshot is created before the DB instance is deleted.
+     * 
+     */
+    public Optional<Output<Boolean>> skipFinalSnapshot() {
+        return Optional.ofNullable(this.skipFinalSnapshot);
+    }
+
+    /**
      * Specifies whether the neptune cluster is encrypted.
      * 
      */
@@ -444,6 +459,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.promotionTier = $.promotionTier;
         this.publiclyAccessible = $.publiclyAccessible;
+        this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.storageEncrypted = $.storageEncrypted;
         this.storageType = $.storageType;
         this.tags = $.tags;
@@ -912,6 +928,27 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
          */
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
             return publiclyAccessible(Output.of(publiclyAccessible));
+        }
+
+        /**
+         * @param skipFinalSnapshot Determines whether a final DB snapshot is created before the DB instance is deleted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalSnapshot(@Nullable Output<Boolean> skipFinalSnapshot) {
+            $.skipFinalSnapshot = skipFinalSnapshot;
+            return this;
+        }
+
+        /**
+         * @param skipFinalSnapshot Determines whether a final DB snapshot is created before the DB instance is deleted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalSnapshot(Boolean skipFinalSnapshot) {
+            return skipFinalSnapshot(Output.of(skipFinalSnapshot));
         }
 
         /**

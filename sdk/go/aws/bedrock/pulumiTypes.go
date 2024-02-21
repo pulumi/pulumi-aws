@@ -1029,6 +1029,143 @@ func (o CustomModelVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type ProvisionedModelThroughputTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// ProvisionedModelThroughputTimeoutsInput is an input type that accepts ProvisionedModelThroughputTimeoutsArgs and ProvisionedModelThroughputTimeoutsOutput values.
+// You can construct a concrete instance of `ProvisionedModelThroughputTimeoutsInput` via:
+//
+//	ProvisionedModelThroughputTimeoutsArgs{...}
+type ProvisionedModelThroughputTimeoutsInput interface {
+	pulumi.Input
+
+	ToProvisionedModelThroughputTimeoutsOutput() ProvisionedModelThroughputTimeoutsOutput
+	ToProvisionedModelThroughputTimeoutsOutputWithContext(context.Context) ProvisionedModelThroughputTimeoutsOutput
+}
+
+type ProvisionedModelThroughputTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (ProvisionedModelThroughputTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisionedModelThroughputTimeouts)(nil)).Elem()
+}
+
+func (i ProvisionedModelThroughputTimeoutsArgs) ToProvisionedModelThroughputTimeoutsOutput() ProvisionedModelThroughputTimeoutsOutput {
+	return i.ToProvisionedModelThroughputTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ProvisionedModelThroughputTimeoutsArgs) ToProvisionedModelThroughputTimeoutsOutputWithContext(ctx context.Context) ProvisionedModelThroughputTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedModelThroughputTimeoutsOutput)
+}
+
+func (i ProvisionedModelThroughputTimeoutsArgs) ToProvisionedModelThroughputTimeoutsPtrOutput() ProvisionedModelThroughputTimeoutsPtrOutput {
+	return i.ToProvisionedModelThroughputTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ProvisionedModelThroughputTimeoutsArgs) ToProvisionedModelThroughputTimeoutsPtrOutputWithContext(ctx context.Context) ProvisionedModelThroughputTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedModelThroughputTimeoutsOutput).ToProvisionedModelThroughputTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ProvisionedModelThroughputTimeoutsPtrInput is an input type that accepts ProvisionedModelThroughputTimeoutsArgs, ProvisionedModelThroughputTimeoutsPtr and ProvisionedModelThroughputTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ProvisionedModelThroughputTimeoutsPtrInput` via:
+//
+//	        ProvisionedModelThroughputTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProvisionedModelThroughputTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToProvisionedModelThroughputTimeoutsPtrOutput() ProvisionedModelThroughputTimeoutsPtrOutput
+	ToProvisionedModelThroughputTimeoutsPtrOutputWithContext(context.Context) ProvisionedModelThroughputTimeoutsPtrOutput
+}
+
+type provisionedModelThroughputTimeoutsPtrType ProvisionedModelThroughputTimeoutsArgs
+
+func ProvisionedModelThroughputTimeoutsPtr(v *ProvisionedModelThroughputTimeoutsArgs) ProvisionedModelThroughputTimeoutsPtrInput {
+	return (*provisionedModelThroughputTimeoutsPtrType)(v)
+}
+
+func (*provisionedModelThroughputTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisionedModelThroughputTimeouts)(nil)).Elem()
+}
+
+func (i *provisionedModelThroughputTimeoutsPtrType) ToProvisionedModelThroughputTimeoutsPtrOutput() ProvisionedModelThroughputTimeoutsPtrOutput {
+	return i.ToProvisionedModelThroughputTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *provisionedModelThroughputTimeoutsPtrType) ToProvisionedModelThroughputTimeoutsPtrOutputWithContext(ctx context.Context) ProvisionedModelThroughputTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedModelThroughputTimeoutsPtrOutput)
+}
+
+type ProvisionedModelThroughputTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ProvisionedModelThroughputTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisionedModelThroughputTimeouts)(nil)).Elem()
+}
+
+func (o ProvisionedModelThroughputTimeoutsOutput) ToProvisionedModelThroughputTimeoutsOutput() ProvisionedModelThroughputTimeoutsOutput {
+	return o
+}
+
+func (o ProvisionedModelThroughputTimeoutsOutput) ToProvisionedModelThroughputTimeoutsOutputWithContext(ctx context.Context) ProvisionedModelThroughputTimeoutsOutput {
+	return o
+}
+
+func (o ProvisionedModelThroughputTimeoutsOutput) ToProvisionedModelThroughputTimeoutsPtrOutput() ProvisionedModelThroughputTimeoutsPtrOutput {
+	return o.ToProvisionedModelThroughputTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ProvisionedModelThroughputTimeoutsOutput) ToProvisionedModelThroughputTimeoutsPtrOutputWithContext(ctx context.Context) ProvisionedModelThroughputTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisionedModelThroughputTimeouts) *ProvisionedModelThroughputTimeouts {
+		return &v
+	}).(ProvisionedModelThroughputTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ProvisionedModelThroughputTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProvisionedModelThroughputTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type ProvisionedModelThroughputTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProvisionedModelThroughputTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisionedModelThroughputTimeouts)(nil)).Elem()
+}
+
+func (o ProvisionedModelThroughputTimeoutsPtrOutput) ToProvisionedModelThroughputTimeoutsPtrOutput() ProvisionedModelThroughputTimeoutsPtrOutput {
+	return o
+}
+
+func (o ProvisionedModelThroughputTimeoutsPtrOutput) ToProvisionedModelThroughputTimeoutsPtrOutputWithContext(ctx context.Context) ProvisionedModelThroughputTimeoutsPtrOutput {
+	return o
+}
+
+func (o ProvisionedModelThroughputTimeoutsPtrOutput) Elem() ProvisionedModelThroughputTimeoutsOutput {
+	return o.ApplyT(func(v *ProvisionedModelThroughputTimeouts) ProvisionedModelThroughputTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ProvisionedModelThroughputTimeouts
+		return ret
+	}).(ProvisionedModelThroughputTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ProvisionedModelThroughputTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedModelThroughputTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetCustomModelOutputDataConfig struct {
 	// The S3 URI where the validation data is stored..
 	S3Uri string `pulumi:"s3Uri"`
@@ -1646,6 +1783,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelValidationMetricArrayInput)(nil)).Elem(), CustomModelValidationMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelVpcConfigInput)(nil)).Elem(), CustomModelVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelVpcConfigPtrInput)(nil)).Elem(), CustomModelVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedModelThroughputTimeoutsInput)(nil)).Elem(), ProvisionedModelThroughputTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedModelThroughputTimeoutsPtrInput)(nil)).Elem(), ProvisionedModelThroughputTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelOutputDataConfigInput)(nil)).Elem(), GetCustomModelOutputDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelOutputDataConfigArrayInput)(nil)).Elem(), GetCustomModelOutputDataConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelTrainingDataConfigInput)(nil)).Elem(), GetCustomModelTrainingDataConfigArgs{})
@@ -1674,6 +1813,8 @@ func init() {
 	pulumi.RegisterOutputType(CustomModelValidationMetricArrayOutput{})
 	pulumi.RegisterOutputType(CustomModelVpcConfigOutput{})
 	pulumi.RegisterOutputType(CustomModelVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProvisionedModelThroughputTimeoutsOutput{})
+	pulumi.RegisterOutputType(ProvisionedModelThroughputTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetCustomModelOutputDataConfigOutput{})
 	pulumi.RegisterOutputType(GetCustomModelOutputDataConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetCustomModelTrainingDataConfigOutput{})

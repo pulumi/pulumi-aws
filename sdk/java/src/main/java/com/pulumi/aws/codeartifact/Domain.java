@@ -160,6 +160,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.repositoryCount;
     }
     /**
+     * The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+     * 
+     */
+    @Export(name="s3BucketArn", refs={String.class}, tree="[0]")
+    private Output<String> s3BucketArn;
+
+    /**
+     * @return The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+     * 
+     */
+    public Output<String> s3BucketArn() {
+        return this.s3BucketArn;
+    }
+    /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

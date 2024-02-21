@@ -15,6 +15,8 @@ __all__ = [
     'RecordCidrRoutingPolicyArgs',
     'RecordFailoverRoutingPolicyArgs',
     'RecordGeolocationRoutingPolicyArgs',
+    'RecordGeoproximityRoutingPolicyArgs',
+    'RecordGeoproximityRoutingPolicyCoordinateArgs',
     'RecordLatencyRoutingPolicyArgs',
     'RecordWeightedRoutingPolicyArgs',
     'ResolverEndpointIpAddressArgs',
@@ -199,6 +201,104 @@ class RecordGeolocationRoutingPolicyArgs:
 
 
 @pulumi.input_type
+class RecordGeoproximityRoutingPolicyArgs:
+    def __init__(__self__, *,
+                 aws_region: Optional[pulumi.Input[str]] = None,
+                 bias: Optional[pulumi.Input[int]] = None,
+                 coordinates: Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]]] = None,
+                 local_zone_group: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] aws_region: A AWS region where the resource is present.
+        :param pulumi.Input[int] bias: Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+        :param pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]] coordinates: Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+        :param pulumi.Input[str] local_zone_group: A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+        """
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
+        if bias is not None:
+            pulumi.set(__self__, "bias", bias)
+        if coordinates is not None:
+            pulumi.set(__self__, "coordinates", coordinates)
+        if local_zone_group is not None:
+            pulumi.set(__self__, "local_zone_group", local_zone_group)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        A AWS region where the resource is present.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_region", value)
+
+    @property
+    @pulumi.getter
+    def bias(self) -> Optional[pulumi.Input[int]]:
+        """
+        Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+        """
+        return pulumi.get(self, "bias")
+
+    @bias.setter
+    def bias(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "bias", value)
+
+    @property
+    @pulumi.getter
+    def coordinates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]]]:
+        """
+        Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+        """
+        return pulumi.get(self, "coordinates")
+
+    @coordinates.setter
+    def coordinates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]]]):
+        pulumi.set(self, "coordinates", value)
+
+    @property
+    @pulumi.getter(name="localZoneGroup")
+    def local_zone_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+        """
+        return pulumi.get(self, "local_zone_group")
+
+    @local_zone_group.setter
+    def local_zone_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_zone_group", value)
+
+
+@pulumi.input_type
+class RecordGeoproximityRoutingPolicyCoordinateArgs:
+    def __init__(__self__, *,
+                 latitude: pulumi.Input[str],
+                 longitude: pulumi.Input[str]):
+        pulumi.set(__self__, "latitude", latitude)
+        pulumi.set(__self__, "longitude", longitude)
+
+    @property
+    @pulumi.getter
+    def latitude(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "latitude")
+
+    @latitude.setter
+    def latitude(self, value: pulumi.Input[str]):
+        pulumi.set(self, "latitude", value)
+
+    @property
+    @pulumi.getter
+    def longitude(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "longitude")
+
+    @longitude.setter
+    def longitude(self, value: pulumi.Input[str]):
+        pulumi.set(self, "longitude", value)
+
+
+@pulumi.input_type
 class RecordLatencyRoutingPolicyArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[str]):
@@ -296,7 +396,8 @@ class ResolverEndpointIpAddressArgs:
 class ResolverRuleTargetIpArgs:
     def __init__(__self__, *,
                  ip: pulumi.Input[str],
-                 port: Optional[pulumi.Input[int]] = None):
+                 port: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] ip: One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
         :param pulumi.Input[int] port: The port at `ip` that you want to forward DNS queries to. Default value is `53`
@@ -304,6 +405,8 @@ class ResolverRuleTargetIpArgs:
         pulumi.set(__self__, "ip", ip)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
@@ -328,6 +431,15 @@ class ResolverRuleTargetIpArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
 
 
 @pulumi.input_type

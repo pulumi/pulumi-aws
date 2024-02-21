@@ -193,6 +193,12 @@ namespace Pulumi.Aws.Neptune
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
+        /// Determines whether a final DB snapshot is created before the DB instance is deleted.
+        /// </summary>
+        [Output("skipFinalSnapshot")]
+        public Output<bool?> SkipFinalSnapshot { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether the neptune cluster is encrypted.
         /// </summary>
         [Output("storageEncrypted")]
@@ -370,6 +376,12 @@ namespace Pulumi.Aws.Neptune
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
 
+        /// <summary>
+        /// Determines whether a final DB snapshot is created before the DB instance is deleted.
+        /// </summary>
+        [Input("skipFinalSnapshot")]
+        public Input<bool>? SkipFinalSnapshot { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -517,6 +529,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// Determines whether a final DB snapshot is created before the DB instance is deleted.
+        /// </summary>
+        [Input("skipFinalSnapshot")]
+        public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
         /// Specifies whether the neptune cluster is encrypted.

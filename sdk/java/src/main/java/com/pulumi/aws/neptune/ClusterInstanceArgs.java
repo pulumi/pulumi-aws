@@ -264,6 +264,21 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Determines whether a final DB snapshot is created before the DB instance is deleted.
+     * 
+     */
+    @Import(name="skipFinalSnapshot")
+    private @Nullable Output<Boolean> skipFinalSnapshot;
+
+    /**
+     * @return Determines whether a final DB snapshot is created before the DB instance is deleted.
+     * 
+     */
+    public Optional<Output<Boolean>> skipFinalSnapshot() {
+        return Optional.ofNullable(this.skipFinalSnapshot);
+    }
+
+    /**
      * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -297,6 +312,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.promotionTier = $.promotionTier;
         this.publiclyAccessible = $.publiclyAccessible;
+        this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.tags = $.tags;
     }
 
@@ -656,6 +672,27 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
             return publiclyAccessible(Output.of(publiclyAccessible));
+        }
+
+        /**
+         * @param skipFinalSnapshot Determines whether a final DB snapshot is created before the DB instance is deleted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalSnapshot(@Nullable Output<Boolean> skipFinalSnapshot) {
+            $.skipFinalSnapshot = skipFinalSnapshot;
+            return this;
+        }
+
+        /**
+         * @param skipFinalSnapshot Determines whether a final DB snapshot is created before the DB instance is deleted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalSnapshot(Boolean skipFinalSnapshot) {
+            return skipFinalSnapshot(Output.of(skipFinalSnapshot));
         }
 
         /**

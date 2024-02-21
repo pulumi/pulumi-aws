@@ -340,6 +340,36 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of the Directory Service Active Directory domain to create the cluster in.
+     * 
+     */
+    @Import(name="domain")
+    private @Nullable Output<String> domain;
+
+    /**
+     * @return The ID of the Directory Service Active Directory domain to create the cluster in.
+     * 
+     */
+    public Optional<Output<String>> domain() {
+        return Optional.ofNullable(this.domain);
+    }
+
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service.
+     * 
+     */
+    @Import(name="domainIamRoleName")
+    private @Nullable Output<String> domainIamRoleName;
+
+    /**
+     * @return The name of the IAM role to be used when making API calls to the Directory Service.
+     * 
+     */
+    public Optional<Output<String>> domainIamRoleName() {
+        return Optional.ofNullable(this.domainIamRoleName);
+    }
+
+    /**
      * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
      * 
      */
@@ -934,6 +964,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.dbSystemId = $.dbSystemId;
         this.deleteAutomatedBackups = $.deleteAutomatedBackups;
         this.deletionProtection = $.deletionProtection;
+        this.domain = $.domain;
+        this.domainIamRoleName = $.domainIamRoleName;
         this.enableGlobalWriteForwarding = $.enableGlobalWriteForwarding;
         this.enableHttpEndpoint = $.enableHttpEndpoint;
         this.enabledCloudwatchLogsExports = $.enabledCloudwatchLogsExports;
@@ -1445,6 +1477,48 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder deletionProtection(Boolean deletionProtection) {
             return deletionProtection(Output.of(deletionProtection));
+        }
+
+        /**
+         * @param domain The ID of the Directory Service Active Directory domain to create the cluster in.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domain(@Nullable Output<String> domain) {
+            $.domain = domain;
+            return this;
+        }
+
+        /**
+         * @param domain The ID of the Directory Service Active Directory domain to create the cluster in.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domain(String domain) {
+            return domain(Output.of(domain));
+        }
+
+        /**
+         * @param domainIamRoleName The name of the IAM role to be used when making API calls to the Directory Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainIamRoleName(@Nullable Output<String> domainIamRoleName) {
+            $.domainIamRoleName = domainIamRoleName;
+            return this;
+        }
+
+        /**
+         * @param domainIamRoleName The name of the IAM role to be used when making API calls to the Directory Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainIamRoleName(String domainIamRoleName) {
+            return domainIamRoleName(Output.of(domainIamRoleName));
         }
 
         /**

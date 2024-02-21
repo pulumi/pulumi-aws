@@ -375,6 +375,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Cloudfront *string `pulumi:"cloudfront"`
 	// Use this to override the default service endpoint URL
+	Cloudfrontkeyvaluestore *string `pulumi:"cloudfrontkeyvaluestore"`
+	// Use this to override the default service endpoint URL
 	Cloudhsm *string `pulumi:"cloudhsm"`
 	// Use this to override the default service endpoint URL
 	Cloudhsmv2 *string `pulumi:"cloudhsmv2"`
@@ -440,6 +442,8 @@ type Endpoints struct {
 	Costandusagereportservice *string `pulumi:"costandusagereportservice"`
 	// Use this to override the default service endpoint URL
 	Costexplorer *string `pulumi:"costexplorer"`
+	// Use this to override the default service endpoint URL
+	Costoptimizationhub *string `pulumi:"costoptimizationhub"`
 	// Use this to override the default service endpoint URL
 	Cur *string `pulumi:"cur"`
 	// Use this to override the default service endpoint URL
@@ -931,6 +935,8 @@ type EndpointsArgs struct {
 	// Use this to override the default service endpoint URL
 	Cloudfront pulumi.StringPtrInput `pulumi:"cloudfront"`
 	// Use this to override the default service endpoint URL
+	Cloudfrontkeyvaluestore pulumi.StringPtrInput `pulumi:"cloudfrontkeyvaluestore"`
+	// Use this to override the default service endpoint URL
 	Cloudhsm pulumi.StringPtrInput `pulumi:"cloudhsm"`
 	// Use this to override the default service endpoint URL
 	Cloudhsmv2 pulumi.StringPtrInput `pulumi:"cloudhsmv2"`
@@ -996,6 +1002,8 @@ type EndpointsArgs struct {
 	Costandusagereportservice pulumi.StringPtrInput `pulumi:"costandusagereportservice"`
 	// Use this to override the default service endpoint URL
 	Costexplorer pulumi.StringPtrInput `pulumi:"costexplorer"`
+	// Use this to override the default service endpoint URL
+	Costoptimizationhub pulumi.StringPtrInput `pulumi:"costoptimizationhub"`
 	// Use this to override the default service endpoint URL
 	Cur pulumi.StringPtrInput `pulumi:"cur"`
 	// Use this to override the default service endpoint URL
@@ -1652,6 +1660,11 @@ func (o EndpointsOutput) Cloudfront() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
+func (o EndpointsOutput) Cloudfrontkeyvaluestore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Cloudfrontkeyvaluestore }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudhsm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudhsm }).(pulumi.StringPtrOutput)
 }
@@ -1814,6 +1827,11 @@ func (o EndpointsOutput) Costandusagereportservice() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Costexplorer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Costexplorer }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Costoptimizationhub() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Costoptimizationhub }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

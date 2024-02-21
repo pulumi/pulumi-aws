@@ -21,7 +21,7 @@ class GetOrderableDbInstanceResult:
     """
     A collection of values returned by getOrderableDbInstance.
     """
-    def __init__(__self__, availability_zone_group=None, availability_zones=None, engine=None, engine_version=None, id=None, instance_class=None, license_model=None, max_iops_per_db_instance=None, max_iops_per_gib=None, max_storage_size=None, min_iops_per_db_instance=None, min_iops_per_gib=None, min_storage_size=None, multi_az_capable=None, outpost_capable=None, preferred_engine_versions=None, preferred_instance_classes=None, read_replica_capable=None, storage_type=None, supported_engine_modes=None, supported_network_types=None, supports_enhanced_monitoring=None, supports_global_databases=None, supports_iam_database_authentication=None, supports_iops=None, supports_kerberos_authentication=None, supports_performance_insights=None, supports_storage_autoscaling=None, supports_storage_encryption=None, vpc=None):
+    def __init__(__self__, availability_zone_group=None, availability_zones=None, engine=None, engine_latest_version=None, engine_version=None, id=None, instance_class=None, license_model=None, max_iops_per_db_instance=None, max_iops_per_gib=None, max_storage_size=None, min_iops_per_db_instance=None, min_iops_per_gib=None, min_storage_size=None, multi_az_capable=None, outpost_capable=None, preferred_engine_versions=None, preferred_instance_classes=None, read_replica_capable=None, storage_type=None, supported_engine_modes=None, supported_network_types=None, supports_clusters=None, supports_enhanced_monitoring=None, supports_global_databases=None, supports_iam_database_authentication=None, supports_iops=None, supports_kerberos_authentication=None, supports_multi_az=None, supports_performance_insights=None, supports_storage_autoscaling=None, supports_storage_encryption=None, vpc=None):
         if availability_zone_group and not isinstance(availability_zone_group, str):
             raise TypeError("Expected argument 'availability_zone_group' to be a str")
         pulumi.set(__self__, "availability_zone_group", availability_zone_group)
@@ -31,6 +31,9 @@ class GetOrderableDbInstanceResult:
         if engine and not isinstance(engine, str):
             raise TypeError("Expected argument 'engine' to be a str")
         pulumi.set(__self__, "engine", engine)
+        if engine_latest_version and not isinstance(engine_latest_version, bool):
+            raise TypeError("Expected argument 'engine_latest_version' to be a bool")
+        pulumi.set(__self__, "engine_latest_version", engine_latest_version)
         if engine_version and not isinstance(engine_version, str):
             raise TypeError("Expected argument 'engine_version' to be a str")
         pulumi.set(__self__, "engine_version", engine_version)
@@ -85,6 +88,9 @@ class GetOrderableDbInstanceResult:
         if supported_network_types and not isinstance(supported_network_types, list):
             raise TypeError("Expected argument 'supported_network_types' to be a list")
         pulumi.set(__self__, "supported_network_types", supported_network_types)
+        if supports_clusters and not isinstance(supports_clusters, bool):
+            raise TypeError("Expected argument 'supports_clusters' to be a bool")
+        pulumi.set(__self__, "supports_clusters", supports_clusters)
         if supports_enhanced_monitoring and not isinstance(supports_enhanced_monitoring, bool):
             raise TypeError("Expected argument 'supports_enhanced_monitoring' to be a bool")
         pulumi.set(__self__, "supports_enhanced_monitoring", supports_enhanced_monitoring)
@@ -100,6 +106,9 @@ class GetOrderableDbInstanceResult:
         if supports_kerberos_authentication and not isinstance(supports_kerberos_authentication, bool):
             raise TypeError("Expected argument 'supports_kerberos_authentication' to be a bool")
         pulumi.set(__self__, "supports_kerberos_authentication", supports_kerberos_authentication)
+        if supports_multi_az and not isinstance(supports_multi_az, bool):
+            raise TypeError("Expected argument 'supports_multi_az' to be a bool")
+        pulumi.set(__self__, "supports_multi_az", supports_multi_az)
         if supports_performance_insights and not isinstance(supports_performance_insights, bool):
             raise TypeError("Expected argument 'supports_performance_insights' to be a bool")
         pulumi.set(__self__, "supports_performance_insights", supports_performance_insights)
@@ -130,6 +139,11 @@ class GetOrderableDbInstanceResult:
     @pulumi.getter
     def engine(self) -> str:
         return pulumi.get(self, "engine")
+
+    @property
+    @pulumi.getter(name="engineLatestVersion")
+    def engine_latest_version(self) -> Optional[bool]:
+        return pulumi.get(self, "engine_latest_version")
 
     @property
     @pulumi.getter(name="engineVersion")
@@ -231,9 +245,6 @@ class GetOrderableDbInstanceResult:
     @property
     @pulumi.getter(name="readReplicaCapable")
     def read_replica_capable(self) -> bool:
-        """
-        Whether a DB instance can have a read replica.
-        """
         return pulumi.get(self, "read_replica_capable")
 
     @property
@@ -244,18 +255,17 @@ class GetOrderableDbInstanceResult:
     @property
     @pulumi.getter(name="supportedEngineModes")
     def supported_engine_modes(self) -> Sequence[str]:
-        """
-        A list of the supported DB engine modes.
-        """
         return pulumi.get(self, "supported_engine_modes")
 
     @property
     @pulumi.getter(name="supportedNetworkTypes")
     def supported_network_types(self) -> Sequence[str]:
-        """
-        The network types supported by the DB instance (`IPV4` or `DUAL`).
-        """
         return pulumi.get(self, "supported_network_types")
+
+    @property
+    @pulumi.getter(name="supportsClusters")
+    def supports_clusters(self) -> bool:
+        return pulumi.get(self, "supports_clusters")
 
     @property
     @pulumi.getter(name="supportsEnhancedMonitoring")
@@ -281,6 +291,11 @@ class GetOrderableDbInstanceResult:
     @pulumi.getter(name="supportsKerberosAuthentication")
     def supports_kerberos_authentication(self) -> bool:
         return pulumi.get(self, "supports_kerberos_authentication")
+
+    @property
+    @pulumi.getter(name="supportsMultiAz")
+    def supports_multi_az(self) -> bool:
+        return pulumi.get(self, "supports_multi_az")
 
     @property
     @pulumi.getter(name="supportsPerformanceInsights")
@@ -312,6 +327,7 @@ class AwaitableGetOrderableDbInstanceResult(GetOrderableDbInstanceResult):
             availability_zone_group=self.availability_zone_group,
             availability_zones=self.availability_zones,
             engine=self.engine,
+            engine_latest_version=self.engine_latest_version,
             engine_version=self.engine_version,
             id=self.id,
             instance_class=self.instance_class,
@@ -330,11 +346,13 @@ class AwaitableGetOrderableDbInstanceResult(GetOrderableDbInstanceResult):
             storage_type=self.storage_type,
             supported_engine_modes=self.supported_engine_modes,
             supported_network_types=self.supported_network_types,
+            supports_clusters=self.supports_clusters,
             supports_enhanced_monitoring=self.supports_enhanced_monitoring,
             supports_global_databases=self.supports_global_databases,
             supports_iam_database_authentication=self.supports_iam_database_authentication,
             supports_iops=self.supports_iops,
             supports_kerberos_authentication=self.supports_kerberos_authentication,
+            supports_multi_az=self.supports_multi_az,
             supports_performance_insights=self.supports_performance_insights,
             supports_storage_autoscaling=self.supports_storage_autoscaling,
             supports_storage_encryption=self.supports_storage_encryption,
@@ -343,17 +361,23 @@ class AwaitableGetOrderableDbInstanceResult(GetOrderableDbInstanceResult):
 
 def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
                               engine: Optional[str] = None,
+                              engine_latest_version: Optional[bool] = None,
                               engine_version: Optional[str] = None,
                               instance_class: Optional[str] = None,
                               license_model: Optional[str] = None,
                               preferred_engine_versions: Optional[Sequence[str]] = None,
                               preferred_instance_classes: Optional[Sequence[str]] = None,
+                              read_replica_capable: Optional[bool] = None,
                               storage_type: Optional[str] = None,
+                              supported_engine_modes: Optional[Sequence[str]] = None,
+                              supported_network_types: Optional[Sequence[str]] = None,
+                              supports_clusters: Optional[bool] = None,
                               supports_enhanced_monitoring: Optional[bool] = None,
                               supports_global_databases: Optional[bool] = None,
                               supports_iam_database_authentication: Optional[bool] = None,
                               supports_iops: Optional[bool] = None,
                               supports_kerberos_authentication: Optional[bool] = None,
+                              supports_multi_az: Optional[bool] = None,
                               supports_performance_insights: Optional[bool] = None,
                               supports_storage_autoscaling: Optional[bool] = None,
                               supports_storage_encryption: Optional[bool] = None,
@@ -402,17 +426,23 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
 
     :param str availability_zone_group: Availability zone group.
     :param str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-    :param str engine_version: Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+    :param bool engine_latest_version: When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engine_latest_version` with `preferred_instance_classes` and/or `preferred_engine_versions`. Using `engine_latest_version` will avoid `multiple RDS DB Instance Classes` errors. If you use `engine_latest_version` with `preferred_instance_classes`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engine_latest_version` may _not_ return the latest version in every situation.
+    :param str engine_version: Version of the DB engine. If none is provided, the data source tries to use the AWS-defined default version that matches any other criteria.
     :param str instance_class: DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
     :param str license_model: License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
-    :param Sequence[str] preferred_engine_versions: Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-    :param Sequence[str] preferred_instance_classes: Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+    :param Sequence[str] preferred_engine_versions: Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don't recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
+    :param Sequence[str] preferred_instance_classes: Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
+    :param bool read_replica_capable: Whether a DB instance can have a read replica.
     :param str storage_type: Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
+    :param Sequence[str] supported_engine_modes: Use to limit results to engine modes such as `provisioned`.
+    :param Sequence[str] supported_network_types: Use to limit results to network types `IPV4` or `DUAL`.
+    :param bool supports_clusters: Whether to limit results to instances that support clusters.
     :param bool supports_enhanced_monitoring: Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
     :param bool supports_global_databases: Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
     :param bool supports_iam_database_authentication: Enable this to ensure a DB instance supports IAM database authentication.
     :param bool supports_iops: Enable this to ensure a DB instance supports provisioned IOPS.
     :param bool supports_kerberos_authentication: Enable this to ensure a DB instance supports Kerberos Authentication.
+    :param bool supports_multi_az: Whether to limit results to instances that are multi-AZ capable.
     :param bool supports_performance_insights: Enable this to ensure a DB instance supports Performance Insights.
     :param bool supports_storage_autoscaling: Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
     :param bool supports_storage_encryption: Enable this to ensure a DB instance supports encrypted storage.
@@ -421,17 +451,23 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
     __args__ = dict()
     __args__['availabilityZoneGroup'] = availability_zone_group
     __args__['engine'] = engine
+    __args__['engineLatestVersion'] = engine_latest_version
     __args__['engineVersion'] = engine_version
     __args__['instanceClass'] = instance_class
     __args__['licenseModel'] = license_model
     __args__['preferredEngineVersions'] = preferred_engine_versions
     __args__['preferredInstanceClasses'] = preferred_instance_classes
+    __args__['readReplicaCapable'] = read_replica_capable
     __args__['storageType'] = storage_type
+    __args__['supportedEngineModes'] = supported_engine_modes
+    __args__['supportedNetworkTypes'] = supported_network_types
+    __args__['supportsClusters'] = supports_clusters
     __args__['supportsEnhancedMonitoring'] = supports_enhanced_monitoring
     __args__['supportsGlobalDatabases'] = supports_global_databases
     __args__['supportsIamDatabaseAuthentication'] = supports_iam_database_authentication
     __args__['supportsIops'] = supports_iops
     __args__['supportsKerberosAuthentication'] = supports_kerberos_authentication
+    __args__['supportsMultiAz'] = supports_multi_az
     __args__['supportsPerformanceInsights'] = supports_performance_insights
     __args__['supportsStorageAutoscaling'] = supports_storage_autoscaling
     __args__['supportsStorageEncryption'] = supports_storage_encryption
@@ -443,6 +479,7 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
         availability_zone_group=pulumi.get(__ret__, 'availability_zone_group'),
         availability_zones=pulumi.get(__ret__, 'availability_zones'),
         engine=pulumi.get(__ret__, 'engine'),
+        engine_latest_version=pulumi.get(__ret__, 'engine_latest_version'),
         engine_version=pulumi.get(__ret__, 'engine_version'),
         id=pulumi.get(__ret__, 'id'),
         instance_class=pulumi.get(__ret__, 'instance_class'),
@@ -461,11 +498,13 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
         storage_type=pulumi.get(__ret__, 'storage_type'),
         supported_engine_modes=pulumi.get(__ret__, 'supported_engine_modes'),
         supported_network_types=pulumi.get(__ret__, 'supported_network_types'),
+        supports_clusters=pulumi.get(__ret__, 'supports_clusters'),
         supports_enhanced_monitoring=pulumi.get(__ret__, 'supports_enhanced_monitoring'),
         supports_global_databases=pulumi.get(__ret__, 'supports_global_databases'),
         supports_iam_database_authentication=pulumi.get(__ret__, 'supports_iam_database_authentication'),
         supports_iops=pulumi.get(__ret__, 'supports_iops'),
         supports_kerberos_authentication=pulumi.get(__ret__, 'supports_kerberos_authentication'),
+        supports_multi_az=pulumi.get(__ret__, 'supports_multi_az'),
         supports_performance_insights=pulumi.get(__ret__, 'supports_performance_insights'),
         supports_storage_autoscaling=pulumi.get(__ret__, 'supports_storage_autoscaling'),
         supports_storage_encryption=pulumi.get(__ret__, 'supports_storage_encryption'),
@@ -475,17 +514,23 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
 @_utilities.lift_output_func(get_orderable_db_instance)
 def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.Input[Optional[str]]] = None,
                                      engine: Optional[pulumi.Input[str]] = None,
+                                     engine_latest_version: Optional[pulumi.Input[Optional[bool]]] = None,
                                      engine_version: Optional[pulumi.Input[Optional[str]]] = None,
                                      instance_class: Optional[pulumi.Input[Optional[str]]] = None,
                                      license_model: Optional[pulumi.Input[Optional[str]]] = None,
                                      preferred_engine_versions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                      preferred_instance_classes: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                     read_replica_capable: Optional[pulumi.Input[Optional[bool]]] = None,
                                      storage_type: Optional[pulumi.Input[Optional[str]]] = None,
+                                     supported_engine_modes: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                     supported_network_types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                     supports_clusters: Optional[pulumi.Input[Optional[bool]]] = None,
                                      supports_enhanced_monitoring: Optional[pulumi.Input[Optional[bool]]] = None,
                                      supports_global_databases: Optional[pulumi.Input[Optional[bool]]] = None,
                                      supports_iam_database_authentication: Optional[pulumi.Input[Optional[bool]]] = None,
                                      supports_iops: Optional[pulumi.Input[Optional[bool]]] = None,
                                      supports_kerberos_authentication: Optional[pulumi.Input[Optional[bool]]] = None,
+                                     supports_multi_az: Optional[pulumi.Input[Optional[bool]]] = None,
                                      supports_performance_insights: Optional[pulumi.Input[Optional[bool]]] = None,
                                      supports_storage_autoscaling: Optional[pulumi.Input[Optional[bool]]] = None,
                                      supports_storage_encryption: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -534,17 +579,23 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
 
     :param str availability_zone_group: Availability zone group.
     :param str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-    :param str engine_version: Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+    :param bool engine_latest_version: When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engine_latest_version` with `preferred_instance_classes` and/or `preferred_engine_versions`. Using `engine_latest_version` will avoid `multiple RDS DB Instance Classes` errors. If you use `engine_latest_version` with `preferred_instance_classes`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engine_latest_version` may _not_ return the latest version in every situation.
+    :param str engine_version: Version of the DB engine. If none is provided, the data source tries to use the AWS-defined default version that matches any other criteria.
     :param str instance_class: DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
     :param str license_model: License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
-    :param Sequence[str] preferred_engine_versions: Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-    :param Sequence[str] preferred_instance_classes: Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+    :param Sequence[str] preferred_engine_versions: Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don't recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
+    :param Sequence[str] preferred_instance_classes: Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
+    :param bool read_replica_capable: Whether a DB instance can have a read replica.
     :param str storage_type: Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
+    :param Sequence[str] supported_engine_modes: Use to limit results to engine modes such as `provisioned`.
+    :param Sequence[str] supported_network_types: Use to limit results to network types `IPV4` or `DUAL`.
+    :param bool supports_clusters: Whether to limit results to instances that support clusters.
     :param bool supports_enhanced_monitoring: Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
     :param bool supports_global_databases: Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
     :param bool supports_iam_database_authentication: Enable this to ensure a DB instance supports IAM database authentication.
     :param bool supports_iops: Enable this to ensure a DB instance supports provisioned IOPS.
     :param bool supports_kerberos_authentication: Enable this to ensure a DB instance supports Kerberos Authentication.
+    :param bool supports_multi_az: Whether to limit results to instances that are multi-AZ capable.
     :param bool supports_performance_insights: Enable this to ensure a DB instance supports Performance Insights.
     :param bool supports_storage_autoscaling: Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
     :param bool supports_storage_encryption: Enable this to ensure a DB instance supports encrypted storage.

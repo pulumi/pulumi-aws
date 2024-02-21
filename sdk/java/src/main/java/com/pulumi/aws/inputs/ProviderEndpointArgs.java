@@ -649,6 +649,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="cloudfrontkeyvaluestore")
+    private @Nullable Output<String> cloudfrontkeyvaluestore;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> cloudfrontkeyvaluestore() {
+        return Optional.ofNullable(this.cloudfrontkeyvaluestore);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="cloudhsm")
     private @Nullable Output<String> cloudhsm;
 
@@ -1138,6 +1153,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> costexplorer() {
         return Optional.ofNullable(this.costexplorer);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
+    @Import(name="costoptimizationhub")
+    private @Nullable Output<String> costoptimizationhub;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> costoptimizationhub() {
+        return Optional.ofNullable(this.costoptimizationhub);
     }
 
     /**
@@ -4125,6 +4155,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.cloudcontrolapi = $.cloudcontrolapi;
         this.cloudformation = $.cloudformation;
         this.cloudfront = $.cloudfront;
+        this.cloudfrontkeyvaluestore = $.cloudfrontkeyvaluestore;
         this.cloudhsm = $.cloudhsm;
         this.cloudhsmv2 = $.cloudhsmv2;
         this.cloudsearch = $.cloudsearch;
@@ -4158,6 +4189,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.controltower = $.controltower;
         this.costandusagereportservice = $.costandusagereportservice;
         this.costexplorer = $.costexplorer;
+        this.costoptimizationhub = $.costoptimizationhub;
         this.cur = $.cur;
         this.customerprofiles = $.customerprofiles;
         this.databasemigration = $.databasemigration;
@@ -5257,6 +5289,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param cloudfrontkeyvaluestore Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudfrontkeyvaluestore(@Nullable Output<String> cloudfrontkeyvaluestore) {
+            $.cloudfrontkeyvaluestore = cloudfrontkeyvaluestore;
+            return this;
+        }
+
+        /**
+         * @param cloudfrontkeyvaluestore Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudfrontkeyvaluestore(String cloudfrontkeyvaluestore) {
+            return cloudfrontkeyvaluestore(Output.of(cloudfrontkeyvaluestore));
+        }
+
+        /**
          * @param cloudhsm Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -5947,6 +6000,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder costexplorer(String costexplorer) {
             return costexplorer(Output.of(costexplorer));
+        }
+
+        /**
+         * @param costoptimizationhub Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder costoptimizationhub(@Nullable Output<String> costoptimizationhub) {
+            $.costoptimizationhub = costoptimizationhub;
+            return this;
+        }
+
+        /**
+         * @param costoptimizationhub Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder costoptimizationhub(String costoptimizationhub) {
+            return costoptimizationhub(Output.of(costoptimizationhub));
         }
 
         /**

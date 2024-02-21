@@ -22,6 +22,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetTaskExecutionResult {
     private @Nullable List<GetTaskExecutionCapacityProviderStrategy> capacityProviderStrategies;
+    private @Nullable String clientToken;
     private String cluster;
     private @Nullable Integer desiredCount;
     private @Nullable Boolean enableEcsManagedTags;
@@ -52,6 +53,9 @@ public final class GetTaskExecutionResult {
     private GetTaskExecutionResult() {}
     public List<GetTaskExecutionCapacityProviderStrategy> capacityProviderStrategies() {
         return this.capacityProviderStrategies == null ? List.of() : this.capacityProviderStrategies;
+    }
+    public Optional<String> clientToken() {
+        return Optional.ofNullable(this.clientToken);
     }
     public String cluster() {
         return this.cluster;
@@ -126,6 +130,7 @@ public final class GetTaskExecutionResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetTaskExecutionCapacityProviderStrategy> capacityProviderStrategies;
+        private @Nullable String clientToken;
         private String cluster;
         private @Nullable Integer desiredCount;
         private @Nullable Boolean enableEcsManagedTags;
@@ -148,6 +153,7 @@ public final class GetTaskExecutionResult {
         public Builder(GetTaskExecutionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacityProviderStrategies = defaults.capacityProviderStrategies;
+    	      this.clientToken = defaults.clientToken;
     	      this.cluster = defaults.cluster;
     	      this.desiredCount = defaults.desiredCount;
     	      this.enableEcsManagedTags = defaults.enableEcsManagedTags;
@@ -176,6 +182,12 @@ public final class GetTaskExecutionResult {
         }
         public Builder capacityProviderStrategies(GetTaskExecutionCapacityProviderStrategy... capacityProviderStrategies) {
             return capacityProviderStrategies(List.of(capacityProviderStrategies));
+        }
+        @CustomType.Setter
+        public Builder clientToken(@Nullable String clientToken) {
+
+            this.clientToken = clientToken;
+            return this;
         }
         @CustomType.Setter
         public Builder cluster(String cluster) {
@@ -305,6 +317,7 @@ public final class GetTaskExecutionResult {
         public GetTaskExecutionResult build() {
             final var _resultValue = new GetTaskExecutionResult();
             _resultValue.capacityProviderStrategies = capacityProviderStrategies;
+            _resultValue.clientToken = clientToken;
             _resultValue.cluster = cluster;
             _resultValue.desiredCount = desiredCount;
             _resultValue.enableEcsManagedTags = enableEcsManagedTags;

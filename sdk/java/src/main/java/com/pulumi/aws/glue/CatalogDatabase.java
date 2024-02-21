@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.glue.CatalogDatabaseArgs;
 import com.pulumi.aws.glue.inputs.CatalogDatabaseState;
 import com.pulumi.aws.glue.outputs.CatalogDatabaseCreateTableDefaultPermission;
+import com.pulumi.aws.glue.outputs.CatalogDatabaseFederatedDatabase;
 import com.pulumi.aws.glue.outputs.CatalogDatabaseTargetDatabase;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -43,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var awsGlueCatalogDatabase = new CatalogDatabase(&#34;awsGlueCatalogDatabase&#34;, CatalogDatabaseArgs.builder()        
+ *         var example = new CatalogDatabase(&#34;example&#34;, CatalogDatabaseArgs.builder()        
  *             .name(&#34;MyCatalogDatabase&#34;)
  *             .build());
  * 
@@ -74,7 +75,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var awsGlueCatalogDatabase = new CatalogDatabase(&#34;awsGlueCatalogDatabase&#34;, CatalogDatabaseArgs.builder()        
+ *         var example = new CatalogDatabase(&#34;example&#34;, CatalogDatabaseArgs.builder()        
  *             .createTableDefaultPermissions(CatalogDatabaseCreateTableDefaultPermissionArgs.builder()
  *                 .permissions(&#34;SELECT&#34;)
  *                 .principal(CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs.builder()
@@ -154,6 +155,20 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+     * 
+     */
+    @Export(name="federatedDatabase", refs={CatalogDatabaseFederatedDatabase.class}, tree="[0]")
+    private Output</* @Nullable */ CatalogDatabaseFederatedDatabase> federatedDatabase;
+
+    /**
+     * @return Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+     * 
+     */
+    public Output<Optional<CatalogDatabaseFederatedDatabase>> federatedDatabase() {
+        return Codegen.optional(this.federatedDatabase);
     }
     /**
      * Location of the database (for example, an HDFS path).

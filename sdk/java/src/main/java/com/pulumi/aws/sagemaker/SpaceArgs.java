@@ -3,7 +3,9 @@
 
 package com.pulumi.aws.sagemaker;
 
+import com.pulumi.aws.sagemaker.inputs.SpaceOwnershipSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.SpaceSpaceSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.SpaceSpaceSharingSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -31,6 +33,21 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> domainId() {
         return this.domainId;
+    }
+
+    /**
+     * A collection of ownership settings. See Ownership Settings below.
+     * 
+     */
+    @Import(name="ownershipSettings")
+    private @Nullable Output<SpaceOwnershipSettingsArgs> ownershipSettings;
+
+    /**
+     * @return A collection of ownership settings. See Ownership Settings below.
+     * 
+     */
+    public Optional<Output<SpaceOwnershipSettingsArgs>> ownershipSettings() {
+        return Optional.ofNullable(this.ownershipSettings);
     }
 
     /**
@@ -79,6 +96,21 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A collection of space sharing settings. See Space Sharing Settings below.
+     * 
+     */
+    @Import(name="spaceSharingSettings")
+    private @Nullable Output<SpaceSpaceSharingSettingsArgs> spaceSharingSettings;
+
+    /**
+     * @return A collection of space sharing settings. See Space Sharing Settings below.
+     * 
+     */
+    public Optional<Output<SpaceSpaceSharingSettingsArgs>> spaceSharingSettings() {
+        return Optional.ofNullable(this.spaceSharingSettings);
+    }
+
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -97,9 +129,11 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
 
     private SpaceArgs(SpaceArgs $) {
         this.domainId = $.domainId;
+        this.ownershipSettings = $.ownershipSettings;
         this.spaceDisplayName = $.spaceDisplayName;
         this.spaceName = $.spaceName;
         this.spaceSettings = $.spaceSettings;
+        this.spaceSharingSettings = $.spaceSharingSettings;
         this.tags = $.tags;
     }
 
@@ -140,6 +174,27 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder domainId(String domainId) {
             return domainId(Output.of(domainId));
+        }
+
+        /**
+         * @param ownershipSettings A collection of ownership settings. See Ownership Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownershipSettings(@Nullable Output<SpaceOwnershipSettingsArgs> ownershipSettings) {
+            $.ownershipSettings = ownershipSettings;
+            return this;
+        }
+
+        /**
+         * @param ownershipSettings A collection of ownership settings. See Ownership Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownershipSettings(SpaceOwnershipSettingsArgs ownershipSettings) {
+            return ownershipSettings(Output.of(ownershipSettings));
         }
 
         /**
@@ -203,6 +258,27 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder spaceSettings(SpaceSpaceSettingsArgs spaceSettings) {
             return spaceSettings(Output.of(spaceSettings));
+        }
+
+        /**
+         * @param spaceSharingSettings A collection of space sharing settings. See Space Sharing Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceSharingSettings(@Nullable Output<SpaceSpaceSharingSettingsArgs> spaceSharingSettings) {
+            $.spaceSharingSettings = spaceSharingSettings;
+            return this;
+        }
+
+        /**
+         * @param spaceSharingSettings A collection of space sharing settings. See Space Sharing Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceSharingSettings(SpaceSpaceSharingSettingsArgs spaceSharingSettings) {
+            return spaceSharingSettings(Output.of(spaceSharingSettings));
         }
 
         /**

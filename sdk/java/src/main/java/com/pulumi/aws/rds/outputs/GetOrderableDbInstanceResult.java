@@ -11,6 +11,7 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -22,6 +23,7 @@ public final class GetOrderableDbInstanceResult {
      */
     private List<String> availabilityZones;
     private String engine;
+    private @Nullable Boolean engineLatestVersion;
     private String engineVersion;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -72,27 +74,17 @@ public final class GetOrderableDbInstanceResult {
     private Boolean outpostCapable;
     private @Nullable List<String> preferredEngineVersions;
     private @Nullable List<String> preferredInstanceClasses;
-    /**
-     * @return Whether a DB instance can have a read replica.
-     * 
-     */
     private Boolean readReplicaCapable;
     private String storageType;
-    /**
-     * @return A list of the supported DB engine modes.
-     * 
-     */
     private List<String> supportedEngineModes;
-    /**
-     * @return The network types supported by the DB instance (`IPV4` or `DUAL`).
-     * 
-     */
     private List<String> supportedNetworkTypes;
+    private Boolean supportsClusters;
     private Boolean supportsEnhancedMonitoring;
     private Boolean supportsGlobalDatabases;
     private Boolean supportsIamDatabaseAuthentication;
     private Boolean supportsIops;
     private Boolean supportsKerberosAuthentication;
+    private Boolean supportsMultiAz;
     private Boolean supportsPerformanceInsights;
     private Boolean supportsStorageAutoscaling;
     private Boolean supportsStorageEncryption;
@@ -111,6 +103,9 @@ public final class GetOrderableDbInstanceResult {
     }
     public String engine() {
         return this.engine;
+    }
+    public Optional<Boolean> engineLatestVersion() {
+        return Optional.ofNullable(this.engineLatestVersion);
     }
     public String engineVersion() {
         return this.engineVersion;
@@ -190,29 +185,20 @@ public final class GetOrderableDbInstanceResult {
     public List<String> preferredInstanceClasses() {
         return this.preferredInstanceClasses == null ? List.of() : this.preferredInstanceClasses;
     }
-    /**
-     * @return Whether a DB instance can have a read replica.
-     * 
-     */
     public Boolean readReplicaCapable() {
         return this.readReplicaCapable;
     }
     public String storageType() {
         return this.storageType;
     }
-    /**
-     * @return A list of the supported DB engine modes.
-     * 
-     */
     public List<String> supportedEngineModes() {
         return this.supportedEngineModes;
     }
-    /**
-     * @return The network types supported by the DB instance (`IPV4` or `DUAL`).
-     * 
-     */
     public List<String> supportedNetworkTypes() {
         return this.supportedNetworkTypes;
+    }
+    public Boolean supportsClusters() {
+        return this.supportsClusters;
     }
     public Boolean supportsEnhancedMonitoring() {
         return this.supportsEnhancedMonitoring;
@@ -228,6 +214,9 @@ public final class GetOrderableDbInstanceResult {
     }
     public Boolean supportsKerberosAuthentication() {
         return this.supportsKerberosAuthentication;
+    }
+    public Boolean supportsMultiAz() {
+        return this.supportsMultiAz;
     }
     public Boolean supportsPerformanceInsights() {
         return this.supportsPerformanceInsights;
@@ -254,6 +243,7 @@ public final class GetOrderableDbInstanceResult {
         private String availabilityZoneGroup;
         private List<String> availabilityZones;
         private String engine;
+        private @Nullable Boolean engineLatestVersion;
         private String engineVersion;
         private String id;
         private String instanceClass;
@@ -272,11 +262,13 @@ public final class GetOrderableDbInstanceResult {
         private String storageType;
         private List<String> supportedEngineModes;
         private List<String> supportedNetworkTypes;
+        private Boolean supportsClusters;
         private Boolean supportsEnhancedMonitoring;
         private Boolean supportsGlobalDatabases;
         private Boolean supportsIamDatabaseAuthentication;
         private Boolean supportsIops;
         private Boolean supportsKerberosAuthentication;
+        private Boolean supportsMultiAz;
         private Boolean supportsPerformanceInsights;
         private Boolean supportsStorageAutoscaling;
         private Boolean supportsStorageEncryption;
@@ -287,6 +279,7 @@ public final class GetOrderableDbInstanceResult {
     	      this.availabilityZoneGroup = defaults.availabilityZoneGroup;
     	      this.availabilityZones = defaults.availabilityZones;
     	      this.engine = defaults.engine;
+    	      this.engineLatestVersion = defaults.engineLatestVersion;
     	      this.engineVersion = defaults.engineVersion;
     	      this.id = defaults.id;
     	      this.instanceClass = defaults.instanceClass;
@@ -305,11 +298,13 @@ public final class GetOrderableDbInstanceResult {
     	      this.storageType = defaults.storageType;
     	      this.supportedEngineModes = defaults.supportedEngineModes;
     	      this.supportedNetworkTypes = defaults.supportedNetworkTypes;
+    	      this.supportsClusters = defaults.supportsClusters;
     	      this.supportsEnhancedMonitoring = defaults.supportsEnhancedMonitoring;
     	      this.supportsGlobalDatabases = defaults.supportsGlobalDatabases;
     	      this.supportsIamDatabaseAuthentication = defaults.supportsIamDatabaseAuthentication;
     	      this.supportsIops = defaults.supportsIops;
     	      this.supportsKerberosAuthentication = defaults.supportsKerberosAuthentication;
+    	      this.supportsMultiAz = defaults.supportsMultiAz;
     	      this.supportsPerformanceInsights = defaults.supportsPerformanceInsights;
     	      this.supportsStorageAutoscaling = defaults.supportsStorageAutoscaling;
     	      this.supportsStorageEncryption = defaults.supportsStorageEncryption;
@@ -341,6 +336,12 @@ public final class GetOrderableDbInstanceResult {
               throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "engine");
             }
             this.engine = engine;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder engineLatestVersion(@Nullable Boolean engineLatestVersion) {
+
+            this.engineLatestVersion = engineLatestVersion;
             return this;
         }
         @CustomType.Setter
@@ -496,6 +497,14 @@ public final class GetOrderableDbInstanceResult {
             return supportedNetworkTypes(List.of(supportedNetworkTypes));
         }
         @CustomType.Setter
+        public Builder supportsClusters(Boolean supportsClusters) {
+            if (supportsClusters == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "supportsClusters");
+            }
+            this.supportsClusters = supportsClusters;
+            return this;
+        }
+        @CustomType.Setter
         public Builder supportsEnhancedMonitoring(Boolean supportsEnhancedMonitoring) {
             if (supportsEnhancedMonitoring == null) {
               throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "supportsEnhancedMonitoring");
@@ -536,6 +545,14 @@ public final class GetOrderableDbInstanceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder supportsMultiAz(Boolean supportsMultiAz) {
+            if (supportsMultiAz == null) {
+              throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "supportsMultiAz");
+            }
+            this.supportsMultiAz = supportsMultiAz;
+            return this;
+        }
+        @CustomType.Setter
         public Builder supportsPerformanceInsights(Boolean supportsPerformanceInsights) {
             if (supportsPerformanceInsights == null) {
               throw new MissingRequiredPropertyException("GetOrderableDbInstanceResult", "supportsPerformanceInsights");
@@ -572,6 +589,7 @@ public final class GetOrderableDbInstanceResult {
             _resultValue.availabilityZoneGroup = availabilityZoneGroup;
             _resultValue.availabilityZones = availabilityZones;
             _resultValue.engine = engine;
+            _resultValue.engineLatestVersion = engineLatestVersion;
             _resultValue.engineVersion = engineVersion;
             _resultValue.id = id;
             _resultValue.instanceClass = instanceClass;
@@ -590,11 +608,13 @@ public final class GetOrderableDbInstanceResult {
             _resultValue.storageType = storageType;
             _resultValue.supportedEngineModes = supportedEngineModes;
             _resultValue.supportedNetworkTypes = supportedNetworkTypes;
+            _resultValue.supportsClusters = supportsClusters;
             _resultValue.supportsEnhancedMonitoring = supportsEnhancedMonitoring;
             _resultValue.supportsGlobalDatabases = supportsGlobalDatabases;
             _resultValue.supportsIamDatabaseAuthentication = supportsIamDatabaseAuthentication;
             _resultValue.supportsIops = supportsIops;
             _resultValue.supportsKerberosAuthentication = supportsKerberosAuthentication;
+            _resultValue.supportsMultiAz = supportsMultiAz;
             _resultValue.supportsPerformanceInsights = supportsPerformanceInsights;
             _resultValue.supportsStorageAutoscaling = supportsStorageAutoscaling;
             _resultValue.supportsStorageEncryption = supportsStorageEncryption;

@@ -40,6 +40,10 @@ export interface GetPullThroughCacheRuleArgs {
  * A collection of values returned by getPullThroughCacheRule.
  */
 export interface GetPullThroughCacheRuleResult {
+    /**
+     * ARN of the Secret which will be used to authenticate against the registry.
+     */
+    readonly credentialArn: string;
     readonly ecrRepositoryPrefix: string;
     /**
      * The provider-assigned unique ID for this managed resource.

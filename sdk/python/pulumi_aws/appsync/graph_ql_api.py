@@ -18,10 +18,13 @@ class GraphQLApiArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
+                 introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
                  log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  openid_connect_config: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']] = None,
+                 query_depth_limit: Optional[pulumi.Input[int]] = None,
+                 resolver_count_limit: Optional[pulumi.Input[int]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
@@ -31,10 +34,15 @@ class GraphQLApiArgs:
         The set of arguments for constructing a GraphQLApi resource.
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
+        :param pulumi.Input[str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         :param pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
         :param pulumi.Input['GraphQLApiLogConfigArgs'] log_config: Nested argument containing logging configuration. Defined below.
         :param pulumi.Input[str] name: User-supplied name for the GraphqlApi.
         :param pulumi.Input['GraphQLApiOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
+        :param pulumi.Input[int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+               
+               Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+        :param pulumi.Input[int] resolver_count_limit: The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         :param pulumi.Input[str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['GraphQLApiUserPoolConfigArgs'] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
@@ -44,6 +52,8 @@ class GraphQLApiArgs:
         pulumi.set(__self__, "authentication_type", authentication_type)
         if additional_authentication_providers is not None:
             pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
+        if introspection_config is not None:
+            pulumi.set(__self__, "introspection_config", introspection_config)
         if lambda_authorizer_config is not None:
             pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
         if log_config is not None:
@@ -52,6 +62,10 @@ class GraphQLApiArgs:
             pulumi.set(__self__, "name", name)
         if openid_connect_config is not None:
             pulumi.set(__self__, "openid_connect_config", openid_connect_config)
+        if query_depth_limit is not None:
+            pulumi.set(__self__, "query_depth_limit", query_depth_limit)
+        if resolver_count_limit is not None:
+            pulumi.set(__self__, "resolver_count_limit", resolver_count_limit)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
         if tags is not None:
@@ -86,6 +100,18 @@ class GraphQLApiArgs:
     @additional_authentication_providers.setter
     def additional_authentication_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]):
         pulumi.set(self, "additional_authentication_providers", value)
+
+    @property
+    @pulumi.getter(name="introspectionConfig")
+    def introspection_config(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
+        """
+        return pulumi.get(self, "introspection_config")
+
+    @introspection_config.setter
+    def introspection_config(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "introspection_config", value)
 
     @property
     @pulumi.getter(name="lambdaAuthorizerConfig")
@@ -134,6 +160,32 @@ class GraphQLApiArgs:
     @openid_connect_config.setter
     def openid_connect_config(self, value: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']]):
         pulumi.set(self, "openid_connect_config", value)
+
+    @property
+    @pulumi.getter(name="queryDepthLimit")
+    def query_depth_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+
+        Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+        """
+        return pulumi.get(self, "query_depth_limit")
+
+    @query_depth_limit.setter
+    def query_depth_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "query_depth_limit", value)
+
+    @property
+    @pulumi.getter(name="resolverCountLimit")
+    def resolver_count_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+        """
+        return pulumi.get(self, "resolver_count_limit")
+
+    @resolver_count_limit.setter
+    def resolver_count_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "resolver_count_limit", value)
 
     @property
     @pulumi.getter
@@ -202,10 +254,13 @@ class _GraphQLApiState:
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
+                 introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
                  log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  openid_connect_config: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']] = None,
+                 query_depth_limit: Optional[pulumi.Input[int]] = None,
+                 resolver_count_limit: Optional[pulumi.Input[int]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -218,10 +273,15 @@ class _GraphQLApiState:
         :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
         :param pulumi.Input[str] arn: ARN
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        :param pulumi.Input[str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         :param pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
         :param pulumi.Input['GraphQLApiLogConfigArgs'] log_config: Nested argument containing logging configuration. Defined below.
         :param pulumi.Input[str] name: User-supplied name for the GraphqlApi.
         :param pulumi.Input['GraphQLApiOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
+        :param pulumi.Input[int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+               
+               Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+        :param pulumi.Input[int] resolver_count_limit: The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         :param pulumi.Input[str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -236,6 +296,8 @@ class _GraphQLApiState:
             pulumi.set(__self__, "arn", arn)
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
+        if introspection_config is not None:
+            pulumi.set(__self__, "introspection_config", introspection_config)
         if lambda_authorizer_config is not None:
             pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
         if log_config is not None:
@@ -244,6 +306,10 @@ class _GraphQLApiState:
             pulumi.set(__self__, "name", name)
         if openid_connect_config is not None:
             pulumi.set(__self__, "openid_connect_config", openid_connect_config)
+        if query_depth_limit is not None:
+            pulumi.set(__self__, "query_depth_limit", query_depth_limit)
+        if resolver_count_limit is not None:
+            pulumi.set(__self__, "resolver_count_limit", resolver_count_limit)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
         if tags is not None:
@@ -299,6 +365,18 @@ class _GraphQLApiState:
         pulumi.set(self, "authentication_type", value)
 
     @property
+    @pulumi.getter(name="introspectionConfig")
+    def introspection_config(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
+        """
+        return pulumi.get(self, "introspection_config")
+
+    @introspection_config.setter
+    def introspection_config(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "introspection_config", value)
+
+    @property
     @pulumi.getter(name="lambdaAuthorizerConfig")
     def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]:
         """
@@ -345,6 +423,32 @@ class _GraphQLApiState:
     @openid_connect_config.setter
     def openid_connect_config(self, value: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']]):
         pulumi.set(self, "openid_connect_config", value)
+
+    @property
+    @pulumi.getter(name="queryDepthLimit")
+    def query_depth_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+
+        Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+        """
+        return pulumi.get(self, "query_depth_limit")
+
+    @query_depth_limit.setter
+    def query_depth_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "query_depth_limit", value)
+
+    @property
+    @pulumi.getter(name="resolverCountLimit")
+    def resolver_count_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+        """
+        return pulumi.get(self, "resolver_count_limit")
+
+    @resolver_count_limit.setter
+    def resolver_count_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "resolver_count_limit", value)
 
     @property
     @pulumi.getter
@@ -441,10 +545,13 @@ class GraphQLApi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
+                 introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']]] = None,
                  log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  openid_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']]] = None,
+                 query_depth_limit: Optional[pulumi.Input[int]] = None,
+                 resolver_count_limit: Optional[pulumi.Input[int]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
@@ -457,10 +564,15 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        :param pulumi.Input[str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         :param pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
         :param pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']] log_config: Nested argument containing logging configuration. Defined below.
         :param pulumi.Input[str] name: User-supplied name for the GraphqlApi.
         :param pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
+        :param pulumi.Input[int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+               
+               Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+        :param pulumi.Input[int] resolver_count_limit: The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         :param pulumi.Input[str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
@@ -492,10 +604,13 @@ class GraphQLApi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
+                 introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']]] = None,
                  log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  openid_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']]] = None,
+                 query_depth_limit: Optional[pulumi.Input[int]] = None,
+                 resolver_count_limit: Optional[pulumi.Input[int]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
@@ -514,10 +629,13 @@ class GraphQLApi(pulumi.CustomResource):
             if authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_type'")
             __props__.__dict__["authentication_type"] = authentication_type
+            __props__.__dict__["introspection_config"] = introspection_config
             __props__.__dict__["lambda_authorizer_config"] = lambda_authorizer_config
             __props__.__dict__["log_config"] = log_config
             __props__.__dict__["name"] = name
             __props__.__dict__["openid_connect_config"] = openid_connect_config
+            __props__.__dict__["query_depth_limit"] = query_depth_limit
+            __props__.__dict__["resolver_count_limit"] = resolver_count_limit
             __props__.__dict__["schema"] = schema
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_pool_config"] = user_pool_config
@@ -541,10 +659,13 @@ class GraphQLApi(pulumi.CustomResource):
             additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             authentication_type: Optional[pulumi.Input[str]] = None,
+            introspection_config: Optional[pulumi.Input[str]] = None,
             lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']]] = None,
             log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             openid_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']]] = None,
+            query_depth_limit: Optional[pulumi.Input[int]] = None,
+            resolver_count_limit: Optional[pulumi.Input[int]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -562,10 +683,15 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
         :param pulumi.Input[str] arn: ARN
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        :param pulumi.Input[str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         :param pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
         :param pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']] log_config: Nested argument containing logging configuration. Defined below.
         :param pulumi.Input[str] name: User-supplied name for the GraphqlApi.
         :param pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
+        :param pulumi.Input[int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+               
+               Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+        :param pulumi.Input[int] resolver_count_limit: The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         :param pulumi.Input[str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -581,10 +707,13 @@ class GraphQLApi(pulumi.CustomResource):
         __props__.__dict__["additional_authentication_providers"] = additional_authentication_providers
         __props__.__dict__["arn"] = arn
         __props__.__dict__["authentication_type"] = authentication_type
+        __props__.__dict__["introspection_config"] = introspection_config
         __props__.__dict__["lambda_authorizer_config"] = lambda_authorizer_config
         __props__.__dict__["log_config"] = log_config
         __props__.__dict__["name"] = name
         __props__.__dict__["openid_connect_config"] = openid_connect_config
+        __props__.__dict__["query_depth_limit"] = query_depth_limit
+        __props__.__dict__["resolver_count_limit"] = resolver_count_limit
         __props__.__dict__["schema"] = schema
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -619,6 +748,14 @@ class GraphQLApi(pulumi.CustomResource):
         return pulumi.get(self, "authentication_type")
 
     @property
+    @pulumi.getter(name="introspectionConfig")
+    def introspection_config(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
+        """
+        return pulumi.get(self, "introspection_config")
+
+    @property
     @pulumi.getter(name="lambdaAuthorizerConfig")
     def lambda_authorizer_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiLambdaAuthorizerConfig']]:
         """
@@ -649,6 +786,24 @@ class GraphQLApi(pulumi.CustomResource):
         Nested argument containing OpenID Connect configuration. Defined below.
         """
         return pulumi.get(self, "openid_connect_config")
+
+    @property
+    @pulumi.getter(name="queryDepthLimit")
+    def query_depth_limit(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+
+        Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+        """
+        return pulumi.get(self, "query_depth_limit")
+
+    @property
+    @pulumi.getter(name="resolverCountLimit")
+    def resolver_count_limit(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+        """
+        return pulumi.get(self, "resolver_count_limit")
 
     @property
     @pulumi.getter

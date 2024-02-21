@@ -48,14 +48,29 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+     * When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engine_latest_version` with `preferred_instance_classes` and/or `preferred_engine_versions`. Using `engine_latest_version` will avoid `multiple RDS DB Instance Classes` errors. If you use `engine_latest_version` with `preferred_instance_classes`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engine_latest_version` may _not_ return the latest version in every situation.
+     * 
+     */
+    @Import(name="engineLatestVersion")
+    private @Nullable Boolean engineLatestVersion;
+
+    /**
+     * @return When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engine_latest_version` with `preferred_instance_classes` and/or `preferred_engine_versions`. Using `engine_latest_version` will avoid `multiple RDS DB Instance Classes` errors. If you use `engine_latest_version` with `preferred_instance_classes`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engine_latest_version` may _not_ return the latest version in every situation.
+     * 
+     */
+    public Optional<Boolean> engineLatestVersion() {
+        return Optional.ofNullable(this.engineLatestVersion);
+    }
+
+    /**
+     * Version of the DB engine. If none is provided, the data source tries to use the AWS-defined default version that matches any other criteria.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable String engineVersion;
 
     /**
-     * @return Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+     * @return Version of the DB engine. If none is provided, the data source tries to use the AWS-defined default version that matches any other criteria.
      * 
      */
     public Optional<String> engineVersion() {
@@ -93,14 +108,14 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     * Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don&#39;t recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
      * 
      */
     @Import(name="preferredEngineVersions")
     private @Nullable List<String> preferredEngineVersions;
 
     /**
-     * @return Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     * @return Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don&#39;t recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
      * 
      */
     public Optional<List<String>> preferredEngineVersions() {
@@ -108,18 +123,33 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     * Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
      * 
      */
     @Import(name="preferredInstanceClasses")
     private @Nullable List<String> preferredInstanceClasses;
 
     /**
-     * @return Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     * @return Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
      * 
      */
     public Optional<List<String>> preferredInstanceClasses() {
         return Optional.ofNullable(this.preferredInstanceClasses);
+    }
+
+    /**
+     * Whether a DB instance can have a read replica.
+     * 
+     */
+    @Import(name="readReplicaCapable")
+    private @Nullable Boolean readReplicaCapable;
+
+    /**
+     * @return Whether a DB instance can have a read replica.
+     * 
+     */
+    public Optional<Boolean> readReplicaCapable() {
+        return Optional.ofNullable(this.readReplicaCapable);
     }
 
     /**
@@ -135,6 +165,51 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
      */
     public Optional<String> storageType() {
         return Optional.ofNullable(this.storageType);
+    }
+
+    /**
+     * Use to limit results to engine modes such as `provisioned`.
+     * 
+     */
+    @Import(name="supportedEngineModes")
+    private @Nullable List<String> supportedEngineModes;
+
+    /**
+     * @return Use to limit results to engine modes such as `provisioned`.
+     * 
+     */
+    public Optional<List<String>> supportedEngineModes() {
+        return Optional.ofNullable(this.supportedEngineModes);
+    }
+
+    /**
+     * Use to limit results to network types `IPV4` or `DUAL`.
+     * 
+     */
+    @Import(name="supportedNetworkTypes")
+    private @Nullable List<String> supportedNetworkTypes;
+
+    /**
+     * @return Use to limit results to network types `IPV4` or `DUAL`.
+     * 
+     */
+    public Optional<List<String>> supportedNetworkTypes() {
+        return Optional.ofNullable(this.supportedNetworkTypes);
+    }
+
+    /**
+     * Whether to limit results to instances that support clusters.
+     * 
+     */
+    @Import(name="supportsClusters")
+    private @Nullable Boolean supportsClusters;
+
+    /**
+     * @return Whether to limit results to instances that support clusters.
+     * 
+     */
+    public Optional<Boolean> supportsClusters() {
+        return Optional.ofNullable(this.supportsClusters);
     }
 
     /**
@@ -213,6 +288,21 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
     }
 
     /**
+     * Whether to limit results to instances that are multi-AZ capable.
+     * 
+     */
+    @Import(name="supportsMultiAz")
+    private @Nullable Boolean supportsMultiAz;
+
+    /**
+     * @return Whether to limit results to instances that are multi-AZ capable.
+     * 
+     */
+    public Optional<Boolean> supportsMultiAz() {
+        return Optional.ofNullable(this.supportsMultiAz);
+    }
+
+    /**
      * Enable this to ensure a DB instance supports Performance Insights.
      * 
      */
@@ -277,17 +367,23 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
     private GetOrderableDbInstancePlainArgs(GetOrderableDbInstancePlainArgs $) {
         this.availabilityZoneGroup = $.availabilityZoneGroup;
         this.engine = $.engine;
+        this.engineLatestVersion = $.engineLatestVersion;
         this.engineVersion = $.engineVersion;
         this.instanceClass = $.instanceClass;
         this.licenseModel = $.licenseModel;
         this.preferredEngineVersions = $.preferredEngineVersions;
         this.preferredInstanceClasses = $.preferredInstanceClasses;
+        this.readReplicaCapable = $.readReplicaCapable;
         this.storageType = $.storageType;
+        this.supportedEngineModes = $.supportedEngineModes;
+        this.supportedNetworkTypes = $.supportedNetworkTypes;
+        this.supportsClusters = $.supportsClusters;
         this.supportsEnhancedMonitoring = $.supportsEnhancedMonitoring;
         this.supportsGlobalDatabases = $.supportsGlobalDatabases;
         this.supportsIamDatabaseAuthentication = $.supportsIamDatabaseAuthentication;
         this.supportsIops = $.supportsIops;
         this.supportsKerberosAuthentication = $.supportsKerberosAuthentication;
+        this.supportsMultiAz = $.supportsMultiAz;
         this.supportsPerformanceInsights = $.supportsPerformanceInsights;
         this.supportsStorageAutoscaling = $.supportsStorageAutoscaling;
         this.supportsStorageEncryption = $.supportsStorageEncryption;
@@ -335,7 +431,18 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param engineVersion Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+         * @param engineLatestVersion When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. You must use `engine_latest_version` with `preferred_instance_classes` and/or `preferred_engine_versions`. Using `engine_latest_version` will avoid `multiple RDS DB Instance Classes` errors. If you use `engine_latest_version` with `preferred_instance_classes`, the data source returns the latest version for the _first_ matching instance class (instance class priority). **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines, using `engine_latest_version` may _not_ return the latest version in every situation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engineLatestVersion(@Nullable Boolean engineLatestVersion) {
+            $.engineLatestVersion = engineLatestVersion;
+            return this;
+        }
+
+        /**
+         * @param engineVersion Version of the DB engine. If none is provided, the data source tries to use the AWS-defined default version that matches any other criteria.
          * 
          * @return builder
          * 
@@ -368,7 +475,7 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param preferredEngineVersions Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+         * @param preferredEngineVersions Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don&#39;t recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
          * 
          * @return builder
          * 
@@ -379,7 +486,7 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param preferredEngineVersions Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+         * @param preferredEngineVersions Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don&#39;t recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
          * 
          * @return builder
          * 
@@ -389,7 +496,7 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param preferredInstanceClasses Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+         * @param preferredInstanceClasses Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
          * 
          * @return builder
          * 
@@ -400,13 +507,24 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param preferredInstanceClasses Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+         * @param preferredInstanceClasses Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
          * 
          * @return builder
          * 
          */
         public Builder preferredInstanceClasses(String... preferredInstanceClasses) {
             return preferredInstanceClasses(List.of(preferredInstanceClasses));
+        }
+
+        /**
+         * @param readReplicaCapable Whether a DB instance can have a read replica.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readReplicaCapable(@Nullable Boolean readReplicaCapable) {
+            $.readReplicaCapable = readReplicaCapable;
+            return this;
         }
 
         /**
@@ -417,6 +535,59 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
          */
         public Builder storageType(@Nullable String storageType) {
             $.storageType = storageType;
+            return this;
+        }
+
+        /**
+         * @param supportedEngineModes Use to limit results to engine modes such as `provisioned`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedEngineModes(@Nullable List<String> supportedEngineModes) {
+            $.supportedEngineModes = supportedEngineModes;
+            return this;
+        }
+
+        /**
+         * @param supportedEngineModes Use to limit results to engine modes such as `provisioned`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedEngineModes(String... supportedEngineModes) {
+            return supportedEngineModes(List.of(supportedEngineModes));
+        }
+
+        /**
+         * @param supportedNetworkTypes Use to limit results to network types `IPV4` or `DUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedNetworkTypes(@Nullable List<String> supportedNetworkTypes) {
+            $.supportedNetworkTypes = supportedNetworkTypes;
+            return this;
+        }
+
+        /**
+         * @param supportedNetworkTypes Use to limit results to network types `IPV4` or `DUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedNetworkTypes(String... supportedNetworkTypes) {
+            return supportedNetworkTypes(List.of(supportedNetworkTypes));
+        }
+
+        /**
+         * @param supportsClusters Whether to limit results to instances that support clusters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportsClusters(@Nullable Boolean supportsClusters) {
+            $.supportsClusters = supportsClusters;
             return this;
         }
 
@@ -472,6 +643,17 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
          */
         public Builder supportsKerberosAuthentication(@Nullable Boolean supportsKerberosAuthentication) {
             $.supportsKerberosAuthentication = supportsKerberosAuthentication;
+            return this;
+        }
+
+        /**
+         * @param supportsMultiAz Whether to limit results to instances that are multi-AZ capable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportsMultiAz(@Nullable Boolean supportsMultiAz) {
+            $.supportsMultiAz = supportsMultiAz;
             return this;
         }
 

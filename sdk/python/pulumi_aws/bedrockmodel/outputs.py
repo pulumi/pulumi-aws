@@ -54,8 +54,8 @@ class InvocationLoggingConfigurationLoggingConfig(dict):
         :param bool embedding_data_delivery_enabled: Set to include embeddings data in the log delivery.
         :param bool image_data_delivery_enabled: Set to include image data in the log delivery.
         :param bool text_data_delivery_enabled: Set to include text data in the log delivery.
-        :param 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs' cloudwatch_config: CloudWatch logging configuration. See `cloudwatch_config`.
-        :param 'InvocationLoggingConfigurationLoggingConfigS3ConfigArgs' s3_config: S3 configuration for storing log data. See `s3_config`.
+        :param 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs' cloudwatch_config: CloudWatch logging configuration.
+        :param 'InvocationLoggingConfigurationLoggingConfigS3ConfigArgs' s3_config: S3 configuration for storing log data.
         """
         pulumi.set(__self__, "embedding_data_delivery_enabled", embedding_data_delivery_enabled)
         pulumi.set(__self__, "image_data_delivery_enabled", image_data_delivery_enabled)
@@ -93,7 +93,7 @@ class InvocationLoggingConfigurationLoggingConfig(dict):
     @pulumi.getter(name="cloudwatchConfig")
     def cloudwatch_config(self) -> Optional['outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfig']:
         """
-        CloudWatch logging configuration. See `cloudwatch_config`.
+        CloudWatch logging configuration.
         """
         return pulumi.get(self, "cloudwatch_config")
 
@@ -101,7 +101,7 @@ class InvocationLoggingConfigurationLoggingConfig(dict):
     @pulumi.getter(name="s3Config")
     def s3_config(self) -> Optional['outputs.InvocationLoggingConfigurationLoggingConfigS3Config']:
         """
-        S3 configuration for storing log data. See `s3_config`.
+        S3 configuration for storing log data.
         """
         return pulumi.get(self, "s3_config")
 
@@ -134,11 +134,9 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig(dict):
                  log_group_name: Optional[str] = None,
                  role_arn: Optional[str] = None):
         """
-        :param 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs' large_data_delivery_s3_config: S3 configuration for delivering a large amount of data. See `s3_config`.
+        :param 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs' large_data_delivery_s3_config: S3 configuration for delivering a large amount of data.
         :param str log_group_name: Log group name.
-        :param str role_arn: IAM Role ARN.
-               
-               The following arguments are optional:
+        :param str role_arn: The role ARN.
         """
         if large_data_delivery_s3_config is not None:
             pulumi.set(__self__, "large_data_delivery_s3_config", large_data_delivery_s3_config)
@@ -151,7 +149,7 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig(dict):
     @pulumi.getter(name="largeDataDeliveryS3Config")
     def large_data_delivery_s3_config(self) -> Optional['outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config']:
         """
-        S3 configuration for delivering a large amount of data. See `s3_config`.
+        S3 configuration for delivering a large amount of data.
         """
         return pulumi.get(self, "large_data_delivery_s3_config")
 
@@ -167,9 +165,7 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         """
-        IAM Role ARN.
-
-        The following arguments are optional:
+        The role ARN.
         """
         return pulumi.get(self, "role_arn")
 
@@ -200,9 +196,7 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDelive
                  key_prefix: Optional[str] = None):
         """
         :param str bucket_name: S3 bucket name.
-               
-               The following arguments are optional:
-        :param str key_prefix: S3 object key prefix.
+        :param str key_prefix: S3 prefix.
         """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
@@ -214,8 +208,6 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDelive
     def bucket_name(self) -> Optional[str]:
         """
         S3 bucket name.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "bucket_name")
 
@@ -223,7 +215,7 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDelive
     @pulumi.getter(name="keyPrefix")
     def key_prefix(self) -> Optional[str]:
         """
-        S3 object key prefix.
+        S3 prefix.
         """
         return pulumi.get(self, "key_prefix")
 
@@ -254,9 +246,7 @@ class InvocationLoggingConfigurationLoggingConfigS3Config(dict):
                  key_prefix: Optional[str] = None):
         """
         :param str bucket_name: S3 bucket name.
-               
-               The following arguments are optional:
-        :param str key_prefix: S3 object key prefix.
+        :param str key_prefix: S3 prefix.
         """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
@@ -268,8 +258,6 @@ class InvocationLoggingConfigurationLoggingConfigS3Config(dict):
     def bucket_name(self) -> Optional[str]:
         """
         S3 bucket name.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "bucket_name")
 
@@ -277,7 +265,7 @@ class InvocationLoggingConfigurationLoggingConfigS3Config(dict):
     @pulumi.getter(name="keyPrefix")
     def key_prefix(self) -> Optional[str]:
         """
-        S3 object key prefix.
+        S3 prefix.
         """
         return pulumi.get(self, "key_prefix")
 

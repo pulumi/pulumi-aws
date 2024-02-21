@@ -317,6 +317,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    cloudfrontkeyvaluestore?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudhsm?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
@@ -446,6 +450,10 @@ export interface ProviderEndpoint {
      * Use this to override the default service endpoint URL
      */
     costexplorer?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
+    costoptimizationhub?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
      */
@@ -9930,6 +9938,12 @@ export namespace bedrock {
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface ProvisionedModelThroughputTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+    }
 }
 
 export namespace bedrockfoundation {
@@ -9938,7 +9952,7 @@ export namespace bedrockfoundation {
 export namespace bedrockmodel {
     export interface InvocationLoggingConfigurationLoggingConfig {
         /**
-         * CloudWatch logging configuration. See `cloudwatchConfig`.
+         * CloudWatch logging configuration.
          */
         cloudwatchConfig?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfigCloudwatchConfig>;
         /**
@@ -9950,7 +9964,7 @@ export namespace bedrockmodel {
          */
         imageDataDeliveryEnabled: pulumi.Input<boolean>;
         /**
-         * S3 configuration for storing log data. See `s3Config`.
+         * S3 configuration for storing log data.
          */
         s3Config?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfigS3Config>;
         /**
@@ -9961,7 +9975,7 @@ export namespace bedrockmodel {
 
     export interface InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
         /**
-         * S3 configuration for delivering a large amount of data. See `s3Config`.
+         * S3 configuration for delivering a large amount of data.
          */
         largeDataDeliveryS3Config?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config>;
         /**
@@ -9969,9 +9983,7 @@ export namespace bedrockmodel {
          */
         logGroupName?: pulumi.Input<string>;
         /**
-         * IAM Role ARN.
-         *
-         * The following arguments are optional:
+         * The role ARN.
          */
         roleArn?: pulumi.Input<string>;
     }
@@ -9979,12 +9991,10 @@ export namespace bedrockmodel {
     export interface InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config {
         /**
          * S3 bucket name.
-         *
-         * The following arguments are optional:
          */
         bucketName?: pulumi.Input<string>;
         /**
-         * S3 object key prefix.
+         * S3 prefix.
          */
         keyPrefix?: pulumi.Input<string>;
     }
@@ -9992,12 +10002,10 @@ export namespace bedrockmodel {
     export interface InvocationLoggingConfigurationLoggingConfigS3Config {
         /**
          * S3 bucket name.
-         *
-         * The following arguments are optional:
          */
         bucketName?: pulumi.Input<string>;
         /**
-         * S3 object key prefix.
+         * S3 prefix.
          */
         keyPrefix?: pulumi.Input<string>;
     }
@@ -11636,6 +11644,13 @@ export namespace cloudfront {
 
     export interface FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns {
         items?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface KeyValueStoreTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
     }
 
     export interface MonitoringSubscriptionMonitoringSubscription {
@@ -17247,6 +17262,8 @@ export namespace datasync {
         transferredOverride?: pulumi.Input<string>;
         /**
          * Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+         *
+         * > **NOTE:** If any `reportOverrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
          */
         verifiedOverride?: pulumi.Input<string>;
     }
@@ -24568,6 +24585,14 @@ export namespace ecs {
          * The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
          */
         portName: pulumi.Input<string>;
+        /**
+         * Configuration timeouts for Service Connect
+         */
+        timeout?: pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationServiceTimeout>;
+        /**
+         * The configuration for enabling Transport Layer Security (TLS)
+         */
+        tls?: pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationServiceTls>;
     }
 
     export interface ServiceServiceConnectConfigurationServiceClientAlias {
@@ -24579,6 +24604,39 @@ export namespace ecs {
          * The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
          */
         port: pulumi.Input<number>;
+    }
+
+    export interface ServiceServiceConnectConfigurationServiceTimeout {
+        /**
+         * The amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
+         */
+        idleTimeoutSeconds?: pulumi.Input<number>;
+        /**
+         * The amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
+         */
+        perRequestTimeoutSeconds?: pulumi.Input<number>;
+    }
+
+    export interface ServiceServiceConnectConfigurationServiceTls {
+        /**
+         * The details of the certificate authority which will issue the certificate.
+         */
+        issuerCertAuthority: pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority>;
+        /**
+         * The KMS key used to encrypt the private key in Secrets Manager.
+         */
+        kmsKey?: pulumi.Input<string>;
+        /**
+         * The ARN of the IAM Role that's associated with the Service Connect TLS.
+         */
+        roleArn?: pulumi.Input<string>;
+    }
+
+    export interface ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority {
+        /**
+         * The ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
+         */
+        awsPcaAuthorityArn?: pulumi.Input<string>;
     }
 
     export interface ServiceServiceRegistries {
@@ -28691,6 +28749,17 @@ export namespace glue {
          * An identifier for the Lake Formation principal.
          */
         dataLakePrincipalIdentifier?: pulumi.Input<string>;
+    }
+
+    export interface CatalogDatabaseFederatedDatabase {
+        /**
+         * Name of the connection to the external metastore.
+         */
+        connectionName?: pulumi.Input<string>;
+        /**
+         * Unique identifier for the federated database.
+         */
+        identifier?: pulumi.Input<string>;
     }
 
     export interface CatalogDatabaseTargetDatabase {
@@ -59877,6 +59946,30 @@ export namespace route53 {
         subdivision?: pulumi.Input<string>;
     }
 
+    export interface RecordGeoproximityRoutingPolicy {
+        /**
+         * A AWS region where the resource is present.
+         */
+        awsRegion?: pulumi.Input<string>;
+        /**
+         * Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+         */
+        bias?: pulumi.Input<number>;
+        /**
+         * Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+         */
+        coordinates?: pulumi.Input<pulumi.Input<inputs.route53.RecordGeoproximityRoutingPolicyCoordinate>[]>;
+        /**
+         * A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+         */
+        localZoneGroup?: pulumi.Input<string>;
+    }
+
+    export interface RecordGeoproximityRoutingPolicyCoordinate {
+        latitude: pulumi.Input<string>;
+        longitude: pulumi.Input<string>;
+    }
+
     export interface RecordLatencyRoutingPolicy {
         /**
          * An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
@@ -59912,6 +60005,7 @@ export namespace route53 {
          * The port at `ip` that you want to forward DNS queries to. Default value is `53`
          */
         port?: pulumi.Input<number>;
+        protocol?: pulumi.Input<string>;
     }
 
     export interface ZoneVpc {
@@ -63556,6 +63650,10 @@ export namespace sagemaker {
          */
         modelName: pulumi.Input<string>;
         /**
+         * Sets how the endpoint routes incoming traffic. See routingConfig below.
+         */
+        routingConfigs?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationProductionVariantRoutingConfig>[]>;
+        /**
          * Specifies configuration for how an endpoint performs asynchronous inference.
          */
         serverlessConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationProductionVariantServerlessConfig>;
@@ -63578,6 +63676,13 @@ export namespace sagemaker {
          * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
          */
         kmsKeyId?: pulumi.Input<string>;
+    }
+
+    export interface EndpointConfigurationProductionVariantRoutingConfig {
+        /**
+         * Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+         */
+        routingStrategy: pulumi.Input<string>;
     }
 
     export interface EndpointConfigurationProductionVariantServerlessConfig {
@@ -63633,6 +63738,10 @@ export namespace sagemaker {
          */
         modelName: pulumi.Input<string>;
         /**
+         * Sets how the endpoint routes incoming traffic. See routingConfig below.
+         */
+        routingConfigs?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationShadowProductionVariantRoutingConfig>[]>;
+        /**
          * Specifies configuration for how an endpoint performs asynchronous inference.
          */
         serverlessConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationShadowProductionVariantServerlessConfig>;
@@ -63655,6 +63764,13 @@ export namespace sagemaker {
          * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
          */
         kmsKeyId: pulumi.Input<string>;
+    }
+
+    export interface EndpointConfigurationShadowProductionVariantRoutingConfig {
+        /**
+         * Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+         */
+        routingStrategy: pulumi.Input<string>;
     }
 
     export interface EndpointConfigurationShadowProductionVariantServerlessConfig {
@@ -64248,7 +64364,30 @@ export namespace sagemaker {
         value?: pulumi.Input<string>;
     }
 
+    export interface SpaceOwnershipSettings {
+        /**
+         * The user profile who is the owner of the private space.
+         */
+        ownerUserProfileName: pulumi.Input<string>;
+    }
+
     export interface SpaceSpaceSettings {
+        /**
+         * The type of app created within the space.
+         */
+        appType?: pulumi.Input<string>;
+        /**
+         * The Code Editor application settings. See Code Editor App Settings below.
+         */
+        codeEditorAppSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsCodeEditorAppSettings>;
+        /**
+         * A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+         */
+        customFileSystems?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsCustomFileSystem>[]>;
+        /**
+         * The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+         */
+        jupyterLabAppSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettings>;
         /**
          * The Jupyter server's app settings. See Jupyter Server App Settings below.
          */
@@ -64257,6 +64396,92 @@ export namespace sagemaker {
          * The kernel gateway app settings. See Kernel Gateway App Settings below.
          */
         kernelGatewayAppSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsKernelGatewayAppSettings>;
+        spaceStorageSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsSpaceStorageSettings>;
+    }
+
+    export interface SpaceSpaceSettingsCodeEditorAppSettings {
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec>;
+    }
+
+    export interface SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type.
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         */
+        sagemakerImageArn?: pulumi.Input<string>;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: pulumi.Input<string>;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: pulumi.Input<string>;
+    }
+
+    export interface SpaceSpaceSettingsCustomFileSystem {
+        /**
+         * A custom file system in Amazon EFS. see EFS File System below.
+         */
+        efsFileSystem: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsCustomFileSystemEfsFileSystem>;
+    }
+
+    export interface SpaceSpaceSettingsCustomFileSystemEfsFileSystem {
+        /**
+         * The ID of your Amazon EFS file system.
+         */
+        fileSystemId: pulumi.Input<string>;
+    }
+
+    export interface SpaceSpaceSettingsJupyterLabAppSettings {
+        /**
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         */
+        codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository>[]>;
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         */
+        defaultResourceSpec: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec>;
+    }
+
+    export interface SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository {
+        /**
+         * The URL of the Git repository.
+         */
+        repositoryUrl: pulumi.Input<string>;
+    }
+
+    export interface SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type.
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         */
+        sagemakerImageArn?: pulumi.Input<string>;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: pulumi.Input<string>;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: pulumi.Input<string>;
     }
 
     export interface SpaceSpaceSettingsJupyterServerAppSettings {
@@ -64355,6 +64580,21 @@ export namespace sagemaker {
          * The ARN of the image version created on the instance.
          */
         sagemakerImageVersionArn?: pulumi.Input<string>;
+    }
+
+    export interface SpaceSpaceSettingsSpaceStorageSettings {
+        ebsStorageSettings: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings>;
+    }
+
+    export interface SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings {
+        ebsVolumeSizeInGb: pulumi.Input<number>;
+    }
+
+    export interface SpaceSpaceSharingSettings {
+        /**
+         * Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
+         */
+        sharingType: pulumi.Input<string>;
     }
 
     export interface UserProfileUserSettings {

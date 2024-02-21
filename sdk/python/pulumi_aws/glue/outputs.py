@@ -13,6 +13,7 @@ from . import outputs
 __all__ = [
     'CatalogDatabaseCreateTableDefaultPermission',
     'CatalogDatabaseCreateTableDefaultPermissionPrincipal',
+    'CatalogDatabaseFederatedDatabase',
     'CatalogDatabaseTargetDatabase',
     'CatalogTableOpenTableFormatInput',
     'CatalogTableOpenTableFormatInputIcebergInput',
@@ -154,6 +155,54 @@ class CatalogDatabaseCreateTableDefaultPermissionPrincipal(dict):
         An identifier for the Lake Formation principal.
         """
         return pulumi.get(self, "data_lake_principal_identifier")
+
+
+@pulumi.output_type
+class CatalogDatabaseFederatedDatabase(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionName":
+            suggest = "connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogDatabaseFederatedDatabase. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogDatabaseFederatedDatabase.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogDatabaseFederatedDatabase.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_name: Optional[str] = None,
+                 identifier: Optional[str] = None):
+        """
+        :param str connection_name: Name of the connection to the external metastore.
+        :param str identifier: Unique identifier for the federated database.
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[str]:
+        """
+        Name of the connection to the external metastore.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[str]:
+        """
+        Unique identifier for the federated database.
+        """
+        return pulumi.get(self, "identifier")
 
 
 @pulumi.output_type

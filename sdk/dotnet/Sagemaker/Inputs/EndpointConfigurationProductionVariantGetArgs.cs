@@ -66,6 +66,18 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         [Input("modelName", required: true)]
         public Input<string> ModelName { get; set; } = null!;
 
+        [Input("routingConfigs")]
+        private InputList<Inputs.EndpointConfigurationProductionVariantRoutingConfigGetArgs>? _routingConfigs;
+
+        /// <summary>
+        /// Sets how the endpoint routes incoming traffic. See routing_config below.
+        /// </summary>
+        public InputList<Inputs.EndpointConfigurationProductionVariantRoutingConfigGetArgs> RoutingConfigs
+        {
+            get => _routingConfigs ?? (_routingConfigs = new InputList<Inputs.EndpointConfigurationProductionVariantRoutingConfigGetArgs>());
+            set => _routingConfigs = value;
+        }
+
         /// <summary>
         /// Specifies configuration for how an endpoint performs asynchronous inference.
         /// </summary>

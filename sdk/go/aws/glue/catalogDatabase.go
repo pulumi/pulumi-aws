@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogDatabase(ctx, "awsGlueCatalogDatabase", &glue.CatalogDatabaseArgs{
+//			_, err := glue.NewCatalogDatabase(ctx, "example", &glue.CatalogDatabaseArgs{
 //				Name: pulumi.String("MyCatalogDatabase"),
 //			})
 //			if err != nil {
@@ -52,7 +52,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogDatabase(ctx, "awsGlueCatalogDatabase", &glue.CatalogDatabaseArgs{
+//			_, err := glue.NewCatalogDatabase(ctx, "example", &glue.CatalogDatabaseArgs{
 //				CreateTableDefaultPermissions: glue.CatalogDatabaseCreateTableDefaultPermissionArray{
 //					&glue.CatalogDatabaseCreateTableDefaultPermissionArgs{
 //						Permissions: pulumi.StringArray{
@@ -94,6 +94,8 @@ type CatalogDatabase struct {
 	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayOutput `pulumi:"createTableDefaultPermissions"`
 	// Description of the database.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+	FederatedDatabase CatalogDatabaseFederatedDatabasePtrOutput `pulumi:"federatedDatabase"`
 	// Location of the database (for example, an HDFS path).
 	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
 	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
@@ -152,6 +154,8 @@ type catalogDatabaseState struct {
 	CreateTableDefaultPermissions []CatalogDatabaseCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
 	// Description of the database.
 	Description *string `pulumi:"description"`
+	// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+	FederatedDatabase *CatalogDatabaseFederatedDatabase `pulumi:"federatedDatabase"`
 	// Location of the database (for example, an HDFS path).
 	LocationUri *string `pulumi:"locationUri"`
 	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
@@ -177,6 +181,8 @@ type CatalogDatabaseState struct {
 	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayInput
 	// Description of the database.
 	Description pulumi.StringPtrInput
+	// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+	FederatedDatabase CatalogDatabaseFederatedDatabasePtrInput
 	// Location of the database (for example, an HDFS path).
 	LocationUri pulumi.StringPtrInput
 	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
@@ -204,6 +210,8 @@ type catalogDatabaseArgs struct {
 	CreateTableDefaultPermissions []CatalogDatabaseCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
 	// Description of the database.
 	Description *string `pulumi:"description"`
+	// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+	FederatedDatabase *CatalogDatabaseFederatedDatabase `pulumi:"federatedDatabase"`
 	// Location of the database (for example, an HDFS path).
 	LocationUri *string `pulumi:"locationUri"`
 	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
@@ -224,6 +232,8 @@ type CatalogDatabaseArgs struct {
 	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayInput
 	// Description of the database.
 	Description pulumi.StringPtrInput
+	// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+	FederatedDatabase CatalogDatabaseFederatedDatabasePtrInput
 	// Location of the database (for example, an HDFS path).
 	LocationUri pulumi.StringPtrInput
 	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
@@ -343,6 +353,11 @@ func (o CatalogDatabaseOutput) CreateTableDefaultPermissions() CatalogDatabaseCr
 // Description of the database.
 func (o CatalogDatabaseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+func (o CatalogDatabaseOutput) FederatedDatabase() CatalogDatabaseFederatedDatabasePtrOutput {
+	return o.ApplyT(func(v *CatalogDatabase) CatalogDatabaseFederatedDatabasePtrOutput { return v.FederatedDatabase }).(CatalogDatabaseFederatedDatabasePtrOutput)
 }
 
 // Location of the database (for example, an HDFS path).

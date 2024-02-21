@@ -351,6 +351,7 @@ class ProviderEndpointArgs:
                  cloudcontrolapi: Optional[pulumi.Input[str]] = None,
                  cloudformation: Optional[pulumi.Input[str]] = None,
                  cloudfront: Optional[pulumi.Input[str]] = None,
+                 cloudfrontkeyvaluestore: Optional[pulumi.Input[str]] = None,
                  cloudhsm: Optional[pulumi.Input[str]] = None,
                  cloudhsmv2: Optional[pulumi.Input[str]] = None,
                  cloudsearch: Optional[pulumi.Input[str]] = None,
@@ -384,6 +385,7 @@ class ProviderEndpointArgs:
                  controltower: Optional[pulumi.Input[str]] = None,
                  costandusagereportservice: Optional[pulumi.Input[str]] = None,
                  costexplorer: Optional[pulumi.Input[str]] = None,
+                 costoptimizationhub: Optional[pulumi.Input[str]] = None,
                  cur: Optional[pulumi.Input[str]] = None,
                  customerprofiles: Optional[pulumi.Input[str]] = None,
                  databasemigration: Optional[pulumi.Input[str]] = None,
@@ -623,6 +625,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] cloudcontrolapi: Use this to override the default service endpoint URL
         :param pulumi.Input[str] cloudformation: Use this to override the default service endpoint URL
         :param pulumi.Input[str] cloudfront: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] cloudfrontkeyvaluestore: Use this to override the default service endpoint URL
         :param pulumi.Input[str] cloudhsm: Use this to override the default service endpoint URL
         :param pulumi.Input[str] cloudhsmv2: Use this to override the default service endpoint URL
         :param pulumi.Input[str] cloudsearch: Use this to override the default service endpoint URL
@@ -656,6 +659,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] controltower: Use this to override the default service endpoint URL
         :param pulumi.Input[str] costandusagereportservice: Use this to override the default service endpoint URL
         :param pulumi.Input[str] costexplorer: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] costoptimizationhub: Use this to override the default service endpoint URL
         :param pulumi.Input[str] cur: Use this to override the default service endpoint URL
         :param pulumi.Input[str] customerprofiles: Use this to override the default service endpoint URL
         :param pulumi.Input[str] databasemigration: Use this to override the default service endpoint URL
@@ -937,6 +941,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "cloudformation", cloudformation)
         if cloudfront is not None:
             pulumi.set(__self__, "cloudfront", cloudfront)
+        if cloudfrontkeyvaluestore is not None:
+            pulumi.set(__self__, "cloudfrontkeyvaluestore", cloudfrontkeyvaluestore)
         if cloudhsm is not None:
             pulumi.set(__self__, "cloudhsm", cloudhsm)
         if cloudhsmv2 is not None:
@@ -1003,6 +1009,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "costandusagereportservice", costandusagereportservice)
         if costexplorer is not None:
             pulumi.set(__self__, "costexplorer", costexplorer)
+        if costoptimizationhub is not None:
+            pulumi.set(__self__, "costoptimizationhub", costoptimizationhub)
         if cur is not None:
             pulumi.set(__self__, "cur", cur)
         if customerprofiles is not None:
@@ -1902,6 +1910,18 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def cloudfrontkeyvaluestore(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "cloudfrontkeyvaluestore")
+
+    @cloudfrontkeyvaluestore.setter
+    def cloudfrontkeyvaluestore(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloudfrontkeyvaluestore", value)
+
+    @property
+    @pulumi.getter
     def cloudhsm(self) -> Optional[pulumi.Input[str]]:
         """
         Use this to override the default service endpoint URL
@@ -2295,6 +2315,18 @@ class ProviderEndpointArgs:
     @costexplorer.setter
     def costexplorer(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "costexplorer", value)
+
+    @property
+    @pulumi.getter
+    def costoptimizationhub(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "costoptimizationhub")
+
+    @costoptimizationhub.setter
+    def costoptimizationhub(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "costoptimizationhub", value)
 
     @property
     @pulumi.getter

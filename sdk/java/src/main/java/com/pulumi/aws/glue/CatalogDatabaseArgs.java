@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue;
 
 import com.pulumi.aws.glue.inputs.CatalogDatabaseCreateTableDefaultPermissionArgs;
+import com.pulumi.aws.glue.inputs.CatalogDatabaseFederatedDatabaseArgs;
 import com.pulumi.aws.glue.inputs.CatalogDatabaseTargetDatabaseArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -62,6 +63,21 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+     * 
+     */
+    @Import(name="federatedDatabase")
+    private @Nullable Output<CatalogDatabaseFederatedDatabaseArgs> federatedDatabase;
+
+    /**
+     * @return Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+     * 
+     */
+    public Optional<Output<CatalogDatabaseFederatedDatabaseArgs>> federatedDatabase() {
+        return Optional.ofNullable(this.federatedDatabase);
     }
 
     /**
@@ -145,6 +161,7 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
         this.catalogId = $.catalogId;
         this.createTableDefaultPermissions = $.createTableDefaultPermissions;
         this.description = $.description;
+        this.federatedDatabase = $.federatedDatabase;
         this.locationUri = $.locationUri;
         this.name = $.name;
         this.parameters = $.parameters;
@@ -241,6 +258,27 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param federatedDatabase Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder federatedDatabase(@Nullable Output<CatalogDatabaseFederatedDatabaseArgs> federatedDatabase) {
+            $.federatedDatabase = federatedDatabase;
+            return this;
+        }
+
+        /**
+         * @param federatedDatabase Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder federatedDatabase(CatalogDatabaseFederatedDatabaseArgs federatedDatabase) {
+            return federatedDatabase(Output.of(federatedDatabase));
         }
 
         /**

@@ -56,6 +56,27 @@ import * as utilities from "../utilities";
  *     records: ["live.example.com"],
  * });
  * ```
+ * ### Geoproximity routing policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const www = new aws.route53.Record("www", {
+ *     zoneId: aws_route53_zone.primary.zone_id,
+ *     name: "www.example.com",
+ *     type: "CNAME",
+ *     ttl: 300,
+ *     geoproximityRoutingPolicy: {
+ *         coordinates: [{
+ *             latitude: "49.22",
+ *             longitude: "-74.01",
+ *         }],
+ *     },
+ *     setIdentifier: "dev",
+ *     records: ["dev.example.com"],
+ * });
+ * ```
  * ### Alias record
  *
  * See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
@@ -187,6 +208,10 @@ export class Record extends pulumi.CustomResource {
      */
     public readonly geolocationRoutingPolicies!: pulumi.Output<outputs.route53.RecordGeolocationRoutingPolicy[] | undefined>;
     /**
+     * A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+     */
+    public readonly geoproximityRoutingPolicy!: pulumi.Output<outputs.route53.RecordGeoproximityRoutingPolicy | undefined>;
+    /**
      * The health check the record should be associated with.
      */
     public readonly healthCheckId!: pulumi.Output<string | undefined>;
@@ -207,7 +232,7 @@ export class Record extends pulumi.CustomResource {
      */
     public readonly records!: pulumi.Output<string[] | undefined>;
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`,`geoproximityRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
      */
     public readonly setIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -246,6 +271,7 @@ export class Record extends pulumi.CustomResource {
             resourceInputs["failoverRoutingPolicies"] = state ? state.failoverRoutingPolicies : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
             resourceInputs["geolocationRoutingPolicies"] = state ? state.geolocationRoutingPolicies : undefined;
+            resourceInputs["geoproximityRoutingPolicy"] = state ? state.geoproximityRoutingPolicy : undefined;
             resourceInputs["healthCheckId"] = state ? state.healthCheckId : undefined;
             resourceInputs["latencyRoutingPolicies"] = state ? state.latencyRoutingPolicies : undefined;
             resourceInputs["multivalueAnswerRoutingPolicy"] = state ? state.multivalueAnswerRoutingPolicy : undefined;
@@ -272,6 +298,7 @@ export class Record extends pulumi.CustomResource {
             resourceInputs["cidrRoutingPolicy"] = args ? args.cidrRoutingPolicy : undefined;
             resourceInputs["failoverRoutingPolicies"] = args ? args.failoverRoutingPolicies : undefined;
             resourceInputs["geolocationRoutingPolicies"] = args ? args.geolocationRoutingPolicies : undefined;
+            resourceInputs["geoproximityRoutingPolicy"] = args ? args.geoproximityRoutingPolicy : undefined;
             resourceInputs["healthCheckId"] = args ? args.healthCheckId : undefined;
             resourceInputs["latencyRoutingPolicies"] = args ? args.latencyRoutingPolicies : undefined;
             resourceInputs["multivalueAnswerRoutingPolicy"] = args ? args.multivalueAnswerRoutingPolicy : undefined;
@@ -321,6 +348,10 @@ export interface RecordState {
      */
     geolocationRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordGeolocationRoutingPolicy>[]>;
     /**
+     * A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+     */
+    geoproximityRoutingPolicy?: pulumi.Input<inputs.route53.RecordGeoproximityRoutingPolicy>;
+    /**
      * The health check the record should be associated with.
      */
     healthCheckId?: pulumi.Input<string>;
@@ -341,7 +372,7 @@ export interface RecordState {
      */
     records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`,`geoproximityRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
      */
     setIdentifier?: pulumi.Input<string>;
     /**
@@ -390,6 +421,10 @@ export interface RecordArgs {
      */
     geolocationRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordGeolocationRoutingPolicy>[]>;
     /**
+     * A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+     */
+    geoproximityRoutingPolicy?: pulumi.Input<inputs.route53.RecordGeoproximityRoutingPolicy>;
+    /**
      * The health check the record should be associated with.
      */
     healthCheckId?: pulumi.Input<string>;
@@ -410,7 +445,7 @@ export interface RecordArgs {
      */
     records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`,`geoproximityRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
      */
     setIdentifier?: pulumi.Input<string>;
     /**

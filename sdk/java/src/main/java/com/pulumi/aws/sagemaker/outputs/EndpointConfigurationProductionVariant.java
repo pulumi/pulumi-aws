@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationProductionVariantCoreDumpConfig;
+import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationProductionVariantRoutingConfig;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationProductionVariantServerlessConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -11,6 +12,7 @@ import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -62,6 +64,11 @@ public final class EndpointConfigurationProductionVariant {
      * 
      */
     private String modelName;
+    /**
+     * @return Sets how the endpoint routes incoming traffic. See routing_config below.
+     * 
+     */
+    private @Nullable List<EndpointConfigurationProductionVariantRoutingConfig> routingConfigs;
     /**
      * @return Specifies configuration for how an endpoint performs asynchronous inference.
      * 
@@ -143,6 +150,13 @@ public final class EndpointConfigurationProductionVariant {
         return this.modelName;
     }
     /**
+     * @return Sets how the endpoint routes incoming traffic. See routing_config below.
+     * 
+     */
+    public List<EndpointConfigurationProductionVariantRoutingConfig> routingConfigs() {
+        return this.routingConfigs == null ? List.of() : this.routingConfigs;
+    }
+    /**
      * @return Specifies configuration for how an endpoint performs asynchronous inference.
      * 
      */
@@ -182,6 +196,7 @@ public final class EndpointConfigurationProductionVariant {
         private @Nullable String instanceType;
         private @Nullable Integer modelDataDownloadTimeoutInSeconds;
         private String modelName;
+        private @Nullable List<EndpointConfigurationProductionVariantRoutingConfig> routingConfigs;
         private @Nullable EndpointConfigurationProductionVariantServerlessConfig serverlessConfig;
         private @Nullable String variantName;
         private @Nullable Integer volumeSizeInGb;
@@ -197,6 +212,7 @@ public final class EndpointConfigurationProductionVariant {
     	      this.instanceType = defaults.instanceType;
     	      this.modelDataDownloadTimeoutInSeconds = defaults.modelDataDownloadTimeoutInSeconds;
     	      this.modelName = defaults.modelName;
+    	      this.routingConfigs = defaults.routingConfigs;
     	      this.serverlessConfig = defaults.serverlessConfig;
     	      this.variantName = defaults.variantName;
     	      this.volumeSizeInGb = defaults.volumeSizeInGb;
@@ -259,6 +275,15 @@ public final class EndpointConfigurationProductionVariant {
             return this;
         }
         @CustomType.Setter
+        public Builder routingConfigs(@Nullable List<EndpointConfigurationProductionVariantRoutingConfig> routingConfigs) {
+
+            this.routingConfigs = routingConfigs;
+            return this;
+        }
+        public Builder routingConfigs(EndpointConfigurationProductionVariantRoutingConfig... routingConfigs) {
+            return routingConfigs(List.of(routingConfigs));
+        }
+        @CustomType.Setter
         public Builder serverlessConfig(@Nullable EndpointConfigurationProductionVariantServerlessConfig serverlessConfig) {
 
             this.serverlessConfig = serverlessConfig;
@@ -287,6 +312,7 @@ public final class EndpointConfigurationProductionVariant {
             _resultValue.instanceType = instanceType;
             _resultValue.modelDataDownloadTimeoutInSeconds = modelDataDownloadTimeoutInSeconds;
             _resultValue.modelName = modelName;
+            _resultValue.routingConfigs = routingConfigs;
             _resultValue.serverlessConfig = serverlessConfig;
             _resultValue.variantName = variantName;
             _resultValue.volumeSizeInGb = volumeSizeInGb;

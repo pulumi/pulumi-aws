@@ -353,6 +353,10 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly taskRoleArn!: pulumi.Output<string | undefined>;
     /**
+     * Whether should track latest task definition or the one created with the resource. Default is `false`.
+     */
+    public readonly trackLatest!: pulumi.Output<boolean | undefined>;
+    /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      */
     public readonly volumes!: pulumi.Output<outputs.ecs.TaskDefinitionVolume[] | undefined>;
@@ -391,6 +395,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["taskRoleArn"] = state ? state.taskRoleArn : undefined;
+            resourceInputs["trackLatest"] = state ? state.trackLatest : undefined;
             resourceInputs["volumes"] = state ? state.volumes : undefined;
         } else {
             const args = argsOrState as TaskDefinitionArgs | undefined;
@@ -417,6 +422,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["taskRoleArn"] = args ? args.taskRoleArn : undefined;
+            resourceInputs["trackLatest"] = args ? args.trackLatest : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["arnWithoutRevision"] = undefined /*out*/;
@@ -523,6 +529,10 @@ export interface TaskDefinitionState {
      */
     taskRoleArn?: pulumi.Input<string>;
     /**
+     * Whether should track latest task definition or the one created with the resource. Default is `false`.
+     */
+    trackLatest?: pulumi.Input<boolean>;
+    /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      */
     volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
@@ -602,6 +612,10 @@ export interface TaskDefinitionArgs {
      * ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */
     taskRoleArn?: pulumi.Input<string>;
+    /**
+     * Whether should track latest task definition or the one created with the resource. Default is `false`.
+     */
+    trackLatest?: pulumi.Input<boolean>;
     /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      */

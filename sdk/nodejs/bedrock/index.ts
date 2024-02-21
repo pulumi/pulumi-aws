@@ -20,6 +20,11 @@ export const getCustomModels: typeof import("./getCustomModels").getCustomModels
 export const getCustomModelsOutput: typeof import("./getCustomModels").getCustomModelsOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomModels","getCustomModelsOutput"], () => require("./getCustomModels"));
 
+export { ProvisionedModelThroughputArgs, ProvisionedModelThroughputState } from "./provisionedModelThroughput";
+export type ProvisionedModelThroughput = import("./provisionedModelThroughput").ProvisionedModelThroughput;
+export const ProvisionedModelThroughput: typeof import("./provisionedModelThroughput").ProvisionedModelThroughput = null as any;
+utilities.lazyLoad(exports, ["ProvisionedModelThroughput"], () => require("./provisionedModelThroughput"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -27,9 +32,12 @@ const _module = {
         switch (type) {
             case "aws:bedrock/customModel:CustomModel":
                 return new CustomModel(name, <any>undefined, { urn })
+            case "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput":
+                return new ProvisionedModelThroughput(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "bedrock/customModel", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/provisionedModelThroughput", _module)

@@ -353,6 +353,21 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Whether should track latest task definition or the one created with the resource. Default is `false`.
+     * 
+     */
+    @Import(name="trackLatest")
+    private @Nullable Output<Boolean> trackLatest;
+
+    /**
+     * @return Whether should track latest task definition or the one created with the resource. Default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> trackLatest() {
+        return Optional.ofNullable(this.trackLatest);
+    }
+
+    /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      * 
      */
@@ -391,6 +406,7 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.taskRoleArn = $.taskRoleArn;
+        this.trackLatest = $.trackLatest;
         this.volumes = $.volumes;
     }
 
@@ -893,6 +909,27 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
          */
         public Builder taskRoleArn(String taskRoleArn) {
             return taskRoleArn(Output.of(taskRoleArn));
+        }
+
+        /**
+         * @param trackLatest Whether should track latest task definition or the one created with the resource. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trackLatest(@Nullable Output<Boolean> trackLatest) {
+            $.trackLatest = trackLatest;
+            return this;
+        }
+
+        /**
+         * @param trackLatest Whether should track latest task definition or the one created with the resource. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trackLatest(Boolean trackLatest) {
+            return trackLatest(Output.of(trackLatest));
         }
 
         /**

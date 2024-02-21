@@ -52,6 +52,12 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
+        /// An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+        /// </summary>
+        [Input("clientToken")]
+        public string? ClientToken { get; set; }
+
+        /// <summary>
         /// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
         /// </summary>
         [Input("cluster", required: true)]
@@ -188,6 +194,12 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
+        /// An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+        /// </summary>
+        [Input("clientToken")]
+        public Input<string>? ClientToken { get; set; }
+
+        /// <summary>
         /// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
         /// </summary>
         [Input("cluster", required: true)]
@@ -314,6 +326,7 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetTaskExecutionResult
     {
         public readonly ImmutableArray<Outputs.GetTaskExecutionCapacityProviderStrategyResult> CapacityProviderStrategies;
+        public readonly string? ClientToken;
         public readonly string Cluster;
         public readonly int? DesiredCount;
         public readonly bool? EnableEcsManagedTags;
@@ -342,6 +355,8 @@ namespace Pulumi.Aws.Ecs
         [OutputConstructor]
         private GetTaskExecutionResult(
             ImmutableArray<Outputs.GetTaskExecutionCapacityProviderStrategyResult> capacityProviderStrategies,
+
+            string? clientToken,
 
             string cluster,
 
@@ -380,6 +395,7 @@ namespace Pulumi.Aws.Ecs
             string taskDefinition)
         {
             CapacityProviderStrategies = capacityProviderStrategies;
+            ClientToken = clientToken;
             Cluster = cluster;
             DesiredCount = desiredCount;
             EnableEcsManagedTags = enableEcsManagedTags;

@@ -30,6 +30,11 @@ export type DataShareAuthorization = import("./dataShareAuthorization").DataShar
 export const DataShareAuthorization: typeof import("./dataShareAuthorization").DataShareAuthorization = null as any;
 utilities.lazyLoad(exports, ["DataShareAuthorization"], () => require("./dataShareAuthorization"));
 
+export { DataShareConsumerAssociationArgs, DataShareConsumerAssociationState } from "./dataShareConsumerAssociation";
+export type DataShareConsumerAssociation = import("./dataShareConsumerAssociation").DataShareConsumerAssociation;
+export const DataShareConsumerAssociation: typeof import("./dataShareConsumerAssociation").DataShareConsumerAssociation = null as any;
+utilities.lazyLoad(exports, ["DataShareConsumerAssociation"], () => require("./dataShareConsumerAssociation"));
+
 export { EndpointAccessArgs, EndpointAccessState } from "./endpointAccess";
 export type EndpointAccess = import("./endpointAccess").EndpointAccess;
 export const EndpointAccess: typeof import("./endpointAccess").EndpointAccess = null as any;
@@ -140,6 +145,8 @@ const _module = {
                 return new ClusterSnapshot(name, <any>undefined, { urn })
             case "aws:redshift/dataShareAuthorization:DataShareAuthorization":
                 return new DataShareAuthorization(name, <any>undefined, { urn })
+            case "aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation":
+                return new DataShareConsumerAssociation(name, <any>undefined, { urn })
             case "aws:redshift/endpointAccess:EndpointAccess":
                 return new EndpointAccess(name, <any>undefined, { urn })
             case "aws:redshift/endpointAuthorization:EndpointAuthorization":
@@ -178,6 +185,7 @@ pulumi.runtime.registerResourceModule("aws", "redshift/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/clusterIamRoles", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/clusterSnapshot", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/dataShareAuthorization", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/dataShareConsumerAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/endpointAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/endpointAuthorization", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/eventSubscription", _module)

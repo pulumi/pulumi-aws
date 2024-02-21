@@ -42,6 +42,18 @@ namespace Pulumi.Aws.Ecs.Inputs
         [Input("portName", required: true)]
         public Input<string> PortName { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration timeouts for Service Connect
+        /// </summary>
+        [Input("timeout")]
+        public Input<Inputs.ServiceServiceConnectConfigurationServiceTimeoutArgs>? Timeout { get; set; }
+
+        /// <summary>
+        /// The configuration for enabling Transport Layer Security (TLS)
+        /// </summary>
+        [Input("tls")]
+        public Input<Inputs.ServiceServiceConnectConfigurationServiceTlsArgs>? Tls { get; set; }
+
         public ServiceServiceConnectConfigurationServiceArgs()
         {
         }

@@ -81,6 +81,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly repositoryCount!: pulumi.Output<number>;
     /**
+     * The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+     */
+    public /*out*/ readonly s3BucketArn!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -111,6 +115,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["encryptionKey"] = state ? state.encryptionKey : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["repositoryCount"] = state ? state.repositoryCount : undefined;
+            resourceInputs["s3BucketArn"] = state ? state.s3BucketArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -126,6 +131,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
             resourceInputs["repositoryCount"] = undefined /*out*/;
+            resourceInputs["s3BucketArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -167,6 +173,10 @@ export interface DomainState {
      * The number of repositories in the domain.
      */
     repositoryCount?: pulumi.Input<number>;
+    /**
+     * The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+     */
+    s3BucketArn?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

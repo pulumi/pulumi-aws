@@ -17,14 +17,14 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
     public static final InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs Empty = new InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs();
 
     /**
-     * S3 configuration for delivering a large amount of data. See `s3_config`.
+     * S3 configuration for delivering a large amount of data.
      * 
      */
     @Import(name="largeDataDeliveryS3Config")
     private @Nullable Output<InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs> largeDataDeliveryS3Config;
 
     /**
-     * @return S3 configuration for delivering a large amount of data. See `s3_config`.
+     * @return S3 configuration for delivering a large amount of data.
      * 
      */
     public Optional<Output<InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs>> largeDataDeliveryS3Config() {
@@ -47,18 +47,14 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
     }
 
     /**
-     * IAM Role ARN.
-     * 
-     * The following arguments are optional:
+     * The role ARN.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return IAM Role ARN.
-     * 
-     * The following arguments are optional:
+     * @return The role ARN.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -92,7 +88,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
         }
 
         /**
-         * @param largeDataDeliveryS3Config S3 configuration for delivering a large amount of data. See `s3_config`.
+         * @param largeDataDeliveryS3Config S3 configuration for delivering a large amount of data.
          * 
          * @return builder
          * 
@@ -103,7 +99,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
         }
 
         /**
-         * @param largeDataDeliveryS3Config S3 configuration for delivering a large amount of data. See `s3_config`.
+         * @param largeDataDeliveryS3Config S3 configuration for delivering a large amount of data.
          * 
          * @return builder
          * 
@@ -134,9 +130,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
         }
 
         /**
-         * @param roleArn IAM Role ARN.
-         * 
-         * The following arguments are optional:
+         * @param roleArn The role ARN.
          * 
          * @return builder
          * 
@@ -147,9 +141,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
         }
 
         /**
-         * @param roleArn IAM Role ARN.
-         * 
-         * The following arguments are optional:
+         * @param roleArn The role ARN.
          * 
          * @return builder
          * 

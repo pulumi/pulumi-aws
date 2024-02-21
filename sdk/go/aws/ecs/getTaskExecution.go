@@ -30,6 +30,8 @@ func GetTaskExecution(ctx *pulumi.Context, args *GetTaskExecutionArgs, opts ...p
 type GetTaskExecutionArgs struct {
 	// Set of capacity provider strategies to use for the cluster. See below.
 	CapacityProviderStrategies []GetTaskExecutionCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
+	// An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+	ClientToken *string `pulumi:"clientToken"`
 	// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
 	Cluster string `pulumi:"cluster"`
 	// Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
@@ -69,6 +71,7 @@ type GetTaskExecutionArgs struct {
 // A collection of values returned by getTaskExecution.
 type GetTaskExecutionResult struct {
 	CapacityProviderStrategies []GetTaskExecutionCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
+	ClientToken                *string                                    `pulumi:"clientToken"`
 	Cluster                    string                                     `pulumi:"cluster"`
 	DesiredCount               *int                                       `pulumi:"desiredCount"`
 	EnableEcsManagedTags       *bool                                      `pulumi:"enableEcsManagedTags"`
@@ -108,6 +111,8 @@ func GetTaskExecutionOutput(ctx *pulumi.Context, args GetTaskExecutionOutputArgs
 type GetTaskExecutionOutputArgs struct {
 	// Set of capacity provider strategies to use for the cluster. See below.
 	CapacityProviderStrategies GetTaskExecutionCapacityProviderStrategyArrayInput `pulumi:"capacityProviderStrategies"`
+	// An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+	ClientToken pulumi.StringPtrInput `pulumi:"clientToken"`
 	// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
 	Cluster pulumi.StringInput `pulumi:"cluster"`
 	// Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
@@ -167,6 +172,10 @@ func (o GetTaskExecutionResultOutput) CapacityProviderStrategies() GetTaskExecut
 	return o.ApplyT(func(v GetTaskExecutionResult) []GetTaskExecutionCapacityProviderStrategy {
 		return v.CapacityProviderStrategies
 	}).(GetTaskExecutionCapacityProviderStrategyArrayOutput)
+}
+
+func (o GetTaskExecutionResultOutput) ClientToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionResult) *string { return v.ClientToken }).(pulumi.StringPtrOutput)
 }
 
 func (o GetTaskExecutionResultOutput) Cluster() pulumi.StringOutput {

@@ -101,6 +101,10 @@ namespace Pulumi.Aws.Ecr
     [OutputType]
     public sealed class GetPullThroughCacheRuleResult
     {
+        /// <summary>
+        /// ARN of the Secret which will be used to authenticate against the registry.
+        /// </summary>
+        public readonly string CredentialArn;
         public readonly string EcrRepositoryPrefix;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -117,6 +121,8 @@ namespace Pulumi.Aws.Ecr
 
         [OutputConstructor]
         private GetPullThroughCacheRuleResult(
+            string credentialArn,
+
             string ecrRepositoryPrefix,
 
             string id,
@@ -125,6 +131,7 @@ namespace Pulumi.Aws.Ecr
 
             string upstreamRegistryUrl)
         {
+            CredentialArn = credentialArn;
             EcrRepositoryPrefix = ecrRepositoryPrefix;
             Id = id;
             RegistryId = registryId;

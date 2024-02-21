@@ -84,6 +84,12 @@ namespace Pulumi.Aws.CodeArtifact
         public Output<int> RepositoryCount { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+        /// </summary>
+        [Output("s3BucketArn")]
+        public Output<string> S3BucketArn { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -218,6 +224,12 @@ namespace Pulumi.Aws.CodeArtifact
         /// </summary>
         [Input("repositoryCount")]
         public Input<int>? RepositoryCount { get; set; }
+
+        /// <summary>
+        /// The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
+        /// </summary>
+        [Input("s3BucketArn")]
+        public Input<string>? S3BucketArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

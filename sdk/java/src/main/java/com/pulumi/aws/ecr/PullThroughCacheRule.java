@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -42,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PullThroughCacheRule(&#34;example&#34;, PullThroughCacheRuleArgs.builder()        
+ *             .credentialArn(&#34;arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic&#34;)
  *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
  *             .upstreamRegistryUrl(&#34;public.ecr.aws&#34;)
  *             .build());
@@ -61,6 +63,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:ecr/pullThroughCacheRule:PullThroughCacheRule")
 public class PullThroughCacheRule extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the Secret which will be used to authenticate against the registry.
+     * 
+     */
+    @Export(name="credentialArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> credentialArn;
+
+    /**
+     * @return ARN of the Secret which will be used to authenticate against the registry.
+     * 
+     */
+    public Output<Optional<String>> credentialArn() {
+        return Codegen.optional(this.credentialArn);
+    }
     /**
      * The repository name prefix to use when caching images from the source registry.
      * 

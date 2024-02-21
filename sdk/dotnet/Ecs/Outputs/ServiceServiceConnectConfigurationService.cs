@@ -29,6 +29,14 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
         /// </summary>
         public readonly string PortName;
+        /// <summary>
+        /// Configuration timeouts for Service Connect
+        /// </summary>
+        public readonly Outputs.ServiceServiceConnectConfigurationServiceTimeout? Timeout;
+        /// <summary>
+        /// The configuration for enabling Transport Layer Security (TLS)
+        /// </summary>
+        public readonly Outputs.ServiceServiceConnectConfigurationServiceTls? Tls;
 
         [OutputConstructor]
         private ServiceServiceConnectConfigurationService(
@@ -38,12 +46,18 @@ namespace Pulumi.Aws.Ecs.Outputs
 
             int? ingressPortOverride,
 
-            string portName)
+            string portName,
+
+            Outputs.ServiceServiceConnectConfigurationServiceTimeout? timeout,
+
+            Outputs.ServiceServiceConnectConfigurationServiceTls? tls)
         {
             ClientAlias = clientAlias;
             DiscoveryName = discoveryName;
             IngressPortOverride = ingressPortOverride;
             PortName = portName;
+            Timeout = timeout;
+            Tls = tls;
         }
     }
 }

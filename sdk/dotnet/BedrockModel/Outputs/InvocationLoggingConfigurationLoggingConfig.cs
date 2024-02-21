@@ -14,7 +14,7 @@ namespace Pulumi.Aws.BedrockModel.Outputs
     public sealed class InvocationLoggingConfigurationLoggingConfig
     {
         /// <summary>
-        /// CloudWatch logging configuration. See `cloudwatch_config`.
+        /// CloudWatch logging configuration.
         /// </summary>
         public readonly Outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfig? CloudwatchConfig;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.BedrockModel.Outputs
         /// </summary>
         public readonly bool ImageDataDeliveryEnabled;
         /// <summary>
-        /// S3 configuration for storing log data. See `s3_config`.
+        /// S3 configuration for storing log data.
         /// </summary>
         public readonly Outputs.InvocationLoggingConfigurationLoggingConfigS3Config? S3Config;
         /// <summary>

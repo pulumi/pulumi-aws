@@ -23,6 +23,7 @@ public final class ResolverRuleTargetIp {
      * 
      */
     private @Nullable Integer port;
+    private @Nullable String protocol;
 
     private ResolverRuleTargetIp() {}
     /**
@@ -39,6 +40,9 @@ public final class ResolverRuleTargetIp {
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
+    public Optional<String> protocol() {
+        return Optional.ofNullable(this.protocol);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -51,11 +55,13 @@ public final class ResolverRuleTargetIp {
     public static final class Builder {
         private String ip;
         private @Nullable Integer port;
+        private @Nullable String protocol;
         public Builder() {}
         public Builder(ResolverRuleTargetIp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ip = defaults.ip;
     	      this.port = defaults.port;
+    	      this.protocol = defaults.protocol;
         }
 
         @CustomType.Setter
@@ -72,10 +78,17 @@ public final class ResolverRuleTargetIp {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
+        public Builder protocol(@Nullable String protocol) {
+
+            this.protocol = protocol;
+            return this;
+        }
         public ResolverRuleTargetIp build() {
             final var _resultValue = new ResolverRuleTargetIp();
             _resultValue.ip = ip;
             _resultValue.port = port;
+            _resultValue.protocol = protocol;
             return _resultValue;
         }
     }

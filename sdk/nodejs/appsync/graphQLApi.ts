@@ -48,6 +48,10 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly authenticationType!: pulumi.Output<string>;
     /**
+     * Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
+     */
+    public readonly introspectionConfig!: pulumi.Output<string | undefined>;
+    /**
      * Nested argument containing Lambda authorizer configuration. Defined below.
      */
     public readonly lambdaAuthorizerConfig!: pulumi.Output<outputs.appsync.GraphQLApiLambdaAuthorizerConfig | undefined>;
@@ -63,6 +67,16 @@ export class GraphQLApi extends pulumi.CustomResource {
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
     public readonly openidConnectConfig!: pulumi.Output<outputs.appsync.GraphQLApiOpenidConnectConfig | undefined>;
+    /**
+     * The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+     *
+     * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+     */
+    public readonly queryDepthLimit!: pulumi.Output<number | undefined>;
+    /**
+     * The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+     */
+    public readonly resolverCountLimit!: pulumi.Output<number | undefined>;
     /**
      * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      */
@@ -110,10 +124,13 @@ export class GraphQLApi extends pulumi.CustomResource {
             resourceInputs["additionalAuthenticationProviders"] = state ? state.additionalAuthenticationProviders : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
+            resourceInputs["introspectionConfig"] = state ? state.introspectionConfig : undefined;
             resourceInputs["lambdaAuthorizerConfig"] = state ? state.lambdaAuthorizerConfig : undefined;
             resourceInputs["logConfig"] = state ? state.logConfig : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["openidConnectConfig"] = state ? state.openidConnectConfig : undefined;
+            resourceInputs["queryDepthLimit"] = state ? state.queryDepthLimit : undefined;
+            resourceInputs["resolverCountLimit"] = state ? state.resolverCountLimit : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -128,10 +145,13 @@ export class GraphQLApi extends pulumi.CustomResource {
             }
             resourceInputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
             resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["introspectionConfig"] = args ? args.introspectionConfig : undefined;
             resourceInputs["lambdaAuthorizerConfig"] = args ? args.lambdaAuthorizerConfig : undefined;
             resourceInputs["logConfig"] = args ? args.logConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["openidConnectConfig"] = args ? args.openidConnectConfig : undefined;
+            resourceInputs["queryDepthLimit"] = args ? args.queryDepthLimit : undefined;
+            resourceInputs["resolverCountLimit"] = args ? args.resolverCountLimit : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
@@ -165,6 +185,10 @@ export interface GraphQLApiState {
      */
     authenticationType?: pulumi.Input<string>;
     /**
+     * Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
+     */
+    introspectionConfig?: pulumi.Input<string>;
+    /**
      * Nested argument containing Lambda authorizer configuration. Defined below.
      */
     lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQLApiLambdaAuthorizerConfig>;
@@ -180,6 +204,16 @@ export interface GraphQLApiState {
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
     openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
+    /**
+     * The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+     *
+     * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+     */
+    queryDepthLimit?: pulumi.Input<number>;
+    /**
+     * The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+     */
+    resolverCountLimit?: pulumi.Input<number>;
     /**
      * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      */
@@ -225,6 +259,10 @@ export interface GraphQLApiArgs {
      */
     authenticationType: pulumi.Input<string>;
     /**
+     * Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
+     */
+    introspectionConfig?: pulumi.Input<string>;
+    /**
      * Nested argument containing Lambda authorizer configuration. Defined below.
      */
     lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQLApiLambdaAuthorizerConfig>;
@@ -240,6 +278,16 @@ export interface GraphQLApiArgs {
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
     openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
+    /**
+     * The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+     *
+     * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+     */
+    queryDepthLimit?: pulumi.Input<number>;
+    /**
+     * The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+     */
+    resolverCountLimit?: pulumi.Input<number>;
     /**
      * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      */

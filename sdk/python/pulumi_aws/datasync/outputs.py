@@ -1015,6 +1015,8 @@ class TaskTaskReportConfigReportOverrides(dict):
         :param str skipped_override: Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
         :param str transferred_override: Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
         :param str verified_override: Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+               
+               > **NOTE:** If any `report_overrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
         """
         if deleted_override is not None:
             pulumi.set(__self__, "deleted_override", deleted_override)
@@ -1054,6 +1056,8 @@ class TaskTaskReportConfigReportOverrides(dict):
     def verified_override(self) -> Optional[str]:
         """
         Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+
+        > **NOTE:** If any `report_overrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
         """
         return pulumi.get(self, "verified_override")
 

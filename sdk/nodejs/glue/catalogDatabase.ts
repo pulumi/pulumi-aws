@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const awsGlueCatalogDatabase = new aws.glue.CatalogDatabase("awsGlueCatalogDatabase", {name: "MyCatalogDatabase"});
+ * const example = new aws.glue.CatalogDatabase("example", {name: "MyCatalogDatabase"});
  * ```
  * ### Create Table Default Permissions
  *
@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const awsGlueCatalogDatabase = new aws.glue.CatalogDatabase("awsGlueCatalogDatabase", {
+ * const example = new aws.glue.CatalogDatabase("example", {
  *     createTableDefaultPermissions: [{
  *         permissions: ["SELECT"],
  *         principal: {
@@ -88,6 +88,10 @@ export class CatalogDatabase extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+     */
+    public readonly federatedDatabase!: pulumi.Output<outputs.glue.CatalogDatabaseFederatedDatabase | undefined>;
+    /**
      * Location of the database (for example, an HDFS path).
      */
     public readonly locationUri!: pulumi.Output<string>;
@@ -131,6 +135,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
             resourceInputs["catalogId"] = state ? state.catalogId : undefined;
             resourceInputs["createTableDefaultPermissions"] = state ? state.createTableDefaultPermissions : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["federatedDatabase"] = state ? state.federatedDatabase : undefined;
             resourceInputs["locationUri"] = state ? state.locationUri : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
@@ -142,6 +147,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["createTableDefaultPermissions"] = args ? args.createTableDefaultPermissions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["federatedDatabase"] = args ? args.federatedDatabase : undefined;
             resourceInputs["locationUri"] = args ? args.locationUri : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
@@ -177,6 +183,10 @@ export interface CatalogDatabaseState {
      * Description of the database.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+     */
+    federatedDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseFederatedDatabase>;
     /**
      * Location of the database (for example, an HDFS path).
      */
@@ -221,6 +231,10 @@ export interface CatalogDatabaseArgs {
      * Description of the database.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+     */
+    federatedDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseFederatedDatabase>;
     /**
      * Location of the database (for example, an HDFS path).
      */

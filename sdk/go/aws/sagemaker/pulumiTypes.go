@@ -13108,6 +13108,8 @@ type EndpointConfigurationProductionVariant struct {
 	ModelDataDownloadTimeoutInSeconds *int `pulumi:"modelDataDownloadTimeoutInSeconds"`
 	// The name of the model to use.
 	ModelName string `pulumi:"modelName"`
+	// Sets how the endpoint routes incoming traffic. See routingConfig below.
+	RoutingConfigs []EndpointConfigurationProductionVariantRoutingConfig `pulumi:"routingConfigs"`
 	// Specifies configuration for how an endpoint performs asynchronous inference.
 	ServerlessConfig *EndpointConfigurationProductionVariantServerlessConfig `pulumi:"serverlessConfig"`
 	// The name of the variant. If omitted, this provider will assign a random, unique name.
@@ -13146,6 +13148,8 @@ type EndpointConfigurationProductionVariantArgs struct {
 	ModelDataDownloadTimeoutInSeconds pulumi.IntPtrInput `pulumi:"modelDataDownloadTimeoutInSeconds"`
 	// The name of the model to use.
 	ModelName pulumi.StringInput `pulumi:"modelName"`
+	// Sets how the endpoint routes incoming traffic. See routingConfig below.
+	RoutingConfigs EndpointConfigurationProductionVariantRoutingConfigArrayInput `pulumi:"routingConfigs"`
 	// Specifies configuration for how an endpoint performs asynchronous inference.
 	ServerlessConfig EndpointConfigurationProductionVariantServerlessConfigPtrInput `pulumi:"serverlessConfig"`
 	// The name of the variant. If omitted, this provider will assign a random, unique name.
@@ -13252,6 +13256,13 @@ func (o EndpointConfigurationProductionVariantOutput) ModelDataDownloadTimeoutIn
 // The name of the model to use.
 func (o EndpointConfigurationProductionVariantOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) string { return v.ModelName }).(pulumi.StringOutput)
+}
+
+// Sets how the endpoint routes incoming traffic. See routingConfig below.
+func (o EndpointConfigurationProductionVariantOutput) RoutingConfigs() EndpointConfigurationProductionVariantRoutingConfigArrayOutput {
+	return o.ApplyT(func(v EndpointConfigurationProductionVariant) []EndpointConfigurationProductionVariantRoutingConfig {
+		return v.RoutingConfigs
+	}).(EndpointConfigurationProductionVariantRoutingConfigArrayOutput)
 }
 
 // Specifies configuration for how an endpoint performs asynchronous inference.
@@ -13445,6 +13456,103 @@ func (o EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput) KmsKeyId(
 		}
 		return v.KmsKeyId
 	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigurationProductionVariantRoutingConfig struct {
+	// Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+	RoutingStrategy string `pulumi:"routingStrategy"`
+}
+
+// EndpointConfigurationProductionVariantRoutingConfigInput is an input type that accepts EndpointConfigurationProductionVariantRoutingConfigArgs and EndpointConfigurationProductionVariantRoutingConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigurationProductionVariantRoutingConfigInput` via:
+//
+//	EndpointConfigurationProductionVariantRoutingConfigArgs{...}
+type EndpointConfigurationProductionVariantRoutingConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationProductionVariantRoutingConfigOutput() EndpointConfigurationProductionVariantRoutingConfigOutput
+	ToEndpointConfigurationProductionVariantRoutingConfigOutputWithContext(context.Context) EndpointConfigurationProductionVariantRoutingConfigOutput
+}
+
+type EndpointConfigurationProductionVariantRoutingConfigArgs struct {
+	// Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+	RoutingStrategy pulumi.StringInput `pulumi:"routingStrategy"`
+}
+
+func (EndpointConfigurationProductionVariantRoutingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationProductionVariantRoutingConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigurationProductionVariantRoutingConfigArgs) ToEndpointConfigurationProductionVariantRoutingConfigOutput() EndpointConfigurationProductionVariantRoutingConfigOutput {
+	return i.ToEndpointConfigurationProductionVariantRoutingConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationProductionVariantRoutingConfigArgs) ToEndpointConfigurationProductionVariantRoutingConfigOutputWithContext(ctx context.Context) EndpointConfigurationProductionVariantRoutingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationProductionVariantRoutingConfigOutput)
+}
+
+// EndpointConfigurationProductionVariantRoutingConfigArrayInput is an input type that accepts EndpointConfigurationProductionVariantRoutingConfigArray and EndpointConfigurationProductionVariantRoutingConfigArrayOutput values.
+// You can construct a concrete instance of `EndpointConfigurationProductionVariantRoutingConfigArrayInput` via:
+//
+//	EndpointConfigurationProductionVariantRoutingConfigArray{ EndpointConfigurationProductionVariantRoutingConfigArgs{...} }
+type EndpointConfigurationProductionVariantRoutingConfigArrayInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationProductionVariantRoutingConfigArrayOutput() EndpointConfigurationProductionVariantRoutingConfigArrayOutput
+	ToEndpointConfigurationProductionVariantRoutingConfigArrayOutputWithContext(context.Context) EndpointConfigurationProductionVariantRoutingConfigArrayOutput
+}
+
+type EndpointConfigurationProductionVariantRoutingConfigArray []EndpointConfigurationProductionVariantRoutingConfigInput
+
+func (EndpointConfigurationProductionVariantRoutingConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigurationProductionVariantRoutingConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigurationProductionVariantRoutingConfigArray) ToEndpointConfigurationProductionVariantRoutingConfigArrayOutput() EndpointConfigurationProductionVariantRoutingConfigArrayOutput {
+	return i.ToEndpointConfigurationProductionVariantRoutingConfigArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationProductionVariantRoutingConfigArray) ToEndpointConfigurationProductionVariantRoutingConfigArrayOutputWithContext(ctx context.Context) EndpointConfigurationProductionVariantRoutingConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationProductionVariantRoutingConfigArrayOutput)
+}
+
+type EndpointConfigurationProductionVariantRoutingConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationProductionVariantRoutingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationProductionVariantRoutingConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationProductionVariantRoutingConfigOutput) ToEndpointConfigurationProductionVariantRoutingConfigOutput() EndpointConfigurationProductionVariantRoutingConfigOutput {
+	return o
+}
+
+func (o EndpointConfigurationProductionVariantRoutingConfigOutput) ToEndpointConfigurationProductionVariantRoutingConfigOutputWithContext(ctx context.Context) EndpointConfigurationProductionVariantRoutingConfigOutput {
+	return o
+}
+
+// Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+func (o EndpointConfigurationProductionVariantRoutingConfigOutput) RoutingStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointConfigurationProductionVariantRoutingConfig) string { return v.RoutingStrategy }).(pulumi.StringOutput)
+}
+
+type EndpointConfigurationProductionVariantRoutingConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationProductionVariantRoutingConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigurationProductionVariantRoutingConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationProductionVariantRoutingConfigArrayOutput) ToEndpointConfigurationProductionVariantRoutingConfigArrayOutput() EndpointConfigurationProductionVariantRoutingConfigArrayOutput {
+	return o
+}
+
+func (o EndpointConfigurationProductionVariantRoutingConfigArrayOutput) ToEndpointConfigurationProductionVariantRoutingConfigArrayOutputWithContext(ctx context.Context) EndpointConfigurationProductionVariantRoutingConfigArrayOutput {
+	return o
+}
+
+func (o EndpointConfigurationProductionVariantRoutingConfigArrayOutput) Index(i pulumi.IntInput) EndpointConfigurationProductionVariantRoutingConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointConfigurationProductionVariantRoutingConfig {
+		return vs[0].([]EndpointConfigurationProductionVariantRoutingConfig)[vs[1].(int)]
+	}).(EndpointConfigurationProductionVariantRoutingConfigOutput)
 }
 
 type EndpointConfigurationProductionVariantServerlessConfig struct {
@@ -13641,6 +13749,8 @@ type EndpointConfigurationShadowProductionVariant struct {
 	ModelDataDownloadTimeoutInSeconds *int `pulumi:"modelDataDownloadTimeoutInSeconds"`
 	// The name of the model to use.
 	ModelName string `pulumi:"modelName"`
+	// Sets how the endpoint routes incoming traffic. See routingConfig below.
+	RoutingConfigs []EndpointConfigurationShadowProductionVariantRoutingConfig `pulumi:"routingConfigs"`
 	// Specifies configuration for how an endpoint performs asynchronous inference.
 	ServerlessConfig *EndpointConfigurationShadowProductionVariantServerlessConfig `pulumi:"serverlessConfig"`
 	// The name of the variant. If omitted, this provider will assign a random, unique name.
@@ -13679,6 +13789,8 @@ type EndpointConfigurationShadowProductionVariantArgs struct {
 	ModelDataDownloadTimeoutInSeconds pulumi.IntPtrInput `pulumi:"modelDataDownloadTimeoutInSeconds"`
 	// The name of the model to use.
 	ModelName pulumi.StringInput `pulumi:"modelName"`
+	// Sets how the endpoint routes incoming traffic. See routingConfig below.
+	RoutingConfigs EndpointConfigurationShadowProductionVariantRoutingConfigArrayInput `pulumi:"routingConfigs"`
 	// Specifies configuration for how an endpoint performs asynchronous inference.
 	ServerlessConfig EndpointConfigurationShadowProductionVariantServerlessConfigPtrInput `pulumi:"serverlessConfig"`
 	// The name of the variant. If omitted, this provider will assign a random, unique name.
@@ -13785,6 +13897,13 @@ func (o EndpointConfigurationShadowProductionVariantOutput) ModelDataDownloadTim
 // The name of the model to use.
 func (o EndpointConfigurationShadowProductionVariantOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) string { return v.ModelName }).(pulumi.StringOutput)
+}
+
+// Sets how the endpoint routes incoming traffic. See routingConfig below.
+func (o EndpointConfigurationShadowProductionVariantOutput) RoutingConfigs() EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput {
+	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) []EndpointConfigurationShadowProductionVariantRoutingConfig {
+		return v.RoutingConfigs
+	}).(EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput)
 }
 
 // Specifies configuration for how an endpoint performs asynchronous inference.
@@ -13978,6 +14097,103 @@ func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput) Kms
 		}
 		return &v.KmsKeyId
 	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigurationShadowProductionVariantRoutingConfig struct {
+	// Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+	RoutingStrategy string `pulumi:"routingStrategy"`
+}
+
+// EndpointConfigurationShadowProductionVariantRoutingConfigInput is an input type that accepts EndpointConfigurationShadowProductionVariantRoutingConfigArgs and EndpointConfigurationShadowProductionVariantRoutingConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigurationShadowProductionVariantRoutingConfigInput` via:
+//
+//	EndpointConfigurationShadowProductionVariantRoutingConfigArgs{...}
+type EndpointConfigurationShadowProductionVariantRoutingConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationShadowProductionVariantRoutingConfigOutput() EndpointConfigurationShadowProductionVariantRoutingConfigOutput
+	ToEndpointConfigurationShadowProductionVariantRoutingConfigOutputWithContext(context.Context) EndpointConfigurationShadowProductionVariantRoutingConfigOutput
+}
+
+type EndpointConfigurationShadowProductionVariantRoutingConfigArgs struct {
+	// Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+	RoutingStrategy pulumi.StringInput `pulumi:"routingStrategy"`
+}
+
+func (EndpointConfigurationShadowProductionVariantRoutingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationShadowProductionVariantRoutingConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigurationShadowProductionVariantRoutingConfigArgs) ToEndpointConfigurationShadowProductionVariantRoutingConfigOutput() EndpointConfigurationShadowProductionVariantRoutingConfigOutput {
+	return i.ToEndpointConfigurationShadowProductionVariantRoutingConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationShadowProductionVariantRoutingConfigArgs) ToEndpointConfigurationShadowProductionVariantRoutingConfigOutputWithContext(ctx context.Context) EndpointConfigurationShadowProductionVariantRoutingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationShadowProductionVariantRoutingConfigOutput)
+}
+
+// EndpointConfigurationShadowProductionVariantRoutingConfigArrayInput is an input type that accepts EndpointConfigurationShadowProductionVariantRoutingConfigArray and EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput values.
+// You can construct a concrete instance of `EndpointConfigurationShadowProductionVariantRoutingConfigArrayInput` via:
+//
+//	EndpointConfigurationShadowProductionVariantRoutingConfigArray{ EndpointConfigurationShadowProductionVariantRoutingConfigArgs{...} }
+type EndpointConfigurationShadowProductionVariantRoutingConfigArrayInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput() EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput
+	ToEndpointConfigurationShadowProductionVariantRoutingConfigArrayOutputWithContext(context.Context) EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput
+}
+
+type EndpointConfigurationShadowProductionVariantRoutingConfigArray []EndpointConfigurationShadowProductionVariantRoutingConfigInput
+
+func (EndpointConfigurationShadowProductionVariantRoutingConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigurationShadowProductionVariantRoutingConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigurationShadowProductionVariantRoutingConfigArray) ToEndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput() EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput {
+	return i.ToEndpointConfigurationShadowProductionVariantRoutingConfigArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationShadowProductionVariantRoutingConfigArray) ToEndpointConfigurationShadowProductionVariantRoutingConfigArrayOutputWithContext(ctx context.Context) EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput)
+}
+
+type EndpointConfigurationShadowProductionVariantRoutingConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationShadowProductionVariantRoutingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationShadowProductionVariantRoutingConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationShadowProductionVariantRoutingConfigOutput) ToEndpointConfigurationShadowProductionVariantRoutingConfigOutput() EndpointConfigurationShadowProductionVariantRoutingConfigOutput {
+	return o
+}
+
+func (o EndpointConfigurationShadowProductionVariantRoutingConfigOutput) ToEndpointConfigurationShadowProductionVariantRoutingConfigOutputWithContext(ctx context.Context) EndpointConfigurationShadowProductionVariantRoutingConfigOutput {
+	return o
+}
+
+// Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
+func (o EndpointConfigurationShadowProductionVariantRoutingConfigOutput) RoutingStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantRoutingConfig) string { return v.RoutingStrategy }).(pulumi.StringOutput)
+}
+
+type EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigurationShadowProductionVariantRoutingConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput) ToEndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput() EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput {
+	return o
+}
+
+func (o EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput) ToEndpointConfigurationShadowProductionVariantRoutingConfigArrayOutputWithContext(ctx context.Context) EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput {
+	return o
+}
+
+func (o EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput) Index(i pulumi.IntInput) EndpointConfigurationShadowProductionVariantRoutingConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointConfigurationShadowProductionVariantRoutingConfig {
+		return vs[0].([]EndpointConfigurationShadowProductionVariantRoutingConfig)[vs[1].(int)]
+	}).(EndpointConfigurationShadowProductionVariantRoutingConfigOutput)
 }
 
 type EndpointConfigurationShadowProductionVariantServerlessConfig struct {
@@ -21168,11 +21384,157 @@ func (o ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput
 	}).(ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput)
 }
 
+type SpaceOwnershipSettings struct {
+	// The user profile who is the owner of the private space.
+	OwnerUserProfileName string `pulumi:"ownerUserProfileName"`
+}
+
+// SpaceOwnershipSettingsInput is an input type that accepts SpaceOwnershipSettingsArgs and SpaceOwnershipSettingsOutput values.
+// You can construct a concrete instance of `SpaceOwnershipSettingsInput` via:
+//
+//	SpaceOwnershipSettingsArgs{...}
+type SpaceOwnershipSettingsInput interface {
+	pulumi.Input
+
+	ToSpaceOwnershipSettingsOutput() SpaceOwnershipSettingsOutput
+	ToSpaceOwnershipSettingsOutputWithContext(context.Context) SpaceOwnershipSettingsOutput
+}
+
+type SpaceOwnershipSettingsArgs struct {
+	// The user profile who is the owner of the private space.
+	OwnerUserProfileName pulumi.StringInput `pulumi:"ownerUserProfileName"`
+}
+
+func (SpaceOwnershipSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceOwnershipSettings)(nil)).Elem()
+}
+
+func (i SpaceOwnershipSettingsArgs) ToSpaceOwnershipSettingsOutput() SpaceOwnershipSettingsOutput {
+	return i.ToSpaceOwnershipSettingsOutputWithContext(context.Background())
+}
+
+func (i SpaceOwnershipSettingsArgs) ToSpaceOwnershipSettingsOutputWithContext(ctx context.Context) SpaceOwnershipSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceOwnershipSettingsOutput)
+}
+
+func (i SpaceOwnershipSettingsArgs) ToSpaceOwnershipSettingsPtrOutput() SpaceOwnershipSettingsPtrOutput {
+	return i.ToSpaceOwnershipSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceOwnershipSettingsArgs) ToSpaceOwnershipSettingsPtrOutputWithContext(ctx context.Context) SpaceOwnershipSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceOwnershipSettingsOutput).ToSpaceOwnershipSettingsPtrOutputWithContext(ctx)
+}
+
+// SpaceOwnershipSettingsPtrInput is an input type that accepts SpaceOwnershipSettingsArgs, SpaceOwnershipSettingsPtr and SpaceOwnershipSettingsPtrOutput values.
+// You can construct a concrete instance of `SpaceOwnershipSettingsPtrInput` via:
+//
+//	        SpaceOwnershipSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceOwnershipSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSpaceOwnershipSettingsPtrOutput() SpaceOwnershipSettingsPtrOutput
+	ToSpaceOwnershipSettingsPtrOutputWithContext(context.Context) SpaceOwnershipSettingsPtrOutput
+}
+
+type spaceOwnershipSettingsPtrType SpaceOwnershipSettingsArgs
+
+func SpaceOwnershipSettingsPtr(v *SpaceOwnershipSettingsArgs) SpaceOwnershipSettingsPtrInput {
+	return (*spaceOwnershipSettingsPtrType)(v)
+}
+
+func (*spaceOwnershipSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceOwnershipSettings)(nil)).Elem()
+}
+
+func (i *spaceOwnershipSettingsPtrType) ToSpaceOwnershipSettingsPtrOutput() SpaceOwnershipSettingsPtrOutput {
+	return i.ToSpaceOwnershipSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceOwnershipSettingsPtrType) ToSpaceOwnershipSettingsPtrOutputWithContext(ctx context.Context) SpaceOwnershipSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceOwnershipSettingsPtrOutput)
+}
+
+type SpaceOwnershipSettingsOutput struct{ *pulumi.OutputState }
+
+func (SpaceOwnershipSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceOwnershipSettings)(nil)).Elem()
+}
+
+func (o SpaceOwnershipSettingsOutput) ToSpaceOwnershipSettingsOutput() SpaceOwnershipSettingsOutput {
+	return o
+}
+
+func (o SpaceOwnershipSettingsOutput) ToSpaceOwnershipSettingsOutputWithContext(ctx context.Context) SpaceOwnershipSettingsOutput {
+	return o
+}
+
+func (o SpaceOwnershipSettingsOutput) ToSpaceOwnershipSettingsPtrOutput() SpaceOwnershipSettingsPtrOutput {
+	return o.ToSpaceOwnershipSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceOwnershipSettingsOutput) ToSpaceOwnershipSettingsPtrOutputWithContext(ctx context.Context) SpaceOwnershipSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceOwnershipSettings) *SpaceOwnershipSettings {
+		return &v
+	}).(SpaceOwnershipSettingsPtrOutput)
+}
+
+// The user profile who is the owner of the private space.
+func (o SpaceOwnershipSettingsOutput) OwnerUserProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v SpaceOwnershipSettings) string { return v.OwnerUserProfileName }).(pulumi.StringOutput)
+}
+
+type SpaceOwnershipSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceOwnershipSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceOwnershipSettings)(nil)).Elem()
+}
+
+func (o SpaceOwnershipSettingsPtrOutput) ToSpaceOwnershipSettingsPtrOutput() SpaceOwnershipSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceOwnershipSettingsPtrOutput) ToSpaceOwnershipSettingsPtrOutputWithContext(ctx context.Context) SpaceOwnershipSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceOwnershipSettingsPtrOutput) Elem() SpaceOwnershipSettingsOutput {
+	return o.ApplyT(func(v *SpaceOwnershipSettings) SpaceOwnershipSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceOwnershipSettings
+		return ret
+	}).(SpaceOwnershipSettingsOutput)
+}
+
+// The user profile who is the owner of the private space.
+func (o SpaceOwnershipSettingsPtrOutput) OwnerUserProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceOwnershipSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OwnerUserProfileName
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpaceSpaceSettings struct {
+	// The type of app created within the space.
+	AppType *string `pulumi:"appType"`
+	// The Code Editor application settings. See Code Editor App Settings below.
+	CodeEditorAppSettings *SpaceSpaceSettingsCodeEditorAppSettings `pulumi:"codeEditorAppSettings"`
+	// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+	CustomFileSystems []SpaceSpaceSettingsCustomFileSystem `pulumi:"customFileSystems"`
+	// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+	JupyterLabAppSettings *SpaceSpaceSettingsJupyterLabAppSettings `pulumi:"jupyterLabAppSettings"`
 	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings *SpaceSpaceSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings *SpaceSpaceSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
+	SpaceStorageSettings     *SpaceSpaceSettingsSpaceStorageSettings     `pulumi:"spaceStorageSettings"`
 }
 
 // SpaceSpaceSettingsInput is an input type that accepts SpaceSpaceSettingsArgs and SpaceSpaceSettingsOutput values.
@@ -21187,10 +21549,19 @@ type SpaceSpaceSettingsInput interface {
 }
 
 type SpaceSpaceSettingsArgs struct {
+	// The type of app created within the space.
+	AppType pulumi.StringPtrInput `pulumi:"appType"`
+	// The Code Editor application settings. See Code Editor App Settings below.
+	CodeEditorAppSettings SpaceSpaceSettingsCodeEditorAppSettingsPtrInput `pulumi:"codeEditorAppSettings"`
+	// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+	CustomFileSystems SpaceSpaceSettingsCustomFileSystemArrayInput `pulumi:"customFileSystems"`
+	// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+	JupyterLabAppSettings SpaceSpaceSettingsJupyterLabAppSettingsPtrInput `pulumi:"jupyterLabAppSettings"`
 	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings SpaceSpaceSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings SpaceSpaceSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
+	SpaceStorageSettings     SpaceSpaceSettingsSpaceStorageSettingsPtrInput     `pulumi:"spaceStorageSettings"`
 }
 
 func (SpaceSpaceSettingsArgs) ElementType() reflect.Type {
@@ -21270,6 +21641,26 @@ func (o SpaceSpaceSettingsOutput) ToSpaceSpaceSettingsPtrOutputWithContext(ctx c
 	}).(SpaceSpaceSettingsPtrOutput)
 }
 
+// The type of app created within the space.
+func (o SpaceSpaceSettingsOutput) AppType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettings) *string { return v.AppType }).(pulumi.StringPtrOutput)
+}
+
+// The Code Editor application settings. See Code Editor App Settings below.
+func (o SpaceSpaceSettingsOutput) CodeEditorAppSettings() SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettings) *SpaceSpaceSettingsCodeEditorAppSettings { return v.CodeEditorAppSettings }).(SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput)
+}
+
+// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+func (o SpaceSpaceSettingsOutput) CustomFileSystems() SpaceSpaceSettingsCustomFileSystemArrayOutput {
+	return o.ApplyT(func(v SpaceSpaceSettings) []SpaceSpaceSettingsCustomFileSystem { return v.CustomFileSystems }).(SpaceSpaceSettingsCustomFileSystemArrayOutput)
+}
+
+// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+func (o SpaceSpaceSettingsOutput) JupyterLabAppSettings() SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettings) *SpaceSpaceSettingsJupyterLabAppSettings { return v.JupyterLabAppSettings }).(SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput)
+}
+
 // The Jupyter server's app settings. See Jupyter Server App Settings below.
 func (o SpaceSpaceSettingsOutput) JupyterServerAppSettings() SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettings) *SpaceSpaceSettingsJupyterServerAppSettings {
@@ -21282,6 +21673,10 @@ func (o SpaceSpaceSettingsOutput) KernelGatewayAppSettings() SpaceSpaceSettingsK
 	return o.ApplyT(func(v SpaceSpaceSettings) *SpaceSpaceSettingsKernelGatewayAppSettings {
 		return v.KernelGatewayAppSettings
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput)
+}
+
+func (o SpaceSpaceSettingsOutput) SpaceStorageSettings() SpaceSpaceSettingsSpaceStorageSettingsPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettings) *SpaceSpaceSettingsSpaceStorageSettings { return v.SpaceStorageSettings }).(SpaceSpaceSettingsSpaceStorageSettingsPtrOutput)
 }
 
 type SpaceSpaceSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -21308,6 +21703,46 @@ func (o SpaceSpaceSettingsPtrOutput) Elem() SpaceSpaceSettingsOutput {
 	}).(SpaceSpaceSettingsOutput)
 }
 
+// The type of app created within the space.
+func (o SpaceSpaceSettingsPtrOutput) AppType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Code Editor application settings. See Code Editor App Settings below.
+func (o SpaceSpaceSettingsPtrOutput) CodeEditorAppSettings() SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettings) *SpaceSpaceSettingsCodeEditorAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.CodeEditorAppSettings
+	}).(SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput)
+}
+
+// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+func (o SpaceSpaceSettingsPtrOutput) CustomFileSystems() SpaceSpaceSettingsCustomFileSystemArrayOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettings) []SpaceSpaceSettingsCustomFileSystem {
+		if v == nil {
+			return nil
+		}
+		return v.CustomFileSystems
+	}).(SpaceSpaceSettingsCustomFileSystemArrayOutput)
+}
+
+// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+func (o SpaceSpaceSettingsPtrOutput) JupyterLabAppSettings() SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettings) *SpaceSpaceSettingsJupyterLabAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.JupyterLabAppSettings
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput)
+}
+
 // The Jupyter server's app settings. See Jupyter Server App Settings below.
 func (o SpaceSpaceSettingsPtrOutput) JupyterServerAppSettings() SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettings) *SpaceSpaceSettingsJupyterServerAppSettings {
@@ -21326,6 +21761,1000 @@ func (o SpaceSpaceSettingsPtrOutput) KernelGatewayAppSettings() SpaceSpaceSettin
 		}
 		return v.KernelGatewayAppSettings
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput)
+}
+
+func (o SpaceSpaceSettingsPtrOutput) SpaceStorageSettings() SpaceSpaceSettingsSpaceStorageSettingsPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettings) *SpaceSpaceSettingsSpaceStorageSettings {
+		if v == nil {
+			return nil
+		}
+		return v.SpaceStorageSettings
+	}).(SpaceSpaceSettingsSpaceStorageSettingsPtrOutput)
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettings struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// SpaceSpaceSettingsCodeEditorAppSettingsInput is an input type that accepts SpaceSpaceSettingsCodeEditorAppSettingsArgs and SpaceSpaceSettingsCodeEditorAppSettingsOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsCodeEditorAppSettingsInput` via:
+//
+//	SpaceSpaceSettingsCodeEditorAppSettingsArgs{...}
+type SpaceSpaceSettingsCodeEditorAppSettingsInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsCodeEditorAppSettingsOutput() SpaceSpaceSettingsCodeEditorAppSettingsOutput
+	ToSpaceSpaceSettingsCodeEditorAppSettingsOutputWithContext(context.Context) SpaceSpaceSettingsCodeEditorAppSettingsOutput
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettingsArgs struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
+}
+
+func (SpaceSpaceSettingsCodeEditorAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettings)(nil)).Elem()
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsOutput() SpaceSpaceSettingsCodeEditorAppSettingsOutput {
+	return i.ToSpaceSpaceSettingsCodeEditorAppSettingsOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsCodeEditorAppSettingsOutput)
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput {
+	return i.ToSpaceSpaceSettingsCodeEditorAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsCodeEditorAppSettingsOutput).ToSpaceSpaceSettingsCodeEditorAppSettingsPtrOutputWithContext(ctx)
+}
+
+// SpaceSpaceSettingsCodeEditorAppSettingsPtrInput is an input type that accepts SpaceSpaceSettingsCodeEditorAppSettingsArgs, SpaceSpaceSettingsCodeEditorAppSettingsPtr and SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsCodeEditorAppSettingsPtrInput` via:
+//
+//	        SpaceSpaceSettingsCodeEditorAppSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceSpaceSettingsCodeEditorAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsCodeEditorAppSettingsPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput
+	ToSpaceSpaceSettingsCodeEditorAppSettingsPtrOutputWithContext(context.Context) SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput
+}
+
+type spaceSpaceSettingsCodeEditorAppSettingsPtrType SpaceSpaceSettingsCodeEditorAppSettingsArgs
+
+func SpaceSpaceSettingsCodeEditorAppSettingsPtr(v *SpaceSpaceSettingsCodeEditorAppSettingsArgs) SpaceSpaceSettingsCodeEditorAppSettingsPtrInput {
+	return (*spaceSpaceSettingsCodeEditorAppSettingsPtrType)(v)
+}
+
+func (*spaceSpaceSettingsCodeEditorAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsCodeEditorAppSettings)(nil)).Elem()
+}
+
+func (i *spaceSpaceSettingsCodeEditorAppSettingsPtrType) ToSpaceSpaceSettingsCodeEditorAppSettingsPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput {
+	return i.ToSpaceSpaceSettingsCodeEditorAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceSpaceSettingsCodeEditorAppSettingsPtrType) ToSpaceSpaceSettingsCodeEditorAppSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput)
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsCodeEditorAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettings)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsOutput() SpaceSpaceSettingsCodeEditorAppSettingsOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput {
+	return o.ToSpaceSpaceSettingsCodeEditorAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceSpaceSettingsCodeEditorAppSettings) *SpaceSpaceSettingsCodeEditorAppSettings {
+		return &v
+	}).(SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsOutput) DefaultResourceSpec() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsCodeEditorAppSettings) SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec {
+		return v.DefaultResourceSpec
+	}).(SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput)
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsCodeEditorAppSettings)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput) Elem() SpaceSpaceSettingsCodeEditorAppSettingsOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettings) SpaceSpaceSettingsCodeEditorAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceSpaceSettingsCodeEditorAppSettings
+		return ret
+	}).(SpaceSpaceSettingsCodeEditorAppSettingsOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput) DefaultResourceSpec() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettings) *SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultResourceSpec
+	}).(SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec struct {
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
+}
+
+// SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecInput is an input type that accepts SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs and SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecInput` via:
+//
+//	SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{...}
+type SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput
+	ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutputWithContext(context.Context) SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs struct {
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
+}
+
+func (SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return i.ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput)
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput).ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx)
+}
+
+// SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput is an input type that accepts SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs, SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtr and SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput` via:
+//
+//	        SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput
+	ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Context) SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput
+}
+
+type spaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrType SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs
+
+func SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtr(v *SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs) SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput {
+	return (*spaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrType)(v)
+}
+
+func (*spaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i *spaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrType) ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrType) ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec {
+		return &v
+	}).(SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The instance type.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *string { return v.SagemakerImageArn }).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) Elem() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec
+		return ret
+	}).(SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput)
+}
+
+// The instance type.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpaceSpaceSettingsCustomFileSystem struct {
+	// A custom file system in Amazon EFS. see EFS File System below.
+	EfsFileSystem SpaceSpaceSettingsCustomFileSystemEfsFileSystem `pulumi:"efsFileSystem"`
+}
+
+// SpaceSpaceSettingsCustomFileSystemInput is an input type that accepts SpaceSpaceSettingsCustomFileSystemArgs and SpaceSpaceSettingsCustomFileSystemOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsCustomFileSystemInput` via:
+//
+//	SpaceSpaceSettingsCustomFileSystemArgs{...}
+type SpaceSpaceSettingsCustomFileSystemInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsCustomFileSystemOutput() SpaceSpaceSettingsCustomFileSystemOutput
+	ToSpaceSpaceSettingsCustomFileSystemOutputWithContext(context.Context) SpaceSpaceSettingsCustomFileSystemOutput
+}
+
+type SpaceSpaceSettingsCustomFileSystemArgs struct {
+	// A custom file system in Amazon EFS. see EFS File System below.
+	EfsFileSystem SpaceSpaceSettingsCustomFileSystemEfsFileSystemInput `pulumi:"efsFileSystem"`
+}
+
+func (SpaceSpaceSettingsCustomFileSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsCustomFileSystem)(nil)).Elem()
+}
+
+func (i SpaceSpaceSettingsCustomFileSystemArgs) ToSpaceSpaceSettingsCustomFileSystemOutput() SpaceSpaceSettingsCustomFileSystemOutput {
+	return i.ToSpaceSpaceSettingsCustomFileSystemOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsCustomFileSystemArgs) ToSpaceSpaceSettingsCustomFileSystemOutputWithContext(ctx context.Context) SpaceSpaceSettingsCustomFileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsCustomFileSystemOutput)
+}
+
+// SpaceSpaceSettingsCustomFileSystemArrayInput is an input type that accepts SpaceSpaceSettingsCustomFileSystemArray and SpaceSpaceSettingsCustomFileSystemArrayOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsCustomFileSystemArrayInput` via:
+//
+//	SpaceSpaceSettingsCustomFileSystemArray{ SpaceSpaceSettingsCustomFileSystemArgs{...} }
+type SpaceSpaceSettingsCustomFileSystemArrayInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsCustomFileSystemArrayOutput() SpaceSpaceSettingsCustomFileSystemArrayOutput
+	ToSpaceSpaceSettingsCustomFileSystemArrayOutputWithContext(context.Context) SpaceSpaceSettingsCustomFileSystemArrayOutput
+}
+
+type SpaceSpaceSettingsCustomFileSystemArray []SpaceSpaceSettingsCustomFileSystemInput
+
+func (SpaceSpaceSettingsCustomFileSystemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpaceSpaceSettingsCustomFileSystem)(nil)).Elem()
+}
+
+func (i SpaceSpaceSettingsCustomFileSystemArray) ToSpaceSpaceSettingsCustomFileSystemArrayOutput() SpaceSpaceSettingsCustomFileSystemArrayOutput {
+	return i.ToSpaceSpaceSettingsCustomFileSystemArrayOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsCustomFileSystemArray) ToSpaceSpaceSettingsCustomFileSystemArrayOutputWithContext(ctx context.Context) SpaceSpaceSettingsCustomFileSystemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsCustomFileSystemArrayOutput)
+}
+
+type SpaceSpaceSettingsCustomFileSystemOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsCustomFileSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsCustomFileSystem)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsCustomFileSystemOutput) ToSpaceSpaceSettingsCustomFileSystemOutput() SpaceSpaceSettingsCustomFileSystemOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCustomFileSystemOutput) ToSpaceSpaceSettingsCustomFileSystemOutputWithContext(ctx context.Context) SpaceSpaceSettingsCustomFileSystemOutput {
+	return o
+}
+
+// A custom file system in Amazon EFS. see EFS File System below.
+func (o SpaceSpaceSettingsCustomFileSystemOutput) EfsFileSystem() SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsCustomFileSystem) SpaceSpaceSettingsCustomFileSystemEfsFileSystem {
+		return v.EfsFileSystem
+	}).(SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput)
+}
+
+type SpaceSpaceSettingsCustomFileSystemArrayOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsCustomFileSystemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpaceSpaceSettingsCustomFileSystem)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsCustomFileSystemArrayOutput) ToSpaceSpaceSettingsCustomFileSystemArrayOutput() SpaceSpaceSettingsCustomFileSystemArrayOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCustomFileSystemArrayOutput) ToSpaceSpaceSettingsCustomFileSystemArrayOutputWithContext(ctx context.Context) SpaceSpaceSettingsCustomFileSystemArrayOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCustomFileSystemArrayOutput) Index(i pulumi.IntInput) SpaceSpaceSettingsCustomFileSystemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpaceSpaceSettingsCustomFileSystem {
+		return vs[0].([]SpaceSpaceSettingsCustomFileSystem)[vs[1].(int)]
+	}).(SpaceSpaceSettingsCustomFileSystemOutput)
+}
+
+type SpaceSpaceSettingsCustomFileSystemEfsFileSystem struct {
+	// The ID of your Amazon EFS file system.
+	FileSystemId string `pulumi:"fileSystemId"`
+}
+
+// SpaceSpaceSettingsCustomFileSystemEfsFileSystemInput is an input type that accepts SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs and SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsCustomFileSystemEfsFileSystemInput` via:
+//
+//	SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs{...}
+type SpaceSpaceSettingsCustomFileSystemEfsFileSystemInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput() SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput
+	ToSpaceSpaceSettingsCustomFileSystemEfsFileSystemOutputWithContext(context.Context) SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput
+}
+
+type SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs struct {
+	// The ID of your Amazon EFS file system.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+}
+
+func (SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsCustomFileSystemEfsFileSystem)(nil)).Elem()
+}
+
+func (i SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs) ToSpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput() SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput {
+	return i.ToSpaceSpaceSettingsCustomFileSystemEfsFileSystemOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs) ToSpaceSpaceSettingsCustomFileSystemEfsFileSystemOutputWithContext(ctx context.Context) SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput)
+}
+
+type SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsCustomFileSystemEfsFileSystem)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput) ToSpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput() SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput) ToSpaceSpaceSettingsCustomFileSystemEfsFileSystemOutputWithContext(ctx context.Context) SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput {
+	return o
+}
+
+// The ID of your Amazon EFS file system.
+func (o SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsCustomFileSystemEfsFileSystem) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettings struct {
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	CodeRepositories []SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository `pulumi:"codeRepositories"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// SpaceSpaceSettingsJupyterLabAppSettingsInput is an input type that accepts SpaceSpaceSettingsJupyterLabAppSettingsArgs and SpaceSpaceSettingsJupyterLabAppSettingsOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsJupyterLabAppSettingsInput` via:
+//
+//	SpaceSpaceSettingsJupyterLabAppSettingsArgs{...}
+type SpaceSpaceSettingsJupyterLabAppSettingsInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsJupyterLabAppSettingsOutput() SpaceSpaceSettingsJupyterLabAppSettingsOutput
+	ToSpaceSpaceSettingsJupyterLabAppSettingsOutputWithContext(context.Context) SpaceSpaceSettingsJupyterLabAppSettingsOutput
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsArgs struct {
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+	CodeRepositories SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
+}
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettings)(nil)).Elem()
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsOutput() SpaceSpaceSettingsJupyterLabAppSettingsOutput {
+	return i.ToSpaceSpaceSettingsJupyterLabAppSettingsOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsJupyterLabAppSettingsOutput)
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput {
+	return i.ToSpaceSpaceSettingsJupyterLabAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsJupyterLabAppSettingsOutput).ToSpaceSpaceSettingsJupyterLabAppSettingsPtrOutputWithContext(ctx)
+}
+
+// SpaceSpaceSettingsJupyterLabAppSettingsPtrInput is an input type that accepts SpaceSpaceSettingsJupyterLabAppSettingsArgs, SpaceSpaceSettingsJupyterLabAppSettingsPtr and SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsJupyterLabAppSettingsPtrInput` via:
+//
+//	        SpaceSpaceSettingsJupyterLabAppSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceSpaceSettingsJupyterLabAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsJupyterLabAppSettingsPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput
+	ToSpaceSpaceSettingsJupyterLabAppSettingsPtrOutputWithContext(context.Context) SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput
+}
+
+type spaceSpaceSettingsJupyterLabAppSettingsPtrType SpaceSpaceSettingsJupyterLabAppSettingsArgs
+
+func SpaceSpaceSettingsJupyterLabAppSettingsPtr(v *SpaceSpaceSettingsJupyterLabAppSettingsArgs) SpaceSpaceSettingsJupyterLabAppSettingsPtrInput {
+	return (*spaceSpaceSettingsJupyterLabAppSettingsPtrType)(v)
+}
+
+func (*spaceSpaceSettingsJupyterLabAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsJupyterLabAppSettings)(nil)).Elem()
+}
+
+func (i *spaceSpaceSettingsJupyterLabAppSettingsPtrType) ToSpaceSpaceSettingsJupyterLabAppSettingsPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput {
+	return i.ToSpaceSpaceSettingsJupyterLabAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceSpaceSettingsJupyterLabAppSettingsPtrType) ToSpaceSpaceSettingsJupyterLabAppSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput)
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettings)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsOutput() SpaceSpaceSettingsJupyterLabAppSettingsOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput {
+	return o.ToSpaceSpaceSettingsJupyterLabAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceSpaceSettingsJupyterLabAppSettings) *SpaceSpaceSettingsJupyterLabAppSettings {
+		return &v
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput)
+}
+
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) CodeRepositories() SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettings) []SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository {
+		return v.CodeRepositories
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) DefaultResourceSpec() SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettings) SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec {
+		return v.DefaultResourceSpec
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput)
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsJupyterLabAppSettings)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) Elem() SpaceSpaceSettingsJupyterLabAppSettingsOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettings) SpaceSpaceSettingsJupyterLabAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceSpaceSettingsJupyterLabAppSettings
+		return ret
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsOutput)
+}
+
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) CodeRepositories() SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettings) []SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository {
+		if v == nil {
+			return nil
+		}
+		return v.CodeRepositories
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) DefaultResourceSpec() SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettings) *SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultResourceSpec
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository struct {
+	// The URL of the Git repository.
+	RepositoryUrl string `pulumi:"repositoryUrl"`
+}
+
+// SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryInput is an input type that accepts SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs and SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryInput` via:
+//
+//	SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs{...}
+type SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput() SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput
+	ToSpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutputWithContext(context.Context) SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs struct {
+	// The URL of the Git repository.
+	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
+}
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository)(nil)).Elem()
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput() SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput {
+	return i.ToSpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput)
+}
+
+// SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayInput is an input type that accepts SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArray and SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayInput` via:
+//
+//	SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArray{ SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs{...} }
+type SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput() SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput
+	ToSpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutputWithContext(context.Context) SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArray []SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryInput
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository)(nil)).Elem()
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArray) ToSpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput() SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return i.ToSpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArray) ToSpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput() SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput {
+	return o
+}
+
+// The URL of the Git repository.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput) RepositoryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository) string { return v.RepositoryUrl }).(pulumi.StringOutput)
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput() SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput) Index(i pulumi.IntInput) SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository {
+		return vs[0].([]SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository)[vs[1].(int)]
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput)
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec struct {
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
+}
+
+// SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecInput is an input type that accepts SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs and SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecInput` via:
+//
+//	SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{...}
+type SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput() SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput
+	ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutputWithContext(context.Context) SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs struct {
+	// The instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The SageMaker Image Version Alias.
+	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
+}
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput() SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return i.ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput)
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput).ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx)
+}
+
+// SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput is an input type that accepts SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs, SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtr and SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput` via:
+//
+//	        SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput
+	ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Context) SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput
+}
+
+type spaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrType SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs
+
+func SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtr(v *SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs) SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput {
+	return (*spaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrType)(v)
+}
+
+func (*spaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i *spaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrType) ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return i.ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrType) ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput() SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec {
+		return &v
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The instance type.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string { return v.SagemakerImageArn }).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) Elem() SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec
+		return ret
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput)
+}
+
+// The instance type.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SageMaker Image Version Alias.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type SpaceSpaceSettingsJupyterServerAppSettings struct {
@@ -22337,6 +23766,411 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) 
 			return nil
 		}
 		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpaceSpaceSettingsSpaceStorageSettings struct {
+	EbsStorageSettings SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings `pulumi:"ebsStorageSettings"`
+}
+
+// SpaceSpaceSettingsSpaceStorageSettingsInput is an input type that accepts SpaceSpaceSettingsSpaceStorageSettingsArgs and SpaceSpaceSettingsSpaceStorageSettingsOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsSpaceStorageSettingsInput` via:
+//
+//	SpaceSpaceSettingsSpaceStorageSettingsArgs{...}
+type SpaceSpaceSettingsSpaceStorageSettingsInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsSpaceStorageSettingsOutput() SpaceSpaceSettingsSpaceStorageSettingsOutput
+	ToSpaceSpaceSettingsSpaceStorageSettingsOutputWithContext(context.Context) SpaceSpaceSettingsSpaceStorageSettingsOutput
+}
+
+type SpaceSpaceSettingsSpaceStorageSettingsArgs struct {
+	EbsStorageSettings SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsInput `pulumi:"ebsStorageSettings"`
+}
+
+func (SpaceSpaceSettingsSpaceStorageSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsSpaceStorageSettings)(nil)).Elem()
+}
+
+func (i SpaceSpaceSettingsSpaceStorageSettingsArgs) ToSpaceSpaceSettingsSpaceStorageSettingsOutput() SpaceSpaceSettingsSpaceStorageSettingsOutput {
+	return i.ToSpaceSpaceSettingsSpaceStorageSettingsOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsSpaceStorageSettingsArgs) ToSpaceSpaceSettingsSpaceStorageSettingsOutputWithContext(ctx context.Context) SpaceSpaceSettingsSpaceStorageSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsSpaceStorageSettingsOutput)
+}
+
+func (i SpaceSpaceSettingsSpaceStorageSettingsArgs) ToSpaceSpaceSettingsSpaceStorageSettingsPtrOutput() SpaceSpaceSettingsSpaceStorageSettingsPtrOutput {
+	return i.ToSpaceSpaceSettingsSpaceStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsSpaceStorageSettingsArgs) ToSpaceSpaceSettingsSpaceStorageSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsSpaceStorageSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsSpaceStorageSettingsOutput).ToSpaceSpaceSettingsSpaceStorageSettingsPtrOutputWithContext(ctx)
+}
+
+// SpaceSpaceSettingsSpaceStorageSettingsPtrInput is an input type that accepts SpaceSpaceSettingsSpaceStorageSettingsArgs, SpaceSpaceSettingsSpaceStorageSettingsPtr and SpaceSpaceSettingsSpaceStorageSettingsPtrOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsSpaceStorageSettingsPtrInput` via:
+//
+//	        SpaceSpaceSettingsSpaceStorageSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceSpaceSettingsSpaceStorageSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsSpaceStorageSettingsPtrOutput() SpaceSpaceSettingsSpaceStorageSettingsPtrOutput
+	ToSpaceSpaceSettingsSpaceStorageSettingsPtrOutputWithContext(context.Context) SpaceSpaceSettingsSpaceStorageSettingsPtrOutput
+}
+
+type spaceSpaceSettingsSpaceStorageSettingsPtrType SpaceSpaceSettingsSpaceStorageSettingsArgs
+
+func SpaceSpaceSettingsSpaceStorageSettingsPtr(v *SpaceSpaceSettingsSpaceStorageSettingsArgs) SpaceSpaceSettingsSpaceStorageSettingsPtrInput {
+	return (*spaceSpaceSettingsSpaceStorageSettingsPtrType)(v)
+}
+
+func (*spaceSpaceSettingsSpaceStorageSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsSpaceStorageSettings)(nil)).Elem()
+}
+
+func (i *spaceSpaceSettingsSpaceStorageSettingsPtrType) ToSpaceSpaceSettingsSpaceStorageSettingsPtrOutput() SpaceSpaceSettingsSpaceStorageSettingsPtrOutput {
+	return i.ToSpaceSpaceSettingsSpaceStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceSpaceSettingsSpaceStorageSettingsPtrType) ToSpaceSpaceSettingsSpaceStorageSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsSpaceStorageSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsSpaceStorageSettingsPtrOutput)
+}
+
+type SpaceSpaceSettingsSpaceStorageSettingsOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsSpaceStorageSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsSpaceStorageSettings)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsOutput) ToSpaceSpaceSettingsSpaceStorageSettingsOutput() SpaceSpaceSettingsSpaceStorageSettingsOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsOutput) ToSpaceSpaceSettingsSpaceStorageSettingsOutputWithContext(ctx context.Context) SpaceSpaceSettingsSpaceStorageSettingsOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsOutput) ToSpaceSpaceSettingsSpaceStorageSettingsPtrOutput() SpaceSpaceSettingsSpaceStorageSettingsPtrOutput {
+	return o.ToSpaceSpaceSettingsSpaceStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsOutput) ToSpaceSpaceSettingsSpaceStorageSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsSpaceStorageSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceSpaceSettingsSpaceStorageSettings) *SpaceSpaceSettingsSpaceStorageSettings {
+		return &v
+	}).(SpaceSpaceSettingsSpaceStorageSettingsPtrOutput)
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsOutput) EbsStorageSettings() SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsSpaceStorageSettings) SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings {
+		return v.EbsStorageSettings
+	}).(SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput)
+}
+
+type SpaceSpaceSettingsSpaceStorageSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsSpaceStorageSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsSpaceStorageSettings)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsPtrOutput) ToSpaceSpaceSettingsSpaceStorageSettingsPtrOutput() SpaceSpaceSettingsSpaceStorageSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsPtrOutput) ToSpaceSpaceSettingsSpaceStorageSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsSpaceStorageSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsPtrOutput) Elem() SpaceSpaceSettingsSpaceStorageSettingsOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsSpaceStorageSettings) SpaceSpaceSettingsSpaceStorageSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceSpaceSettingsSpaceStorageSettings
+		return ret
+	}).(SpaceSpaceSettingsSpaceStorageSettingsOutput)
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsPtrOutput) EbsStorageSettings() SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsSpaceStorageSettings) *SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings {
+		if v == nil {
+			return nil
+		}
+		return &v.EbsStorageSettings
+	}).(SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput)
+}
+
+type SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings struct {
+	EbsVolumeSizeInGb int `pulumi:"ebsVolumeSizeInGb"`
+}
+
+// SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsInput is an input type that accepts SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs and SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsInput` via:
+//
+//	SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs{...}
+type SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput() SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput
+	ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutputWithContext(context.Context) SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput
+}
+
+type SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs struct {
+	EbsVolumeSizeInGb pulumi.IntInput `pulumi:"ebsVolumeSizeInGb"`
+}
+
+func (SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings)(nil)).Elem()
+}
+
+func (i SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs) ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput() SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput {
+	return i.ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs) ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutputWithContext(ctx context.Context) SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput)
+}
+
+func (i SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs) ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput() SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput {
+	return i.ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs) ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput).ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutputWithContext(ctx)
+}
+
+// SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrInput is an input type that accepts SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs, SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtr and SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrInput` via:
+//
+//	        SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput() SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput
+	ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutputWithContext(context.Context) SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput
+}
+
+type spaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrType SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs
+
+func SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtr(v *SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs) SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrInput {
+	return (*spaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrType)(v)
+}
+
+func (*spaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings)(nil)).Elem()
+}
+
+func (i *spaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrType) ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput() SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput {
+	return i.ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrType) ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput)
+}
+
+type SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput) ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput() SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput) ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutputWithContext(ctx context.Context) SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput) ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput() SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput {
+	return o.ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput) ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings) *SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings {
+		return &v
+	}).(SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput)
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput) EbsVolumeSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings) int { return v.EbsVolumeSizeInGb }).(pulumi.IntOutput)
+}
+
+type SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput) ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput() SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput) ToSpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput) Elem() SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings) SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings
+		return ret
+	}).(SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput)
+}
+
+func (o SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput) EbsVolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.EbsVolumeSizeInGb
+	}).(pulumi.IntPtrOutput)
+}
+
+type SpaceSpaceSharingSettings struct {
+	// Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
+	SharingType string `pulumi:"sharingType"`
+}
+
+// SpaceSpaceSharingSettingsInput is an input type that accepts SpaceSpaceSharingSettingsArgs and SpaceSpaceSharingSettingsOutput values.
+// You can construct a concrete instance of `SpaceSpaceSharingSettingsInput` via:
+//
+//	SpaceSpaceSharingSettingsArgs{...}
+type SpaceSpaceSharingSettingsInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSharingSettingsOutput() SpaceSpaceSharingSettingsOutput
+	ToSpaceSpaceSharingSettingsOutputWithContext(context.Context) SpaceSpaceSharingSettingsOutput
+}
+
+type SpaceSpaceSharingSettingsArgs struct {
+	// Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
+	SharingType pulumi.StringInput `pulumi:"sharingType"`
+}
+
+func (SpaceSpaceSharingSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSharingSettings)(nil)).Elem()
+}
+
+func (i SpaceSpaceSharingSettingsArgs) ToSpaceSpaceSharingSettingsOutput() SpaceSpaceSharingSettingsOutput {
+	return i.ToSpaceSpaceSharingSettingsOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSharingSettingsArgs) ToSpaceSpaceSharingSettingsOutputWithContext(ctx context.Context) SpaceSpaceSharingSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSharingSettingsOutput)
+}
+
+func (i SpaceSpaceSharingSettingsArgs) ToSpaceSpaceSharingSettingsPtrOutput() SpaceSpaceSharingSettingsPtrOutput {
+	return i.ToSpaceSpaceSharingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSharingSettingsArgs) ToSpaceSpaceSharingSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSharingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSharingSettingsOutput).ToSpaceSpaceSharingSettingsPtrOutputWithContext(ctx)
+}
+
+// SpaceSpaceSharingSettingsPtrInput is an input type that accepts SpaceSpaceSharingSettingsArgs, SpaceSpaceSharingSettingsPtr and SpaceSpaceSharingSettingsPtrOutput values.
+// You can construct a concrete instance of `SpaceSpaceSharingSettingsPtrInput` via:
+//
+//	        SpaceSpaceSharingSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceSpaceSharingSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSharingSettingsPtrOutput() SpaceSpaceSharingSettingsPtrOutput
+	ToSpaceSpaceSharingSettingsPtrOutputWithContext(context.Context) SpaceSpaceSharingSettingsPtrOutput
+}
+
+type spaceSpaceSharingSettingsPtrType SpaceSpaceSharingSettingsArgs
+
+func SpaceSpaceSharingSettingsPtr(v *SpaceSpaceSharingSettingsArgs) SpaceSpaceSharingSettingsPtrInput {
+	return (*spaceSpaceSharingSettingsPtrType)(v)
+}
+
+func (*spaceSpaceSharingSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSharingSettings)(nil)).Elem()
+}
+
+func (i *spaceSpaceSharingSettingsPtrType) ToSpaceSpaceSharingSettingsPtrOutput() SpaceSpaceSharingSettingsPtrOutput {
+	return i.ToSpaceSpaceSharingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceSpaceSharingSettingsPtrType) ToSpaceSpaceSharingSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSharingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSharingSettingsPtrOutput)
+}
+
+type SpaceSpaceSharingSettingsOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSharingSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSharingSettings)(nil)).Elem()
+}
+
+func (o SpaceSpaceSharingSettingsOutput) ToSpaceSpaceSharingSettingsOutput() SpaceSpaceSharingSettingsOutput {
+	return o
+}
+
+func (o SpaceSpaceSharingSettingsOutput) ToSpaceSpaceSharingSettingsOutputWithContext(ctx context.Context) SpaceSpaceSharingSettingsOutput {
+	return o
+}
+
+func (o SpaceSpaceSharingSettingsOutput) ToSpaceSpaceSharingSettingsPtrOutput() SpaceSpaceSharingSettingsPtrOutput {
+	return o.ToSpaceSpaceSharingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceSpaceSharingSettingsOutput) ToSpaceSpaceSharingSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSharingSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceSpaceSharingSettings) *SpaceSpaceSharingSettings {
+		return &v
+	}).(SpaceSpaceSharingSettingsPtrOutput)
+}
+
+// Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
+func (o SpaceSpaceSharingSettingsOutput) SharingType() pulumi.StringOutput {
+	return o.ApplyT(func(v SpaceSpaceSharingSettings) string { return v.SharingType }).(pulumi.StringOutput)
+}
+
+type SpaceSpaceSharingSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSharingSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSharingSettings)(nil)).Elem()
+}
+
+func (o SpaceSpaceSharingSettingsPtrOutput) ToSpaceSpaceSharingSettingsPtrOutput() SpaceSpaceSharingSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSharingSettingsPtrOutput) ToSpaceSpaceSharingSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSharingSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSharingSettingsPtrOutput) Elem() SpaceSpaceSharingSettingsOutput {
+	return o.ApplyT(func(v *SpaceSpaceSharingSettings) SpaceSpaceSharingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceSpaceSharingSettings
+		return ret
+	}).(SpaceSpaceSharingSettingsOutput)
+}
+
+// Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
+func (o SpaceSpaceSharingSettingsPtrOutput) SharingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSharingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SharingType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -29241,12 +31075,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationProductionVariantArrayInput)(nil)).Elem(), EndpointConfigurationProductionVariantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationProductionVariantCoreDumpConfigInput)(nil)).Elem(), EndpointConfigurationProductionVariantCoreDumpConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationProductionVariantCoreDumpConfigPtrInput)(nil)).Elem(), EndpointConfigurationProductionVariantCoreDumpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationProductionVariantRoutingConfigInput)(nil)).Elem(), EndpointConfigurationProductionVariantRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationProductionVariantRoutingConfigArrayInput)(nil)).Elem(), EndpointConfigurationProductionVariantRoutingConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationProductionVariantServerlessConfigInput)(nil)).Elem(), EndpointConfigurationProductionVariantServerlessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationProductionVariantServerlessConfigPtrInput)(nil)).Elem(), EndpointConfigurationProductionVariantServerlessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationShadowProductionVariantInput)(nil)).Elem(), EndpointConfigurationShadowProductionVariantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationShadowProductionVariantArrayInput)(nil)).Elem(), EndpointConfigurationShadowProductionVariantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationShadowProductionVariantCoreDumpConfigInput)(nil)).Elem(), EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrInput)(nil)).Elem(), EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationShadowProductionVariantRoutingConfigInput)(nil)).Elem(), EndpointConfigurationShadowProductionVariantRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationShadowProductionVariantRoutingConfigArrayInput)(nil)).Elem(), EndpointConfigurationShadowProductionVariantRoutingConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationShadowProductionVariantServerlessConfigInput)(nil)).Elem(), EndpointConfigurationShadowProductionVariantServerlessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationShadowProductionVariantServerlessConfigPtrInput)(nil)).Elem(), EndpointConfigurationShadowProductionVariantServerlessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigInput)(nil)).Elem(), EndpointDeploymentConfigArgs{})
@@ -29337,8 +31175,23 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsPtrInput)(nil)).Elem(), ProjectServiceCatalogProvisioningDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsProvisioningParameterInput)(nil)).Elem(), ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayInput)(nil)).Elem(), ProjectServiceCatalogProvisioningDetailsProvisioningParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceOwnershipSettingsInput)(nil)).Elem(), SpaceOwnershipSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceOwnershipSettingsPtrInput)(nil)).Elem(), SpaceOwnershipSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsInput)(nil)).Elem(), SpaceSpaceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsPtrInput)(nil)).Elem(), SpaceSpaceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsInput)(nil)).Elem(), SpaceSpaceSettingsCodeEditorAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsPtrInput)(nil)).Elem(), SpaceSpaceSettingsCodeEditorAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecInput)(nil)).Elem(), SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCustomFileSystemInput)(nil)).Elem(), SpaceSpaceSettingsCustomFileSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCustomFileSystemArrayInput)(nil)).Elem(), SpaceSpaceSettingsCustomFileSystemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCustomFileSystemEfsFileSystemInput)(nil)).Elem(), SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsInput)(nil)).Elem(), SpaceSpaceSettingsJupyterLabAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsPtrInput)(nil)).Elem(), SpaceSpaceSettingsJupyterLabAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryInput)(nil)).Elem(), SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayInput)(nil)).Elem(), SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecInput)(nil)).Elem(), SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterServerAppSettingsInput)(nil)).Elem(), SpaceSpaceSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterServerAppSettingsPtrInput)(nil)).Elem(), SpaceSpaceSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryInput)(nil)).Elem(), SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs{})
@@ -29351,6 +31204,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayInput)(nil)).Elem(), SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecInput)(nil)).Elem(), SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsSpaceStorageSettingsInput)(nil)).Elem(), SpaceSpaceSettingsSpaceStorageSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsSpaceStorageSettingsPtrInput)(nil)).Elem(), SpaceSpaceSettingsSpaceStorageSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsInput)(nil)).Elem(), SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrInput)(nil)).Elem(), SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSharingSettingsInput)(nil)).Elem(), SpaceSpaceSharingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSharingSettingsPtrInput)(nil)).Elem(), SpaceSpaceSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsArgs{})
@@ -29589,12 +31448,16 @@ func init() {
 	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantArrayOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantCoreDumpConfigOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantRoutingConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantRoutingConfigArrayOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantServerlessConfigOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantServerlessConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationShadowProductionVariantOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationShadowProductionVariantArrayOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationShadowProductionVariantCoreDumpConfigOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationShadowProductionVariantRoutingConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationShadowProductionVariantServerlessConfigOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointDeploymentConfigOutput{})
@@ -29685,8 +31548,23 @@ func init() {
 	pulumi.RegisterOutputType(ProjectServiceCatalogProvisioningDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput{})
 	pulumi.RegisterOutputType(ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrayOutput{})
+	pulumi.RegisterOutputType(SpaceOwnershipSettingsOutput{})
+	pulumi.RegisterOutputType(SpaceOwnershipSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsCodeEditorAppSettingsOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsCustomFileSystemOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsCustomFileSystemArrayOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterLabAppSettingsOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterServerAppSettingsOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryOutput{})
@@ -29699,6 +31577,12 @@ func init() {
 	pulumi.RegisterOutputType(SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsSpaceStorageSettingsOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsSpaceStorageSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSharingSettingsOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSharingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsOutput{})

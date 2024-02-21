@@ -496,6 +496,302 @@ func (o RecordGeolocationRoutingPolicyArrayOutput) Index(i pulumi.IntInput) Reco
 	}).(RecordGeolocationRoutingPolicyOutput)
 }
 
+type RecordGeoproximityRoutingPolicy struct {
+	// A AWS region where the resource is present.
+	AwsRegion *string `pulumi:"awsRegion"`
+	// Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+	Bias *int `pulumi:"bias"`
+	// Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+	Coordinates []RecordGeoproximityRoutingPolicyCoordinate `pulumi:"coordinates"`
+	// A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+	LocalZoneGroup *string `pulumi:"localZoneGroup"`
+}
+
+// RecordGeoproximityRoutingPolicyInput is an input type that accepts RecordGeoproximityRoutingPolicyArgs and RecordGeoproximityRoutingPolicyOutput values.
+// You can construct a concrete instance of `RecordGeoproximityRoutingPolicyInput` via:
+//
+//	RecordGeoproximityRoutingPolicyArgs{...}
+type RecordGeoproximityRoutingPolicyInput interface {
+	pulumi.Input
+
+	ToRecordGeoproximityRoutingPolicyOutput() RecordGeoproximityRoutingPolicyOutput
+	ToRecordGeoproximityRoutingPolicyOutputWithContext(context.Context) RecordGeoproximityRoutingPolicyOutput
+}
+
+type RecordGeoproximityRoutingPolicyArgs struct {
+	// A AWS region where the resource is present.
+	AwsRegion pulumi.StringPtrInput `pulumi:"awsRegion"`
+	// Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+	Bias pulumi.IntPtrInput `pulumi:"bias"`
+	// Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+	Coordinates RecordGeoproximityRoutingPolicyCoordinateArrayInput `pulumi:"coordinates"`
+	// A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+	LocalZoneGroup pulumi.StringPtrInput `pulumi:"localZoneGroup"`
+}
+
+func (RecordGeoproximityRoutingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordGeoproximityRoutingPolicy)(nil)).Elem()
+}
+
+func (i RecordGeoproximityRoutingPolicyArgs) ToRecordGeoproximityRoutingPolicyOutput() RecordGeoproximityRoutingPolicyOutput {
+	return i.ToRecordGeoproximityRoutingPolicyOutputWithContext(context.Background())
+}
+
+func (i RecordGeoproximityRoutingPolicyArgs) ToRecordGeoproximityRoutingPolicyOutputWithContext(ctx context.Context) RecordGeoproximityRoutingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordGeoproximityRoutingPolicyOutput)
+}
+
+func (i RecordGeoproximityRoutingPolicyArgs) ToRecordGeoproximityRoutingPolicyPtrOutput() RecordGeoproximityRoutingPolicyPtrOutput {
+	return i.ToRecordGeoproximityRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i RecordGeoproximityRoutingPolicyArgs) ToRecordGeoproximityRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordGeoproximityRoutingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordGeoproximityRoutingPolicyOutput).ToRecordGeoproximityRoutingPolicyPtrOutputWithContext(ctx)
+}
+
+// RecordGeoproximityRoutingPolicyPtrInput is an input type that accepts RecordGeoproximityRoutingPolicyArgs, RecordGeoproximityRoutingPolicyPtr and RecordGeoproximityRoutingPolicyPtrOutput values.
+// You can construct a concrete instance of `RecordGeoproximityRoutingPolicyPtrInput` via:
+//
+//	        RecordGeoproximityRoutingPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordGeoproximityRoutingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToRecordGeoproximityRoutingPolicyPtrOutput() RecordGeoproximityRoutingPolicyPtrOutput
+	ToRecordGeoproximityRoutingPolicyPtrOutputWithContext(context.Context) RecordGeoproximityRoutingPolicyPtrOutput
+}
+
+type recordGeoproximityRoutingPolicyPtrType RecordGeoproximityRoutingPolicyArgs
+
+func RecordGeoproximityRoutingPolicyPtr(v *RecordGeoproximityRoutingPolicyArgs) RecordGeoproximityRoutingPolicyPtrInput {
+	return (*recordGeoproximityRoutingPolicyPtrType)(v)
+}
+
+func (*recordGeoproximityRoutingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordGeoproximityRoutingPolicy)(nil)).Elem()
+}
+
+func (i *recordGeoproximityRoutingPolicyPtrType) ToRecordGeoproximityRoutingPolicyPtrOutput() RecordGeoproximityRoutingPolicyPtrOutput {
+	return i.ToRecordGeoproximityRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *recordGeoproximityRoutingPolicyPtrType) ToRecordGeoproximityRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordGeoproximityRoutingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordGeoproximityRoutingPolicyPtrOutput)
+}
+
+type RecordGeoproximityRoutingPolicyOutput struct{ *pulumi.OutputState }
+
+func (RecordGeoproximityRoutingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordGeoproximityRoutingPolicy)(nil)).Elem()
+}
+
+func (o RecordGeoproximityRoutingPolicyOutput) ToRecordGeoproximityRoutingPolicyOutput() RecordGeoproximityRoutingPolicyOutput {
+	return o
+}
+
+func (o RecordGeoproximityRoutingPolicyOutput) ToRecordGeoproximityRoutingPolicyOutputWithContext(ctx context.Context) RecordGeoproximityRoutingPolicyOutput {
+	return o
+}
+
+func (o RecordGeoproximityRoutingPolicyOutput) ToRecordGeoproximityRoutingPolicyPtrOutput() RecordGeoproximityRoutingPolicyPtrOutput {
+	return o.ToRecordGeoproximityRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o RecordGeoproximityRoutingPolicyOutput) ToRecordGeoproximityRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordGeoproximityRoutingPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordGeoproximityRoutingPolicy) *RecordGeoproximityRoutingPolicy {
+		return &v
+	}).(RecordGeoproximityRoutingPolicyPtrOutput)
+}
+
+// A AWS region where the resource is present.
+func (o RecordGeoproximityRoutingPolicyOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordGeoproximityRoutingPolicy) *string { return v.AwsRegion }).(pulumi.StringPtrOutput)
+}
+
+// Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+func (o RecordGeoproximityRoutingPolicyOutput) Bias() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RecordGeoproximityRoutingPolicy) *int { return v.Bias }).(pulumi.IntPtrOutput)
+}
+
+// Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+func (o RecordGeoproximityRoutingPolicyOutput) Coordinates() RecordGeoproximityRoutingPolicyCoordinateArrayOutput {
+	return o.ApplyT(func(v RecordGeoproximityRoutingPolicy) []RecordGeoproximityRoutingPolicyCoordinate {
+		return v.Coordinates
+	}).(RecordGeoproximityRoutingPolicyCoordinateArrayOutput)
+}
+
+// A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+func (o RecordGeoproximityRoutingPolicyOutput) LocalZoneGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordGeoproximityRoutingPolicy) *string { return v.LocalZoneGroup }).(pulumi.StringPtrOutput)
+}
+
+type RecordGeoproximityRoutingPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordGeoproximityRoutingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordGeoproximityRoutingPolicy)(nil)).Elem()
+}
+
+func (o RecordGeoproximityRoutingPolicyPtrOutput) ToRecordGeoproximityRoutingPolicyPtrOutput() RecordGeoproximityRoutingPolicyPtrOutput {
+	return o
+}
+
+func (o RecordGeoproximityRoutingPolicyPtrOutput) ToRecordGeoproximityRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordGeoproximityRoutingPolicyPtrOutput {
+	return o
+}
+
+func (o RecordGeoproximityRoutingPolicyPtrOutput) Elem() RecordGeoproximityRoutingPolicyOutput {
+	return o.ApplyT(func(v *RecordGeoproximityRoutingPolicy) RecordGeoproximityRoutingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RecordGeoproximityRoutingPolicy
+		return ret
+	}).(RecordGeoproximityRoutingPolicyOutput)
+}
+
+// A AWS region where the resource is present.
+func (o RecordGeoproximityRoutingPolicyPtrOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordGeoproximityRoutingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+func (o RecordGeoproximityRoutingPolicyPtrOutput) Bias() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RecordGeoproximityRoutingPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Bias
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+func (o RecordGeoproximityRoutingPolicyPtrOutput) Coordinates() RecordGeoproximityRoutingPolicyCoordinateArrayOutput {
+	return o.ApplyT(func(v *RecordGeoproximityRoutingPolicy) []RecordGeoproximityRoutingPolicyCoordinate {
+		if v == nil {
+			return nil
+		}
+		return v.Coordinates
+	}).(RecordGeoproximityRoutingPolicyCoordinateArrayOutput)
+}
+
+// A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+func (o RecordGeoproximityRoutingPolicyPtrOutput) LocalZoneGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordGeoproximityRoutingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalZoneGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecordGeoproximityRoutingPolicyCoordinate struct {
+	Latitude  string `pulumi:"latitude"`
+	Longitude string `pulumi:"longitude"`
+}
+
+// RecordGeoproximityRoutingPolicyCoordinateInput is an input type that accepts RecordGeoproximityRoutingPolicyCoordinateArgs and RecordGeoproximityRoutingPolicyCoordinateOutput values.
+// You can construct a concrete instance of `RecordGeoproximityRoutingPolicyCoordinateInput` via:
+//
+//	RecordGeoproximityRoutingPolicyCoordinateArgs{...}
+type RecordGeoproximityRoutingPolicyCoordinateInput interface {
+	pulumi.Input
+
+	ToRecordGeoproximityRoutingPolicyCoordinateOutput() RecordGeoproximityRoutingPolicyCoordinateOutput
+	ToRecordGeoproximityRoutingPolicyCoordinateOutputWithContext(context.Context) RecordGeoproximityRoutingPolicyCoordinateOutput
+}
+
+type RecordGeoproximityRoutingPolicyCoordinateArgs struct {
+	Latitude  pulumi.StringInput `pulumi:"latitude"`
+	Longitude pulumi.StringInput `pulumi:"longitude"`
+}
+
+func (RecordGeoproximityRoutingPolicyCoordinateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordGeoproximityRoutingPolicyCoordinate)(nil)).Elem()
+}
+
+func (i RecordGeoproximityRoutingPolicyCoordinateArgs) ToRecordGeoproximityRoutingPolicyCoordinateOutput() RecordGeoproximityRoutingPolicyCoordinateOutput {
+	return i.ToRecordGeoproximityRoutingPolicyCoordinateOutputWithContext(context.Background())
+}
+
+func (i RecordGeoproximityRoutingPolicyCoordinateArgs) ToRecordGeoproximityRoutingPolicyCoordinateOutputWithContext(ctx context.Context) RecordGeoproximityRoutingPolicyCoordinateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordGeoproximityRoutingPolicyCoordinateOutput)
+}
+
+// RecordGeoproximityRoutingPolicyCoordinateArrayInput is an input type that accepts RecordGeoproximityRoutingPolicyCoordinateArray and RecordGeoproximityRoutingPolicyCoordinateArrayOutput values.
+// You can construct a concrete instance of `RecordGeoproximityRoutingPolicyCoordinateArrayInput` via:
+//
+//	RecordGeoproximityRoutingPolicyCoordinateArray{ RecordGeoproximityRoutingPolicyCoordinateArgs{...} }
+type RecordGeoproximityRoutingPolicyCoordinateArrayInput interface {
+	pulumi.Input
+
+	ToRecordGeoproximityRoutingPolicyCoordinateArrayOutput() RecordGeoproximityRoutingPolicyCoordinateArrayOutput
+	ToRecordGeoproximityRoutingPolicyCoordinateArrayOutputWithContext(context.Context) RecordGeoproximityRoutingPolicyCoordinateArrayOutput
+}
+
+type RecordGeoproximityRoutingPolicyCoordinateArray []RecordGeoproximityRoutingPolicyCoordinateInput
+
+func (RecordGeoproximityRoutingPolicyCoordinateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecordGeoproximityRoutingPolicyCoordinate)(nil)).Elem()
+}
+
+func (i RecordGeoproximityRoutingPolicyCoordinateArray) ToRecordGeoproximityRoutingPolicyCoordinateArrayOutput() RecordGeoproximityRoutingPolicyCoordinateArrayOutput {
+	return i.ToRecordGeoproximityRoutingPolicyCoordinateArrayOutputWithContext(context.Background())
+}
+
+func (i RecordGeoproximityRoutingPolicyCoordinateArray) ToRecordGeoproximityRoutingPolicyCoordinateArrayOutputWithContext(ctx context.Context) RecordGeoproximityRoutingPolicyCoordinateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordGeoproximityRoutingPolicyCoordinateArrayOutput)
+}
+
+type RecordGeoproximityRoutingPolicyCoordinateOutput struct{ *pulumi.OutputState }
+
+func (RecordGeoproximityRoutingPolicyCoordinateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordGeoproximityRoutingPolicyCoordinate)(nil)).Elem()
+}
+
+func (o RecordGeoproximityRoutingPolicyCoordinateOutput) ToRecordGeoproximityRoutingPolicyCoordinateOutput() RecordGeoproximityRoutingPolicyCoordinateOutput {
+	return o
+}
+
+func (o RecordGeoproximityRoutingPolicyCoordinateOutput) ToRecordGeoproximityRoutingPolicyCoordinateOutputWithContext(ctx context.Context) RecordGeoproximityRoutingPolicyCoordinateOutput {
+	return o
+}
+
+func (o RecordGeoproximityRoutingPolicyCoordinateOutput) Latitude() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordGeoproximityRoutingPolicyCoordinate) string { return v.Latitude }).(pulumi.StringOutput)
+}
+
+func (o RecordGeoproximityRoutingPolicyCoordinateOutput) Longitude() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordGeoproximityRoutingPolicyCoordinate) string { return v.Longitude }).(pulumi.StringOutput)
+}
+
+type RecordGeoproximityRoutingPolicyCoordinateArrayOutput struct{ *pulumi.OutputState }
+
+func (RecordGeoproximityRoutingPolicyCoordinateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecordGeoproximityRoutingPolicyCoordinate)(nil)).Elem()
+}
+
+func (o RecordGeoproximityRoutingPolicyCoordinateArrayOutput) ToRecordGeoproximityRoutingPolicyCoordinateArrayOutput() RecordGeoproximityRoutingPolicyCoordinateArrayOutput {
+	return o
+}
+
+func (o RecordGeoproximityRoutingPolicyCoordinateArrayOutput) ToRecordGeoproximityRoutingPolicyCoordinateArrayOutputWithContext(ctx context.Context) RecordGeoproximityRoutingPolicyCoordinateArrayOutput {
+	return o
+}
+
+func (o RecordGeoproximityRoutingPolicyCoordinateArrayOutput) Index(i pulumi.IntInput) RecordGeoproximityRoutingPolicyCoordinateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecordGeoproximityRoutingPolicyCoordinate {
+		return vs[0].([]RecordGeoproximityRoutingPolicyCoordinate)[vs[1].(int)]
+	}).(RecordGeoproximityRoutingPolicyCoordinateOutput)
+}
+
 type RecordLatencyRoutingPolicy struct {
 	// An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
 	Region string `pulumi:"region"`
@@ -806,7 +1102,8 @@ type ResolverRuleTargetIp struct {
 	// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
 	Ip string `pulumi:"ip"`
 	// The port at `ip` that you want to forward DNS queries to. Default value is `53`
-	Port *int `pulumi:"port"`
+	Port     *int    `pulumi:"port"`
+	Protocol *string `pulumi:"protocol"`
 }
 
 // ResolverRuleTargetIpInput is an input type that accepts ResolverRuleTargetIpArgs and ResolverRuleTargetIpOutput values.
@@ -824,7 +1121,8 @@ type ResolverRuleTargetIpArgs struct {
 	// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
 	Ip pulumi.StringInput `pulumi:"ip"`
 	// The port at `ip` that you want to forward DNS queries to. Default value is `53`
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Port     pulumi.IntPtrInput    `pulumi:"port"`
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
 func (ResolverRuleTargetIpArgs) ElementType() reflect.Type {
@@ -886,6 +1184,10 @@ func (o ResolverRuleTargetIpOutput) Ip() pulumi.StringOutput {
 // The port at `ip` that you want to forward DNS queries to. Default value is `53`
 func (o ResolverRuleTargetIpOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResolverRuleTargetIp) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o ResolverRuleTargetIpOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverRuleTargetIp) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
 type ResolverRuleTargetIpArrayOutput struct{ *pulumi.OutputState }
@@ -2655,6 +2957,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordFailoverRoutingPolicyArrayInput)(nil)).Elem(), RecordFailoverRoutingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordGeolocationRoutingPolicyInput)(nil)).Elem(), RecordGeolocationRoutingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordGeolocationRoutingPolicyArrayInput)(nil)).Elem(), RecordGeolocationRoutingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordGeoproximityRoutingPolicyInput)(nil)).Elem(), RecordGeoproximityRoutingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordGeoproximityRoutingPolicyPtrInput)(nil)).Elem(), RecordGeoproximityRoutingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordGeoproximityRoutingPolicyCoordinateInput)(nil)).Elem(), RecordGeoproximityRoutingPolicyCoordinateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordGeoproximityRoutingPolicyCoordinateArrayInput)(nil)).Elem(), RecordGeoproximityRoutingPolicyCoordinateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordLatencyRoutingPolicyInput)(nil)).Elem(), RecordLatencyRoutingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordLatencyRoutingPolicyArrayInput)(nil)).Elem(), RecordLatencyRoutingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordWeightedRoutingPolicyInput)(nil)).Elem(), RecordWeightedRoutingPolicyArgs{})
@@ -2695,6 +3001,10 @@ func init() {
 	pulumi.RegisterOutputType(RecordFailoverRoutingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(RecordGeolocationRoutingPolicyOutput{})
 	pulumi.RegisterOutputType(RecordGeolocationRoutingPolicyArrayOutput{})
+	pulumi.RegisterOutputType(RecordGeoproximityRoutingPolicyOutput{})
+	pulumi.RegisterOutputType(RecordGeoproximityRoutingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(RecordGeoproximityRoutingPolicyCoordinateOutput{})
+	pulumi.RegisterOutputType(RecordGeoproximityRoutingPolicyCoordinateArrayOutput{})
 	pulumi.RegisterOutputType(RecordLatencyRoutingPolicyOutput{})
 	pulumi.RegisterOutputType(RecordLatencyRoutingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(RecordWeightedRoutingPolicyOutput{})

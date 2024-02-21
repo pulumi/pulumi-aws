@@ -471,6 +471,12 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> TaskRoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// Whether should track latest task definition or the one created with the resource. Default is `false`.
+        /// </summary>
+        [Output("trackLatest")]
+        public Output<bool?> TrackLatest { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for volumes that containers in your task may use. Detailed below.
         /// </summary>
         [Output("volumes")]
@@ -654,6 +660,12 @@ namespace Pulumi.Aws.Ecs
         [Input("taskRoleArn")]
         public Input<string>? TaskRoleArn { get; set; }
 
+        /// <summary>
+        /// Whether should track latest task definition or the one created with the resource. Default is `false`.
+        /// </summary>
+        [Input("trackLatest")]
+        public Input<bool>? TrackLatest { get; set; }
+
         [Input("volumes")]
         private InputList<Inputs.TaskDefinitionVolumeArgs>? _volumes;
 
@@ -836,6 +848,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("taskRoleArn")]
         public Input<string>? TaskRoleArn { get; set; }
+
+        /// <summary>
+        /// Whether should track latest task definition or the one created with the resource. Default is `false`.
+        /// </summary>
+        [Input("trackLatest")]
+        public Input<bool>? TrackLatest { get; set; }
 
         [Input("volumes")]
         private InputList<Inputs.TaskDefinitionVolumeGetArgs>? _volumes;

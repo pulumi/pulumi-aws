@@ -10,6 +10,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPullThroughCacheRuleResult {
+    /**
+     * @return ARN of the Secret which will be used to authenticate against the registry.
+     * 
+     */
+    private String credentialArn;
     private String ecrRepositoryPrefix;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -28,6 +33,13 @@ public final class GetPullThroughCacheRuleResult {
     private String upstreamRegistryUrl;
 
     private GetPullThroughCacheRuleResult() {}
+    /**
+     * @return ARN of the Secret which will be used to authenticate against the registry.
+     * 
+     */
+    public String credentialArn() {
+        return this.credentialArn;
+    }
     public String ecrRepositoryPrefix() {
         return this.ecrRepositoryPrefix;
     }
@@ -62,6 +74,7 @@ public final class GetPullThroughCacheRuleResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String credentialArn;
         private String ecrRepositoryPrefix;
         private String id;
         private String registryId;
@@ -69,12 +82,21 @@ public final class GetPullThroughCacheRuleResult {
         public Builder() {}
         public Builder(GetPullThroughCacheRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.credentialArn = defaults.credentialArn;
     	      this.ecrRepositoryPrefix = defaults.ecrRepositoryPrefix;
     	      this.id = defaults.id;
     	      this.registryId = defaults.registryId;
     	      this.upstreamRegistryUrl = defaults.upstreamRegistryUrl;
         }
 
+        @CustomType.Setter
+        public Builder credentialArn(String credentialArn) {
+            if (credentialArn == null) {
+              throw new MissingRequiredPropertyException("GetPullThroughCacheRuleResult", "credentialArn");
+            }
+            this.credentialArn = credentialArn;
+            return this;
+        }
         @CustomType.Setter
         public Builder ecrRepositoryPrefix(String ecrRepositoryPrefix) {
             if (ecrRepositoryPrefix == null) {
@@ -109,6 +131,7 @@ public final class GetPullThroughCacheRuleResult {
         }
         public GetPullThroughCacheRuleResult build() {
             final var _resultValue = new GetPullThroughCacheRuleResult();
+            _resultValue.credentialArn = credentialArn;
             _resultValue.ecrRepositoryPrefix = ecrRepositoryPrefix;
             _resultValue.id = id;
             _resultValue.registryId = registryId;

@@ -39,10 +39,13 @@ public final class GetEngineVersionResult {
      */
     private String id;
     private @Nullable Boolean includeAll;
+    private @Nullable Boolean latest;
     private String parameterGroupFamily;
+    private @Nullable List<String> preferredMajorTargets;
+    private @Nullable List<String> preferredUpgradeTargets;
     private @Nullable List<String> preferredVersions;
     /**
-     * @return Status of the DB engine version, either available or deprecated.
+     * @return Status of the database engine version, either available or deprecated.
      * 
      */
     private String status;
@@ -52,12 +55,12 @@ public final class GetEngineVersionResult {
      */
     private List<String> supportedCharacterSets;
     /**
-     * @return Set of features supported by the DB engine.
+     * @return Set of features supported by the database engine.
      * 
      */
     private List<String> supportedFeatureNames;
     /**
-     * @return Set of the supported DB engine modes.
+     * @return Set of the supported database engine modes.
      * 
      */
     private List<String> supportedModes;
@@ -67,7 +70,7 @@ public final class GetEngineVersionResult {
      */
     private List<String> supportedTimezones;
     /**
-     * @return Indicates whether you can use Aurora global databases with a specific DB engine version.
+     * @return Indicates whether you can use Aurora global databases with a specific database engine version.
      * 
      */
     private Boolean supportsGlobalDatabases;
@@ -77,7 +80,7 @@ public final class GetEngineVersionResult {
      */
     private Boolean supportsLogExportsToCloudwatch;
     /**
-     * @return Indicates whether you can use Aurora parallel query with a specific DB engine version.
+     * @return Indicates whether you can use Aurora parallel query with a specific database engine version.
      * 
      */
     private Boolean supportsParallelQuery;
@@ -92,6 +95,11 @@ public final class GetEngineVersionResult {
      */
     private List<String> validUpgradeTargets;
     private String version;
+    /**
+     * @return Version of the database engine.
+     * 
+     */
+    private String versionActual;
     /**
      * @return Description of the database engine version.
      * 
@@ -139,14 +147,23 @@ public final class GetEngineVersionResult {
     public Optional<Boolean> includeAll() {
         return Optional.ofNullable(this.includeAll);
     }
+    public Optional<Boolean> latest() {
+        return Optional.ofNullable(this.latest);
+    }
     public String parameterGroupFamily() {
         return this.parameterGroupFamily;
+    }
+    public List<String> preferredMajorTargets() {
+        return this.preferredMajorTargets == null ? List.of() : this.preferredMajorTargets;
+    }
+    public List<String> preferredUpgradeTargets() {
+        return this.preferredUpgradeTargets == null ? List.of() : this.preferredUpgradeTargets;
     }
     public List<String> preferredVersions() {
         return this.preferredVersions == null ? List.of() : this.preferredVersions;
     }
     /**
-     * @return Status of the DB engine version, either available or deprecated.
+     * @return Status of the database engine version, either available or deprecated.
      * 
      */
     public String status() {
@@ -160,14 +177,14 @@ public final class GetEngineVersionResult {
         return this.supportedCharacterSets;
     }
     /**
-     * @return Set of features supported by the DB engine.
+     * @return Set of features supported by the database engine.
      * 
      */
     public List<String> supportedFeatureNames() {
         return this.supportedFeatureNames;
     }
     /**
-     * @return Set of the supported DB engine modes.
+     * @return Set of the supported database engine modes.
      * 
      */
     public List<String> supportedModes() {
@@ -181,7 +198,7 @@ public final class GetEngineVersionResult {
         return this.supportedTimezones;
     }
     /**
-     * @return Indicates whether you can use Aurora global databases with a specific DB engine version.
+     * @return Indicates whether you can use Aurora global databases with a specific database engine version.
      * 
      */
     public Boolean supportsGlobalDatabases() {
@@ -195,7 +212,7 @@ public final class GetEngineVersionResult {
         return this.supportsLogExportsToCloudwatch;
     }
     /**
-     * @return Indicates whether you can use Aurora parallel query with a specific DB engine version.
+     * @return Indicates whether you can use Aurora parallel query with a specific database engine version.
      * 
      */
     public Boolean supportsParallelQuery() {
@@ -217,6 +234,13 @@ public final class GetEngineVersionResult {
     }
     public String version() {
         return this.version;
+    }
+    /**
+     * @return Version of the database engine.
+     * 
+     */
+    public String versionActual() {
+        return this.versionActual;
     }
     /**
      * @return Description of the database engine version.
@@ -243,7 +267,10 @@ public final class GetEngineVersionResult {
         private @Nullable List<GetEngineVersionFilter> filters;
         private String id;
         private @Nullable Boolean includeAll;
+        private @Nullable Boolean latest;
         private String parameterGroupFamily;
+        private @Nullable List<String> preferredMajorTargets;
+        private @Nullable List<String> preferredUpgradeTargets;
         private @Nullable List<String> preferredVersions;
         private String status;
         private List<String> supportedCharacterSets;
@@ -256,6 +283,7 @@ public final class GetEngineVersionResult {
         private Boolean supportsReadReplica;
         private List<String> validUpgradeTargets;
         private String version;
+        private String versionActual;
         private String versionDescription;
         public Builder() {}
         public Builder(GetEngineVersionResult defaults) {
@@ -268,7 +296,10 @@ public final class GetEngineVersionResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.includeAll = defaults.includeAll;
+    	      this.latest = defaults.latest;
     	      this.parameterGroupFamily = defaults.parameterGroupFamily;
+    	      this.preferredMajorTargets = defaults.preferredMajorTargets;
+    	      this.preferredUpgradeTargets = defaults.preferredUpgradeTargets;
     	      this.preferredVersions = defaults.preferredVersions;
     	      this.status = defaults.status;
     	      this.supportedCharacterSets = defaults.supportedCharacterSets;
@@ -281,6 +312,7 @@ public final class GetEngineVersionResult {
     	      this.supportsReadReplica = defaults.supportsReadReplica;
     	      this.validUpgradeTargets = defaults.validUpgradeTargets;
     	      this.version = defaults.version;
+    	      this.versionActual = defaults.versionActual;
     	      this.versionDescription = defaults.versionDescription;
         }
 
@@ -349,12 +381,36 @@ public final class GetEngineVersionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder latest(@Nullable Boolean latest) {
+
+            this.latest = latest;
+            return this;
+        }
+        @CustomType.Setter
         public Builder parameterGroupFamily(String parameterGroupFamily) {
             if (parameterGroupFamily == null) {
               throw new MissingRequiredPropertyException("GetEngineVersionResult", "parameterGroupFamily");
             }
             this.parameterGroupFamily = parameterGroupFamily;
             return this;
+        }
+        @CustomType.Setter
+        public Builder preferredMajorTargets(@Nullable List<String> preferredMajorTargets) {
+
+            this.preferredMajorTargets = preferredMajorTargets;
+            return this;
+        }
+        public Builder preferredMajorTargets(String... preferredMajorTargets) {
+            return preferredMajorTargets(List.of(preferredMajorTargets));
+        }
+        @CustomType.Setter
+        public Builder preferredUpgradeTargets(@Nullable List<String> preferredUpgradeTargets) {
+
+            this.preferredUpgradeTargets = preferredUpgradeTargets;
+            return this;
+        }
+        public Builder preferredUpgradeTargets(String... preferredUpgradeTargets) {
+            return preferredUpgradeTargets(List.of(preferredUpgradeTargets));
         }
         @CustomType.Setter
         public Builder preferredVersions(@Nullable List<String> preferredVersions) {
@@ -469,6 +525,14 @@ public final class GetEngineVersionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder versionActual(String versionActual) {
+            if (versionActual == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "versionActual");
+            }
+            this.versionActual = versionActual;
+            return this;
+        }
+        @CustomType.Setter
         public Builder versionDescription(String versionDescription) {
             if (versionDescription == null) {
               throw new MissingRequiredPropertyException("GetEngineVersionResult", "versionDescription");
@@ -486,7 +550,10 @@ public final class GetEngineVersionResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.includeAll = includeAll;
+            _resultValue.latest = latest;
             _resultValue.parameterGroupFamily = parameterGroupFamily;
+            _resultValue.preferredMajorTargets = preferredMajorTargets;
+            _resultValue.preferredUpgradeTargets = preferredUpgradeTargets;
             _resultValue.preferredVersions = preferredVersions;
             _resultValue.status = status;
             _resultValue.supportedCharacterSets = supportedCharacterSets;
@@ -499,6 +566,7 @@ public final class GetEngineVersionResult {
             _resultValue.supportsReadReplica = supportsReadReplica;
             _resultValue.validUpgradeTargets = validUpgradeTargets;
             _resultValue.version = version;
+            _resultValue.versionActual = versionActual;
             _resultValue.versionDescription = versionDescription;
             return _resultValue;
         }

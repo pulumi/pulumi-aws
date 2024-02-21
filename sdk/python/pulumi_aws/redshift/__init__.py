@@ -10,6 +10,7 @@ from .cluster import *
 from .cluster_iam_roles import *
 from .cluster_snapshot import *
 from .data_share_authorization import *
+from .data_share_consumer_association import *
 from .endpoint_access import *
 from .endpoint_authorization import *
 from .event_subscription import *

@@ -419,6 +419,18 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Directory Service Active Directory domain to create the cluster in.
+        /// </summary>
+        [Output("domain")]
+        public Output<string?> Domain { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the IAM role to be used when making API calls to the Directory Service.
+        /// </summary>
+        [Output("domainIamRoleName")]
+        public Output<string?> DomainIamRoleName { get; private set; } = null!;
+
+        /// <summary>
         /// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         /// </summary>
         [Output("enableGlobalWriteForwarding")]
@@ -822,6 +834,18 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
+        /// The ID of the Directory Service Active Directory domain to create the cluster in.
+        /// </summary>
+        [Input("domain")]
+        public Input<string>? Domain { get; set; }
+
+        /// <summary>
+        /// The name of the IAM role to be used when making API calls to the Directory Service.
+        /// </summary>
+        [Input("domainIamRoleName")]
+        public Input<string>? DomainIamRoleName { get; set; }
+
+        /// <summary>
         /// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         /// </summary>
         [Input("enableGlobalWriteForwarding")]
@@ -1189,6 +1213,18 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
+
+        /// <summary>
+        /// The ID of the Directory Service Active Directory domain to create the cluster in.
+        /// </summary>
+        [Input("domain")]
+        public Input<string>? Domain { get; set; }
+
+        /// <summary>
+        /// The name of the IAM role to be used when making API calls to the Directory Service.
+        /// </summary>
+        [Input("domainIamRoleName")]
+        public Input<string>? DomainIamRoleName { get; set; }
 
         /// <summary>
         /// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.

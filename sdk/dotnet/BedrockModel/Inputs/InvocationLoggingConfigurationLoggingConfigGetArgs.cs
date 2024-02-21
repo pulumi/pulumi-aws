@@ -13,7 +13,7 @@ namespace Pulumi.Aws.BedrockModel.Inputs
     public sealed class InvocationLoggingConfigurationLoggingConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// CloudWatch logging configuration. See `cloudwatch_config`.
+        /// CloudWatch logging configuration.
         /// </summary>
         [Input("cloudwatchConfig")]
         public Input<Inputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigGetArgs>? CloudwatchConfig { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.BedrockModel.Inputs
         public Input<bool> ImageDataDeliveryEnabled { get; set; } = null!;
 
         /// <summary>
-        /// S3 configuration for storing log data. See `s3_config`.
+        /// S3 configuration for storing log data.
         /// </summary>
         [Input("s3Config")]
         public Input<Inputs.InvocationLoggingConfigurationLoggingConfigS3ConfigGetArgs>? S3Config { get; set; }

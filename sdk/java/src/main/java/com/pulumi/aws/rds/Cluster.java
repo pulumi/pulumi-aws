@@ -691,6 +691,34 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deletionProtection);
     }
     /**
+     * The ID of the Directory Service Active Directory domain to create the cluster in.
+     * 
+     */
+    @Export(name="domain", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> domain;
+
+    /**
+     * @return The ID of the Directory Service Active Directory domain to create the cluster in.
+     * 
+     */
+    public Output<Optional<String>> domain() {
+        return Codegen.optional(this.domain);
+    }
+    /**
+     * The name of the IAM role to be used when making API calls to the Directory Service.
+     * 
+     */
+    @Export(name="domainIamRoleName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> domainIamRoleName;
+
+    /**
+     * @return The name of the IAM role to be used when making API calls to the Directory Service.
+     * 
+     */
+    public Output<Optional<String>> domainIamRoleName() {
+        return Codegen.optional(this.domainIamRoleName);
+    }
+    /**
      * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
      * 
      */

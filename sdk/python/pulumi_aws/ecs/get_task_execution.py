@@ -23,10 +23,13 @@ class GetTaskExecutionResult:
     """
     A collection of values returned by getTaskExecution.
     """
-    def __init__(__self__, capacity_provider_strategies=None, cluster=None, desired_count=None, enable_ecs_managed_tags=None, enable_execute_command=None, group=None, id=None, launch_type=None, network_configuration=None, overrides=None, placement_constraints=None, placement_strategies=None, platform_version=None, propagate_tags=None, reference_id=None, started_by=None, tags=None, task_arns=None, task_definition=None):
+    def __init__(__self__, capacity_provider_strategies=None, client_token=None, cluster=None, desired_count=None, enable_ecs_managed_tags=None, enable_execute_command=None, group=None, id=None, launch_type=None, network_configuration=None, overrides=None, placement_constraints=None, placement_strategies=None, platform_version=None, propagate_tags=None, reference_id=None, started_by=None, tags=None, task_arns=None, task_definition=None):
         if capacity_provider_strategies and not isinstance(capacity_provider_strategies, list):
             raise TypeError("Expected argument 'capacity_provider_strategies' to be a list")
         pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
+        if client_token and not isinstance(client_token, str):
+            raise TypeError("Expected argument 'client_token' to be a str")
+        pulumi.set(__self__, "client_token", client_token)
         if cluster and not isinstance(cluster, str):
             raise TypeError("Expected argument 'cluster' to be a str")
         pulumi.set(__self__, "cluster", cluster)
@@ -86,6 +89,11 @@ class GetTaskExecutionResult:
     @pulumi.getter(name="capacityProviderStrategies")
     def capacity_provider_strategies(self) -> Optional[Sequence['outputs.GetTaskExecutionCapacityProviderStrategyResult']]:
         return pulumi.get(self, "capacity_provider_strategies")
+
+    @property
+    @pulumi.getter(name="clientToken")
+    def client_token(self) -> Optional[str]:
+        return pulumi.get(self, "client_token")
 
     @property
     @pulumi.getter
@@ -191,6 +199,7 @@ class AwaitableGetTaskExecutionResult(GetTaskExecutionResult):
             yield self
         return GetTaskExecutionResult(
             capacity_provider_strategies=self.capacity_provider_strategies,
+            client_token=self.client_token,
             cluster=self.cluster,
             desired_count=self.desired_count,
             enable_ecs_managed_tags=self.enable_ecs_managed_tags,
@@ -212,6 +221,7 @@ class AwaitableGetTaskExecutionResult(GetTaskExecutionResult):
 
 
 def get_task_execution(capacity_provider_strategies: Optional[Sequence[pulumi.InputType['GetTaskExecutionCapacityProviderStrategyArgs']]] = None,
+                       client_token: Optional[str] = None,
                        cluster: Optional[str] = None,
                        desired_count: Optional[int] = None,
                        enable_ecs_managed_tags: Optional[bool] = None,
@@ -238,6 +248,7 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[pulumi.In
 
 
     :param Sequence[pulumi.InputType['GetTaskExecutionCapacityProviderStrategyArgs']] capacity_provider_strategies: Set of capacity provider strategies to use for the cluster. See below.
+    :param str client_token: An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
     :param str cluster: Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
     :param int desired_count: Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
     :param bool enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
@@ -259,6 +270,7 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[pulumi.In
     """
     __args__ = dict()
     __args__['capacityProviderStrategies'] = capacity_provider_strategies
+    __args__['clientToken'] = client_token
     __args__['cluster'] = cluster
     __args__['desiredCount'] = desired_count
     __args__['enableEcsManagedTags'] = enable_ecs_managed_tags
@@ -280,6 +292,7 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[pulumi.In
 
     return AwaitableGetTaskExecutionResult(
         capacity_provider_strategies=pulumi.get(__ret__, 'capacity_provider_strategies'),
+        client_token=pulumi.get(__ret__, 'client_token'),
         cluster=pulumi.get(__ret__, 'cluster'),
         desired_count=pulumi.get(__ret__, 'desired_count'),
         enable_ecs_managed_tags=pulumi.get(__ret__, 'enable_ecs_managed_tags'),
@@ -302,6 +315,7 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[pulumi.In
 
 @_utilities.lift_output_func(get_task_execution)
 def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTaskExecutionCapacityProviderStrategyArgs']]]]] = None,
+                              client_token: Optional[pulumi.Input[Optional[str]]] = None,
                               cluster: Optional[pulumi.Input[str]] = None,
                               desired_count: Optional[pulumi.Input[Optional[int]]] = None,
                               enable_ecs_managed_tags: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -328,6 +342,7 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
 
 
     :param Sequence[pulumi.InputType['GetTaskExecutionCapacityProviderStrategyArgs']] capacity_provider_strategies: Set of capacity provider strategies to use for the cluster. See below.
+    :param str client_token: An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
     :param str cluster: Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
     :param int desired_count: Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
     :param bool enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
