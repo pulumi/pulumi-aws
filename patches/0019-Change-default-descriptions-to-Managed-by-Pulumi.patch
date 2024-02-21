@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
-Subject: [PATCH 19/41] Change default descriptions to "Managed by Pulumi"
+Subject: [PATCH 19/45] Change default descriptions to "Managed by Pulumi"
 
 
 diff --git a/internal/service/apigateway/api_key.go b/internal/service/apigateway/api_key.go
@@ -694,10 +694,10 @@ index 0000000000..54d4e61495
 +	return create.StringHashcode(buf.String())
 +}
 diff --git a/internal/service/rds/subnet_group.go b/internal/service/rds/subnet_group.go
-index cd51dc7f12..226201363e 100644
+index 66b981fa2f..0334e3d8fd 100644
 --- a/internal/service/rds/subnet_group.go
 +++ b/internal/service/rds/subnet_group.go
-@@ -43,7 +43,7 @@ func ResourceSubnetGroup() *schema.Resource {
+@@ -47,7 +47,7 @@ func resourceSubnetGroup() *schema.Resource {
  			"description": {
  				Type:     schema.TypeString,
  				Optional: true,
@@ -1030,10 +1030,10 @@ index 0299067dea..b47d987426 100644
  			"name": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/route53/record.go b/internal/service/route53/record.go
-index 2e9ca234f9..598808d204 100644
+index 804d43ea28..989e905765 100644
 --- a/internal/service/route53/record.go
 +++ b/internal/service/route53/record.go
-@@ -307,7 +307,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta inte
+@@ -360,7 +360,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta inte
  	// retry for us since Route53 sometimes returns errors about another
  	// operation happening at the same time.
  	changeBatch := &route53.ChangeBatch{
@@ -1042,7 +1042,7 @@ index 2e9ca234f9..598808d204 100644
  		Changes: []*route53.Change{
  			{
  				Action:            aws.String(action),
-@@ -583,7 +583,7 @@ func resourceRecordUpdate(ctx context.Context, d *schema.ResourceData, meta inte
+@@ -663,7 +663,7 @@ func resourceRecordUpdate(ctx context.Context, d *schema.ResourceData, meta inte
  	// StateChangeConf for this to retry for us since Route53 sometimes returns
  	// errors about another operation happening at the same time.
  	changeBatch := &route53.ChangeBatch{
@@ -1051,7 +1051,7 @@ index 2e9ca234f9..598808d204 100644
  		Changes: []*route53.Change{
  			{
  				Action:            aws.String(route53.ChangeActionDelete),
-@@ -654,7 +654,7 @@ func resourceRecordDelete(ctx context.Context, d *schema.ResourceData, meta inte
+@@ -734,7 +734,7 @@ func resourceRecordDelete(ctx context.Context, d *schema.ResourceData, meta inte
  
  	// Change batch for deleting
  	changeBatch := &route53.ChangeBatch{

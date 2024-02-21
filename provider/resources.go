@@ -319,6 +319,7 @@ var moduleMap = map[string]string{
 	"datapipeline":                    datapipelineMod,
 	"datasync":                        datasyncMod,
 	"dax":                             daxMod,
+	"db":                              rdsMod,
 	"detective":                       detectiveMod,
 	"devicefarm":                      devicefarmMod,
 	"directory_service":               directoryserviceMod,

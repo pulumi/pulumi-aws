@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Venelin <venelin@pulumi.com>
 Date: Wed, 14 Feb 2024 14:49:33 +0000
-Subject: [PATCH 42/43] Revert "Merge pull request #35678 from
+Subject: [PATCH 42/45] Revert "Merge pull request #35678 from
  hashicorp/b-elbv2-unexpected-diff"
 
 This reverts commit bfcae6ad3e8a226083f803b40e772e045ec78baa, reversing
@@ -237,10 +237,10 @@ index 3943c4e7dd..047ee68dee 100644
  	var diags diag.Diagnostics
  	conn := meta.(*conns.AWSClient).ELBV2Client(ctx)
 diff --git a/internal/service/elbv2/listener_rule_test.go b/internal/service/elbv2/listener_rule_test.go
-index e5b9ec36b1..f28fc7c62c 100644
+index 757e8a8e9d..c1048006c2 100644
 --- a/internal/service/elbv2/listener_rule_test.go
 +++ b/internal/service/elbv2/listener_rule_test.go
-@@ -1510,48 +1510,6 @@ func TestAccELBV2ListenerRule_EmptyAction(t *testing.T) {
+@@ -1514,48 +1514,6 @@ func TestAccELBV2ListenerRule_EmptyAction(t *testing.T) {
  	}
  }
  
@@ -289,7 +289,7 @@ index e5b9ec36b1..f28fc7c62c 100644
  func TestAccELBV2ListenerRule_conditionAttributesCount(t *testing.T) {
  	ctx := acctest.Context(t)
  	err_many := regexache.MustCompile("Only one of host_header, http_header, http_request_method, path_pattern, query_string or source_ip can be set in a condition block")
-@@ -4360,119 +4318,6 @@ resource "aws_security_group" "test" {
+@@ -4364,119 +4322,6 @@ resource "aws_security_group" "test" {
  `, rName, action)
  }
  
