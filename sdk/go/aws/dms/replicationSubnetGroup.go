@@ -31,6 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new replication subnet group
 //			_, err := dms.NewReplicationSubnetGroup(ctx, "example", &dms.ReplicationSubnetGroupArgs{
 //				ReplicationSubnetGroupDescription: pulumi.String("Example replication subnet group"),
 //				ReplicationSubnetGroupId:          pulumi.String("example-dms-replication-subnet-group-tf"),

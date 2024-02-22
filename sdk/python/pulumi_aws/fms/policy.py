@@ -531,10 +531,10 @@ class Policy(pulumi.CustomResource):
             resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
             security_service_policy_data=aws.fms.PolicySecurityServicePolicyDataArgs(
                 type="WAF",
-                managed_service_data=example_rule_group.id.apply(lambda id: json.dumps({
+                managed_service_data=pulumi.Output.json_dumps({
                     "type": "WAF",
                     "ruleGroups": [{
-                        "id": id,
+                        "id": example_rule_group.id,
                         "overrideAction": {
                             "type": "COUNT",
                         },
@@ -543,7 +543,7 @@ class Policy(pulumi.CustomResource):
                         "type": "BLOCK",
                     },
                     "overrideCustomerWebACLAssociation": False,
-                })),
+                }),
             ),
             tags={
                 "Name": "example-fms-policy",
@@ -599,10 +599,10 @@ class Policy(pulumi.CustomResource):
             resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
             security_service_policy_data=aws.fms.PolicySecurityServicePolicyDataArgs(
                 type="WAF",
-                managed_service_data=example_rule_group.id.apply(lambda id: json.dumps({
+                managed_service_data=pulumi.Output.json_dumps({
                     "type": "WAF",
                     "ruleGroups": [{
-                        "id": id,
+                        "id": example_rule_group.id,
                         "overrideAction": {
                             "type": "COUNT",
                         },
@@ -611,7 +611,7 @@ class Policy(pulumi.CustomResource):
                         "type": "BLOCK",
                     },
                     "overrideCustomerWebACLAssociation": False,
-                })),
+                }),
             ),
             tags={
                 "Name": "example-fms-policy",

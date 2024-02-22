@@ -30,6 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new replication task
 //			_, err := dms.NewReplicationTask(ctx, "test", &dms.ReplicationTaskArgs{
 //				CdcStartTime:            pulumi.String("1993-05-21T05:50:00Z"),
 //				MigrationType:           pulumi.String("full-load"),
