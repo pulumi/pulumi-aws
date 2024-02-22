@@ -51,6 +51,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ... other configuration ...
 //			_, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
 //				MfaConfiguration:         pulumi.String("ON"),
 //				SmsAuthenticationMessage: pulumi.String("Your code is {####}"),

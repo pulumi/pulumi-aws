@@ -65,6 +65,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ... other configuration ...
 //			_, err := cloudfront.NewDistribution(ctx, "example", &cloudfront.DistributionArgs{
 //				Origins: cloudfront.DistributionOriginArray{
 //					&cloudfront.DistributionOriginArgs{

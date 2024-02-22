@@ -103,6 +103,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Wire the CodePipeline webhook into a GitHub repository.
 //			_, err = github.NewRepositoryWebhook(ctx, "barRepositoryWebhook", &github.RepositoryWebhookArgs{
 //				Repository: pulumi.Any(github_repository.Repo.Name),
 //				Configuration: &github.RepositoryWebhookConfigurationArgs{

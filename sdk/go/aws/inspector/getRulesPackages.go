@@ -33,6 +33,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// e.g., Use in aws_inspector_assessment_template
 //			group, err := inspector.NewResourceGroup(ctx, "group", &inspector.ResourceGroupArgs{
 //				Tags: pulumi.StringMap{
 //					"test": pulumi.String("test"),

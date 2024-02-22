@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
  * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy", {
  *     logGroupName: exampleLogGroup.name,
- *     policyDocument: exampleBucketV2.bucket.apply(bucket => JSON.stringify({
+ *     policyDocument: pulumi.jsonStringify({
  *         Name: "Example",
  *         Version: "2021-06-01",
  *         Statement: [
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *                     Audit: {
  *                         FindingsDestination: {
  *                             S3: {
- *                                 Bucket: bucket,
+ *                                 Bucket: exampleBucketV2.bucket,
  *                             },
  *                         },
  *                     },
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *         ],
- *     })),
+ *     }),
  * });
  * ```
  *
