@@ -121,7 +121,7 @@ import * as utilities from "../utilities";
  * const test = new aws.batch.JobDefinition("test", {
  *     type: "container",
  *     platformCapabilities: ["FARGATE"],
- *     containerProperties: ecsTaskExecutionRole.arn.apply(arn => JSON.stringify({
+ *     containerProperties: pulumi.jsonStringify({
  *         command: [
  *             "echo",
  *             "test",
@@ -141,8 +141,8 @@ import * as utilities from "../utilities";
  *                 value: "512",
  *             },
  *         ],
- *         executionRoleArn: arn,
- *     })),
+ *         executionRoleArn: ecsTaskExecutionRole.arn,
+ *     }),
  * });
  * ```
  *

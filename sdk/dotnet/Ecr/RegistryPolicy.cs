@@ -31,37 +31,40 @@ namespace Pulumi.Aws.Ecr
     /// 
     ///     var example = new Aws.Ecr.RegistryPolicy("example", new()
     ///     {
-    ///         Policy = Output.Tuple(currentPartition, currentCallerIdentity, currentPartition, currentRegion, currentCallerIdentity).Apply(values =&gt;
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             var currentPartition = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             var currentPartition1 = values.Item3;
-    ///             var currentRegion = values.Item4;
-    ///             var currentCallerIdentity1 = values.Item5;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 ["Version"] = "2012-10-17",
-    ///                 ["Statement"] = new[]
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     ["Sid"] = "testpolicy",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Sid"] = "testpolicy",
-    ///                         ["Effect"] = "Allow",
-    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["AWS"] = Output.Tuple(currentPartition, currentCallerIdentity).Apply(values =&gt;
     ///                         {
-    ///                             ["AWS"] = $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-    ///                         },
-    ///                         ["Action"] = new[]
+    ///                             var currentPartition = values.Item1;
+    ///                             var currentCallerIdentity = values.Item2;
+    ///                             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
+    ///                         }),
+    ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "ecr:ReplicateImage",
+    ///                     },
+    ///                     ["Resource"] = new[]
+    ///                     {
+    ///                         Output.Tuple(currentPartition, currentRegion, currentCallerIdentity).Apply(values =&gt;
     ///                         {
-    ///                             "ecr:ReplicateImage",
-    ///                         },
-    ///                         ["Resource"] = new[]
-    ///                         {
-    ///                             $"arn:{currentPartition1.Partition}:ecr:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity1.AccountId}:repository/*",
-    ///                         },
+    ///                             var currentPartition = values.Item1;
+    ///                             var currentRegion = values.Item2;
+    ///                             var currentCallerIdentity = values.Item3;
+    ///                             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:ecr:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:repository/*";
+    ///                         }),
     ///                     },
     ///                 },
-    ///             });
+    ///             },
     ///         }),
     ///     });
     /// 

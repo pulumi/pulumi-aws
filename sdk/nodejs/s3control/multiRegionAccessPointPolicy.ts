@@ -28,21 +28,21 @@ import * as utilities from "../utilities";
  * }});
  * const exampleMultiRegionAccessPointPolicy = new aws.s3control.MultiRegionAccessPointPolicy("exampleMultiRegionAccessPointPolicy", {details: {
  *     name: exampleMultiRegionAccessPoint.id.apply(id => id.split(":"))[1],
- *     policy: pulumi.all([currentCallerIdentity, currentPartition, currentCallerIdentity, exampleMultiRegionAccessPoint.alias]).apply(([currentCallerIdentity, currentPartition, currentCallerIdentity1, alias]) => JSON.stringify({
+ *     policy: pulumi.jsonStringify({
  *         Version: "2012-10-17",
  *         Statement: [{
  *             Sid: "Example",
  *             Effect: "Allow",
  *             Principal: {
- *                 AWS: currentCallerIdentity.accountId,
+ *                 AWS: currentCallerIdentity.then(currentCallerIdentity => currentCallerIdentity.accountId),
  *             },
  *             Action: [
  *                 "s3:GetObject",
  *                 "s3:PutObject",
  *             ],
- *             Resource: `arn:${currentPartition.partition}:s3::${currentCallerIdentity1.accountId}:accesspoint/${alias}/object/*`,
+ *             Resource: pulumi.all([currentPartition, currentCallerIdentity, exampleMultiRegionAccessPoint.alias]).apply(([currentPartition, currentCallerIdentity, alias]) => `arn:${currentPartition.partition}:s3::${currentCallerIdentity.accountId}:accesspoint/${alias}/object/*`),
  *         }],
- *     })),
+ *     }),
  * }});
  * ```
  *

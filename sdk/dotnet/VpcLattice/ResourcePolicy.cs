@@ -33,35 +33,34 @@ namespace Pulumi.Aws.VpcLattice
     ///     var exampleResourcePolicy = new Aws.VpcLattice.ResourcePolicy("exampleResourcePolicy", new()
     ///     {
     ///         ResourceArn = exampleServiceNetwork.Arn,
-    ///         Policy = Output.Tuple(currentPartition, currentCallerIdentity, exampleServiceNetwork.Arn).Apply(values =&gt;
+    ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             var currentPartition = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             var arn = values.Item3;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 ["Version"] = "2012-10-17",
-    ///                 ["Statement"] = new[]
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     ["Sid"] = "test-pol-principals-6",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Sid"] = "test-pol-principals-6",
-    ///                         ["Effect"] = "Allow",
-    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["AWS"] = Output.Tuple(currentPartition, currentCallerIdentity).Apply(values =&gt;
     ///                         {
-    ///                             ["AWS"] = $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-    ///                         },
-    ///                         ["Action"] = new[]
-    ///                         {
-    ///                             "vpc-lattice:CreateServiceNetworkVpcAssociation",
-    ///                             "vpc-lattice:CreateServiceNetworkServiceAssociation",
-    ///                             "vpc-lattice:GetServiceNetwork",
-    ///                         },
-    ///                         ["Resource"] = arn,
+    ///                             var currentPartition = values.Item1;
+    ///                             var currentCallerIdentity = values.Item2;
+    ///                             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
+    ///                         }),
     ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "vpc-lattice:CreateServiceNetworkVpcAssociation",
+    ///                         "vpc-lattice:CreateServiceNetworkServiceAssociation",
+    ///                         "vpc-lattice:GetServiceNetwork",
+    ///                     },
+    ///                     ["Resource"] = exampleServiceNetwork.Arn,
     ///                 },
-    ///             });
-    ///         }),
+    ///             },
+    ///         })),
     ///     });
     /// 
     /// });

@@ -154,7 +154,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         ))
         example_multi_region_access_point_policy = aws.s3control.MultiRegionAccessPointPolicy("exampleMultiRegionAccessPointPolicy", details=aws.s3control.MultiRegionAccessPointPolicyDetailsArgs(
             name=example_multi_region_access_point.id.apply(lambda id: id.split(":"))[1],
-            policy=example_multi_region_access_point.alias.apply(lambda alias: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
                     "Sid": "Example",
@@ -166,9 +166,9 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
                         "s3:GetObject",
                         "s3:PutObject",
                     ],
-                    "Resource": f"arn:{current_partition.partition}:s3::{current_caller_identity.account_id}:accesspoint/{alias}/object/*",
+                    "Resource": example_multi_region_access_point.alias.apply(lambda alias: f"arn:{current_partition.partition}:s3::{current_caller_identity.account_id}:accesspoint/{alias}/object/*"),
                 }],
-            })),
+            }),
         ))
         ```
 
@@ -213,7 +213,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         ))
         example_multi_region_access_point_policy = aws.s3control.MultiRegionAccessPointPolicy("exampleMultiRegionAccessPointPolicy", details=aws.s3control.MultiRegionAccessPointPolicyDetailsArgs(
             name=example_multi_region_access_point.id.apply(lambda id: id.split(":"))[1],
-            policy=example_multi_region_access_point.alias.apply(lambda alias: json.dumps({
+            policy=pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
                     "Sid": "Example",
@@ -225,9 +225,9 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
                         "s3:GetObject",
                         "s3:PutObject",
                     ],
-                    "Resource": f"arn:{current_partition.partition}:s3::{current_caller_identity.account_id}:accesspoint/{alias}/object/*",
+                    "Resource": example_multi_region_access_point.alias.apply(lambda alias: f"arn:{current_partition.partition}:s3::{current_caller_identity.account_id}:accesspoint/{alias}/object/*"),
                 }],
-            })),
+            }),
         ))
         ```
 

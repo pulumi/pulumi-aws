@@ -43,11 +43,11 @@ import * as utilities from "../utilities";
  * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
  *     restApi: exampleRestApi.id,
  *     triggers: {
- *         redeployment: pulumi.all([exampleResource.id, exampleMethod.id, exampleIntegration.id]).apply(([exampleResourceId, exampleMethodId, exampleIntegrationId]) => JSON.stringify([
+ *         redeployment: pulumi.all([exampleResource.id, exampleMethod.id, exampleIntegration.id]).apply(([exampleResourceId, exampleMethodId, exampleIntegrationId]) => crypto.createHash('sha1').update(JSON.stringify([
  *             exampleResourceId,
  *             exampleMethodId,
  *             exampleIntegrationId,
- *         ])).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *         ])).digest('hex')),
  *     },
  * });
  * const exampleStage = new aws.apigateway.Stage("exampleStage", {
